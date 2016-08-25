@@ -1,4 +1,3 @@
-# cbn
 # script_file.py to_repo/from_repo files_to_port-<installation-detail>
 
 import getopt
