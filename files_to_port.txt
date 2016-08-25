@@ -1,3 +1,1 @@
-F:\CBN\misc\tmp\aa.txt
-F:\CBN\misc\tmp\sd.txt
 C:\Users\cibin\.bashrc
