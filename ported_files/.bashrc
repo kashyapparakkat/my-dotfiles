@@ -1,4 +1,4 @@
-# http:\\www.cibinmathew.com
+#www.cibinmathew.com
 #github.com/cibinmathew
 
 
@@ -192,4 +192,3 @@ function extract {
     fi
 fi
 }
-

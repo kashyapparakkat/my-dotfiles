@@ -1,3 +1,4 @@
+# cbn
 # script_file.py to_repo/from_repo files_to_port-<installation-detail>
 
 import getopt
@@ -35,15 +36,14 @@ parent = os.path.dirname(os.path.abspath(__file__))
 print(action)
 if action=='repo_to_folder':
     print('Danger: overwriting')
-    a=input()
-    for f in all_files:
-        shutil.copyfile(os.path.join(parent,'ported_files', os.path.basename(f) ),f )
-        print('restored from repo to ' + str(f))
+    a=str(input())
+    if (a=='y'): 
+        for f in all_files:
+            shutil.copyfile(os.path.join(parent,'ported_files', os.path.basename(f) ),f )
+            print('restored from repo to ' + str(f))
 elif action =='to_repo':
     for f in all_files:
         shutil.copyfile(f,os.path.join(parent,'ported_files', os.path.basename(f)) )
         print('copied to repo from ' + str(f))
 
-        
-        
         
