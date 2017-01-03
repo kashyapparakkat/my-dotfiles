@@ -131,7 +131,8 @@ mapkey('gi', 'test', function() {
 mapkey('b', '#3Choose a tab', 'Front.chooseTab()');
 
 
-map('gl','g$');
+map('gl','G');
+map('Gl','g$');
 //ssg
 //ssog
 map('sg','sG'); 	// google interactive search

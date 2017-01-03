@@ -1,4 +1,5 @@
 C:/Users/cibin/Downloads/vimperator_vrome_cvim_config.txt
-C:/Users/cibin/AppData/Roaming/.emacs.d/config/
+C:/Users/cibin/AppData/Roaming/.emacs.d/my-files/
+C:/Users/cibin/AppData/Roaming/.spacemacs
 C:/cygwin64/home/cibin
-C:/my_env_path_folder
+C:/cbn_gits/my_env_path_folder

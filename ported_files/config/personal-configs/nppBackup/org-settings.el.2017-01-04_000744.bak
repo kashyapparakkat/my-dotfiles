@@ -1,0 +1,2 @@
+(setq org-agenda-files (list (format "C:/Users/%s/Downloads/todo.org" user-login-name)                           
+                             "~/.emacs.d/my-files/org/work.org"))

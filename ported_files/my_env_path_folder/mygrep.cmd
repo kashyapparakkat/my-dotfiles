@@ -1,6 +1,6 @@
 @echo off
-REM call cmd_handler.cmd %*
-REM call cmd_handler.cmd %~n0 %*
+REM call ZZ_cmd_handler.cmd %*
+REM call ZZ_cmd_handler.cmd %~n0 %*
 set _CYGBIN=c:\cygwin64\bin
 REM set _CYGBIN=/cygdrive/c/cygwin6/bin
 set _CYGSCRIPT=/usr/bin/mygrep.sh
