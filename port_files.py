@@ -1,4 +1,5 @@
 # cbn
+# script_file.py -a into_this_repo -o files_to_port-cbnPC.txt
 # script_file.py -a into_this_repo/from_this_repo_to_folder -o files_to_port-<installation-detail>
 
 from distutils.dir_util import copy_tree

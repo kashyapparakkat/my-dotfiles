@@ -331,8 +331,8 @@ RALT & i::
   Winmaximize,A
   return
 msgbox
-RALT & j:: ALTTAB
-RALT & k:: SHIFTALTTAB
+LALT & k:: ALTTAB
+LALT & j:: SHIFTALTTAB
 ;!a::
 	Send  {ALT DOWN}{TAB}{ALT UP}
 	;Send  {ALT DOWN}{TAB}
