@@ -460,7 +460,7 @@ Toggles between: “all lower”, “Init Caps”, “ALL CAPS”."
   :config
   (progn
     (global-undo-tree-mode)
-    (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/emacs-tmp/undo"))
+    (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/my-files/emacs-tmp/undo"))
           undo-tree-visualizer-timestamps t
           undo-tree-visualizer-diff t))
 		  

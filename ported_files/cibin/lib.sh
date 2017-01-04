@@ -1,5 +1,6 @@
 #!/usr/bin/sh
 
+# good tuts on arrays http://www.thegeekstuff.com/2010/06/bash-array-tutorial
 # array:
 # ${arr[*]} # All of the items in the array
 # ${!arr[*]} # All of the indexes in the array
@@ -224,11 +225,11 @@ function some-cron-jobs() {
 
 
 function grepfilelist_related() {
-	tr -d '\r' < C:/Users/cibin/AppData/Roaming/.emacs.d/emacs-tmp/filelist.txt > C:/Users/cibin/AppData/Roaming/.emacs.d/emacs-tmp/filelist2.txt
+	tr -d '\r' < C:/Users/cibin/AppData/Roaming/.emacs.d/my-files/emacs-tmp/filelist.txt > C:/Users/cibin/AppData/Roaming/.emacs.d/my-files/emacs-tmp/filelist2.txt
 	run_grepfilelist $1
 }
 function grepfilelist_common() {
-	tr -d '\r' < C:/Users/cibin/AppData/Roaming/.emacs.d/emacs-tmp/all-common-filelist.txt > C:/Users/cibin/AppData/Roaming/.emacs.d/emacs-tmp/filelist2.txt
+	tr -d '\r' < C:/Users/cibin/AppData/Roaming/.emacs.d/my-files/emacs-tmp/all-common-filelist.txt > C:/Users/cibin/AppData/Roaming/.emacs.d/my-files/emacs-tmp/filelist2.txt
 	run_grepfilelist $1
 }
 	
@@ -236,7 +237,7 @@ function run_grepfilelist() {
 	while read filename; do 
 		# echo "$filename"
 		grep -PnIi $1 --color=auto  "$filename"  /dev/null; 
-	done <C:/Users/cibin/AppData/Roaming/.emacs.d/emacs-tmp/filelist2.txt
+	done <C:/Users/cibin/AppData/Roaming/.emacs.d/my-files/emacs-tmp/filelist2.txt
 }
 
 # TODO: ag searchterm1 searchterm2 searchTerm3; here it shouldnot take searchTerm1 as locations to search
@@ -268,7 +269,7 @@ function advgrep() {
 		else
 			case "$1" in
 				"a"|"all"		) declare -a files=("$Universal_home/Desktop/*" "$Universal_home/Downloads/*" "/cygdrive/d/Downloads/*" "/cygdrive/f/*");;
-				"n"|"notes"		) declare -a files="${all_notes[@]}";;
+				"n"|"notes"		) files=("${all_notes[@]}");;
 				"d"|"download" 	) declare -a files=("$Universal_home/Downloads/*");;
 				"ahk"			) declare -a files=("/cygdrive/c/cbn_gits/AHK/*");;
 				"h"|"here"		) files=("$(pwd)");;

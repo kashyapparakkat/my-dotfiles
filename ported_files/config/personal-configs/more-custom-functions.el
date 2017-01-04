@@ -149,7 +149,7 @@
 )
 (defun search-handler (prompt default) 	
 	
-	(setq file "~/.emacs.d/emacs-tmp/filelist.txt")
+	(setq file "~/.emacs.d/my-files/emacs-tmp/filelist.txt")
 	(when (file-exists-p file)
 		(delete-file file))
 	(setq filelist (format "%s" (mapconcat 'identity (get-related-files) "\n")))

@@ -145,6 +145,7 @@
 	  ; TODO
 	  ; if dir is C:/users/username.... shorten it to HOME/
 	  (setq output (jep:modeline-dir-abbrev output))
+      (setq output (concat output "/"))
     output)
 )
 	

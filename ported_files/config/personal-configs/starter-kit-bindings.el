@@ -7,7 +7,7 @@
 
 ;; Part of the Emacs Starter Kit.
 
-(global-set-key (kbd "M-a") 'execute-extended-command)
+; (global-set-key (kbd "M-a") 'execute-extended-command)
 
 ;; C-8 for *scratch*, C-9 for *compilation*.
 ;; (use M-8, etc as alternates since C-number keys don't have ascii control
@@ -192,8 +192,28 @@
 ; use spc-v & then only v
 (global-set-key (kbd "C-=") 'er/expand-region)
 
- (define-key evil-normal-state-map "q" (lambda () (interactive) (kill-this-buffer)(delete-window)))
+(global-set-key "\M-q" (lambda () (interactive) (kill-this-buffer)(delete-window)))
+(define-key evil-normal-state-map "q" (lambda () (interactive) (kill-this-buffer)(delete-window)))
+
+(global-set-key "\M-Q" (lambda () (interactive) (spacemacs/toggle-maximize-buffer)))
 (define-key evil-normal-state-map "Q" (lambda () (interactive) (spacemacs/toggle-maximize-buffer)))
+
+; is this needed?
+(global-set-key (kbd "C-q") 'xah-close-current-buffer)
+
+(global-set-key (kbd "M-e") 'other-window)
+(define-key evil-normal-state-map "e" 'other-window)
+
+
+;; enable Shift+direction for window movements
+;; (windmove-default-keybindings) 
+
+;; Window switching. (C-x o goes to the next window)
+
+(global-set-key (kbd "C-x O") (lambda () (interactive) (other-window -1))) ;; back one
+(global-set-key (kbd "C-x C-o") (lambda () (interactive) (other-window 2))) ;; forward two
+
+
 
 (define-key evil-normal-state-map (kbd "C-n") 'evil-next-visual-line)
 (define-key evil-normal-state-map (kbd "C-p") 'evil-previous-visual-line)
@@ -291,17 +311,6 @@
 ; https://github.com/syohex/emacs-dired-k
 
 (global-set-key (kbd "RET") 'newline-and-indent)
-
-;; enable Shift+direction for window movements
-;; (windmove-default-keybindings) 
-
-;; Window switching. (C-x o goes to the next window)
-
-(global-set-key (kbd "C-x O") (lambda () (interactive) (other-window -1))) ;; back one
-(global-set-key (kbd "C-x C-o") (lambda () (interactive) (other-window 2))) ;; forward two
-
-(global-set-key (kbd "C-q") 'xah-close-current-buffer)
-(global-set-key (kbd "M-e") 'other-window)
 
 ;; make shell-command-on-region work on line if no region is active
 (global-set-key (kbd "M-|") 'sh-send-line-or-region)

@@ -1,51 +1,84 @@
-c:/cygwin64/home/cibin/lib.sh
-c:/cygwin64/home/cibin/nppBackup
-c:/Users/cibin/AppData/Local/Greenshot/Greenshot.log
-c:/Users/cibin/Downloads/todo.txt
-c:/cygwin64/home/cibin/.emacs.d
-c:/cbn_gits/AHK/HK_cycle_hotkeys.ahk
-c:/Users/cibin/AppData/Roaming/.emacs.d/.cache/layouts/persp-auto-save
 c:/Users/cibin/AppData/Roaming/.emacs.d/config/personal-configs/starter-kit-bindings.el
-c:/cygwin64/home/cibin/misc_lib.sh
+c:/Users/cibin/AppData/Roaming/.emacs.d/config/others/vlfi-master/vlf-base.el
+c:/Users/cibin/AppData/Roaming/.emacs.d/config/personal-configs/emacs_extras.txt
 c:/Users/cibin/AppData/Roaming/.emacs.d/config/personal-configs/more-custom-functions.el
-c:/Users/cibin/AppData/Roaming/.emacs.d/config/personal-configs/other-settings.el
-c:/Users/cibin/AppData/Roaming/.spacemacs
-c:/Users/cibin/Downloads/new emacs additions.el
-c:/cygwin64/home/cibin/.bashrc
-c:/Users/cibin/AppData/Roaming/.emacs.d/init.el
-c:/Users/cibin/Downloads/ftpserver.py
 c:/Users/cibin/AppData/Roaming/.emacs.d/config/personal-configs/cbn-mode-line.el
-c:/Users/cibin/Downloads/notes.txt
-c:/Users/cibin/AppData/Roaming/.emacs.d/filelist.txt
-c:/cbn_gits/AHK/delete.txt
-c:/cbn_gits/AHK/delete(this)file(it is useless).txt
+c:/Users/cibin/AppData/Roaming/.emacs.d/config/personal-configs/search-bindings.el
+c:/Users/cibin/AppData/Roaming/.emacs.d/config/personal-configs/other-settings.el
+c:/cbn_gits/files_to_port.txt
+c:/Users/cibin/AppData/Roaming/.emacs.d/config/personal-configs/appearance.el
+c:/Users/cibin/AppData/Roaming/.emacs.d/config/personal-configs/xah-fly-keys-functions.el
+c:/Users/cibin/AppData/Roaming/.emacs.d/config/personal-configs/move-copy.el
+c:/Users/cibin/AppData/Roaming/.emacs.d/config/others/el-qrencode-master/emacs-commands.el
+c:/Users/cibin/Downloads/.#todo.txt
+c:/Users/cibin/Downloads/todo.txt
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/more-custom-functions.elc
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/other-settings.elc
+c:/Users/cibin/AppData/Roaming/.emacs.d/.cache/layouts/persp-auto-save
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/more-custom-functions.el
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/nppBackup
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/other-settings.el
+c:/cygwin64/home/cibin/lib.sh
+c:/Users/cibin/AppData/Roaming/.spacemacs
+c:/Users/cibin/Downloads/todo.org
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/org-settings.el
+c:/Users/cibin/Downloads/new emacs additions.el
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/starter-kit-bindings.elc
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/org/work.org
+c:/Users/cibin/Downloads/vimperator_vrome_cvim_config.txt
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/starter-kit-bindings.el
+c:/cbn_gits/AHK/qwerty - NEW.ahk
+c:/cbn_gits/port_files.py
+c:/Users/cibin/AppData/Local/Greenshot/Greenshot.log
 c:/cbn_gits/AHK/running_all_settings.ini
 c:/cbn_gits/AHK/NiftyWindows.ini
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/xah-fly-keys.elc
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/unused-can-be-deleted.elc
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/xah-fly-keys-functions.elc
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/search-bindings.elc
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/shell.elc
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/move-copy.elc
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/dired-settings.elc
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/dired-settings2.elc
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/essential-config.elc
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/create-filecache.elc
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/crux.elc
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/appearance.elc
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/auto-complete.elc
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/cbn-mode-line.elc
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/cbn-mode-line2.elc
+c:/cbn_gits/AHK/HK_cycle_hotkeys.ahk
+c:/cygwin64/home/cibin/misc_lib.sh
+c:/cygwin64/home/cibin/.bashrc
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/unused-can-be-deleted.el
+c:/Users/cibin/AppData/Roaming/.emacs.d/init.el
+c:/Users/cibin/Downloads/ftpserver.py
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/cbn-mode-line.el
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/dired-settings.el
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/shell.el
+c:/Users/cibin/Downloads/notes.txt
+c:/cbn_gits/AHK/delete.txt
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/cbn-mode-line2.el
+c:/cbn_gits/AHK/delete(this)file(it is useless).txt
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/dired-settings2.el
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/auto-complete.el
 c:/cbn_gits/AHK/control.ahk
 c:/cbn_gits/AHK/! new smart run open_with2.txt
 c:/cbn_gits/AHK/HotKeys.ahk
 c:/cbn_gits/AHK/control_AllScripts.ini
-c:/Users/cibin/AppData/Roaming/.emacs.d/config/personal-configs/appearance.el
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/appearance.el
 c:/Users/cibin/AppData/Roaming/.file_cache
 c:/Users/cibin/Downloads/delete.txt
-c:/cygwin64/home/cibin/set_defaults.sh
-c:/Users/cibin/AppData/Roaming/.emacs.d/t.txt
 c:/Users/cibin/Downloads/delete2.txt
-c:/cbn_gits/files_to_port.txt
 c:/Users/cibin/Downloads/Sync.txt
 c:/Users/cibin/Downloads/work-todo.txt
 c:/Users/cibin/Downloads/clear these doubts.txt
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/essential-config.el
 c:/cygwin64/home/cibin/myalias.sh
-c:/Users/cibin/AppData/Roaming/.emacs.d/config/personal-configs/search-bindings.el
-c:/Users/cibin/AppData/Roaming/.emacs.d/config/personal-configs/move-copy.el
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/search-bindings.el
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/move-copy.el
 c:/cbn_gits/AHK/HK_cycle_hotkeys - dev.ahk
-c:/cbn_gits/AHK/qwerty - NEW.ahk
-c:/Users/cibin/Downloads/vimperator_vrome_cvim_config.txt
 c:/Users/cibin/Downloads/IJPT-model-cover-letter.doc2_.doc
-c:/Users/cibin/AppData/Roaming/.emacs.d/.mc-lists.el
-c:/cygwin64/home/cibin/documentation.txt
-c:/cygwin64/home/cibin/.lesshst
-c:/cygwin64/home/cibin/.config
 c:/Users/cibin/Downloads/jpeg-v9a-w32-bin.zip
 c:/cbn_gits/AHK/brightness.ahk
 c:/cbn_gits/AHK/NiftyWindows.ahk
@@ -57,48 +90,42 @@ c:/cbn_gits/AHK/help_tips.txt
 c:/cbn_gits/AHK/paste_collector/paste_collector.ahk
 c:/Users/cibin/Downloads/spacemacs.zip
 c:/cbn_gits/AHK/conflicting_hotkeys.ahk
-c:/Users/cibin/AppData/Roaming/.emacs.d/config/personal-configs/xah-fly-keys-functions.el
-c:/cygwin64/home/cibin/settings.ini
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/xah-fly-keys-functions.el
 c:/Users/cibin/Downloads/prelude.txt
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/cbn-xah-fly-keys.el
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/xah-fly-keys.el
 c:/Users/cibin/Downloads/python_vs_java.py
 c:/Users/cibin/Downloads/delete.py
 c:/Users/cibin/Downloads/delete.ahk
 c:/cbn_gits/AHK/global_cibin_settings.ini
 c:/Users/cibin/Downloads/Clipboard Text.txt
-c:/Users/cibin/Downloads/todo.org
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/create-filecache.el
 c:/cbn_gits/AHK/global_2125_settings.ini
-c:/Users/cibin/AppData/Roaming/.emacs.d/config/personal-configs/emacs_extras.txt
-c:/cygwin64/home/cibin/.wget-hsts
-c:/cygwin64/home/cibin/.inputrc
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/emacs_extras.txt
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/crux.el
 c:/cbn_gits/AHK/! joiner.ahk
 c:/cbn_gits/AHK/! new smart run lib.ahk
 c:/Users/cibin/random.dat
 c:/cbn_gits/AHK/imp_ahk_files.txt
-c:/cygwin64/home/cibin/.gitconfig
-c:/cygwin64/home/cibin/sshRsaKey.key
-c:/cygwin64/home/cibin/sshRsaKey.key.pub
 c:/Users/cibin/Downloads/duplicate_clicks.ahk
 c:/Users/cibin/Downloads/python_vs_java_adv.py
 c:/Users/cibin/Downloads/todo done items only.txt
 c:/cbn_gits/AHK/! findnreplace.ahk
 c:/Users/cibin/Downloads/From Sachas emacs config.txt
-c:/Users/cibin/AppData/Roaming/.emacs.d/.travis-build.sh
-c:/Users/cibin/AppData/Roaming/.emacs.d/config/others/el-qrencode-master/emacs-commands.el
-c:/Users/cibin/AppData/Roaming/.emacs.d/config/others/vlfi-master/vlf-base.el
 c:/Users/cibin/Downloads/Clipboard Text (2).txt
 c:/cbn_gits/AHK/txt explorer.ahk
 c:/cbn_gits/AHK/smart text formatter.ahk
 c:/cbn_gits/AHK/HotKeys5.ahk
+c:/cbn_gits/AHK/paste_collector/delete.ahk
 c:/cbn_gits/AHK/! new smart run.ahk
+c:/Users/cibin/Desktop/language kannada.txt
 c:/Users/cibin/Downloads/The UNIX School_ Join every 2 lines in a file.jpeg
-c:/cbn_gits/port_files.py
 c:/cbn_gits/AHK/download list of files.ahk
 c:/cbn_gits/AHK/caxport.ahk
 c:/cbn_gits/AHK/caxport - rec.ahk
 c:/cbn_gits/AHK/! AOT Gui.ahk
 c:/cbn_gits/AHK/tmp_sel-text-45.txt
 c:/Users/cibin/Downloads/boxcutter-1.5.zip
-c:/cygwin64/home/cibin/ - Copy.bashrc
 c:/Users/cibin/Downloads/Clipboard Text (1).txt
 c:/cbn_gits/emacs/emacs-25.1-i686-w64-mingw32/bin/addpm.exe
 c:/cbn_gits/emacs/emacs-25.1-i686-w64-mingw32/share/emacs/25.1/lisp/emacs-lisp/package.el
@@ -107,7 +134,6 @@ c:/Users/cibin/Downloads/cbn_all_details.txt
 c:/Users/cibin/Downloads/kasthuri lyrics.png
 c:/Users/cibin/Downloads/git techniques.txt
 c:/Users/cibin/Downloads/Clipboard Image.jpg
-c:/Users/cibin/AppData/Roaming/RegExAnalyzer.ini
 c:/Users/cibin/Downloads/list.txt
 c:/cbn_gits/AHK/target_file.txt
 c:/cbn_gits/AHK/target_file1.txt
@@ -122,6 +148,8 @@ c:/cbn_gits/AHK/tmp5.ahk
 c:/cbn_gits/AHK/smart text cleaner.ahk
 c:/cbn_gits/AHK/strip.ahk
 c:/cbn_gits/AHK/ratio calculator.ahk
+c:/cbn_gits/AHK/paste_collector/cbn.ahk
+c:/cbn_gits/AHK/paste_collector/sender.ahk
 c:/cbn_gits/AHK/HK_cycle_copy.ahk
 c:/cbn_gits/AHK/HK_cycle_hotkeys - dev2.ahk
 c:/cbn_gits/AHK/clipboard_paste.ahk
@@ -130,9 +158,6 @@ c:/cbn_gits/AHK/copy_paths.ahk
 c:/cbn_gits/AHK/fast search.ahk
 c:/cbn_gits/AHK/! Fast Typing.ahk
 c:/Users/cibin/Downloads/desktop.ini
-c:/cygwin64/home/cibin/.bash_history
-c:/cygwin64/home/cibin/.profile
-c:/cygwin64/home/cibin/.bash_profile
 c:/cbn_gits/AHK/tmp11.txt
 c:/cbn_gits/AHK/add to.ahk
 c:/cbn_gits/AHK/emacs.ahk
@@ -145,6 +170,8 @@ c:/cbn_gits/AHK/note.ahk
 c:/cbn_gits/AHK/temp.ahk
 c:/cbn_gits/AHK/double click on empty desktop area.ahk
 c:/cbn_gits/AHK/clipboard_paste.ahk.ini
+c:/cbn_gits/AHK/paste_collector/Gdip_All.ahk
+c:/cbn_gits/AHK/paste_collector/import paste coll.ahk
 c:/cbn_gits/AHK/linux toolbar.ahk
 c:/cbn_gits/AHK/lyrics download.ahk
 c:/cbn_gits/AHK/monitor.ahk
@@ -158,6 +185,7 @@ c:/cbn_gits/AHK/get_HK from files.ahk
 c:/cbn_gits/AHK/googler.ahk
 c:/cbn_gits/AHK/gui launcher.ahk
 c:/cbn_gits/AHK/! new AltEdge.ahk
+c:/cbn_gits/AHK/paste_collector/pastecollector_favclipList.ini
 c:/cbn_gits/AHK/Toolbar scripts.txt
 c:/cbn_gits/AHK/addto.txt
 c:/cbn_gits/AHK/favpath2.txt
@@ -180,6 +208,7 @@ c:/cbn_gits/AHK/! latest.txt
 c:/cbn_gits/AHK/Clipboard Text (1).txt
 c:/cbn_gits/AHK/Clipboard Text.txt
 c:/cbn_gits/AHK/battery.txt
+c:/cbn_gits/AHK/paste_collector/collector.txt
 c:/cbn_gits/AHK/New Text Document.txt
 c:/cbn_gits/AHK/collector.txt
 c:/cbn_gits/AHK/RunList.txt
@@ -189,5 +218,5 @@ c:/cbn_gits/AHK/list.txt
 c:/cbn_gits/AHK/favpath1.txt
 c:/cbn_gits/AHK/tipsTmp.txt
 c:/cbn_gits/AHK/tips2.txt
-c:/cbn_gits/AHK/build.txt
 c:/cbn_gits/AHK/version.txt
+c:/cbn_gits/AHK/build.txt
