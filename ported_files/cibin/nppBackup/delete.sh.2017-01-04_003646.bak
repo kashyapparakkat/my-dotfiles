@@ -1,0 +1,51 @@
+declare -a all_notes=("$Universal_home/Downloads/notes.txt" "$Universal_home/Downloads/notes3.txt" "$Universal_home/Downloads/todo.txt" "$Universal_home/Downloads/work-todo.txt" "$Universal_home/Downloads/work-notes.txt" "$Universal_home/Downloads/todo.org" "$Universal_home/Downloads/clear these doubts.txt" )
+	
+	echo "pwd= $(pwd)"
+	if [ -z "$1" ]; then
+		echo "cmd  all/common/downs/ahk/notes/here/hhere   common/code/txt   searchTerm"
+	else
+		if [ -z "$2" ]; then
+			search_term="$1"
+		else
+			case "$1" in
+				"a"|"all"		) declare -a files=("$Universal_home/Desktop/*" "$Universal_home/Downloads/*" "/cygdrive/d/Downloads/*" "/cygdrive/f/*");;
+				"n"|"notes"		) declare -a files="${all_notes[@]}";;
+				"d"|"download" 	) declare -a files=("$Universal_home/Downloads/*");;
+				"ahk"			) declare -a files=("/cygdrive/c/cbn_gits/AHK/*");;
+				"h"|"here"		) files=("$(pwd)");;
+				"r"|"rhere" 	) files=("$(dirname "$(pwd)")"/*);;
+			esac
+			echo "searching in file $files"
+			
+			if [ -z "$3" ]; then		
+				search_term="$2"
+				
+			else
+				ext=".*\.\($2\)"
+				case "$2" in
+				"code"                 ) ext=".*\.\(txt\|py\|ini\|java\|ahk\|sh\|c\|cpp\)";;
+				
+			   "common"  ) ext=".*\.\(txt\)";;
+
+				esac
+				
+				search_term="${@:3}"
+			fi	
+		
+		fi	
+		 
+	# declare -a files=("$Universal_home/Downloads/notes.txt" "$Universal_home/Downloads/notes3.txt" "$Universal_home/Downloads/todo.txt" "$Universal_home/Downloads/work-todo.txt" "$Universal_home/Downloads/work-notes.txt" "$Universal_home/Downloads/todo.org" "$Universal_home/Downloads/clear these doubts.txt" )
+		 
+		echo $ext
+		# echo "searching: $search_term"
+		search_term=$(make_lookaround_search_term $search_term)
+		echo "searching: $search_term"
+		echo "$1"
+		if [ "$1" = "here" ]; then
+			echo "using here handler"
+					grep -PrnIi $search_term --color=auto *.$2 /dev/null
+					# grep -rPIi "$search_term" --color=auto "$files" |  remove_cygdrive;;
+			else
+				echo "using find cmd"
+					for pattern in "${files[@]}"; do
+							# echo "$pattern"
