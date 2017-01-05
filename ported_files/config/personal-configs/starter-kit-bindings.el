@@ -73,7 +73,8 @@
 (global-set-key (kbd "M-J") 'pull-next-line)
 
 
-(global-set-key (kbd "C-;") 'comment-or-uncomment-region)
+(global-set-key (kbd "C-;") 'comment-line)
+(global-set-key (kbd "C-x C-;") 'comment-or-uncomment-region)
 
 ;; You know, like Readline.
 (global-set-key (kbd "C-M-h") 'backward-kill-word)

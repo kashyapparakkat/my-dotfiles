@@ -229,7 +229,7 @@ If the new path's directories does not exist, create them."
 (menu-bar-mode -1)
 (when (display-graphic-p)
 	(tool-bar-mode -1)
-	(scroll-bar-mode -1))
+	(scroll-bar-mode 1))
 
 	(set-face-attribute 'vertical-border nil :foreground (face-attribute 'fringe :background))
 
@@ -315,7 +315,7 @@ If the new path's directories does not exist, create them."
     (remove-hook 'elpy-modules 'elpy-module-yasnippet)
     (remove-hook 'elpy-mode-hook 'elpy-module-highlight-indentation)
     (add-hook 'elpy-mode-hook 'flycheck-mode))
-  (elpy-enable)
+  ; (elpy-enable) ; disabled for now
   (setq elpy-rpc-backend "jedi"))
   
   ; golden-ratio
@@ -574,3 +574,12 @@ file to write to."
 ; Indicate trailing empty lines in the GUI:
 (set-default 'indicate-empty-lines t)
 (setq show-trailing-whitespace t)
+
+
+; kill the minibuffer when mouse lose the focus
+(defun stop-using-minibuffer ()
+  "kill the minibuffer"
+  (when (and (>= (recursion-depth) 1) (active-minibuffer-window))
+    (abort-recursive-edit)))
+
+(add-hook 'mouse-leave-buffer-hook 'stop-using-minibuffer)

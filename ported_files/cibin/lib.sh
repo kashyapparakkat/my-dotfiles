@@ -207,10 +207,16 @@ function remove_cygdrive() {
 function some-cron-jobs() {
 
     # TODO: separate the jobs or add interval info to it
+	
     # locatedb update
+	# updatedb
+	
     # emacs indexing
+	myindexemacs
+	
     # all_files.db indexing
-    # 
+    myindex
+	
 	echo "TODO"
     
 }

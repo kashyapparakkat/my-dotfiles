@@ -213,10 +213,10 @@ add:
 	tooltip,
 return
  
-<^!n::	; contPaste from first
+; <^!n::	; contPaste from first
 contPaste:=1
-<^n::	;	contpaste
-<^+n::	;	contpaste with enter
+; <^n::	;	contpaste
+; <^+n::	;	contpaste with enter
 	if trigger_if_triggered_by_emacs_script_else_proceed("LCtrl")
 		return
 	GetKeyState, state_s, Shift

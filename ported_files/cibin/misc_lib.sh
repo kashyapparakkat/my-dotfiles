@@ -9,9 +9,8 @@ if [ -z "$1" ]; then
 fi
  }
 
-
 function myindexemacs() { 
-file="$Universal_home/AppData/Roaming/.file_cache"
+file="$Universal_home/AppData/Roaming/.emacs.d/my-files/emacs-tmp/.file_cache"
 if [ -z "$1" ]; then
     # display usage if no parameters given
     echo "Usage: cibin index all files to $file"

@@ -51,7 +51,7 @@ directory, select directory. Lastly the file is opened."
 (add-to-list 'file-cache-filter-regexps "/\\.git")
 (add-to-list 'file-cache-filter-regexps "/\\.svn")
 
-(defvar file-cache-file "~/.file_cache")
+(defvar file-cache-file "~/.emacs.d/my-files/emacs-tmp/.file_cache")
 
 (defun file-cache-refresh ()
   (interactive)
@@ -67,7 +67,7 @@ directory, select directory. Lastly the file is opened."
   (message "File cache loaded and saved to %s" file-cache-file))
 
 (defun file-cache-save-cache-to-file ()
-  "Save contents of `file-cache-alist' to ~/.file_cache.
+  "Save contents of `file-cache-alist' to ~/.emacs.d/my-files/emacs-tmp/.file_cache
 For later retrieval using `file-cache-read-cache-from-file'"
   (interactive)
   (with-temp-file (expand-file-name file-cache-file)

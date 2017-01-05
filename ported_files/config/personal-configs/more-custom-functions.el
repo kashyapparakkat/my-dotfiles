@@ -55,6 +55,7 @@
 	(setq foldercontent-of-this-file nil)
 	(setq foldercontent-of-parent-of-this-file nil)
 	; if buffer is not a special buffer
+  (message "adsfa")
 	(when  buffer-file-name
 		(setq parent-directory-this-file (directory-file-name (file-name-directory buffer-file-name)))
 		(setq parent-of-parent-directory-this-file (directory-file-name (file-name-directory parent-directory-this-file)))
@@ -82,8 +83,16 @@
 			(setq all-recent-dirs-foldercontent (append all-recent-dirs-foldercontent foldercontent))
 		)
 	)
-	(setq all-files (append foldercontent-of-this-file recentf-list foldercontent-of-parent-of-this-file all-recent-dirs-foldercontent ))
+	; remove dead entries to prevent runtime error
+	(setq recentf-list-new nil)
+	(dolist (file recentf-list) 
+			(when (file-exists-p file)
+			(setq recentf-list-new (append recentf-list-new (list file)))
+		)
+	)
+	(setq all-files (append foldercontent-of-this-file recentf-list-new foldercontent-of-parent-of-this-file all-recent-dirs-foldercontent ))
   (message "%s" (safe-length all-files))
+  
   (setq all-files (sort all-files  (lambda (a b) 
         (time-less-p 
                      (nth 5 (file-attributes b))
@@ -105,10 +114,11 @@
 	"Find a recent file using ido."
 	(interactive)
 	
-	
 	(setq all-files (get-related-files))
+	(message "%s" all-files)
 	(let ((file (ido-completing-read "related files: " 
                                (mapcar #'abbreviate-file-name all-files)
+                               ; all-files
                                nil t)))
     (when file
       (find-file file))))
@@ -119,6 +129,7 @@
 	
 	(setq prompt "grepcmd all/common/downs/ahk/notes/here/hhere   common/code/txt   searchTerm: ")
 	(setq default (format "grepfilelist_related.sh "))
+	(save-related-files-to-disk)
 	(search-handler prompt default)
 	
 )  
@@ -147,13 +158,15 @@
 	(setq default (format "advgrep.sh here %s " file-ext))
 	(search-handler prompt default)
 )
-(defun search-handler (prompt default) 	
-	
+(defun save-related-files-to-disk () 	
 	(setq file "~/.emacs.d/my-files/emacs-tmp/filelist.txt")
 	(when (file-exists-p file)
 		(delete-file file))
 	(setq filelist (format "%s" (mapconcat 'identity (get-related-files) "\n")))
  	(append-to-file filelist nil file ) 
+)
+(defun search-handler (prompt default) 	
+	
 	(setq cmd-str (read-from-minibuffer prompt default))
 	(shell-command cmd-str "*grep*")
 	 (switch-to-buffer "*grep*" t)  ; t: don't add it to the recent buffer list 
