@@ -745,7 +745,7 @@ rbutton & wheeldown::	; na
 	tooltip,
 return
  
-#Esc::	; na
+; #Esc::	; na
 Suspend, Permit
 	If ( !A_IsSuspended )
 	{

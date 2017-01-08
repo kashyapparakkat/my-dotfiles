@@ -55,7 +55,7 @@
 	(setq foldercontent-of-this-file nil)
 	(setq foldercontent-of-parent-of-this-file nil)
 	; if buffer is not a special buffer
-  (message "adsfa")
+  ; (message "adsfa")
 	(when  buffer-file-name
 		(setq parent-directory-this-file (directory-file-name (file-name-directory buffer-file-name)))
 		(setq parent-of-parent-directory-this-file (directory-file-name (file-name-directory parent-directory-this-file)))
@@ -73,7 +73,7 @@
 	; index contents of first level subfolders of this file also
 	
 	; get first n items only
-	(setq recent-dirs (append foldercontent-of-this-file (last (reverse recent-dirs) 5) ))
+	(setq recent-dirs (append foldercontent-of-this-file (last (reverse recent-dirs) 3) ))
     (setq all-recent-dirs-foldercontent nil)
 	(dolist (dir recent-dirs) 
 	   ; (message "exist %s" (file-exists-p dir))
@@ -91,7 +91,6 @@
 		)
 	)
 	(setq all-files (append foldercontent-of-this-file recentf-list-new foldercontent-of-parent-of-this-file all-recent-dirs-foldercontent ))
-  (message "%s" (safe-length all-files))
   
   (setq all-files (sort all-files  (lambda (a b) 
         (time-less-p 
@@ -115,8 +114,9 @@
 	(interactive)
 	
 	(setq all-files (get-related-files))
-	(message "%s" all-files)
-	(let ((file (ido-completing-read "related files: " 
+  (setq prompt (format  "Related Files (%s):" (safe-length all-files)))
+	; (message "%s" all-files)
+	(let ((file (ido-completing-read prompt 
                                (mapcar #'abbreviate-file-name all-files)
                                ; all-files
                                nil t)))

@@ -114,6 +114,8 @@
   '(
     ("C:/Users/cibin/Downloads" . "Downloads/")
     ("c:/Users/cibin/" . "HOME/")    
+    ("c:/Users/cibin/Desktop/" . "Desktop/")    
+    ("c:/cbn_gits/AHK/" . "AHK")    
     ("/$" . "")
     ))
  

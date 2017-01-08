@@ -52,7 +52,7 @@ exit_all_scripts,launch,launch,launch,disp_gui
 ,
 )
 
-HK_cycle_register("^+F12","Control_launcher_HK",5,4000,"LCtrl", "$^q",config) 
+HK_cycle_register("#esc","Control_launcher_HK",5,4000,"LWin", "$#q",config) 
 
 
 
