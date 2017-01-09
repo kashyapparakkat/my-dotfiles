@@ -231,11 +231,12 @@ function some-cron-jobs() {
 
 
 function grepfilelist_related() {
-	tr -d '\r' < C:/Users/cibin/AppData/Roaming/.emacs.d/my-files/emacs-tmp/filelist.txt > C:/Users/cibin/AppData/Roaming/.emacs.d/my-files/emacs-tmp/filelist2.txt
+	tr -d '\r' < C:/Users/"$USERNAME"/AppData/Roaming/.emacs.d/my-files/emacs-tmp/filelist.txt > C:/Users/"$USERNAME"/AppData/Roaming/.emacs.d/my-files/emacs-tmp/filelist2.txt
 	run_grepfilelist $1
 }
 function grepfilelist_common() {
-	tr -d '\r' < C:/Users/cibin/AppData/Roaming/.emacs.d/my-files/emacs-tmp/all-common-filelist.txt > C:/Users/cibin/AppData/Roaming/.emacs.d/my-files/emacs-tmp/filelist2.txt
+sed -i "s/<username>/$USERNAME/g" C:/Users/"$USERNAME"/AppData/Roaming/.emacs.d/my-files/settings-files/all-common-filelist.txt
+	tr -d '\r' < C:/Users/"$USERNAME"/AppData/Roaming/.emacs.d/my-files/settings-files/all-common-filelist.txt > C:/Users/"$USERNAME"/AppData/Roaming/.emacs.d/my-files/emacs-tmp/filelist2.txt
 	run_grepfilelist $1
 }
 	
@@ -243,7 +244,7 @@ function run_grepfilelist() {
 	while read filename; do 
 		# echo "$filename"
 		grep -PnIi $1 --color=auto  "$filename"  /dev/null; 
-	done <C:/Users/cibin/AppData/Roaming/.emacs.d/my-files/emacs-tmp/filelist2.txt
+	done <C:/Users/"$USERNAME"/AppData/Roaming/.emacs.d/my-files/emacs-tmp/filelist2.txt
 }
 
 # TODO: ag searchterm1 searchterm2 searchTerm3; here it shouldnot take searchTerm1 as locations to search

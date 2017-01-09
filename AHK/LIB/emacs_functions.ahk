@@ -127,7 +127,7 @@ translate_emacsCombo_to_Normal_combo_and_send(HK)
 	emacs_mapping_C_p={Up}
 	emacs_mapping_C_q=C-q
 	emacs_mapping_C_r=C-r
-	emacs_mapping_C_s=C-f
+	emacs_mapping_C_s=key_combo_C_s
 	emacs_mapping_C_t=C-t
 	emacs_mapping_C_u=C-u
 	emacs_mapping_C_v={PgDn}
@@ -150,7 +150,7 @@ translate_emacsCombo_to_Normal_combo_and_send(HK)
 	emacs_mapping_A_Backspace=key_combo_A_Backspace
 	
 	
-	key_combos_map_to_function=C-x,C-g,C-d,A-Backspace,A-f,A-d,A-b,C-Forward_slash
+	key_combos_map_to_function=C-x,C-s,C-g,C-d,A-Backspace,A-f,A-d,A-b,C-Forward_slash
 	if HK in %key_combos_map_to_function%
 		maps_to_function := 1
 	else

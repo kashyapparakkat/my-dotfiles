@@ -189,7 +189,7 @@ If ( is_pre_x)
  Return
 
 key_combo_s:
-
+ 
 If ( is_pre_x) 
   {
     send ^s
@@ -239,6 +239,31 @@ key_combo_C_g:
 	}
 Return
   
+key_combo_C_s:
+  ; If is_in_an_emacs_window()
+    ; fallbackToDefault()
+  ; Else
+   
+   If ( is_pre_x) 
+  {
+	send ^s
+    settimer,removetooltip3,10
+    settimer,removetooltip,500
+    tooltip,save
+    is_pre_x = 0
+	
+  }
+  else
+	{
+		send, ^f
+   
+		is_pre_x = 0
+		
+		settimer,removetooltip3,10
+		settimer,removetooltip,500
+	}
+Return 
+ 
 key_combo_C_x:
   ; If is_in_an_emacs_window()
     ; fallbackToDefault()
@@ -331,8 +356,8 @@ RALT & i::
   Winmaximize,A
   return
 msgbox
-LALT & k:: ALTTAB
-LALT & j:: SHIFTALTTAB
+RALT & a:: ALTTAB
+RALT & s:: SHIFTALTTAB
 ;!a::
 	Send  {ALT DOWN}{TAB}{ALT UP}
 	;Send  {ALT DOWN}{TAB}

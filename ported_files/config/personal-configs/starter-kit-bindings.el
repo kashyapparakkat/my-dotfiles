@@ -70,6 +70,16 @@
 ; dumb-jump-go-other-window exactly like dumb-jump-go but uses find-file-other-window instead of find-file
 
 
+
+(global-set-key (kbd "M-,") 'beginning-of-buffer)
+(global-set-key (kbd "M-.") 'end-of-buffer)
+
+; TODO explore elisp-slime-nav
+(global-set-key (kbd "M->") 'elisp-slime-nav-find-elisp-thing-at-point)
+
+; TODO make these into something more useful
+; (global-set-key (kbd "M-<") 'beginning-of-buffer)
+
 (global-set-key (kbd "M-J") 'pull-next-line)
 
 

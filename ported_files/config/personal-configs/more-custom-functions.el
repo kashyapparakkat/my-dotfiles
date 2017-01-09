@@ -73,7 +73,7 @@
 	; index contents of first level subfolders of this file also
 	
 	; get first n items only
-	(setq recent-dirs (append foldercontent-of-this-file (last (reverse recent-dirs) 3) ))
+	(setq recent-dirs (append foldercontent-of-this-file (last (reverse recent-dirs) 2) ))
     (setq all-recent-dirs-foldercontent nil)
 	(dolist (dir recent-dirs) 
 	   ; (message "exist %s" (file-exists-p dir))
@@ -114,7 +114,7 @@
 	(interactive)
 	
 	(setq all-files (get-related-files))
-  (setq prompt (format  "Related Files (%s):" (safe-length all-files)))
+  (setq prompt (format  "Related Files (%s): " (safe-length all-files)))
 	; (message "%s" all-files)
 	(let ((file (ido-completing-read prompt 
                                (mapcar #'abbreviate-file-name all-files)
@@ -368,7 +368,7 @@ lines. And then it will clear all preceding whitespace."
 (defun my/other-window-backwards ()
   (interactive)
   (other-window -1))
-
+; TODO change this hk to something useful
 (global-set-key (kbd "M-'") 'other-window)
 (global-set-key (kbd "M-\"") 'my/other-window-backwards)
 
@@ -472,6 +472,32 @@ there's a region, all lines that region covers will be duplicated."
 )
 (global-set-key (kbd "M-d") 'my-backward-kill-word) 
 ; ----(global-set-key (kbd "M-d") 'my-backward-kill-word) 
+
+
+
+; Clickable file,url links
+; TODO this has one more solution
+; http://superuser.com/questions/331895/how-to-get-emacs-to-highlight-and-link-file-paths
+(define-button-type 'find-file-button
+  'follow-link t
+  'action #'find-file-button)
+
+(defun find-file-button (button)
+  (find-file (buffer-substring (button-start button) (button-end button))))
+
+  
+  	
+; This is perfect. I did some more characters to avoid... re-search-forward "/nfs[^ \t\n,\'\"]*" .. there's probably more that I will find, but it's easy enough to add. – Gregory Aug 14 '10 at 17:40
+(defun buttonize-buffer ()
+  "turn all file paths into buttons"
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (while (re-search-forward "/[^ \t]*" nil t)
+      (make-button (match-beginning 0) (match-end 0) :type 'find-file-button))))
+
+(add-hook 'find-file-hook 'buttonize-buffer)   ; uncomment to add to find file
+
 
 (provide 'more-custom-functions)
 
