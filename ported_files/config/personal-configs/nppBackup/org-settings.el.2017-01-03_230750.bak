@@ -1,2 +1,0 @@
-(setq org-agenda-files (list (format "C:/Users/%s/Downloads/todo.org" user-login-name)                           
-                             "~/org/work.org"))

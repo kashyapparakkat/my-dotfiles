@@ -103,6 +103,23 @@ Sub GoToMin()
     If Err <> 0 Then MsgBox "Max value was not found: " & Val_to_search
 End Sub
 
+
+
+Sub CountVisRows()
+' With this Excel AutoFilter VBA sample code, you can display a message that shows a count of the rows that are visible after a filter has been applied:
+' message shows count of visible records
+'by Tom Ogilvy
+Dim rng As Range
+Set rng = ActiveSheet.AutoFilter.Range
+
+MsgBox rng.Columns(1). _
+   SpecialCells(xlCellTypeVisible).Count - 1 _
+   & " of " & rng _
+   .Rows.Count - 1 & " Records"
+
+End Sub
+
+
 Sub setMyShortcut()
 
 With Application
@@ -110,6 +127,7 @@ With Application
 .OnKey Key:="^+{F5}", procedure:="filter_ActiveCell"
 .OnKey Key:="^+{F6}", procedure:="UniqueCount"
 .OnKey Key:="^+{F7}", procedure:="GoToMax"
+.OnKey Key:="^{=}", procedure:="AutoFitAllColumns"
 .OnKey Key:="^+{F8}", procedure:="GoToMin"
 
 End With
@@ -172,7 +190,21 @@ Sub filter_ActiveCell()
      
 End Sub
 
-
+Sub AutoFitAllColumns()
+     
+    Application.ScreenUpdating = False
+    Dim wkSt As String
+    Dim wkBk As Worksheet
+    wkSt = ActiveSheet.Name
+    For Each wkBk In ActiveWorkbook.Worksheets
+        On Error Resume Next
+        wkBk.Activate
+        Cells.EntireColumn.AutoFit
+    Next wkBk
+    Sheets(wkSt).Select
+    Application.ScreenUpdating = True
+     
+End Sub
 
 ' Option Explicit
  

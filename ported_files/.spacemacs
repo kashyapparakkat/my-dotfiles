@@ -419,7 +419,7 @@
   (setq save-place-file (expand-file-name ".places" user-emacs-directory)))
 
 (global-set-key [f1] 'shell-other-window) ; shell
-(global-set-key (kbd "M-9") 'kill-whole-line)
+
 
 (global-set-key (kbd "<f8>") 'cibin/xah-run-current-file)
 

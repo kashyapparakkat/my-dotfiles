@@ -71,6 +71,26 @@
 
 
 
+; TODO check this file https://github.com/magnars/.emacs.d/blob/master/site-lisp/evil/evil-maps.el
+; easy editing mode
+
+; delete line but keep newline char, so that it is evident that nothing happens accidently
+; (define-key evil-normal-state-map "x" 'kill-whole-line)
+; (define-key evil-normal-state-map "w" 'duplicate-line-or-region)
+; (define-key evil-normal-state-map "e" 'drag-stuff-up)
+; (define-key evil-normal-state-map "d" 'drag-stuff-down)
+; (define-key evil-normal-state-map "d" 'comment.....lines)
+; (define-key evil-normal-state-map "d" 'goto next of current word)
+; (define-key evil-normal-state-map "a" 'goto start of line)
+; (define-key evil-normal-state-map "z" 'goto end of line)
+
+
+; TODO duplicate-line-or-region (&optional n) With negative N, comment out original line and use the absolute value.
+
+
+
+(global-set-key (kbd "M-9") 'kill-whole-line)
+
 (global-set-key (kbd "M-,") 'beginning-of-buffer)
 (global-set-key (kbd "M-.") 'end-of-buffer)
 

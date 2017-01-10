@@ -826,7 +826,7 @@ return
 return
 
 
-<^+F6::	      ;google map      
+>^+F6::	      ;google map      
 	direction:=0
 	inputbox,tmp,google map,enter source to destination,,,,,,,,muvattupuzha
 	; if !ErrorLevel

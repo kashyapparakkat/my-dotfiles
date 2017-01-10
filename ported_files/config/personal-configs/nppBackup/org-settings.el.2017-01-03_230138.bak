@@ -1,3 +1,0 @@
-(setq org-agenda-files (list " (format "C:/Users/%s/AppData/Local/Programs/Python/Python35-32/python.exe" user-login-name)
-                             "~/org/school.org" 
-                             "~/org/home.org"))

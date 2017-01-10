@@ -1088,7 +1088,7 @@ Return
 	clipboard:=text
 return
 
-<^+l::	; smart rotator
+>^+l::	; smart rotator
 	all:=Get_Selected_Text()
 	preview_text:=truncated_text(all,520)
 	tooltip,rotating sel`n`n%preview_text%
