@@ -9,6 +9,11 @@
 
 ; (global-set-key (kbd "M-a") 'execute-extended-command)
 
+; TODO do it for insert mode also
+;(define-key evil-normal-state-map  "s p" 'evil-unimpaired/paste-below)
+;(define-key evil-normal-state-map "s P" 'evil-unimpaired/paste-below)
+
+
 ;; C-8 for *scratch*, C-9 for *compilation*.
 ;; (use M-8, etc as alternates since C-number keys don't have ascii control
 ;; codes, so they can't be used in terminal frames.)
@@ -18,7 +23,9 @@
 (global-set-key (kbd "M-8") (lambda()(interactive)   
 	(switch-to-buffer (get-buffer-create "*Messages*"))))
 
- 
+; or use i for insert and I for trigger
+(define-key evil-visual-state-map "I" 'evil-insert)
+
 (message "checkpoint")
 ; interpret and use ansi color codes in shell buffers
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
@@ -37,9 +44,31 @@
 (define-key evil-normal-state-map [escape] 'keyboard-quit)
 (define-key evil-visual-state-map [escape] 'keyboard-quit)
 
+;;; C-g as general purpose escape key sequence.
+   ;;; https://www.emacswiki.org/emacs/Evil
+   (defun my-esc (prompt)
+     "Functionality for escaping generally.  Includes exiting Evil insert state and C-g binding. "
+     (cond
+      ;; If we're in one of the Evil states that defines [escape] key, return [escape] so as
+      ;; Key Lookup will use it.
+      ((or (evil-insert-state-p) (evil-normal-state-p) (evil-replace-state-p) (evil-visual-state-p)) [escape])
+      ;; This is the best way I could infer for now to have C-g work during evil-read-key.
+      ;; Note: As long as I return [escape] in normal-state, I don't need this.
+      ;;((eq overriding-terminal-local-map evil-read-key-map) (keyboard-quit) (kbd ""))
+      (t (kbd "C-g"))))
+   (define-key key-translation-map (kbd "C-g") 'my-esc)
+   ;; Works around the fact that Evil uses read-event directly when in operator state, which
+   ;; doesn't use the key-translation-map.
+   (define-key evil-operator-state-map (kbd "C-g") 'keyboard-quit)
+   ;; Not sure what behavior this changes, but might as well set it, seeing the Elisp manual's
+   ;; documentation of it.
+   (set-quit-char "C-g")
+
+   
 (defun evil-keyboard-quit ()
   "Keyboard quit and force normal state."
   (interactive)
+  (evil-normal-state)
   (and evil-mode (evil-force-normal-state))
   (keyboard-quit))
 ; Now go ahead and bind it in the relevant maps:
@@ -49,6 +78,7 @@
  (define-key evil-emacs-state-map    (kbd "C-g" ) #'evil-exit-emacs-state) 
  (define-key evil-insert-state-map   (kbd "C-g" ) #'evil-keyboard-quit) 
  (define-key evil-window-map         (kbd "C-g" ) #'evil-keyboard-quit) 
+ (define-key evil-replace-state-map (kbd "C-g" ) #'evil-keyboard-quit)
  (define-key evil-operator-state-map (kbd "C-g" ) #'evil-keyboard-quit)
 
 (global-set-key [escape] 'keyboard-escape-quit)         ;; everywhere else
@@ -86,13 +116,18 @@
 
 
 ; TODO duplicate-line-or-region (&optional n) With negative N, comment out original line and use the absolute value.
+; pageup/dn or 75%screenup/dn
 
-
+; (define-key evil-normal-state-map "e" 'evil-scroll-up)
+; (define-key evil-normal-state-map "d" 'evil-scroll-down)
 
 (global-set-key (kbd "M-9") 'kill-whole-line)
 
 (global-set-key (kbd "M-,") 'beginning-of-buffer)
 (global-set-key (kbd "M-.") 'end-of-buffer)
+(define-key evil-normal-state-map (kbd "M-,") 'beginning-of-buffer)
+(define-key evil-normal-state-map (kbd "M-.") 'end-of-buffer)
+
 
 ; TODO explore elisp-slime-nav
 (global-set-key (kbd "M->") 'elisp-slime-nav-find-elisp-thing-at-point)

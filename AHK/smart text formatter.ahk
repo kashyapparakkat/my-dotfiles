@@ -940,7 +940,7 @@ cancelText_Generator_HK:	;	cancel without action
 	
 return
 
-<^+f5::	;	time generator
+>^+f5::	;	time generator
 	settimer,cancelTime_Generator_HK,off	
 
 	if !(Time_Generator_HK)	;	if hotkey is currently not in cycle mode 

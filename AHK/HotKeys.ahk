@@ -924,7 +924,7 @@ filenames_from_clipb_TEXT:
 
 return
 
-<^+f8::	; extract filenames from clipboard...
+>^+f8::	; extract filenames from clipboard...
 
 	text:=truncated_text(clipboard,120)
 	if !(HK_extract_filenames_cycle)	;	if hotkey is currently in cycle mode 
