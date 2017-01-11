@@ -43,8 +43,21 @@ encode_key_combo(HK)
 {
 	if regexmatch(HK,"^space & .*")
 	{
+	
 		StringtrimLeft, HK, HK, 8
-		HK = Spc-%HK%
+		If GetKeyState("shift")
+		{
+
+			; msgbox, adf
+			HK = Spc-Shift-%HK%
+			; send ^+f
+		}
+		else If GetKeyState("alt")
+		{
+			HK = Spc-Alt-%HK% 
+		}
+		else
+			HK = Spc-%HK%
 	}
 	else if regexmatch(HK,"^!.*")
 	{
@@ -87,8 +100,19 @@ decode_key_combo(HK)
 
 send_key(HK)
 {
+		; msgbox,z%HK%
 	HK := decode_key_combo(HK)
-	if regexmatch(HK,"^C-.")
+	if regexmatch(HK,"^C-S-.")
+	{
+		stringtrimleft,key,HK,4
+		modifier=^+
+	}
+	else if regexmatch(HK,"^C-A-.")
+	{
+		stringtrimleft,key,HK,4
+		modifier=^!
+	}
+	else if regexmatch(HK,"^C-.")
 	{
 		; msgbox,%HK%
 		stringtrimleft,key,HK,2
@@ -111,8 +135,11 @@ send_key(HK)
 		modifier=
 	}
 	
+
+	
+	
+	; msgbox,m %modifier% k%key%
 	send,%modifier%%key%
-	; msgbox,%modifier%%key%
 	return
 }
  
@@ -169,7 +196,7 @@ translate_emacsCombo_to_Normal_combo_and_send(HK)
 	else
 		maps_to_function := 0
 
-		; msgbox,a%HK%
+		msgbox,a%HK%
 	StringReplace, HK, HK,-,_, All
 	; msgbox,%HK% %maps_to_function%
 	
@@ -180,12 +207,21 @@ translate_emacsCombo_to_Normal_combo_and_send(HK)
 		gosub, key_combo_%HK%
 	}
 	else
-	{
-		HK:= emacs_mapping_%HK%
-		; msgbox,%HK%
+	{ 
+		stringleft,key,HK,4
+	
+		if ((key<>"C_S_") and (key<>"C_A_"))
+			HK:= emacs_mapping_%HK%
+		else
+		{
+			StringReplace, HK, HK,C_S_,C-S-, All
+			StringReplace, HK, HK,C_A_,C-A-, All
+		}
+			; stringtrimleft,HK,HK,4
+		
+	; msgbox,%HK%
 		send_key(HK)
 	}
-	; msgbox
 	return HK
 
 }

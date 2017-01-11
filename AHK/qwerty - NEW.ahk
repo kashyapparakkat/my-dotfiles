@@ -35,6 +35,8 @@ keyBoard_mode=1
 
 emacs_single_keys=s,h,u
 
+
+
 space & a::
 space & b::
 space & c::
@@ -285,8 +287,18 @@ Return
   
 space_to_ctrl(HK)
 {
-	StringLeft, root_Hk, HK, 4
-	if (root_Hk = "Spc-")
+	StringLeft, root_Hk, HK, 10
+	StringLeft, root_Hk3, HK, 8
+	StringLeft, root_Hk2, HK, 4
+	if (root_Hk = "Spc-Shift-")
+	{
+		StringReplace, HK, HK, Spc-Shift- , C-S-, All
+	}
+	else if (root_Hk3 = "Spc-Alt-")
+	{
+		StringReplace, HK, HK, Spc-Alt- , C-A-, All
+	}
+	else if (root_Hk2 = "Spc-")
 	{
 		StringReplace, HK, HK, Spc- , C-, All
 	}
@@ -346,15 +358,21 @@ Ralt & q::
 	WinActivate,ahk_exe emacs.exe ;ahk_class Emacs
 	return
 	
+close:
+	winclose, A
+	close_triggered:=0
+return
+	
 Ralt & x::
 ; https://autohotkey.com/board/topic/42474-is-it-possible-to-make-a-window-flash/
 if (A_PriorHotKey = A_thisHotKey AND A_TimeSincePriorHotkey < 300)
 {
+	settimer,close,1000
+	close_triggered:=1
 	hWnd := WinActive( "A" )
 	DllCall( "FlashWindow", UInt,hWnd, Int,True )
 	Sleep 500
 	DllCall( "FlashWindow", UInt,hWnd, Int,False )
-	winclose, A
 }
 return
 
