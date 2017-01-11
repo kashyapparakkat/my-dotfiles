@@ -66,6 +66,11 @@ space & /::
 space & .::
 space & ,::
 
+space & `;::
+; space & -::
+space & =::
+space & '::
+
 $!b::
 $!d::
 $!f::
@@ -79,6 +84,7 @@ $!,::
 s::
 h::
 u::
+
 	StringReplace, HK, A_ThisHotkey, <, , All
 	StringReplace, HK, HK, $, , All
 	HK:=encode_key_combo(HK)

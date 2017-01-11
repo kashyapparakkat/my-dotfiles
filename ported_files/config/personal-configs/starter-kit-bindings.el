@@ -89,7 +89,6 @@
 
 ; move to first letter of next word
 (global-set-key (kbd "M-f") 'forward-word-to-beginning)
-(global-set-key (kbd "C-c d") 'duplicate-line-or-region)
 (global-set-key (kbd "<backspace>") 'delete-backward-char)
 (global-set-key (kbd "<BS>") 'delete-backward-char)
 
@@ -106,11 +105,11 @@
 
 ; delete line but keep newline char, so that it is evident that nothing happens accidently
 ; (define-key evil-normal-state-map "x" 'kill-whole-line)
-; (define-key evil-normal-state-map "w" 'duplicate-line-or-region)
+; (define-key evil-normal-state-map "w" 'duplicate-current-line-or-region)
 ; (define-key evil-normal-state-map "e" 'drag-stuff-up)
 ; (define-key evil-normal-state-map "d" 'drag-stuff-down)
 ; (define-key evil-normal-state-map "d" 'comment.....lines)
-; (define-key evil-normal-state-map "d" 'goto next of current word)
+; (define-key evil-normal-state-map "d" 'goto next oocurrence of current word)
 ; (define-key evil-normal-state-map "a" 'goto start of line)
 ; (define-key evil-normal-state-map "z" 'goto end of line)
 
@@ -120,6 +119,9 @@
 
 ; (define-key evil-normal-state-map "e" 'evil-scroll-up)
 ; (define-key evil-normal-state-map "d" 'evil-scroll-down)
+
+
+(define-key evil-visual-state-map   (kbd "f") 'mark-whole-buffer) 
 
 (global-set-key (kbd "M-9") 'kill-whole-line)
 

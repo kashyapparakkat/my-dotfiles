@@ -64,6 +64,11 @@ encode_key_combo(HK)
 	StringReplace,HK,HK,.,Dot
 	StringReplace,HK,HK,`,,Comma
 	StringReplace,HK,HK,/,Forward_slash
+	
+	StringReplace,HK,HK,`;,semi_colon
+	StringReplace,HK,HK,',Single_quote
+	StringReplace,HK,HK,--,-minus
+	StringReplace,HK,HK,=,equal
 	return HK
 }
 
@@ -72,6 +77,11 @@ decode_key_combo(HK)
 	StringReplace,HK,HK,Dot,.
 	StringReplace,HK,HK,Comma,`,
 	StringReplace,HK,HK,Forward_slash,/
+	
+	StringReplace,HK,HK,semi_colon,`;
+	StringReplace,HK,HK,Single_quote,'
+	StringReplace,HK,HK,minus,-
+	StringReplace,HK,HK,equal,=
 	return HK
 }
 
@@ -135,11 +145,15 @@ translate_emacsCombo_to_Normal_combo_and_send(HK)
 	emacs_mapping_C_x=key_combo_C_x
 	emacs_mapping_C_y=C-v
 	emacs_mapping_C_z=C-z
-	
+
 	emacs_mapping_C_Comma=C-,
 	emacs_mapping_C_Forward_slash=key_combo_C_Forward_slash
 	emacs_mapping_C_Dot=C-.
-	
+	emacs_mapping_C_minus=C--
+	emacs_mapping_C_equal=C-=
+	emacs_mapping_C_semi_colon=C-`;
+	emacs_mapping_C_Single_quote=C-'
+
 	emacs_mapping_A_b=key_combo_A_b
 	emacs_mapping_A_d=key_combo_A_d
 	emacs_mapping_A_f=key_combo_A_f
@@ -149,13 +163,13 @@ translate_emacsCombo_to_Normal_combo_and_send(HK)
 	emacs_mapping_A_Comma=^{Home}
 	emacs_mapping_A_Backspace=key_combo_A_Backspace
 	
-	
 	key_combos_map_to_function=C-x,C-s,C-g,C-d,A-Backspace,A-f,A-d,A-b,C-Forward_slash
 	if HK in %key_combos_map_to_function%
 		maps_to_function := 1
 	else
 		maps_to_function := 0
 
+		; msgbox,a%HK%
 	StringReplace, HK, HK,-,_, All
 	; msgbox,%HK% %maps_to_function%
 	
@@ -171,6 +185,7 @@ translate_emacsCombo_to_Normal_combo_and_send(HK)
 		; msgbox,%HK%
 		send_key(HK)
 	}
+	; msgbox
 	return HK
 
 }
