@@ -196,7 +196,7 @@ translate_emacsCombo_to_Normal_combo_and_send(HK)
 	else
 		maps_to_function := 0
 
-		msgbox,a%HK%
+		; msgbox,a%HK%
 	StringReplace, HK, HK,-,_, All
 	; msgbox,%HK% %maps_to_function%
 	

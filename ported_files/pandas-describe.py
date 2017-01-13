@@ -1,13 +1,13 @@
 import numpy as np
 from pandas import DataFrame as df
-
+import sys
 from pandas_summary import DataFrameSummary
 import pandas
 pandas.set_option('display.max_columns', 500)
 from scipy.stats import trim_mean, kurtosis
 from scipy.stats.mstats import mode, gmean, hmean
 
-
+pandas.set_option('display.float_format',lambda x: '%.3f' % x)
 xl = pandas.ExcelFile("excel.xlsx")
 # xl.sheet_names
 df = xl.parse("Sheet1")
@@ -19,7 +19,9 @@ print(df.head(n=10))
 print("\n\nDESCRIBE")
 print(df.describe())
 
-
+print("\nDuplicates")
+df2= df[df.duplicated(['Company'])==True]
+print(len(df2))
 print("\nCOLUMNS")
 for name, values in df.iteritems():
     print ('{name}: {value}'.format(name=name, value=values[0]))
@@ -34,7 +36,7 @@ for i,col in enumerate(headers):
         print("blanks= {}".format(sum(pandas.isnull(df[col]))))
         print("min: {}".format(df[col].min()))
         print("max: {}".format(df[col].max()))
-        print("sum: {}".format(df[col].sum()))
+        # print("sum: {}".format(df[col].sum()))
         print("-ves: {}".format(sum(n < 0 for n in  df[col].tolist())))
         print("zeroes: {}".format(sum(n == 0 for n in  df[col].tolist())))
         print("+ves: {}".format(sum(n > 0 for n in  df[col].tolist())))

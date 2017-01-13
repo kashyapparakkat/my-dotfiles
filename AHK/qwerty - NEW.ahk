@@ -1,6 +1,9 @@
 ; http://www.cibinmathew.com
 ; github.com/cibinmathew
 
+
+
+close_triggered:=0
 is_pre_spc = 0
 is_pre_x = 0
 withhold_space:=0
@@ -354,21 +357,41 @@ else if WinExist("ahk_class MozillaWindowClass")
 	WinActivate,ahk_exe firefox.exe
 return
 
-Ralt & q::
+#ifwinnotactive, ahk_exe emacs.exe
+Lalt & e::
+#ifwinactive
 	WinActivate,ahk_exe emacs.exe ;ahk_class Emacs
 	return
 	
-close:
-	winclose, A
+close_active_window:
+	if (no_block_for_closing)
+	{
+		winclose, A
+	}
+	else
+		tooltip,cancelled
+	sleep,200
+	tooltip
+	no_block_for_closing:=0
 	close_triggered:=0
 return
 	
-Ralt & x::
+Lalt & x::
+
+; TODO: instead of alt-x again to cancel, just need x
 ; https://autohotkey.com/board/topic/42474-is-it-possible-to-make-a-window-flash/
+if (close_triggered)
+	{
+		no_block_for_closing:=0
+	; msgbox
+		return
+	}
 if (A_PriorHotKey = A_thisHotKey AND A_TimeSincePriorHotkey < 300)
 {
-	settimer,close,1000
+	tooltip,alt x again to cancel
 	close_triggered:=1
+	settimer,close_active_window,-1000
+	no_block_for_closing:=1
 	hWnd := WinActive( "A" )
 	DllCall( "FlashWindow", UInt,hWnd, Int,True )
 	Sleep 500

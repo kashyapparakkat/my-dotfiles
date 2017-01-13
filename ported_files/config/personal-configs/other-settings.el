@@ -301,6 +301,10 @@ If the new path's directories does not exist, create them."
 (global-set-key (kbd "C-o") 'open-next-line)
 (global-set-key (kbd "M-o") 'open-previous-line)
 
+
+(define-key evil-normal-state-map (kbd "C-e") 'evil-end-of-line)
+(define-key evil-normal-state-map (kbd "C-a") 'smart-line-beginning)
+
 (global-set-key (kbd "C-a") 'smart-line-beginning)
 (global-set-key [home] 'smart-line-beginning)
 
@@ -355,6 +359,11 @@ If the new path's directories does not exist, create them."
                 (lambda () (interactive)
                   (backward-char)
                   (transpose-chars 1)))
+; TODO: note that transpose-words is replaced by org-transpose-words on M-t in org-mode so you would have to adjust that too.
+(global-set-key (kbd "M-t")
+                (lambda () (interactive)
+                  (backward-word)
+                  (transpose-words 1)))
 				  
 				  
 				  (global-set-key (kbd "C-c b c") 'quick-calc)

@@ -131,6 +131,7 @@
 (define-key evil-normal-state-map (kbd "M-.") 'end-of-buffer)
 
 
+
 ; TODO explore elisp-slime-nav
 (global-set-key (kbd "M->") 'elisp-slime-nav-find-elisp-thing-at-point)
 
@@ -286,7 +287,23 @@
 (define-key evil-normal-state-map (kbd "C-n") 'evil-next-visual-line)
 (define-key evil-normal-state-map (kbd "C-p") 'evil-previous-visual-line)
 (define-key evil-normal-state-map "a" 'helm-M-x)
-(define-key evil-normal-state-map "gl" 'evil-goto-line)
+(define-key evil-normal-state-map "gl" 'evil-goto-line) ; goto last line
+; goto last line in insert mode
+(define-key evil-normal-state-map "gk" (lambda (arg)
+     
+      (interactive "p")      
+      (end-of-buffer)(open-line arg)(next-line 1)
+	  ; TODO 
+      ; (when newline-and-indent
+        ;(indent-according-to-mode))
+	(evil-insert 1)
+))
+(define-key evil-normal-state-map "ga" (lambda (arg)
+     
+      (interactive "p")      
+      (beginning-of-buffer)(open-line arg)(evil-insert 1)
+))
+; TODO: gk was evil previous visual-line, map it to somewhere else
 
 ; key-chord
 (require 'key-chord)
