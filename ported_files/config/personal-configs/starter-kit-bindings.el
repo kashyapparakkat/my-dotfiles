@@ -10,8 +10,9 @@
 ; (global-set-key (kbd "M-a") 'execute-extended-command)
 
 ; TODO do it for insert mode also
+; (define-key evil-normal-state-map (kbd "s") 'nil)
 ;(define-key evil-normal-state-map  "s p" 'evil-unimpaired/paste-below)
-;(define-key evil-normal-state-map "s P" 'evil-unimpaired/paste-below)
+;(define-key evil-normal-state-map "s P" 'evil-unimpaired/paste-above)
 
 
 ;; C-8 for *scratch*, C-9 for *compilation*.
@@ -27,7 +28,8 @@
 (define-key evil-visual-state-map "I" 'evil-insert)
 
 (message "checkpoint")
-; interpret and use ansi color codes in shell buffers
+
+                                        ; interpret and use ansi color codes in shell buffers
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 ; (add-hook 'diff-mode-hook 'ansijespace in some modes)
 (dolist (hook '(shell-mode-hook compilation-mode-hook diff-mode-hook))
@@ -131,25 +133,20 @@
 (define-key evil-normal-state-map (kbd "M-.") 'end-of-buffer)
 
 
-
-; TODO explore elisp-slime-nav
+ ; TODO explore elisp-slime-nav
 (global-set-key (kbd "M->") 'elisp-slime-nav-find-elisp-thing-at-point)
 
 ; TODO make these into something more useful
 ; (global-set-key (kbd "M-<") 'beginning-of-buffer)
 
 (global-set-key (kbd "M-J") 'pull-next-line)
-
-
 (global-set-key (kbd "C-;") 'comment-line)
 (global-set-key (kbd "C-x C-;") 'comment-or-uncomment-region)
 
 ;; You know, like Readline.
 (global-set-key (kbd "C-M-h") 'backward-kill-word)
 
-
-
-;; Align your code in a pretty way.
+ ;; Align your code in a pretty way.
 (global-set-key (kbd "C-x \\") 'align-regexp)
 
 
@@ -167,15 +164,22 @@
 ; (global-set-key (kbd "<f6>") 'switch-to-prev-buffer) 
 ; (global-set-key (kbd "<f7>") 'switch-to-next-buffer) 
 
-(global-set-key (kbd "C-j") 'switch-to-prev-buffer) 
-(global-set-key (kbd "C-k") 'switch-to-next-buffer) 
+
+(global-set-key (kbd "C-k") (lambda () (interactive) (evil-scroll-up nil)))
+(global-set-key (kbd "C-j") (lambda () (interactive) (evil-scroll-down nil)))
+(define-key evil-normal-state-map (kbd "C-k") (lambda () (interactive) (evil-scroll-up nil)))
+(define-key evil-normal-state-map (kbd "C-j") (lambda () (interactive)  (evil-scroll-down nil)))
+						
+						
+(global-set-key (kbd "C-l") 'switch-to-prev-buffer) 
+; (global-set-key (kbd "C-k") 'switch-to-next-buffer) 
 
 (with-eval-after-load 'org
-    (define-key org-mode-map (kbd "C-k") 'switch-to-next-buffer)
-    (define-key org-mode-map (kbd "C-j") 'switch-to-prev-buffer)
+    ; (define-key org-mode-map (kbd "C-k") 'switch-to-next-buffer)
+    (define-key org-mode-map (kbd "C-l") 'switch-to-prev-buffer)
 	)  
 
-; kill the same line even if at the end of line
+;  kill the same line even if at the end of line
 ; (global-set-key (kbd "C-k") 'kill-whole-line)
 
 
@@ -223,8 +227,7 @@
 ; Fixme: error
 ; (define-key helm-find-files-map (kbd "C-j") 'helm-find-files-up-one-level)
 ; (define-key helm-find-files-map (kbd "C-l") 'helm-execute-persistent-action)
-
-
+ 
 (global-set-key (kbd "S-<f4>") (lambda () (interactive)(dired (format "C://Users//%s//Downloads" user-login-name))))
 
 ; file searching
@@ -260,6 +263,8 @@
 (require 'expand-region)
 ; use spc-v & then only v
 (global-set-key (kbd "C-=") 'er/expand-region)
+; TODO "t" was something else
+(define-key evil-normal-state-map "t" 'er/expand-region)
 
 (global-set-key "\M-q" (lambda () (interactive) (kill-this-buffer)(delete-window)))
 (define-key evil-normal-state-map "q" (lambda () (interactive) (kill-this-buffer)(delete-window)))
@@ -272,7 +277,7 @@
 
 (global-set-key (kbd "M-e") 'other-window)
 (define-key evil-normal-state-map "e" 'other-window)
-
+(define-key evil-normal-state-map "vo" 'evil-visual-line)
 
 ;; enable Shift+direction for window movements
 ;; (windmove-default-keybindings) 
@@ -282,7 +287,7 @@
 (global-set-key (kbd "C-x O") (lambda () (interactive) (other-window -1))) ;; back one
 (global-set-key (kbd "C-x C-o") (lambda () (interactive) (other-window 2))) ;; forward two
 
-
+(global-set-key (kbd "<f7>") 'split-window-right)
 
 (define-key evil-normal-state-map (kbd "C-n") 'evil-next-visual-line)
 (define-key evil-normal-state-map (kbd "C-p") 'evil-previous-visual-line)
@@ -298,6 +303,18 @@
         ;(indent-according-to-mode))
 	(evil-insert 1)
 ))
+; TODO: gj was evil next visual line, give some other hotkey
+; TODO: same as C-return; remove gj
+(define-key evil-normal-state-map "gj" 'open-previous-line-move-down)
+
+(defun open-previous-line-move-down (arg)
+	"insert a line and push the text by one line down"
+	(interactive "p")
+	(beginning-of-line)(open-line arg)(next-line 1)
+	(when newline-and-indent
+		(indent-according-to-mode)))
+
+		
 (define-key evil-normal-state-map "ga" (lambda (arg)
      
       (interactive "p")      
@@ -427,7 +444,6 @@
 
 ;; So good!
 (global-set-key (kbd "C-x g") 'magit-status)
-
 (global-set-key (kbd "C-c q") 'join-line)
 
 ;; This is a little hacky since VC doesn't support git add internally
@@ -501,5 +517,6 @@ buffer preview will still display."
 
 (provide 'starter-kit-bindings)
 ;;; starter-kit-bindings.el ends here
+
 
 

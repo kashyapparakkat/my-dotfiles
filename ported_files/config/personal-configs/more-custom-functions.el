@@ -236,10 +236,11 @@
                                   (start-process "" nil "xdg-open" file-path)))))
 								  
 
-; delete till non whitespace
-(global-set-key (kbd "M-SPC") 'fc/delete-space)
+; delete till non whitespace cycle
+(global-set-key (kbd "M-D")  'xah-shrink-whitespaces)
+; (global-set-key (kbd "M-SPC") 'fc/delete-space)
 ; (global-set-key (kbd "<M-Spc>") 'fixup-whitespace)
-(global-set-key (kbd "C-c M-d") 'fc/delete-space)
+; (global-set-key (kbd "C-c M-d") 'fc/delete-space)
 
 (defun fc/delete-space ()
   "Remove all space around point.

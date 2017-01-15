@@ -339,11 +339,14 @@
 		explicitly specified that a variable should be set before a package is loaded,
 		you should place you code here."
 		
-		(load "server")
-		(server-start)
+		; (load "server")
+		;(server-start)
 		; TODO
 		; (unless (server-running-p) (server-start))
-		
+		(require 'server)
+(or (server-running-p)
+    (server-start))
+; Note that server-running-p does not appear in the manual, so conceivably this could break with future versions of Emacs.
 		
 		(setq load-prefer-newer t)
 (auto-compile-on-load-mode)		  

@@ -348,15 +348,20 @@ return
 
 
 
-Ralt & 3::
+Lalt & 3::
 
 if WinExist("ahk_class Chrome_WidgetWin_1")
 	WinActivate,ahk_exe chrome.exe
-	
 else if WinExist("ahk_class MozillaWindowClass")
 	WinActivate,ahk_exe firefox.exe
-return
 
+
+return
+Lalt & q::
+; ahk_class ExploreWClass|CabinetWClass
+	if WinExist("ahk_class ExploreWClass") or WinExist("ahk_class CabinetWClass") 
+		WinActivate,ahk_exe explorer.exe
+	return
 #ifwinnotactive, ahk_exe emacs.exe
 Lalt & e::
 #ifwinactive
@@ -376,7 +381,7 @@ close_active_window:
 	close_triggered:=0
 return
 	
-Lalt & x::
+Ralt & x::
 
 ; TODO: instead of alt-x again to cancel, just need x
 ; https://autohotkey.com/board/topic/42474-is-it-possible-to-make-a-window-flash/
@@ -397,6 +402,8 @@ if (A_PriorHotKey = A_thisHotKey AND A_TimeSincePriorHotkey < 300)
 	Sleep 500
 	DllCall( "FlashWindow", UInt,hWnd, Int,False )
 }
+; else
+
 return
 
 RALT & i::
@@ -563,7 +570,7 @@ return
 	send, {enter}
 return
 
-; lctrl & space::	;	send, {enter}
+lctrl & space::	;	send, {enter}
 	send, {enter}
 return
 
@@ -682,3 +689,20 @@ if (regexmatch(A_ThisHotkey, "^space &(.*)"))
 	Send %Modifiers%{%MirrorKey%}
 }
 return
+
+Space & enter::
+	send ^{enter}
+return
+
+; http://www.howtogeek.com/howto/8955/make-backspace-in-windows-7-or-vista-explorer-go-up-like-xp-did/
+#IfWinActive, ahk_class CabinetWClass
+Backspace::
+ControlGet renamestatus,Visible,,Edit1,A
+ControlGetFocus focussed, A
+if(renamestatus!=1 && (focussed=”DirectUIHWND3″||focussed=SysTreeView321))
+{
+SendInput {Alt Down}{Up}{Alt Up}
+}else{
+Send {Backspace}
+}
+#IfWinActive

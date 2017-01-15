@@ -295,7 +295,7 @@ If the new path's directories does not exist, create them."
 (setq dabbrev-case-replace nil)		
 
 (global-set-key [S-return]   'open-next-line)
-(global-set-key [C-S-return] 'open-previous-line)
+(global-set-key [C-return] 'open-previous-line-move-down)
 (global-set-key [M-return] 'open-previous-line)
 
 (global-set-key (kbd "C-o") 'open-next-line)
@@ -305,6 +305,7 @@ If the new path's directories does not exist, create them."
 (define-key evil-normal-state-map (kbd "C-e") 'evil-end-of-line)
 (define-key evil-normal-state-map (kbd "C-a") 'smart-line-beginning)
 
+(global-set-key (kbd "C-e") 'evil-end-of-line)
 (global-set-key (kbd "C-a") 'smart-line-beginning)
 (global-set-key [home] 'smart-line-beginning)
 
@@ -534,7 +535,7 @@ Toggles between: “all lower”, “Init Caps”, “ALL CAPS”."
   :defer t
   :init
   (progn
-    (setq recentf-max-saved-items 300
+    (setq recentf-max-saved-items 100
           recentf-exclude '("/auto-install/" ".recentf" "/repos/" "/elpa/"
                             "\\.mime-example" "\\.ido.last" "COMMIT_EDITMSG"
                             ".gz"

@@ -8,9 +8,16 @@
 #include C:\cbn_gits\AHK\LIB\contextmenu.ahk
 Menu, Tray, Icon, Shell32.dll, 36
 
+
+
 ; settimer, test,500
+
 		
+
 iniread,emacs_f_path,running_all_settings.ini,paths,emacs
+
+
+
 fileread,folder_list,fav_folder_list.txt
 sorted_folder_list :=folder_list
 
@@ -145,7 +152,7 @@ google search,python search,map search,multi search
 ,
 ,
 ,
-search_google,search_google_python,google_map_search,test2,multi_search
+search_google,search_google_python,google_map_search,,multi_search
 ,
 )
 HK_cycle_register(">^g","google_search_HK",4,4000,"RCtrl", "$^q",config)
@@ -587,9 +594,6 @@ open_in_fileManager:
 
 return
 
-test2:
-msgbox,tessst
-return
 
 open_in_emacs:
 	iniread,emacs_default_startup_file,running_all_settings.ini,paths,emacs_default_startup_file
