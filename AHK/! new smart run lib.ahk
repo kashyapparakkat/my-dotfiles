@@ -83,7 +83,7 @@ smart_run_open(fullfilepath)
 {	
 ; /cygdrive/c/cbn_gits/AHK
 	global
-	fullfilepath := linux_to_windows(fullfilepath)
+	
 	; msgbox,%fullfilepath%
 	selText_raw:=fullfilepath
 	shift_enter_trigger:=0
@@ -200,6 +200,12 @@ if !(HotkeySTEP87)
 		if (selText= )
 			return
 		selText := clean_filepath_string(selText)
+		type:=determine_text(selText)
+		
+		if ( type = "no_Match" )
+		{
+			selText := linux_to_windows(selText)
+		}
 		smart_check_count:=1
 		type := "no_Match"
 		run_entry_offset:=0
@@ -211,7 +217,6 @@ if !(HotkeySTEP87)
 		; C:\users\%a_username%\Downloads\541949343_Jul2015.pdf
 		again3:
 		type:=determine_text(selText)
-
 		; msgbox,%type%
 		if ( type = "relative_path" )
 		{
@@ -807,6 +812,7 @@ smart_find_file:
 	filepath:=selText
 	; selText=temp.ahk
 	type:=determine_text(selText)
+	
 	if ( type = "file_folder" )
 	{
 	}

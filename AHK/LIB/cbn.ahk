@@ -533,12 +533,11 @@ date
  ; http://www.abc.Com
  ;www.abc.Com
  ;abc.com
- 
 ; i)^http(s?)://(((2[0-5]{2}|1[0-9]{2}|[0-9]{1,2})\.){3}(2[0-5]{2}|1[0-9]{2}|[0-9]{1,2}))(:\d+)?(/)?([a-zA-Z0-9\-\.]+)?$
 ; i)^(https?\://|www\.)?[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(/\S*)?$
 pattern_list=
 (
-i)^((https?|ftp|file)://|www\.)?[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(/\S*)?$
+i)^(https?://www\.|https?://|ftp://|file://|www\.)?[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(/\S*)?$
 i)^([a-zA-Z]:)(\\[^\\/:\*"<>]+)+\\?$
 i)^\\?[^\\/:\*"<>]+(\\[^\\/:\*"<>]+)+\\?$
 i)^(mailto:)?([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$
@@ -550,6 +549,7 @@ i)^(https?\://)?localhost(:\d+)?(/\S*)?$
 )
 ; "
 
+; http://www.google.com
 type := check_if_match_pattern_from_list(input,pattern_list,pattern_names)
 if (type="")
 	type=no_Match
@@ -567,7 +567,6 @@ check_if_match_pattern_from_list(source_text,pattern_list,pattern_names="")
 	; ^(?:[\w]\:|\\)(\\[a-z_\-\s0-9\.]+)+\.(?i)(txt|gif|pdf|doc|docx|xls|xlsx)$
 	; ^http\://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(/\S*)?$
 	
-	; msgbox,%pattern_list0%
 	result=
 	loop,%pattern_list0%
 	{

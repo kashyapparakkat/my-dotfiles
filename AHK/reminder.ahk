@@ -109,14 +109,14 @@ return
 
 
 scheduler:
-;command,file|url|...,time
+; command or file|type=url or |...,time in 24h
 tasks=
 (
 https://www.youtube.com/watch?v=vsQf9OHU35s&list=PLssi8O1SK6QIXfWuaHApOmTDWbVqegZr5,url,1455
 https://www.youtube.com/watch?v=FNQxxpM1yOs,url,1855
-C:\Program Files (x86)\Windows Media Player\wmplayer.exe,file,1410
-http://www.naukri.com/walk-in-jobs-in-bangalore,1450
 )
+; http://www.naukri.com/walk-in-jobs-in-bangalore,1450
+; C:\Program Files (x86)\Windows Media Player\wmplayer.exe,file,1410
 ; C:\users\%A_UserName%\Desktop\naukri_auto_updater.py,file,1100
 ; C:\users\%A_UserName%\Desktop\naukri_auto_updater.py,file,1430
 
