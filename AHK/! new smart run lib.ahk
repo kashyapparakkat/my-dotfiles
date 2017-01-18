@@ -313,6 +313,7 @@ sleep,2000
 		}
 		else if (action="open_with")
 		{
+		
 		}
 		; tooltip,%type%_category_open_%open_type%_%n%,,,5
 		
@@ -539,9 +540,7 @@ return
 text_statistics:
 
 If selText is space   
-   return
-   
-             
+   return                
 	len:=StrLen(selText)
 	Spaces=
 	newline:=0
@@ -739,6 +738,7 @@ else
 		explorer_option:=1
 	}
 	; open_with_program1:= %type%_category_open_%open_type%_%open_with_count%
+	; msgbox, %type%_action_%explorer_option%=open_in_opus
 	%type%_action_%explorer_option%=open_in_opus
 	;tmpvar3=%type%_action_%explorer_option%
 	;tmpvar2:=%type%_action_%explorer_option%

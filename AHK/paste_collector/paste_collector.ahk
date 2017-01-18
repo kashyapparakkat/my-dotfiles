@@ -3509,6 +3509,9 @@ return
 
 $^c::		;delete  ; na
 
+if trigger_if_triggered_by_emacs_script_else_proceed("LCtrl")
+		return
+	
 if (ClipStep_Keys)
 {
 	If paste<>no
@@ -3631,6 +3634,9 @@ Return
 
  
 $^v::	; na
+	if trigger_if_triggered_by_emacs_script_else_proceed("LCtrl")
+		return
+	
 setTimer,CLIPSTEP,100
 LASTFORMAT := GetClipboardFormat(1)
 if ( LASTFORMAT <>"[Text]")

@@ -548,7 +548,7 @@ i)^(https?\://)?localhost(:\d+)?(/\S*)?$
 ^((0[1-9])|(1[0-2]))[\/-]((0[1-9])|(1[0-9])|(2[0-9])|(3[0-1]))[\/-](\d{4})$
 )
 ; "
-
+; C:\cbn_gits\AHK
 ; http://www.google.com
 type := check_if_match_pattern_from_list(input,pattern_list,pattern_names)
 if (type="")
