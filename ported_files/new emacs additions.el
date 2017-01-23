@@ -1,3 +1,5 @@
+
+
 current folder
 recent files
 files from recent file folders
@@ -16,6 +18,9 @@ projectile
 
 
 =
+AHK:
+!+rbutton::
+
 org::
 C-c C-l : link
 |a|b| <tab>
@@ -46,6 +51,12 @@ C-c |
 M-left/right : moves column
 M_S-left/right : add col
 S-left/right : modifies date
+=
+evil-surround
+cs<old-textobject><new-textobject>.
+Delete surrounding
+You can delete a surrounding with ds<textobject>.
+eg cs"(
 
 check fiplr
 markdown mode for scratch
@@ -87,7 +98,7 @@ C-j previews the file
 C-f quit ido to normal mode
 C-x C-b ; d deletes
 aggresive indent mode
-     
+ve to select till endof word     
 
 ; ===
 

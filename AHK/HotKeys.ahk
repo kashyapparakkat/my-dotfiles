@@ -1195,3 +1195,65 @@ iniread,run_python,running_all_settings.ini,paths,run_python
 run,"%run_python%"
 
 return
+
+
+; HalfWindows.ahk - Troy Chard - version 1.1 - April 13, 2009
+; https://autohotkey.com/board/topic/39698-half-windows-script/
+; AutoHotkey Script
+; Description: Ctrl+Arrow moves window to that half of the screen. 
+; eg: Ctrl+LeftArrow moves window to left half screen.  Ctrl+TopArrow to 
+; the top half of screen.  etc.
+; It's best to compute work area every time as user may alter
+; task bar position or screen-res.
+
+LeftHalfWindow()
+{
+	SysGet, area, MonitorWorkArea
+	w:=((areaRight-areaLeft)/2)
+	h:=(areaBottom-areaTop)
+
+	WinRestore, A	
+	WinMove, A, , 0, 0,%w%,%h%
+}
+
+RightHalfWindow()
+{
+	SysGet, area, MonitorWorkArea
+	w:=((areaRight-areaLeft)/2)
+	h:=(areaBottom-areaTop)
+
+	WinRestore, A
+	WinMove, A, , w, 0, w, h	;Middle of screen is same as w.
+}
+
+TopHalfWindow()
+{
+	SysGet, area, MonitorWorkArea
+	w:=(areaRight-areaLeft)
+	h:=((areaBottom-areaTop)/2)
+
+	WinRestore, A
+	WinMove, A, , 0, 0, w, h
+}
+
+BottomHalfWindow()
+{
+	SysGet, area, MonitorWorkArea
+	w:=(areaRight-areaLeft)
+	h:=((areaBottom-areaTop)/2)
+
+	WinRestore, A
+	WinMove, A, , 0, h, w, h	;Middle of screen is same as h.
+}
+
+;Key Bindings
+; Ctrl+Arrow Key moves window to that 1/2 of screen.
+; eg: Ctrl+UpArrow moves to top 1/2 of screen.
+
+!+RButton::  LeftHalfWindow()
+!^RButton:: RightHalfWindow()
+
+; ^Up::   TopHalfWindow()
+; ^Down:: BottomHalfWindow()
+
+

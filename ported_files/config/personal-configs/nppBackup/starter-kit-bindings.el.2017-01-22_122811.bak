@@ -172,7 +172,7 @@
 						
 						
 (global-set-key (kbd "C-l") 'switch-to-prev-buffer) 
-(global-set-key (kbd "C-v") 'switch-to-next-buffer) 
+; (global-set-key (kbd "C-k") 'switch-to-next-buffer) 
 
 (with-eval-after-load 'org
     ; (define-key org-mode-map (kbd "C-k") 'switch-to-next-buffer)
@@ -277,9 +277,7 @@
 
 (global-set-key (kbd "M-e") 'other-window)
 (define-key evil-normal-state-map "e" 'other-window)
-(define-key evil-visual-state-map   (kbd "f") 'mark-whole-buffer) 
-;TODO o in visual state was exchange-point-and-mark
-(define-key evil-visual-state-map   (kbd "o") 'evil-visual-line) 
+(define-key evil-normal-state-map "vo" 'evil-visual-line)
 
 ;; enable Shift+direction for window movements
 ;; (windmove-default-keybindings) 
@@ -510,33 +508,8 @@ buffer preview will still display."
 
 (global-set-key (kbd "C-M-v") 'my/quick-view-file-at-point)
 
-; There are some hooks that allow to do things when we enter or exit a mode (see the pdf manual).
-; For example, to save the buffer when we exit the insert mode:
 
-   (defun my-save-if-bufferfilename ()
-     (if (buffer-file-name)
-         (progn
-           (save-buffer)
-           )
-       (message "no file is associated to this buffer: do nothing")
-       )
-   )
-   (add-hook 'evil-insert-state-exit-hook 'my-save-if-bufferfilename)
-   
 
-   ;; INCREMENT AND DECREMENT numbers in Emacs 
-   
-(global-set-key (kbd "C-c +") 'evil-numbers/inc-at-pt)
-(global-set-key (kbd "C-c -") 'evil-numbers/dec-at-pt)
-
-; or only in evil’s normal state:
-(define-key evil-normal-state-map (kbd "C-c +") 'evil-numbers/inc-at-pt)
-(define-key evil-normal-state-map (kbd "C-c -") 'evil-numbers/dec-at-pt)
-
-; For window system users the keypad + and - present an alternative that can be directly bound without shadowing the regular + and -:
-
-(define-key evil-normal-state-map (kbd "<kp-add>") 'evil-numbers/inc-at-pt)
-(define-key evil-normal-state-map (kbd "<kp-subtract>") 'evil-numbers/dec-at-pt)
 
 
 

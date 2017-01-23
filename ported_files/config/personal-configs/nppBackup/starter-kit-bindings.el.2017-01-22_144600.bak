@@ -172,7 +172,7 @@
 						
 						
 (global-set-key (kbd "C-l") 'switch-to-prev-buffer) 
-(global-set-key (kbd "C-v") 'switch-to-next-buffer) 
+; (global-set-key (kbd "C-k") 'switch-to-next-buffer) 
 
 (with-eval-after-load 'org
     ; (define-key org-mode-map (kbd "C-k") 'switch-to-next-buffer)

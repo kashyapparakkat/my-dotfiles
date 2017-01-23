@@ -145,13 +145,23 @@ quit()
 	settimer,removetooltip3,-10
 	Return
 }
+key_combo_A_Dot:
+	send,^{End}
+	Send {Ctrl Up}
+	return
+key_combo_A_Comma:
+	send,^{Home}
+	Send {Ctrl Up}
+	return
+	
 
 move_word(direction) {
 if(direction==1)
 	send,^{right}
 else 	
 	send,^{left}
-	global is_pre_spc = 0
+global is_pre_spc = 0
+Send {Ctrl Up}
 	Return
 }
 
@@ -690,6 +700,13 @@ if (regexmatch(A_ThisHotkey, "^space &(.*)"))
 }
 return
 
+Space & down::
+	send ^{down}
+return
+
+Space & up::
+	send ^{up}
+return
 Space & enter::
 	send ^{enter}
 return

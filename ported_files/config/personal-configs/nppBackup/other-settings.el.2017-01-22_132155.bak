@@ -602,14 +602,3 @@ file to write to."
     (abort-recursive-edit)))
 
 (add-hook 'mouse-leave-buffer-hook 'stop-using-minibuffer)
-
-
-(defun hop-one-transpose ()
-  "Transpose words that are separated by a single word."
-  (interactive)
-  (transpose-words 2)
-  (backward-word 3)
-  (forward-char)
-  (transpose-words 1))
-
-(global-set-key (kbd "C-x M-t") 'hop-one-transpose)

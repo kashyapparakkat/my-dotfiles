@@ -172,7 +172,7 @@
 						
 						
 (global-set-key (kbd "C-l") 'switch-to-prev-buffer) 
-(global-set-key (kbd "C-v") 'switch-to-next-buffer) 
+; (global-set-key (kbd "C-k") 'switch-to-next-buffer) 
 
 (with-eval-after-load 'org
     ; (define-key org-mode-map (kbd "C-k") 'switch-to-next-buffer)
@@ -277,9 +277,7 @@
 
 (global-set-key (kbd "M-e") 'other-window)
 (define-key evil-normal-state-map "e" 'other-window)
-(define-key evil-visual-state-map   (kbd "f") 'mark-whole-buffer) 
-;TODO o in visual state was exchange-point-and-mark
-(define-key evil-visual-state-map   (kbd "o") 'evil-visual-line) 
+(define-key evil-normal-state-map "vo" 'evil-visual-line)
 
 ;; enable Shift+direction for window movements
 ;; (windmove-default-keybindings) 
@@ -525,7 +523,6 @@ buffer preview will still display."
    
 
    ;; INCREMENT AND DECREMENT numbers in Emacs 
-   
 (global-set-key (kbd "C-c +") 'evil-numbers/inc-at-pt)
 (global-set-key (kbd "C-c -") 'evil-numbers/dec-at-pt)
 

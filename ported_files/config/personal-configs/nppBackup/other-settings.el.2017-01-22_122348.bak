@@ -301,16 +301,7 @@ If the new path's directories does not exist, create them."
 (global-set-key (kbd "C-o") 'open-next-line)
 (global-set-key (kbd "M-o") 'open-previous-line)
 
-; The following makes you lose vim commands, but gives you back basic emacs commands, like C-y to paste in insert mode or C-r to search backward:
 
-(define-key evil-normal-state-map "\C-y" 'yank)
-(define-key evil-insert-state-map "\C-y" 'yank)
-(define-key evil-visual-state-map "\C-y" 'yank)
-(define-key evil-normal-state-map "\C-w" 'evil-delete)
-(define-key evil-insert-state-map "\C-w" 'evil-delete)
-(define-key evil-insert-state-map "\C-r" 'search-backward)
-(define-key evil-visual-state-map "\C-w" 'evil-delete)
-   
 (define-key evil-normal-state-map (kbd "C-e") 'evil-end-of-line)
 (define-key evil-normal-state-map (kbd "C-a") 'smart-line-beginning)
 
@@ -602,14 +593,3 @@ file to write to."
     (abort-recursive-edit)))
 
 (add-hook 'mouse-leave-buffer-hook 'stop-using-minibuffer)
-
-
-(defun hop-one-transpose ()
-  "Transpose words that are separated by a single word."
-  (interactive)
-  (transpose-words 2)
-  (backward-word 3)
-  (forward-char)
-  (transpose-words 1))
-
-(global-set-key (kbd "C-x M-t") 'hop-one-transpose)

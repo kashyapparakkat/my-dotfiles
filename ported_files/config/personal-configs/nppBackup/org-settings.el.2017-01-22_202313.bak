@@ -16,7 +16,7 @@
       '((sequence "TODO" "IN-PROGRESS" "WAITING" "|" "DONE" "CANCELED")))
 	  
 	  
-; TODO evil-org.el
+
 ;; normal state shortcuts
 (evil-define-key 'normal org-mode-map
   "gh" 'outline-up-heading
