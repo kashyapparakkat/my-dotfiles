@@ -14,7 +14,8 @@ class FtpThread(threading.Thread):
     def run(self,*args,**kwargs):
     
         authorizer = DummyAuthorizer()
-        authorizer.add_user("user", "12345", "C:/users/cibin/Downloads", perm="elradfmw")
+        root_folder=('D:/Films',"C:/users/cibin/Downloads")
+        authorizer.add_user("user", "12345", root_folder[0], perm="elradfmw")
         # authorizer.add_anonymous("/home/nobody")
 
         handler = FTPHandler
@@ -38,7 +39,7 @@ if __name__ == '__main__':
     ftp_server = FtpThread("")
     ftp_server.start()
 
-    time.sleep(600)
+    time.sleep(900)
     ftp_server.stop()
     print("Shut down")
 

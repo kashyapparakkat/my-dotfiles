@@ -257,15 +257,15 @@ function run_grepfilelist() {
 # agn(ag notes) searchTerm=cmd note-folder note-files-extensions searchTerm
 # agn abc
 function advgrep() {
-
+echo "$1 $2 $3"
 
 	declare -a files=("$Universal_home/Downloads/*txt")
-	ext=".*\.\(txt\)"
+	ext=".*\.\(txt\|org\)"
 	# TODO:
 	# load notes filelist from settings.ini
 	# all_notes=$(sed -n 's/.*all_notes *= *\([^ ]*.*\)/\1/p' < settings.ini)
 	# all_notes=($all_notes)
-	declare -a all_notes=("$Universal_home/Downloads/notes.txt" "$Universal_home/Downloads/notes3.txt" "$Universal_home/Downloads/todo.txt" "$Universal_home/Downloads/work-todo.txt" "$Universal_home/Downloads/work-notes.txt" "$Universal_home/Downloads/todo.org" "$Universal_home/Downloads/clear these doubts.txt" )
+	declare -a all_notes=("$Universal_home/Downloads/notes.txt" "$Universal_home/Downloads/notes3.txt" "$Universal_home/Downloads/todo.txt" "$Universal_home/Downloads/work-todo.txt" "$Universal_home/Downloads/work-notes.txt" "$Universal_home/Downloads/todo.org" "$Universal_home/Downloads/clear these doubts.txt")
 	
 	echo "pwd= $(pwd)"
 	if [ -z "$1" ]; then
@@ -290,9 +290,9 @@ function advgrep() {
 			else
 				ext=".*\.\($2\)"
 				case "$2" in
-				"code"                 ) ext=".*\.\(txt\|py\|ini\|java\|ahk\|sh\|c\|cpp\)";;
+				"code"                 ) ext=".*\.\(txt\|org\|py\|ini\|java\|ahk\|sh\|c\|cpp\)";;
 				
-			   "common"  ) ext=".*\.\(txt\)";;
+			   "common"  ) ext=".*\.\(txt\|org\)";;
 
 				esac
 				
@@ -316,7 +316,8 @@ function advgrep() {
 				echo "using find cmd"
 					for pattern in "${files[@]}"; do
 							# echo "$pattern"
-						  # echo "${pattern%/*}     ${pattern##*/}"
+						  echo "${pattern%/*}     ${pattern##*/}"
+
 							lfind  "${pattern%/*}"  -iregex $ext -iname "${pattern##*/}" -type f -exec grep -PrnIi $search_term --color=auto {} /dev/null \;
 					done
 				# fi

@@ -20,13 +20,13 @@
 ;; normal state shortcuts
 (evil-define-key 'normal org-mode-map
   "gh" 'outline-up-heading
-  "gp" 'outline-previous-heading
+  
   "gj" (if (fboundp 'org-forward-same-level) ;to be backward compatible with older org version
-	   'org-forward-same-level
-	  'org-forward-heading-same-level)
+	   'org-forward-same-level  'org-forward-heading-same-level)
   "gk" (if (fboundp 'org-backward-same-level)
-	   'org-backward-same-level
-	  'org-backward-heading-same-level)
+	   'org-backward-same-level 'org-backward-heading-same-level)
+
+  "go" 'outline-previous-heading
   "gl" 'outline-next-visible-heading
   "t" 'org-todo
   "T" '(lambda () (interactive) (evil-org-eol-call (lambda() (org-insert-todo-heading nil))))

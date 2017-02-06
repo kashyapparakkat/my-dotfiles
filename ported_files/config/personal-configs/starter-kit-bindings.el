@@ -132,7 +132,6 @@
 (define-key evil-normal-state-map (kbd "M-,") 'beginning-of-buffer)
 (define-key evil-normal-state-map (kbd "M-.") 'end-of-buffer)
 
-
  ; TODO explore elisp-slime-nav
 (global-set-key (kbd "M->") 'elisp-slime-nav-find-elisp-thing-at-point)
 
@@ -148,6 +147,11 @@
 
  ;; Align your code in a pretty way.
 (global-set-key (kbd "C-x \\") 'align-regexp)
+
+;; TODO check Xah-lee.... run for F8
+(global-set-key (kbd "<F8>") 'quickrun)
+(global-set-key (kbd "<M-F8>") 'quickrun-region)
+(global-set-key (kbd "<C-F8>") 'helm-quickrun)
 
 
 
@@ -265,6 +269,27 @@
 (global-set-key (kbd "C-=") 'er/expand-region)
 ; TODO "t" was something else
 (define-key evil-normal-state-map "t" 'er/expand-region)
+
+
+
+(global-set-key (kbd "M-a") 'mark-whole-buffer)
+(global-set-key (kbd "C-\\") 'highlight-symbol-at-point)
+(global-set-key (kbd "M-R") 'toggle-window-split)
+(global-set-key (kbd "M-f") 'split-window-right-and-move-there)
+(global-set-key (kbd "M-F") 'split-window-below-and-move-there)
+;(global-set-key (kbd "M-w") 'quit-window)
+; (global-set-key (kbd "M-W") 'only-current-buffer)
+
+;;; normal
+(define-key evil-normal-state-map " m" 'evil-jump-item)
+(define-key evil-normal-state-map ",," 'evil-buffer)
+(define-key evil-normal-state-map "-" 'delete-other-windows)
+(define-key evil-normal-state-map "b" 'ido-switch-buffer)
+(define-key evil-normal-state-map "B" 'ibuffer)
+(define-key evil-normal-state-map "Y" 'copy-to-end-of-line)
+
+
+
 
 (global-set-key "\M-q" (lambda () (interactive) (kill-this-buffer)(delete-window)))
 (define-key evil-normal-state-map "q" (lambda () (interactive) (kill-this-buffer)(delete-window)))

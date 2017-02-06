@@ -49,3 +49,22 @@ fa dani mp danie
 exit
 cat build.gradle | awk '{$1=$1};1'| grep -i "compile "| sed -e "s/^compile //Ig" -e "s/^testCompile //Ig"| sed -e "s/\/\/.*//g"| sed -e "s/files(.*//g"| grep -v ^$| tr -d "'"| sed -e "s/\([-_[:alnum:]\.]*\):\([-_[:alnum:]\.]*\):\([-+_[:alnum:]\.]*\)/<dependency>\n\t<groupId>\1<\/groupId>\n\t<artifactId>\2<\/artifactId>\n\t<version>\3<\/version>\n<\/dependency>/g"
 exit
+gn begin
+gn BEGIN
+gn zodia
+fa virtu
+fa virt exe wind
+fa virt exe win
+fa virt exe win 4
+fa virt exe win 4 5
+fa virt exe win 4 1
+gn zodia
+exit
+gn begin
+exit
+gn begin
+exit
+gn begin
+gn zod
+gn ac zo
+exit

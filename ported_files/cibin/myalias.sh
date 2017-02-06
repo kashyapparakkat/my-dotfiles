@@ -20,7 +20,8 @@ alias fhhh='pcfind hhh live' # recurse here only 2 levels
 alias fhhhh='pcfind hhhh live' # recurse here only 2 levels
 
 alias g='advgrep'
-alias gn='advgrep notes txt'
+alias gn='advgrep notes'
+alias gnc='advgrep notes common'
 alias gat='advgrep all txt'
 
 
@@ -172,14 +173,6 @@ alias httpdtest='sudo /usr/sbin/apachectl -t && /usr/sbin/apachectl -t -D DUMP_V
 
 ## this one saved by butt so many times ##
 alias wget='wget -c'
-
-
-
-
-
-
-
-
 
 
 

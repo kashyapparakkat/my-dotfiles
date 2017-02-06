@@ -178,6 +178,7 @@ global is_pre_spc = 0
 delete_char() {
 	Send {Del}
 	global is_pre_spc = 0
+	Send {Ctrl Up}
 	Return
 }
 

@@ -545,5 +545,11 @@ there's a region, all lines that region covers will be duplicated."
 (add-hook 'find-file-hook 'buttonize-buffer)   ; uncomment to add to find file
 
 
-(provide 'more-custom-functions)
 
+
+
+(setq highlight-indent-guides-method 'character)
+
+ (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+	 
+(provide 'more-custom-functions)
