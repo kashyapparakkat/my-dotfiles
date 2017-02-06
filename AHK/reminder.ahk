@@ -4,13 +4,27 @@
 Menu, Tray, Icon, Shell32.dll, 37
 #SingleInstance force 
 settimer, reminder, 1200000
-; settimer, reminder, -1200
+; settimer, reminder, 1200
 ; settimer, Battery_Check, 1200000
 ; settimer,scheduler,-1 
 settimer,scheduler,600000
 #include LIB\misc functions.ahk
-
+; gosub,help_tips
 count:=0	;every alternate count triggers monitor off
+
+;; help_tips
+text=
+; msgbox,%help_tips_file%
+iniread,help_tips_file,running_all_settings.ini,paths,help_tips_file
+loop,parse,help_tips_file,`,
+{
+; msgbox,%a_loopfield%
+	FileRead, tmp_text, %a_loopfield%
+	text .= "`n" . tmp_text
+}
+help_tips_file_combined =running_help_tips_file_combined.db
+Filedelete,%help_tips_file_combined%
+Fileappend,%text%,%help_tips_file_combined%
 
 Gui, +AlwaysOnTop   border -caption
 gui,font,s35
@@ -96,13 +110,12 @@ return
 
 help_tips:
 
-	iniread,help_tips_file,running_all_settings.ini,paths,help_tips_file
-	FileRead, text, %help_tips_file%
-	; msgbox,%help_tips_file%
+Fileread,text,%help_tips_file_combined%
 	max := no_of_lines(text)
+	; msgbox,%text%
 
 	Random, rand_no ,0 ,Max
-	FileReadLine, text, %help_tips_file% , %rand_no%
+	FileReadLine, text, %help_tips_file_combined% , %rand_no%
 	guicontrol,,tips_text,%text%
 
 return

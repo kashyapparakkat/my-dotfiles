@@ -35,7 +35,8 @@ keyBoard_mode=1
 
 #include C:\cbn_gits\AHK\LIB\json.ahk
 #include C:\cbn_gits\AHK\LIB\emacs_functions.ahk
-
+#include C:\cbn_gits\AHK\LIB\misc functions.ahk
+#include C:\cbn_gits\AHK\LIB\explorer.ahk
 emacs_single_keys=s,h,u
 
 
@@ -710,7 +711,31 @@ return
 Space & enter::
 	send ^{enter}
 return
+#IfWinActive, ahk_class CabinetWClass
+*::
+ControlGet renamestatus,Visible,,Edit1,A
+ControlGetFocus focussed, A
+if(renamestatus!=1 && (focussed=”DirectUIHWND3″||focussed=SysTreeView321))
+{
 
+}
+else
+{
+sleep,222
+; hwnd := hwnd ? hwnd : WinExist("A")
+filepath:=Explorer_GetSelection()
+	sel_msg =
+for item in filepath
+	sel_msg .= item.path "`n"
+; filepath := get_current_filepath_from_active_window()
+msgbox, %sel_msg%
+parent_filepath:=get_parent_filepath()
+Runwait, %comspec% /c ""C:/Users/cibin/Downloads/7z1604-extra/7za.exe" e "%sel_msg%"","%parent_filepath%",
+
+}
+return
+
+#IfWinActive
 ; http://www.howtogeek.com/howto/8955/make-backspace-in-windows-7-or-vista-explorer-go-up-like-xp-did/
 #IfWinActive, ahk_class CabinetWClass
 Backspace::

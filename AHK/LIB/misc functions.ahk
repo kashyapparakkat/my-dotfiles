@@ -301,31 +301,20 @@ return line
 getSelectedFile() {   ; GetSelectedText or FilePath in Windows Explorer  by Learning one 
 
 	IsClipEmpty := (Clipboard = "") ? 1 : 0
-
 	if !IsClipEmpty {
-
 		ClipboardBackup := ClipboardAll
-
 		While !(Clipboard = "") {
-
 			Clipboard =
-
 			Sleep, 10
-
 		}
-
 	}
-
 	Send, ^c
-
 	ClipWait, 0.1
-
+	msgbox,%clipboard%
 	ToReturn := Clipboard, Clipboard := ClipboardBackup
-
 	if !IsClipEmpty
-
-	ClipWait, 0.5, 1
-
+		ClipWait, 0.5, 1
+		; msgbox,%ToReturn%
 	Return ToReturn
 
 }
@@ -395,6 +384,7 @@ get_selected_filepath()	; if selected_file=0 find path of parent
 	{
 	
 		selText:=getSelectedFile()
+
 	
 	/*
 		clip:=clipboard
@@ -428,7 +418,8 @@ get_selected_filepath()	; if selected_file=0 find path of parent
 	}
 	stringreplace,selText,selText,\\,\,all
 	stringreplace,selText,selText,\,/,all
-return selText
+	return selText
+
 } 
 
 
@@ -470,6 +461,7 @@ get_current_filepath_from_active_window()
 	{
 		; filepath:=GetFolder()	
 		filepath:=get_selected_filepath()	
+		; msgbox,%filepath%
 	}
 	else if (WinActive("ahk_class dopus.lister"))
 	{
@@ -483,8 +475,8 @@ get_current_filepath_from_active_window()
 		sleep,50
 		filepath:=clipboard
 		sleep,50
-		clipboard:=clip			return
-		; msgbox,%selText%
+		clipboard:=clip			
+		return
 	}
 	stringreplace,filepath,filepath,\\,\,all
 	stringreplace,filepath,filepath,\,/,all

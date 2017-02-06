@@ -133,10 +133,7 @@ send_key(HK)
 	{
 		key := HK
 		modifier=
-	}
-	
-
-	
+	}	
 	
 	; msgbox,m %modifier% k%key%
 	send,%modifier%%key%

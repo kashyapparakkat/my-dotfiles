@@ -3295,9 +3295,10 @@ else
 
 
 ONCLIPBOARDCHANGE:
+
 if (MC_OwnChange)		  ; Ignore the change if we made it ourself, or if the clipboard doesn't
 	return
-
+; msgbox,%MC_Clip1%|||||%clipboard%
 	try {
 		DllCall("OpenClipboard", "int", "")
 		DllCall("CloseClipboard")
@@ -3353,7 +3354,7 @@ add_to_hist:
 		}
 	}
 	StringCaseSense on
-	; msgbox,%clipboard%
+	; msgbox,%MC_Clip1%|||||%clipboard%
  If  (MC_Clip1==Clipboard)
 	{		
 		; sleep,30
