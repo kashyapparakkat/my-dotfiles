@@ -1,9 +1,0 @@
-f7 is split
-gv reselect
- "vo" 'evil-visual-line)
-yy copy current line
-				
-"M-D")  'xah-shrink-whitespaces)
-
-use client to open with emacs context menu
-https://www.emacswiki.org/emacs/MsWindowsGlobalContextMenu

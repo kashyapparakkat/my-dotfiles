@@ -1,2 +1,0 @@
-;; auto-install
-(auto-install-from-url "https://raw.github.com/m2ym/popwin-el/master/popwin.el")
