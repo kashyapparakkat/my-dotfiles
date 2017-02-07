@@ -563,8 +563,8 @@ This command does not push text to `kill-ring'."
 
 
 
-(setq highlight-indent-guides-method 'character)
+; (setq highlight-indent-guides-method 'character)
 
- (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+ ; (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 	 
 (provide 'more-custom-functions)
