@@ -519,6 +519,21 @@ there's a region, all lines that region covers will be duplicated."
 (global-set-key (kbd "M-d") 'my-backward-kill-word) 
 ; ----(global-set-key (kbd "M-d") 'my-backward-kill-word) 
 
+(defun cbn-delete-char (arg)
+  "Delete characters forward until encountering the end of a word.
+With argument, do this that many times.
+This command does not push text to `kill-ring'."
+
+
+; TODO backspace, but delete if at end of file
+  (interactive "p")
+  (delete-region
+   (point)
+   (progn
+     (forward-char arg)
+     (point))))
+
+(define-key evil-normal-state-map (kbd "x") 'cbn-delete-char)
 
 
 ; Clickable file,url links

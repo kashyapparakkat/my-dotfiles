@@ -149,9 +149,9 @@
 (global-set-key (kbd "C-x \\") 'align-regexp)
 
 ;; TODO check Xah-lee.... run for F8
-(global-set-key (kbd "<F8>") 'quickrun)
-(global-set-key (kbd "<M-F8>") 'quickrun-region)
-(global-set-key (kbd "<C-F8>") 'helm-quickrun)
+(global-set-key (kbd "<f8>") 'quickrun)
+(global-set-key (kbd "<M-f8>") 'quickrun-region)
+(global-set-key (kbd "<C-f8>") 'helm-quickrun)
 
 
 
