@@ -9,18 +9,7 @@
 ;; prevent demoting heading also shifting text inside sections
 (setq org-adapt-indentation nil)
 
-(with-eval-after-load 'org
-    
-	(define-key org-mode-map (kbd "M-r") 'org-toggle-heading)
-	
-	) 
-(use-package org-bullets
-  :init
-  (setq org-bullets-bullet-list '("●" "•" "▪" "►" "♦" "■" "○" ))
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-)
-
-
+(define-key org-mode-map (kbd "M-r") 'org-toggle-heading)
 
 (global-set-key (kbd "C-c o") 
                 (lambda () (interactive) (find-file "~/organizer.org")))

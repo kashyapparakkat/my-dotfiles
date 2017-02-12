@@ -275,8 +275,7 @@
 (global-set-key (kbd "M-a") 'mark-whole-buffer)
 (global-set-key (kbd "C-\\") 'highlight-symbol-at-point)
 (global-set-key (kbd "M-R") 'toggle-window-split)
-
-; TODO ; (global-set-key (kbd "M-f") 'split-window-right-and-move-there)
+(global-set-key (kbd "M-f") 'split-window-right-and-move-there)
 (global-set-key (kbd "M-F") 'split-window-below-and-move-there)
 ;(global-set-key (kbd "M-w") 'quit-window)
 ; (global-set-key (kbd "M-W") 'only-current-buffer)

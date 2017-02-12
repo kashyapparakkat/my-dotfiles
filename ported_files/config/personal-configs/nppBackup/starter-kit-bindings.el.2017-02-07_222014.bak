@@ -149,9 +149,9 @@
 (global-set-key (kbd "C-x \\") 'align-regexp)
 
 ;; TODO check Xah-lee.... run for F8
-(global-set-key (kbd "<f8>") 'quickrun)
-(global-set-key (kbd "<M-f8>") 'quickrun-region)
-(global-set-key (kbd "<C-f8>") 'helm-quickrun)
+(global-set-key (kbd "<F8>") 'quickrun)
+(global-set-key (kbd "<M-F8>") 'quickrun-region)
+(global-set-key (kbd "<C-F8>") 'helm-quickrun)
 
 
 
@@ -275,8 +275,7 @@
 (global-set-key (kbd "M-a") 'mark-whole-buffer)
 (global-set-key (kbd "C-\\") 'highlight-symbol-at-point)
 (global-set-key (kbd "M-R") 'toggle-window-split)
-
-; TODO ; (global-set-key (kbd "M-f") 'split-window-right-and-move-there)
+(global-set-key (kbd "M-f") 'split-window-right-and-move-there)
 (global-set-key (kbd "M-F") 'split-window-below-and-move-there)
 ;(global-set-key (kbd "M-w") 'quit-window)
 ; (global-set-key (kbd "M-W") 'only-current-buffer)

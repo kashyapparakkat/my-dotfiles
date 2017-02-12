@@ -311,6 +311,12 @@ If the new path's directories does not exist, create them."
 (define-key evil-insert-state-map "\C-r" 'search-backward)
 (define-key evil-visual-state-map "\C-w" 'evil-delete)
    
+(define-key evil-normal-state-map (kbd "C-e") 'evil-end-of-line)
+(define-key evil-normal-state-map (kbd "C-a") 'smart-line-beginning)
+
+(global-set-key (kbd "C-e") 'evil-end-of-line)
+(global-set-key (kbd "C-a") 'smart-line-beginning)
+(global-set-key [home] 'smart-line-beginning)
 
 ;	
 (use-package elpy

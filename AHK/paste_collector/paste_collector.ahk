@@ -4017,9 +4017,14 @@ SEARCH(gui_number)
 
 	GuiControl, %gui_number%:  Show, ResultList_567
 	FilesMatch=0
-	SchStr=i)%SchStr%
+	; tooltip,%SchStr%
+	; sleep,500
+	newSchStr=i)^%SchStr%
+	newSchStr2=i)%SchStr%
 	matchlist=
 	tot_chars_searched:=0
+	result2=
+	result1=
 	Loop %tot_search_items% 
 	{
 		; allclips.=   "`n" . MC_Clip%A_Index%		
@@ -4037,16 +4042,37 @@ SEARCH(gui_number)
 		search_index:=a_index
 		loop,parse,all,`n,`r
 		{
-			if RegExMatch(a_loopfield,SchStr)
+			; sort those entries beginning with the input term
+			if RegExMatch(a_loopfield,newSchStr)
 			{
 				stringleft,a,all,100
 				stringleft,b,A_LoopField,50
 				stringreplace,a,a,`n,%A_space%%A_space%,all
-				LV_Add("",search_index,b,a,a_index)
+				result1 .= a . "`n"
+				LV_Add("",search_index,b,a_loopfield,a_index)
+			}
+			else if RegExMatch(a_loopfield,newSchStr2)
+			{
+				
+				stringleft,a,all,100
+				stringleft,b,A_LoopField,50
+				stringreplace,a,a,`n,%A_space%%A_space%,all
+				result2 .= a . "`n"
+			
 			}
 		}		
 	}
+	stringtrimright,result1,result1,1
+	stringtrimright,result2,result2,1
 	
+	; all_results := result1 
+	all_results=
+	if (result2<>"")
+		all_results .= "`n" . result2
+	loop,parse,all_results,`n
+	{
+		LV_Add("","search_index","b",a_loopfield,"a_index")
+	}
 	tot_chars_searched=
 ;============;;
 STOPSEARCH:  ;;

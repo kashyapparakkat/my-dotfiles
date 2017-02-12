@@ -186,8 +186,8 @@ key_combo_h:
   If ( is_pre_x) 
   {
     send ^a
-    is_pre_x = 0
-	
+    is_pre_x = 0	
+	Send {Ctrl Up}
     settimer,removetooltip3,10
     settimer,removetooltip,500
   }
@@ -205,6 +205,8 @@ If ( is_pre_x)
     undo()
     settimer,removetooltip3,-10
     ;tooltip,save
+	
+	Send {Ctrl Up}
     is_pre_x = 0
   }
   Else
@@ -218,6 +220,8 @@ If ( is_pre_x)
     send ^s
     settimer,removetooltip3,10
     settimer,removetooltip,500
+	
+	Send {Ctrl Up}
     tooltip,save
     is_pre_x = 0
   }
