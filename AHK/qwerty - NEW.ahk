@@ -378,6 +378,7 @@ Lalt & q::
 	if WinExist("ahk_class ExploreWClass") or WinExist("ahk_class CabinetWClass") 
 		WinActivate,ahk_exe explorer.exe
 	return
+	
 #ifwinnotactive, ahk_exe emacs.exe
 Lalt & e::
 #ifwinactive

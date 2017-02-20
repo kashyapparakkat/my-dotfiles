@@ -315,6 +315,30 @@ if (A_PriorHotKey = "~*Rshift" AND A_TimeSincePriorHotkey < 300)
 		settimer,checkactive,800
 		
 	}
+	else if(state_a=="D")
+	{
+		if (!gui_ON)
+		{
+			Gui +LastFound
+			SendMessage, ( EM_SETSEL := 0xB1 ), 0, -1, , ahk_id %ED1%	;preselects the text
+			settimer,showGui_animate,-1	
+		}
+		WinSet, Region, 0-23 w500 H35 ;H75 
+		gui_ON:=1
+		SelectedLine=searchInProject
+		stringreplace,keywordChoice_new,keywordChoice_all,||,|
+		stringreplace,keywordChoice_new,keywordChoice_new,%SelectedLine%|,%SelectedLine%||
+		; msgbox,%keywordChoice_new%
+		; guicontrol,,visibleSchStr,
+		guicontrol,,keywordChoice,%keywordChoice_new%
+		SetTimer,search,-1
+		SetTimer, tIncrementalSearch, 500
+
+		sleep,800	;	launch after N ms
+		
+		settimer,checkactive,800
+		
+	}
 	else
 	{
 		if (!gui_ON)
@@ -643,6 +667,12 @@ search:
 			{
 				item:=a_index
 				searchlist1:=lookup_%item%
+				 if (keywordchoice="searchInProject")
+					{
+					recent_windows_and_files()
+					; guicontrol,,Action_button1,run
+					; button1_action=action_smart_action
+					}
 					break
 			}
 		}
@@ -802,7 +832,7 @@ checkactive:
 return
 
 DYNAMIC_ACTIONS:
-
+; msgbox,%source_Filename%
 	if keywordchoice<>
 	{
 		match_line_type:=keywordchoice
@@ -880,6 +910,7 @@ DYNAMIC_ACTIONS:
 		button3_action=nil
 		button4_action=nil
 		}
+	
 	else if (match_line_type="read")
 	{
 		guicontrol,,Action_button1,read
@@ -941,7 +972,7 @@ DYNAMIC_ACTIONS:
 		{
 			LV_GetText(SelectedLine, LV_GetNext(0))
 			match_line_type:=determine_text(SelectedLine)
-
+; msgbox,%match_line_type%
 			if (match_line_type="file_folder")
 			{
 				guicontrol,,Action_button2,OPEN
@@ -1411,6 +1442,7 @@ GUI_ID3:=WinExist()
 return
 
 DefAction:
+	; msgbox,%button1_action%
 	gosub,%button1_action%
 
 /*
@@ -1594,6 +1626,12 @@ Enter::	; na
 		gosub, DefAction
 		; else
 	}
+return
+
+!Enter::	; na
+	Gui , Submit
+	; msgbox,%Action_button2%
+	gosub , %button2_action%
 return
 
 >+Enter::	; na
@@ -2621,6 +2659,7 @@ keyword_search()
 		}
 	}
 }
+
 recent_windows_and_files()
 {
 	global

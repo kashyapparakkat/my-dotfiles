@@ -4065,8 +4065,9 @@ SEARCH(gui_number)
 	stringtrimright,result1,result1,1
 	stringtrimright,result2,result2,1
 	
-	; all_results := result1 
 	all_results=
+	if (result1<>"")
+		all_results := result1 
 	if (result2<>"")
 		all_results .= "`n" . result2
 	loop,parse,all_results,`n

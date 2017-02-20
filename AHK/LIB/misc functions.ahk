@@ -310,7 +310,7 @@ getSelectedFile() {   ; GetSelectedText or FilePath in Windows Explorer  by Lear
 	}
 	Send, ^c
 	ClipWait, 0.1
-	msgbox,%clipboard%
+	; msgbox,%clipboard%
 	ToReturn := Clipboard, Clipboard := ClipboardBackup
 	if !IsClipEmpty
 		ClipWait, 0.5, 1
@@ -438,6 +438,7 @@ get_current_filepath_from_active_window()
     }
 	else ifWinActive , - Notepad++ 
    {
+    ; msgbox,adsfasdf
       ifWinActive, - Notepad++ [Administrator]
 		StringTrimRight, filepath, Title, 28
 	  else
@@ -480,7 +481,7 @@ get_current_filepath_from_active_window()
 	}
 	stringreplace,filepath,filepath,\\,\,all
 	stringreplace,filepath,filepath,\,/,all
-    return filepath
+	return filepath
 	  
 }
 suspend_if_VMwareHorizonClient()

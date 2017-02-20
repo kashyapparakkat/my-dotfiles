@@ -171,6 +171,7 @@ menuEvent_function(MenuItem,FileFullpath,params="")
 			;if folder ,open in opus
 			if (dopus_installed)
 			{
+						
 				run, "C:\Program Files\GPSoftware\Directory Opus\dopusrt.exe" /CMD Go PATH %Filex% 
 				winactivate,ahk_class dopus.lister
 			}
@@ -181,7 +182,8 @@ menuEvent_function(MenuItem,FileFullpath,params="")
 			}
 			else
 			{
-				run,explorer %Filex%				
+				; run,explorer %Filex%
+				openPath_ActivateIfExists(Filex)				
 			}
 		}
 		else If ( FileExist(FileFullpath))
@@ -385,3 +387,20 @@ returnLastError() {
 }
 
 	
+
+	
+openPath_ActivateIfExists(Path)
+{
+	IfWinExist, %Path%
+	{
+		stringreplace,Path,Path,",All
+		WinActivate, %Path%
+		return "Folder was activated."
+	}
+	if (!FileExist(Path))
+		return "Folder does not exist."
+	Run explorer.exe %Path%,, UseErrorLevel
+	if (ErrorLevel)
+		msgbox "Run failed."
+return "Folder was opened."
+}
