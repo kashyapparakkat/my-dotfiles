@@ -141,6 +141,7 @@
 (global-set-key (kbd "M-J") 'pull-next-line)
 (global-set-key (kbd "C-;") 'comment-line)
 (global-set-key (kbd "C-x C-;") 'comment-or-uncomment-region)
+(global-set-key (kbd "C-c C-b") 'xah-make-backup-and-save)
 
 ;; You know, like Readline.
 (global-set-key (kbd "C-M-h") 'backward-kill-word)
@@ -291,7 +292,11 @@
 
 
 
-
+; f4/C-x 0=kill buffer
+; C-x 0/q/M-q=kill buffer & remove window
+; Q/M-Q=maximize/minimize
+; C-q
+(global-set-key (kbd "<f4>") (lambda () (interactive) (kill-this-buffer)))
 (global-set-key "\M-q" (lambda () (interactive) (kill-this-buffer)(delete-window)))
 (define-key evil-normal-state-map "q" (lambda () (interactive) (kill-this-buffer)(delete-window)))
 

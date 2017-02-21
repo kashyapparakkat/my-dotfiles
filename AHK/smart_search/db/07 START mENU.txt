@@ -1,0 +1,134 @@
+Notepad++.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Notepad++\Notepad++.lnk
+Cisco Jabber.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Cisco Jabber\Cisco Jabber.lnk
+Cisco Jabber Problem Report.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Cisco Jabber\Cisco Jabber Problem Report.lnk
+Google Chrome.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Google Chrome\Google Chrome.lnk
+Python for Windows Documentation.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Python 2.7\Python for Windows Documentation.lnk
+PythonWin.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Python 2.7\PythonWin.lnk
+VLC media player - reset preferences and cache files.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\VideoLAN\VLC media player - reset preferences and cache files.lnk
+VideoLAN Website.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\VideoLAN\VideoLAN Website.lnk
+Release Notes.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\VideoLAN\Release Notes.lnk
+Documentation.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\VideoLAN\Documentation.lnk
+VLC media player skinned.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\VideoLAN\VLC media player skinned.lnk
+VLC media player.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\VideoLAN\VLC media player.lnk
+Sublime Text 3.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Sublime Text 3.lnk
+Convert .ahk to .exe.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\AutoHotkey\Convert .ahk to .exe.lnk
+AutoHotkey Setup.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\AutoHotkey\AutoHotkey Setup.lnk
+Website.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\AutoHotkey\Website.lnk
+AutoHotkey Help File.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\AutoHotkey\AutoHotkey Help File.lnk
+AutoIt3 Window Spy.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\AutoHotkey\AutoIt3 Window Spy.lnk
+AutoHotkey.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\AutoHotkey\AutoHotkey.lnk
+Uninstall PyQt.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PyQt GPL v4.11.4 for Python v2.7 (x32)\Uninstall PyQt.lnk
+eric Homepage.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PyQt GPL v4.11.4 for Python v2.7 (x32)\Links\eric Homepage.lnk
+Qwt Homepage.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PyQt GPL v4.11.4 for Python v2.7 (x32)\Links\Qwt Homepage.lnk
+PyQwt Homepage.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PyQt GPL v4.11.4 for Python v2.7 (x32)\Links\PyQwt Homepage.lnk
+QScintilla Homepage.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PyQt GPL v4.11.4 for Python v2.7 (x32)\Links\QScintilla Homepage.lnk
+Qt Homepage.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PyQt GPL v4.11.4 for Python v2.7 (x32)\Links\Qt Homepage.lnk
+PyQt Homepage.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PyQt GPL v4.11.4 for Python v2.7 (x32)\Links\PyQt Homepage.lnk
+PyQt Book.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PyQt GPL v4.11.4 for Python v2.7 (x32)\Links\PyQt Book.lnk
+PyQt Examples Source.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PyQt GPL v4.11.4 for Python v2.7 (x32)\Examples\PyQt Examples Source.lnk
+PyQt Examples and Demos.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PyQt GPL v4.11.4 for Python v2.7 (x32)\Examples\PyQt Examples and Demos.lnk
+Qt Documentation.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PyQt GPL v4.11.4 for Python v2.7 (x32)\Documentation\Qt Documentation.lnk
+PyQt Class Reference.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PyQt GPL v4.11.4 for Python v2.7 (x32)\Documentation\PyQt Class Reference.lnk
+PyQt Reference Guide.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PyQt GPL v4.11.4 for Python v2.7 (x32)\Documentation\PyQt Reference Guide.lnk
+Linguist.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PyQt GPL v4.11.4 for Python v2.7 (x32)\Linguist.lnk
+Designer.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PyQt GPL v4.11.4 for Python v2.7 (x32)\Designer.lnk
+Assistant.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PyQt GPL v4.11.4 for Python v2.7 (x32)\Assistant.lnk
+VMware Horizon Client.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\VMware\VMware Horizon Client.lnk
+Uninstall Python.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Python 2.7\Uninstall Python.lnk
+Python Manuals.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Python 2.7\Python Manuals.lnk
+Module Docs.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Python 2.7\Module Docs.lnk
+IDLE (Python GUI).lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Python 2.7\IDLE (Python GUI).lnk
+Python (command line).lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Python 2.7\Python (command line).lnk
+Network Recording Player.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\WebEx\Network Recording Player\Network Recording Player.lnk
+Adobe Reader XI.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Adobe Reader XI.lnk
+Windows Media Player.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Windows Media Player.lnk
+VirusScan Console.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\McAfee\VirusScan Console.lnk
+On-Demand Scan.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\McAfee\On-Demand Scan.lnk
+On-Access Scan.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\McAfee\On-Access Scan.lnk
+Windows PowerShell ISE (x86).lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessories\Windows PowerShell\Windows PowerShell ISE (x86).lnk
+Windows PowerShell ISE.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessories\Windows PowerShell\Windows PowerShell ISE.lnk
+Windows PowerShell.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessories\Windows PowerShell\Windows PowerShell.lnk
+Windows PowerShell (x86).lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessories\Windows PowerShell\Windows PowerShell (x86).lnk
+WinZip 18.5.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\WinZip\WinZip 18.5.lnk
+Configure Java.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Java\Configure Java.lnk
+Check For Updates.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Java\Check For Updates.lnk
+About Java.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Java\About Java.lnk
+Get Help.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Java\Get Help.lnk
+Visit Java.com.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Java\Visit Java.com.lnk
+WebEx Settings.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\WebEx\Productivity Tools\WebEx Settings.lnk
+Uninstall.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\WebEx\Productivity Tools\Uninstall.lnk
+WebEx One-Click.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\WebEx\Productivity Tools\WebEx One-Click.lnk
+Help.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\WebEx\Productivity Tools\Help.lnk
+Microsoft Word 2010.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft Office\Microsoft Word 2010.lnk
+Microsoft Publisher 2010.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft Office\Microsoft Publisher 2010.lnk
+Microsoft PowerPoint 2010.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft Office\Microsoft PowerPoint 2010.lnk
+Microsoft Outlook 2010.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft Office\Microsoft Outlook 2010.lnk
+Microsoft OneNote 2010.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft Office\Microsoft OneNote 2010.lnk
+Microsoft InfoPath Designer 2010.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft Office\Microsoft InfoPath Designer 2010.lnk
+Microsoft InfoPath Filler 2010.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft Office\Microsoft InfoPath Filler 2010.lnk
+Microsoft SharePoint Workspace 2010.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\SharePoint\Microsoft SharePoint Workspace 2010.lnk
+Microsoft SharePoint Workspace 2010.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft Office\Microsoft SharePoint Workspace 2010.lnk
+Microsoft Excel 2010.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft Office\Microsoft Excel 2010.lnk
+Microsoft Access 2010.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft Office\Microsoft Access 2010.lnk
+Microsoft Office 2010 Language Preferences.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft Office\Microsoft Office 2010 Tools\Microsoft Office 2010 Language Preferences.lnk
+Microsoft Office Picture Manager.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft Office\Microsoft Office 2010 Tools\Microsoft Office Picture Manager.lnk
+Microsoft Office 2010 Upload Center.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft Office\Microsoft Office 2010 Tools\Microsoft Office 2010 Upload Center.lnk
+Digital Certificate for VBA Projects.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft Office\Microsoft Office 2010 Tools\Digital Certificate for VBA Projects.lnk
+Microsoft Clip Organizer.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft Office\Microsoft Office 2010 Tools\Microsoft Clip Organizer.lnk
+Cisco AnyConnect Diagnostics and Reporting Tool.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Cisco\Cisco AnyConnect Secure Mobility Client\Cisco AnyConnect Diagnostics and Reporting Tool.lnk
+Cisco AnyConnect Secure Mobility Client.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Cisco\Cisco AnyConnect Secure Mobility Client\Cisco AnyConnect Secure Mobility Client.lnk
+Mozilla Firefox.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Mozilla Firefox.lnk
+Microsoft Silverlight.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft Silverlight\Microsoft Silverlight.lnk
+Power Manager.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Lenovo ThinkVantage Tools\Power Manager.lnk
+Software Center.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft System Center 2012 R2\Configuration Manager\Software Center.lnk
+Security Configuration Management.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Administrative Tools\Security Configuration Management.lnk
+Media Center.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Media Center.lnk
+Embedded Lockdown Manager.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Administrative Tools\Embedded Lockdown Manager.lnk
+Embedded Lockdown Manager.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Embedded Lockdown Manager\Embedded Lockdown Manager.lnk
+Math Input Panel.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessories\Math Input Panel.lnk
+Sticky Notes.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessories\Sticky Notes.lnk
+Windows Journal.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessories\Tablet PC\Windows Journal.lnk
+ShapeCollector.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessories\Tablet PC\ShapeCollector.lnk
+Windows DVD Maker.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Windows DVD Maker.lnk
+Mobility Center.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessories\Mobility Center.lnk
+Snipping Tool.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessories\Snipping Tool.lnk
+TabTip.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessories\Tablet PC\TabTip.lnk
+NetworkProjection.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessories\NetworkProjection.lnk
+Remote Desktop Connection.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessories\Remote Desktop Connection.lnk
+Print Management.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Administrative Tools\Print Management.lnk
+Bluetooth File Transfer Wizard.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessories\Bluetooth File Transfer Wizard.lnk
+Component Services.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Administrative Tools\Component Services.lnk
+Welcome Center.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessories\Welcome Center.lnk
+Windows Easy Transfer Reports.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessories\System Tools\Windows Easy Transfer Reports.lnk
+Windows Easy Transfer.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessories\System Tools\Windows Easy Transfer.lnk
+Remote Assistance.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Maintenance\Remote Assistance.lnk
+Sound Recorder.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessories\Sound Recorder.lnk
+XPS Viewer.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\XPS Viewer.lnk
+Sidebar.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Sidebar.lnk
+Backup and Restore Center.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Maintenance\Backup and Restore Center.lnk
+Speech Recognition.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessories\Accessibility\Speech Recognition.lnk
+Create Recovery Disc.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Maintenance\Create Recovery Disc.lnk
+Character Map.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessories\System Tools\Character Map.lnk
+Calculator.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessories\Calculator.lnk
+GameExplorer.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Games\GameExplorer.lnk
+Windows Fax and Scan.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Windows Fax and Scan.lnk
+Disk Cleanup.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessories\System Tools\Disk Cleanup.lnk
+Wordpad.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessories\Wordpad.lnk
+Sync Center.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessories\Sync Center.lnk
+System Restore.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessories\System Tools\System Restore.lnk
+Paint.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessories\Paint.lnk
+Task Scheduler.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessories\System Tools\Task Scheduler.lnk
+Task Scheduler.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Administrative Tools\Task Scheduler.lnk
+Event Viewer.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Administrative Tools\Event Viewer.lnk
+dfrgui.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessories\System Tools\dfrgui.lnk
+displayswitch.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessories\displayswitch.lnk
+iSCSI Initiator.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Administrative Tools\iSCSI Initiator.lnk
+Computer Management.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Administrative Tools\Computer Management.lnk
+services.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Administrative Tools\services.lnk
+Windows Firewall with Advanced Security.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Administrative Tools\Windows Firewall with Advanced Security.lnk
+Data Sources (ODBC).lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Administrative Tools\Data Sources (ODBC).lnk
+Resource Monitor.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessories\System Tools\Resource Monitor.lnk
+Performance Monitor.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Administrative Tools\Performance Monitor.lnk
+System Information.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessories\System Tools\System Information.lnk
+System Configuration.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Administrative Tools\System Configuration.lnk
+Memory Diagnostics Tool.lnk ; C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Administrative Tools\Memory Diagnostics Tool.lnk

@@ -90,8 +90,8 @@
     (lambda () (delete-windows-on "*Completions*")))))
 
 ;; run a few shells.
-(shell "*shell5*")
-(shell "*shell6*")
+; (shell "*shell5*")
+; (shell "*shell6*")
 (shell "*shell7*")
 
 ; C-5, 6, 7 to switch to shells
@@ -101,3 +101,25 @@
   (lambda () (interactive) (switch-to-buffer "*shell6*")))
 (global-set-key [(control \7)]
   (lambda () (interactive) (switch-to-buffer "*shell7*")))
+  
+  
+; Running a shell command on current file
+
+; TODO for dired also http://stackoverflow.com/questions/10121944/passing-emacs-variables-to-minibuffer-shell-commands
+
+; In vim, it's pretty common to run commands like 
+; :!gcc % 
+; It's pretty simple and the syntax is really easy to remember, ":" for command mode, "!" to run something, and in the command "%" will be replaced by your filename. 
+
+(defun shell-execute ()
+; http://puntoblogspot.blogspot.in/2013/04/running-shell-command-on-current-file.html
+	(interactive)
+	(let ((file-buffer (or (buffer-file-name) ""))
+	(command (read-shell-command "Shell command: " nil nil nil)))
+	(shell-command (replace-regexp-in-string "%" file-buffer command))))
+; todo check if hk needs a change
+(global-set-key (kbd "M-!") 'shell-execute)
+
+
+
+(global-set-key (kbd "<f1>") 'shell-here)

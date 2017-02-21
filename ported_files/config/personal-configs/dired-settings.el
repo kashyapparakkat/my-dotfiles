@@ -43,6 +43,10 @@
 ; (setq ls-lisp-use-insert-directory-program t)      ;; use external ls
 ; (setq insert-directory-program "c:/cygwin64/bin/ls.exe") ;; ls program name
 
+
+
+(global-set-key (kbd "<f6>") 'dired)
+
 (use-package dired
  
   :config
@@ -52,7 +56,8 @@
 ; https://www.emacswiki.org/emacs/NeoTree
 ; refer for more tuts
  (require 'neotree)
-  (global-set-key [f6] 'neotree-toggle)
+ ; TODO set another key if needed
+  ; (global-set-key [f6] 'neotree-toggle)
   
   ; Every time when the neotree window is opened, let it find current file and jump to node.
    (setq neo-smart-open t)

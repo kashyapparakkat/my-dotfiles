@@ -57,8 +57,30 @@
   "-" 'org-cycle-list-bullet
   (kbd "<tab>") 'org-cycle)
 	  
-	   
-	   
-	   
-	   
-	   
+	 (global-set-key (kbd "<f2>") (lambda () (interactive)  (my/org-toggle-heading-and-todo "DONE")))
+(global-set-key (kbd "<S-f2>") (lambda () (interactive)  (my/org-toggle-heading-and-todo "TODO")))
+
+(defun my/org-toggle-heading-and-todo (arg)
+  "Toggles the current line between a non-heading and TODO heading."
+  (interactive)
+
+(let ((is-heading))
+    (save-excursion
+      (forward-line 0)
+      (when (looking-at "^\\*") 
+        (setq is-heading t)))
+    (if is-heading 
+        (progn
+          (org-todo 'none) ; remove TODO
+          (org-toggle-heading) ; remove heading
+        (forward-line))
+      (progn
+        (org-toggle-heading) ; convert to heading
+        (org-todo arg) ; add TODO
+(org-metaleft)
+        (forward-line)
+        ; (forward-line)
+       ; (next-line)
+       )
+        )))
+        ; (org-todo 'nextset)))) ; add TODO

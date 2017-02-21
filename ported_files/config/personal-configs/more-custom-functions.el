@@ -137,7 +137,7 @@
 (defun cibin-search-in-common-files-bash()
 	(interactive)
 	
-	(setq prompt "grepcmd all/common/downs/ahk/notes/here/hhere   common/code/txt   searchTerm: ")
+	(setq prompt "[TODO] grepfilelist_common all/common/downs/ahk/notes/here/hhere   common/code/txt   searchTerm: ")
 	(setq default (format "grepfilelist_common.sh "))
 	(search-handler prompt default)
 	
@@ -151,11 +151,11 @@
   )
 (defun cibin-search-in-files-advgrep-here ()
 	(interactive)
-	
-	(setq prompt "grepcmd all/common/downs/ahk/notes/here/hhere   common/code/txt   searchTerm: ")
+	(setq prompt (format "grepcmd all/common/downs/ahk/notes/here/hhere   common/code/txt   searchTerm: "))
 	; TODO add the current file extension to this
 	(setq file-ext (file-name-extension (buffer-file-name)))
-	(setq default (format "advgrep.sh here %s " file-ext))
+	(setq default (concat "advgrep.sh here " file-ext " " (thing-at-point 'word)))
+	
 	(search-handler prompt default)
 )
 (defun save-related-files-to-disk () 	

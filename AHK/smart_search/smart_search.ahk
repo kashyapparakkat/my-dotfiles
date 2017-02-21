@@ -224,33 +224,35 @@ return
 if (A_PriorHotKey = "~*Lshift" AND A_TimeSincePriorHotkey < 300)
 {	
 ; msgbox,%A_PriorHotKey%
+	GetKeyState, state_a, ALT
 	GetKeyState, state_c, ctrl
-	if (state_c !="D" )
+	
+  show_gui_if_not_shown()
+	if (state_c !="D"  and state_a!="D")
 	{
-		if (!gui_ON)
-		{
-			Gui +LastFound
-			SendMessage, ( EM_SETSEL := 0xB1 ), 0, -1, , ahk_id %ED1%	;preselects the text
-			settimer,showGui_animate,-1	
-		}
 		trigger_HK=clipb_text
-		WinSet, Region, 0-23  w%search_box_width% H35 ;H75 
-		gui_ON:=1
 		SelectedLine=smart action
-		stringreplace,keywordChoice_new,keywordChoice_all,||,|
-		stringreplace,keywordChoice_new,keywordChoice_new,%SelectedLine%|,%SelectedLine%||
-		; msgbox,%keywordChoice_new%
-		; guicontrol,,visibleSchStr,
-		guicontrol,1:,keywordChoice,%keywordChoice_new%
+		update_combo_box_filter(keywordChoice,keywordChoice_all,SelectedLine)
 		action_term =
 		guicontrol,1:,action_term_selected,%action_term%
 		SetTimer,search,-1
 		
 		; SetTimer, tIncrementalSearch, 500
 
-		sleep,800	;	launch after N ms
 		
-		settimer,checkactive,800
+	}
+	else if(state_a=="D")	
+	{
+		; trigger_HK=clipb_text
+		SelectedLine=searchCommands
+		update_combo_box_filter(keywordChoice,keywordChoice_all,SelectedLine)
+		action_term =
+		guicontrol,1:,action_term_selected,%action_term%
+		SetTimer,search,-1
+		
+		; SetTimer, tIncrementalSearch, 500
+
+		
 	}
 	else
 	{
@@ -259,23 +261,16 @@ if (A_PriorHotKey = "~*Lshift" AND A_TimeSincePriorHotkey < 300)
 		; selText:=Get_Selected_Text()
 		; if seltext <>
 			; guicontrol,,visibleSchStr,%selText%
-		if (!gui_ON)
-		{
-			Gui +LastFound
-			SendMessage, ( EM_SETSEL := 0xB1 ), 0, -1, , ahk_id %ED1%	;preselects the text
-			settimer,showGui_animate,-1	
-		}
-		WinSet, Region, 0-23  w%search_box_width% H35 ;H75
-		gui_ON:=1		
+		
 		keyword_identified=0
 		guicontrol,,keywordChoice,
 		guicontrol,,keywordChoice,%keywordChoice_all%
 		; Gui,  Show,	x550 y250
 		SetTimer,search,-1
 		SetTimer, tIncrementalSearch, 500
-		sleep,800	;	launch after N ms
-		settimer,checkactive,800	
 	}
+	sleep,800	;	launch after N ms
+	settimer,checkactive,800	
 }
 Sleep 0
 ; tooltip,`nsearch waiting
@@ -286,10 +281,11 @@ return
 ~*Rshift::	; na
 if (A_PriorHotKey = "~*Rshift" AND A_TimeSincePriorHotkey < 300)
 {	
-; msgbox,%A_PriorHotKey%
 	GetKeyState, state_c, ctrl
- 	GetKeyState, state_a, alt
+ 	GetKeyState, state_a, ALT
+; msgbox,%state_a% state_c%state_c%
 
+  show_gui_if_not_shown()
   
 	if (state_c !="D" and state_a!="D")
 	{
@@ -297,14 +293,6 @@ if (A_PriorHotKey = "~*Rshift" AND A_TimeSincePriorHotkey < 300)
 		; selText:=Get_Selected_Text()
 		; if seltext <>
 			; guicontrol,,visibleSchStr,%selText%
-		if (!gui_ON)
-		{
-			Gui +LastFound
-			SendMessage, ( EM_SETSEL := 0xB1 ), 0, -1, , ahk_id %ED1%	;preselects the text
-			settimer,showGui_animate,-1	
-		}
-		WinSet, Region, 0-23  w%search_box_width% H35 ;H75
-		gui_ON:=1		
 		keyword_identified=0
 		guicontrol,,keywordChoice,
 		guicontrol,,keywordChoice,%keywordChoice_all%
@@ -316,21 +304,10 @@ if (A_PriorHotKey = "~*Rshift" AND A_TimeSincePriorHotkey < 300)
 		
 	}
 	else if(state_a=="D")
-	{
-		if (!gui_ON)
-		{
-			Gui +LastFound
-			SendMessage, ( EM_SETSEL := 0xB1 ), 0, -1, , ahk_id %ED1%	;preselects the text
-			settimer,showGui_animate,-1	
-		}
-		WinSet, Region, 0-23 w500 H35 ;H75 
-		gui_ON:=1
-		SelectedLine=searchInProject
-		stringreplace,keywordChoice_new,keywordChoice_all,||,|
-		stringreplace,keywordChoice_new,keywordChoice_new,%SelectedLine%|,%SelectedLine%||
-		; msgbox,%keywordChoice_new%
-		; guicontrol,,visibleSchStr,
-		guicontrol,,keywordChoice,%keywordChoice_new%
+	{		
+		; WinSet, Region, 0-23 w500 H35 ;H75 
+		SelectedLine=searchInProject		
+		update_combo_box_filter(keywordChoice,keywordChoice_all,SelectedLine)
 		SetTimer,search,-1
 		SetTimer, tIncrementalSearch, 500
 
@@ -341,20 +318,14 @@ if (A_PriorHotKey = "~*Rshift" AND A_TimeSincePriorHotkey < 300)
 	}
 	else
 	{
-		if (!gui_ON)
-		{
-			Gui +LastFound
-			SendMessage, ( EM_SETSEL := 0xB1 ), 0, -1, , ahk_id %ED1%	;preselects the text
-			settimer,showGui_animate,-1	
-		}
-		WinSet, Region, 0-23 w500 H35 ;H75 
-		gui_ON:=1
+		show_gui_if_not_shown()
 		SelectedLine=launcher
-		stringreplace,keywordChoice_new,keywordChoice_all,||,|
-		stringreplace,keywordChoice_new,keywordChoice_new,%SelectedLine%|,%SelectedLine%||
-		; msgbox,%keywordChoice_new%
-		; guicontrol,,visibleSchStr,
-		guicontrol,,keywordChoice,%keywordChoice_new%
+		update_combo_box_filter(keywordChoice,keywordChoice_all,SelectedLine)
+		; stringreplace,keywordChoice_new,keywordChoice_all,||,|
+		; stringreplace,keywordChoice_new,keywordChoice_new,%SelectedLine%|,%SelectedLine%||
+		;; msgbox,%keywordChoice_new%
+		;; guicontrol,,visibleSchStr,
+		; guicontrol,,keywordChoice,%keywordChoice_new%
 		SetTimer,search,-1
 		SetTimer, tIncrementalSearch, 500
 
@@ -386,6 +357,26 @@ OnMessage(0x200, "WM_MOUSEMOVE")
 
 return
 
+update_combo_box_filter(keywordChoice,keywordChoice_all,SelectedLine="") 
+{
+		stringreplace,keywordChoice_new,keywordChoice_all,||,|
+		stringreplace,keywordChoice_new,keywordChoice_new,%SelectedLine%|,%SelectedLine%||
+		; msgbox,%keywordChoice_new%
+		; guicontrol,,visibleSchStr,
+		guicontrol,,keywordChoice,%keywordChoice_new%
+		return
+		}
+		
+show_gui_if_not_shown() {
+	if (!gui_ON)
+	{
+		Gui +LastFound
+		SendMessage, ( EM_SETSEL := 0xB1 ), 0, -1, , ahk_id %ED1%	;preselects the text
+		settimer,showGui_animate,-1	
+		WinSet, Region, 0-23  w%search_box_width% H35 ;H75
+	}
+	gui_ON:=1		
+	}
 tIncrementalSearch:
 ; msgbox,aaaa
 	; REPEAT SEARCHING UNTIL USER HAS STOPPED CHANGING THE QUERY STRING
@@ -951,7 +942,6 @@ DYNAMIC_ACTIONS:
 			; button1_action=action_Open_DB
 			ILButton(button1, "shell32.dll:" 239, 22, 22, 5)	
 		}
-		
 		
 	else if (  (source_Filename="sel text.txt") OR (source_Filename="sel text2.txt") OR (match_line_type="launcher"))
 		{

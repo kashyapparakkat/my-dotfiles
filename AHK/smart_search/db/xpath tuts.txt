@@ -1,0 +1,36 @@
+# lxml = well formed
+from lxml import html
+import requests
+page = requests.get('http://econpy.pythonanywhere.com/ex/001.html')
+tree = html.fromstring(page.content)
+buyers = tree.xpath('//div[@title="buyer-name"]/text()')
+
+=
+soup = BeautifulSoup(page.content)
+soup = BeautifulSoup(open("index.html"))
+soup = BeautifulSoup("<html>......</html>")
+
+
+soup.title
+# <title class='story'>The Dormouse's story</title>
+soup.title['class']
+# story
+
+soup.title.name
+# u'title'
+
+soup.title.string
+# u'The Dormouse's story'
+
+soup.title.parent.name
+# u'head'
+
+soup.find(id="link3")
+# <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>
+
+soup.find_all(["a", "b"])
+
+for link in soup.find_all('a'):
+    print(link.get('href'))
+
+result1 = soup.html.body.div.findAll('table')[2].tr.findAll('td') 

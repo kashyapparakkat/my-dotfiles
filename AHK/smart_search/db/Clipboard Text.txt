@@ -1,0 +1,5 @@
+C:\Windows\system32\calc.exe
+C:\Windows\system32\cmd.exe
+sleep
+hibernate
+

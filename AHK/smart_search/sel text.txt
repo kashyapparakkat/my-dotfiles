@@ -1,0 +1,1 @@
+csv;C:\cbn_gits\AHK\smart_search\sel text.ahk

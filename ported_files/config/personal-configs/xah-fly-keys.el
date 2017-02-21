@@ -1835,7 +1835,7 @@ Version 2015-10-14"
   (let ((-fname (buffer-file-name)))
     (if -fname
         (let ((-backup-name
-               (concat -fname "~" (format-time-string "%Y%m%dT%H%M%S") "~")))
+               (concat -fname "~" (format-time-string "%Y %m %dT %H %M%S") "~")))
           (copy-file -fname -backup-name t)
           (message (concat "Backup saved at: " -backup-name)))
       (if (string-equal major-mode "dired-mode")

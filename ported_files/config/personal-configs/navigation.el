@@ -21,12 +21,14 @@ If point was already at that position, move point to end of line."
 
 
 
-(define-key evil-normal-state-map (kbd "C-e") 'evil-end-of-line)
-(define-key evil-normal-state-map (kbd "C-a") 'smart-line-beginning)
 
 (global-set-key (kbd "C-e") 'smart-end-of-line)
 ; (global-set-key (kbd "C-e") 'evil-end-of-line)
 
+; (define-key evil-normal-state-map (kbd "C-e") 'evil-end-of-line)
+; (define-key evil-normal-state-map (kbd "C-a") 'smart-line-beginning)
+(define-key evil-normal-state-map (kbd "C-e") 'smart-end-of-line)
+(define-key evil-normal-state-map (kbd "C-a") 'x4-smarter-beginning-of-line)
 (global-set-key (kbd "C-a") 'x4-smarter-beginning-of-line)
 (global-set-key [home] 'x4-smarter-beginning-of-line)
 ; (global-set-key (kbd "C-a") 'smart-line-beginning)

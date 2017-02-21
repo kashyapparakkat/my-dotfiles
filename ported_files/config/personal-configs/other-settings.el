@@ -31,7 +31,7 @@
                          ; :initial-input nil)  
 				  
 				  
-    (let ((dir (ido-completing-read "choose recent dire? " 
+    (let ((dir (ido-completing-read "choose recent directory? " 
 				  recent-dirs )))
       (dired dir))
 	  ))
@@ -607,3 +607,23 @@ file to write to."
   (transpose-words 1))
 
 (global-set-key (kbd "C-x M-t") 'hop-one-transpose)
+(defun my-kill-thing-at-point (thing)
+  "Kill the `thing-at-point' for the specified kind of THING."
+  (let ((bounds (bounds-of-thing-at-point thing)))
+    (if bounds
+        (kill-region (car bounds) (cdr bounds))
+      (error "No %s at point" thing))))
+
+(defun my-kill-word-at-point ()
+  "Kill the word at point."
+  (interactive)
+  (my-kill-thing-at-point 'word))
+
+(global-set-key (kbd "S-M-d") 'my-kill-word-at-point)
+
+
+
+   
+(global-set-key (kbd "<M-f1>") (lambda() (interactive) (find-file (format "*.%s" (file-name-extension (buffer-file-name))) t)))
+; (mapc #'find-file-noselect
+   ; (directory-files "~/git/LeoUfimtsev.github.io/org/" nil "\\.org$"))

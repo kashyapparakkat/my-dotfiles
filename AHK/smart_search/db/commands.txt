@@ -1,0 +1,19 @@
+file/url,function in that file,title
+CA_environment,run_CA,run_CA_environment
+,,disable_Mouse_auto_focus
+,,download_Youtube_url
+,,download_clipB_url
+,,toggle_autohide_taskbar
+,,disable_Mouse_auto_focus
+
+dummmmmy,dummmmmy,dummy
+file/url,title
+C:\Windows\system32\calc.exe,run calc
+http://localhost,run localhost
+https://api.ipify.org,what is my ip
+C:\cbn_gits\AHK\Tools\create folders.ahk
+https://www.youtube.com/watch?v=1kgV43YQ0BM,REPORTER LIVE TV | Live Malayalam News 
+https://www.youtube.com/watch?v=zpqKpWNCdJ0,Asianet News Live TV | Live Malayalam News 
+https://www.youtube.com/watch?v=9OZIHOBae8w,media one news live tv
+http://www.manoramanews.com/livetv,manorama news live tv
+http://turbotvlive.com/flowers-tv/,turbotvlive flowers tv
