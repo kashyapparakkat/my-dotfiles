@@ -26,7 +26,7 @@ if [ -z "$1" ]; then
     # display usage if no parameters given
     echo "Usage: cibin index all files to $Universal_home/Downloads/all_files_unfiltered.db"
 	lfind /cygdrive -iname "*"  > "$Universal_home/Downloads/all_files_unfiltered.db"
-	cat "$Universal_home/Downloads/all_files_unfiltered.db" | grep -v "/cygdrive/c/\$Recycle.Bin/" | grep -v "/cygdrive/c/\$WINDOWS.~BT/" | grep -v "/cygdrive/c/Users/cibin/AppData/" | grep -v "/cygdrive/c/my_bin/" | grep -v "/cygdrive/c/Windows/" > "$Universal_home/Downloads/all_files.db"
+	cat "$Universal_home/Downloads/all_files_unfiltered.db" | grep -i -v "/cygdrive/./\$Recycle.Bin/" | grep -v "/cygdrive/./\$WINDOWS.~BT/" | grep -v "/cygdrive/c/Users/cibin/AppData/" | grep -v "/cygdrive/c/my_bin/" | grep -v "/cygdrive/c/Windows/" > "$Universal_home/Downloads/all_files.db"
 	# "/cygdrive/c/Windows/WinSxS/" | grep -v "/cygdrive/c/Windows/Microsoft.NET/" 
  
  fi

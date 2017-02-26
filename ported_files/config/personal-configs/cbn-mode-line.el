@@ -84,7 +84,19 @@
    ; emacsclient [default -- keep?]
    mode-line-client
    "  "
-   "    "
+  
+	; (:eval
+		; (progn (setq count-buffer_c (count-buffers))
+			; (propertize (format " %s files  " count-buffer_c) 'face 'mode-line-selection-face)
+		; )
+	; )
+	(:eval
+	; TODO check if it is causing performance lag, (update only when a new file is opened/closed)
+		(progn (setq count-buffer_c (count-buffers))
+			(propertize (format " %s filesss  " count-buffer_c) 'face 'mode-line-selection-face)
+		)
+	)
+	
    ; directory and buffer/file name
    (:propertize (:eval (shorten-directory default-directory 60))
                 face mode-line-folder-face)
@@ -130,6 +142,13 @@
        (rhs (cdr pat)))
       (replace-regexp-in-string lhs rhs (str-replace-all str (cdr pats))))))
 
+(defun count-buffers (&optional display-anyway)
+
+  "return the number of buffers."
+  (let ((buf-count (length (buffer-list))))
+  ; (message "sdfasd")
+    (setq total_buffer_count buf-count)))
+	
 ;; Helper function
 (defun shorten-directory (dir max-length)
   "Show up to `max-length' characters of a directory name `dir'."

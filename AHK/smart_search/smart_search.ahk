@@ -1,4 +1,4 @@
-; http://www.cibinmathew.com
+;; http://www.cibinmathew.com
 ; github.com/cibinmathew
 
 SplitPath, A_ScriptDir , , , , , A_Script_Drive

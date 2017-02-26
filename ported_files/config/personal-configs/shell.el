@@ -91,8 +91,7 @@
 
 ;; run a few shells.
 ; (shell "*shell5*")
-; (shell "*shell6*")
-(shell "*shell7*")
+; (shell "*shell7*")
 
 ; C-5, 6, 7 to switch to shells
 (global-set-key [(control \5)]
@@ -123,3 +122,11 @@
 
 
 (global-set-key (kbd "<f1>") 'shell-here)
+
+
+;; interpret ANSI color codes in compilation buffers
+(require 'ansi-color)
+(defun colorize-compilation-buffer ()
+  (when (eq major-mode 'compilation-mode)
+    (ansi-color-apply-on-region compilation-filter-start (point-max))))
+(add-hook 'compilation-filter-hook 'colorize-compilation-buffer)

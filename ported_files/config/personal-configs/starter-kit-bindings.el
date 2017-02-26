@@ -142,7 +142,10 @@
 (global-set-key (kbd "C-;") 'comment-line)
 (global-set-key (kbd "C-x C-;") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-c C-b") 'xah-make-backup-and-save)
-
+(with-eval-after-load 'org
+    
+(define-key org-mode-map (kbd "C-c C-b") 'xah-make-backup-and-save)
+)
 ;; You know, like Readline.
 (global-set-key (kbd "C-M-h") 'backward-kill-word)
 
@@ -228,6 +231,7 @@
 ;; File finding
 ; https://github.com/emacs-helm/helm/blob/master/helm-files.el
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "M-o") 'helm-find-files)
 
 ; Fixme: error
 ; (define-key helm-find-files-map (kbd "C-j") 'helm-find-files-up-one-level)
@@ -291,16 +295,16 @@
 (define-key evil-normal-state-map "Y" 'copy-to-end-of-line)
 
 
-
+; C-x k
 ; f4/C-x 0=kill buffer
 ; C-x 0/q/M-q=kill buffer & remove window
 ; Q/M-Q=maximize/minimize
 ; C-q
 (global-set-key (kbd "<f4>") (lambda () (interactive) (kill-this-buffer)))
-(global-set-key "\M-q" (lambda () (interactive) (kill-this-buffer)(delete-window)))
+(global-set-key (kbd "M-q") (lambda () (interactive) (kill-this-buffer)(delete-window)))
 (define-key evil-normal-state-map "q" (lambda () (interactive) (kill-this-buffer)(delete-window)))
 
-(global-set-key "\M-Q" (lambda () (interactive) (spacemacs/toggle-maximize-buffer)))
+(global-set-key (kbd "M-Q") (lambda () (interactive) (spacemacs/toggle-maximize-buffer)))
 (define-key evil-normal-state-map "Q" (lambda () (interactive) (spacemacs/toggle-maximize-buffer)))
 
 ; is this needed?

@@ -619,11 +619,57 @@ file to write to."
   (interactive)
   (my-kill-thing-at-point 'word))
 
-(global-set-key (kbd "S-M-d") 'my-kill-word-at-point)
+(global-set-key (kbd "M-D") 'my-kill-word-at-point)
 
 
 
-   
-(global-set-key (kbd "<M-f1>") (lambda() (interactive) (find-file (format "*.%s" (file-name-extension (buffer-file-name))) t)))
+; open all files with same extension
+(global-set-key (kbd "C-M-o") (lambda() (interactive) (find-file (format "*.%s" (file-name-extension (buffer-file-name))) t)))
+
 ; (mapc #'find-file-noselect
    ; (directory-files "~/git/LeoUfimtsev.github.io/org/" nil "\\.org$"))
+
+   
+   
+   ;; subword-mode remaps most key bindings but not these.
+(global-set-key [(control right)] 'subword-forward)
+(global-set-key [(control left)] 'subword-backward)
+
+
+
+
+; customization options
+(custom-set-variables
+
+'(read-file-name-completion-ignore-case t)
+
+'(diff-default-read-only nil)  ; don't make diff mode (for patches) read-only
+  '(diff-switches "-u --ignore-all-space")
+
+
+  '(undo-limit 1000000)  ; 1M (default is 80K)
+  '(undo-strong-limit 1500000)  ; 1.5M (default is 120K)
+  '(undo-outer-limit 2000000)  ; 2M
+
+ '(kill-read-only-ok t)  ; C-k in read-only buffer doesn't error
+ 
+
+)
+
+;; automatically close buffers that haven't been displayed in more than n days
+(require 'midnight)
+(custom-set-variables '(clean-buffer-list-delay-general 2))
+
+
+(progn 
+;; from xah
+;; set arrow keys in isearch. left/right is backward/forward, up/down is history. press Return to exit
+    (define-key isearch-mode-map (kbd "<up>") 'isearch-ring-retreat )
+    (define-key isearch-mode-map (kbd "<down>") 'isearch-ring-advance )
+
+    (define-key isearch-mode-map (kbd "<left>") 'isearch-repeat-backward)
+    (define-key isearch-mode-map (kbd "<right>") 'isearch-repeat-forward)
+
+    (define-key minibuffer-local-isearch-map (kbd "<left>") 'isearch-reverse-exit-minibuffer)
+    (define-key minibuffer-local-isearch-map (kbd "<right>") 'isearch-forward-exit-minibuffer)
+	)

@@ -476,7 +476,7 @@
       (define-key xah-fly-key-map (kbd "C--") 'text-scale-decrease)
       (define-key xah-fly-key-map (kbd "C-0") (lambda () (interactive) (text-scale-set 0)))
     (define-key xah-fly-key-map (kbd "M-RET") 'xah-cycle-hyphen-underscore-space)
-    (define-key xah-fly-key-map (kbd "M-c") 'xah-toggle-letter-case )
+    
     (define-key xah-fly-key-map (kbd "M-n") 'xah-insert-square-bracket)
     (define-key xah-fly-key-map (kbd "M-t") 'xah-insert-paren)
     (define-key xah-fly-key-map (kbd "M-l") 'left-char) ; rid of downcase-word
@@ -488,15 +488,7 @@
   (define-key xah-fly-key-map (kbd "<C-f12>") 'xah-next-emacs-buffer)
 
   (progn
-    ;; set arrow keys in isearch. left/right is backward/forward, up/down is history. press Return to exit
-    (define-key isearch-mode-map (kbd "<up>") 'isearch-ring-retreat )
-    (define-key isearch-mode-map (kbd "<down>") 'isearch-ring-advance )
-
-    (define-key isearch-mode-map (kbd "<left>") 'isearch-repeat-backward)
-    (define-key isearch-mode-map (kbd "<right>") 'isearch-repeat-forward)
-
-    (define-key minibuffer-local-isearch-map (kbd "<left>") 'isearch-reverse-exit-minibuffer)
-    (define-key minibuffer-local-isearch-map (kbd "<right>") 'isearch-forward-exit-minibuffer)
+    
 
 
 
