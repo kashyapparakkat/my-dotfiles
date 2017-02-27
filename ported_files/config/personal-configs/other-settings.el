@@ -312,19 +312,6 @@ If the new path's directories does not exist, create them."
 (define-key evil-visual-state-map "\C-w" 'evil-delete)
    
 
-;	
-(use-package elpy
-  :mode ("\\.py\\'" . elpy-mode)
-  :init
-  (add-hook 'python-mode-hook (lambda () (aggressive-indent-mode -1)))
-  :config
-  (when (require 'flycheck nil t)
-    (remove-hook 'elpy-modules 'elpy-module-flymake)
-    (remove-hook 'elpy-modules 'elpy-module-yasnippet)
-    (remove-hook 'elpy-mode-hook 'elpy-module-highlight-indentation)
-    (add-hook 'elpy-mode-hook 'flycheck-mode))
-  ; (elpy-enable) ; disabled for now
-  (setq elpy-rpc-backend "jedi"))
   
   ; golden-ratio
 
@@ -661,6 +648,36 @@ file to write to."
 (custom-set-variables '(clean-buffer-list-delay-general 2))
 
 
+; From https://github.com/purcell/emacs.d/blob/master/lisp/init-auto-complete.el - Exclude very large buffers from dabbrev
+(defun sanityinc/dabbrev-friend-buffer (other-buffer)
+  (< (buffer-size other-buffer) (* 1 1024 1024)))
+  
+(setq dabbrev-friend-buffer-function 'sanityinc/dabbrev-friend-buffer)
+(setq hippie-expand-try-functions-list
+      '(yas-hippie-try-expand
+        try-expand-all-abbrevs
+        try-complete-file-name-partially
+        try-complete-file-name
+        try-expand-dabbrev
+        try-expand-dabbrev-from-kill
+        try-expand-dabbrev-all-buffers
+        try-expand-list
+        try-expand-line
+        try-complete-lisp-symbol-partially
+        try-complete-lisp-symbol))
+		
+(defun lorem ()
+  "Insert a lorem ipsum."
+  (interactive)
+  (insert "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do "
+          "eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim"
+          "ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut "
+          "aliquip ex ea commodo consequat. Duis aute irure dolor in "
+          "reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla "
+          "pariatur. Excepteur sint occaecat cupidatat non proident, sunt in "
+          "culpa qui officia deserunt mollit anim id est laborum."
+		  )
+		  )
 (progn 
 ;; from xah
 ;; set arrow keys in isearch. left/right is backward/forward, up/down is history. press Return to exit
@@ -673,3 +690,4 @@ file to write to."
     (define-key minibuffer-local-isearch-map (kbd "<left>") 'isearch-reverse-exit-minibuffer)
     (define-key minibuffer-local-isearch-map (kbd "<right>") 'isearch-forward-exit-minibuffer)
 	)
+	
