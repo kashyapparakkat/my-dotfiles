@@ -1805,14 +1805,14 @@ Version 2015-10-14"
   (let ((-fname (buffer-file-name)))
     (if -fname
         (let ((-backup-name
-               (concat -fname "~" (format-time-string "%d-%b-%Y %Hh %Mm %Ss") "~")))
+               (concat -fname "~" (format-time-string "backup %d-%b-%Y %Hh %Mm %Ss") "~")))
           (copy-file -fname -backup-name t)
           (message (concat "Backup saved at: " -backup-name)))
       (if (string-equal major-mode "dired-mode")
           (progn
             (mapc (lambda (-x)
                     (let ((-backup-name
-                           (concat -x "~" (format-time-string "%Y%m%dT%H%M%S") "~")))
+                           (concat -x "~" (format-time-string "backup %d-%b-%Y %Hh %Mm %Ss") "~")))
                       (copy-file -x -backup-name t)))
                   (dired-get-marked-files))
             (message "marked files backed up"))

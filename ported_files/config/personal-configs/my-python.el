@@ -1,3 +1,9 @@
+; Not lazy loading 
+ (autoload 'python-mode "python-mode" "Python Mode." t)
+ (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+ (add-to-list 'interpreter-mode-alist '("python" . python-mode))
+ 
+
 ;;; ELPY
 ; instructions at
 ; http://onthecode.com/post/2014/03/06/emacs-on-steroids-for-python-elpy-el.html

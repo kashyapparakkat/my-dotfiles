@@ -14,7 +14,9 @@
  mode-line-format
  '( 
 			  "%e" mode-line-front-space
-			  "%n " ; narrow
+        (:eval
+			  (propertize "%n "  'face 'mode-line-selection-face) ; narrow
+			  )
 			  ; "%Z "
                 ;; Standard info about the current buffer
                 mode-line-mule-info
@@ -93,13 +95,14 @@
 	(:eval
 	; TODO check if it is causing performance lag, (update only when a new file is opened/closed)
 		(progn (setq count-buffer_c (count-buffers))
-			(propertize (format " %s filesss  " count-buffer_c) 'face 'mode-line-selection-face)
+			(propertize (format " %s files" count-buffer_c) 'face 'mode-line-selection-face)
 		)
 	)
-	
+	; TODO disabled for now
    ; directory and buffer/file name
-   (:propertize (:eval (shorten-directory default-directory 60))
-                face mode-line-folder-face)
+   ; (:propertize (:eval (shorten-directory default-directory 60))
+                ; face mode-line-folder-face)
+					; filename
    (:propertize "%b"
                 face mode-line-filename-face)
 			  " %s " ; subprocess status

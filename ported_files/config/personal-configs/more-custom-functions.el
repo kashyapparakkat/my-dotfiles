@@ -127,7 +127,7 @@
 (defun cibin-search-in-text-files-related-bash()
 	(interactive)
 	
-	(setq prompt "grepcmd all/common/downs/ahk/notes/here/hhere   common/code/txt   searchTerm: ")
+	(setq prompt "grepfilelist_related(searches in all related files) searchTerm: ")
 	(setq default (format "grepfilelist_related.sh "))
 	(save-related-files-to-disk)
 	(search-handler prompt default)
@@ -151,7 +151,7 @@
   )
 (defun cibin-search-in-files-advgrep-here ()
 	(interactive)
-	(setq prompt (format "grepcmd all/common/downs/ahk/notes/here/hhere   common/code/txt   searchTerm: "))
+	(setq prompt (format "advgrep.sh all/common/downs/ahk/notes/here/hhere   common/code/txt   searchTerm: "))
 	; TODO add the current file extension to this
 	(setq file-ext (file-name-extension (buffer-file-name)))
 	(setq default (concat "advgrep.sh here " file-ext " " (thing-at-point 'word)))

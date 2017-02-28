@@ -1,6 +1,6 @@
 
-(diminish 'drag-stuff-mode "d❋")
-(diminish 'git-gutter+-mode "gut+")
+(diminish 'drag-stuff-mode "◆")
+(diminish 'git-gutter+-mode "g+")
 
 (defvar mode-line-cleaner-alist
   `((auto-complete-mode . " α")
@@ -20,7 +20,7 @@ When you add a new element to the alist, keep in mind that you
 must pass the correct minor/major mode symbol and a string you
 want to use in the modeline *in lieu of* the original.")
 
-
+; https://www.masteringemacs.org/article/hiding-replacing-modeline-strings
 (defun clean-mode-line ()
   (interactive)
   (loop for cleaner in mode-line-cleaner-alist

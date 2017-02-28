@@ -82,6 +82,11 @@ html
 				;; packages, then consider creating a layer. You can also put the
 				;; configuration in `dotspacemacs/user-config'.
 				dotspacemacs-additional-packages '(
+				anaconda-mode 
+				flymake-cursor 
+				jedi 
+				epc 
+				company-flx
 				flycheck
 				peep-dired
 				dired-narrow
@@ -93,9 +98,11 @@ html
 				elpy
 				fuzzy
 				magit
+				company-jedi
 				yascroll
 				swiper
 				drag-stuff
+				counsel
 				ido-sort-mtime
 				shell-pop 
 				shell-here 
@@ -530,6 +537,7 @@ html
 (file-cache-read-cache-from-file)
 
 (load-file "~/.emacs.d/my-files/config/personal-configs/shell.el")
+(load-file "~/.emacs.d/my-files/config/personal-configs/my-python.el")
 (load-file "~/.emacs.d/my-files/config/personal-configs/navigation.el")
 (load-file "~/.emacs.d/my-files/config/personal-configs/move-copy.el")
 (load-file "~/.emacs.d/my-files/config/personal-configs/search-bindings.el")
@@ -542,6 +550,7 @@ html
 (load-file "~/.emacs.d/my-files/config/personal-configs/other-settings.el")
 ; (load-file "~/.emacs.d/my-files/config/personal-configs/appearance.el")
 (load-file "~/.emacs.d/my-files/config/personal-configs/cbn-mode-line.el")
+(load-file "~/.emacs.d/my-files/config/personal-configs/cbn-mode-line2.el")
 
 (load-file "~/.emacs.d/my-files/config/personal-configs/xah-fly-keys-functions.el")
 ; (load-file "~/.emacs.d/my-files/config/personal-configs/cbn-xah-fly-keys.el")
@@ -1580,6 +1589,7 @@ Version 2015-10-14"
  ;; If there is more than one, they won't work right.
  '(blink-cursor-delay 0.3)
  '(blink-cursor-mode t)
+ '(clean-buffer-list-delay-general 2)
  '(comint-completion-addsuffix t)
  '(comint-completion-autolist t)
  '(comint-get-old-input (lambda nil "") t)
@@ -1593,15 +1603,22 @@ Version 2015-10-14"
  '(custom-safe-themes
    (quote
     ("f81a9aabc6a70441e4a742dfd6d10b2bae1088830dc7aba9c9922f4b1bd2ba50" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
+ '(diff-default-read-only nil)
+ '(diff-switches "-u --ignore-all-space")
  '(evil-want-Y-yank-to-eol t)
  '(helm-locate-command "locate %s %s")
  '(hybrid-mode t)
+ '(kill-read-only-ok t)
  '(line-spacing 0.2)
  '(package-selected-packages
    (quote
-    (magit shell-pop shell-here highlight-indent-guides buffer-flip quickrun ido-sort-mtime drag-stuff eww-lnum fixmee auto-install counsel helm-google ranger multiple-cursors dionysos bookmark+ emms isearch-dabbrev sublimity google-maps rainbow-mode dired-k minimap imenu-anywhere tabbar color-identifiers-mode window-numbering dired-subtree yascroll dired-filter key-chord dired-quick-sort swiper fuzzy elpy magit pyvenv find-file-in-project ivy dired-narrow peep-dired goto-last-change shrink-whitespace git-gutter+ git-commit with-editor markdown-mode nlinum flycheck dired+ beacon smex menu-bar+ s powerline hydra spinner parent-mode projectile pkg-info epl flx smartparens iedit anzu highlight pos-tip company yasnippet packed dash helm avy helm-core async auto-complete popup package-build bind-key bind-map evil cygwin-mount persp-mode ws-butler which-key volatile-highlights vi-tilde-fringe use-package spacemacs-theme spaceline solarized-theme smooth-scrolling restart-emacs rainbow-delimiters quelpa popwin pcre2el paradox page-break-lines open-junk-file neotree move-text macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu elisp-slime-nav define-word company-statistics company-quickhelp clean-aindent-mode buffer-move bracketed-paste auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+    (jedi-core python-environment ctable concurrent deferred pythonic anaconda-mode flymake-cursor jedi epc company-flx uuidgen toc-org request org-plus-contrib org-bullets magit-popup link-hint hide-comnt eyebrowse evil-visual-mark-mode evil-unimpaired evil-ediff goto-chg undo-tree dumb-jump f dired-hacks-utils diminish column-enforce-mode seq company-jedi magit shell-pop shell-here highlight-indent-guides buffer-flip quickrun ido-sort-mtime drag-stuff eww-lnum fixmee auto-install counsel helm-google ranger multiple-cursors dionysos bookmark+ emms isearch-dabbrev sublimity google-maps rainbow-mode dired-k minimap imenu-anywhere tabbar color-identifiers-mode window-numbering dired-subtree yascroll dired-filter key-chord dired-quick-sort swiper fuzzy elpy pyvenv find-file-in-project ivy dired-narrow peep-dired goto-last-change shrink-whitespace git-gutter+ git-commit with-editor markdown-mode nlinum flycheck dired+ beacon smex menu-bar+ s powerline hydra spinner parent-mode projectile pkg-info epl flx smartparens iedit anzu highlight pos-tip company yasnippet packed dash helm avy helm-core async auto-complete popup package-build bind-key bind-map evil cygwin-mount persp-mode ws-butler which-key volatile-highlights vi-tilde-fringe use-package spacemacs-theme spaceline solarized-theme smooth-scrolling restart-emacs rainbow-delimiters quelpa popwin pcre2el paradox page-break-lines open-junk-file neotree move-text macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu elisp-slime-nav define-word company-statistics company-quickhelp clean-aindent-mode buffer-move bracketed-paste auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+ '(read-file-name-completion-ignore-case t)
  '(safe-local-variable-values (quote ((eval progn (pp-buffer) (indent-buffer)))))
- '(send-mail-function (quote mailclient-send-it)))
+ '(send-mail-function (quote mailclient-send-it))
+ '(undo-limit 1000000)
+ '(undo-outer-limit 2000000)
+ '(undo-strong-limit 1500000))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

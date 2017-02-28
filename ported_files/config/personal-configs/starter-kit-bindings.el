@@ -181,10 +181,14 @@
 						
 (global-set-key (kbd "C-l") 'switch-to-prev-buffer) 
 (global-set-key (kbd "C-v") 'switch-to-next-buffer) 
+(define-key evil-normal-state-map (kbd "C-v") 'switch-to-next-buffer) 
+  (define-key evil-normal-state-map (kbd "C-l") 'switch-to-prev-buffer)
+
 
 (with-eval-after-load 'org
     ; (define-key org-mode-map (kbd "C-k") 'switch-to-next-buffer)
     (define-key org-mode-map (kbd "C-l") 'switch-to-prev-buffer)
+    (define-key org-mode-map (kbd "C-v") 'switch-to-next-buffer)
 	)  
 
 ;  kill the same line even if at the end of line
@@ -363,52 +367,52 @@
 (require 'key-chord)
 
 ; (key-chord-define-global "jj" 'avy-goto-word-1)
-(key-chord-define-global "jl" 'avy-goto-line)
-(key-chord-define-global "jk" 'avy-goto-char)
-(key-chord-define-global "JJ" 'crux-switch-to-previous-buffer)
-(key-chord-define-global "uu" 'undo-tree-visualize)
-(key-chord-define-global "xx" 'execute-extended-command)
-(key-chord-define-global "yy" 'browse-kill-ring)
+; (key-chord-define-global "jl" 'avy-goto-line)
+; (key-chord-define-global "jk" 'avy-goto-char)
+; (key-chord-define-global "JJ" 'crux-switch-to-previous-buffer)
+; (key-chord-define-global "uu" 'undo-tree-visualize)
+; (key-chord-define-global "xx" 'execute-extended-command)
+; (key-chord-define-global "yy" 'browse-kill-ring)
 
-(key-chord-define-global "o0" 'find-file)
-(key-chord-define-global "o=" 'dired-jump)
-(key-chord-define-global "o-" 'ido-recentf-open)
-(key-chord-define-global "o[" 'find-file-at-point)
+; (key-chord-define-global "o0" 'find-file)
+; (key-chord-define-global "o=" 'dired-jump)
+; (key-chord-define-global "o-" 'ido-recentf-open)
+; (key-chord-define-global "o[" 'find-file-at-point)
 
 ;And one for projectile:
 
-(key-chord-define-global "p-" 'projectile-find-file)
+; (key-chord-define-global "p-" 'projectile-find-file)
 
 ;I also bind replace-string to something useful:
 
-(key-chord-define-global "r4" 'replace-string)
-(key-chord-define-global "r3" 'vr/query-replace)
+; (key-chord-define-global "r4" 'replace-string)
+; (key-chord-define-global "r3" 'vr/query-replace)
 
 ;And I use expand/contract region a lot too:
 
-(key-chord-define-global "e3" 'er/expand-region)
-(key-chord-define-global "e2" 'er/contract-region)
-(key-chord-define-global "\}\}" 'undo-tree-switch-branch)
+; (key-chord-define-global "e3" 'er/expand-region)
+; (key-chord-define-global "e2" 'er/contract-region)
+; (key-chord-define-global "\}\}" 'undo-tree-switch-branch)
 
-(key-chord-define-global "]'"   'completion-at-point)
-(key-chord-define-global "[;"   'completion-at-point)
-(key-chord-define-global ";."   'completion-at-point)
+; (key-chord-define-global "]'"   'completion-at-point)
+; (key-chord-define-global "[;"   'completion-at-point)
+; (key-chord-define-global ";."   'completion-at-point)
 
-(key-chord-define-global ";u" 'undo-tree-visualize)
-(key-chord-define-global ";j" 'ace-jump-mode)
-(key-chord-define-global ";s" 'monky-status)
-(key-chord-define-global ";c" 'comment-dwim)
+; (key-chord-define-global ";u" 'undo-tree-visualize)
+; (key-chord-define-global ";j" 'ace-jump-mode)
+; (key-chord-define-global ";s" 'monky-status)
+; (key-chord-define-global ";c" 'comment-dwim)
 
 
 ; buffer actions
-(key-chord-define-global "vg"     'eval-region)
-(key-chord-define-global "vb"     'eval-buffer)
-(key-chord-define-global "cy"     'yank-pop)
-(key-chord-define-global "cg"     "\C-c\C-c")
+; (key-chord-define-global "vg"     'eval-region)
+; (key-chord-define-global "vb"     'eval-buffer)
+; (key-chord-define-global "cy"     'yank-pop)
+; (key-chord-define-global "cg"     "\C-c\C-c")
 ; frame actions
-(key-chord-define-global "xo"     'other-window);
-(key-chord-define-global "x1"     'delete-other-windows)
-(key-chord-define-global "x0"     'delete-window)
+; (key-chord-define-global "xo"     'other-window);
+; (key-chord-define-global "x1"     'delete-other-windows)
+; (key-chord-define-global "x0"     'delete-window)
 
 (defun kill-this-buffer-if-not-modified ()
   (interactive)
@@ -417,22 +421,22 @@
       (kill-buffer-if-not-modified (current-buffer))
     (abort-recursive-edit)))
 
-(key-chord-define-global "xk"     'kill-this-buffer-if-not-modified)
+; (key-chord-define-global "xk"     'kill-this-buffer-if-not-modified)
 ; file actions
-(key-chord-define-global "bf"     'ido-switch-buffer)
-(key-chord-define-global "cf"     'ido-find-file)
-(key-chord-define-global "vc"     'vc-next-action)
+; (key-chord-define-global "bf"     'ido-switch-buffer)
+; (key-chord-define-global "cf"     'ido-find-file)
+; (key-chord-define-global "vc"     'vc-next-action)
 
 
              
-(key-chord-define-global ";x" 'execute-extended-command) ;; Meta-X
+; (key-chord-define-global ";x" 'execute-extended-command) ;; Meta-X
 
 ; window management:
-(key-chord-define-global ";2" 'double-window)
-(key-chord-define-global ";3" 'triple-window)
-(key-chord-define-global ";8" 'eighty-columns)
-(key-chord-define-global ";w" 'one-hundred-thirty-two-columns)
-(key-chord-define-global ";s" 'rotate-windows)  ;; "s" for switch
+; (key-chord-define-global ";2" 'double-window)
+; (key-chord-define-global ";3" 'triple-window)
+; (key-chord-define-global ";8" 'eighty-columns)
+; (key-chord-define-global ";w" 'one-hundred-thirty-two-columns)
+; (key-chord-define-global ";s" 'rotate-windows)  ;; "s" for switch
 
 (require 'python)
 (defvar key-chord-tips '("Press <jj> quickly to jump to the beginning of a visible word."
@@ -480,6 +484,7 @@
 (global-set-key (kbd "C-c p") 'message-point)
 
 ;; So good!
+(global-set-key (kbd "C-x m") 'magit-mode)
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-c q") 'join-line)
 
@@ -565,6 +570,7 @@ buffer preview will still display."
 (global-set-key (kbd "C-c -") 'evil-numbers/dec-at-pt)
 
 ; or only in evil’s normal state:
+(define-key evil-normal-state-map (kbd "b") 'helm-buffers-list)
 (define-key evil-normal-state-map (kbd "C-c +") 'evil-numbers/inc-at-pt)
 (define-key evil-normal-state-map (kbd "C-c -") 'evil-numbers/dec-at-pt)
 
