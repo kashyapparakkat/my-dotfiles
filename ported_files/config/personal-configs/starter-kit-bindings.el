@@ -580,6 +580,23 @@ buffer preview will still display."
 (define-key evil-normal-state-map (kbd "<kp-subtract>") 'evil-numbers/dec-at-pt)
 
 
+;; Set the maximum length (in characters) for key descriptions (commands or
+;; prefixes). Descriptions that are longer are truncated and have ".." added.
+(setq which-key-max-description-length 37)
+(setq which-key-side-window-max-height 0.45)
+
+; go to the last change
+(use-package goto-chg)
+
+(global-set-key [(control .)] 'goto-last-change)
+(global-set-key (kbd "C-.") 'goto-last-change)
+(global-set-key [(control ,)] 'goto-last-change-reverse)
+(global-set-key (kbd "C-,") 'goto-last-change-reverse)
+; M-. can conflict with etags tag search. But C-. can get overwritten
+; by flyspell-auto-correct-word. And goto-last-change needs a really
+; fast key.
+; ensure that even in worst case some goto-last-change is available
+; (global-set-key [(control meta .)] 'goto-last-change)
 
 
 
