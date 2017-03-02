@@ -1974,7 +1974,9 @@ search_files(searchlist1,SchStr)
 read_searchlists_all:
 	searchlist1=
 	fileread,searchlist1,%A_ScriptDir%\searchlist.ini
-	fileread,loop_folders,%A_ScriptDir%\searchlist_Folders.ini
+	fileread,loop_folders,%A_ScriptDir%\searchlist_Folders.ini	
+stringreplace,searchlist1, searchlist1, <username>,%A_UserName%,all
+stringreplace,loop_folders, loop_folders, <username>,%A_UserName%,all
 	; loop_folders=%A_ScriptDir%\db`nC:\cbn\docs
 
 	; scanning watch folders

@@ -247,7 +247,30 @@ sourcepath:=get_parent_filepath(),sourcepath:=get_parent_filepath(),sourcepath:=
 ,
 ,
 )
-HK_cycle_register("<#3","run_cmd_HK",4,4000,"Lwin", "$#q",config) 
+HK_cycle_register("<#3","run_cmd_HK",4,4000,"Lwin", "$#q",config)
+
+
+config =
+(
+convert_path_to_windows(),convert_path_to_linux(),to_cygwin,cygwin_to windows
+,,,
+,,,
+,,,
+,,,
+convert_path_to_windows(),convert_path_to_linux()
+,,,
+)
+
+HK_cycle_register("<^!F6","Convert_paths",4,3000,"LCtrl", "$^q",config)
+
+
+convert_path_to_windows(){
+stringreplace,clipboard,clipboard,/,\,all
+}
+convert_path_to_linux(){
+stringreplace,clipboard,clipboard,\,/,all
+}
+ ; C:\cbn_gits\AHK\HK_cycle_hotkeys.ahkC:\cbn_gits\AHK\HK_cycle_hotkeys.ahk
 return
 
 test:

@@ -204,13 +204,13 @@ function remove_cygdrive() {
 	sed -e "s/\\/cygdrive\\/\\(.\\)\\//\\1:\\//"  -- "$@"
 }
 
-function some-cron-jobs() {
+function cron-jobs-cibin() {
 
     # TODO: separate the jobs or add interval info to it
 	
     # locatedb update
 	# updatedb
-	
+	other_indexes
     # emacs indexing
 	myindexemacs
 	

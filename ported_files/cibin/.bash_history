@@ -68,3 +68,13 @@ gn begin
 gn zod
 gn ac zo
 exit
+other_indexes 
+other_indexes 
+echo "\n" >> "C:/cbn_gits/AHK/smart_search/db/start-menu.txt"
+echo "\n" >> "C:/cbn_gits/AHK/smart_search/db/start-menu.txt"
+echo "\n" >> "C:/cbn_gits/AHK/smart_search/db/start-menu.txt"
+echo "\n" >> "C:/cbn_gits/AHK/smart_search/db/start-menu.txt"
+echo "asdfasd\n" >> "C:/cbn_gits/AHK/smart_search/db/start-menu.txt"
+echo "asdfasd\n" >> "C:/cbn_gits/AHK/smart_search/db/start-menu.txt"
+printf "hello\nworld\n" >> "C:/cbn_gits/AHK/smart_search/db/start-menu.txt"
+exit
