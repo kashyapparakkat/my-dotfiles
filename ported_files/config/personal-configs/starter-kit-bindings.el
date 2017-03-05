@@ -217,10 +217,12 @@
 
 
 ;; Font size
-(define-key global-map [C-mouse-wheel-up-event] 'text-scale-increase)
-(define-key global-map [C-mouse-wheel-down-event] 'text-scale-decrease)
-(define-key global-map (kbd "C-+") 'text-scale-increase)
-(define-key global-map (kbd "C--") 'text-scale-decrease)
+(define-key global-map [C-mouse-wheel-up-event] 'cibin/text-scale-increase)
+(define-key global-map [C-mouse-wheel-down-event] 'cibin/text-scale-decrease)
+(define-key global-map (kbd "C-+") 'cibin/text-scale-increase)
+(define-key global-map (kbd "C--") 'cibin/text-scale-decrease)
+(defun cibin/text-scale-increase () (interactive) (text-scale-increase .4))
+(defun cibin/text-scale-decrease () (interactive) (text-scale-decrease .4))
 
 
 ;; Jump to a definition in the current file. (This is awesome.)
