@@ -98,11 +98,12 @@
 			(propertize (format " %s files" count-buffer_c) 'face 'mode-line-selection-face)
 		)
 	)
+	" "
 	; TODO disabled for now
    ; directory and buffer/file name
    ; (:propertize (:eval (shorten-directory default-directory 60))
                 ; face mode-line-folder-face)
-					; filename
+; filename
    (:propertize "%b"
                 face mode-line-filename-face)
 			  " %s " ; subprocess status
@@ -110,9 +111,9 @@
    ; mode indicators: vc, recursive edit, major mode, minor modes, process, global
    (vc-mode vc-mode)
    (flycheck-mode flycheck-mode-line) ; Flycheck status
-   "  %["
+   " %["
    (:propertize mode-name
-                face mode-line-mode-face)
+                face mode-line-filename-face)
    "%] "
    (:eval (propertize (format-mode-line minor-mode-alist)
                       'face 'mode-line-minor-mode-face))

@@ -35,15 +35,20 @@ alias fgrep='fgrep --color=auto'
 alias cd..='cd ..' 
  
 ## a quick way to get out of current directory ##
+
+alias cdd='cd /cygdrive/c/Users/cibin/Downloads'
+# alias cdd='cd ~/Downloads'
+
 alias cd.='cd ..' 
 alias cd..='cd ..' 
+alias cd...='cd ../..' 
+
 alias ..='cd ..' 
 alias ...='cd ../../../' 
 alias ....='cd ../../../../' 
 alias .....='cd ../../../../' 
 alias .4='cd ../../../../' 
 alias .5='cd ../../../../..'
-alias cdd='cd ~/Downloads'
 
 # Show me the size (sorted) of only the folders in this directory
 alias folders="lfind . -maxdepth 1 -type d -print | xargs du -sk | sort -rn"

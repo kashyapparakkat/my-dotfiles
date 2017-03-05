@@ -13,8 +13,6 @@
 ; (define-key evil-normal-state-map (kbd "s") 'nil)
 ;(define-key evil-normal-state-map  "s p" 'evil-unimpaired/paste-below)
 ;(define-key evil-normal-state-map "s P" 'evil-unimpaired/paste-above)
-
-
 ;; C-8 for *scratch*, C-9 for *compilation*.
 ;; (use M-8, etc as alternates since C-number keys don't have ascii control
 ;; codes, so they can't be used in terminal frames.)
@@ -590,8 +588,11 @@ buffer preview will still display."
 
 (global-set-key [(control .)] 'goto-last-change)
 (global-set-key (kbd "C-.") 'goto-last-change)
-(global-set-key [(control ,)] 'goto-last-change-reverse)
+
+; (global-set-key [(control ,)] 'goto-last-change-reverse)
 (global-set-key (kbd "C-,") 'goto-last-change-reverse)
+
+
 ; M-. can conflict with etags tag search. But C-. can get overwritten
 ; by flyspell-auto-correct-word. And goto-last-change needs a really
 ; fast key.
@@ -605,3 +606,10 @@ buffer preview will still display."
 
 
 
+;C-./> last-change
+;C-, = zap
+; C-< = zap upto
+; select till end of line
+; del entire line
+; select till beg of line usE CAPsLOCK
+; select till beg of file capslock u

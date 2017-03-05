@@ -690,4 +690,89 @@ file to write to."
     (define-key minibuffer-local-isearch-map (kbd "<left>") 'isearch-reverse-exit-minibuffer)
     (define-key minibuffer-local-isearch-map (kbd "<right>") 'isearch-forward-exit-minibuffer)
 	)
-	
+
+;;IBUFFER Hacks
+; http://martinowen.net/blog/2010/02/03/tips-for-emacs-ibuffer.html
+(setq ibuffer-saved-filter-groups
+  (quote (("default"      
+
+            ("dired" (mode . dired-mode))
+ ("emacs-config" (or (filename . ".emacs.d")
+			     (filename . "emacs-config")))
+         ("martinowen.net" (filename . "martinowen.net"))
+	 ("Org" (or (mode . org-mode)
+		    (filename . "OrgMode")))
+         ("Web Dev" (or (mode . html-mode)
+			(mode . css-mode)))
+	 ("Subversion" (name . "\*svn"))
+	 ("Magit" (name . "\*magit"))
+	 
+            ("Mail"
+              (or  ;; mail-related buffers
+               (mode . message-mode)
+               (mode . mail-mode)
+               ;; etc.; all your mail related modes
+               ))
+            ("MyProject1"
+              (filename . "src/myproject1/"))
+            ("MyProject2"
+              (filename . "src/myproject2/"))
+            ("Programming" ;; prog stuff not already in MyProjectX
+              (or
+                (mode . c-mode)
+                (mode . perl-mode)
+                (mode . python-mode)
+;                (mode . emacs-lisp-mode)
+                ;; etc
+                ))
+	 ("Emacs " (or (name . "\*Help\*")
+		     (name . "\*Apropos\*")
+		     (name . "\*Messages\*")
+		     (name . "\*\*")
+		     (name . "\*\*")
+		     (name . "\*info\*")))
+
+            ("ERC"   (mode . erc-mode))))))
+
+(add-hook 'ibuffer-mode-hook
+  (lambda ()
+    (ibuffer-switch-to-saved-filter-groups "default")))
+(setq ibuffer-show-empty-filter-groups nil)
+
+
+; ibuffer-auto-mode
+; ibuffer-auto-mode is a minor mode that automatically keeps the buffer list up to date. I turn it on in my ibuffer-mode-hook:
+
+(add-hook 'ibuffer-mode-hook
+	  '(lambda ()
+	     (ibuffer-auto-mode 1)
+	     (ibuffer-switch-to-saved-filter-groups "default")))
+
+
+
+
+
+(defun cibin-apply-major-mode ()
+  "apply major mode "
+  (interactive)
+  (let (
+         (-suffix-map
+          `(
+            ("py" . "python-mode")
+            ("sh" . "bash")
+            ("org" . "org-mode")
+            ("txt" . "text-mode")
+            ("ahk" . "ahk-mode")
+            ))
+         -fname
+         -fSuffix
+         -prog-name
+         -cmd-str)
+
+
+    (setq -fname (buffer-file-name))
+    (setq -fSuffix (file-name-extension -fname))
+    (setq -prog-name (cdr (assoc -fSuffix -suffix-map)))
+                                        ; apply the mode from variable
+    (funcall (intern -prog-name))
+))

@@ -346,6 +346,7 @@ OnMessage(0x200, "WM_MOUSEMOVE")
 	WinSet, Region, 0-23  w%search_box_width% H50 ;H75
 	Gui, Show ,x100	w%show_width% ;h650
 	tooltip,L^enter: paste | L+enter: copy | R+enter: open guiL | >^enter: field by field ,0,-55,2
+	tooltip,+enter: copy `t +enter: open guiL`n^enter: paste `t ^enter: field by field ,0,-55,2
 	GuiControl,Focus,visibleSchStr
 	; DllCall("AnimateWindow","UInt",GUI_ID,"Int",500,"UInt","0x60011")	; AnimateWindow
 	; sleep,250

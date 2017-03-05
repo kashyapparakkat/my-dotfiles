@@ -1,6 +1,8 @@
 
+(diminish 'Auto-complete-mode "AC")
 (diminish 'drag-stuff-mode "◆")
 (diminish 'git-gutter+-mode "g+")
+(diminish 'git-gutter-mode "gut")
 
 (defvar mode-line-cleaner-alist
   `((auto-complete-mode . " α")

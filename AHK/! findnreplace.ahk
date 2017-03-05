@@ -21,8 +21,8 @@ gui,11: add,Edit, x+0 yp w100 h30 Multi hWndEd2 vreplacetext gpreview2
 gui,11: add,Edit, x+0 yp w100 h30 Multi vreplacetext2 gextract
 ; gui,11: add,text, x+0 yp h20 w300 vstatustext,ack
 ; gui,11: add,button, x10 y+10 w400 h25 gextract,extract
-gui,11: add,button, x10 y+10 w400 h25 gfindreplace, Ok
-gui,11: add,button, x10 y+10 w400 h25 gcopynclose, copynclose
+gui,11: add,button, x10 y+10 w400 h25 gfindreplace, paste (enter)
+gui,11: add,button, x10 y+10 w400 h25 gcopynclose, copynclose ()
 Gui,11: font, s10
 gui,11: add,Edit,x10 y+0 w200 h150 T8 vedit3 -wrap gpreview,
 gui,11: add,Edit,x+0 yp w200 h150 T8 vedit4 -wrap gpreview,

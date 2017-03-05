@@ -23,6 +23,7 @@ If point was already at that position, move point to end of line."
 
 
 (global-set-key (kbd "C-e") 'smart-end-of-line)
+(global-set-key (kbd "<end>") 'smart-end-of-line)
 ; (global-set-key (kbd "C-e") 'evil-end-of-line)
 
 ; (define-key evil-normal-state-map (kbd "C-e") 'evil-end-of-line)
@@ -34,7 +35,9 @@ If point was already at that position, move point to end of line."
 ; (global-set-key (kbd "C-a") 'smart-line-beginning)
 ; (global-set-key [home] 'smart-line-beginning)
 
-		 
+; TODO		 
+; (global-set-key (kbd "C-<home>") 'x4-smarter-beginning-of-line)
+; (global-set-key (kbd "S-<home>") 'x4-smarter-beginning-of-line)
 
 		 
 		 

@@ -24,7 +24,7 @@ fi
 function myindex() { 
 if [ -z "$1" ]; then
     # display usage if no parameters given
-    echo "cibin indexing all files to $Universal_home/Downloads/all_files_unfiltered.db"
+    echo "cibin/ indexing all files to $Universal_home/Downloads/all_files_unfiltered.db"
 	lfind /cygdrive -iname "*"  > "$Universal_home/Downloads/all_files_unfiltered.db"
 	cat "$Universal_home/Downloads/all_files_unfiltered.db" | grep -i -v "/cygdrive/./\$Recycle.Bin/" | grep -v "/cygdrive/./\$WINDOWS.~BT/" | grep -v "/cygdrive/c/Users/cibin/AppData/" | grep -v "/cygdrive/c/my_bin/" | grep -v "/cygdrive/c/Windows/" > "$Universal_home/Downloads/all_files.db"
 	# "/cygdrive/c/Windows/WinSxS/" | grep -v "/cygdrive/c/Windows/Microsoft.NET/" 
@@ -35,11 +35,11 @@ if [ -z "$1" ]; then
 function other_indexes() { 
 if [ -z "$1" ]; then
     echo "indexing"
+	lfind "$Universal_home/Box Sync/MMF/" > "C:/cbn_gits/AHK/searchInProject.db"
+	
 	lfind "C:/ProgramData/Microsoft/Windows/Start Menu/Programs" -iname "*.lnk" > "C:/cbn_gits/AHK/smart_search/db/start-menu.txt"
 	# printf "\n" >> "C:/cbn_gits/AHK/smart_search/db/start-menu.txt"
 	lfind "$Universal_home/AppData/Roaming/Microsoft/Windows/Start Menu/Programs" -iname "*.lnk" >> "C:/cbn_gits/AHK/smart_search/db/start-menu.txt"
-	# cat "$Universal_home/Downloads/all_files_unfiltered.db" | grep -i -v "/cygdrive/./\$Recycle.Bin/" | grep -v "/cygdrive/./\$WINDOWS.~BT/" | grep -v "/cygdrive/c/Users/cibin/AppData/" | grep -v "/cygdrive/c/my_bin/" | grep -v "/cygdrive/c/Windows/" > "$Universal_home/Downloads/all_files.db"
-	
- fi
+	fi
  }
 

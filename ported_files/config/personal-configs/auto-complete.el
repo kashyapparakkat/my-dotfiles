@@ -1,3 +1,35 @@
+
+; enable it globally you should use
+(global-auto-complete-mode t)
+(ac-config-default)
+; But it uses auto-complete-mode-maybe, which turn AC on only those listed in ac-modes. You can add them manually just like this
+(add-to-list 'ac-modes 'text-mode)
+(custom-set-variables
+	'(ac-auto-show-menu    0.2)
+	'(ac-delay             0.2)
+	'(ac-menu-height       20)
+	'(ac-auto-start t)
+	'(ac-auto-start 3)
+	'(ac-use-quick-help t)
+	'(ac-show-menu-immediately-on-auto-complete t)
+	'(ac-ignore-case 'smart)
+	'(ac-candidate-limit 30)
+	'(ac-source-files-in-current-dir)
+	'(ac-source-filename)
+	'(ac-source-words-in-same-mode-buffers)
+	'(ac-source-yasnippet)
+	'(ac-fuzzy-complete t)
+	'(ac-use-fuzzy t)
+	'(ac-fuzzy-enable t)
+	'(ac-dwim t)
+	'(ac-use-menu-map t)
+)
+(global-set-key (kbd "M-I") 'ac-fuzzy-complete)
+;; Default settings
+(define-key ac-menu-map "\C-n" 'ac-next)
+(define-key ac-menu-map "\C-p" 'ac-previous)
+(define-key ac-menu-map  (kbd "<S-tab>") 'ac-previous)
+
 ; http://ergoemacs.org/misc/emacs_abbrev_shell_elisp.html
 
 (defcustom xah-shell-abbrev-alist nil "alist of xah's shell abbrevs")

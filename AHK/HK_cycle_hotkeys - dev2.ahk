@@ -101,7 +101,7 @@ return
 
 run_cmd_prompt: ; run_cmd_prompt
 	sourcepath:=get_parent_filepath()
-	run,cmd,%sourcepath%
+	run_cmd_prompt(sourcepath)
 return
 
 update_cmd_list:

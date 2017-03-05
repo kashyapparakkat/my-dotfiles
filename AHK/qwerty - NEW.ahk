@@ -588,7 +588,7 @@ return
 return
 
 lctrl & space::	;	send, {enter}
-	send, {enter}
+	; send, {enter}
 return
 
 ; ^space::	; na

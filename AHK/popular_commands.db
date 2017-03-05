@@ -1,26 +1,31 @@
+(global-set-key (kbd "C-c C-b") 'xah-make-backup-and-save) if file,backup-and-save, if dired, for marked, else no action
 bash
+====
+
+
+xargs take line by line instead of space
+sort files on modified time
+find -type f -print0 | xargs -r0 stat -c %y\ %n | sort
+| xargs -d '\n' ls -t
+|tr '\n' '\0'|xargs -0 ls -t
+
+
 regex
 cmd
+
 git
-Bundle the Repository
-Similar to the git archive command, git bundle turns a repository into a single file. However, in this case, the file retains the versioning information of the entire project. Try running the following command.
-
+Bundle the Repository: Similar to the git archive command, git bundle turns a repository into a single file. However, in this case, the file retains the versioning information of the entire project. Try running the following command.
 git bundle create ../repo.bundle master #It’s like we just pushed our master branch to a remote, except it’s contained in a file instead of a remote repository. We can even clone it using the same git clone command:
-
 cd ..
 git clone repo.bundle repo-copy -b master
 cd repo-copy
 git log
 cd ../my-git-repo
 
-(global-set-key (kbd "C-c C-b") 'xah-make-backup-and-save) if file,backup-and-save, if dired, for marked, else no action
 git diff HEAD^^ HEAD # diff between last two commits
-
 git rm file1.txt
 git commit -m "remove file1.txt"
-But if you want to remove the file only from the Git repository and not remove it from the filesystem, use:
-
-git rm --cached file1.txt
+git rm --cached file1.txt #But if you want to remove the file only from the Git repository and not remove it from the filesystem, use:
 For a directory: git rm --cached -r mydirectory
 
 git commit --amend # make changes and ammend
@@ -29,17 +34,11 @@ git diff --name-only SHA1 SHA2
 git diff --name-only HEAD~10 HEAD~5 # between last 5th and 10th
 
 
-Everyday Git in twenty commands or so
+git help everyday #Everyday Git in twenty commands or so
 
-git help everyday
-Show helpful guides that come with Git
+git fetch --all && git reset --hard origin/master #Overwrite pull
 
-git help -g
-Overwrite pull
-
-git fetch --all && git reset --hard origin/master
 List of all files till a commit
-
 git ls-tree --name-only -r <commit-ish>
 Git reset first commit
 
