@@ -206,7 +206,14 @@ If the new path's directories does not exist, create them."
   )
 )
 
-
+;; Automatically save and restore sessions
+(setq desktop-dirname             "~/.emacs.d/my-files/desktop/"
+      desktop-base-file-name      "emacs.desktop"
+      desktop-base-lock-name      "lock"
+      desktop-path                (list desktop-dirname)
+      desktop-save                t
+      desktop-files-not-to-save   "^$" ;reload tramp paths
+      desktop-load-locked-desktop nil)
 (desktop-save-mode 1) ; save/restore opened files from last session
 (global-visual-line-mode 1) ; soft line wrap ; 1 for on, 0 for off.
 

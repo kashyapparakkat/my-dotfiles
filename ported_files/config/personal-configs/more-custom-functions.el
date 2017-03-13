@@ -137,7 +137,7 @@
 (defun cibin-search-in-common-files-bash()
 	(interactive)
 	
-	(setq prompt "[TODO] grepfilelist_common all/common/downs/ahk/notes/here/hhere   common/code/txt   searchTerm: ")
+	(setq prompt "grepfilelist_common.sh  searchTerm: ")
 	(setq default (format "grepfilelist_common.sh "))
 	(search-handler prompt default)
 	
@@ -557,7 +557,8 @@ This command does not push text to `kill-ring'."
     (while (re-search-forward "/[^ \t]*" nil t)
       (make-button (match-beginning 0) (match-end 0) :type 'find-file-button))))
 
-(add-hook 'find-file-hook 'buttonize-buffer)   ; uncomment to add to find file
+	  ; TODO enable to buttonize-buffer
+; (add-hook 'find-file-hook 'buttonize-buffer)   ; uncomment to add to find file
 
 
 

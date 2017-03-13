@@ -99,6 +99,31 @@
 (add-hook 'focus-in-hook (lambda () (highlight-focus:app-focus t)))
 (add-hook 'focus-out-hook (lambda () (highlight-focus:app-focus nil)))
 
-(provide 'highlight-focus)
 
-;;; highlight-focus.el ends here
+
+
+(require 'highlight-thing)
+(global-highlight-thing-mode)
+; Alternatively you can use the buffer-local version:
+; (add-hook 'prog-mode-hook 'highlight-thing-mode)
+; The default is to highlight the symbol under point, but you can customize hightlight-thing-what-thing to highlight different components. Set the following to only highlight the word under point:
+; (setq highlight-thing-what-thing 'word)
+(setq highlight-thing-delay-seconds 1.0)
+; You can configure the matching of occurrences to be case-sensitive via the following setting:
+; (setq highlight-thing-case-sensitive-p t)
+; If you want all the matches highlighted but not the one occurrence at the point itself, you can do so by:
+(setq highlight-thing-exclude-thing-under-point t)
+
+ (require 'mic-paren) ; loading
+     (paren-activate)     ; activating
+	 ; TODO http://emacs.stackexchange.com/questions/5569/disable-mic-paren-in-the-minibuffer-or-at-least-in-ido
+	 
+	 
+	 
+(load-file "~/.emacs.d/my-files/config/others/theme-changer.el")
+(require 'theme-changer)
+(setq calendar-location-name "Dallas, TX") 
+(setq calendar-latitude 32.85)
+(setq calendar-longitude -96.85)
+; Specify the day and night themes:
+(change-theme 'solarized-light 'solarized-dark) 

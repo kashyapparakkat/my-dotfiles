@@ -75,8 +75,11 @@ surfingkeys:
   
   
   
-surfingkeys:
+//surfingkeys:
+settings.hintAlign = "left";
 
+//emoji suggestions popup as soon as you input colon, use below:
+settings.startToShowEmoji = 0;
 // Unmap dangerous 'reset settings' shortcut
 unmap('sr');
 
@@ -193,6 +196,8 @@ mapkey('gk', 'google second result', function() {
 
 
 Hints.characters = 'asdghklmnj' ;
+// todo scrollKeys change
+Hints.scrollKeys='0jkhlG$'	//The keys that can be used to scroll page in hints mode. You need not change it unless that you have changed Hints.characters.
 // f to turn it off again
 
 mapkey(';', '#9Find in current page', 'Front.openFinder()');

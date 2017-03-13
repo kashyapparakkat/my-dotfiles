@@ -1,15 +1,15 @@
 ; Not lazy loading 
- (autoload 'python-mode "python-mode" "Python Mode." t)
- (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
- (add-to-list 'interpreter-mode-alist '("python" . python-mode))
+ ; (autoload 'python-mode "python-mode" "Python Mode." t)
+ ; (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+ ; (add-to-list 'interpreter-mode-alist '("python" . python-mode))
  
 
+; (require 'python)
 ;;; ELPY
 ; instructions at
 ; http://onthecode.com/post/2014/03/06/emacs-on-steroids-for-python-elpy-el.html
 
 
-; (elpy-enable)
 
 ;; Fixing a key binding bug in elpy
 (define-key yas-minor-mode-map (kbd "C-c k") 'yas-expand)
@@ -19,11 +19,13 @@
 (setenv "PYTHONPATH" "/cygdrive/c/Program Files (x86)/Python35-32/python")
 
 
+  (add-hook 'python-mode-hook (lambda () (aggressive-indent-mode -1)(elpy-enable)))
+
 ;	
 (use-package elpy
-  :mode ("\\.py\\'" . elpy-mode)
-  :init
-  (add-hook 'python-mode-hook (lambda () (aggressive-indent-mode -1)))
+  :mode ("\\.py\\'" . python-mode)
+  ; :mode ("\\.py\\'" . elpy-mode)
+  
   :config
   (when (require 'flycheck nil t)
     (remove-hook 'elpy-modules 'elpy-module-flymake)

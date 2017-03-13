@@ -37,6 +37,16 @@ Sub Macro1()
         Operator:=xlAnd
 End Sub
 
+Sub SortToggleAllData()
+Dim Rng As Range, col As Long, Rw As Long
+Static Pos As Integer
+    Pos = IIf(Pos = xlAscending, xlDescending, xlAscending)
+    col = Selection.Column
+    Rw = Range("A1").CurrentRegion.Rows.Count
+    ' TODO range is max is ZZth column
+    Set Rng = Range("A1:ZZ" & Rw)
+    If Rng.Count > 1 Then Rng.Sort Cells(1, col), Pos
+End Sub
 
 Sub GoToMax()
 ' can find in selection/column/entire sheet
@@ -129,6 +139,7 @@ With Application
 .OnKey Key:="^+{F7}", procedure:="GoToMax"
 .OnKey Key:="^{=}", procedure:="AutoFitAllColumns"
 .OnKey Key:="^+{F8}", procedure:="GoToMin"
+.OnKey Key:="^+{F9}", procedure:="SortToggleAllData"
 
 End With
 

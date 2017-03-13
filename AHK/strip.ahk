@@ -129,7 +129,7 @@ update_cmd_list:
 	Return
 
 #IfWinNotActive, ahk_exe eclipse.exe
-^+F9:: ; pip
+>^+F9:: ; pip
 #IfWinNotActive
 ; C:\Werkzeug-0.9\setup.py
 ; C:\Werkzeug-0.9.egg
@@ -158,7 +158,7 @@ else
 	line := RegExReplace(line, "^pip install (.*)\s*$", "$1")
 	cmd=|C:\WINDOWS\system32\cmd.exe /k pip install %line%,C:\python27\scripts|||%run_command_all%
 }
-tooltip, install "%line%"
+tooltip, pip install "%line%"
 SetTimer,removetooltip, 1500
 guicontrol,1: ,run_command,|
 guicontrol,1:,run_command,%cmd%

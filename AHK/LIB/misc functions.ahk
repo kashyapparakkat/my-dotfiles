@@ -746,7 +746,7 @@ run_emacs_dired(sourcepath)
 
 run_cmd_prompt(sourcepath="") ; run_cmd_prompt
 {
-	run,cmd /k C:/Users/%a_username%/Downloads/alias.cmd,%sourcepath%
+	run,cmd /k C:\cbn_gits\my_env_path_folder\alias.cmd,%sourcepath%
 }
 
 run_bash_prompt(sourcepath="") ; run_cmd_prompt

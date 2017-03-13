@@ -3702,6 +3702,10 @@ else
 }
 Return
 
+; Lctrl & space::
+; msgbox,Space
+return
+
 $<^b::	; na
 	
 	if trigger_if_triggered_by_emacs_script_else_proceed("LCtrl")
@@ -3966,7 +3970,7 @@ clipselect_gui:
 	Gui, %clipselect_gui_number%:  add,text,x+10  cgreen, Shift:: copy  Ctrl:: paste full clip entry
 	Gui, %clipselect_gui_number%:  add,Button,xp+160  w40 ghide_searchGui ,X
 	Gui,  %clipselect_gui_number%: font,s11 
-	Gui, %clipselect_gui_number%:  Add, ListView, x0 y+0 w600 r10 h200 vResultList_567 hwndList gListEvent   AltSubmit,clip#|match|clip|line#
+	Gui, %clipselect_gui_number%:  Add, ListView, x0 y+0 w800 r10 h200 vResultList_567 hwndList gListEvent   AltSubmit,clip#|match line|full clip|matchline#
 
 return
 
@@ -4020,7 +4024,7 @@ SEARCH(gui_number)
 	; tooltip,%SchStr%
 	; sleep,500
 	newSchStr=i)^%SchStr%
-	newSchStr2=i)%SchStr%
+	newSchStr2=i).*%SchStr%.*
 	matchlist=
 	tot_chars_searched:=0
 	result2=
@@ -4048,17 +4052,16 @@ SEARCH(gui_number)
 				stringleft,a,all,100
 				stringleft,b,A_LoopField,50
 				stringreplace,a,a,`n,%A_space%%A_space%,all
-				result1 .= a . "`n"
-				LV_Add("",search_index,b,a_loopfield,a_index)
+				result1 .= search_index . "@@@@" . b . "`n"
+				; LV_Add("",search_index,b,a_loopfield,a_index)
 			}
+			
 			else if RegExMatch(a_loopfield,newSchStr2)
 			{
-				
 				stringleft,a,all,100
-				stringleft,b,A_LoopField,50
+				stringleft,b,a_LoopField,50
 				stringreplace,a,a,`n,%A_space%%A_space%,all
-				result2 .= a . "`n"
-			
+				result2 .= search_index . "@" . b . "`n"
 			}
 		}		
 	}
@@ -4069,10 +4072,16 @@ SEARCH(gui_number)
 	if (result1<>"")
 		all_results := result1 
 	if (result2<>"")
-		all_results .= "`n" . result2
+	{	if (result1<>"")
+			all_results .= "`n" 
+		all_results .= result2
+	}
 	loop,parse,all_results,`n
 	{
-		LV_Add("","search_index","b",a_loopfield,"a_index")
+		; stringreplace,n,a_loopfield,
+		txt:=RegExReplace(a_loopfield, "^\d+@","" )
+		n:=RegExReplace(a_loopfield, "^(\d+)@.*","$1" )
+		LV_Add("",n,txt,"full ",a_loopfield)
 	}
 	tot_chars_searched=
 ;============;;
@@ -4132,7 +4141,8 @@ search_gui:
 		ay:=500
 	ax+=10
 	allclips=
-	Gui, %clipselect_gui_number%: Show , x%ax% y%ay% w600 h225,%clipselect_gui_name%
+	Gui, %clipselect_gui_number%: Show , x%ax% y%ay% w800 h225,%clipselect_gui_name%
+	tooltip,`t`t`t`tenter: paste`n+enter: copy full close`t`t+enter: copy line close`n^enter: paste match line,1,-52,7
 
 	Guicontrol, %clipselect_gui_number%: Focus,visibleSchStr_567
 	Guicontrol, %clipselect_gui_number%: ,visibleSchStr_567,	;	search clip history
@@ -4227,8 +4237,9 @@ hide_searchGui:
 	hotkey,esc,off
 	Gui, %clipselect_gui_number%: hide
 	Gui,3:  hide
+	tooltip,,,,7
 	SetTimer, IncrementalSearch_567, off
-	OnMessage(0x200, "WM_MOUSEMOVE", 0)  
+	OnMessage(0x200, "WM_MOUSEMOVE", 0) 
 return
 
 #IfWinActive, clipselect
@@ -4250,24 +4261,27 @@ Enter::	; na
 		MC_OwnChange:=1
 		if state_s= D ; 
 		{					
-			ClipBoard = %Selected_text%  
+			LV_GetText(Selected_clip, LV_GetNext(),1)
+			ClipBoard := %search_array%%Selected_clip%
+			Selected_clip=
 			settimer,removetooltip,-550
 			tooltip,copied line`n`n%ClipBoard%
 		}
 		else if state_C= D ; 
 		{
-			LV_GetText(Selected_clip, LV_GetNext(),1)
-			ClipBoard := %search_array%%Selected_clip%
-			Selected_clip=
-			; send ^v			
-			send_key_emacs_or_after_translatingTo_normal_ifNot_emacseditor("C-y")
-		}
-		else
-		{
 			settimer,removetooltip,-550
 			tooltip,copied`n`n%ClipBoard%
 			ClipBoard = %Selected_text% 
 			; send ^v	
+			send_key_emacs_or_after_translatingTo_normal_ifNot_emacseditor("C-y")
+		}
+		else
+		{
+		; msgbox,%search_array%
+			LV_GetText(Selected_clip, LV_GetNext(),1)
+			ClipBoard := %search_array%%Selected_clip%
+			Selected_clip=
+			; send ^v			
 			send_key_emacs_or_after_translatingTo_normal_ifNot_emacseditor("C-y")
 		}
 		sleep,150	
@@ -4476,7 +4490,7 @@ clipboard_gui:
 	line=%clipboard%	
 	clip_gui_item:=1
 
-	clip_gui:
+clip_gui:
 
 	gui3edit2:=tmp_txt
 	gui, 3: destroy

@@ -2,8 +2,8 @@
 
 ;; more available at https://github.com/abo-abo/hydra/blob/master/hydra-examples.el
 
-; https://github.com/abo-abo/hydra/wiki/Ibuffer
 (defhydra cibin/hydra-ibuffer-main (:color pink :hint nil)
+; https://github.com/abo-abo/hydra/wiki/Ibuffer
   "
  ^Navigation^ | ^Mark^        | ^Actions^        | ^View^
 -^----------^-+-^----^--------+-^-------^--------+-^----^-------
@@ -31,7 +31,8 @@
   ("/" hydra-ibuffer-filter/body :color blue)
 
   ("o" ibuffer-visit-buffer-other-window "other window" :color blue)
-  ("q" ibuffer-quit "quit ibuffer" :color blue)
+  ; ("q" ibuffer-quit "quit ibuffer" :color blue)
+  ("q" quit-window "quit ibuffer" :color blue)
   ("." nil "toggle hydra" :color blue))
   
 (defhydra hydra-ibuffer-mark (:color teal :columns 5
@@ -227,15 +228,16 @@ Directory size: %s(shell-command-to-string \"du -hs\")
 
 
 
-(if (require 'hydra nil 'noerror)
-    (progn
-      (defhydra hydra-toggle-mode (:color blue :columns 4 :post (redraw-display))
+
+      (defhydra hydra-cibin-misc (:color blue :columns 4 :post (redraw-display))
         "hydra-toggle-mode"
         ("RET" redraw-display "<quit>")
         ("c" csv-mode "csv-mode")
         ("j" jinja2-mode "jinja2-mode")
         ("k" markdown-mode "markdown-mode")
         ("l" lineum-mode "lineum-mode")
+		("a" cibin-apply-major-mode "cibin-apply-major-mode")
+           
         ("m" moinmoin-mode "moinmoin-mode")
         ("o" org-mode "org-mode")
         ("p" python-mode "python-mode")
@@ -244,9 +246,8 @@ Directory size: %s(shell-command-to-string \"du -hs\")
         ("t" text-mode "text-mode")
         ("v" visual-line-mode "visual-line-mode")
         ("y" yaml-mode "yaml-mode")
-        ))
-  (message "** hydra is not installed"))
-  
+        )
+     (global-set-key (kbd "C-x l") 'hydra-cibin-misc/body)  
   (if (require 'hydra nil 'noerror)
     (progn
       (defhydra hydra-search (:color blue :columns 4)
@@ -307,7 +308,8 @@ _w_ whitespace    : %(toggle-setting-string whitespace-mode)  _N_ relative lines
    ("N" linum-relative-toggle nil)
    ("m" bnb/hide-mode-line-mode nil)
    ("q" nil)))
-   
+
+        
    
    (defhydra sk/hydra-expand (:pre (er/mark-word)
                            :color red
@@ -319,7 +321,23 @@ _w_ whitespace    : %(toggle-setting-string whitespace-mode)  _N_ relative lines
   ("r" er/contract-region :color blue)
   ("q" nil :color blue))
   
-  
+  (defhydra hydra-org (:color red :hint nil)
+    "
+  Navigation^
+  ---------------------------------------------------------
+  _j_ next heading
+  _k_ prev heading
+  _h_ next heading (same level)
+  _l_ prev heading (same level)
+  _u_p higher heading
+  _g_o to
+  "
+    ("j" outline-next-visible-heading)
+    ("k" outline-previous-visible-heading)
+    ("h" org-forward-heading-same-level)
+    ("l" org-backward-heading-same-level)
+    ("u" outline-up-heading)
+    ("g" org-goto :exit t))
   
   (defhydra hydra-global-org (:color blue
                             :hint nil)
@@ -343,4 +361,70 @@ _r_eset        _j_ clock goto
 
 
 
-(add-hook 'org-mode-hook #'hydra-global-org/body)
+(with-eval-after-load 'org
+    
+(define-key org-mode-map (kbd "?") 'hydra-org/body)
+(add-hook 'org-mode-hook #'hydra-org/body)
+)
+
+
+; Flycheck
+; Flycheck is an amazing syntax-checking package for Emacs, and I’m a fan of helm-flycheck for navigation. Here’s the hydra I use for quickly navigating between warnings and errors which Flycheck reports, with quick access to helm-flycheck:
+
+;; (use-package helm-flycheck
+  ;; :config
+  ;; (define-key flycheck-mode-map (kbd "C-c ! h") 'helm-flycheck)
+  ;; (key-chord-define-global "QF"
+   ;; (defhydra flycheck-hydra ()
+     ;; "errors"
+     ;; ("n" flycheck-next-error "next")
+     ;; ("p" flycheck-previous-error "previous")
+     ;; ("h" helm-flycheck "helm" :color blue)
+     ;; ("q" nil "quit"))))
+	 (defhydra hydra-help (:color blue :columns 8)
+  "Help"
+  ("f" describe-function "function")
+  ("F" Info-goto-emacs-command-node "goto command")
+  ("v" describe-variable "variable")
+  ("m" describe-mode "mode")
+  ("@" describe-face "face")
+  ("k" describe-key "key")
+  ("t" describe-theme "theme")
+  ("b" describe-bindings "bindings")
+  ("p" describe-package "package")
+  ("d" helm-dash "dash")
+  ("." helm-dash-at-point "dash at point"))
+  
+  ; mix with quickrun
+  (defhydra hydra-eval (:color blue :columns 8)
+  "Eval"
+  ("e" eval-expression "expression")
+  ("d" eval-defun "defun")
+  ("b" eval-buffer "buffer")
+  ("l" eval-last-sexp "last sexp")
+  ("1" async-shell-command "shell-command"))
+  
+  
+(defhydra hydra-magit (:color blue :columns 8)
+  "Magit"
+  ("c" magit-status "status")
+  ("C" magit-checkout "checkout")
+  ("v" magit-branch-manager "branch manager")
+  ("m" magit-merge "merge")
+  ("l" magit-log "log")
+  ("!" magit-git-command "command")
+  ("$" magit-process "process"))	 
+	 
+(use-package avy
+  :config
+  (use-package link-hint)
+  (global-set-key (kbd "M-g g") #'avy-goto-line)
+  (defhydra hydra-avy (global-map "M-g" :color blue)
+    "avy-goto"
+    ("c" avy-goto-char "char")
+    ("C" avy-goto-char-2 "char-2")
+    ("w" avy-goto-word-1 "word")
+    ("s" avy-goto-subword-1 "subword")
+    ("u" link-hint-open-link "open-URI")
+    ("U" link-hint-copy-link "copy-URI")))
+; https://github.com/nivekuil/corral

@@ -6,13 +6,13 @@
 							 ;; set maximum indentation for description lists
 (setq org-list-description-max-indent 5)
 
-;; prevent demoting heading also shifting text inside sections
-(setq org-adapt-indentation nil)
 
 (with-eval-after-load 'org
+;; prevent demoting heading also shifting text inside sections
+(setq org-adapt-indentation nil)
+(setq org-startup-idented t)
     
 	(define-key org-mode-map (kbd "M-r") 'org-toggle-heading)
-	
 	) 
 (use-package org-bullets
   :init
@@ -57,7 +57,7 @@
   "-" 'org-cycle-list-bullet
   (kbd "<tab>") 'org-cycle)
 	  
-	 (global-set-key (kbd "<f2>") (lambda () (interactive)  (my/org-toggle-heading-and-todo "DONE")))
+(global-set-key (kbd "<f2>") (lambda () (interactive)  (my/org-toggle-heading-and-todo "DONE")))
 (global-set-key (kbd "<S-f2>") (lambda () (interactive)  (my/org-toggle-heading-and-todo "TODO")))
 
 (defun my/org-toggle-heading-and-todo (arg)

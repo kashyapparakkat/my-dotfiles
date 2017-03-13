@@ -438,7 +438,6 @@
 ; (key-chord-define-global ";w" 'one-hundred-thirty-two-columns)
 ; (key-chord-define-global ";s" 'rotate-windows)  ;; "s" for switch
 
-(require 'python)
 (defvar key-chord-tips '("Press <jj> quickly to jump to the beginning of a visible word."
                          "Press <jl> quickly to jump to a visible line."
                          "Press <jk> quickly to jump to a visible character."
@@ -582,8 +581,8 @@ buffer preview will still display."
 
 ;; Set the maximum length (in characters) for key descriptions (commands or
 ;; prefixes). Descriptions that are longer are truncated and have ".." added.
-(setq which-key-max-description-length 37)
-(setq which-key-side-window-max-height 0.45)
+(setq which-key-max-description-length 34)
+(setq which-key-side-window-max-height 0.6)
 
 ; go to the last change
 (use-package goto-chg)

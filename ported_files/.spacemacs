@@ -98,6 +98,8 @@ html
 				elpy
 				fuzzy
 				magit
+				highlight-thing
+				mic-paren
 				company-jedi
 				ag
 				yascroll
@@ -186,7 +188,6 @@ html
 							 spacemacs-light
 							 solarized-light
 							 solarized-dark
-							 leuven
 							 monokai
 							 zenburn)
 		;; If non nil the cursor color matches the state color in GUI Emacs.
@@ -535,7 +536,7 @@ html
 
 (load-file "~/.emacs.d/my-files/config/personal-configs/create-filecache.el")
 ; to save memory, make it read only when hotkey is fired
-(file-cache-read-cache-from-file)
+; (file-cache-read-cache-from-file)
 
 (load-file "~/.emacs.d/my-files/config/personal-configs/shell.el")
 (load-file "~/.emacs.d/my-files/config/personal-configs/my-python.el")
