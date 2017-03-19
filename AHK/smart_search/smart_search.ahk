@@ -36,8 +36,8 @@ calculator_hist=
 appname=SMART_SEARCH
 source_Filename= ;	type of file from which match text is obtained
 smart_search_commands=load_result_into_listview_continue_smart_action`nsearch_in_result`nload_result_and_search_in_result`ncopy_only_listed_in_list_view`ncopy_full_results
-Gui +AlwaysOnTop  +border +LastFound +toolwindow   -caption ;	  +resize
-; Gui, add, button,x2  y5 w50 h30 ghide   , x
+gui 1: +AlwaysOnTop  +border +LastFound +toolwindow   -caption ;	  +resize
+; gui, 1: add, button,x2  y5 w50 h30 ghide   , x
 fileread,fileContent2,smart_search_keywords.ini
 keywordChoice_all=
 all_keywords=
@@ -75,50 +75,51 @@ sort,all_keywords, U	;sort and remove duplicates
 width := 1355
 width2 := 305
 search_box_width:=500
-Gui, Font, s11 ;cred ,
-; Gui, Font, s14 cblack ,
+gui, 1: Font, s11 ;cred ,
+; gui, 1: Font, s14 cblack ,
 ; msgbox,%keywordChoice_all%
-Gui,add, Edit, x2 y24 vvisibleSchStr w%search_box_width% hwndEd1 +0x100 gtIncrementalSearch ,	; -WantReturn
-Gui, Font, s11 cblack,
-Gui, Add, combobox, x+2 yp w200 vkeywordChoice gkeyword_sel, %keywordChoice_all%
-Gui, Font, s9 cblack,
-Gui, add, button, x+0  y25 w30 h30 ggui_roll_Down  , +
-Gui, add, button, x+5  yp w70 h30 gDefAction vAction_button1 hwndbutton1 , action
+gui, 1:add, Edit, x2 y24 vvisibleSchStr w%search_box_width% hwndEd1 +0x100 gtIncrementalSearch ,	; -WantReturn
+; msgbox,%ED1%
+gui, 1: Font, s11 cblack,
+gui, 1: Add, combobox, x+2 yp w200 vkeywordChoice gkeyword_sel, %keywordChoice_all%
+gui, 1: Font, s9 cblack,
+gui, 1: add, button, x+0  y23 w30 h30 ggui_roll_Down  , +
+gui, 1: add, button, x+5  yp w70 h30 gDefAction vAction_button1 hwndbutton1 , action
 ILButton(button1, "shell32.dll:" 151, 18, 18, 5)	
-Gui, add, button, x+0  yp w50 h30 gDefAction6 hwndbutton6 vAction_button6 , open line
+gui, 1: add, button, x+0  yp w50 h30 gDefAction6 hwndbutton6 vAction_button6 , open line
 ILButton(button6, "shell32.dll:" 151, 18, 18, 5)	
-; Gui, add, button, x+0  yp w50 h30 gDefAction7 hwndbutton7 vAction_button7 , copy
+; gui, 1: add, button, x+0  yp w50 h30 gDefAction7 hwndbutton7 vAction_button7 , copy
 ILButton(button7, "shell32.dll:" 121, 18, 18, 5)	
-Gui, add, button, x+0  yp w50 h30 gDefAction2 vAction_button2 , send mail
-Gui, add, button, x+0  yp w50 h30 gDefAction3 vAction_button3 , send mail
-Gui, add, button, x+0  yp w50 h30 gDefAction4 vAction_button4 , send mail
-Gui, add, button, x+0  yp w50 h30 gDefAction5 vAction_button5 , multi sch
-Gui,add, text,x5  y2 W200 cred  vaction_term_selected,dddd dddd dddd dddd 
-Gui,add,text,x+10  yp w120 cgreen vtext1
-Gui,add,text,x+0  yp w50 cblue  vsource , source
-Gui,add,text,x+0 yp cred vmatch2  w50, match
-Gui,add,text,x+0 yp cblue vmatch_count  w20, match
-Gui, Font, s11 cblack ,
-Gui,Add,ListView, x2 y+40 w%width% h400  0x8 vResultList gListEvent AltSubmit     hwndList  ,1 match|2 source file path|3 match line type|4 mod time|5 source_Filename| 6 type
-Gui, Add, MonthCal, x1090 y10  vDateMain  +AltSubmit ,
+gui, 1: add, button, x+0  yp w50 h30 gDefAction2 vAction_button2 , send mail
+gui, 1: add, button, x+0  yp w50 h30 gDefAction3 vAction_button3 , send mail
+gui, 1: add, button, x+0  yp w50 h30 gDefAction4 vAction_button4 , send mail
+gui, 1: add, button, x+0  yp w50 h30 gDefAction5 vAction_button5 , multi sch
+gui, 1:add, text,x5  y2 W200 cred  vaction_term_selected,dddd dddd dddd dddd 
+gui, 1:add,text,x+10  yp w120 cgreen vtext1
+gui, 1:add,text,x+0  yp w50 cblue  vsource , source
+gui, 1:add,text,x+0 yp cred vmatch2  w50, match
+gui, 1:add,text,x+0 yp cblue vmatch_count  w20, match
+gui, 1: Font, s11 cblack ,
+gui, 1:Add,ListView, x2 y+40 w%width% h400  0x8 vResultList gListEvent AltSubmit     hwndList  ,1 match|2 source file path|3 match line type|4 mod time|5 source_Filename| 6 type
+gui, 1: Add, MonthCal, x1090 y10  vDateMain  +AltSubmit ,
 guicontrol,1: hide,DateMain 
-Gui, Font, s10 cblack ,
+gui, 1:Font, s10 cblack ,
 
-Gui +LastFound
+Gui 1:+LastFound
 GUI_ID:=WinExist()
 ; Placeholder(Ed1, "Enter your search query")
 show_width:=width+160
-Gui,  Show, hide x100 w%show_width%,SMART_SEARCH ;h500 w800  ,%name%
-Gui +LastFound
+gui, 1:Show, hide x100 w%show_width%,SMART_SEARCH ;h500 w800  ,%name%
+Gui 1:+LastFound
 WinSet, Region, 0-23 w%show_width% H30 ;H75
 
 CustomColor = EEAA99  ; Can be any RGB color (it will be made transparent below).
 CustomColor = FFFFFF  ; Can be any RGB color (it will be made transparent below).
-; Gui +LastFound
-; Gui, Color, %CustomColor%
+; Gui 1:+LastFound
+; gui, 1:Color, %CustomColor%
 ; WinSet, TransColor, %CustomColor% 240
-Gui  +LastFound
-Gui  Color, FFFFFF
+Gui  1:+LastFound
+Gui  1: Color, FFFFFF
 setupMenu("context1")
 
 ;	icon
@@ -156,10 +157,10 @@ if (A_PriorHotKey = "~rctrl" AND A_TimeSincePriorHotkey < 250)
 {
 	; selText:=Get_Selected_Text()
 	; if seltext <>
-	; 	guicontrol,,visibleSchStr,%selText%
+	; 	guicontrol, 1:,visibleSchStr,%selText%
 	if (!gui_ON)
 	{
-		Gui +LastFound
+		Gui, 1:+LastFound
 		SendMessage, ( EM_SETSEL := 0xB1 ), 0, -1, , ahk_id %ED1%	;preselects the text
 		settimer,showGui_animate,-1	
 	}
@@ -169,8 +170,8 @@ if (A_PriorHotKey = "~rctrl" AND A_TimeSincePriorHotkey < 250)
 	stringreplace,keywordChoice_new,keywordChoice_all,||,|
 	stringreplace,keywordChoice_new,keywordChoice_new,%SelectedLine%|,%SelectedLine%||
 	; msgbox,%keywordChoice_new%
-	; guicontrol,,visibleSchStr,
-	guicontrol,,keywordChoice,%keywordChoice_new%
+	; guicontrol, 1:,visibleSchStr,
+	guicontrol, 1:,keywordChoice,%keywordChoice_new%
 	SetTimer,search,-1
 	SetTimer, tIncrementalSearch, 500
 
@@ -191,10 +192,10 @@ if (A_PriorHotKey = "~*Rctrl" AND A_TimeSincePriorHotkey < 400)
 	{
 		selText:=Get_Selected_Text()
 		; if seltext <>
-			; guicontrol,,visibleSchStr,%selText%
+			; guicontrol, 1:,visibleSchStr,%selText%
 		if (!gui_ON)
 		{
-			Gui +LastFound
+			Gui, 1:+LastFound
 			SendMessage, ( EM_SETSEL := 0xB1 ), 0, -1, , ahk_id %ED1%	;preselects the text
 			settimer,showGui_animate,-1	
 		}
@@ -204,8 +205,8 @@ if (A_PriorHotKey = "~*Rctrl" AND A_TimeSincePriorHotkey < 400)
 		stringreplace,keywordChoice_new,keywordChoice_all,||,|
 		stringreplace,keywordChoice_new,keywordChoice_new,%SelectedLine%|,%SelectedLine%||
 		; msgbox,%keywordChoice_new%
-		guicontrol,,visibleSchStr,
-		guicontrol,,keywordChoice,%keywordChoice_new%
+		guicontrol, 1:,visibleSchStr,
+		guicontrol, 1:,keywordChoice,%keywordChoice_new%
 		SetTimer,search,-1
 		SetTimer, tIncrementalSearch, 500
 
@@ -260,12 +261,12 @@ if (A_PriorHotKey = "~*Lshift" AND A_TimeSincePriorHotkey < 300)
 		field_by_field_pos:=0
 		; selText:=Get_Selected_Text()
 		; if seltext <>
-			; guicontrol,,visibleSchStr,%selText%
+			; guicontrol, 1:,visibleSchStr,%selText%
 		
 		keyword_identified=0
-		guicontrol,,keywordChoice,
-		guicontrol,,keywordChoice,%keywordChoice_all%
-		; Gui,  Show,	x550 y250
+		guicontrol, 1:,keywordChoice,
+		guicontrol, 1:,keywordChoice,%keywordChoice_all%
+		; gui, 1:Show,	x550 y250
 		SetTimer,search,-1
 		SetTimer, tIncrementalSearch, 500
 	}
@@ -292,11 +293,11 @@ if (A_PriorHotKey = "~*Rshift" AND A_TimeSincePriorHotkey < 300)
 		field_by_field_pos:=0
 		; selText:=Get_Selected_Text()
 		; if seltext <>
-			; guicontrol,,visibleSchStr,%selText%
+			; guicontrol, 1:,visibleSchStr,%selText%
 		keyword_identified=0
-		guicontrol,,keywordChoice,
-		guicontrol,,keywordChoice,%keywordChoice_all%
-		; Gui,  Show,	x550 y250
+		guicontrol, 1:,keywordChoice,
+		guicontrol, 1:,keywordChoice,%keywordChoice_all%
+		; gui, 1:Show,	x550 y250
 		SetTimer,search,-1
 		SetTimer, tIncrementalSearch, 500
 		sleep,800	;	launch after N ms
@@ -324,8 +325,8 @@ if (A_PriorHotKey = "~*Rshift" AND A_TimeSincePriorHotkey < 300)
 		; stringreplace,keywordChoice_new,keywordChoice_all,||,|
 		; stringreplace,keywordChoice_new,keywordChoice_new,%SelectedLine%|,%SelectedLine%||
 		;; msgbox,%keywordChoice_new%
-		;; guicontrol,,visibleSchStr,
-		; guicontrol,,keywordChoice,%keywordChoice_new%
+		;; guicontrol, 1:,visibleSchStr,
+		; guicontrol, 1:,keywordChoice,%keywordChoice_new%
 		SetTimer,search,-1
 		SetTimer, tIncrementalSearch, 500
 
@@ -344,10 +345,10 @@ showGui_animate:	; shows the gui with animation
 OnMessage(0x200, "WM_MOUSEMOVE")
 	if (!matchcount)
 	WinSet, Region, 0-23  w%search_box_width% H50 ;H75
-	Gui, Show ,x100	w%show_width% ;h650
-	tooltip,L^enter: paste | L+enter: copy | R+enter: open guiL | >^enter: field by field ,0,-55,2
-	tooltip,+enter: copy `t +enter: open guiL`n^enter: paste `t ^enter: field by field ,0,-55,2
-	GuiControl,Focus,visibleSchStr
+	gui, 1:Show ,x100	w%show_width% ;h650
+	; tooltip,L^enter: paste | L+enter: copy | R+enter: open guiL | >^enter: field by field ,0,-55,2
+	tooltip,+enter: copy close`t`t`t +enter: open guiL`n^enter: paste   !enter: 2nd action`t ^enter: field by field ,0,-55,2
+	guicontrol, 1:Focus,visibleSchStr
 	; DllCall("AnimateWindow","UInt",GUI_ID,"Int",500,"UInt","0x60011")	; AnimateWindow
 	; sleep,250
 
@@ -363,26 +364,37 @@ update_combo_box_filter(keywordChoice,keywordChoice_all,SelectedLine="")
 		stringreplace,keywordChoice_new,keywordChoice_all,||,|
 		stringreplace,keywordChoice_new,keywordChoice_new,%SelectedLine%|,%SelectedLine%||
 		; msgbox,%keywordChoice_new%
-		; guicontrol,,visibleSchStr,
-		guicontrol,,keywordChoice,%keywordChoice_new%
+		; guicontrol, 1:,visibleSchStr,
+		guicontrol, 1:,keywordChoice,%keywordChoice_new%
 		return
 		}
 		
 show_gui_if_not_shown() {
 	if (!gui_ON)
 	{
-		Gui +LastFound
-		SendMessage, ( EM_SETSEL := 0xB1 ), 0, -1, , ahk_id %ED1%	;preselects the text
+		Gui 1:+LastFound
+		; msgbox,preselection
 		settimer,showGui_animate,-1	
+		; sleep,1255
+		sleep,3255
+		tooltip,SendMessage
+		sleep,3255
+		GuiControl, 1:focus, visibleSchStr
+		SendMessage,( EM_SETSEL := 0xB1 ), 0, -1, , ahk_id %ED1%	;preselects the text
+		; SendMessage,( EM_SETSEL := 0xB1 ), 1, 5, , ahk_id %ED1%	;preselects the text
+
+		tooltip,b
+		sleep,1255
 		WinSet, Region, 0-23  w%search_box_width% H35 ;H75
 	}
 	gui_ON:=1		
 	}
 tIncrementalSearch:
+; return
 ; msgbox,aaaa
 	; REPEAT SEARCHING UNTIL USER HAS STOPPED CHANGING THE QUERY STRING
 	;tooltip, tIncrementalSearch
-	Gui, Submit, NoHide
+	gui, 1:Submit, NoHide
 	CurFilename = %visibleSchStr%
 	If (NewKeyPhrase != CurFilename)
 	{	 
@@ -417,7 +429,7 @@ Return
 search:
 	a_search_is_running:=1
 	text_changed := 0
-	Gui, Submit, NoHide
+	gui, 1:Submit, NoHide
 	stop_search:=0
 	SchStr:=visibleSchStr
 	length:=StrLen(SchStr)
@@ -446,7 +458,7 @@ search:
 	{
 		if (SchStr = "")	;if empty query
 		{
-			GuiControl, Show, ResultList
+			guicontrol, 1:Show, ResultList
 			; LV_Delete()
 			Goto,StopSearch
 			return
@@ -469,7 +481,7 @@ search:
 		}
 		search_in_progress := 1
 
-		GuiControl, Show, ResultList		
+		guicontrol, 1:Show, ResultList		
 		SchStr_Tmp:=make_lookarounds(SchStr," ")
 		SchStr_Tmp=i)%SchStr_Tmp%
 		; msgbox,%SchStr_Tmp%
@@ -506,7 +518,7 @@ search:
 			}
 		}
 		matchlist:=regexreplace(matchlist,"m)^\n","")	
-		GuiControl, -Redraw,ResultList
+		guicontrol, 1:-Redraw,ResultList
 		matchlist2 = 
 		matchlist11=
 		matchlist12=
@@ -562,7 +574,7 @@ search:
 			}					
 			tmp_count++
 		}
-		GuiControl, +Redraw,ResultList
+		guicontrol, 1:+Redraw,ResultList
 	} ; finished if no keyword
 		
 	/*
@@ -574,7 +586,7 @@ search:
 		{
 			tooltip,instant off,700,60,3
 		}
-			GuiControl,Focus,visibleSchStr
+			guicontrol, 1:Focus,visibleSchStr
 			settimer,removetooltip3,300
 	*/
 	else if (keywordchoice="maps")
@@ -662,7 +674,7 @@ search:
 				 if (keywordchoice="searchInProject")
 					{
 					recent_windows_and_files()
-					; guicontrol,,Action_button1,run
+					; guicontrol, 1:,Action_button1,run
 					; button1_action=action_smart_action
 					}
 					break
@@ -682,11 +694,11 @@ STOPSEARCH:
 	LV_ModifyCol(1, 540)
 		if (!calculator_mode)
 		gosub,guiHeight
-	guicontrol,,match_count,%matchcount%
-	guicontrol,,text1,%SchStr_Tmp%
-	guicontrol,,source,%Search_text_type%
+	guicontrol, 1:,match_count,%matchcount%
+	guicontrol, 1:,text1,%SchStr_Tmp%
+	guicontrol, 1:,source,%Search_text_type%
 	gosub,preselection
-	GuiControl,Focus,visibleSchStr	
+	guicontrol, 1:Focus,visibleSchStr	
 
 ENDSEARCH:
 	if (text_changed)
@@ -714,15 +726,15 @@ guiHeight:
 		a:=matchcount
 	h:=a*23
 	h2:=h + 45  
-	GuiControl, move, ResultList,h%h2%
+	guicontrol, 1:move, ResultList,h%h2%
 	; tmp_w := 800
 	; width := 900
 	tmp_w := width*0.95 -200
 	; GuiControl, 1: move, ResultList,w1000
-	GuiControl, Show, ResultList
-	Gui,  +LastFound
+	guicontrol, 1:Show, ResultList
+	gui, 1:+LastFound
 	h1:=h+190 ; 86
-	; Gui,  Show, w%width%,SMART_SEARCH
+	; gui, 1:Show, w%width%,SMART_SEARCH
 	; WinSet, Region, 0-23  w1300 H%h1%
 	; sleep,1000
 	; WinSet, Region, 0-23  w1100 H%h1%
@@ -786,7 +798,7 @@ OnMessage(0x200, "")
 	trigger_HK=
 	calculator_mode:=0
 	DllCall("AnimateWindow","UInt",GUI_ID,"Int",200,"UInt","0x90000")
-	; gui,hide
+	; gui, 1:hide
 	stop_search:=1
 	SetTimer, tIncrementalSearch, off
 	settimer,checkactive,off
@@ -830,16 +842,16 @@ DYNAMIC_ACTIONS:
 		match_line_type:=keywordchoice
 		;	if ( !keyword_identified)	;	deletes keyword if keyword identified
 		;	{
-		;	guicontrol,,visibleSchStr,
+		;	guicontrol, 1:,visibleSchStr,
 		;	keyword_identified=1
 		;	}
 	}
 	;sleep,10
-	guicontrol,,match2,%match_line_type%
-	guicontrol,,Action_button1,--
-	guicontrol,,Action_button2,--
-	guicontrol,,Action_button3,--
-	guicontrol,,Action_button4,--
+	guicontrol, 1:,match2,%match_line_type%
+	guicontrol, 1:,Action_button1,--
+	guicontrol, 1:,Action_button2,--
+	guicontrol, 1:,Action_button3,--
+	guicontrol, 1:,Action_button4,--
 	LV_GetText(source_Filename,LV_GetNext(),5)
 
 	if (calculator_mode)	;	 AND (matchcount<1)
@@ -848,26 +860,26 @@ DYNAMIC_ACTIONS:
 	}
 	else if ((match_line_type="smart action") )
 	{
-		guicontrol,,Action_button1,run
+		guicontrol, 1:,Action_button1,run
 		button1_action=action_smart_action
 
 	}
 	else if ((match_line_type="maps") )
 	{
-		guicontrol,,Action_button1,Map
+		guicontrol, 1:,Action_button1,Map
 		button1_action=action_maps
 
 	}
 	else if ((source_Filename="recent window") )
 	{
-		guicontrol,,Action_button1,activate
+		guicontrol, 1:,Action_button1,activate
 		button1_action=action_activate_window
 
 	}
 	else if ((match_line_type="file_folder") )
 	{
-		guicontrol,,Action_button1,OPEN
-		guicontrol,,Action_button2,OPEN F
+		guicontrol, 1:,Action_button1,OPEN
+		guicontrol, 1:,Action_button2,OPEN F
 
 		button1_action=action_open
 		button2_action=action_openFolder
@@ -877,8 +889,8 @@ DYNAMIC_ACTIONS:
 	}
 	else if ((match_line_type="file_folder") )
 	{
-		guicontrol,,Action_button1,OPEN
-		guicontrol,,Action_button2,OPEN F
+		guicontrol, 1:,Action_button1,OPEN
+		guicontrol, 1:,Action_button2,OPEN F
 
 		button1_action=action_open
 		button2_action=action_openFolder
@@ -895,8 +907,8 @@ DYNAMIC_ACTIONS:
 	}
 	else if (match_line_type="timer")
 	{
-		guicontrol,,Action_button1,timer
-		guicontrol,,Action_button2,timer
+		guicontrol, 1:,Action_button1,timer
+		guicontrol, 1:,Action_button2,timer
 		button1_action=action_timer
 		button2_action=nil
 		button3_action=nil
@@ -905,7 +917,7 @@ DYNAMIC_ACTIONS:
 	
 	else if (match_line_type="read")
 	{
-		guicontrol,,Action_button1,read
+		guicontrol, 1:,Action_button1,read
 		button1_action=action_read
 		button2_action=nil
 		button3_action=nil
@@ -914,10 +926,10 @@ DYNAMIC_ACTIONS:
 	else if ((match_line_type="email") 	| (source_Filename="gmail contacts.txt") |	(source_Filename="mails.txt")|	(source_Filename="phone contacts.txt")|	(source_Filename="others.csv")|	(source_Filename="less used.txt")|	(source_Filename="ea.csv")|	(source_Filename="mail id.txt")	)
 
 		{			
-			guicontrol,,Action_button1,mail
-			guicontrol,,Action_button2,sms
-			guicontrol,,Action_button3,call
-			guicontrol,,Action_button4,FB
+			guicontrol, 1:,Action_button1,mail
+			guicontrol, 1:,Action_button2,sms
+			guicontrol, 1:,Action_button3,call
+			guicontrol, 1:,Action_button4,FB
 			button1_action=action_mail
 			button2_action=action_sms
 			button3_action=action_call
@@ -928,18 +940,18 @@ DYNAMIC_ACTIONS:
 		{
 			LV_GetText(button1_action,LV_GetNext(),4)	
 			LV_GetText(t,LV_GetNext(),1)	
-			guicontrol,,Action_button1,%t%
+			guicontrol, 1:,Action_button1,%t%
 			; button1_action=action_Open_DB
 		}
 	else if (match_line_type="calendar")
 		{
 			button1_action=action_calendar	
-			guicontrol,,Action_button1,open cal
+			guicontrol, 1:,Action_button1,open cal
 		}
 	else if ( (source_Filename="bday.txt") OR (source_Filename="bday EEEa.txt") )
 		{
 			button1_action=action_calendar	
-			guicontrol,,Action_button1,open cal
+			guicontrol, 1:,Action_button1,open cal
 			; button1_action=action_Open_DB
 			ILButton(button1, "shell32.dll:" 239, 22, 22, 5)	
 		}
@@ -947,14 +959,14 @@ DYNAMIC_ACTIONS:
 	else if (  (source_Filename="sel text.txt") OR (source_Filename="sel text2.txt") OR (match_line_type="launcher"))
 		{
 			button1_action=action_run_command_from_match	
-			guicontrol,,Action_button1,seLL
+			guicontrol, 1:,Action_button1,seLL
 			; button1_action=action_Open_DB
 			ILButton(button1, "shell32.dll:" 249, 22, 22, 5)	
 		}
 	else if (source_Filename="all hotkeys ahk.txt")
 		{
 			button1_action=action_ahk_run_Hotkey	
-			guicontrol,,Action_button1,run
+			guicontrol, 1:,Action_button1,run
 			; button1_action=action_Open_DB
 			ILButton(button1, "shell32.dll:" 249, 22, 22, 5)	
 		}
@@ -966,13 +978,13 @@ DYNAMIC_ACTIONS:
 ; msgbox,%match_line_type%
 			if (match_line_type="file_folder")
 			{
-				guicontrol,,Action_button2,OPEN
-				guicontrol,,Action_button3,OPEN F
+				guicontrol, 1:,Action_button2,OPEN
+				guicontrol, 1:,Action_button3,OPEN F
 				
 				button2_action=action_open
 				button3_action=action_openFolder
 			}
-			guicontrol,,Action_button1,Open DB file
+			guicontrol, 1:,Action_button1,Open DB file
 			button1_action=action_Open_DB
 			ILButton(button1, "shell32.dll:" 290, 22, 22, 5)				
 		}
@@ -1009,11 +1021,11 @@ action_timer:
 return
 
 action_calculator:	;	replace edit field with result
-	; GuiControl, Text, MyText, %NewText% ; Write text back to Edit control
+	; guicontrol, 1:Text, MyText, %NewText% ; Write text back to Edit control
 	; ControlGet, cursorPos, CurrentCol,, %MyText%, A ; Get current cursor position
 	; cursorPos := cursorPos - 2
 	
-	guicontrol,,visibleSchStr,%compact_result%
+	guicontrol, 1:,visibleSchStr,%compact_result%
 	cursorPos := StrLen(compact_result)
 	; set cursor position
 	SendMessage, 0xB1, cursorPos, cursorPos,, ahk_id %Ed1% ; EM_SETSEL ; Add hwndh to Edit control for this to work
@@ -1165,7 +1177,7 @@ action_Open_DB:
 return
 
 action_maps:
-	Gui, Submit, NoHide
+	gui, 1:Submit, NoHide
 
 	ifinstring,visibleSchStr,%a_space%to%a_space%
 	{
@@ -1487,7 +1499,7 @@ return
 ; return
 
 action_run_command_from_match:
-	gui,submit
+	gui, 1:submit
 	LV_GetText(line, LV_GetNext(),1)
 	tmp_a3=
 	tmp_a1=
@@ -1548,7 +1560,7 @@ return
 
 numpadEnter::	; na
 Enter::	; na
-	Gui, Submit,nohide
+	gui, 1:Submit,nohide
 	hide_tmp:=1
 	LV_GetText(match_line_type,LV_GetNext(),3)
 	if (match_line_type="keyword")
@@ -1570,6 +1582,7 @@ Enter::	; na
 			cursorPos := cursorPos + StrLen(selection_text)-1
 			; set cursor position
 			SendMessage, 0xB1, cursorPos, cursorPos,, ahk_id %Ed1% 
+			msgbox,adsafs
 			settimer,search,-10
 			trigger = 
 			gosub, get_suggestions
@@ -1589,7 +1602,7 @@ Enter::	; na
 			else
 				new_search_string = %action_term%%a_space%
 			length :=StrLen(new_search_string)
-			guicontrol,,visibleSchStr,%new_search_string%
+			guicontrol, 1:,visibleSchStr,%new_search_string%
 			SendMessage, ( EM_SETSEL := 0xB1 ), length, length, , ahk_id %ED1%	;preselects the text
 			gosub, get_suggestions
 			gosub, show_suggestions
@@ -1611,28 +1624,34 @@ Enter::	; na
 		if (calculator_mode)
 			hide_tmp:=0
 		if (hide_tmp)
-			Gui, hide
+			gui, 1:hide
 		sleep,100
 		; if keywordChoice=
 		gosub, DefAction
 		; else
 	}
 return
+!p::
 
+if (calculator_mode)
+			msgbox,55
+			
+return
+			
 !Enter::	; na
-	Gui , Submit
+	gui, 1:Submit
 	; msgbox,%Action_button2%
 	gosub , %button2_action%
 return
 
 >+Enter::	; na
-	Gui , Submit
+	gui, 1:Submit
 	gosub , action_Open_line
 return
 
 <+Enter::	; na
 	LV_GetText( SelectedLine , LV_GetNext() )
-	Gui, Submit
+	gui, 1:Submit
 	if ( calculator_mode )
 	{
 		clipboard:=result
@@ -1641,7 +1660,7 @@ return
 	{
 		clipboard:=SelectedLine
 	}
-	; Gui, hide
+	; gui, 1:hide
 	tooltip,%clipboard%
 	sleep,1300
 	tooltip
@@ -1649,7 +1668,7 @@ return
 return
 
 <^Enter::	; na
-	Gui, Submit
+	gui, 1:Submit
 	LV_GetText(SelectedLine, LV_GetNext())
 	if (calculator_mode)
 	{
@@ -1660,7 +1679,7 @@ return
 		clipboard=%SelectedLine%
 	}
 	tooltip,pasting
-	Gui, hide
+	gui, 1:hide
 	sleep,700
 	; send ^v
 	send_key_emacs_or_after_translatingTo_normal_ifNot_emacseditor("C-y")
@@ -1670,7 +1689,7 @@ return
 return
 
 up::	; na
-	; guicontrol,focus,ResultList
+	; guicontrol, 1:focus,ResultList
 
 	selected:=LV_GetNext()
 	if (selected=1)
@@ -1685,7 +1704,7 @@ up::	; na
 return	
 
 down::	; na
-; guicontrol,focus,ResultList
+; guicontrol, 1:focus,ResultList
 
 selected:=LV_GetNext()
 selected+=1
@@ -1705,20 +1724,20 @@ if keywordchoice =
 	stringreplace,keywordChoice_new,keywordChoice_all,||,|
 	; msgbox,%keywordChoice_all%
 	stringreplace,keywordChoice_new,keywordChoice_new,%SelectedLine%|,%SelectedLine%||
-	guicontrol,,visibleSchStr,
-; guicontrol,show,keywordChoice,
+	guicontrol, 1:,visibleSchStr,
+; guicontrol, 1:show,keywordChoice,
 }
 else
 {
 keywordChoice=
 stringreplace,keywordChoice_new,keywordChoice_all,||,|
 
-; guicontrol,hide,keywordChoice,
+; guicontrol, 1:hide,keywordChoice,
 }
-guicontrol,,keywordChoice,%keywordChoice_new%
-; guicontrol,,visibleSchStr,
+guicontrol, 1:,keywordChoice,%keywordChoice_new%
+; guicontrol, 1:,visibleSchStr,
 sleep,10
-gui,submit,nohide
+gui, 1:submit,nohide
 
 gosub,preselection
 SetTimer,search,-1
@@ -1744,8 +1763,8 @@ tab::	; na
 	return
 	
 get_suggestions:
-	
-	gui,submit,nohide
+	; msgbox,s
+	gui, 1:submit,nohide
 	ControlGet, selection_text, selected,, %visibleSchStr%, A
 	
 	ControlGet, cursorPos, CurrentCol,, %visibleSchStr%, A ; Get current cursor position
@@ -1845,7 +1864,7 @@ if (suggestion <>"")
 		append_word .= "="
 	}
 	new_search_string=%text_to_search%%append_word%
-	guicontrol,,visibleSchStr,%new_search_string%
+	guicontrol, 1:,visibleSchStr,%new_search_string%
 	SendMessage, 0xB1, start, end,, ahk_id %Ed1%
 }
 ;ControlSend, , % "{Right " . StrLen(needle) . "}+^{End}", ahk_id %h%
@@ -2476,14 +2495,14 @@ calculator:
 				; tmpfile = C:\$temp$.ahk           ; any unused filename ; use C:\
 				; Gui Add, ComboBox, X0 Y0 H1 W300 vExpr
 				; GuiControlGet Expr,,Expr      ; get Expr from ComboBox
-				; GuiControl,,Expr,%Expr%       ; write Expr to internal ComboBox list
+				; guicontrol, 1:,Expr,%Expr%       ; write Expr to internal ComboBox list
 				; Expr:=expression1
 				FileDelete %tmpfile%             ; delete old temporary file -> write new
 				FileAppend #SingleInstance Force`n#ErrorStdOut`n#NoTrayIcon`nFileDelete %tmpfile%`nFileAppend `% %expression1%`, %tmpfile%, %tmpfile%
 				RunWait %A_AhkPath% %tmpfile%    ; run AHK to execute temp script, evaluate expression %
 				FileRead Result, %tmpfile%       ; get result
 				FileDelete %tmpfile%
-				; GuiControl,,Expr,%Result%     ; write Result to internal ComboBox list
+				; guicontrol, 1:,Expr,%Result%     ; write Result to internal ComboBox list
 				; N += 2                        ; count lines
 				; GuiControl Choose,Expr,%N%    ; show Result
 				
@@ -2511,7 +2530,7 @@ calculator:
 				calc_tooltip:=regexreplace(calc_tooltip,"^(\n)+","")
 
 				tooltip,%calc_tooltip%,254,-50,2
-				GuiControl,Focus,visibleSchStr
+				guicontrol, 1:Focus,visibleSchStr
 				
 				ifnotinstring, expression1,%last_expression%	;	 new expression
 				{
@@ -2523,8 +2542,8 @@ calculator:
 				last_expression:=expression1
 				last_calc_event=%expression1%`n%a_tab%=%Result%
 				
-				Gui +LastFound
-				WinSet, Region, 0-23  w%search_box_width% H35
+				Gui 1:+LastFound
+				WinSet, Region, 0-  w%search_box_width% H58
 				calculator_mode:=1
 				Goto,StopSearch
 			}
@@ -2630,7 +2649,7 @@ checkdate:
 		tooltip,go to %SchStr% in calendar,250,-16,2
 		guicontrol,1: show,DateMain
 		guicontrol,1: ,DateMain,%date%
-		;guicontrol, Move, ResultList,w700
+		;guicontrol, 1:Move, ResultList,w700
 		; get entries on this date
 		gosub,check_calendar
 		;sleep,1000
@@ -2690,18 +2709,18 @@ if strlen(visibleSchStr)<20
 	return
 else if strlen(visibleSchStr)<30
 {
-	Gui, Font, s11
-	GuiControl, Font, visibleSchStr
-	GuiControl, Move, visibleSchStr, w550
-	GuiControl, Move, keywordChoice, x552  w150
+	gui, 1:Font, s11
+	guicontrol, 1:Font, visibleSchStr
+	guicontrol, 1:Move, visibleSchStr, w550
+	guicontrol, 1:Move, keywordChoice, x552  w150
 
 }
 else if strlen(visibleSchStr)>30
 {
-	Gui, Font, s9 ;cred
-	GuiControl, Font, visibleSchStr
-	GuiControl,  Move, visibleSchStr, w600
-	GuiControl,  Move, keywordChoice, x602  w100
+	gui, 1:Font, s9 ;cred
+	guicontrol, 1:Font, visibleSchStr
+	guicontrol, 1:Move, visibleSchStr, w600
+	guicontrol, 1:Move, keywordChoice, x602  w100
 }
 return
 
@@ -2768,7 +2787,7 @@ load_result_and_search_in_result:
 	stringreplace,keywordChoice_new,keywordChoice_all,||,|
 	stringreplace,keywordChoice_new,keywordChoice_new,%SelectedLine%|,%SelectedLine%||
 	; msgbox,%keywordChoice_new%
-	; guicontrol,,visibleSchStr,
+	; guicontrol, 1:,visibleSchStr,
 	guicontrol,1:,keywordChoice,%keywordChoice_new%
 	return
 

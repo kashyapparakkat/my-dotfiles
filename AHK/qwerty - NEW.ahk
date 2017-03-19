@@ -150,6 +150,10 @@ key_combo_A_Dot:
 	send,^{End}
 	Send {Ctrl Up}
 	return
+key_combo_C_e:
+	send,{End}
+	Send {Ctrl Up}
+	return
 key_combo_A_Comma:
 	send,^{Home}
 	Send {Ctrl Up}
@@ -328,10 +332,12 @@ removetooltip3:
 	settimer,removetooltip3,off
 	tooltip,,,,3
 return
+
 removetooltip:
 	settimer,removetooltip,off
 	tooltip
 return
+
 
 space & 9::
 	run, "C:\cbn_gits\AHK\run python.py"

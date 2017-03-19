@@ -1,6 +1,14 @@
-(global-set-key (kbd "C-c C-b") 'xah-make-backup-and-save) if file,backup-and-save, if dired, for marked, else no action
+* add popular commands with all parameters(put default values which will not affect if used as such) 
+* TODO Create Alias for Frequent Find Operations(empty, recent
 bash
 ====
+Last 0-100 Days Modified Files level 2 and 4
+lfind . -mindepth 0  -maxdepth 20 -mtime +0 –mtime -100000  -size +0M -size -10000000M  -iname "*ahk" -exec md5sum {} \;
+find . -type f -empty # find all empty files under certain path.
+
+find . -type d -empty #file all empty directories under certain path.
+find . -type f -exec ls -s {} \; | sort -n -r | head -5 # Finding the Top 5 Big Files
+
 
 
 xargs take line by line instead of space

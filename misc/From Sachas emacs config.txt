@@ -1,0 +1,43 @@
+; I keep slightly more sensitive information in a separate file so that I can easily publish my main configuration.
+
+(load "~/.emacs.secrets" t)
+
+Pop to mark
+Handy way of getting back to previous places.
+
+(bind-key "C-x p" 'pop-to-mark-command)
+(setq set-mark-command-repeat-pop t)
+
+
+(defun my/smarter-move-beginning-of-line (arg)
+  "Move point back to indentation of beginning of line.
+
+Move point to the first non-whitespace character on this line.
+If point is already there, move to the beginning of the line.
+Effectively toggle between the first non-whitespace character and
+the beginning of the line.
+
+If ARG is not nil or 1, move forward ARG - 1 lines first.  If
+point reaches the beginning or end of the buffer, stop there."
+  (interactive "^p")
+  (setq arg (or arg 1))
+
+  ;; Move lines first
+  (when (/= arg 1)
+    (let ((line-move-visual nil))
+      (forward-line (1- arg))))
+
+  (let ((orig-point (point)))
+    (back-to-indentation)
+    (when (= orig-point (point))
+      (move-beginning-of-line 1))))
+
+;; remap C-a to `smarter-move-beginning-of-line'
+(global-set-key [remap move-beginning-of-line]
+                'my/smarter-move-beginning-of-line)
+				
+				
+				New lines are always indented
+I almost always want to go to the right indentation on the next line.
+
+(global-set-key (kbd "RET") 'newline-and-indent)

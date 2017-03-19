@@ -12,10 +12,7 @@ Menu, Tray, Icon, Shell32.dll, 36
 
 ; settimer, test,500
 
-		
-
 iniread,emacs_f_path,running_all_settings.ini,paths,emacs
-
 
 
 fileread,folder_list,fav_folder_list.txt
@@ -56,7 +53,7 @@ copy full pathnames from current window,parent,names only,open_in_fileManager,co
 ,,,
 ,,,
 clipboard:=get_current_filepath_from_active_window(),clipboard:=get_parent_filepath(),,,clipboard:=get_parent_filepath()
-,,extract_basenames,open_in_fileManager
+,,extract_basenames,open_in_fileManager,extract_basenames_noext
 ,,,
 )
 
@@ -412,22 +409,21 @@ return
 	Return
 }
 
-WinMove,A,,0,38,2880, 862
+; WinMove,A,,0,38,2880, 862
 extract_basenames:
-; msgbox
-	all := get_selected_filepath()
-	output:= regexreplace(all,"im)(*ANYCRLF)^(.*)\\([^\\]*)$","$2")
+all:=get_current_filepath_from_active_window()
+	; all := get_selected_filepath()
+	output:= regexreplace(all,"im)^(.*?)[\\/]([^\\/]*)$","$2")
 	clipboard := output
 return
 
 extract_basenames_noext:
+	all := get_current_filepath_from_active_window()
+	; all := get_selected_filepath()
 
-	all := get_selected_filepath()
-	; all :=clipboard
-	output:= regexreplace(all,"im)(*ANYCRLF)^(.*)\\([^\\]*?)\.?([^\.]*)$","$2")
-	; msgbox,%output%
+	output:= regexreplace(all,"im)(*ANYCRLF)^(.*)[\\/]([^\\/]*?)\.?([^\.]*)$","$2")
+	clipboard := output
 return
-
 
 get_fav_folder_list:
 
@@ -637,13 +633,14 @@ get_and_open_in_pycharm:
 	file:=get_current_filepath_from_active_window()
 	run, "%emacs_f_path%" "%file%" -n
 return
+
 get_and_open_in_emacs:
 	file:=get_current_filepath_from_active_window()
 	gosub,open_with_emacs
 return
 
 open_with_emacs:
-	run, "%emacs_f_path%" "%file%" -n -a ""
+	run, "%emacs_f_path%" "%file%" -n -a "",,Hide
 	; The *-a ""* tells emacs to run itself as a server (daemon) if it isn't already running.
 
 return
