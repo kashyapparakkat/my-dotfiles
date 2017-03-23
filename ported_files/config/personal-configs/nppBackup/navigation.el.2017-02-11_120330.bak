@@ -1,0 +1,31 @@
+(defun my-move-end-of-line-before-whitespace ()
+  "Move to the last non-whitespace character in the current line.
+  http://stackoverflow.com/questions/9597391/emacs-move-point-to-last-non-whitespace-character "
+  
+  (move-end-of-line nil)
+  (re-search-backward "^\\|[^[:space:]]")
+  (forward-char)
+  )
+  
+  
+(defun smart-end-of-line ()
+  "Move point to first non-whitespace character or beginning-of-line.
+
+Move point to the last non-whitespace character on this line.
+If point was already at that position, move point to end of line."
+  (interactive)
+  (let ((oldpos (point)))
+(my-move-end-of-line-before-whitespace)
+    (and (= oldpos (point))
+         (end-of-line))))  
+
+
+
+(define-key evil-normal-state-map (kbd "C-e") 'evil-end-of-line)
+(define-key evil-normal-state-map (kbd "C-a") 'smart-line-beginning)
+
+(global-set-key (kbd "C-e") 'smart-end-of-line)
+; (global-set-key (kbd "C-e") 'evil-end-of-line)
+(global-set-key (kbd "C-a") 'smart-line-beginning)
+(global-set-key [home] 'smart-line-beginning)
+		 

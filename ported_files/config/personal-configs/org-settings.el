@@ -27,7 +27,7 @@
 				
 	   ; The pipe is optional, but if it is present, the task states following it will all be considered by Org to mean “complete
 				(setq org-todo-keywords
-      '((sequence "TODO" "IN-PROGRESS" "WAITING" "|" "DONE" "CANCELED")))
+      '((sequence "TODO" "INFO" "IN-PROGRESS" "WAITING" "|" "DONE" "LATER")))
 	  
 	  
 ; TODO evil-org.el
@@ -45,8 +45,10 @@
   "t" 'org-todo
   "T" '(lambda () (interactive) (evil-org-eol-call (lambda() (org-insert-todo-heading nil))))
   "H" 'org-shiftleft
-  "J" 'org-shiftdown
-  "K" 'org-shiftup
+  ; "J" 'org-shiftdown
+  "J" 'outline-next-visible-heading
+  ; "K" 'org-shiftup
+  "K" 'outline-previous-visible-heading
   "L" 'org-shiftright
   "o" '(lambda () (interactive) (evil-org-eol-call 'clever-insert-item))
   "O" '(lambda () (interactive) (evil-org-eol-call 'org-insert-heading))

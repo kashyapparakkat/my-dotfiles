@@ -17,7 +17,7 @@
 (backward-char)
   ;; (forward-char)
   )
-(define-key evil-normal-state-map (kbd "C-f") 'my-move-end-of-line-before-comment)
+;; (define-key evil-normal-state-map (kbd "C-f") 'my-move-end-of-line-before-comment)
   
   (defun my-move-end-of-line-before-comment()
  (interactive)
@@ -29,7 +29,7 @@
 (backward-char)
   ;; (forward-char)
   )
-(define-key evil-normal-state-map (kbd "C-f") 'my-move-end-of-line-before-punctuation )
+;; (define-key evil-normal-state-map (kbd "C-f") 'my-move-end-of-line-before-punctuation )
   
   
 (defun smart-end-of-line ()
@@ -39,8 +39,8 @@ Move point to the last non-whitespace character on this line.
 If point was already at that position, move point to end of line."
   (interactive)
   (let ((oldpos (point)))
-; (my-move-end-of-line-before-whitespace)
-(my-move-end-of-line-before-punctuation)
+(my-move-end-of-line-before-whitespace)
+;; (my-move-end-of-line-before-punctuation)
     (and (= oldpos (point))
          (end-of-line)
 		 )))  

@@ -53,7 +53,7 @@
                                         ; Scroll smoothly rather than by paging
 
 (setq scroll-step 1)
-                                        ; When the cursor moves past the top or bottom of the window, scroll one line at a time rather than jumping. I don't like having to find my place in the file again.
+; When the cursor moves past the top or bottom of the window, scroll one line at a time rather than jumping. I don't like having to find my place in the file again.
 (setq scroll-conservatively 10000)
 
 (message "checkpoint 67")	
@@ -432,6 +432,13 @@ Toggles between: “all lower”, “Init Caps”, “ALL CAPS”."
     (setq save-persistent-scratch-timer
           (run-with-idle-timer 300 t 'save-persistent-scratch)))
 
+;; Smooth scrolling
+;; Scroll one line at a time, less 'jumpy' than the default.
+;; scroll one line at a time (less "jumpy" than defaults)
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
+(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+(setq scroll-step 1) ;; keyboard scroll one line at a time
 ;;keep cursor at same position when scrolling
 (setq scroll-preserve-screen-position 1)
 
@@ -615,10 +622,8 @@ file to write to."
 
 (global-set-key (kbd "M-D") 'my-kill-word-at-point)
 
-
-
-; open all files with same extension
-(global-set-key (kbd "C-M-o") (lambda() (interactive) (find-file (format "*.%s" (file-name-extension (buffer-file-name))) t)))
+                                        ; open all files with same extension
+(global-set-key (kbd "C-M-o") (lambda() (interactive) (message  "opening all similar")(find-file (format "*.%s" (file-name-extension (buffer-file-name))) t)))
 
 ; (mapc #'find-file-noselect
    ; (directory-files "~/git/LeoUfimtsev.github.io/org/" nil "\\.org$"))
@@ -783,3 +788,14 @@ file to write to."
                                         ; apply the mode from variable
     (funcall (intern -prog-name))
 ))
+    ;; (add-to-list 'auto-mode-alist '("\\.xml$" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.xml$" . nxml-mode))
+    (add-to-list 'auto-mode-alist '("\\.bashrc$" . shell-mode))
+;; TODO    ;; (add-to-list 'auto-mode-alist '("\\.readme.md" . shell-mode))
+
+(blink-cursor-mode 1)
+;; uses package "scratch"
+; if you use M-x scratch it will launch a scratch buffer for the current mode. So in my org-mode buffer
+(autoload 'scratch "scratch" nil t)
+
+

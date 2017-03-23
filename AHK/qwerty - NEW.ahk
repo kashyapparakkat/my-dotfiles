@@ -723,6 +723,13 @@ return
 Space & enter::
 	send ^{enter}
 return
+
+Space & RButton::
+send_key_emacs_or_after_translatingTo_normal_ifNot_emacseditor("C-y") ; = paste
+  
+Return
+
+
 #IfWinActive, ahk_class CabinetWClass
 *::
 ControlGet renamestatus,Visible,,Edit1,A

@@ -2367,28 +2367,29 @@ copy_field_by_field:
 	field_by_field_pos++
 
 	delimiter=`n
-	delimiter_all=,`;`:`"`=.&
+	delimiter_all:= ",`;`:""`=.& "
 	loop,parse,delimiter_all
 	{
-		; msgbox,%a_loopfield%
+	
 		ifinstring,line,%a_loopfield%
 		{
-			delimiter=%a_loopfield%
+			delimiter:=a_loopfield
 			break
 		}
 	}
+	; msgbox,%line%`n=%delimiter%=
 	Position := 0
 	loop,parse,line,%delimiter%
 	{
 		Position += StrLen(A_LoopField) + 1
 		; Retrieve the delimiter found by the parsing loop.
 		Delimiter := SubStr(line, Position, 1)
-item:=a_loopfield
+		item:=a_loopfield
 		item := RegExReplace(item, "^\s+|\s+$") 	;trim whitespace
 		if ( A_index = field_by_field_pos )
-		break
+			break
 		if item=""
-		continue			
+			continue			
 	}
 	tooltip,delim=%delimiter%`n%field_by_field_pos% =%item%
 	settimer,removetooltip,2000
@@ -2396,8 +2397,7 @@ item:=a_loopfield
 
 #IfWinActive, SMART_SEARCH
 
-	>^enter::	; copy next field
-
+>^enter::	; copy next field
 #IfWinActive
 
 	if (HotkeySTEP88)	;	if hotkey is currently in cycle mode
@@ -2411,8 +2411,8 @@ item:=a_loopfield
 		field_by_field_pos:=0		
 		gosub, copy_field_by_field
 	}
-		settimer,removetooltip,-2500
-HotkeySTEP88:=1
+	settimer,removetooltip,-2500
+	HotkeySTEP88:=1
 	hotkey,^q,on	;	cancelling hot key is made vigilant
 	setTimer,HotkeySTEP88,70
 	setTimer,HotkeySTEP88_sleep,-2500

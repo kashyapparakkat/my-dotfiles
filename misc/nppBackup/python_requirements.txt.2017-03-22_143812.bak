@@ -1,0 +1,25 @@
+
+# python -m pip install 
+# sometimes binary installation required
+python -m pip install numpy opencv
+C:\python27\python.exe -m pip -U -r python_requirements.txt
+C:\python27\python.exe -m pip -U -r python_requirements.txt
+C:\python27\python.exe -m pip -U -r python_requirements.txt
+pyperclip pandas sklearn requests pillow scipy lxml selenium matplotlib scrapy beautifulsoup4 pandas-summary pyftpdlib flask
+
+
+cryptography   
+Django         
+flask
+elpy
+epc            
+flake8         
+jedi           
+pyflakes       
+pyftpdlib      
+pyOpenSSL      
+pyperclip      
+requests       
+rope           
+selenium       
+virtualenv     

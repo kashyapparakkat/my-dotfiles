@@ -265,7 +265,7 @@ echo "$1 $2 $3"
 	# load notes filelist from settings.ini
 	# all_notes=$(sed -n 's/.*all_notes *= *\([^ ]*.*\)/\1/p' < settings.ini)
 	# all_notes=($all_notes)
-	declare -a all_notes=("$Universal_home/Downloads/notes.txt" "$Universal_home/Downloads/notes3.txt" "$Universal_home/Downloads/todo.txt" "$Universal_home/Downloads/work-todo.txt" "$Universal_home/Downloads/work-notes.txt" "$Universal_home/Downloads/todo.org" "$Universal_home/Downloads/clear these doubts.txt")
+	declare -a all_notes=("C:/cbn_gits/misc/*" "$Universal_home/Downloads/notes.txt" "$Universal_home/Downloads/notes3.txt" "$Universal_home/Downloads/todo.txt" "$Universal_home/Downloads/work-todo.txt" "$Universal_home/Downloads/work-notes.txt" "$Universal_home/Downloads/todo.org" "$Universal_home/Downloads/clear these doubts.txt")
 	
 	echo "pwd= $(pwd)"
 	if [ -z "$1" ]; then
@@ -278,6 +278,7 @@ echo "$1 $2 $3"
 				"a"|"all"		) declare -a files=("$Universal_home/Desktop/*" "$Universal_home/Downloads/*" "/cygdrive/d/Downloads/*" "/cygdrive/f/*");;
 				"n"|"notes"		) files=("${all_notes[@]}");;
 				"d"|"download" 	) declare -a files=("$Universal_home/Downloads/*");;
+				"emacs"			) declare -a files=("$Universal_home/AppData/Roaming/.spacemacs" "$Universal_home/AppData/Roaming/.emacs.d/my-files/config/personal-configs/*el");;
 				"ahk"			) declare -a files=("/cygdrive/c/cbn_gits/AHK/*");;
 				"h"|"here"		) files=("$(pwd)");;
 				"r"|"rhere" 	) files=("$(dirname "$(pwd)")"/*);;
@@ -291,11 +292,13 @@ echo "$1 $2 $3"
 				ext=".*\.\($2\)"
 				case "$2" in
 				"code"                 ) ext=".*\.\(txt\|org\|py\|ini\|java\|ahk\|sh\|c\|cpp\)";;
+				"."                 ) ext=".*";;
+				"*"                 ) ext=".*";;
 				
 			   "common"  ) ext=".*\.\(txt\|org\)";;
 
 				esac
-				
+				echo "extension is $ext"
 				search_term="${@:3}"
 			fi	
 		

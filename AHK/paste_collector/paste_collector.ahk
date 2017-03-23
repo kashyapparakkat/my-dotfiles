@@ -299,9 +299,9 @@ mc3_Select:
 	clipboard := next
 	sleep,100
 	;Send, ^v
-	send_key_emacs_or_after_translatingTo_normal_ifNot_emacseditor("C-y")
+	send_key_emacs_or_after_translatingTo_normal_ifNot_emacseditor("C-y") ; = paste
 	clipboard := cliptmp
-line:=item+1
+	line:=item+1
 		  	sleep,150	
 	MC_OwnChange:=0	
 return

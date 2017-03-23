@@ -78,3 +78,11 @@ echo "asdfasd\n" >> "C:/cbn_gits/AHK/smart_search/db/start-menu.txt"
 echo "asdfasd\n" >> "C:/cbn_gits/AHK/smart_search/db/start-menu.txt"
 printf "hello\nworld\n" >> "C:/cbn_gits/AHK/smart_search/db/start-menu.txt"
 exit
+fa vt exe
+fa vt exe$
+f vt exe$
+fa vt exe$
+fa vtv exe$
+fa vv exe$
+cd.
+exit

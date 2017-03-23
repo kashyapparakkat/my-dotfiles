@@ -1,0 +1,20 @@
+
+python -m pip install 
+# sometimes binary installation required
+python -m pip install numpy opencv
+python -m pip -U -r python_requirements.txt
+cryptography   
+Django         
+flask
+elpy
+epc            
+flake8         
+jedi           
+pyflakes       
+pyftpdlib      
+pyOpenSSL      
+pyperclip      
+requests       
+rope           
+selenium       
+virtualenv     

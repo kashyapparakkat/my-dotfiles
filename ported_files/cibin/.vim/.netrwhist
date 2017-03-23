@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/tmp/git-difftool.5ANo4/left'
+let g:netrw_dirhist_2='/tmp/git-difftool.5ANo4/right'
+let g:netrw_dirhist_3='/tmp/git-difftool.5ANo4/left'

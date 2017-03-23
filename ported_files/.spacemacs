@@ -26,6 +26,7 @@
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
 (setq-default dotspacemacs-configuration-layers '(
+html
 autohotkey
 html
                                                   
@@ -96,15 +97,19 @@ html
 				dired+ 
 				golden-ratio
 				elpy
-				fuzzy
+xahk-mode
+        fuzzy
 				magit
 				highlight-thing
 				mic-paren
+				scratch
 				company-jedi
 				ag
 				yascroll
 				swiper
+        helm-flyspell
 				drag-stuff
+        solarized-theme
 				counsel
 				ido-sort-mtime
 				shell-pop 
@@ -356,8 +361,8 @@ html
 		explicitly specified that a variable should be set before a package is loaded,
 		you should place you code here."
 		
-		; (load "server")
-		;(server-start)
+		(load "server")
+		(server-start)
 		; TODO
 		; (unless (server-running-p) (server-start))
 		(require 'server)
@@ -549,7 +554,10 @@ html
 (load-file "~/.emacs.d/my-files/config/personal-configs/auto-complete.el")
 (load-file "~/.emacs.d/my-files/config/personal-configs/org-settings.el")
 (load-file "~/.emacs.d/my-files/config/personal-configs/other-settings.el")
-; (load-file "~/.emacs.d/my-files/config/personal-configs/appearance.el")
+(load-file "~/.emacs.d/my-files/config/personal-configs/appearance.el")
+(load-file "~/.emacs.d/my-files/config/personal-configs/auto-spell.el")
+(load-file "~/.emacs.d/my-files/config/personal-configs/tabbar-tweaks.el")
+(load-file "~/.emacs.d/my-files/config/personal-configs/major-mode-settings.el")
 (load-file "~/.emacs.d/my-files/config/personal-configs/cbn-mode-line.el")
 (load-file "~/.emacs.d/my-files/config/personal-configs/cbn-mode-line2.el")
 
@@ -557,6 +565,7 @@ html
 ; (load-file "~/.emacs.d/my-files/config/personal-configs/cbn-xah-fly-keys.el")
 (load-file "~/.emacs.d/my-files/config/personal-configs/hydra.el")
 (load-file "~/.emacs.d/my-files/config/personal-configs/starter-kit-bindings.el")
+(load-file "~/.emacs.d/my-files/config/personal-configs/buffer-management.el")
 
 
 
@@ -930,15 +939,6 @@ the current position of point, then move it to the beginning of the line."
       (beginning-of-line))))
 
 
-	  
-(defun pull-next-line() 
-"pull the next line onto the end of the current line, compressing whitespace."
-  (interactive) 
-  (move-end-of-line 1) 
-  (kill-line)
-  (just-one-space))
-
-
 (defun toolbar-button ()
  "another nonce menu function"
  (interactive)
@@ -959,11 +959,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
       (setq deactivate-mark  t)
     (when (get-buffer "*Completions*") (delete-windows-on "*Completions*"))
     (abort-recursive-edit)))
-
-(defun kill-other-buffers ()
-  "Kill all other buffers."
-  (interactive)
-  (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))
 
 ; http://pragmaticemacs.com/emacs/aligning-text/
 (defun bjm/align-whitespace (start end)
@@ -1578,6 +1573,23 @@ Version 2015-10-14"
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ac-auto-show-menu 0.2)
+ '(ac-auto-start 3)
+ '(ac-candidate-limit 30)
+ '(ac-delay 0.2)
+ '(ac-dwim t)
+ '(ac-fuzzy-complete t)
+ '(ac-fuzzy-enable t t)
+ '(ac-ignore-case (quote smart))
+ '(ac-menu-height 20)
+ '(ac-show-menu-immediately-on-auto-complete t)
+ '(ac-source-filename nil t)
+ '(ac-source-files-in-current-dir nil t)
+ '(ac-source-words-in-same-mode-buffers nil t)
+ '(ac-source-yasnippet nil t)
+ '(ac-use-fuzzy t)
+ '(ac-use-menu-map t)
+ '(ac-use-quick-help t)
  '(blink-cursor-delay 0.3)
  '(blink-cursor-mode t)
  '(clean-buffer-list-delay-general 2)
@@ -1593,7 +1605,7 @@ Version 2015-10-14"
  '(custom-enabled-themes (quote (whiteboard)))
  '(custom-safe-themes
    (quote
-    ("f81a9aabc6a70441e4a742dfd6d10b2bae1088830dc7aba9c9922f4b1bd2ba50" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
+    ("a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "f81a9aabc6a70441e4a742dfd6d10b2bae1088830dc7aba9c9922f4b1bd2ba50" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
  '(diff-default-read-only nil)
  '(diff-switches "-u --ignore-all-space")
  '(evil-want-Y-yank-to-eol t)
@@ -1603,10 +1615,13 @@ Version 2015-10-14"
  '(line-spacing 0.2)
  '(package-selected-packages
    (quote
-    (ag ess-R-data-view ess jedi-core python-environment ctable concurrent deferred pythonic anaconda-mode flymake-cursor jedi epc company-flx uuidgen toc-org request org-plus-contrib org-bullets magit-popup link-hint hide-comnt eyebrowse evil-visual-mark-mode evil-unimpaired evil-ediff goto-chg undo-tree dumb-jump f dired-hacks-utils diminish column-enforce-mode seq company-jedi magit shell-pop shell-here highlight-indent-guides buffer-flip quickrun ido-sort-mtime drag-stuff eww-lnum fixmee auto-install counsel helm-google ranger multiple-cursors dionysos bookmark+ emms isearch-dabbrev sublimity google-maps rainbow-mode dired-k minimap imenu-anywhere tabbar color-identifiers-mode window-numbering dired-subtree yascroll dired-filter key-chord dired-quick-sort swiper fuzzy elpy pyvenv find-file-in-project ivy dired-narrow peep-dired goto-last-change shrink-whitespace git-gutter+ git-commit with-editor markdown-mode nlinum flycheck dired+ beacon smex menu-bar+ s powerline hydra spinner parent-mode projectile pkg-info epl flx smartparens iedit anzu highlight pos-tip company yasnippet packed dash helm avy helm-core async auto-complete popup package-build bind-key bind-map evil cygwin-mount persp-mode ws-butler which-key volatile-highlights vi-tilde-fringe use-package spacemacs-theme spaceline solarized-theme smooth-scrolling restart-emacs rainbow-delimiters quelpa popwin pcre2el paradox page-break-lines open-junk-file neotree move-text macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu elisp-slime-nav define-word company-statistics company-quickhelp clean-aindent-mode buffer-move bracketed-paste auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+    (helm-flyspell isend-mode color-theme-solarized web-mode xahk-mode ag ess-R-data-view ess jedi-core python-environment ctable concurrent deferred pythonic anaconda-mode flymake-cursor jedi epc company-flx uuidgen toc-org request org-plus-contrib org-bullets magit-popup link-hint hide-comnt eyebrowse evil-visual-mark-mode evil-unimpaired evil-ediff goto-chg undo-tree dumb-jump f dired-hacks-utils diminish column-enforce-mode seq company-jedi magit shell-pop shell-here highlight-indent-guides buffer-flip quickrun ido-sort-mtime drag-stuff eww-lnum fixmee auto-install counsel helm-google ranger multiple-cursors dionysos bookmark+ emms isearch-dabbrev sublimity google-maps rainbow-mode dired-k minimap imenu-anywhere tabbar color-identifiers-mode window-numbering dired-subtree yascroll dired-filter key-chord dired-quick-sort swiper fuzzy elpy pyvenv find-file-in-project ivy dired-narrow peep-dired goto-last-change shrink-whitespace git-gutter+ git-commit with-editor markdown-mode nlinum flycheck dired+ beacon smex menu-bar+ s powerline hydra spinner parent-mode projectile pkg-info epl flx smartparens iedit anzu highlight pos-tip company yasnippet packed dash helm avy helm-core async auto-complete popup package-build bind-key bind-map evil cygwin-mount persp-mode ws-butler which-key volatile-highlights vi-tilde-fringe use-package spacemacs-theme spaceline solarized-theme smooth-scrolling restart-emacs rainbow-delimiters quelpa popwin pcre2el paradox page-break-lines open-junk-file neotree move-text macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu elisp-slime-nav define-word company-statistics company-quickhelp clean-aindent-mode buffer-move bracketed-paste auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
  '(read-file-name-completion-ignore-case t)
  '(safe-local-variable-values (quote ((eval progn (pp-buffer) (indent-buffer)))))
+ '(scroll-bar-mode nil)
  '(send-mail-function (quote mailclient-send-it))
+ '(solarized-termcolors 256)
+ '(tabbar-separator (quote (0.5)))
  '(undo-limit 1000000)
  '(undo-outer-limit 2000000)
  '(undo-strong-limit 1500000))

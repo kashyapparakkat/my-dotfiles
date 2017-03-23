@@ -11,7 +11,6 @@
        (set-default-compiler-python )
 
        )
-  (message "asfa")
   (global-set-key (kbd "C-x t") 'mp-add-python-keys)
 
 (defun set-default-compiler-python ()
@@ -234,11 +233,15 @@
    ((spacemacs/system-is-mac) (shell-command (format "open \"%s\"" file-path)))
    ((spacemacs/system-is-linux) (let ((process-connection-type nil))
                                   (start-process "" nil "xdg-open" file-path)))))
-								  
 
-; delete till non whitespace cycle
-(global-set-key (kbd "M-D")  'xah-shrink-whitespaces)
-; (global-set-key (kbd "M-SPC") 'fc/delete-space)
+ ; delete till non whitespace cycle 
+;; (global-set-key (kbd "C-D")  'xah-shrink-whitespaces)
+(global-set-key (kbd "C-S-d")  'shrink-whitespace)
+(global-set-key (kbd "C-d")  'delete-char)
+;; (define-key evil-normal-state-map (kbd "C-D")   'xah-shrink-whitespaces)
+(define-key evil-normal-state-map (kbd "C-d")   'delete-char)
+(define-key evil-normal-state-map (kbd "C-S-d")   'shrink-whitespace)
+                                        ; (global-set-key (kbd "M-SPC") 'fc/delete-space)
 ; (global-set-key (kbd "<M-Spc>") 'fixup-whitespace)
 ; (global-set-key (kbd "C-c M-d") 'fc/delete-space)
 
@@ -576,5 +579,38 @@ This command does not push text to `kill-ring'."
 ; (setq highlight-indent-guides-method 'character)
 
  ; (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
-	 
+
+;; (global-set-key (kbd "M-K") 'join-lines)
+(global-set-key (kbd "M-K") 'pull-this-line-up)
+(global-set-key (kbd "M-J") 'pull-next-line-join-region-lines)
+
+(defun pull-this-line-up()
+"pull the next line onto the end of the current line, compressing whitespace."
+(interactive)
+(previous-logical-line 1)
+  (move-end-of-line 1) 
+  (kill-line)
+  (just-one-space)
+;; (move-end-of-line 1)
+)
+
+;; TODO remove if pull-next-line-join-lines is working fine
+(defun pull-next-line()
+"pull the next line onto the end of the current line, compressing whitespace."
+  (interactive) 
+  (move-end-of-line 1) 
+  (kill-line)
+  (just-one-space))
+
+(defun  pull-next-line-join-region-lines(n)
+;; https://medium.com/@4d47/join-lines-in-emacs-cc40a55e4539
+  "Join N lines."
+  (interactive "p")
+    (if (use-region-p)
+      (let ((fill-column (point-max)))
+        (fill-region (region-beginning) (region-end)))
+      (dotimes (_ (abs n))
+        (delete-indentation (natnump n))))
+  (move-end-of-line 1) 
+    )
 (provide 'more-custom-functions)

@@ -1,45 +1,7 @@
 
 
-; more customisations at https://www.emacswiki.org/emacs/TabBarMode
-; Speed up by not using images
-
-; Tabbar can slow down Emacs considerably, especially simply moving the cursor up or down. This can be rectified by adding this to your .emacs file, which makes Tabbar use characters to represent the three images in the top-left corner:
-
- (setq tabbar-use-images nil)
-
-(require 'tabbar)
- (tabbar-mode)
+ ;; TODO debug this
  
- 
-; http://amitp.blogspot.in/2007/04/emacs-buffer-tabs.html
-;; Note: for tabbar 2.0 use 
-;; tabbar-default not tabbar-default-face,
-;; tabbar-selected not tabbar-selected-face,
-;; tabbar-button not tabbar-button-face,
-;; tabbar-separator not tabbar-separator-face
-
-
-(set-face-attribute
- 'tabbar-default nil
- :background "gray60")
-
-(set-face-attribute
- 'tabbar-unselected nil
- :background "gray85"
- :foreground "gray30"
- :box nil)
-(set-face-attribute
- 'tabbar-selected nil
- :background "#f2f2f6"
- :foreground "black"
- :box nil)
-(set-face-attribute
- 'tabbar-button nil
- :box '(:line-width 1 :color "gray72" :style released-button))
-(set-face-attribute
- 'tabbar-separator nil
- :height 0.7)
-
  ; ===============================
  ;;; highlight-focus.el --- highlight the active buffer
 
@@ -66,38 +28,38 @@
 
 ;;; Code:
 
-(require 'face-remap)
-(defvar highlight-focus:last-buffer nil)
-(defvar highlight-focus:cookie nil)
-(defvar highlight-focus:background "white")
-(defvar highlight-focus:app-has-focus t)
+;; (require 'face-remap)
+;; (defvar highlight-focus:last-buffer nil)
+;; (defvar highlight-focus:cookie nil)
+;; (defvar highlight-focus:background "red")
+;; (defvar highlight-focus:app-has-focus t)
 
-(defun highlight-focus:check ()
-  "Check if focus has changed, and if so, update remapping."
-  (let ((current-buffer (and highlight-focus:app-has-focus (current-buffer))))
-    (unless (eq highlight-focus:last-buffer current-buffer)
-      (when (and highlight-focus:last-buffer highlight-focus:cookie)
-        (with-current-buffer highlight-focus:last-buffer
-          (face-remap-remove-relative highlight-focus:cookie)))
-      (setq highlight-focus:last-buffer current-buffer)
-      (when current-buffer
-        (setq highlight-focus:cookie
-              (face-remap-add-relative 'default :background highlight-focus:background))))))
+;; (defun highlight-focus:check ()
+  ;; "Check if focus has changed, and if so, update remapping."
+  ;; (let ((current-buffer (and highlight-focus:app-has-focus (current-buffer))))
+    ;; (unless (eq highlight-focus:last-buffer current-buffer)
+      ;; (when (and highlight-focus:last-buffer highlight-focus:cookie)
+        ;; (with-current-buffer highlight-focus:last-buffer
+          ;; (face-remap-remove-relative highlight-focus:cookie)))
+      ;; (setq highlight-focus:last-buffer current-buffer)
+      ;; (when current-buffer
+        ;; (setq highlight-focus:cookie
+              ;; (face-remap-add-relative 'default :background highlight-focus:background))))))
 
-(defun highlight-focus:app-focus (state)
-  (setq highlight-focus:app-has-focus state)
-  (highlight-focus:check))
+;; (defun highlight-focus:app-focus (state)
+  ;; (setq highlight-focus:app-has-focus state)
+  ;; (highlight-focus:check))
 
-(defadvice other-window (after highlight-focus activate)
-  (highlight-focus:check))
-(defadvice select-window (after highlight-focus activate)
-  (highlight-focus:check))
-(defadvice select-frame (after highlight-focus activate)
-  (highlight-focus:check))
-(add-hook 'window-configuration-change-hook 'highlight-focus:check)
+;; (defadvice other-window (after highlight-focus activate)
+  ;; (highlight-focus:check))
+;; (defadvice select-window (after highlight-focus activate)
+  ;; (highlight-focus:check))
+;; (defadvice select-frame (after highlight-focus activate)
+  ;; (highlight-focus:check))
+;; (add-hook 'window-configuration-change-hook 'highlight-focus:check)
 
-(add-hook 'focus-in-hook (lambda () (highlight-focus:app-focus t)))
-(add-hook 'focus-out-hook (lambda () (highlight-focus:app-focus nil)))
+;; (add-hook 'focus-in-hook (lambda () (highlight-focus:app-focus t)))
+;; (add-hook 'focus-out-hook (lambda () (highlight-focus:app-focus nil)))
 
 
 
@@ -117,13 +79,111 @@
  (require 'mic-paren) ; loading
      (paren-activate)     ; activating
 	 ; TODO http://emacs.stackexchange.com/questions/5569/disable-mic-paren-in-the-minibuffer-or-at-least-in-ido
+
+;; active and inactive buffer mode-line	 
+(set-face-attribute  'mode-line
+                 nil 
+                 :foreground "gray80"
+                 :background "#258b29" 
+                 ;; :background "#2e8b57" 
+                 :box '(:line-width 1 :style released-button))
+(message "hellllllloooo")
+(set-face-attribute  'mode-line-inactive
+                 nil 
+                 :foreground "gray30"
+                 :background "gray15" 
+                 :box '(:line-width 1 :style released-button))
 	 
-	 
-	 
-(load-file "~/.emacs.d/my-files/config/others/theme-changer.el")
-(require 'theme-changer)
-(setq calendar-location-name "Dallas, TX") 
-(setq calendar-latitude 32.85)
-(setq calendar-longitude -96.85)
-; Specify the day and night themes:
-(change-theme 'solarized-light 'solarized-dark) 
+; (load-file "~/.emacs.d/my-files/config/others/theme-changer.el")
+; (require 'theme-changer)
+; (setq calendar-location-name "Dallas, TX") 
+; (setq calendar-latitude 32.85)
+; (setq calendar-longitude -96.85)
+;;; Specify the day and night themes:
+; (change-theme 'solarized-light 'solarized-dark) 
+
+
+;; <Color theme initialization code>
+(setq current-theme '(color-theme-solarized-light))
+
+(defun cibin/synchronize-theme() 
+	(setq now 'spacemacs-dark)
+	(setq hour (string-to-number (substring (current-time-string) 11 13)))
+	(if (member hour (number-sequence 6 12)) (setq now 'spacemacs-light) nil)
+	(if (member hour (number-sequence 12 17)) (setq now 'solarized-light) nil)
+	(if (member hour (number-sequence 18 19)) (setq now 'solarized-dark) nil)
+
+	(message (format "new theme is %s" now))
+	(if (eq now current-theme)
+		nil
+		(setq current-theme now)
+		(load-theme now t) ) ) ;; end of (defun ...
+(run-with-timer 0 3600 'cibin/synchronize-theme)
+
+                                              ;; MSEARCH
+(load-file "~/.emacs.d/my-files/config/others/msearch.el")
+;; http://makble.com/how-to-highlight-text-on-selection-in-emacs
+;; enable to do it with keyboard selection using hooks.
+
+(add-hook 'post-command-hook
+  (lambda ()    
+    (if (use-region-p)
+      (progn
+        (msearch-cleanup)
+        (msearch-set-word (buffer-substring-no-properties (region-beginning)  (region-end)))
+      )
+      (msearch-cleanup)
+    )
+  )
+)
+(msearch-mode 1) 
+
+
+;; create custom major modes http://ergoemacs.org/emacs/elisp_syntax_coloring.html
+
+;; HIGHLIGHT NORMAL TEXT
+; add debuggermode fundamental mode etc
+; (add-hook 'after-change-major-mode-hook 'highlight-text)
+(add-hook 'text-mode-hook 'highlight-text)
+; (add-hook 'fundamental-mode-hook 'highlight-text)
+; Do not use fundamental-mode -- at least not interactively. You rarely want to be in fundamental-mode. There is almost always something better.
+; The whole point of fundamental-mode is to not have the usual major-mode handling (hooks etc.). You can think of fundamental-mode as kind of like an abstract class
+(defun highlight-text ()
+;;todo add comment line usinf syntax table
+       ; (font-lock-add-keywords nil '(("\\([0-9]+\\)" 1 font-lock-warning-face prepend)))
+       (font-lock-add-keywords nil '(("\\(\"[^\"]*\"\\)" 1 font-lock-constant-face prepend)))
+       (font-lock-add-keywords nil '(("\\([=:#]*\\)" 1 font-lock-function-name-face prepend)))
+                  (highlight-numbers-mode 1)
+                  (rainbow-delimiters-mode 1)
+                  (show-paren-mode 1)
+)
+
+;; todo create minor mode
+(setq kwds
+      '(("Sin\\|Cos\\|Sum" . font-lock-function-name-face)
+        ("Pi\\|Infinity" . font-lock-constant-face)))
+(define-minor-mode blah-mode
+  "Doc string."
+  nil "blah" nil
+  (font-lock-add-keywords nil kwds)
+
+  (if (fboundp 'font-lock-flush)
+      (font-lock-flush)
+    (when font-lock-mode
+      (with-no-warnings (font-lock-fontify-buffer)))))
+(make-face 'hard-to-read-font)
+(set-face-attribute 'hard-to-read-font nil :background "darkgrey" :foreground "grey")
+
+
+;;; HARD TO READ MODE
+;;http://stackoverflow.com/questions/4462126/emacs-minor-mode-for-temporarily-modifying-the-default-face
+(define-minor-mode hard-to-read-mode
+  "This mode might be useful when you don't like certain text to be seen over your shoulders."
+  :init-value nil :lighter " hard-to-read" :keymap nil
+  (if hard-to-read-mode
+      (progn
+        (font-lock-mode nil)
+        (buffer-face-mode t)
+        (buffer-face-set 'hard-to-read-font))
+    (progn (font-lock-mode t) (buffer-face-mode nil))))
+;; (add-hook 'text-mode-hook (lambda () (hard-to-read-mode t))) 

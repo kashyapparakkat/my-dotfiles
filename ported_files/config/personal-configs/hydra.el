@@ -11,8 +11,8 @@
  _RET_: visit | _u_: unmark   | _S_: save        | _s_: sort
   _j_:    v   | _*_: specific | _a_: all actions | _/_: filter
               | _*_: specific | _=_: diff        | _/_: filter
--^----------^-+-^----^--------+-^-------^--------+-^----^-------
 "
+;; -^----------^-+-^----^--------+-^-------^--------+-^----^-------
   ("=" ibuffer-forward-line)
   ("j" ibuffer-forward-line)
   ("RET" ibuffer-visit-buffer :color blue)
@@ -232,12 +232,12 @@ Directory size: %s(shell-command-to-string \"du -hs\")
       (defhydra hydra-cibin-misc (:color blue :columns 4 :post (redraw-display))
         "hydra-toggle-mode"
         ("RET" redraw-display "<quit>")
+        ("a" cibin-apply-major-mode "cibin-apply-major-mode")
         ("c" csv-mode "csv-mode")
+        ("h" html-mode "html-mode")
         ("j" jinja2-mode "jinja2-mode")
         ("k" markdown-mode "markdown-mode")
         ("l" lineum-mode "lineum-mode")
-		("a" cibin-apply-major-mode "cibin-apply-major-mode")
-           
         ("m" moinmoin-mode "moinmoin-mode")
         ("o" org-mode "org-mode")
         ("p" python-mode "python-mode")
@@ -245,6 +245,7 @@ Directory size: %s(shell-command-to-string \"du -hs\")
         ("s" sql-mode "sql-mode")
         ("t" text-mode "text-mode")
         ("v" visual-line-mode "visual-line-mode")
+        ("w" web-mode "web-mode")
         ("y" yaml-mode "yaml-mode")
         )
      (global-set-key (kbd "C-x l") 'hydra-cibin-misc/body)  

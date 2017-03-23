@@ -1,14 +1,4 @@
-C:/Users/cibin/Downloads/vimperator_vrome_cvim_config.txt
-C:/Users/cibin/Downloads/smallubuntu_auto_install_script.sh
-C:/Users/cibin/Downloads/ubuntu_auto_install_script.sh
-C:/Users/cibin/Downloads/rhel-centos-essential-install.sh
 C:/Users/cibin/AppData/Roaming/.emacs.d/my-files/
 C:/Users/cibin/AppData/Roaming/.spacemacs
-C:/Users/cibin/Downloads/new emacs additions.el
-C:/Users/cibin/Downloads/excel good macros.vb
-C:/Users/cibin/Downloads/pandas-describe.py
-C:/Users/cibin/Downloads/simple_flask.py
-C:/Users/cibin/Downloads/ftp-server-working.py
-C:/Users/cibin/Downloads/get_IP.py
 C:/cygwin64/home/cibin
 C:/cbn_gits/my_env_path_folder

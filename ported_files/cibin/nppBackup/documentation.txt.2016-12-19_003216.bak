@@ -1,0 +1,23 @@
+
+alias f='pcfind common db'
+alias fa='pcfind all db'
+alias fr='pcfind rhere live' # recurse here
+alias frr='pcfind rrhere live' # recurse here
+alias fh='pcfind h live' # recurse here only 2 levels
+alias fhh='pcfind hh live' # recurse here only 2 levels
+alias fhhh='pcfind hhh live' # recurse here only 2 levels
+alias fhhhh='pcfind hhhh live' # recurse here only 2 levels
+
+
+
+advgrep
+# common extensions txt,
+# cmd  all/common/downs/ahk/notes/here/hhere   common/code/txt   searchTerm
+# cmd all txt searchTerm
+# cmd all [common] searchTerm
+# cmd [common] [common] searchTerm
+# agn(ag notes) searchTerm=cmd note-folder note-files-extensions searchTerm
+
+
+alias ag='advgrep'
+alias agn='advgrep notes txt'

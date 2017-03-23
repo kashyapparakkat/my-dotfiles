@@ -136,7 +136,6 @@
 ; TODO make these into something more useful
 ; (global-set-key (kbd "M-<") 'beginning-of-buffer)
 
-(global-set-key (kbd "M-J") 'pull-next-line)
 (global-set-key (kbd "C-;") 'comment-line)
 (global-set-key (kbd "C-x C-;") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-c C-b") 'xah-make-backup-and-save)
@@ -178,20 +177,32 @@
 						
 						
 (global-set-key (kbd "C-l") 'switch-to-prev-buffer) 
-(global-set-key (kbd "C-v") 'switch-to-next-buffer) 
+(global-set-key (kbd "C-v") 'switch-to-next-buffer)
+(define-key dired-mode-map (kbd "O") 'switch-to-next-buffer) 
+(define-key dired-mode-map (kbd "o") 'switch-to-prev-buffer)
+ 
+(define-key evil-normal-state-map (kbd "O") 'switch-to-next-buffer) 
+(define-key evil-normal-state-map (kbd "o") 'switch-to-prev-buffer)
+
 (define-key evil-normal-state-map (kbd "C-v") 'switch-to-next-buffer) 
-  (define-key evil-normal-state-map (kbd "C-l") 'switch-to-prev-buffer)
+(define-key evil-normal-state-map (kbd "C-l") 'switch-to-prev-buffer)
 
 
 (with-eval-after-load 'org
     ; (define-key org-mode-map (kbd "C-k") 'switch-to-next-buffer)
     (define-key org-mode-map (kbd "C-l") 'switch-to-prev-buffer)
     (define-key org-mode-map (kbd "C-v") 'switch-to-next-buffer)
+ ;; TODO maake below work if in orgmode with normal
+;; (define-key org-mode-map (kbd "O") 'switch-to-next-buffer) 
+;; (define-key org-mode-map (kbd "o") 'switch-to-prev-buffer)
+ 
 	)  
 
 ;  kill the same line even if at the end of line
 ; (global-set-key (kbd "C-k") 'kill-whole-line)
 
+;; TODO create in current major mode
+(global-set-key (kbd "C-x C-n") 'xah-new-empty-buffer) 
 
 
 ; Mouse Wheel Scrolling
@@ -277,6 +288,7 @@
 ; use spc-v & then only v
 (global-set-key (kbd "C-=") 'er/expand-region)
 ; TODO "t" was something else
+;; (define-key evil-normal-state-map "v" 'er/expand-region)
 (define-key evil-normal-state-map "t" 'er/expand-region)
 
 
@@ -414,12 +426,6 @@
 ; (key-chord-define-global "x1"     'delete-other-windows)
 ; (key-chord-define-global "x0"     'delete-window)
 
-(defun kill-this-buffer-if-not-modified ()
-  (interactive)
-  ; taken from menu-bar.el
-  (if (menu-bar-non-minibuffer-window-p)
-      (kill-buffer-if-not-modified (current-buffer))
-    (abort-recursive-edit)))
 
 ; (key-chord-define-global "xk"     'kill-this-buffer-if-not-modified)
 ; file actions
