@@ -1187,7 +1187,7 @@ return
 
 
 
-^F12:: ; run outlook with search mode
+<^F12:: ; run outlook with search mode
 tooltip, running outlook finder
 settimer,removetooltip,800
 	run, outlook.exe /finder

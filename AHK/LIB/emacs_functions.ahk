@@ -143,6 +143,9 @@ send_key(HK)
 
 translate_emacsCombo_to_Normal_combo_and_send(HK)
 {
+	emacs_mapping_C_8=C-8
+	emacs_mapping_C_9=C-9
+	
 	emacs_mapping_C_a={Home}
 	emacs_mapping_C_b={Left}
 	emacs_mapping_C_c=C-c

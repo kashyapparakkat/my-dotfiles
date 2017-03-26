@@ -94,9 +94,9 @@ return
 		list := RegExreplace(selText, "^(.*)([\*\+-])([\d]*\.?[\d]*)$", "$1")
 		;msgbox,%list%
 		operator := RegExreplace(selText, "i)^(.)([\*\+-])(\d+\.?\d*)$", "$2")
-		msgbox, %selText%=`n`n%operator%=
+		; msgbox, %selText%=`n`n%operator%=
 			operand := RegExreplace(selText, "^(.*)([\*\+-])([\d]*\.?[\d]*)$", "$3")
-		msgbox, =%operand%=
+		; msgbox, =%operand%=
 	}
 	else 
 		list := selText

@@ -8,14 +8,11 @@
 (ad-activate 'ibuffer)
 
 
-
-
-
 (defun kill-all-other-buffers-if-not-modified ()
   "Kill all other buffers."
   (interactive)
     (setq buffers-to-kill (delq (current-buffer) (buffer-list)))
-  (mapc 'kill-buffer-if-not-modified buffers-to-kill)) ))
+  (mapc 'kill-buffer-if-not-modified buffers-to-kill))
   
 (defun kill-this-buffer-if-not-modified ()
   (interactive)
@@ -45,3 +42,34 @@
                     (process-name (get-buffer-process buffer)))))
      (t t))))
 ;; (add-to-list 'kill-buffer-query-functions 'ask-before-killing-buffer)
+
+
+
+
+
+;; (message "%s" 
+     ;; (delete (current-buffer) (seq-filter #'buffer-file-name (buffer-list))))
+
+(defun cibin-next-modified-buffer ()
+  (interactive)
+  (next-buffer)
+  (let ((i 0))
+    (while (< i 20)
+      (if (not (and buffer-file-name (buffer-modified-p)))
+          (progn (next-buffer)
+                 (setq i (1+ i)))
+        (progn (setq i 100))))))
+
+(defun cibin-previous-modified-buffer ()
+  (interactive)
+  (previous-buffer)
+  (let ((i 0))
+    (while (< i 20)
+      (if (not (and buffer-file-name (buffer-modified-p)))
+          (progn (previous-buffer)
+                 (setq i (1+ i)))
+        (progn (setq i 100))))))
+(global-set-key (kbd "<f11>") 'cibin-next-modified-buffer)
+(global-set-key (kbd "S-<f11>") 'cibin-previous-modified-buffer)
+
+

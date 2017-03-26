@@ -48,25 +48,49 @@ If point was already at that position, move point to end of line."
 
 
 
-(global-set-key (kbd "C-e") 'smart-end-of-line)
-(global-set-key (kbd "<end>") 'smart-end-of-line)
 ; (global-set-key (kbd "C-e") 'evil-end-of-line)
-
 ; (define-key evil-normal-state-map (kbd "C-e") 'evil-end-of-line)
 ; (define-key evil-normal-state-map (kbd "C-a") 'smart-line-beginning)
+
+(global-set-key (kbd "C-e") 'smart-end-of-line)
+(global-set-key (kbd "<end>") 'smart-end-of-line)
 (define-key evil-normal-state-map (kbd "C-e") 'smart-end-of-line)
+(define-key evil-normal-state-map (kbd "ge") 'smart-end-of-line)
+
 (define-key evil-normal-state-map (kbd "C-a") 'x4-smarter-beginning-of-line)
+(define-key evil-normal-state-map (kbd "gh") 'x4-smarter-beginning-of-line)
 (global-set-key (kbd "C-a") 'x4-smarter-beginning-of-line)
 (global-set-key [home] 'x4-smarter-beginning-of-line)
-(global-set-key (kbd "C-x 2") 'window-toggle-split-direction)
+
 ; (global-set-key (kbd "C-a") 'smart-line-beginning)
 ; (global-set-key [home] 'smart-line-beginning)
+
+(global-set-key (kbd "C-x 2") 'window-toggle-split-direction)
 
 ; TODO		 
 ; (global-set-key (kbd "C-<home>") 'x4-smarter-beginning-of-line)
 ; (global-set-key (kbd "S-<home>") 'x4-smarter-beginning-of-line)
 
-		 
+(global-set-key [(control \8)] 'fc/kill-to-beginning-of-line)
+(global-set-key [(control x) (\8)] 'fc/kill-to-beginning-of-line)
+;; (global-set-key [(meta \8)] 'kill-line)
+
+(global-set-key (kbd "C-9") 'kill-line)
+
+(global-set-key (kbd "M-8") 'kill-whole-line)
+
+(global-set-key (kbd "M-,") 'beginning-of-buffer)
+(global-set-key (kbd "M-.") 'end-of-buffer)
+(define-key evil-normal-state-map (kbd "M-,") 'beginning-of-buffer)
+(define-key evil-normal-state-map (kbd "M-.") 'end-of-buffer)
+
+ ; TODO explore elisp-slime-nav
+(global-set-key (kbd "M->") 'elisp-slime-nav-find-elisp-thing-at-point)
+
+; TODO make these into something more useful
+; (global-set-key (kbd "M-<") 'beginning-of-buffer)
+
+
 		 
 		 ;; Smart beginning of the line
 (defun x4-smarter-beginning-of-line ()
@@ -125,3 +149,7 @@ i.e. change right window to bottom, or change bottom window to right."
                   (split-window-horizontally))
                 (set-window-buffer (windmove-find-other-window neighbour-dir) other-buf))))))))
 				
+
+
+
+

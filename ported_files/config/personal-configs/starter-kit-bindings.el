@@ -13,14 +13,16 @@
 ; (define-key evil-normal-state-map (kbd "s") 'nil)
 ;(define-key evil-normal-state-map  "s p" 'evil-unimpaired/paste-below)
 ;(define-key evil-normal-state-map "s P" 'evil-unimpaired/paste-above)
-;; C-8 for *scratch*, C-9 for *compilation*.
-;; (use M-8, etc as alternates since C-number keys don't have ascii control
+
+;; C-9 for *scratch*, C-9 for *compilation*.
+;; (use M-9, etc as alternates since C-number keys don't have ascii control
 ;; codes, so they can't be used in terminal frames.)
-(global-set-key [(control \8)] 'switch-to-scratch)
-(global-set-key [(control x) (\8)] 'switch-to-scratch)
-(global-set-key [(meta \8)] 'switch-to-scratch)
-(global-set-key (kbd "M-8") (lambda()(interactive)   
-	(switch-to-buffer (get-buffer-create "*Messages*"))))
+
+; or use i for insert and I for trigger
+(global-set-key [(control \9)] 'switch-to-scratch)
+(global-set-key [(control x) (\9)] 'switch-to-scratch)
+(global-set-key [(meta \9)] 'switch-to-scratch)
+(global-set-key (kbd "M-9") (lambda()(interactive) (switch-to-buffer (get-buffer-create "*Messages*"))))
 
 ; or use i for insert and I for trigger
 (define-key evil-visual-state-map "I" 'evil-insert)
@@ -122,19 +124,6 @@
 
 
 (define-key evil-visual-state-map   (kbd "f") 'mark-whole-buffer) 
-
-(global-set-key (kbd "M-9") 'kill-whole-line)
-
-(global-set-key (kbd "M-,") 'beginning-of-buffer)
-(global-set-key (kbd "M-.") 'end-of-buffer)
-(define-key evil-normal-state-map (kbd "M-,") 'beginning-of-buffer)
-(define-key evil-normal-state-map (kbd "M-.") 'end-of-buffer)
-
- ; TODO explore elisp-slime-nav
-(global-set-key (kbd "M->") 'elisp-slime-nav-find-elisp-thing-at-point)
-
-; TODO make these into something more useful
-; (global-set-key (kbd "M-<") 'beginning-of-buffer)
 
 (global-set-key (kbd "C-;") 'comment-line)
 (global-set-key (kbd "C-x C-;") 'comment-or-uncomment-region)
@@ -620,3 +609,13 @@ buffer preview will still display."
 ; del entire line
 ; select till beg of line usE CAPsLOCK
 ; select till beg of file capslock u
+
+
+
+;; This function kills the region if active and kills the backward word if it is not.
+(defun sk/kill-region-or-backward-word (arg)
+  (interactive "p")
+  (if (region-active-p)
+      (kill-region (region-beginning) (region-end))
+    (backward-kill-word arg)))
+(global-set-key (kbd "C-w" ) 'sk/kill-region-or-backward-word)

@@ -623,7 +623,8 @@ file to write to."
 (global-set-key (kbd "M-D") 'my-kill-word-at-point)
 
                                         ; open all files with same extension
-(global-set-key (kbd "C-M-o") (lambda() (interactive) (message  "opening all similar")(find-file (format "*.%s" (file-name-extension (buffer-file-name))) t)))
+(global-set-key (kbd "C-M-o") (lambda() (interactive) (message  "opening all similar")(find-file (format "*.%s" (file-name-extension (buffer-file-name))) t)
+                                (message  "opened all similar")))
 
 ; (mapc #'find-file-noselect
    ; (directory-files "~/git/LeoUfimtsev.github.io/org/" nil "\\.org$"))

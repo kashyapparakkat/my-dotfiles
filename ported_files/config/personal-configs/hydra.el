@@ -1,5 +1,6 @@
 ;; it modifies the existing hk's
 
+;; many hydra's taken from https://sriramkswamy.github.io/dotemacs/
 ;; more available at https://github.com/abo-abo/hydra/blob/master/hydra-examples.el
 
 (defhydra cibin/hydra-ibuffer-main (:color pink :hint nil)
@@ -131,9 +132,25 @@
      ("w" whitespace-mode "whitespace")
      ("q" nil "cancel"))))
 	 
+	 ;; Quickrun
+
+;; This is for Quickrun functionality.
+
+(defhydra sk/hydra-quickrun (:color blue
+                             :hint nil)
+  "
+ _s_: quickrun     _a_: with arg    _c_: compile only       _q_: quit
+ _r_: run region   _S_: shell       _R_: replace region
+"
+  ("s" quickrun)
+  ("r" quickrun-region)
+  ("a" quickrun-with-arg)
+  ("S" quickrun-shell)
+  ("c" quickrun-compile-only)
+  ("R" quickrun-replace-region)
+  ("q" nil :color blue))
 	 
-	 
-;; TODO integrate quickrun
+;; TODO integrate quickrun, edebug, python
   (defhydra hydra-quickrun (:color blue :columns 2)
     "Quickrun"
     ("h" helm-quickrun "helm")
@@ -145,8 +162,27 @@
     ("p" quickrun-replace-region "replace"))
   (global-set-key (kbd "C-c q") 'hydra-quickrun/body)
 
+;; Debugging
+;; Emacs has a built-in debugger in edebug and, apparently, it’s pretty good. Let’s make a small hydra for that.
+;; A small hydra to start appropriate debuggers
 
-  ;;TODO
+(defhydra sk/hydra-debug (;; :pre (load-library "realgud")
+                          :color blue
+                          :hint nil)
+  "
+ _g_: c-gdb         _p_: py-pdb        _i_: py-ipdb        _q_: quit
+ _G_: realgud-gdb   _P_: realgud-pdb   _I_: realgud-ipdb
+"
+  ("g" gdb)
+  ("G" realgud:gdb)
+  ("p" pdb)
+  ("P" realgud:pdb)
+  ("i" ipdb)
+  ("I" realgud:ipdb)
+  ("q" nil :color blue))
+
+
+;;TODO
   (defhydra hydra-cleanups (:color blue :columns 4)
   "Command"
   ;; remove blanks
@@ -429,3 +465,194 @@ _r_eset        _j_ clock goto
     ("u" link-hint-open-link "open-URI")
     ("U" link-hint-copy-link "copy-URI")))
 ; https://github.com/nivekuil/corral
+
+
+
+(defhydra sk/hydra-rectangle (:pre (rectangle-mark-mode 1)
+                              :color pink
+                              :hint nil)
+  "
+ _p_: paste   _r_: replace  _I_: insert
+ _y_: copy    _o_: open     _V_: reset
+ _d_: kill    _n_: number   _q_: quit
+"
+  ("h" backward-char nil)
+  ("l" forward-char nil)
+  ("k" previous-line nil)
+  ("j" next-line nil)
+  ("y" copy-rectangle-as-kill)
+  ("d" kill-rectangle)
+  ("x" clear-rectangle)
+  ("o" open-rectangle)
+  ("p" yank-rectangle)
+  ("r" string-rectangle)
+  ("n" rectangle-number-lines)
+  ("I" string-insert-rectangle)
+  ("V" (if (region-active-p)
+           (deactivate-mark)
+         (rectangle-mark-mode 1)) nil)
+  ("q" keyboard-quit :color blue))
+;; Key binding
+(bind-keys*
+  ("M-m V" . sk/hydra-rectangle/body))
+
+
+;; Multiple cursors hydra
+
+(defhydra sk/hydra-multiple-cursors (:color red
+                                     :hint nil)
+  "
+  _k_: prev         _j_: next         _a_: all     _b_: beg of lines   _q_: quit
+  _K_: skip prev    _J_: skip next    _d_: defun   _e_: end of lines
+  _p_: unmark prev  _n_: unmark next  _r_: regexp  _l_: lines
+"
+  ("j" mc/mark-next-like-this)
+  ("J" mc/skip-to-next-like-this)
+  ("n" mc/unmark-next-like-this)
+  ("k" mc/mark-previous-like-this)
+  ("K" mc/skip-to-previous-like-this)
+  ("p" mc/unmark-previous-like-this)
+  ("a" mc/mark-all-like-this :color blue)
+  ("d" mc/mark-all-like-this-in-defun :color blue)
+  ("r" mc/mark-all-in-region-regexp :color blue)
+  ("b" mc/edit-beginnings-of-lines)
+  ("e" mc/edit-ends-of-lines)
+  ("l" mc/edit-lines :color blue)
+  ("q" nil :color blue))
+;; Key binding
+;; (bind-keys*
+  ;; ("C-t" . sk/hydra-multiple-cursors/body))
+
+
+;; TODO make it work for all languages
+(defhydra sk/hydra-for-py (:color blue
+                           :hint nil)
+  "
+ ^Send^                     ^Navigate^                    ^Virtualenv^      ^Testing^                                        ^Format^
+^^^^^^^^^^--------------------------------------------------------------------------------------------------------------------------------
+ _r_: region    _s_: start    _d_: definition    _F_: file    _V_: pyenv        _ta_: test all    _tm_: test mod    _pd_: pdb dir    _c_: create-doc
+ _b_: buffer    _S_: switch   _a_: assignment    _B_: back    _u_: pyenv set    _td_: test dir    _to_: test one    _pm_: pdb mod    _y_: yapf
+ _f_: func                  _v_: reference     _D_: doc     _U_: pyenv unset  _tf_: test fail   _pa_: pdb all     _po_: pdb one    _q_: quit
+"
+  ("r" python-shell-send-region)
+  ("b" python-shell-send-buffer)
+  ("f" python-shell-send-defun)
+  ("s" run-python)
+  ("S" python-shell-switch-to-shell)
+  ("d" anaconda-mode-find-definitions :color red)
+  ("D" anaconda-mode-show-doc :color red)
+  ("a" anaconda-mode-find-assignments :color red)
+  ("v" anaconda-mode-find-references :color red)
+  ("F" anaconda-mode-find-file :color red)
+  ("B" anaconda-mode-go-back :color red)
+  ("V" pyenv-mode :color red)
+  ("u" pyenv-mode-set)
+  ("U" pyenv-mode-unset)
+  ("ta" pytest-all)
+  ("td" pytest-directory)
+  ("tf" pytest-failed)
+  ("tm" pytest-module)
+  ("to" pytest-one)
+  ("pa" pytest-pdb-all)
+  ("pd" pytest-pdb-directory)
+  ("pm" pytest-pdb-module)
+  ("po" pytest-pdb-one)
+  ("c" sphinx-doc)
+  ("y" py-yapf-buffer)
+  ("q" nil :color blue))
+;; Key binding
+(bind-keys*
+  ("M-m s p" . sk/hydra-for-py/body))
+;; Modal binding
+;; (modalka-define-kbd "s p" "M-m s p")
+;; Which key modal explanation
+
+(which-key-add-key-based-replacements
+  "s p" "python code")
+
+;;; Web
+
+; There are two hydras we use for Web editing - one for JavaScript specifically and one for web mode.
+
+(defhydra sk/hydra-for-js (:color blue
+                           :hint nil)
+  "
+ ^Node^                                ^Tern^                                  ^Json^
+^^^^^^^^^^-----------------------------------------------------------------------------------------
+ _r_: region    _s_: start    _l_: load    _d_: definition    _h_: highlight refs    _j_: path
+ _b_: buffer    _S_: switch              _n_: def by name   _u_: use-server        _q_: quit
+ _x_: sexp      _e_: exec                _t_: type          _D_: doc
+"
+  ("r" nodejs-repl-send-region)
+  ("b" nodejs-repl-send-buffer)
+  ("x" nodejs-repl-send-last-sexp)
+  ("s" nodejs-repl)
+  ("S" nodejs-repl-switch-to-repl)
+  ("e" nodejs-repl-execute)
+  ("l" nodejs-repl-load-file :color red)
+  ("d" tern-find-definition :color red)
+  ("n" tern-find-definition-by-name :color red)
+  ("t" tern-get-type :color red)
+  ("D" tern-get-docs :color red)
+  ("u" tern-use-server :color red)
+  ("h" tern-highlight-refs)
+  ("R" tern-rename-variable)
+  ("j" jsons-print-path)
+  ("q" nil :color blue))
+(defhydra sk/hydra-for-web (:color red
+                            :hint nil)
+  "
+ ^Server^           ^HTML^                ^Skewer^
+^^^^^^^^^^------------------------------------------------------------------------------------------------------------------------------
+ _w_: httpd start   _i_: html real-time   _j_: js eval     _r_: run            _f_: eval func              _l_: load buffer      _p_: phantomjs
+ _W_: httpd stop                        _h_: html eval   _s_: start          _e_: eval last exp          _b_: bower load       _P_: phantomjs kill
+                                      _c_: css eval    _S_: list clients   _E_: eval print last exp    _B_: bower refresh    _q_: quit
+"
+  ("w" httpd-start :color blue)
+  ("W" httpd-stop :color blue)
+  ("i" impatient-mode :color blue)
+  ("j" skewer-mode)
+  ("h" skewer-html-mode)
+  ("c" skewer-css-mode)
+  ("r" run-skewer)
+  ("s" skewer-repl :color blue)
+  ("S" list-skewer-clients :color blue)
+  ("f" skewer-eval-defun :color blue)
+  ("e" skewer-eval-last-expression :color blue)
+  ("E" skewer-eval-print-last-expression :color blue)
+  ("l" skewer-load-buffer :color blue)
+  ("b" skewer-bower-load :color blue)
+  ("B" skewer-bower-refresh)
+  ("p" skewer-run-phantomjs :color blue)
+  ("P" skewer-phantomjs-kill)
+  ("q" nil :color blue))
+(defhydra sk/hydra-for-format (:color red
+                               :hint nil)
+  "
+ ^Beautify^
+^^^^^^^^^^--------------------------------------
+ _h_: html        _c_: css       _j_: js        _q_: quit
+ _H_: html buf    _C_: css buf   _J_: js buf
+"
+  ("h" web-beautify-html)
+  ("H" web-beautify-html-buffer)
+  ("c" web-beautify-css)
+  ("C" web-beautify-css-buffer)
+  ("j" web-beautify-js)
+  ("J" web-beautify-js-buffer)
+  ("q" nil :color blue))
+; Key binding
+(bind-keys*
+  ("M-m s j" . sk/hydra-for-js/body)
+  ("M-m s w" . sk/hydra-for-web/body)
+  ("M-m s f" . sk/hydra-for-format/body))
+; Modal binding
+; (modalka-define-kbd "s j" "M-m s j")
+; (modalka-define-kbd "s w" "M-m s w")
+; (modalka-define-kbd "s f" "M-m s f")
+; Which key modal explanation
+
+(which-key-add-key-based-replacements
+  "s j" "javscript code"
+  "s w" "web code"
+  "s f" "format code")

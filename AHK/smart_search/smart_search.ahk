@@ -376,15 +376,15 @@ show_gui_if_not_shown() {
 		; msgbox,preselection
 		settimer,showGui_animate,-1	
 		; sleep,1255
-		sleep,3255
-		tooltip,SendMessage
-		sleep,3255
+		; sleep,3255
+		; tooltip,SendMessage
+		; sleep,3255
 		GuiControl, 1:focus, visibleSchStr
 		SendMessage,( EM_SETSEL := 0xB1 ), 0, -1, , ahk_id %ED1%	;preselects the text
 		; SendMessage,( EM_SETSEL := 0xB1 ), 1, 5, , ahk_id %ED1%	;preselects the text
 
-		tooltip,b
-		sleep,1255
+		; tooltip,b
+		; sleep,1255
 		WinSet, Region, 0-23  w%search_box_width% H35 ;H75
 	}
 	gui_ON:=1		

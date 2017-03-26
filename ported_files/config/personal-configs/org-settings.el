@@ -86,3 +86,13 @@
        )
         )))
         ; (org-todo 'nextset)))) ; add TODO
+
+;; Minimal outline
+;; If you have read how headlines are written in org, you can notice that it is by the number of “*” before it. To make it look better, let’s indent every heading and remove all the “*” but the last one.
+
+(setq org-startup-indented t
+      org-hide-leading-stars t)
+;; Images
+;; The GUI Emacs has the ability to display images. But if the image is pretty large, it displays the whole thing. Let’s restrict it from doing that.
+
+(setq org-image-actual-width '(300))

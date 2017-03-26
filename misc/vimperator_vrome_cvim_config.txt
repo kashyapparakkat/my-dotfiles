@@ -101,6 +101,7 @@ Visual.style('cursor', 'background-color: #6590b7;');
 map('gn',']]'); // next link
 map('gp','[['); // prev link
 map('a','gg');
+map('gz','g$');
 
 // history F and S
 mapkey('H', '#4Go back in history', 'history.go(-1)', {repeatIgnore: true});

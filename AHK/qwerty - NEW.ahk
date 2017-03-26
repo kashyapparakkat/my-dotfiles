@@ -41,6 +41,8 @@ emacs_single_keys=s,h,u
 
 
 
+space & 8::
+space & 9::
 space & a::
 space & b::
 space & c::
@@ -339,9 +341,9 @@ removetooltip:
 return
 
 
-space & 9::
-	run, "C:\cbn_gits\AHK\run python.py"
-	return
+; space & 9::
+	; run, "C:\cbn_gits\AHK\run python.py"
+	; return
 	
 Space & 5::
 	send,{lbutton}
@@ -356,9 +358,9 @@ Space & 3::	; na
 	MouseMove, 0, -9, 0, R
 return
 
-Space & 8::	; na
-	MouseMove, 0, 9, 0, R
-return
+; Space & 8::	; na
+	; MouseMove, 0, 9, 0, R
+; return
 
 Space & 4::	; na
 	MouseMove, -9, 0, 0, R

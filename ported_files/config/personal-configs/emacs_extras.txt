@@ -1,3 +1,5 @@
+http://stackoverflow.com/questions/9167614/python-mode-in-emacs-no-such-file-or-directory-pdb
+
 docs::
 ======
 

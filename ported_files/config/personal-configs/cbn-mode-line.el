@@ -23,11 +23,25 @@
                 mode-line-client
                 ; mode-line-modified
    ; read-only or modified status
-   (:eval
+
+                
+   ;; (:eval
+    ;; (propertize
+     ;; 'face 'mode-line-modified-face))
+
+
+                  (:eval
+    ;; (cond (buffer-read-only
+           ;; (propertize      (format "%s" major-mode ) 'face 'mode-line-read-only-face))
+          (if (buffer-modified-p)
+           (propertize      (format "%s*" major-mode ) 'face 'mode-line-modified-face)
+           (propertize      (format "%s " major-mode ) 'face 'mode-line-stats-face)
+          ))
+   
+ (:eval
     (cond (buffer-read-only
            (propertize " RO  " 'face 'mode-line-read-only-face))
-          ((buffer-modified-p)
-           (propertize " *** " 'face 'mode-line-modified-face))
+nil
           (t "       ")))
 		mode-line-remote
     " | "

@@ -151,10 +151,9 @@
 (defun cibin-search-in-files-advgrep-here ()
 	(interactive)
 	(setq prompt (format "advgrep.sh all/common/downs/ahk/notes/here/hhere   common/code/txt   searchTerm: "))
-	; TODO add the current file extension to this
-	(setq file-ext (file-name-extension (buffer-file-name)))
-	(setq default (concat "advgrep.sh here " file-ext " " (thing-at-point 'word)))
-	
+	(setq file-ext "nil")
+	(when  buffer-file-name (setq file-ext (file-name-extension (buffer-file-name))))
+  (setq default (concat "advgrep.sh here " file-ext " " (thing-at-point 'word)))
 	(search-handler prompt default)
 )
 (defun save-related-files-to-disk () 	
@@ -537,31 +536,6 @@ This command does not push text to `kill-ring'."
      (point))))
 
 (define-key evil-normal-state-map (kbd "x") 'cbn-delete-char)
-
-
-; Clickable file,url links
-; TODO this has one more solution
-; http://superuser.com/questions/331895/how-to-get-emacs-to-highlight-and-link-file-paths
-(define-button-type 'find-file-button
-  'follow-link t
-  'action #'find-file-button)
-
-(defun find-file-button (button)
-  (find-file (buffer-substring (button-start button) (button-end button))))
-
-  
-  	
-; This is perfect. I did some more characters to avoid... re-search-forward "/nfs[^ \t\n,\'\"]*" .. there's probably more that I will find, but it's easy enough to add. – Gregory Aug 14 '10 at 17:40
-(defun buttonize-buffer ()
-  "turn all file paths into buttons"
-  (interactive)
-  (save-excursion
-    (goto-char (point-min))
-    (while (re-search-forward "/[^ \t]*" nil t)
-      (make-button (match-beginning 0) (match-end 0) :type 'find-file-button))))
-
-	  ; TODO enable to buttonize-buffer
-; (add-hook 'find-file-hook 'buttonize-buffer)   ; uncomment to add to find file
 
 
 
