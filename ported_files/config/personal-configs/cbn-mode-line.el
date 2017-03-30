@@ -40,7 +40,7 @@
    
  (:eval
     (cond (buffer-read-only
-           (propertize " RO  " 'face 'mode-line-read-only-face))
+           (propertize " RO " 'face 'mode-line-modified-face))
 nil
           (t "       ")))
 		mode-line-remote

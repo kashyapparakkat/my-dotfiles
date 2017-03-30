@@ -17,12 +17,11 @@
 ;; C-9 for *scratch*, C-9 for *compilation*.
 ;; (use M-9, etc as alternates since C-number keys don't have ascii control
 ;; codes, so they can't be used in terminal frames.)
-
 ; or use i for insert and I for trigger
-(global-set-key [(control \9)] 'switch-to-scratch)
-(global-set-key [(control x) (\9)] 'switch-to-scratch)
-(global-set-key [(meta \9)] 'switch-to-scratch)
-(global-set-key (kbd "M-9") (lambda()(interactive) (switch-to-buffer (get-buffer-create "*Messages*"))))
+(global-set-key [(control \0)] 'switch-to-scratch)
+(global-set-key [(control x) (\0)] 'switch-to-scratch)
+(global-set-key [(meta \0)] 'switch-to-scratch)
+(global-set-key (kbd "M-0") (lambda()(interactive) (switch-to-buffer (get-buffer-create "*Messages*"))))
 
 ; or use i for insert and I for trigger
 (define-key evil-visual-state-map "I" 'evil-insert)

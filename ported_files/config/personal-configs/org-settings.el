@@ -11,16 +11,23 @@
 ;; prevent demoting heading also shifting text inside sections
 (setq org-adapt-indentation nil)
 (setq org-startup-idented t)
-    
+
 	(define-key org-mode-map (kbd "M-r") 'org-toggle-heading)
-	) 
+(define-key org-mode-map (kbd "M-e") 'other-window) ;; bring back this key
+	(define-key org-mode-map [C-return] 'cibin/org-insert-heading-respect-content)
+	(evil-define-key 'normal org-mode-map [C-return] 'cibin/org-insert-heading-respect-content)
+) 
 (use-package org-bullets
   :init
   (setq org-bullets-bullet-list '("●" "•" "▪" "►" "♦" "■" "○" ))
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 )
 
-
+(defun cibin/org-insert-heading-respect-content()
+  (interactive)
+ (org-insert-heading-respect-content nil)
+ (evil-insert-state)
+  )
 
 (global-set-key (kbd "C-c o") 
                 (lambda () (interactive) (find-file "~/organizer.org")))
@@ -34,7 +41,6 @@
 ;; normal state shortcuts
 (evil-define-key 'normal org-mode-map
   "gh" 'outline-up-heading
-  
   "gj" (if (fboundp 'org-forward-same-level) ;to be backward compatible with older org version
 	   'org-forward-same-level  'org-forward-heading-same-level)
   "gk" (if (fboundp 'org-backward-same-level)

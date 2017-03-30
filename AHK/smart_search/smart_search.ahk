@@ -2753,7 +2753,8 @@ action_smart_action:
 	last_run_action := arg
 	return
 
-^+y:: ; show as tooltip again
+	;; todo move the hotkey
+>^+y:: ; show as tooltip again
 	settimer,removetooltip,3000
 	tooltip,result=%final_result%
 

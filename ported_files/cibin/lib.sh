@@ -257,8 +257,25 @@ function run_grepfilelist() {
 # agn(ag notes) searchTerm=cmd note-folder note-files-extensions searchTerm
 # agn abc
 function advgrep() {
-echo "$1 $2 $3"
+echo "$1 $2 $3 $*"
+while getopts ":ABC:" opt; do
+  case $opt in
+    C)
+      echo "-a was triggered, Parameter: $OPTARG" >&2
+	  arg=-C $OPTARG
+	  ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      exit 1
+      ;;
+    :)
+      echo "Option -$OPTARG requires an argument." >&2
+      exit 1
+      ;;
+  esac
+done
 
+				
 	declare -a files=("$Universal_home/Downloads/*txt")
 	ext=".*\.\(txt\|org\)"
 	# TODO:

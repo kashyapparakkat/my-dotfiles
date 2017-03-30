@@ -3967,7 +3967,7 @@ clipselect_gui:
 	Gui, %clipselect_gui_number%:   add,Edit,x0  y0 vvisibleSchStr_567 r1 h39 w200 hWndEd1  +0x100,search	; -WantReturn
 
 	Gui, %clipselect_gui_number%:  add,Button,x+0  w40 gdel_schstr ,X
-	Gui, %clipselect_gui_number%:  add,text,x+10  cgreen, Shift:: copy  Ctrl:: paste full clip entry
+	Gui, %clipselect_gui_number%:  add,text,x+10  cgreen, enter:: paste full Shift:: copy full  Ctrl:: paste line only
 	Gui, %clipselect_gui_number%:  add,Button,xp+160  w40 ghide_searchGui ,X
 	Gui,  %clipselect_gui_number%: font,s11 
 	Gui, %clipselect_gui_number%:  Add, ListView, x0 y+0 w800 r10 h200 vResultList_567 hwndList gListEvent   AltSubmit,clip#|match line|full clip|matchline#
