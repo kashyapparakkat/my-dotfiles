@@ -58,7 +58,9 @@
 
 ;; Use regex searches by default.
 ; (global-set-key (kbd "C-s") 'isearch-forward-regexp)
-(global-set-key (kbd "\C-r") 'isearch-backward-regexp)
+(global-set-key (kbd "C-r") 'vr/query-replace)
+;; (define-key global-map (kbd "C-c l") 'vr/replace)
+(define-key evil-normal-state-map (kbd "C-r") 'vr/query-replace)
 (global-set-key (kbd "C-M-s") 'isearch-forward-regexp)
 (global-set-key (kbd "C-M-r") 'isearch-backward-regexp)
 

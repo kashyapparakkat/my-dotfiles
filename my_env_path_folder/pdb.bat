@@ -1,1 +1,1 @@
-python -u -m pdb %1
+python -u -m pdb %*

@@ -113,9 +113,10 @@
 ; Optional:
 
 ; Automatically open the hydra with Ibuffer.
-
 (add-hook 'ibuffer-hook #'cibin/hydra-ibuffer-main/body)
 
+; todo move this hook to some other file
+(add-hook 'ibuffer-hook (lambda () (setq truncate-lines t)))
 
 
 ;;** Example 4: toggle rarely used modes
@@ -358,16 +359,14 @@ _w_ whitespace    : %(toggle-setting-string whitespace-mode)  _N_ relative lines
   ("r" er/contract-region :color blue)
   ("q" nil :color blue))
   
-  (defhydra hydra-org (:color red :hint nil)
+  (defhydra hydra-org (:color blue :hint nil)
+  ;; Navigation^
+  ;; ---------------------------------------------------------
     "
-  Navigation^
-  ---------------------------------------------------------
-  _j_ next heading
-  _k_ prev heading
-  _h_ next heading (same level)
-  _l_ prev heading (same level)
-  _u_p higher heading
-  _g_o to
+  _j_ next heading        _h_ next heading (same level)
+  _k_ prev heading        _l_ prev heading (same level)
+  _u_p higher heading     _g_o to
+  ----------
   "
     ("j" outline-next-visible-heading)
     ("k" outline-previous-visible-heading)

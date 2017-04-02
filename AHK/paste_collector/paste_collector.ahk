@@ -16,7 +16,7 @@ else
 OnMessage(0x5555, "MsgMonitor")
 OnMessage(0x5556, "MsgMonitor")
 
-
+Hotkey,^Space,Off
 
 OnMessage(0x4a, "Receive_WM_COPYDATA")  ; 0x4a is WM_COPYDATA
 
@@ -3485,6 +3485,7 @@ CLIPSTEP:
 		activeclip=1
 		; gosub,Hotkeys_OFF
 		setTimer,CLIPSTEP,off
+		Hotkey,^Space,Off
 	  }
 	  delete=no
 	  paste=no
@@ -3632,6 +3633,20 @@ else
 	*/
 Return
 
+^Space::
+; msgbox
+if (ClipStep_Keys)
+{
+		tooltip=Cancel
+		Gosub,TOOLTIP
+		; SetTimer,TOOLTIPOFF,Off
+		ClipStep_Keys:=0
+		
+		setTimer,CLIPSTEP,off
+		Return
+	  }
+	  
+return
 
  
 $^v::	; na
@@ -3710,8 +3725,7 @@ $<^b::	; na
 	
 	if trigger_if_triggered_by_emacs_script_else_proceed("LCtrl")
 		return
-	
-	
+		
 	setTimer, CLIPSTEP,100
 	; msgbox,%MC_Clips_present%
 	If MC_Clips_present<1
@@ -3729,6 +3743,7 @@ $<^b::	; na
 	paste=paste
 
 	ClipStep_Keys:=1
+	Hotkey,^Space,On
 	; hotkey,$^c,on
 	; hotkey,$^v,on
 Return
@@ -3780,7 +3795,7 @@ SHOWCLIP:
 	else
 	MyText=%clip2%
 
-	ToolTip, %activeclip% / %MC_Clips_present%  lines: %stringclip_lines% chars: %clip_length%`n%MyText%
+	ToolTip, %activeclip% / %MC_Clips_present%  lines: %stringclip_lines% chars: %clip_length% Space: Cancel`n%MyText%
 	SetTimer,TOOLTIPOFF,Off
 	; Clipboard:=clip1
 	clip1=
