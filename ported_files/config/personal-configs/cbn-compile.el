@@ -1,14 +1,3 @@
-(defun aaa ()
-
-(interactive)
-(realgud:pdb "pdb c:/Users/cibin/Downloads/delete.py")
-(message "switched to py file")
-(sleep-for 5)
-;; (switch-to-buffer old-buffer)
-(isend-associate  "*pdb delete.py shell*")
-;; (switch-to-buffer old-buffer)
- 
-)
 
 (global-set-key (kbd "<C-f8>") 'cibin/eval-this-line)
 (defun cibin/eval-this-line () (interactive)
@@ -25,22 +14,25 @@
   (setq isend-end-with-empty-line t)
 
 (defun cbn-debug ()
-  (interactive)
-(require 'realgud) ; lazy loading
-;; (menu-bar-mode 1)
-;; (tool-bar-mode 1)
-(setq old-buffer buffer-file-name)
-(message "running real")
-    (realgud:run-process "pdb" "pdb" '("pdb" "C:/Users/cibin/Downloads/delete.py") realgud:pdb-minibuffer-history)
-    ;; (realgud:run-process "pdb" "C:/Python27/Lib/pdb.py" '("pdb" "C:/Users/cibin/Downloads/delete.py") realgud:pdb-minibuffer-history)
-    ;; (sleep-for 3)
-(switch-to-buffer old-buffer)
-(message "switched to py file")
-(sleep-for 3)
-(switch-to-buffer old-buffer)
-(isend-associate  "*pdb pdb shell*")
-(switch-to-buffer old-buffer)
- ;; (isend)
+	(interactive)
+	(require 'realgud) ; lazy loading
+	;; (menu-bar-mode 1)
+	;; (tool-bar-mode 1)
+	(setq fname (buffer-file-name))
+	(message (buffer-file-name))
+	(setq old-buffer (current-buffer))
+	(message (format "pdb %s" fname))
+	(realgud:pdb (format "pdb %s" buffer-file-name))
+	;OR but error
+	; (realgud:run-process "pdb" "pdb" '("pdb" "C:/Users/cibin/Downloads/delete.py") realgud:pdb-minibuffer-history)
+	(message "waiting for shell")
+	(sleep-for 3)
+	(message "associatiing")
+  (other-window 1)
+	(switch-to-buffer old-buffer)
+	(isend-associate (format "*pdb %s shell*" old-buffer ))
+	(message "associated")
+	;; (switch-to-buffer old-buffer)
 )
 
 
