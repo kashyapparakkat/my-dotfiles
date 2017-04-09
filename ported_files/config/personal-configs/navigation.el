@@ -153,3 +153,59 @@ i.e. change right window to bottom, or change bottom window to right."
 
 
 
+(defun cibin/goto-func-definition()
+(interactive)
+  (if (equal major-mode 'python-mode)
+(elpy-goto-definition)
+(message "searching definition")
+(dumb-jump-go)
+))
+
+(global-set-key (kbd "C-M-g") 'cibin/goto-func-definition)
+
+
+; TODO diff-mode-map debugger-mode-map message-buffer-mode-map fundamental-mode-map 
+
+; (dolist (m (list  help-mode-map evil-normal-state-map spacemacs-buffer-mode-map)
+  ; (bind-keys :map m
+             ;;;;;;; :prefix-map f14-prefix-map
+             ;;;;;;; :prefix "<f14>"
+             ; ("l" . forward-char)
+             ; ("h" . backward-char)
+             ; ("j" . next-line)
+             ; ("k" . previous-line)
+             ; )))
+			 
+  (defun move-line-to-ends (n)
+  "Move the current line up or down by N lines."
+  ;; modified from https://www.emacswiki.org/emacs/MoveLine
+  ;; (interactive "p")
+
+  (setq col (current-column))
+  (beginning-of-line) (setq start (point))
+  (end-of-line)
+  (forward-char)
+  (setq end (point))
+  (let ((line-text (delete-and-extract-region start end)))
+    ; (forward-line n)
+      (if (eq -1 n)
+(beginning-of-buffer)
+      (progn (end-of-buffer)(open-line 1)(next-line 1)))
+    (insert line-text)
+    ;; restore point to original column in moved line
+    (forward-line -1)
+(forward-char col)
+))
+
+(defun move-line-to-top (n)
+  "Move the current line up by N lines."
+  (interactive "p")
+  (move-line-to-ends (if (null n) -1 (- n))))
+
+(defun move-line-to-bottom (n)
+  "Move the current line down by N lines."
+  (interactive "p")
+(move-line-to-ends (if (null n) 1 n)))
+
+(global-set-key (kbd "M-P") 'move-line-to-top)
+(global-set-key (kbd "M-N") 'move-line-to-top)

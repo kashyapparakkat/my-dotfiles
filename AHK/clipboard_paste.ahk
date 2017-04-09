@@ -283,7 +283,7 @@ create_open_clipb_last_location:
 
 return
 
-^F9::	;	sel text save and open as smart
+>^F9::	;	sel text save and open as smart
 setTimer,removetooltip,1000
 tooltip,smart opening
 	seltext:=clipboard

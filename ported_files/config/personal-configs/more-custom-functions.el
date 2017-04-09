@@ -120,7 +120,7 @@
                                ; all-files
                                nil t)))
     (when file
-      (find-file file))))
+      (find-file-noselect file))))
 
 	  
 (defun cibin-search-in-text-files-related-bash()
@@ -150,7 +150,7 @@
   )
 (defun cibin-search-in-files-advgrep-here ()
 	(interactive)
-	(setq prompt (format "advgrep.sh all/common/downs/ahk/notes/here/hhere   common/code/txt   searchTerm: "))
+	(setq prompt (format "advgrep.sh all/common/downs/ahk/notes/-or-here/hhere   common/code/txt   searchTerm: "))
 	(setq file-ext "nil")
 	(when  buffer-file-name (setq file-ext (file-name-extension (buffer-file-name))))
   (setq default (concat "advgrep.sh here " file-ext " " (thing-at-point 'word)))

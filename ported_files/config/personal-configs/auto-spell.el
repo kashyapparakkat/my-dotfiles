@@ -3,14 +3,29 @@
 
 ;; TODO hk:: autocorrect previous word(if flyspell mode is not on, turn it on)
 
+(add-hook 'text-mode-hook 'flyspell-mode)
+(add-hook 'prog-mode-hook 'flyspell-prog-mode)
+
 
  ;;; https://www.emacswiki.org/emacs/AspellWindows
 (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/")
 ;We need tell emacs to use aspell, and where your custom dictionary is.
     (require 'ispell)
 
+; flyspell
+
+; The built-in Emacs spell checker. Turn off the welcome flag because it is annoying and breaks on quite a few systems. Specify the location of the spell check program so it loads properly.
+
+(setq flyspell-issue-welcome-flag nil)
+(if (eq system-type 'darwin)
+    (setq-default ispell-program-name "/usr/local/bin/aspell")
+  (setq-default ispell-program-name "aspell"))
+(setq-default ispell-list-command "list")
     (setq ispell-program-name "aspell")
-    (setq ispell-personal-dictionary "C:/path/to/your/.ispell")
+
+
+
+    ;; (setq ispell-personal-dictionary "C:/path/to/your/.ispell")
 ;Then, we need to turn it on.
 
 

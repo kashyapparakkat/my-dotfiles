@@ -2872,7 +2872,7 @@ fav_paste_next:
 	hotkey,<^f,on
 Return
 
-<^+d:: ; hist to favclips and paste
+>^+d:: ; hist to favclips and paste
 	tooltip,hist to favclips and paste
 	sleep,350
 	gosub,Copy_to_fav_clips
@@ -3743,6 +3743,7 @@ $<^b::	; na
 	paste=paste
 
 	ClipStep_Keys:=1
+	; msgbox
 	Hotkey,^Space,On
 	; hotkey,$^c,on
 	; hotkey,$^v,on

@@ -1,4 +1,3 @@
-
 ;;; starter-kit-bindings.el --- Set up some handy key bindings
 ; http://www.cibinmathew.com
 ; github.com/cibinmathew
@@ -123,6 +122,9 @@
 
 
 (define-key evil-visual-state-map   (kbd "f") 'mark-whole-buffer) 
+(define-key evil-visual-state-map   (kbd "J") 'evil-visual-block) 
+;; TODO for mouse http://emacs.stackexchange.com/questions/7244/enable-emacs-column-selection-using-mouse
+
 
 (global-set-key (kbd "C-;") 'comment-line)
 (global-set-key (kbd "C-x C-;") 'comment-or-uncomment-region)
@@ -139,7 +141,7 @@
 
 ;; TODO check Xah-lee.... run for F8
 (global-set-key (kbd "<f8>") 'quickrun)
-(global-set-key (kbd "<M-f8>") 'quickrun-region)
+;TODO ;; (global-set-key (kbd "<M-f8>") 'quickrun-region)
 (global-set-key (kbd "<C-f8>") 'helm-quickrun)
 
 
@@ -230,11 +232,14 @@
 
 (global-set-key (kbd "M-a") 'helm-M-x)
 (global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-m") 'helm-M-x)
 
 ;; File finding
 ; https://github.com/emacs-helm/helm/blob/master/helm-files.el
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "M-o") 'helm-find-files)
+(global-set-key (kbd "C-x C-f") 'helm-multi-files)
+(global-set-key (kbd "M-o") 'helm-multi-files)
 
 ; Fixme: error
 ; (define-key helm-find-files-map (kbd "C-j") 'helm-find-files-up-one-level)
@@ -333,7 +338,7 @@
 (define-key evil-normal-state-map (kbd "C-n") 'evil-next-visual-line)
 (define-key evil-normal-state-map (kbd "C-p") 'evil-previous-visual-line)
 (define-key evil-normal-state-map "a" 'helm-M-x)
-(define-key evil-normal-state-map "gl" 'evil-goto-line) ; goto last line
+(define-key evil-normal-state-map "gl" 'end-of-buffer) ;evil-goto-line) ; goto last line
 ; goto last line in insert mode
 (define-key evil-normal-state-map "gk" (lambda (arg)
      
@@ -562,8 +567,11 @@ buffer preview will still display."
 (global-set-key (kbd "C-c +") 'evil-numbers/inc-at-pt)
 (global-set-key (kbd "C-c -") 'evil-numbers/dec-at-pt)
 
-; or only in evil’s normal state:
+                                        ; or only in evil’s normal state:
+;todo helm-buffers-list or helm-mini
 (define-key evil-normal-state-map (kbd "b") 'helm-buffers-list)
+(global-set-key (kbd "C-x b") 'helm-mini)
+(define-key evil-normal-state-map (kbd "b") 'helm-mini)
 (define-key evil-normal-state-map (kbd "C-c +") 'evil-numbers/inc-at-pt)
 (define-key evil-normal-state-map (kbd "C-c -") 'evil-numbers/dec-at-pt)
 

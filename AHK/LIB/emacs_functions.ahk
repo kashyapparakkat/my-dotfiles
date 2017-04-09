@@ -102,7 +102,13 @@ send_key(HK)
 {
 		; msgbox,z%HK%
 	HK := decode_key_combo(HK)
-	if regexmatch(HK,"^C-S-.")
+	if regexmatch(HK,"^C-S-f\d")
+	{
+		stringtrimleft,key,HK,4
+		key={%key%}
+		modifier=^+
+	}		
+	else if regexmatch(HK,"^C-S-.")
 	{
 		stringtrimleft,key,HK,4
 		modifier=^+
@@ -111,6 +117,12 @@ send_key(HK)
 	{
 		stringtrimleft,key,HK,4
 		modifier=^!
+	}
+	else if regexmatch(HK,"^C-f\d")
+	{
+		stringtrimleft,key,HK,2
+		key={%key%}
+		modifier=^
 	}
 	else if regexmatch(HK,"^C-.")
 	{
@@ -123,7 +135,6 @@ send_key(HK)
 		stringtrimleft,key,HK,2
 		modifier=!
 	}
-		
 	else if regexmatch(HK,"^S-.")
 	{
 		stringtrimleft,key,HK,2
@@ -136,6 +147,7 @@ send_key(HK)
 	}	
 	
 	; msgbox,m %modifier% k%key%
+	; msgbox,%modifier%%key%
 	send,%modifier%%key%
 	return
 }
@@ -143,8 +155,29 @@ send_key(HK)
 
 translate_emacsCombo_to_Normal_combo_and_send(HK)
 {
+	emacs_mapping_C_0=C-0
+	emacs_mapping_C_1=C-1
+	emacs_mapping_C_2=C-2
+	emacs_mapping_C_3=C-3
+	emacs_mapping_C_4=C-4
+	emacs_mapping_C_5=C-5
+	emacs_mapping_C_6=C-6
+	emacs_mapping_C_7=C-7
 	emacs_mapping_C_8=C-8
 	emacs_mapping_C_9=C-9
+	
+	emacs_mapping_C_f1=C-f1
+	emacs_mapping_C_f2=C-f2
+	emacs_mapping_C_f3=C-f3
+	emacs_mapping_C_f4=C-f4
+	emacs_mapping_C_f5=C-f5
+	emacs_mapping_C_f6=C-f6
+	emacs_mapping_C_f7=C-f7
+	emacs_mapping_C_f8=C-f8
+	emacs_mapping_C_f9=C-f9
+	emacs_mapping_C_f10=C-f10
+	emacs_mapping_C_f11=C-f11
+	emacs_mapping_C_f12=C-f12
 	
 	emacs_mapping_C_a={Home}
 	emacs_mapping_C_b={Left}
@@ -208,12 +241,15 @@ translate_emacsCombo_to_Normal_combo_and_send(HK)
 	}
 	else
 	{ 
+	; msgbox,%HK%
 		stringleft,key,HK,4
+	; msgbox,%key%
 	
 		if ((key<>"C_S_") and (key<>"C_A_"))
 			HK:= emacs_mapping_%HK%
 		else
 		{
+			StringReplace, HK, HK,C_f,C-f, All
 			StringReplace, HK, HK,C_S_,C-S-, All
 			StringReplace, HK, HK,C_A_,C-A-, All
 		}

@@ -144,7 +144,9 @@
   ; (evil-define-key 'normal dired-mode-map "q" 'kill-this-buffer)
   
   
-; Move to the parent directory
+                                        ; Move to the parent directory
+                                        ; open in same buffer
+(define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file) ; was dired-advertised-find-file
 (define-key dired-mode-map "h" (lambda ()  (interactive) (find-alternate-file "..")))	
 
 ; h will keep the old Dired buffers around. To fix this, we need to write a function that will jump up one directory, and close the old Dired buffer.

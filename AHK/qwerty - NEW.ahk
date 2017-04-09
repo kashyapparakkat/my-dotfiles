@@ -40,9 +40,19 @@ keyBoard_mode=1
 emacs_single_keys=s,h,u
 
 
+return
 
+space & 0::
+space & 1::
+space & 2::
+space & 3::
+space & 4::
+space & 5::
+space & 6::
+space & 7::
 space & 8::
 space & 9::
+
 space & a::
 space & b::
 space & c::
@@ -70,13 +80,26 @@ space & x::
 space & y::
 space & z::
 
+space & f1::
+space & f2::
+space & f3::
+space & f4::
+space & f5::
+space & f6::
+space & f7::
+space & f8::
+space & f9::
+space & f10::
+space & f11::
+space & f12::
+
+
 space & /::
 space & .::
 space & ,::
 
 space & `;::
-; space & -::
-space & =::
+space & =::  
 space & '::
 
 $!b::
@@ -88,7 +111,11 @@ $!.::
 $!/::
 $!,::
 !Backspace::
+
 ;^b::
+; space & -::
+
+
 s::
 h::
 u::
@@ -344,7 +371,8 @@ return
 ; space & 9::
 	; run, "C:\cbn_gits\AHK\run python.py"
 	; return
-	
+
+/*
 Space & 5::
 	send,{lbutton}
 return
@@ -369,7 +397,7 @@ return
 Space & 7::	; na
 	MouseMove, 9, 0, 0, R
 return
-
+*/
 
 
 Lalt & 3::
@@ -455,7 +483,7 @@ return
 #IfWinNotActive
 
 
-rctrl & space::	; na
+; rctrl & space::	; na
 	send ^{space}
 return
 
@@ -595,8 +623,8 @@ return
 	send, {enter}
 return
 
-lctrl & space::	;	send, {enter}
-	; send, {enter}
+; lctrl & space::	;	send, {enter}
+	send, {enter}
 return
 
 ; ^space::	; na
@@ -715,11 +743,12 @@ if (regexmatch(A_ThisHotkey, "^space &(.*)"))
 }
 return
 
-Space & down::
+;; todo Space & down blocking ^space in other scripts 
+; Space & down::
 	send ^{down}
 return
 
-Space & up::
+; Space & up::
 	send ^{up}
 return
 Space & enter::

@@ -6,3 +6,11 @@
 
 ;; TODO disabled as ;; config-windows-mode is better than ini-mode 
 ;; (load-file "~/.emacs.d/my-files/config/others/ini-mode.el")
+
+
+(add-to-list 'auto-mode-alist '("\\.xml$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.readme.md$" . text-mode))
+(add-to-list 'auto-mode-alist '("\\.bashrc$" . shell-mode))
+(add-to-list 'auto-mode-alist '("\\.bash_profile$" . shell-mode))
+
+

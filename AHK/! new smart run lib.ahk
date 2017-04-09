@@ -796,7 +796,7 @@ open_with:
 		else
 			args=
 		; msgbox,"%open_with_pgm%" "%selText%" %args%
-		clipboard="%open_with_pgm%" "%selText%" %args%
+		; clipboard="%open_with_pgm%" "%selText%" %args%
 		run,"%open_with_pgm%" "%selText%" %args%
 		update_recently_used_files(selText)
 	

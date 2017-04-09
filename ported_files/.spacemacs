@@ -550,6 +550,7 @@ xahk-mode
 ; to save memory, make it read only when hotkey is fired
 ; (file-cache-read-cache-from-file)
 
+(load-file "~/.emacs.d/my-files/config/personal-configs/functions.el")
 (load-file "~/.emacs.d/my-files/config/personal-configs/shell.el")
 (load-file "~/.emacs.d/my-files/config/personal-configs/my-python.el")
 (load-file "~/.emacs.d/my-files/config/personal-configs/navigation.el")
@@ -694,18 +695,6 @@ xahk-mode
 ; load menu-bar+
 ; (eval-after-load "menu-bar" '(require 'menu-bar+))
 ; ======
-
-; flyspell
-
-; The built-in Emacs spell checker. Turn off the welcome flag because it is annoying and breaks on quite a few systems. Specify the location of the spell check program so it loads properly.
-
-(setq flyspell-issue-welcome-flag nil)
-(if (eq system-type 'darwin)
-    (setq-default ispell-program-name "/usr/local/bin/aspell")
-  (setq-default ispell-program-name "/usr/bin/aspell"))
-(setq-default ispell-list-command "list")
-
-
 
 ; (require 'sublimity)
 ;; (require 'sublimity-scroll)

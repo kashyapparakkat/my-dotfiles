@@ -1,5 +1,6 @@
 
 (global-set-key (kbd "<C-f8>") 'cibin/eval-this-line)
+(global-set-key (kbd "<C-f9>") 'cbn-debug)
 (defun cibin/eval-this-line () (interactive)
        (end-of-line)
        (call-interactively 'eval-last-sexp)

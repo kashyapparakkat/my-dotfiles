@@ -751,7 +751,7 @@ run_cmd_prompt(sourcepath="") ; run_cmd_prompt
 
 run_bash_prompt(sourcepath="") ; run_cmd_prompt
 {
-
+; msgbox
 	run,bash.exe,%sourcepath% ; C:\Users\%A_UserName%\.bashrc,%sourcepath%
 	
 }

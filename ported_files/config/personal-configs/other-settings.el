@@ -613,7 +613,9 @@ file to write to."
   (let ((bounds (bounds-of-thing-at-point thing)))
     (if bounds
         (kill-region (car bounds) (cdr bounds))
-      (error "No %s at point" thing))))
+      (message "No %s at point" thing)
+      ;; (error "No %s at point" thing)
+      )))
 
 (defun my-kill-word-at-point ()
   "Kill the word at point."
@@ -623,8 +625,28 @@ file to write to."
 (global-set-key (kbd "M-D") 'my-kill-word-at-point)
 
                                         ; open all files with same extension
-(global-set-key (kbd "C-M-o") (lambda() (interactive) (message  "opening all similar")(find-file (format "*.%s" (file-name-extension (buffer-file-name))) t)
-                                (message  "opened all similar files of extension")))
+;; (global-set-key (kbd "C-x l ") 'open-similar-files-in-folder)
+;; (global-set-key (kbd "C-x l ") 'open-similar-files-in-folder-recursively)
+
+(defun open-similar-files-in-folder() (interactive) (message  "opening all similar")(find-file (format "*.%s" (file-name-extension (buffer-file-name))) t)
+                                (message  "opened all similar files of extension"))
+(defun open-similar-files-in-folder-recursively() (interactive) (message  "opening all similar Recursively")
+
+       (setq all-files (directory-files-recursive  (file-name-directory buffer-file-name) (format "\\%s$" (file-name-extension (buffer-file-name)))  2 "\\(rip\\|stage\\)"))
+;; (setq all-files (directory-files-recursive "c:/cbn_gits/AHK/paste_collector" "\\.ahk$" 2 "\\(rip\\|stage\\)"))
+;; (message "%s" all-files)
+(if (y-or-n-p  (format "%s files. Proceed?" (length all-files)))
+    (progn
+(dolist (file all-files) 
+ (if (not (file-directory-p file))
+ (find-file-noselect file)
+ ))
+(message  "opened all similar files of extension"))
+
+    
+  (progn
+(message "cancelled")
+  )))
 
 ; (mapc #'find-file-noselect
    ; (directory-files "~/git/LeoUfimtsev.github.io/org/" nil "\\.org$"))
