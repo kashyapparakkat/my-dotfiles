@@ -382,8 +382,8 @@ xahk-mode
 (global-linum-mode) ; Show line numbers by default
 (setq custom-enabled-themes '(whiteboard))
 (setq cursor-type '(bar . 4))
-; set to t for debug trace		
-(setq debug-on-error t)		
+; TODO set to t for debug trace		
+(setq debug-on-error nil)		
 (message "user-config")
 (recentf-mode 1) ; keep a list of recently opened files
 (setq initial-major-mode (quote text-mode)) ; default mode

@@ -399,7 +399,9 @@ _r_eset        _j_ clock goto
 
 (with-eval-after-load 'org
     
-(define-key org-mode-map (kbd "?") 'hydra-org/body)
+  ; (define-key org-mode-map (kbd "?") 'hydra-org/body)
+  	(evil-define-key 'normal org-mode-map  (kbd "?")'hydra-org/body)
+
 (add-hook 'org-mode-hook #'hydra-org/body)
 )
 

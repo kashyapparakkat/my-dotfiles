@@ -135,7 +135,7 @@ nil
    (:propertize mode-line-process
                 face mode-line-process-face)
    (global-mode-string global-mode-string)
-;TODO    (:eval (propertize    (global-mode-string global-mode-string) 'face 'mode-line-minor-mode-face))
+;; TODO   (:eval (propertize    (global-mode-string global-mode-string) 'face 'mode-line-minor-mode-face))
 	(multiple-cursors-mode mc/mode-line) ; Number of cursors
    "    "
    ; nyan-mode uses nyan cat as an alternative to %p

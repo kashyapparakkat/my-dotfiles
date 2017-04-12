@@ -161,7 +161,6 @@ i.e. change right window to bottom, or change bottom window to right."
 (dumb-jump-go)
 ))
 
-(global-set-key (kbd "C-M-g") 'cibin/goto-func-definition)
 
 
 ; TODO diff-mode-map debugger-mode-map message-buffer-mode-map fundamental-mode-map 
@@ -208,4 +207,5 @@ i.e. change right window to bottom, or change bottom window to right."
 (move-line-to-ends (if (null n) 1 n)))
 
 (global-set-key (kbd "M-P") 'move-line-to-top)
-(global-set-key (kbd "M-N") 'move-line-to-top)
+
+(global-set-key (kbd "M-N") 'move-line-to-bottom)

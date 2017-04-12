@@ -25,6 +25,7 @@
 ; or use i for insert and I for trigger
 (define-key evil-visual-state-map "I" 'evil-insert)
 
+(global-set-key (kbd "C-M-g") 'cibin/goto-func-definition)
 (message "checkpoint")
 
                                         ; interpret and use ansi color codes in shell buffers
@@ -127,6 +128,9 @@
 
 
 (global-set-key (kbd "C-;") 'comment-line)
+(with-eval-after-load 'flyspell
+(define-key flyspell-mode-map  (kbd "C-;") 'comment-line) ; flyspell is overriding
+)
 (global-set-key (kbd "C-x C-;") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-c C-b") 'xah-make-backup-and-save)
 (with-eval-after-load 'org
@@ -139,10 +143,6 @@
  ;; Align your code in a pretty way.
 (global-set-key (kbd "C-x \\") 'align-regexp)
 
-;; TODO check Xah-lee.... run for F8
-(global-set-key (kbd "<f8>") 'quickrun)
-;TODO ;; (global-set-key (kbd "<M-f8>") 'quickrun-region)
-(global-set-key (kbd "<C-f8>") 'helm-quickrun)
 
 
 
@@ -236,10 +236,11 @@
 
 ;; File finding
 ; https://github.com/emacs-helm/helm/blob/master/helm-files.el
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
-(global-set-key (kbd "M-o") 'helm-find-files)
-(global-set-key (kbd "C-x C-f") 'helm-multi-files)
-(global-set-key (kbd "M-o") 'helm-multi-files)
+
+
+;;; helm-for-files > helm-multi-files > helm-find-files
+(global-set-key (kbd "C-x C-f") 'helm-for-files)
+(global-set-key (kbd "M-o") 'helm-for-files)
 
 ; Fixme: error
 ; (define-key helm-find-files-map (kbd "C-j") 'helm-find-files-up-one-level)
@@ -303,17 +304,22 @@
 (define-key evil-normal-state-map "B" 'ibuffer)
 (define-key evil-normal-state-map "Y" 'copy-to-end-of-line)
 
-
 ; C-x k
 ; f4/C-x 0=kill buffer
 ; C-x 0/q/M-q=kill buffer & remove window
 ; Q/M-Q=maximize/minimize
 ; C-q
 (global-set-key (kbd "<f4>") (lambda () (interactive) (kill-this-buffer)))
-(global-set-key (kbd "M-q") (lambda () (interactive) (kill-this-buffer)(delete-window)))
-(define-key evil-normal-state-map "q" (lambda () (interactive) (kill-this-buffer)(delete-window)))
+(global-set-key (kbd "M-q") 'kill-buffer-and-if-many-kill-window-too)
+(define-key evil-normal-state-map "q" 'kill-buffer-and-if-many-kill-window-too )
+
+(defun kill-buffer-and-if-many-kill-window-too () (interactive) (kill-this-buffer)
+(when (not (one-window-p))
+  (delete-window))
+)
 
 (global-set-key (kbd "M-Q") (lambda () (interactive) (spacemacs/toggle-maximize-buffer)))
+
 (define-key evil-normal-state-map "Q" (lambda () (interactive) (spacemacs/toggle-maximize-buffer)))
 
 ; is this needed?
@@ -561,17 +567,37 @@ buffer preview will still display."
    )
    (add-hook 'evil-insert-state-exit-hook 'my-save-if-bufferfilename)
    
+                                        ; or only in evil’s normal state:
+;todo helm-buffers-list or helm-mini
+
+(define-key evil-normal-state-map (kbd "b") 'helm-buffers-list)
+(global-set-key (kbd "C-x b") 'helm-mini)
+(define-key evil-normal-state-map (kbd "b") 'helm-mini)
+
+;; helm-for-files
+;; http://pragmaticemacs.com/emacs/find-and-open-files-from-anywhere-with-helm-for-files/
+;; limit max number of matches displayed for speed
+    (setq helm-candidate-number-limit 100)
+    ;; ignore boring files like .o and .a
+    (setq helm-ff-skip-boring-files t)
+
+;; replace locate with spotlight on Mac
+    ;; (setq helm-locate-command "mdfind -name %s %s"))
+    ;; (setq helm-locate-command "locate-with-mdfind %.0s %s")
+
+;; http://amitp.blogspot.in/2012/10/emacs-helm-for-finding-files.html
+(setq helm-idle-delay 0.1)
+(setq helm-input-idle-delay 0.1)
+(loop for ext in '("\\.swf$" "\\.elc$" "\\.pyc$")
+      do (add-to-list 'helm-boring-file-regexp-list ext))
 
    ;; INCREMENT AND DECREMENT numbers in Emacs 
    
 (global-set-key (kbd "C-c +") 'evil-numbers/inc-at-pt)
 (global-set-key (kbd "C-c -") 'evil-numbers/dec-at-pt)
 
-                                        ; or only in evil’s normal state:
-;todo helm-buffers-list or helm-mini
-(define-key evil-normal-state-map (kbd "b") 'helm-buffers-list)
-(global-set-key (kbd "C-x b") 'helm-mini)
-(define-key evil-normal-state-map (kbd "b") 'helm-mini)
+
+
 (define-key evil-normal-state-map (kbd "C-c +") 'evil-numbers/inc-at-pt)
 (define-key evil-normal-state-map (kbd "C-c -") 'evil-numbers/dec-at-pt)
 

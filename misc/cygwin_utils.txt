@@ -11,16 +11,6 @@ C:\cygwin64>setup-x86_64.exe -q -P wget -P gcc-g++ -P make -P diffutils -P libmp
 
 
 
-###### PYTHON ESSENTIAL INSTALLS
-# python -m pip install 
-C:\python27\python.exe -m pip -U -r python_requirements.txt
-"C:\Program Files (x86)\Python35-32\python.exe" -m pip -U -r python_requirements.txt
-
-# sometimes binary installation required
-python -m pip install numpy opencv
-
-C:\python27\python.exe -m pip -U -r python_requirements.txt
-
 
 # add to cygwin essentials (tar,unrar,unzip,7z,du, diff parenthesis highlight er
 # as working directory

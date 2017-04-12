@@ -3443,9 +3443,15 @@ return
 CLIPSTEP:
 {
 	GetKeyState,state_s,shift
+	GetKeyState,state_Space,Space
 	GetKeyState,state,CTRL
-	If state=u
+	tooltip,%state% %state_Space% delete=%delete% paste=%paste%
+	sleep,500
+	tooltip,%state% %state_Space% delete=%delete% paste=%paste%
+	If (( state=U) and (state_Space=U))
 	{
+	tooltip, inside
+	sleep,500
 	  If delete=delete
 	  { 
 		readclip=MC_Clip%activeclip%
@@ -3505,11 +3511,17 @@ CLIPSTEP:
 		delete=no
 		paste=no
 	}
+	else {
+	tooltip,else
+	sleep,500
+	}
 }
 
 return
+$^x::
 
-$^c::		;delete  ; na
+
+; $^c::		;delete  ; na
 
 if trigger_if_triggered_by_emacs_script_else_proceed("LCtrl")
 		return
@@ -3649,19 +3661,12 @@ if (ClipStep_Keys)
 return
 
  
-$^v::	; na
+$^c::	; na
+; $^v::	; na
 	if trigger_if_triggered_by_emacs_script_else_proceed("LCtrl")
 		return
 	
-setTimer,CLIPSTEP,100
-LASTFORMAT := GetClipboardFormat(1)
-if ( LASTFORMAT <>"[Text]")
-	{	
-		; send,^v
-		
-	send_key_emacs_or_after_translatingTo_normal_ifNot_emacseditor("C-y")
-		return
-	}
+; setTimer,CLIPSTEP,100
 if (ClipStep_Keys)
 {
 	If paste<>no
@@ -3683,10 +3688,11 @@ if (ClipStep_Keys)
 }
 else
 {
+pass_through_keys("C-c")
 	;	paste action
 ; Send,^v
-	delete=no
-	paste=paste
+	; delete=no
+	; paste=paste
 
 	/*
 	clip1:=ClipboardAll
@@ -3721,12 +3727,22 @@ Return
 ; msgbox,Space
 return
 
-$<^b::	; na
+; $<^b::	; na
+$<^v::	; na
 	
-	if trigger_if_triggered_by_emacs_script_else_proceed("LCtrl")
-		return
+	; if trigger_if_triggered_by_emacs_script_else_proceed("LCtrl")
+		; return
 		
 	setTimer, CLIPSTEP,100
+	
+LASTFORMAT := GetClipboardFormat(1)
+if ( LASTFORMAT <>"[Text]")
+	{	
+		; send,^v
+		
+	send_key_emacs_or_after_translatingTo_normal_ifNot_emacseditor("C-y")
+		return
+	}
 	; msgbox,%MC_Clips_present%
 	If MC_Clips_present<1
 	{
@@ -4068,7 +4084,7 @@ SEARCH(gui_number)
 				stringleft,a,all,100
 				stringleft,b,A_LoopField,50
 				stringreplace,a,a,`n,%A_space%%A_space%,all
-				result1 .= search_index . "@@@@" . b . "`n"
+				result1 .= search_index .  b . "`n"
 				; LV_Add("",search_index,b,a_loopfield,a_index)
 			}
 			

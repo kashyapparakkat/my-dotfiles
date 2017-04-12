@@ -1,4 +1,8 @@
 
+;; TODO check Xah-lee.... run for F8
+(global-set-key (kbd "<f8>") 'quickrun)
+;TODO ;; (global-set-key (kbd "<M-f8>") 'quickrun-region)
+;(global-set-key (kbd "<C-f8>") 'helm-quickrun)
 (global-set-key (kbd "<C-f8>") 'cibin/eval-this-line)
 (global-set-key (kbd "<C-f9>") 'cbn-debug)
 (defun cibin/eval-this-line () (interactive)

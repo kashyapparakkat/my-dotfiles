@@ -87,7 +87,6 @@
                  :background "#258b29" 
                  ;; :background "#2e8b57" 
                  :box '(:line-width 1 :style released-button))
-(message "hellllllloooo")
 (set-face-attribute  'mode-line-inactive
                  nil 
                  :foreground "gray30"

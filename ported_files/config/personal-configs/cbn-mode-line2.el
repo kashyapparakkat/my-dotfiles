@@ -1,4 +1,4 @@
-
+ 
 (diminish 'Auto-complete-mode "AC")
 (diminish 'drag-stuff-mode "◆")
 (diminish 'git-gutter+-mode "g+")
