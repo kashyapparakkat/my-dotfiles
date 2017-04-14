@@ -3445,13 +3445,13 @@ CLIPSTEP:
 	GetKeyState,state_s,shift
 	GetKeyState,state_Space,Space
 	GetKeyState,state,CTRL
-	tooltip,%state% %state_Space% delete=%delete% paste=%paste%
-	sleep,500
-	tooltip,%state% %state_Space% delete=%delete% paste=%paste%
-	If (( state=U) and (state_Space=U))
+	; tooltip,%state% %state_Space% delete=%delete% paste=%paste%
+	; sleep,500
+	; tooltip,%state% %state_Space% delete=%delete% paste=%paste%
+	If state=U ;  and state_Space=U)
 	{
-	tooltip, inside
-	sleep,500
+	; tooltip, inside
+	; sleep,500
 	  If delete=delete
 	  { 
 		readclip=MC_Clip%activeclip%
@@ -3512,14 +3512,13 @@ CLIPSTEP:
 		paste=no
 	}
 	else {
-	tooltip,else
-	sleep,500
+	; tooltip,else
+	; sleep,500
 	}
 }
 
 return
 $^x::
-
 
 ; $^c::		;delete  ; na
 
@@ -3578,7 +3577,7 @@ else
 
 ;	copy action
 	; Send,^c
-	pass_through_keys("C-c")
+	pass_through_keys("C-x")
 /*
 	; clip1:=ClipboardAll
 	clip1:=Clipboard
@@ -4113,7 +4112,7 @@ SEARCH(gui_number)
 		; stringreplace,n,a_loopfield,
 		txt:=RegExReplace(a_loopfield, "^\d+@","" )
 		n:=RegExReplace(a_loopfield, "^(\d+)@.*","$1" )
-		LV_Add("",n,txt,"full ",a_loopfield)
+		LV_Add("",n,txt,"add full text here ",txt)
 	}
 	tot_chars_searched=
 ;============;;

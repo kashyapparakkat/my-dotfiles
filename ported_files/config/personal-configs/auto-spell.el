@@ -120,7 +120,8 @@ move point."
 ;;   (define-key flyspell-mode-map (kbd "S-<f12>") 'helm-flyspell-correct) ;fuzzy but popup at minibuffer location
 ;; You can also enable flyspell-popup-auto-correct-mode to popup that Popup Menu automatically with a delay (default 1.6 seconds):
 
-(add-hook 'flyspell-mode-hook #'flyspell-popup-auto-correct-mode)
+;; TODO disabling the popup for now as esc is not dismissing the Popup
+;; (add-hook 'flyspell-mode-hook #'flyspell-popup-auto-correct-mode)
 
 ;; The last annoyance is that on Mac OS X the right mouse button does not seem to trigger [mouse-2], so you cannot right click a word to get a suggestion. This can be fixed with:
      (define-key flyspell-mouse-map [down-mouse-3] #'flyspell-correct-word)

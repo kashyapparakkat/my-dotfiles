@@ -105,10 +105,10 @@
         (counsel-grep))
     ; (swiper--ivy (swiper--candidates))
 	; or
-    (message "asd\nasd")
+    ;; (message "asd\nasd")
     ;; (swiper (format "\\<%s\\>" (thing-at-point 'word)))
     (swiper (format "%s" (thing-at-point 'word)))
-    (message "asd")
+    ;; (message "asd")
 	))
 
 	

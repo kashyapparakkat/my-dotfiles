@@ -210,10 +210,16 @@ function cron-jobs-cibin() {
 	
     # locatedb update
 	# updatedb
+	
+0	# Change mlocate Database Location
+# The default database that locate utility reads is /var/lib/mlocate/mlocate.db, but if you wish to link the locate command with some other database kept at some other location, use the -d option.
+# For example :
+# $ locate -d <new db path> <filename>
+
+
 	other_indexes
     # emacs indexing
 	myindexemacs
-	
     # all_files.db indexing
     myindex
 	
@@ -298,7 +304,8 @@ done
 				"emacs"			) declare -a files=("$Universal_home/AppData/Roaming/.spacemacs" "$Universal_home/AppData/Roaming/.emacs.d/my-files/config/personal-configs/*el");;
 				"ahk"			) declare -a files=("/cygdrive/c/cbn_gits/AHK/*");;
 				"h"|"here"		) files=("$(pwd)");;
-				"r"|"rhere" 	) files=("$(dirname "$(pwd)")"/*);;
+				"hhere" 	) files=("$(dirname "$(pwd)")"/*);;
+				"rhere" 	) files=("$(dirname "$(pwd)")"/*);;
 			esac
 			echo "searching in file $files"
 			

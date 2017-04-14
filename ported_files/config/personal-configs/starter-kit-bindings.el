@@ -316,11 +316,11 @@
 (defun kill-buffer-and-if-many-kill-window-too () (interactive) (kill-this-buffer)
 (when (not (one-window-p))
   (delete-window))
-)
+(message "kill-buffer-and-if-many-kill-window-too"))
 
 (global-set-key (kbd "M-Q") (lambda () (interactive) (spacemacs/toggle-maximize-buffer)))
 
-(define-key evil-normal-state-map "Q" (lambda () (interactive) (spacemacs/toggle-maximize-buffer)))
+(define-key evil-normal-state-map "Q" (lambda () (interactive) (spacemacs/toggle-maximize-buffer)(message "spacemacs/toggle-maximize-buffer")))
 
 ; is this needed?
 (global-set-key (kbd "C-q") 'xah-close-current-buffer)
