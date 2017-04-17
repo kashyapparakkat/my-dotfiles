@@ -209,3 +209,13 @@ i.e. change right window to bottom, or change bottom window to right."
 (global-set-key (kbd "M-P") 'move-line-to-top)
 
 (global-set-key (kbd "M-N") 'move-line-to-bottom)
+
+;;TODO see if this works
+;;ensure that M-v always undoes C-v, so you can go back exactly.
+(setq scroll-preserve-screen-position 'always)
+
+
+(define-key evil-normal-state-map   (kbd "J") 'xah-forward-block)
+(define-key evil-visual-state-map   (kbd "J") 'xah-forward-block)
+(define-key evil-normal-state-map   (kbd "K") 'xah-backward-block)
+(define-key evil-visual-state-map   (kbd "K") 'xah-backward-block)

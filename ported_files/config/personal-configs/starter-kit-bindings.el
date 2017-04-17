@@ -123,7 +123,9 @@
 
 
 (define-key evil-visual-state-map   (kbd "f") 'mark-whole-buffer) 
-(define-key evil-visual-state-map   (kbd "J") 'evil-visual-block) 
+(define-key evil-visual-state-map   (kbd "J") 'evil-visual-block)
+;; triple cycling 
+;; (define-key evil-visual-state-map (kbd "v") 'evil-visual-block)
 ;; TODO for mouse http://emacs.stackexchange.com/questions/7244/enable-emacs-column-selection-using-mouse
 
 
@@ -313,9 +315,13 @@
 (global-set-key (kbd "M-q") 'kill-buffer-and-if-many-kill-window-too)
 (define-key evil-normal-state-map "q" 'kill-buffer-and-if-many-kill-window-too )
 
-(defun kill-buffer-and-if-many-kill-window-too () (interactive) (kill-this-buffer)
-(when (not (one-window-p))
-  (delete-window))
+(defun kill-buffer-and-if-many-kill-window-too () (interactive)
+(message (format "ask   %s" (ask-before-killing-buffer-if-running-or-modified)))
+      ;; (when (ask-before-killing-buffer-if-running-or-modified)
+        ;; (kill-this-buffer)
+;; (when (not (one-window-p))
+  ;; (delete-window))
+         ;; )
 (message "kill-buffer-and-if-many-kill-window-too"))
 
 (global-set-key (kbd "M-Q") (lambda () (interactive) (spacemacs/toggle-maximize-buffer)))
@@ -339,7 +345,8 @@
 (global-set-key (kbd "C-x O") (lambda () (interactive) (other-window -1))) ;; back one
 (global-set-key (kbd "C-x C-o") (lambda () (interactive) (other-window 2))) ;; forward two
 
-(global-set-key (kbd "<f7>") 'split-window-right)
+;; (global-set-key (kbd "<f7>") 'split-window-right)
+(global-set-key (kbd "<f7>") 'hsplit-last-buffer)
 
 (define-key evil-normal-state-map (kbd "C-n") 'evil-next-visual-line)
 (define-key evil-normal-state-map (kbd "C-p") 'evil-previous-visual-line)

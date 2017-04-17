@@ -821,4 +821,5 @@ file to write to."
 ; if you use M-x scratch it will launch a scratch buffer for the current mode. So in my org-mode buffer
 (autoload 'scratch "scratch" nil t)
 
-
+;; TODO disabling for now as error
+(global-eldoc-mode -1)

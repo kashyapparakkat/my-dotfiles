@@ -25,11 +25,13 @@
 ;; TODO make this run not just for current buffer
 ;; http://amitp.blogspot.in/2007/03/emacs-dont-kill-unsaved-buffers.html
 (defun ask-before-killing-buffer-if-running-or-modified ()
+(interactive)
   (let ((buffer (current-buffer)))
     (cond
-     ((equal (buffer-name) "*scratch*")
+     ;; (
+      ;; (equal (buffer-name) "*scratch*")
       ;; Never kill *scratch*
-      nil)
+      ;; nil)
      ((and buffer-file-name (buffer-modified-p))
       ;; If there's a file associated with the buffer, 
       ;; make sure it's saved
@@ -40,7 +42,8 @@
       ;; make sure it's dead
       (y-or-n-p (format "Process %s active; kill anyway? "
                     (process-name (get-buffer-process buffer)))))
-     (t t))))
+     (t t)
+     )))
 ;; (add-to-list 'kill-buffer-query-functions 'ask-before-killing-buffer)
 
 
@@ -165,4 +168,26 @@
 ;;; helm-for-files > helm-multi-files > helm-find-files
 (global-set-key (kbd "C-x C-f") 'cibin/helm-find-files)
 (global-set-key (kbd "M-o") 'cibin/helm-find-files)
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Custom splitting functions ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; I added these snippets to my .emacs so that when I split the screen with C-x 2 or C-x 3, it opens the previous buffer instead of giving me two panes with the same buffer:
+(defun vsplit-last-buffer ()
+  (interactive)
+  (split-window-vertically)
+  (other-window 1 nil)
+  (switch-to-next-buffer)
+  )
+(defun hsplit-last-buffer ()
+  (interactive)
+   (split-window-horizontally)
+  (other-window 1 nil)
+  (switch-to-next-buffer)
+  )
+
+(global-set-key (kbd "C-x 2") 'vsplit-last-buffer)
+(global-set-key (kbd "C-x 3") 'hsplit-last-buffer)
 
