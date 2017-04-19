@@ -1,6 +1,8 @@
+; -*- mode: org; -*-
+
 http://stackoverflow.com/questions/9167614/python-mode-in-emacs-no-such-file-or-directory-pdb
 
-docs::
+* docs::
 ======
 
 f7 is split
@@ -12,14 +14,16 @@ yy copy current line
 M-J pull up line
 
 
-INFO::
+* INFO::
 ======
 
-use client to open with emacs context menu
+** use client to open with emacs context menu
 https://www.emacswiki.org/emacs/MsWindowsGlobalContextMenu
 
 
-TODO:
+** ; -*- mode: restclient; -*-
+* TODO:
+
 =====
 Select last yanked text
 
@@ -29,3 +33,4 @@ nnoremap <leader>V `[v`]
 Thanks to the comment by delexi I know that the function in Emacs is called exchange-point-and-markwhich defaults to C-x C-x but I’ve remapped to leader-V with:
 
 (evil-leader/set-key "V" 'exchange-point-and-mark)
+

@@ -1,3 +1,5 @@
+;; http://ergoemacs.org/emacs/emacs_org_babel_literate_programing.html
+
 
 (setq org-agenda-files (list (format "C:/Users/%s/Downloads/todo.org" user-login-name)                            
                         (format "C:/Users/%s/Downloads/todo.txt" user-login-name)                           
@@ -102,3 +104,16 @@
 ;; The GUI Emacs has the ability to display images. But if the image is pretty large, it displays the whole thing. Let’s restrict it from doing that.
 
 (setq org-image-actual-width '(300))
+
+;; make org mode allow eval of some langs
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   (clojure . t)
+   (python . t)
+ (restclient . t)
+   (ruby . t)))
+
+;; stop emacs asking for confirmation
+(setq org-confirm-babel-evaluate nil)
+(setq org-src-fontify-natively t)

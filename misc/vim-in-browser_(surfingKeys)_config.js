@@ -141,4 +141,15 @@ mapkey(';', '#9Find in current page', 'Front.openFinder()');
 
 
 
+  //storage sync
+var answersToSet = {};
+answersToSet.answerA = 'foo';
+answersToSet.answerB = 'bar';
+chrome.storage.sync.set(answersToSet, function(){
+    if (chrome.runtime.lastError) {
+        //alert('Error setting answers:\n\n'+chrome.runtime.lastError);
+    } else {
+        //alert('Answers saved.');
+    }
+}); 
   

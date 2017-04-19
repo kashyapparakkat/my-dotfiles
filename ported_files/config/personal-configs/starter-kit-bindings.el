@@ -315,15 +315,6 @@
 (global-set-key (kbd "M-q") 'kill-buffer-and-if-many-kill-window-too)
 (define-key evil-normal-state-map "q" 'kill-buffer-and-if-many-kill-window-too )
 
-(defun kill-buffer-and-if-many-kill-window-too () (interactive)
-(message (format "ask   %s" (ask-before-killing-buffer-if-running-or-modified)))
-      ;; (when (ask-before-killing-buffer-if-running-or-modified)
-        ;; (kill-this-buffer)
-;; (when (not (one-window-p))
-  ;; (delete-window))
-         ;; )
-(message "kill-buffer-and-if-many-kill-window-too"))
-
 (global-set-key (kbd "M-Q") (lambda () (interactive) (spacemacs/toggle-maximize-buffer)))
 
 (define-key evil-normal-state-map "Q" (lambda () (interactive) (spacemacs/toggle-maximize-buffer)(message "spacemacs/toggle-maximize-buffer")))
@@ -586,7 +577,8 @@ buffer preview will still display."
 ;; limit max number of matches displayed for speed
     (setq helm-candidate-number-limit 100)
     ;; ignore boring files like .o and .a
-    (setq helm-ff-skip-boring-files t)
+;; TODO disabled for now
+;; (setq helm-ff-skip-boring-files t)
 
 ;; replace locate with spotlight on Mac
     ;; (setq helm-locate-command "mdfind -name %s %s"))

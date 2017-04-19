@@ -7,6 +7,22 @@
     (ibuffer-jump-to-buffer recent-buffer-name)))
 (ad-activate 'ibuffer)
 
+;; ask-before-killing-buffer-if-running-or-modified
+;; kill-all-other-buffers-if-not-modified
+;; kill-buffer-if-not-modified = builtin
+;; kill-buffer-and-if-many-kill-window-too
+
+(defun kill-buffer-and-if-many-kill-window-too () (interactive)
+;; (message (format "ask   %s" (ask-before-killing-buffer-if-running-or-modified)))
+      ;; (when (ask-before-killing-buffer-if-running-or-modified)
+        ;; (kill-this-buffer)
+;; (when (not (one-window-p))
+  ;; (delete-window))
+         ;; )
+(kill-this-buffer-if-not-modified)
+       ;; (ask-before-killing-buffer-if-running-or-modified)
+       (message "kill-buffer-and-if-many-kill-window-too"))
+
 
 (defun kill-all-other-buffers-if-not-modified ()
   "Kill all other buffers."
@@ -137,7 +153,7 @@
 ;; limit max number of matches displayed for speed
     (setq helm-candidate-number-limit 100)
     ;; ignore boring files like .o and .a
-    (setq helm-ff-skip-boring-files t)
+    ;; TODO disabled for now (setq helm-ff-skip-boring-files t)
 
 ;; Update: On helm version >=2.4.0 this is now the default.
 ;; (setq helm-locate-command "locate %s -e -A --regex %s")
@@ -149,8 +165,9 @@
 ;; http://amitp.blogspot.in/2012/10/emacs-helm-for-finding-files.html
 (setq helm-idle-delay 0.1)
 (setq helm-input-idle-delay 0.1)
-(loop for ext in '("\\.swf$" "\\.elc$" "\\.pyc$")
-      do (add-to-list 'helm-boring-file-regexp-list ext))
+;; TODO disabling helm-boring-file-regexp-list for now
+; (loop for ext in '("\\.swf$" "\\.elc$" "\\.pyc$")
+      ; do (add-to-list 'helm-boring-file-regexp-list ext))
 
                                         ; or only in evil’s normal state:
 ;todo helm-buffers-list or helm-mini
