@@ -314,11 +314,11 @@ sleep,2000
 		else if (action="open_with")
 		{
 		
-		}
 		; tooltip,%type%_category_open_%open_type%_%n%,,,5
 		
 		splitpath,%type%_category_open_%open_type%_%n%,open_with_program
 		tmp_msg .= " " . open_with_program 
+		}
 	
 	}
 	else
@@ -332,7 +332,7 @@ sleep,2000
 	y_pos:=ypos-5
 	; tooltip,Timeout,,%y_pos%,2
 		
-	tooltip,%tmp_msg%`n%tooltip_msg%,,%y_pos%
+	tooltip,%tmp_msg%`n`n%tooltip_msg%,,%y_pos%
 	HotkeySTEP87_count++
 	HotkeySTEP87:=1
 	setTimer, HotkeySTEP87, 70
@@ -711,6 +711,8 @@ If InStr( FileExist(selText), "D" )
 {
 	%type%_action_1=open_in_opus
 	%type%_action_2=open_in_explorer
+	;TODO
+	; %type%_max_steps:=2
 	%type%_max_steps:=3
 }
 else
@@ -723,7 +725,8 @@ else
 		if OutExtension in %tmp_txt%
 			open_type:=a_index
 	}
-	%type%_max_steps:=%type%_%open_type%_max_steps + 2
+	%type%_max_steps:=%type%_%open_type%_max_steps + 1
+	; TODO ; %type%_max_steps:=%type%_%open_type%_max_steps + 2
 	n:=%type%_max_steps
 	; msgbox,%n%
 	if (trigger_from_explorer)

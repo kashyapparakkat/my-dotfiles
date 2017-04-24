@@ -4083,7 +4083,7 @@ SEARCH(gui_number)
 				stringleft,a,all,100
 				stringleft,b,A_LoopField,50
 				stringreplace,a,a,`n,%A_space%%A_space%,all
-				result1 .= search_index .  b . "`n"
+				result1 .= search_index . "@" .  b . "`n"
 				; LV_Add("",search_index,b,a_loopfield,a_index)
 			}
 			

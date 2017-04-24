@@ -400,7 +400,7 @@ return
 */
 
 
-Lalt & 3::
+Ralt & 3::
 
 if WinExist("ahk_class Chrome_WidgetWin_1")
 	WinActivate,ahk_exe chrome.exe
@@ -409,14 +409,14 @@ else if WinExist("ahk_class MozillaWindowClass")
 
 
 return
-Lalt & q::
+Ralt & q::
 ; ahk_class ExploreWClass|CabinetWClass
 	if WinExist("ahk_class ExploreWClass") or WinExist("ahk_class CabinetWClass") 
 		WinActivate,ahk_exe explorer.exe
 	return
 	
 #ifwinnotactive, ahk_exe emacs.exe
-Lalt & e::
+Ralt & e::
 #ifwinactive
 	WinActivate,ahk_exe emacs.exe ;ahk_class Emacs
 	return
@@ -463,6 +463,7 @@ RALT & i::
   Winmaximize,A
   return
 msgbox
+; LALT & a:: ALTTAB
 RALT & a:: ALTTAB
 RALT & s:: SHIFTALTTAB
 ;!a::

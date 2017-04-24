@@ -51,10 +51,13 @@
 (define-key swiper-map (kbd "M-.")
   (lambda () (interactive) (insert (format "\\<%s\\>" (with-ivy-window (thing-at-point 'word))))))	
 
+                                        ; TODO
+(global-set-key "\C-s" 'ora-swiper)	
+(global-set-key "\C-s" 'avy-goto-char-timer)	
 ; ora-swiper is better than my-search-method-according-to-numlines
 ; (global-set-key "\C-s" 'my-search-method-according-to-numlines)
-(global-set-key "\C-s" 'ora-swiper)	
-; (global-set-key "\C-s" (lambda () (interactive) (swiper (format "\\<%s\\>" (thing-at-point 'word)))))
+
+;;; remove ;; (global-set-key "\C-s" (lambda () (interactive) (swiper (format "\\<%s\\>" (thing-at-point 'word)))))
 
 ;; Use regex searches by default.
 ; (global-set-key (kbd "C-s") 'isearch-forward-regexp)
@@ -103,12 +106,12 @@
       (progn
         (save-buffer)
         (counsel-grep))
-    ; (swiper--ivy (swiper--candidates))
-	; or
-    ;; (message "asd\nasd")
+    ;; swiper without default word
+     (swiper--ivy (swiper--candidates))
+; or
+    ;; TODO autoselect word
     ;; (swiper (format "\\<%s\\>" (thing-at-point 'word)))
-    (swiper (format "%s" (thing-at-point 'word)))
-    ;; (message "asd")
+    ;; (swiper (format "%s" (thing-at-point 'word)))
 	))
 
 	

@@ -174,7 +174,8 @@
 (define-key dired-mode-map (kbd "o") 'switch-to-prev-buffer)
  
 (define-key evil-normal-state-map (kbd "O") 'switch-to-next-buffer) 
-(define-key evil-normal-state-map (kbd "o") 'switch-to-prev-buffer)
+;;todo
+;;(define-key evil-normal-state-map (kbd "o") 'switch-to-prev-buffer)
 
 (define-key evil-normal-state-map (kbd "C-v") 'switch-to-next-buffer) 
 (define-key evil-normal-state-map (kbd "C-l") 'switch-to-prev-buffer)
@@ -566,29 +567,7 @@ buffer preview will still display."
    (add-hook 'evil-insert-state-exit-hook 'my-save-if-bufferfilename)
    
                                         ; or only in evil’s normal state:
-;todo helm-buffers-list or helm-mini
 
-(define-key evil-normal-state-map (kbd "b") 'helm-buffers-list)
-(global-set-key (kbd "C-x b") 'helm-mini)
-(define-key evil-normal-state-map (kbd "b") 'helm-mini)
-
-;; helm-for-files
-;; http://pragmaticemacs.com/emacs/find-and-open-files-from-anywhere-with-helm-for-files/
-;; limit max number of matches displayed for speed
-    (setq helm-candidate-number-limit 100)
-    ;; ignore boring files like .o and .a
-;; TODO disabled for now
-;; (setq helm-ff-skip-boring-files t)
-
-;; replace locate with spotlight on Mac
-    ;; (setq helm-locate-command "mdfind -name %s %s"))
-    ;; (setq helm-locate-command "locate-with-mdfind %.0s %s")
-
-;; http://amitp.blogspot.in/2012/10/emacs-helm-for-finding-files.html
-(setq helm-idle-delay 0.1)
-(setq helm-input-idle-delay 0.1)
-(loop for ext in '("\\.swf$" "\\.elc$" "\\.pyc$")
-      do (add-to-list 'helm-boring-file-regexp-list ext))
 
    ;; INCREMENT AND DECREMENT numbers in Emacs 
    
@@ -651,3 +630,9 @@ buffer preview will still display."
       (kill-region (region-beginning) (region-end))
     (backward-kill-word arg)))
 (global-set-key (kbd "C-w" ) 'sk/kill-region-or-backward-word)
+
+(define-key evil-normal-state-map (kbd "f") 'avy-goto-char-timer)
+
+
+(define-key evil-normal-state-map  (kbd "C-S-y") 'evil-unimpaired/paste-below)
+(define-key evil-normal-state-map  (kbd "C-M-y") 'evil-unimpaired/paste-above)

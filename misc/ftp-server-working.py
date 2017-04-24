@@ -1,7 +1,11 @@
 import time,sys
 # root_folder=('D:/Films',"C:/users/cibin/Downloads")
-root_folder=sys.argv[1]
-# root_folder='D:/Films'
+# print(len(sys.argv))
+if len(sys.argv)>1:
+    root_folder=sys.argv[1]
+else:
+    root_folder='C:/'
+    
 print(root_folder)
 time.sleep(4)
 # sys.exit()
@@ -14,7 +18,9 @@ import time
 import logging
 import threading
 SLEEP_TIME = 900
-user=('user','12345')
+import random
+password = 'cibin' + str(random.randrange(10,99))
+user=('cibin', password)
 
 class FtpThread(threading.Thread):
     def __init__(self, user_list):
@@ -30,9 +36,10 @@ class FtpThread(threading.Thread):
         handler = FTPHandler
         handler.authorizer = authorizer
         ip_list=get_IP.getWinIP()
-        wifi_ip=str(ip_list[min(len(ip_list,1))]) # first IP is mostly LAN IP
+        print(ip_list)
+        wifi_ip=str(ip_list[min(len(ip_list),1)-1]) # first IP is mostly LAN IP
         print("Access at url ftp://" + wifi_ip + ":21 Timeout: " + str(SLEEP_TIME/60) + " mins")
-        pyperclip.copy(str("ftp://" + wifi_ip + ":21 Timeout: " + str(SLEEP_TIME/60) + " mins  username:" + user[0]))
+        pyperclip.copy(str("ftp://" + wifi_ip + ":21 Timeout: " + str(SLEEP_TIME/60) + " mins  username:" + user[0] + " password: " + user[1]) )
         # logging.basicConfig(filename='F:/CBN/misc/fdm dwnlds/ftp.log', level=logging.INFO)
         handler.banner = "pyftpdlib based ftpd ready."
         address = (wifi_ip, 21)

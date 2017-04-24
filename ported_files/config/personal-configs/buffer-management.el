@@ -128,9 +128,8 @@
 (defun cibin/helm-find-files ()
   (interactive)
   (helm :sources '(
- helm-source-findutils
  helm-source-files-in-current-dir
-                   helm-source-buffers-list
+ helm-source-findutils
                    helm-source-recentf
                    helm-source-buffers-list
                    helm-source-locate
@@ -169,14 +168,17 @@
 ; (loop for ext in '("\\.swf$" "\\.elc$" "\\.pyc$")
       ; do (add-to-list 'helm-boring-file-regexp-list ext))
 
-                                        ; or only in evil’s normal state:
-;todo helm-buffers-list or helm-mini
+; or only in evil’s normal state:
+										
+;helm-mini is better than helm-buffers-list
 
 ;; (define-key evil-normal-state-map (kbd "b") 'helm-buffers-list)
 (global-set-key (kbd "C-x b") 'helm-mini)
 (define-key evil-normal-state-map (kbd "b") 'helm-mini)
  
 
+
+ 
 
 ;; File finding
 ; https://github.com/emacs-helm/helm/blob/master/helm-files.el
@@ -207,4 +209,5 @@
 
 (global-set-key (kbd "C-x 2") 'vsplit-last-buffer)
 (global-set-key (kbd "C-x 3") 'hsplit-last-buffer)
+
 

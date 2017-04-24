@@ -823,3 +823,6 @@ file to write to."
 
 ;; TODO disabling for now as error
 (global-eldoc-mode -1)
+
+
+(menu-bar-mode 1)
