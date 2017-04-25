@@ -1,0 +1,32 @@
+* restclient 
+#+BEGIN_SRC restclient
+  GET http://httpbin.org/ip
+#+END_SRC
+
+#+RESULTS:
+#+BEGIN_SRC js
+{
+  "origin": "106.51.129.186"
+}
+// GET http://httpbin.org/ip
+// HTTP/1.1 200 OK
+// Connection: keep-alive
+// Server: gunicorn/19.7.1
+// Date: Tue, 18 Apr 2017 18:35:44 GMT
+// Content-Type: application/json
+// Access-Control-Allow-Origin: *
+// Access-Control-Allow-Credentials: true
+// Content-Length: 33
+// Via: 1.1 vegur
+// Request duration: 1.197710s
+#+END_SRC
+
+** 
+#+BEGIN_SRC python
+print('ad')
+#+END_SRC
+
+#+RESULTS:
+: None
+
+** 

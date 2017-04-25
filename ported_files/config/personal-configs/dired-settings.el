@@ -494,24 +494,53 @@ Parameters:
                                             ))))
 
 
-(defun buffer/switch-in-directory ()
-  "Switch between buffers in same directory."
-  (interactive)
-  (helm
-   :prompt "Buffer switch: "
-   :sources  `((
-		(name       . "Dir: ")                                 
-		(candidates . ,(mapcar (lambda (b) (cons (buffer-name b) b))
-		   ;; filter buffers not in this directory (code bellow)
-		   (remove-if-not  (lambda (b)
-				 (buffer/with-file-in-directory-p
-				  (or (file-name-directory (buffer-file-name))
-					  default-directory
-					  )
-				  b
-				  ))
-			  (buffer-list)
-			  )))
-		(action     . switch-to-buffer)
-		))))
+
 				
+
+				
+				
+				; Asynchronous Dired
+; You can make the copy and rename/move commands in dired by installing the async package. From there, all you need to do is:
+
+(require 'dired-async)
+; And the commands will automatically by asynchronous
+
+; quick-preview
+
+; Not dired-specific per-se, but quick-preview is great for files that Emacs might not be able to open, but your regular X11 (or OSX's quick preview) can show well, like moves are things. Works great when you're in a dired buffer to preview a file.
+
+; I like to bind it globally to C-c q and in dired to Q
+
+(use-package quick-preview
+  :ensure t
+  :init
+  (global-set-key (kbd "C-c q") 'quick-preview-at-point)
+  (define-key dired-mode-map (kbd "Q") 'quick-preview-at-point))
+  
+  
+  (define-key dired-mode-map (kbd "u") 'my-dired-up-directory)
+  ; Rebinding h to our new function makes buffer navigation behave much closer to other Vim-like file browsers.
+
+(evil-define-key 'normal dired-mode-map "h" 'my-dired-up-directory)
+(define-key dired-mode-map (kbd "r") 'bjm/ivy-dired-recent-dirs)
+
+(define-key evil-normal-state-map (kbd "o") nil)
+(define-key evil-normal-state-map (kbd "og") 'bjm/ivy-dired-recent-dirs)
+;; (global-set-key (kbd "on") 'buffer/switch-in-directory)
+(define-key evil-normal-state-map  "on" 'find-next-file-in-current-directory)	
+(define-key evil-normal-state-map (kbd "om") 'buffer/switch-in-directory)	
+  
+
+; One problem with this config is that while l will use dired-find-alternate-file, h will keep the old Dired buffers around. To fix this, we need to write a function that will jump up one directory, and close the old Dired buffer.
+
+(defun my-dired-up-directory ()
+  "Take dired up one directory, but behave like dired-find-alternate-file"
+  (interactive)
+  (let ((old (current-buffer)))
+    (dired-up-directory)
+    (kill-buffer old)
+    ))
+
+	
+	
+	

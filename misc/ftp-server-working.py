@@ -17,7 +17,7 @@ from pyftpdlib.servers import FTPServer
 import time
 import logging
 import threading
-SLEEP_TIME = 900
+SLEEP_TIME = 15 * 60
 import random
 password = 'cibin' + str(random.randrange(10,99))
 user=('cibin', password)
@@ -39,7 +39,7 @@ class FtpThread(threading.Thread):
         print(ip_list)
         wifi_ip=str(ip_list[min(len(ip_list),1)-1]) # first IP is mostly LAN IP
         print("Access at url ftp://" + wifi_ip + ":21 Timeout: " + str(SLEEP_TIME/60) + " mins")
-        pyperclip.copy(str("ftp://" + wifi_ip + ":21 Timeout: " + str(SLEEP_TIME/60) + " mins  username:" + user[0] + " password: " + user[1]) )
+        pyperclip.copy(str("ftp://" + wifi_ip + ":21 Timeout: " + str(SLEEP_TIME/60) + " mins  username: " + user[0] + " password: " + user[1]) )
         # logging.basicConfig(filename='F:/CBN/misc/fdm dwnlds/ftp.log', level=logging.INFO)
         handler.banner = "pyftpdlib based ftpd ready."
         address = (wifi_ip, 21)

@@ -211,3 +211,36 @@
 (global-set-key (kbd "C-x 3") 'hsplit-last-buffer)
 
 
+(defun find-next-file-in-current-directory (&optional backward)
+  "Find the next file (by name) in the current directory.
+;; https://emacs.stackexchange.com/a/12164
+With prefix arg, find the previous file."
+  (interactive "P")
+  (when buffer-file-name
+    (let* ((file (expand-file-name buffer-file-name))
+           (files (cl-remove-if (lambda (file) (cl-first (file-attributes file)))
+                                (sort (directory-files (file-name-directory file) t nil t) 'string<)))
+           (pos (mod (+ (cl-position file files :test 'equal) (if backward -1 1))
+                     (length files))))
+      (find-file (nth pos files)))))
+
+(defun buffer/switch-in-directory ()
+  "Switch between buffers in same directory."
+  (interactive)
+  (helm
+   :prompt "Buffer switch: "
+   :sources  `((
+		(name       . "Dir: ")                                 
+		(candidates . ,(mapcar (lambda (b) (cons (buffer-name b) b))
+		   ;; filter buffers not in this directory (code bellow)
+		   (remove-if-not  (lambda (b)
+				 (buffer/with-file-in-directory-p
+				  (or (file-name-directory (buffer-file-name))
+					  default-directory
+					  )
+				  b
+				  ))
+			  (buffer-list)
+			  )))
+		(action     . switch-to-buffer)
+		))))
