@@ -13,13 +13,14 @@
 ;; kill-buffer-and-if-many-kill-window-too
 
 (defun kill-buffer-and-if-many-kill-window-too () (interactive)
-;; (message (format "ask   %s" (ask-before-killing-buffer-if-running-or-modified)))
+       ;; TODO
+       ;; (message (format "ask   %s" (ask-before-killing-buffer-if-running-or-modified)))
       ;; (when (ask-before-killing-buffer-if-running-or-modified)
         ;; (kill-this-buffer)
-;; (when (not (one-window-p))
-  ;; (delete-window))
-         ;; )
 (kill-this-buffer-if-not-modified)
+(when (not (one-window-p))
+  (delete-window))
+         ;; )
        ;; (ask-before-killing-buffer-if-running-or-modified)
        (message "kill-buffer-and-if-many-kill-window-too"))
 
