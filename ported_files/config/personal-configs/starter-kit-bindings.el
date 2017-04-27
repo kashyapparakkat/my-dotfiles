@@ -171,11 +171,10 @@
 (global-set-key (kbd "C-l") 'switch-to-prev-buffer) 
 (global-set-key (kbd "C-v") 'switch-to-next-buffer)
 (define-key dired-mode-map (kbd "O") 'switch-to-next-buffer) 
-(define-key dired-mode-map (kbd "o") 'switch-to-prev-buffer)
+;;todo ;; (define-key dired-mode-map (kbd "o") 'switch-to-prev-buffer)
  
 (define-key evil-normal-state-map (kbd "O") 'switch-to-next-buffer) 
-;;todo
-;;(define-key evil-normal-state-map (kbd "o") 'switch-to-prev-buffer)
+;;todo ;;(define-key evil-normal-state-map (kbd "o") 'switch-to-prev-buffer)
 
 (define-key evil-normal-state-map (kbd "C-v") 'switch-to-next-buffer) 
 (define-key evil-normal-state-map (kbd "C-l") 'switch-to-prev-buffer)
@@ -303,7 +302,7 @@
 (define-key evil-normal-state-map " m" 'evil-jump-item)
 (define-key evil-normal-state-map ",," 'evil-buffer)
 (define-key evil-normal-state-map "-" 'delete-other-windows)
-(define-key evil-normal-state-map "b" 'ido-switch-buffer)
+;; (define-key evil-normal-state-map "b" 'ido-switch-buffer)
 (define-key evil-normal-state-map "B" 'ibuffer)
 (define-key evil-normal-state-map "Y" 'copy-to-end-of-line)
 

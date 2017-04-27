@@ -115,7 +115,7 @@
 	))
 
 	
-	
+;; TODO
 ; (defun joe-duckduckgo-search (browser)
 (defun joe-duckduckgo-search ()
   "Search DuckDuckGo from Emacs."
@@ -140,7 +140,26 @@
 	  ))
 	  
 	  
-; Enable highlight-symbol-mode (usually done conditionally depending on major mode, as in this example), and set highlight-symbol-on-navigation-p.
+
+(global-set-key (kbd "M-s s") 'swiper-all)
+;; TODO ;; (global-set-key (kbd "M-s r") ') ; recurse
+(global-set-key (kbd "M-s h") 'cibin-search-in-files-advgrep-here)
+(global-set-key (kbd "M-s c") 'cibin-search-in-common-files-bash)
+(global-set-key (kbd "M-s o") 'occur)
+; linked
+(global-set-key (kbd "M-s l") 'cibin-search-in-text-files-related-bash)
+(global-set-key (kbd "M-s /") 'my-multi-occur-in-matching-buffers)
+(global-set-key (kbd "M-s a") 'helm-do-ag-buffers)
+
+;; http://stackoverflow.com/questions/2641211/emacs-interactively-search-open-buffers
+(defun my-multi-occur-in-matching-buffers (regexp &optional allbufs)
+  "Show lines matching REGEXP in all file-visiting buffers.
+
+Given a prefix argument, search in ALL buffers."
+  (interactive (occur-read-primary-args))
+  (multi-occur-in-matching-buffers "." regexp allbufs))
+
+;Enable highlight-symbol-mode (usually done conditionally depending on major mode, as in this example), and set highlight-symbol-on-navigation-p.
 ; (add-hook 'prog-mode-hook (lambda () (highlight-symbol-mode)))
 ; (setq highlight-symbol-on-navigation-p t)
 ; (global-set-key [f3] 'highlight-symbol-next)

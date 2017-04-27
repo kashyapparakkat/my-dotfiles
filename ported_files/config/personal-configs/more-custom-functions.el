@@ -164,10 +164,9 @@
  	(append-to-file filelist nil file ) 
 )
 (defun search-handler (prompt default) 	
-	
 	(setq cmd-str (read-from-minibuffer prompt default))
-	(shell-command cmd-str "*grep*")
-	 (switch-to-buffer "*grep*" t)  ; t: don't add it to the recent buffer list 
+	(async-shell-command cmd-str "*grep*")
+	 ;; (switch-to-buffer "*grep*" t)  ; t: don't add it to the recent buffer list 
 )
 	  
 ; http://stackoverflow.com/questions/17164767/emacs-lisp-directory-files  

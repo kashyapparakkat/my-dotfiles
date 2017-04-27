@@ -35,7 +35,7 @@
   ; ("q" ibuffer-quit "quit ibuffer" :color blue)
   ("q" quit-window "quit ibuffer" :color blue)
   ("." nil "toggle hydra" :color blue))
-  
+
 (defhydra hydra-ibuffer-mark (:color teal :columns 5
                               :after-exit (hydra-ibuffer-main/body))
   "Mark"
@@ -104,7 +104,7 @@
 ; (define-key ibuffer-mode-map (kbd "s p") 'ibuffer-do-sort-by-pathname)
 ; (define-key ibuffer-mode-map (kbd ".") 'cibin/hydra-ibuffer-main/body)
 ; Automatically open the hydra with Ibuffer.
-; (add-hook 'ibuffer-mode-hooks #'cibin/hydra-ibuffer-main/body) 
+; (add-hook 'ibuffer-mode-hooks #'cibin/hydra-ibuffer-main/body)
 
 ; )
 ; Key binding:
@@ -132,7 +132,7 @@
      ("t" toggle-truncate-lines "truncate")
      ("w" whitespace-mode "whitespace")
      ("q" nil "cancel"))))
-	 
+
 	 ;; Quickrun
 
 ;; This is for Quickrun functionality.
@@ -150,7 +150,7 @@
   ("c" quickrun-compile-only)
   ("R" quickrun-replace-region)
   ("q" nil :color blue))
-	 
+
 ;; TODO integrate quickrun, edebug, python
   (defhydra hydra-quickrun (:color blue :columns 2)
     "Quickrun"
@@ -186,9 +186,6 @@
 ;;TODO
   (defhydra hydra-cleanups (:color blue :columns 4)
   "Command"
-  ;; remove blanks
-  ;; remove dupes
-  ;; remove trailings
   ("w" whitespace-cleanup "whitespace")
   ("g" helm-git-grep "git-grep")
   ("l" helm-ls-git-ls "git-ls")
@@ -200,7 +197,7 @@
   ("v" visit-tags-table "visit-tags")
   ("b" bongo "bongo")
   ("t" find-temp-file "temp"))
-;(global-set-key (kbd "C-c x") 'hydra-cleanups/body)	 
+;(global-set-key (kbd "C-c x") 'hydra-cleanups/body)
 
 
 
@@ -217,7 +214,7 @@ Directory size: %s(shell-command-to-string \"du -hs\")
   )
   (define-key dired-mode-map "." 'hydra-marked-items/body)
 
-  
+
 ; undo-tree-visualizer-mode-map
 (defhydra hydra-undo-tree (undo-tree-visualizer-mode-map "")
   "
@@ -245,11 +242,11 @@ Directory size: %s(shell-command-to-string \"du -hs\")
   (let ((sum 0)
         (files (dired-get-marked-files)))
    (dolist (file files (format "%.1fM" sum))
-    (incf sum (/ (nth 8 (car 
-      (directory-files-and-attributes (file-name-directory file) nil 
+    (incf sum (/ (nth 8 (car
+      (directory-files-and-attributes (file-name-directory file) nil
         (regexp-quote (file-name-nondirectory file))))) 1048576.0)))))
-		
-		
+
+
 
 ; (defhydra cibinn/hydra-dired-main (:color pink :hint nil)
   ; "
@@ -285,7 +282,7 @@ Directory size: %s(shell-command-to-string \"du -hs\")
         ("w" web-mode "web-mode")
         ("y" yaml-mode "yaml-mode")
         )
-     (global-set-key (kbd "C-x l") 'hydra-cibin-misc/body)  
+     (global-set-key (kbd "C-x l") 'hydra-cibin-misc/body)
   (if (require 'hydra nil 'noerror)
     (progn
       (defhydra hydra-search (:color blue :columns 4)
@@ -301,7 +298,7 @@ Directory size: %s(shell-command-to-string \"du -hs\")
         ("s" vr/isearch-forward "vr/isearch-forward"))
       (global-set-key (kbd "C-c s") 'hydra-search/body))
   (message "** hydra is not installed"))
-  
+
   (if (require 'hydra nil 'noerror)
     (progn (defhydra hydra-replace (:color blue)
              "hydra-replace"
@@ -312,7 +309,7 @@ Directory size: %s(shell-command-to-string \"du -hs\")
 
            (global-set-key (kbd "C-c r") 'hydra-replace/body))
   (message "** hydra is not installed"))
-  
+
 ;; http://bnbeckwith.com/bnb-emacs/
   (defmacro toggle-setting-string (setting)
   `(if (and (boundp ',setting) ,setting) '[x] '[_]))
@@ -320,13 +317,14 @@ Directory size: %s(shell-command-to-string \"du -hs\")
  "C-x t"
 (defhydra hydra-toggle (:color amaranth)
    "
-_c_ column-number : %(toggle-setting-string column-number-mode)  _b_ orgtbl-mode    : %(toggle-setting-string orgtbl-mode)  
-_e_ debug-on-error: %(toggle-setting-string debug-on-error)  _s_ orgstruct-mode : %(toggle-setting-string orgstruct-mode)  _m_   hide mode-line : %(toggle-setting-string bnb/hide-mode-line-mode)  
-_u_ debug-on-quit : %(toggle-setting-string debug-on-quit)  _h_ diff-hl-mode   : %(toggle-setting-string diff-hl-mode)
+_c_ column-number : %(toggle-setting-string column-number-mode)  _b_ orgtbl-mode    : %(toggle-setting-string orgtbl-mode)
+_e_ debug-on-error: %(toggle-setting-string debug-on-error)  _s_ orgstruct-mode : %(toggle-setting-string orgstruct-mode)  _m_   hide mode-line : %(toggle-setting-string bnb/hide-mode-line-mode)
+_u_ debug-on-quit : %(toggle-setting-string debug-on-quit)  _d_ diff-hl-mode   : %(toggle-setting-string diff-hl-mode)
 _f_ auto-fill     : %(toggle-setting-string auto-fill-function)  _B_ battery-mode   : %(toggle-setting-string display-battery-mode)
 _t_ truncate-lines(long line wrap): %(toggle-setting-string truncate-lines)  _l_ highlight-line : %(toggle-setting-string hl-line-mode)
 _r_ read-only     : %(toggle-setting-string buffer-read-only)  _n_ line-numbers   : %(toggle-setting-string linum-mode)
 _w_ whitespace    : %(toggle-setting-string whitespace-mode)  _N_ relative lines : %(if (eq linum-format 'linum-relative) '[x] '[_])
+_j_ next-line      _k_ previous-line
 "
    ("c" column-number-mode nil)
    ("e" toggle-debug-on-error nil)
@@ -340,15 +338,17 @@ _w_ whitespace    : %(toggle-setting-string whitespace-mode)  _N_ relative lines
    ("x" bnb/transparency-next nil)
    ("B" display-battery-mode nil)
    ("X" bnb/transparency-previous nil)
-   ("h" diff-hl-mode nil)
+   ("d" diff-hl-mode nil)
+   ("j" next-line nil)
+   ("k" previous-line nil)
    ("l" hl-line-mode nil)
    ("n" linum-mode nil)
    ("N" linum-relative-toggle nil)
    ("m" bnb/hide-mode-line-mode nil)
    ("q" nil)))
 
-        
-   
+
+
    (defhydra sk/hydra-expand (:pre (er/mark-word)
                            :color red
                            :hint nil)
@@ -358,7 +358,7 @@ _w_ whitespace    : %(toggle-setting-string whitespace-mode)  _N_ relative lines
   ("a" er/expand-region :color blue)
   ("r" er/contract-region :color blue)
   ("q" nil :color blue))
-  
+
   (defhydra hydra-org (:color blue :hint nil)
   ;; Navigation^
   ;; ---------------------------------------------------------
@@ -374,7 +374,7 @@ _w_ whitespace    : %(toggle-setting-string whitespace-mode)  _N_ relative lines
     ("l" org-backward-heading-same-level)
     ("u" outline-up-heading)
     ("g" org-goto :exit t))
-  
+
   (defhydra hydra-global-org (:color blue
                             :hint nil)
   "
@@ -398,7 +398,7 @@ _r_eset        _j_ clock goto
 
 
 (with-eval-after-load 'org
-    
+
   ; (define-key org-mode-map (kbd "?") 'hydra-org/body)
   	(evil-define-key 'normal org-mode-map  (kbd "?")'hydra-org/body)
 
@@ -432,7 +432,7 @@ _r_eset        _j_ clock goto
   ("p" describe-package "package")
   ("d" helm-dash "dash")
   ("." helm-dash-at-point "dash at point"))
-  
+
   ; mix with quickrun
   (defhydra hydra-eval (:color blue :columns 8)
   "Eval"
@@ -441,8 +441,8 @@ _r_eset        _j_ clock goto
   ("b" eval-buffer "buffer")
   ("l" eval-last-sexp "last sexp")
   ("1" async-shell-command "shell-command"))
-  
-  
+
+
 (defhydra hydra-magit (:color blue :columns 8)
   "Magit"
   ("c" magit-status "status")
@@ -451,8 +451,8 @@ _r_eset        _j_ clock goto
   ("m" magit-merge "merge")
   ("l" magit-log "log")
   ("!" magit-git-command "command")
-  ("$" magit-process "process"))	 
-	 
+  ("$" magit-process "process"))
+
 (use-package avy
   :config
   (use-package link-hint)
@@ -627,6 +627,50 @@ _r_eset        _j_ clock goto
   ("p" skewer-run-phantomjs :color blue)
   ("P" skewer-phantomjs-kill)
   ("q" nil :color blue))
+
+(defun flush-blank-lines (start end) (interactive "r") (flush-lines "^\\s-*$" start end nil))
+
+;;; https://www.masteringemacs.org/article/removing-blank-lines-buffer
+(defun collapse-blank-lines (start end) (interactive "r") (replace-regexp "^\n\\{2,\\}" "\n" nil start end))
+(defun my-delete-leading-whitespace (start end)
+          "Delete whitespace at the beginning of each line in region."
+          (interactive "*r")
+          (save-excursion
+            (if (not (bolp)) (forward-line 1))
+            (delete-whitespace-rectangle (point) end nil)))
+(defhydra cibin/hydra-for-format (:color red
+                               :hint nil)
+
+
+  "
+ ;; ^Beautify^
+;; ^^^^^^^^^^--------------------------------------
+ _r_: collapse-blank-lines                   _a_: select All                         _w_: toggle whitespace
+ _f_: flush-blank-lines                      _d_: delete-duplicate-lines(incl blank)
+ _b_: delete-blank-lines                     _h_: hlt-highlight-line-dups-region   
+ _t_: delete-trailing-whitespace
+ _l_: my-delete-leading-whitespace
+ _q_: quit
+"
+  ;; remove blanks
+  ;; remove dupes
+  ;; remove trailings
+
+  ("r" collapse-blank-lines)
+  ("c" nil)
+  ("h" hlt-highlight-line-dups-region)
+  ("j" nil)
+  ("b" delete-blank-lines)
+  ("a" mark-whole-buffer)
+  ("d" delete-duplicate-lines)
+  ("f" flush-blank-lines)
+  ("t" delete-trailing-whitespace)
+  ("l" my-delete-leading-whitespace)
+  ("w" whitespace-mode)
+  ("q" nil :color blue))
+(bind-keys*
+  ("C-x f" . cibin/hydra-for-format/body))
+
 (defhydra sk/hydra-for-format (:color red
                                :hint nil)
   "

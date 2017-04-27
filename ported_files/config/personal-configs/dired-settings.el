@@ -528,7 +528,16 @@ Parameters:
 (define-key evil-normal-state-map (kbd "og") 'bjm/ivy-dired-recent-dirs)
 ;; (global-set-key (kbd "on") 'buffer/switch-in-directory)
 (define-key evil-normal-state-map  "on" 'find-next-file-in-current-directory)	
+(define-key evil-normal-state-map  "ob" 'buffer/switch-in-directory)
+(define-key evil-normal-state-map  "od" 'bjm/ivy-dired-recent-dirs)
+(define-key evil-normal-state-map  "oj" 'dired-jump)
+(define-key evil-normal-state-map  "oF" 'File-cache-ido-find-file)
+(define-key evil-normal-state-map  "op" 'cibin-find-related-files)
 (define-key evil-normal-state-map (kbd "om") 'buffer/switch-in-directory)	
+(define-key evil-normal-state-map  "oo" 'cibin/xah-open-file-at-cursor)
+(define-key evil-normal-state-map  "of" 'ffap)
+(define-key evil-normal-state-map  "osh" 'open-similar-files-in-folder)
+(define-key evil-normal-state-map  "osr" 'open-similar-files-in-folder-recursively)
   
 
 ; One problem with this config is that while l will use dired-find-alternate-file, h will keep the old Dired buffers around. To fix this, we need to write a function that will jump up one directory, and close the old Dired buffer.
