@@ -86,3 +86,7 @@ fa vtv exe$
 fa vv exe$
 cd.
 exit
+exit
+advgrep rhere ahk include
+ash
+exit

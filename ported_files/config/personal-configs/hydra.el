@@ -197,7 +197,7 @@
   ("v" visit-tags-table "visit-tags")
   ("b" bongo "bongo")
   ("t" find-temp-file "temp"))
-;(global-set-key (kbd "C-c x") 'hydra-cleanups/body)
+(global-set-key (kbd "C-x c") 'hydra-cleanups/body)
 
 
 
@@ -642,24 +642,21 @@ _r_eset        _j_ clock goto
                                :hint nil)
 
 
-  "
  ;; ^Beautify^
-;; ^^^^^^^^^^--------------------------------------
- _r_: collapse-blank-lines                   _a_: select All                         _w_: toggle whitespace
- _f_: flush-blank-lines                      _d_: delete-duplicate-lines(incl blank)
- _b_: delete-blank-lines                     _h_: hlt-highlight-line-dups-region   
- _t_: delete-trailing-whitespace
- _l_: my-delete-leading-whitespace
- _q_: quit
+  "
+ ^^^-blanks ---------------  ------whitespace----------------- ------dupes----------------------------   ---actions
+ _r_: collapse-blank-lines   _t_: delete-trailing-whitespace    _d_: delete-duplicate-lines(incl blank   _a_: select All 
+ _f_: flush-blank-lines      _l_: my-delete-leading-whitespace  _h_: hlt-highlight-line-dups-region      _w_: toggle whitespace indicators
+ _b_: delete-blank-lines     _k_: keep-lines     _k_: leading, blanks,                                   _t_: truncate toggle
+                             _x_: flush-lines                                                            _t_: stats                 _q_: quit
 "
-  ;; remove blanks
-  ;; remove dupes
-  ;; remove trailings
 
   ("r" collapse-blank-lines)
   ("c" nil)
+  ("x" flush-lines)
   ("h" hlt-highlight-line-dups-region)
   ("j" nil)
+  ("k" keep-lines)
   ("b" delete-blank-lines)
   ("a" mark-whole-buffer)
   ("d" delete-duplicate-lines)
@@ -671,6 +668,7 @@ _r_eset        _j_ clock goto
 (bind-keys*
   ("C-x f" . cibin/hydra-for-format/body))
 
+;;REMOVE after cibin/hydra.... is ready
 (defhydra sk/hydra-for-format (:color red
                                :hint nil)
   "

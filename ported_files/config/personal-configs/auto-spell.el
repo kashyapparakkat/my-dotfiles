@@ -1,6 +1,5 @@
 ;; https://www.emacswiki.org/emacs/FlySpell
 
-
 ;; TODO hk:: autocorrect previous word(if flyspell mode is not on, turn it on)
 
 (add-hook 'text-mode-hook 'flyspell-mode)

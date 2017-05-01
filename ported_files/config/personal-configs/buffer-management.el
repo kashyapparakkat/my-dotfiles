@@ -176,8 +176,7 @@
 ;; (define-key evil-normal-state-map (kbd "b") 'helm-buffers-list)
 (global-set-key (kbd "C-x b") 'helm-mini)
 (define-key evil-normal-state-map (kbd "b") 'helm-mini)
- 
-
+(evil-define-key 'normal dired-mode-map (kbd "b") 'helm-mini)
 
  
 

@@ -10,10 +10,11 @@
 (setq-default
  mode-line-format
  '( 
-"l:"
- (:eval
- (propertize      (format "%s" last-command ) 'face 'mode-line-stats-face)
-)
+;; "l:"
+ ;; (:eval
+ ;; (propertize      (format "%s" (car command-history)) 'face 'mode-line-stats-face)
+ ;; (propertize      (format "%s" last-command ) 'face 'mode-line-stats-face)
+;; )
 "%e" mode-line-front-space
         (:eval
 			  (propertize "%n "  'face 'mode-line-selection-face) ; narrow
@@ -31,19 +32,18 @@
      ;; 'face 'mode-line-modified-face))
 
 
-                  (:eval
+                  ;; (:eval
     ;; (cond (buffer-read-only
            ;; (propertize      (format "%s" major-mode ) 'face 'mode-line-read-only-face))
-          (if (buffer-modified-p)
-           (propertize      (format "%s*" major-mode ) 'face 'mode-line-modified-face)
-           (propertize      (format "%s " major-mode ) 'face 'mode-line-stats-face)
-          ))
+           ;; (if (buffer-modified-p)
+           ;; (propertize      (format "%s*" major-mode ) 'face 'mode-line-modified-face)
+           ;; (propertize      (format "%s " major-mode ) 'face 'mode-line-stats-face)
+          ;; ))
    
  (:eval
-    (cond (buffer-read-only
-           (propertize " RO " 'face 'mode-line-modified-face))
+    (cond (buffer-read-only (propertize " RO " 'face 'mode-line-modified-face))
 nil
-          (t "       ")))
+          (t "  ")))
 		mode-line-remote
     " | "
 	; show percentage
@@ -101,12 +101,9 @@ nil
    ; emacsclient [default -- keep?]
    mode-line-client
    "  "
-  
-	; (:eval
-		; (progn (setq count-buffer_c (count-buffers))
-			; (propertize (format " %s files  " count-buffer_c) 'face 'mode-line-selection-face)
-		; )
-	; )
+  	                                        ; )
+
+
 	(:eval
 	; TODO check if it is causing performance lag, (update only when a new file is opened/closed)
 		(progn (setq count-buffer_c (count-buffers))
@@ -119,9 +116,8 @@ nil
    ; (:propertize (:eval (shorten-directory default-directory 60))
                 ; face mode-line-folder-face)
 ; filename
-   (:propertize "%b"
-                face mode-line-filename-face)
-			  " %s " ; subprocess status
+   ;; (:propertize "%b"                face mode-line-filename-face)
+ ;; " %s " ; subprocess status
  
    ; mode indicators: vc, recursive edit, major mode, minor modes, process, global
    (vc-mode vc-mode)

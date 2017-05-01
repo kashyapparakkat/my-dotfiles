@@ -87,3 +87,7 @@ end up leaving point on a space or newline character."
 ;; sort-lines
 ;; sort-regex-fields
 
+
+
+(setq exec-path (append exec-path '("c:/cygwin64/bin")))
+(setq find-program "C:\\cygwin64\\bin\\find.exe")

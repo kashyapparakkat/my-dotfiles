@@ -652,13 +652,32 @@ xahk-mode
 
 ; to have the name of the file as the name of the window:
 (setq frame-title-format '(buffer-file-name "Emacs: (%f)" "Emacs: %b"))
+(setq frame-title-format `(,(user-login-name) "@" ,(system-name) "     " global-mode-string "     %f" ))
+  (setq frame-title-format
+    '((:eval (if (buffer-file-name)
+                  (abbreviate-file-name (buffer-file-name))
+                    "%b"))
+      (:eval (if (buffer-modified-p) 
+                 " •"))
+      " - Emacs                             ["
+      (:eval (format "%s" major-mode ))
+      "/ %m ]                 "
 
-; Don't move back the cursor one position when exiting insert mode
+      (:eval
+  ;; (format "%s        |   %s " (car command-history) last-command)
+ (global-mode-string ("--" global-mode-string))
+ ;; (format "%s" last-command ) 
+ )
+"                           | %s"
+      )
+ )
+;(setq frame-title-format mode-line-format)
+;( set-frame-parameter        nil 'title (format-mode-line mode-line-format))
+                                        ; Don't move back the cursor one position when exiting insert mode
 (setq evil-move-cursor-back nil)
 
+
 (cd (format "C:/Users/%s/Downloads" user-login-name)) 
-
-
 
 
 

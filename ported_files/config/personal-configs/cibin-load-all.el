@@ -1,5 +1,4 @@
-
-(defun cibin-load-custom-bindings ()
+(defun cibin-load-all-custom-bindings ()
 (interactive)
   (message "loading all")
 (load-file "~/.emacs.d/my-files/config/personal-configs/functions.el")
@@ -27,11 +26,18 @@
 (load-file "~/.emacs.d/my-files/config/personal-configs/added-april.el")
 ; (load-file "~/.emacs.d/my-files/config/personal-configs/cbn-xah-fly-keys.el")
 (load-file "~/.emacs.d/my-files/config/personal-configs/hydra.el")
-(load-file "~/.emacs.d/my-files/config/personal-configs/buffer-management.el")
-(load-file "~/.emacs.d/my-files/config/personal-configs/starter-kit-bindings.el")
+(cibin-load-essential-custom-bindings)
 (message "loaded all")
   )
   
+ (defun cibin-load-essential-custom-bindings ()
+(interactive)
+  (message "loading all")
+(load-file "~/.emacs.d/my-files/config/personal-configs/buffer-management.el")
+(load-file "~/.emacs.d/my-files/config/personal-configs/starter-kit-bindings.el")
+  
+ )
 
-(cibin-load-custom-bindings)
-(global-set-key (kbd "M-5" ) 'cibin-load-custom-bindings)
+(cibin-load-all-custom-bindings)
+(global-set-key (kbd "M-5" ) 'cibin-load-all-custom-bindings)
+(global-set-key (kbd "M-6" ) 'cibin-load-essential-custom-bindings)

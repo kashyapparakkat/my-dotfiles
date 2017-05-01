@@ -522,7 +522,18 @@ Parameters:
   ; Rebinding h to our new function makes buffer navigation behave much closer to other Vim-like file browsers.
 
 (evil-define-key 'normal dired-mode-map "h" 'my-dired-up-directory)
+(evil-define-key 'normal dired-mode-map "J" 'cibin/next-sibling-directory)
+(evil-define-key 'normal dired-mode-map "K" 'cibin/prev-sibling-directory)
+(evil-define-key 'normal dired-mode-map "l" 'diredp-find-file-reuse-dir-buffer)
+
+; (evil-define-key 'normal dired-mode-map "L" 'view only)
+
+
+(evil-define-key 'normal dired-mode-map "r" 'bjm/ivy-dired-recent-dirs)
+(evil-define-key 'normal dired-mode-map "o" nil)
 (define-key dired-mode-map (kbd "r") 'bjm/ivy-dired-recent-dirs)
+(define-key dired-mode-map (kbd "J") 'cibin/next-sibling-directory)
+(define-key dired-mode-map (kbd "K") 'cibin/prev-sibling-directory)
 
 (define-key evil-normal-state-map (kbd "o") nil)
 (define-key evil-normal-state-map (kbd "og") 'bjm/ivy-dired-recent-dirs)

@@ -305,7 +305,7 @@ done
 				"ahk"			) declare -a files=("/cygdrive/c/cbn_gits/AHK/*");;
 				"h"|"here"		) files=("$(pwd)");;
 				"hhere" 	) files=("$(dirname "$(pwd)")"/*);;
-				"rhere" 	) files=("$(dirname "$(pwd)")"/*);;
+				"rhere" 	) files=("$(pwd)"/*);;
 			esac
 			echo "searching in file $files"
 			
@@ -335,7 +335,7 @@ done
 		search_term=$(make_lookaround_search_term $search_term)
 		echo "searching: $search_term"
 		echo "$1"
-		if [ "$1" = "here" ]; then
+		if [ "$1" = "rhere" ]; then
 			echo "using here handler"
 					grep -PrnIi $search_term --color=auto *.$2 /dev/null
 					# grep -rPIi "$search_term" --color=auto "$files" |  remove_cygdrive;;

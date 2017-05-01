@@ -145,6 +145,7 @@
 ;; TODO ;; (global-set-key (kbd "M-s r") ') ; recurse
 (global-set-key (kbd "M-s h") 'cibin-search-in-files-advgrep-here)
 (global-set-key (kbd "M-s c") 'cibin-search-in-common-files-bash)
+(global-set-key (kbd "M-s p") 'ag-project-at-point)
 (global-set-key (kbd "M-s o") 'occur)
 ; linked
 (global-set-key (kbd "M-s l") 'cibin-search-in-text-files-related-bash)
