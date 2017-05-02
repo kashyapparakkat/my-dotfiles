@@ -102,3 +102,15 @@ Otherwise, display it in another buffer."
             (message "sdfasd")
             )
           )
+; quick-preview
+
+; Not dired-specific per-se, but quick-preview is great for files that Emacs might not be able to open, but your regular X11 (or OSX's quick preview) can show well, like moves are things. Works great when you're in a dired buffer to preview a file.
+
+; I like to bind it globally to C-c q and in dired to Q
+
+(use-package quick-preview
+  :ensure t
+  :init
+  (global-set-key (kbd "C-c q") 'quick-preview-at-point)
+  ;; TODO remove Q
+  (define-key dired-mode-map (kbd "Q") 'quick-preview-at-point))

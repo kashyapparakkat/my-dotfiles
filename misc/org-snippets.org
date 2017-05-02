@@ -1,32 +1,75 @@
-* restclient 
-#+BEGIN_SRC restclient
-  GET http://httpbin.org/ip
+* simple
+#+BEGIN_SRC http :pretty
+GET https://api.github.com/repos/zweifisch/ob-http/languages
+Accept: application/vnd.github.moondragon+json
 #+END_SRC
 
-#+RESULTS:
-#+BEGIN_SRC js
+* first
+#+BEGIN_SRC http :pretty
+GET http://httpbin.org/user-agent
+User-Agent: ob-http
+#+END_SRC
+
+* json
+
+#+BEGIN_SRC http :pretty
+POST http://httpbin.org/post
+Content-Type: application/json
+
 {
-  "origin": "106.51.129.186"
+  "key": "value"
 }
-// GET http://httpbin.org/ip
-// HTTP/1.1 200 OK
-// Connection: keep-alive
-// Server: gunicorn/19.7.1
-// Date: Tue, 18 Apr 2017 18:35:44 GMT
-// Content-Type: application/json
-// Access-Control-Allow-Origin: *
-// Access-Control-Allow-Credentials: true
-// Content-Length: 33
-// Via: 1.1 vegur
-// Request duration: 1.197710s
+#+END_SRC
+* form submit
+
+#+BEGIN_SRC http :pretty
+PATCH http://httpbin.org/patch
+
+key=value&foo=value
 #+END_SRC
 
-** 
-#+BEGIN_SRC python
-print('ad')
+
+* variable
+
+#+HEADER: :var name="ob-http"
+#+HEADER: :var password="secret"
+#+BEGIN_SRC http :select .json
+POST http://httpbin.org/post
+Content-Type: application/json
+
+{
+    "auth": {
+        "name": "${name}",
+        "password": "${password}"
+    }
+}
+#+END_SRC
+use properties
+
+supported headers:
+
+pretty
+proxy
+noproxy
+cookie
+schema
+host
+port
+user
+max-time
+* api test
+:PROPERTIES:
+:header-args: :var token="secret" :host httpbin.org :pretty
+:END:
+
+#+BEGIN_SRC http
+POST /post
+Content-Type: application/json
+X-Auth-Token: ${token}
 #+END_SRC
 
-#+RESULTS:
-: None
+* files
 
-** 
+#+BEGIN_SRC http :file zweifisch.jpeg
+GET https://avatars.githubusercontent.com/u/447862?v=3
+#+END_SRC

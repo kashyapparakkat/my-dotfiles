@@ -58,7 +58,7 @@
   ; "K" 'org-shiftup
   "K" 'outline-previous-visible-heading
   "L" 'org-shiftright
-  "o" '(lambda () (interactive) (evil-org-eol-call 'clever-insert-item))
+  ;; "o" '(lambda () (interactive) (evil-org-eol-call 'clever-insert-item))
   "O" '(lambda () (interactive) (evil-org-eol-call 'org-insert-heading))
   "$" 'org-end-of-line
   "^" 'org-beginning-of-line
@@ -110,6 +110,13 @@
  'org-babel-load-languages
  '((emacs-lisp . t)
    (clojure . t)
+ (C . t)
+ (css . t)
+ (sh . t)
+ (awk . t)
+ (R . t)
+ (shell . t)
+ (http . t)
    (python . t)
  (restclient . t)
    (ruby . t)))
@@ -117,3 +124,21 @@
 ;; stop emacs asking for confirmation
 (setq org-confirm-babel-evaluate nil)
 (setq org-src-fontify-natively t)
+
+
+;; org-babel result to a separate buffer
+;; There is a way to open org-babel outpupt in a separate buffer with C-o - org-open-at-point is fancy like that. The problem is, the result block is created. But there is also a command org-babel-remove-result. Combining the two, I made a little dirty hack
+;; https://emacs.stackexchange.com/questions/23870/org-babel-result-to-a-separate-buffer
+(defun my-babel-to-buffer ()
+  "A function to efficiently feed babel code block result to a separate buffer"
+  (interactive)
+  (org-open-at-point)
+  (org-babel-remove-result)
+)
+
+(defun my-org-mode-config ()
+  "To use with `org-mode-hook'"
+  (local-set-key (kbd "C-`") 'my-babel-to-buffer)
+)
+
+(add-hook 'org-mode-hook 'my-org-mode-config)

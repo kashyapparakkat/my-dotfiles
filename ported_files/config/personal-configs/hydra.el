@@ -204,8 +204,8 @@
 (defhydra hydra-marked-items (dired-mode-map "")
   "
 marked items: %(length (dired-get-marked-files)) Size: %(cdrw-get-size))
-Directory size: %s(shell-command-to-string \"du -hs\")
 "
+;; TODO add this to above %(async-shell-command-to-string \"du -hs\" (lambda (s) (message \"Directory size: %s\" s)))
   ("j" dired-next-line "down")
   ("m" dired-mark "mark")
 	("k" dired-previous-line "up" )
@@ -225,17 +225,6 @@ Directory size: %s(shell-command-to-string \"du -hs\")
 
   )
 
-
-(defun dired-get-size ()
-  (interactive)
-  (let ((files (dired-get-marked-files)))
-    (with-temp-buffer
-      (apply 'call-process "/usr/bin/du" nil t nil "-sch" files)
-      (message
-       "Size of all marked files: %s"
-       (progn
-         (re-search-backward "\\(^[ 0-9.,]+[A-Za-z]+\\).*total$")
-         (match-string 1))))))
 
  (defun cdrw-get-size ()
   (interactive)
@@ -702,3 +691,18 @@ _r_eset        _j_ clock goto
   "s j" "javscript code"
   "s w" "web code"
   "s f" "format code")
+
+
+(defhydra cibin/hydra-zoom ()
+  ;; (:color red 
+                               ;; :hint nil)
+  "zoom"
+  ("g" cibin/text-scale-increase "in")
+  ("=" cibin/text-scale-increase "in")
+  ("h" cibin/text-scale-increase "global in")
+  ("l" cibin/text-scale-decrease "out")
+  ("g" cibin/text-scale-decrease "global out")
+  ("-" cibin/text-scale-decrease "out"))
+;; TODO https://www.emacswiki.org/emacs/GlobalTextScaleMode
+  (global-set-key (kbd "C-x -") 'cibin/hydra-zoom/body)
+  (global-set-key (kbd "C-x =") 'cibin/hydra-zoom/body)

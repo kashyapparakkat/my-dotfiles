@@ -317,7 +317,7 @@
 
 (global-set-key (kbd "M-Q") (lambda () (interactive) (spacemacs/toggle-maximize-buffer)))
 
-(define-key evil-normal-state-map "Q" (lambda () (interactive) (spacemacs/toggle-maximize-buffer)(message "spacemacs/toggle-maximize-buffer")))
+(define-key evil-normal-state-map "Q" 'cibin/toggle-maximize-buffer)
 
 ; is this needed?
 (global-set-key (kbd "C-q") 'xah-close-current-buffer)
@@ -635,3 +635,37 @@ buffer preview will still display."
 
 (define-key evil-normal-state-map  (kbd "C-S-y") 'evil-unimpaired/paste-below)
 (define-key evil-normal-state-map  (kbd "C-M-y") 'evil-unimpaired/paste-above)
+
+
+(evil-define-key 'normal dired-mode-map "o" nil)
+(evil-define-key 'normal org-mode-map "o" nil)
+(define-key dired-mode-map  "o" nil)
+(define-key evil-normal-state-map  "o" nil)
+
+(define-key org-mode-map  "o" nil)
+
+
+(dolist (binding
+         `(
+           ;; ( "on" . buffer/switch-in-directory)
+           ( "on"  . find-next-file-in-current-directory)	
+           ( "ob"  . buffer/switch-in-directory)
+           ( "od"  . bjm/ivy-dired-recent-dirs)
+           ( "og"  . bjm/ivy-dired-recent-dirs)
+           ( "oj"  . dired-jump)
+           ( "oF"  . File-cache-ido-find-file)
+           ( "op"  . cibin-find-related-files)
+           ( "om"  . buffer/switch-in-directory)	
+           ( "oo"  . cibin/xah-open-file-at-cursor)
+           ( "of"  . ffap)
+           ( "osh" . open-similar-files-in-folder)
+           ( "osr" . open-similar-files-in-folder-recursively)
+
+           ("Q" . cibin/toggle-maximize-buffer)
+           ))
+  (define-key dired-mode-map (car binding) (cdr binding))
+  (define-key evil-normal-state-map (car binding) (cdr binding))
+  ;; (define-key org-mode-map (car binding) (cdr binding)
+  	(evil-define-key 'normal org-mode-map  (car binding) (cdr binding))
+;(add-hook 'org-mode-hook (lambda ()(define-key org-mode-map (car binding) (cdr binding))))  )
+)

@@ -175,8 +175,6 @@
 
 (define-key dired-mode-map (kbd "f") 'dired-sort-toggle)
 
-(define-key dired-mode-map (kbd "z") 'dired-get-size)
-
 
 (define-key dired-mode-map (kbd "l") 'diredp-find-file-reuse-dir-buffer)
 (define-key dired-mode-map (kbd "I")'ao/dired-omit-switch)
@@ -456,18 +454,6 @@ search modes defined in the new `dired-sort-toggle'.
    (dired-do-kill-lines)
 )
 
-
-(defun dired-get-size ()
-  (interactive)
-  (let ((files (dired-get-marked-files)))
-    (with-temp-buffer
-      (apply 'call-process "/usr/bin/du" nil t nil "-sch" files)
-      (message
-       "Size of all marked files: %s"
-       (progn
-         (re-search-backward "\\(^[ 0-9.,]+[A-Za-z]+\\).*total$")
-         (match-string 1))))))
-		 
 ;;; sort by different criterias
 
 
@@ -505,17 +491,6 @@ Parameters:
 (require 'dired-async)
 ; And the commands will automatically by asynchronous
 
-; quick-preview
-
-; Not dired-specific per-se, but quick-preview is great for files that Emacs might not be able to open, but your regular X11 (or OSX's quick preview) can show well, like moves are things. Works great when you're in a dired buffer to preview a file.
-
-; I like to bind it globally to C-c q and in dired to Q
-
-(use-package quick-preview
-  :ensure t
-  :init
-  (global-set-key (kbd "C-c q") 'quick-preview-at-point)
-  (define-key dired-mode-map (kbd "Q") 'quick-preview-at-point))
   
   
   (define-key dired-mode-map (kbd "u") 'my-dired-up-directory)
@@ -531,31 +506,6 @@ Parameters:
 
 (evil-define-key 'normal dired-mode-map "r" 'bjm/ivy-dired-recent-dirs)
 
-(evil-define-key 'normal dired-mode-map "o" nil)
-(define-key dired-mode-map  "o" nil)
-(define-key evil-normal-state-map  "o" nil)
-
-
-(dolist (binding
-         `(
-;; ( "on" . buffer/switch-in-directory)
-( "on"  . find-next-file-in-current-directory)	
-( "ob"  . buffer/switch-in-directory)
-( "od"  . bjm/ivy-dired-recent-dirs)
-( "og"  . bjm/ivy-dired-recent-dirs)
-( "oj"  . dired-jump)
-( "oF"  . File-cache-ido-find-file)
-( "op"  . cibin-find-related-files)
-( "om"  . buffer/switch-in-directory)	
-( "oo"  . cibin/xah-open-file-at-cursor)
-( "of"  . ffap)
-( "osh" . open-similar-files-in-folder)
-( "osr" . open-similar-files-in-folder-recursively)
-))
-
-(define-key dired-mode-map (car binding) (cdr binding))
-(define-key evil-normal-state-map (car binding) (cdr binding))
-)
 
 (define-key dired-mode-map (kbd "r") 'bjm/ivy-dired-recent-dirs)
 (define-key dired-mode-map (kbd "J") 'cibin/next-sibling-directory)
@@ -582,7 +532,8 @@ Parameters:
   (interactive)
   (let ((files (dired-get-marked-files)))
     (with-temp-buffer
-      (apply 'call-process "/usr/bin/du" nil t nil "-sch" files)
+      (apply 'call-process "du" nil t nil "-sch" files)
+      ;; (apply 'call-process "/usr/bin/du" nil t nil "-sch" files)
       (message
        "Size of all marked files: %s"
        (progn

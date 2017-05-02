@@ -80,7 +80,7 @@ open file1 in emacs,file2,file3
 ,,,
 ,,,
 ,,,
-open_in_emacs,open_in_emacs,open_in_emacs
+open_file1_in_emacs,open_file2_in_emacs,open_file1_in_emacs
 ,,,
 )
 HK_cycle_register("<^+F11","Emacs_Path_HK",3,3000,"LCtrl", "$#q",config)
@@ -613,15 +613,23 @@ open_in_fileManager:
 
 return
 
+open_file1_in_emacs:
+	iniread,emacs_default_startup_file,running_all_settings.ini,paths,emacs_default_startup_file
+	file:=emacs_default_startup_file
+gosub,open_in_emacs
+return
+
+open_file2_in_emacs:
+	iniread,emacs_default_startup_file,running_all_settings.ini,paths,emacs_default_startup_file2
+	file:=emacs_default_startup_file
+gosub,open_in_emacs
+return
 
 open_in_emacs:
-	iniread,emacs_default_startup_file,running_all_settings.ini,paths,emacs_default_startup_file
+	tooltip, "%emacs_f_path%" "%file%" -n -a ""
 
-	tooltip, "%emacs_f_path%" "%emacs_default_startup_file%" -n -a ""
-
-  file:=emacs_default_startup_file
 	settimer,removetooltip,800
-  gosub,open_with_emacs
+	gosub,open_with_emacs
 return
 
 get_and_open_in_npp:

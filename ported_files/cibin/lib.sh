@@ -206,12 +206,15 @@ function remove_cygdrive() {
 
 function cron-jobs-cibin() {
 
-    # TODO: separate the jobs or add interval info to it
-	
-    # locatedb update
+	echo "other_indexes"
+	echo "myindexemacs"    
+	echo "myindex"
+	# TODO: separate the jobs or add interval info to it
+
+	# locatedb update
 	# updatedb
 	
-0	# Change mlocate Database Location
+	# Change mlocate Database Location
 # The default database that locate utility reads is /var/lib/mlocate/mlocate.db, but if you wish to link the locate command with some other database kept at some other location, use the -d option.
 # For example :
 # $ locate -d <new db path> <filename>

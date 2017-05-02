@@ -1040,6 +1040,7 @@ clean_filepath_string(fullfilepath)
 {
 	reg=im)(*ANYCRLF)^[\s\{\("'=;:\}\)`%]*$
 	fullfilepath:=regexreplace(fullfilepath,reg)
+	
 	reg=((^[\s\{\("'=;:`%]*)|([\s\}\)'"=;`%]*$))
 	stringreplace,fullfilepath,fullfilepath,\\,\,all
 	fullfilepath:=regexreplace(fullfilepath,reg)
