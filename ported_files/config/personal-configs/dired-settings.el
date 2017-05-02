@@ -530,25 +530,37 @@ Parameters:
 
 
 (evil-define-key 'normal dired-mode-map "r" 'bjm/ivy-dired-recent-dirs)
+
 (evil-define-key 'normal dired-mode-map "o" nil)
+(define-key dired-mode-map  "o" nil)
+(define-key evil-normal-state-map  "o" nil)
+
+
+(dolist (binding
+         `(
+;; ( "on" . buffer/switch-in-directory)
+( "on"  . find-next-file-in-current-directory)	
+( "ob"  . buffer/switch-in-directory)
+( "od"  . bjm/ivy-dired-recent-dirs)
+( "og"  . bjm/ivy-dired-recent-dirs)
+( "oj"  . dired-jump)
+( "oF"  . File-cache-ido-find-file)
+( "op"  . cibin-find-related-files)
+( "om"  . buffer/switch-in-directory)	
+( "oo"  . cibin/xah-open-file-at-cursor)
+( "of"  . ffap)
+( "osh" . open-similar-files-in-folder)
+( "osr" . open-similar-files-in-folder-recursively)
+))
+
+(define-key dired-mode-map (car binding) (cdr binding))
+(define-key evil-normal-state-map (car binding) (cdr binding))
+)
+
 (define-key dired-mode-map (kbd "r") 'bjm/ivy-dired-recent-dirs)
 (define-key dired-mode-map (kbd "J") 'cibin/next-sibling-directory)
 (define-key dired-mode-map (kbd "K") 'cibin/prev-sibling-directory)
 
-(define-key evil-normal-state-map (kbd "o") nil)
-(define-key evil-normal-state-map (kbd "og") 'bjm/ivy-dired-recent-dirs)
-;; (global-set-key (kbd "on") 'buffer/switch-in-directory)
-(define-key evil-normal-state-map  "on" 'find-next-file-in-current-directory)	
-(define-key evil-normal-state-map  "ob" 'buffer/switch-in-directory)
-(define-key evil-normal-state-map  "od" 'bjm/ivy-dired-recent-dirs)
-(define-key evil-normal-state-map  "oj" 'dired-jump)
-(define-key evil-normal-state-map  "oF" 'File-cache-ido-find-file)
-(define-key evil-normal-state-map  "op" 'cibin-find-related-files)
-(define-key evil-normal-state-map (kbd "om") 'buffer/switch-in-directory)	
-(define-key evil-normal-state-map  "oo" 'cibin/xah-open-file-at-cursor)
-(define-key evil-normal-state-map  "of" 'ffap)
-(define-key evil-normal-state-map  "osh" 'open-similar-files-in-folder)
-(define-key evil-normal-state-map  "osr" 'open-similar-files-in-folder-recursively)
   
 
 ; One problem with this config is that while l will use dired-find-alternate-file, h will keep the old Dired buffers around. To fix this, we need to write a function that will jump up one directory, and close the old Dired buffer.
@@ -564,3 +576,37 @@ Parameters:
 	
 	
 	
+;; 
+;; This one looks nice, although it only works on systems with /usr/bin/du, which actually comprise 100% of the systems that I use:
+(defun dired-get-size ()
+  (interactive)
+  (let ((files (dired-get-marked-files)))
+    (with-temp-buffer
+      (apply 'call-process "/usr/bin/du" nil t nil "-sch" files)
+      (message
+       "Size of all marked files: %s"
+       (progn
+         (re-search-backward "\\(^[ 0-9.,]+[A-Za-z]+\\).*total$")
+         (match-string 1))))))
+;; On doing a search, turns out that I got this code from the wiki at some point. I can confirm that, unlike some of the other code on the wiki, this one still works as advertised: you can use it on a directory or on a series of marked files and directories.
+
+(define-key dired-mode-map (kbd "z") 'dired-get-size)
+
+(defun cibin/next-sibling-directory()
+(interactive)
+(my-dired-up-directory)
+;; (dired-next-subdir)
+; (dired-find-file)
+(diredp-next-dirline 1)
+(dired-find-alternate-file)
+)
+
+
+(defun cibin/prev-sibling-directory()
+(interactive)
+(my-dired-up-directory)
+;; (dired-next-subdir)
+; (dired-find-file)
+(diredp-prev-dirline 1)
+(dired-find-alternate-file)
+)

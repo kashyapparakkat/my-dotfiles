@@ -35,6 +35,3 @@ lines have identical symbols at identical goal columns as the symbol at point."
 
 
 
-; A complex command is one that uses the minibuffer. That's different from the repeat command that is usually bound to 【Ctrl+x z】
-(global-set-key (kbd "M-H") 'repeat-complex-command)
-(global-set-key (kbd "M-G") 'repeat)

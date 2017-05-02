@@ -220,3 +220,6 @@ i.e. change right window to bottom, or change bottom window to right."
 (define-key evil-visual-state-map   (kbd "J") 'xah-forward-block)
 (define-key evil-normal-state-map   (kbd "K") 'xah-backward-block)
 (define-key evil-visual-state-map   (kbd "K") 'xah-backward-block)
+
+;;Make the cursor stop at the last character of a line instead of the newline character
+(setq evil-move-cursor-back t)

@@ -47,7 +47,7 @@
 ; hide the link count, user, and group columns - default is '(links uid gid)
 (setq ls-lisp-verbosity '(links))
 ; use ISO dates (the first is for recent dates, second for old dates)
-(setq ls-lisp-format-time-list '("%Y-%m-%d %H:%M" "%Y-%m-%d %H:%M"))
+(setq ls-lisp-format-time-list '("%Y-%m-%d %H:%M" "%Y-%m-%d      "))
 (setq ls-lisp-use-localized-time-format t)
 
 ;; Always copy/delete recursively

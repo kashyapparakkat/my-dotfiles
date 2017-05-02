@@ -401,8 +401,8 @@ _r_eset        _j_ clock goto
 
   ; (define-key org-mode-map (kbd "?") 'hydra-org/body)
   	(evil-define-key 'normal org-mode-map  (kbd "?")'hydra-org/body)
-
-(add-hook 'org-mode-hook #'hydra-org/body)
+;; TODO disabling for now
+;; (add-hook 'org-mode-hook #'hydra-org/body)
 )
 
 
@@ -649,13 +649,16 @@ _r_eset        _j_ clock goto
  _f_: flush-blank-lines      _l_: my-delete-leading-whitespace  _h_: hlt-highlight-line-dups-region      _w_: toggle whitespace indicators
  _b_: delete-blank-lines     _k_: keep-lines     _k_: leading, blanks,                                   _t_: truncate toggle
                              _x_: flush-lines                                                            _t_: stats                 _q_: quit
+ _i_: indent                                                                                             _n_: json or quickurun hydra to & back
 "
 
   ("r" collapse-blank-lines)
   ("c" nil)
+  ("i" nil)
   ("x" flush-lines)
   ("h" hlt-highlight-line-dups-region)
   ("j" nil)
+  ("n" nil)
   ("k" keep-lines)
   ("b" delete-blank-lines)
   ("a" mark-whole-buffer)
