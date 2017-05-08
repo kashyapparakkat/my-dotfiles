@@ -1,12 +1,12 @@
 (defun my-move-end-of-line-before-whitespace ()
   "Move to the last non-whitespace character in the current line.
   http://stackoverflow.com/questions/9597391/emacs-move-point-to-last-non-whitespace-character "
-  
+
   (move-end-of-line nil)
   (re-search-backward "^\\|[^[:space:]]")
   (forward-char)
-  )
-  
+)
+
   (defun my-move-end-of-line-before-punctuation ()
  (interactive)
   (move-end-of-line nil)
@@ -18,7 +18,7 @@
   ;; (forward-char)
   )
 ;; (define-key evil-normal-state-map (kbd "C-f") 'my-move-end-of-line-before-comment)
-  
+
   (defun my-move-end-of-line-before-comment()
  (interactive)
   (move-end-of-line nil)
@@ -30,8 +30,8 @@
   ;; (forward-char)
   )
 ;; (define-key evil-normal-state-map (kbd "C-f") 'my-move-end-of-line-before-punctuation )
-  
-  
+
+
 (defun smart-end-of-line ()
   "Move point to first non-whitespace character or beginning-of-line.
 
@@ -65,9 +65,9 @@ If point was already at that position, move point to end of line."
 ; (global-set-key (kbd "C-a") 'smart-line-beginning)
 ; (global-set-key [home] 'smart-line-beginning)
 
-(global-set-key (kbd "C-x 2") 'window-toggle-split-direction)
+(global-set-key (kbd "C-x 2") 'toggle-window-split)
 
-; TODO		 
+; TODO
 ; (global-set-key (kbd "C-<home>") 'x4-smarter-beginning-of-line)
 ; (global-set-key (kbd "S-<home>") 'x4-smarter-beginning-of-line)
 
@@ -121,38 +121,6 @@ https://gist.github.com/X4lldux/5649195
 )
 )
 
-(defun window-toggle-split-direction ()
-  "Switch window split from horizontally to vertically, or vice versa.
-
-i.e. change right window to bottom, or change bottom window to right."
-; https://www.emacswiki.org/emacs/ToggleWindowSplit
-  (interactive)
-  (require 'windmove)
-  (let ((done))
-    (dolist (dirs '((right . down) (down . right)))
-      (unless done
-        (let* ((win (selected-window))
-               (nextdir (car dirs))
-               (neighbour-dir (cdr dirs))
-               (next-win (windmove-find-other-window nextdir win))
-               (neighbour1 (windmove-find-other-window neighbour-dir win))
-               (neighbour2 (if next-win (with-selected-window next-win
-                                          (windmove-find-other-window neighbour-dir next-win)))))
-          ;;(message "win: %s\nnext-win: %s\nneighbour1: %s\nneighbour2:%s" win next-win neighbour1 neighbour2)
-          (setq done (and (eq neighbour1 neighbour2)
-                          (not (eq (minibuffer-window) next-win))))
-          (if done
-              (let* ((other-buf (window-buffer next-win)))
-                (delete-window next-win)
-                (if (eq nextdir 'right)
-                    (split-window-vertically)
-                  (split-window-horizontally))
-                (set-window-buffer (windmove-find-other-window neighbour-dir) other-buf))))))))
-				
-
-
-
-
 (defun cibin/goto-func-definition()
 (interactive)
   (if (equal major-mode 'python-mode)
@@ -161,7 +129,31 @@ i.e. change right window to bottom, or change bottom window to right."
 (dumb-jump-go)
 ))
 
-
+(defun toggle-window-split ()
+; https://emacs.stackexchange.com/questions/318/switch-window-split-orientation-fastest-way
+(interactive)
+  (if (= (count-windows) 2)
+      (let* ((this-win-buffer (window-buffer))
+             (next-win-buffer (window-buffer (next-window)))
+             (this-win-edges (window-edges (selected-window)))
+             (next-win-edges (window-edges (next-window)))
+             (this-win-2nd (not (and (<= (car this-win-edges)
+                                         (car next-win-edges))
+                                     (<= (cadr this-win-edges)
+                                         (cadr next-win-edges)))))
+             (splitter
+              (if (= (car this-win-edges)
+                     (car (window-edges (next-window))))
+                  'split-window-horizontally
+                'split-window-vertically)))
+        (delete-other-windows)
+        (let ((first-win (selected-window)))
+          (funcall splitter)
+          (if this-win-2nd (other-window 1))
+          (set-window-buffer (selected-window) this-win-buffer)
+          (set-window-buffer (next-window) next-win-buffer)
+          (select-window first-win)
+          (if this-win-2nd (other-window 1))))))
 
 ; TODO diff-mode-map debugger-mode-map message-buffer-mode-map fundamental-mode-map 
 
@@ -223,3 +215,65 @@ i.e. change right window to bottom, or change bottom window to right."
 
 ;;Make the cursor stop at the last character of a line instead of the newline character
 (setq evil-move-cursor-back t)
+
+; Beacon is just a tiny utility that indicates the cursor position when the cursor moves suddenly. You can also manually invoke it by calling the function beacon-blink and it is bound by default.
+(use-package beacon
+  :ensure t
+  :demand t
+  :diminish beacon-mode
+  :bind* (("M-m g z" . beacon-blink))
+  :config
+  (beacon-mode 1))
+
+(message "checkpoint 43")
+
+(use-package avy
+  :ensure t
+  :init
+  (setq avy-keys-alist
+        `((avy-goto-char-timer . (?j ?k ?l ?f ?s ?d ?e ?r ?u ?i))
+          (avy-goto-line . (?j ?k ?l ?f ?s ?d ?e ?r ?u ?i))))
+  (setq avy-style 'pre)
+  :bind* (("M-m f" . avy-goto-char-timer)
+          ("M-m F" . avy-goto-line)
+		  ;; ("C-'" . avy-goto-char)
+          ;; ("C-," . avy-goto-char-2)
+          ))
+
+
+; dumb-jump
+; Use it to jump to function definitions. Requires no external depedencies.
+
+(use-package dumb-jump
+  :diminish dumb-jump-mode
+  :bind (
+         ;; TODO
+         ("C-M-G" . dumb-jump-go)
+         ("C-M-p" . dumb-jump-back)
+         ("C-M-q" . dumb-jump-quick-look)
+         ))
+
+(setq dumb-jump-selector 'ivy) ; to use ivy instead of the default popup for multiple options.
+(global-set-key (kbd "C-M-g") 'cibin/goto-func-definition)
+
+; disabling just for now
+;; Fast line numbers
+(use-package nlinum
+  :config
+  ;; Line number gutter in ncurses mode
+  (unless window-system
+    (setq nlinum-format "%d "))
+  ;; :idle
+  (global-nlinum-mode))
+
+
+; go to the last change
+(use-package goto-chg)
+
+(global-set-key [(control .)] 'goto-last-change)
+(global-set-key (kbd "C-.") 'goto-last-change)
+
+(define-key evil-normal-state-map (kbd "C-.") 'goto-last-change)
+(define-key evil-normal-state-map (kbd "C-,") 'goto-last-change-reverse)
+; (global-set-key [(control ,)] 'goto-last-change-reverse)
+(global-set-key (kbd "C-,") 'goto-last-change-reverse)

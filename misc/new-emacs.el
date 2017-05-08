@@ -1,4 +1,6 @@
-
+z = current file size
+Z current dir
+Zm marked directory
 
 
 (advice-add 'helm-ff-filter-candidate-one-by-one

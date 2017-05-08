@@ -304,6 +304,19 @@ if (A_PriorHotKey = "~*Rshift" AND A_TimeSincePriorHotkey < 300)
 		settimer,checkactive,800
 		
 	}
+	else if (state_c =="D" and state_a=="D")
+	{		
+		; WinSet, Region, 0-23 w500 H35 ;H75 
+		SelectedLine=calculator
+		update_combo_box_filter(keywordChoice,keywordChoice_all,SelectedLine)
+		SetTimer,search,-1
+		SetTimer, tIncrementalSearch, 500
+
+		sleep,800	;	launch after N ms
+		
+		; settimer,checkactive,800
+		
+	}
 	else if(state_a=="D")
 	{		
 		; WinSet, Region, 0-23 w500 H35 ;H75 
@@ -596,7 +609,7 @@ search:
 	}
 	else if (keywordchoice="calculator")
 	{
-		; gosub,calculator
+		gosub,calculator
 	}
 	else if (keywordchoice="smart action")
 	{	
@@ -2457,6 +2470,15 @@ cancelHotkeySTEP88:	;	cancel without action
 	Return
 
 calculator:
+
+
+; tooltip,waiting %SchStr%
+; sleep, 1000
+a:=run_python("C:\cbn_gits\AHK\smart_search\python-calc.py","python.exe",SchStr,2000)
+tooltip,%a%
+sleep, 100
+SchStr := a
+guicontrol, 1:,visibleSchStr,%SchStr%
 	calculator_mode:=0
 	; calculator	
 

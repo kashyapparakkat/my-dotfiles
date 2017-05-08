@@ -821,3 +821,41 @@ add_if_not_existing(haystack,needle,delimiter="`n")
 	haystack := remove_duplicates( haystack,delimiter)
 	return haystack
 }
+
+
+run_python(file_to_run,interpreter_location="python.exe",args="",timeout=1000)
+{
+
+; a:=run_python("C:\cbn_gits\AHK\smart_search\delete.py")
+; https://autohotkey.com/boards/viewtopic.php?t=4075
+dhw := A_DetectHiddenWindows
+DetectHiddenWindows On
+Run "%ComSpec%" /k,, Hide, pid
+n:=0
+while !(hConsole := WinExist("ahk_pid" pid))
+{
+	n=n+10
+	tooltip,...;%full_command%
+	Sleep 10
+	if (n>timeout)
+		break
+	}
+DllCall("AttachConsole", "UInt", pid)
+DetectHiddenWindows %dhw%
+
+	
+	
+objShell := ComObjCreate("WScript.Shell")
+full_command :=  ComSpec . " /C " . interpreter_location . " " . file_to_run . " " . args
+objExec := objShell.Exec(full_command)
+; objExec := objShell.Exec("cmd /c ping -n 3 -w 1000 www.google.com")
+; While !objExec.Status
+    ; Sleep 100
+objExec.StdIn.Write(script)
+objExec.StdIn.Close()
+; if Wait
+a:= objExec.StdOut.ReadAll()
+return a
+}
+
+

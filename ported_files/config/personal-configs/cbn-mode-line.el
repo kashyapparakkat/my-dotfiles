@@ -1,6 +1,37 @@
 ; http://amitp.blogspot.in/2011/08/emacs-custom-mode-line.html#more
 
-; todo: length of this line
+
+
+; to have the name of the file as the name of the window:
+;; (setq frame-title-format '(buffer-file-name "Emacs: (%f)" "Emacs: %b"))
+;; (setq frame-title-format `(,(user-login-name) "@" ,(system-name) "     ", (global-mode-string) "     %f" ))
+  (setq frame-title-format
+    '((:eval (if (buffer-file-name)
+                  (abbreviate-file-name (buffer-file-name))
+                    "%b"))
+      (:eval (if (buffer-modified-p) 
+                 " •"))
+      " - Emacs                             ["
+      (:eval (format "%s" major-mode ))
+      "/ %m ]                 "
+      (:eval (if (< 15 (length (format "%s" (car command-history) ))) (subseq (format "%s" (car command-history) ) 1 (- (length (format "%s" (car command-history) )) 15))(format "%s" (car command-history) ) ) )
+
+      (:eval
+   (format "    |   %s "  last-command)
+   ;; (format "%s        |   %s " (car command-history) last-command)
+ (global-mode-string  global-mode-string)
+ ;; (format "%s" last-command ) 
+ )
+"                           | %s"
+      )
+ )
+;(setq frame-title-format mode-line-format)
+;( set-frame-parameter        nil 'title (format-mode-line mode-line-format))
+                                        ; Don't move back the cursor one position when exiting insert mode
+
+
+
+ ; todo: length of this line
 ; enhanced status bar(slower) show count of occurence of present word
 ;; Mode line setup
 
@@ -131,6 +162,7 @@ nil
    (:propertize mode-line-process
                 face mode-line-process-face)
    (global-mode-string global-mode-string)
+
 ;; TODO   (:eval (propertize    (global-mode-string global-mode-string) 'face 'mode-line-minor-mode-face))
 	(multiple-cursors-mode mc/mode-line) ; Number of cursors
    "    "

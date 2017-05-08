@@ -1,38 +1,61 @@
 c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/search-bindings.el
-c:/Users/cibin/Downloads/delete.ahk
-c:/Users/cibin/AppData/Roaming/.emacs.d/.cache/layouts/persp-auto-save
-c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/nppBackup
-c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/dired-settings.elc
-c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/dired-settings.el
-c:/Users/cibin/Downloads/todo.org
+c:/cbn_gits/misc/emacs.el
+c:/Users/cibin/Downloads/new-added.el
 c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/starter-kit-bindings.el
 c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/starter-kit-bindings.elc
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/dired-settings.el
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/dired-settings.elc
+c:/cbn_gits/misc/new-emacs.el
 c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/hydra.el
+c:/Users/cibin/Downloads/helm-do-ag.el
+c:/Users/cibin/Downloads/todo.org
+c:/cbn_gits/misc/org-snippets.org
+c:/Users/cibin/AppData/Roaming/.spacemacs
+c:/cbn_gits/AHK/smart_search/smart_search.ahk
+c:/cbn_gits/AHK/LIB/cbn.ahk
+c:/cbn_gits/AHK/smart_search/delete.py
+c:/cbn_gits/misc/org-babel.org
+c:/cbn_gits/misc/my_python_file.py
+c:/cbn_gits/misc/double-space.py
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/org-settings.el
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/more-custom-functions.el
+c:/Users/cibin/AppData/Roaming/.emacs.d/.cache/layouts/persp-auto-save
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/nppBackup
+c:/cbn_gits/AHK/HK_cycle_hotkeys.ahk
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/navigation.el
+d:/youtube/download_list.txt
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/new-additions-enable-after-debugging.el
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/dired-settings2.elc
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/dired-settings2.el
+c:/cbn_gits/misc/filesystem-to-tree.py
+c:/cbn_gits/misc/python-filesystem-to-json.py
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/auto-spell.el
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/buffer-management.el
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/cbn-mode-line.elc
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/.#dired-settings.elc118122FT
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/dired-settings.elc118122FT
+c:/cbn_gits/AHK/NiftyWindows.ini
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/cibin-load-all.el
+c:/Users/cibin/Downloads/delete.ahk
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/cbn-mode-line.el
+c:/Users/cibin/Downloads/delete.py
+c:/cbn_gits/misc/setup-ag.el
+c:/cbn_gits/misc/kaushal-modi-projectile.el
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/added-april.el
+c:/cbn_gits/AHK/HotKeys.ahk
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/nppBackup/.dir-locals.el
+c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/.hg
+c:/Users/cibin/Downloads/notes.txt
 c:/Users/cibin/Downloads/json-tree.py
 c:/cbn_gits/delete.py
-c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/buffer-management.el
-c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/added-april.el
-c:/Users/cibin/Downloads/emacs.el
-c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/cibin-load-all.el
 c:/cbn_gits/misc/ftp-server-working.py
 c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/cbn-xah-fly-keys.el
 c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/other-settings.el
-c:/Users/cibin/AppData/Roaming/.spacemacs
-c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/navigation.el
-c:/cbn_gits/AHK/NiftyWindows.ini
 c:/Users/cibin/AppData/Roaming/.emacs.d/init.el
 c:/Users/cibin/Downloads/surfingkeys-backup.txt
-d:/youtube/download_list.txt
-c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/org-settings.el
 c:/Users/cibin/Downloads/elasticsearch.rest
-c:/cbn_gits/misc/org-snippets.org
 c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/emacs_extras.txt
-c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/more-custom-functions.el
-c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/new-additions-enable-after-debugging.el
-c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/cbn-mode-line.el
-c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/cbn-mode-line.elc
 c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/appearance.el
-c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/auto-spell.el
 c:/cygwin64/home/cibin/myalias.sh
 c:/cbn_gits/misc/initial-setup-script.txt
 c:/Users/cibin/Downloads/desktop.ini
@@ -40,7 +63,7 @@ c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/cbn-com
 c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/cbn-mode-line2.el
 c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/cbn-mode-line2.elc
 c:/cbn_gits/misc/cygwin_utils.txt
-c:/Users/cibin/Downloads/delete.py
+c:/cbn_gits/misc/new emacs additions.el
 c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/functions.el
 c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/major-mode-settings.el
 c:/Users/cibin/Downloads/delete.c
@@ -48,30 +71,30 @@ c:/Users/cibin/Downloads/todo.odt
 c:/Users/cibin/Downloads/delete.odt
 c:/Users/cibin/Downloads/delete.tex
 c:/Users/cibin/Downloads/todo.tex
+c:/cbn_gits/misc/word-macro.txt
+c:/cbn_gits/misc/From Sachas emacs config.txt
 c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/create-filecache.el
 c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/create-filecache.elc
-c:/cbn_gits/AHK/smart_search/smart_search.ahk
 c:/Users/cibin/AppData/Roaming/delete.txt
 c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/emacs-tmp/.file_cache
 c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/xah-fly-keys.elc
 c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/xah-fly-keys.el
 c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/move-copy.el
 c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/move-copy.elc
-c:/cbn_gits/AHK/HotKeys.ahk
 c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/buttonize-buffer.el
 c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/tabbar-tweaks.el
+c:/cbn_gits/misc/python_requirements.txt
 c:/Users/cibin/Downloads/delete.txt
 c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/more-custom-functions.el~backup 21-Mar-2017 20h 22m 40s~
 c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/more-custom-functions.el~backup 21-Mar-2017 18h 23m 57s~
-c:/Users/cibin/Downloads/isaap.zip
-c:/cbn_gits/AHK/HK_cycle_hotkeys.ahk
+c:/cbn_gits/misc/python-snippets.txt
 c:/cbn_gits/AHK/Plugins/run reload.ahk
-c:/Users/cibin/Downloads/notes.txt
 c:/Users/cibin/Downloads/.#delete.py
 c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/my-python.el
 c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/auto-complete.elc
 c:/cbn_gits/AHK/strip.ahk
 c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/auto-complete.el
+c:/cbn_gits/misc/prelude.txt
 c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/xah-fly-keys-functions.elc
 c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/xah-fly-keys-functions.el
 c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/text_formatting.el
@@ -89,18 +112,21 @@ c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/starter
 c:/Users/cibin/Downloads/create_tree.py
 c:/Users/cibin/Downloads/todo - Copy.txt
 c:/Users/cibin/Downloads/python_vs_java.py
-c:/cbn_gits/AHK/LIB/cbn.ahk
+c:/cbn_gits/AHK/! GOOD SCRIPTS/generate random.ahk
+c:/cbn_gits/misc/ubuntu_auto_install_script.sh
+c:/cbn_gits/misc/rhel-centos-essential-install.sh
+c:/cbn_gits/misc/smallubuntu_auto_install_script.sh
+c:/cbn_gits/misc/simple_flask.py
 c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/.#; TODO check this file https
 c:/cbn_gits/misc/get_IP.py
+c:/cbn_gits/misc/pandas-describe.py
 c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/unused-can-be-deleted.el
 c:/Users/cibin/AppData/Roaming/.emacs.d/doc/FAQ.org
 c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/unused-can-be-deleted.elc
-c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/dired-settings2.elc
 c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/essential-config.elc
 c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/crux.elc
 c:/cbn_gits/misc/ftpserver.py
 c:/cbn_gits/AHK/delete.txt
-c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/dired-settings2.el
 c:/Users/cibin/Downloads/Sync.txt
 c:/Users/cibin/Downloads/work-todo.txt
 c:/Users/cibin/Downloads/clear these doubts.txt
@@ -108,24 +134,31 @@ c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/essenti
 c:/cygwin64/home/cibin/settings.ini
 c:/Users/cibin/Downloads/Clipboard Text.txt
 c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/crux.el
-c:/Users/cibin/random.dat
 c:/Users/cibin/Downloads/duplicate_clicks.ahk
 c:/Users/cibin/Downloads/python_vs_java_adv.py
 c:/Users/cibin/Downloads/todo done items only.txt
+c:/Users/cibin/Downloads/el-qrencode-master/el-qrencode-master/emacs-commands.el
 c:/Users/cibin/Downloads/Clipboard Text (2).txt
 c:/cbn_gits/AHK/txt explorer.ahk
-c:/Users/cibin/Downloads/Talk In Kannada - Alpine Eco.pdf
-c:/Users/cibin/Downloads/The UNIX School_ Join every 2 lines in a file.jpeg
 c:/cbn_gits/delete_diff_file
 c:/Users/cibin/Downloads/Clipboard Text (1).txt
 c:/cbn_gits/emacs/emacs-25.1-i686-w64-mingw32/share/emacs/25.1/lisp/textmodes/flyspell.el
 c:/cbn_gits/emacs/emacs-25.1-i686-w64-mingw32/share/emacs/25.1/lisp/view.el
+c:/cbn_gits/emacs/emacs-25.1-i686-w64-mingw32/share/emacs/25.1/lisp/dired.el
 c:/Users/cibin/Downloads/cbn_all_details.txt
-c:/Users/cibin/Downloads/kasthuri lyrics.png
+c:/cbn_gits/misc/git techniques.txt
 c:/Users/cibin/Downloads/list.txt
 c:/cbn_gits/AHK/Plugins/merge txt files from clip path.ahk
+c:/cbn_gits/AHK/! GOOD SCRIPTS/nppBackup/generate random.ahk.2017-01-04_232810.bak
+c:/Users/cibin/Downloads/el-qrencode-master/el-qrencode-master/COPYING
+c:/Users/cibin/Downloads/apache-maven-3.3.9-bin/apache-maven-3.3.9/bin/mvn
+c:/Users/cibin/Downloads/apache-maven-3.3.9-bin/apache-maven-3.3.9/bin/mvn.cmd
+c:/Users/cibin/Downloads/apache-maven-3.3.9-bin/apache-maven-3.3.9/lib/aether-api.license
+c:/Users/cibin/Downloads/apache-maven-3.3.9-bin/apache-maven-3.3.9/lib/aether-connector-basic.license
+c:/Users/cibin/Downloads/apache-maven-3.3.9-bin/apache-maven-3.3.9/conf/settings.xml
 c:/cbn_gits/AHK/temp.ahk
-c:/cbn_gits/AHK - Copy/quick search/autosuggest/calc.ahk
+c:/cbn_gits/AHK/googler.ahk
 c:/cbn_gits/AHK/! new AltEdge.ahk
-c:/cbn_gits/opus/opus_scripts/copy and recreate files and folders to destination.ahk
+c:/Users/cibin/Downloads/7z1604-extra/history.txt
+c:/cbn_gits/AHK/fav_data/append.txt
 c:/Python27/Lib/pdb.py

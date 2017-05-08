@@ -4,21 +4,8 @@
 (setq org-agenda-files (list (format "C:/Users/%s/Downloads/todo.org" user-login-name)                            
                         (format "C:/Users/%s/Downloads/todo.txt" user-login-name)                           
                              "~/.emacs.d/my-files/org/work.org"))
-							 
-							 ;; set maximum indentation for description lists
+;; set maximum indentation for description lists
 (setq org-list-description-max-indent 5)
-
-
-(with-eval-after-load 'org
-;; prevent demoting heading also shifting text inside sections
-(setq org-adapt-indentation nil)
-(setq org-startup-idented t)
-
-	(define-key org-mode-map (kbd "M-r") 'org-toggle-heading)
-(define-key org-mode-map (kbd "M-e") 'other-window) ;; bring back this key
-	(define-key org-mode-map [C-return] 'cibin/org-insert-heading-respect-content)
-	(evil-define-key 'normal org-mode-map [C-return] 'cibin/org-insert-heading-respect-content)
-) 
 (use-package org-bullets
   :init
   (setq org-bullets-bullet-list '("●" "•" "▪" "►" "♦" "■" "○" ))
@@ -33,15 +20,25 @@
 
 (global-set-key (kbd "C-c o") 
                 (lambda () (interactive) (find-file "~/organizer.org")))
-				
 	   ; The pipe is optional, but if it is present, the task states following it will all be considered by Org to mean “complete
 				(setq org-todo-keywords
       '((sequence "TODO" "INFO" "IN-PROGRESS" "WAITING" "|" "DONE" "LATER")))
-	  
-	  
+
+
 ; TODO evil-org.el
 ;; normal state shortcuts
-(evil-define-key 'normal org-mode-map
+
+(with-eval-after-load 'org
+;; prevent demoting heading also shifting text inside sections
+(setq org-adapt-indentation nil)
+(message "check point 1")
+(setq org-startup-idented t)
+
+	(define-key org-mode-map (kbd "M-r") 'org-toggle-heading)
+  (define-key org-mode-map (kbd "M-e") 'other-window) ;; bring back this key
+	(define-key org-mode-map [C-return] 'cibin/org-insert-heading-respect-content)
+	(evil-define-key 'normal org-mode-map [C-return] 'cibin/org-insert-heading-respect-content)
+  (evil-define-key 'normal org-mode-map
   "gh" 'outline-up-heading
   "gj" (if (fboundp 'org-forward-same-level) ;to be backward compatible with older org version
 	   'org-forward-same-level  'org-forward-heading-same-level)
@@ -65,11 +62,13 @@
   "<" 'org-metaleft
   ">" 'org-metaright
   "-" 'org-cycle-list-bullet
-  (kbd "<tab>") 'org-cycle)
-	  
-(global-set-key (kbd "<f2>") (lambda () (interactive)  (my/org-toggle-heading-and-todo "DONE")))
-(global-set-key (kbd "<S-f2>") (lambda () (interactive)  (my/org-toggle-heading-and-todo "TODO")))
+  (kbd "<tab>") 'org-cycle
+  )
 
+
+(define-key org-mode-map (kbd "<f2>") (lambda () (interactive)  (my/org-toggle-heading-and-todo "DONE")))
+(define-key org-mode-map  (kbd "<S-f2>") (lambda () (interactive)  (my/org-toggle-heading-and-todo "TODO")))
+)
 (defun my/org-toggle-heading-and-todo (arg)
   "Toggles the current line between a non-heading and TODO heading."
   (interactive)

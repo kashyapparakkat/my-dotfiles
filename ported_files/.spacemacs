@@ -102,7 +102,9 @@ html
 				elpy
 xahk-mode
         fuzzy
+		ranger
 		ob-http
+		company-restclient 
 		free-keys
 				magit
 				highlight-thing
@@ -115,7 +117,8 @@ xahk-mode
         helm-flyspell
         isend-mode
         realgud
-		flyspell-popup
+        flyspell-popup
+        keyfreq
 				drag-stuff
 				ob-restclient 
 				quick-preview 
@@ -649,33 +652,6 @@ xahk-mode
 
 (follow-mode t)                       ;; follow-mode allows easier editing of long files
 
-; (global-set-key [f5]          '(lambda () (interactive) (kill-buffer (current-buffer))))
-
-; to have the name of the file as the name of the window:
-(setq frame-title-format '(buffer-file-name "Emacs: (%f)" "Emacs: %b"))
-(setq frame-title-format `(,(user-login-name) "@" ,(system-name) "     " global-mode-string "     %f" ))
-  (setq frame-title-format
-    '((:eval (if (buffer-file-name)
-                  (abbreviate-file-name (buffer-file-name))
-                    "%b"))
-      (:eval (if (buffer-modified-p) 
-                 " •"))
-      " - Emacs                             ["
-      (:eval (format "%s" major-mode ))
-      "/ %m ]                 "
-
-      (:eval
-  ;; (format "%s        |   %s " (car command-history) last-command)
- (global-mode-string ("--" global-mode-string))
- ;; (format "%s" last-command ) 
- )
-"                           | %s"
-      )
- )
-;(setq frame-title-format mode-line-format)
-;( set-frame-parameter        nil 'title (format-mode-line mode-line-format))
-                                        ; Don't move back the cursor one position when exiting insert mode
-(setq evil-move-cursor-back nil)
 
 
 (cd (format "C:/Users/%s/Downloads" user-login-name)) 
@@ -715,51 +691,6 @@ xahk-mode
   (smex-initialize))
 
 (message "checkpoint 41")
-
-; Beacon is just a tiny utility that indicates the cursor position when the cursor moves suddenly. You can also manually invoke it by calling the function beacon-blink and it is bound by default.
-(use-package beacon
-  :ensure t
-  :demand t
-  :diminish beacon-mode
-  :bind* (("M-m g z" . beacon-blink))
-  :config
-  (beacon-mode 1))
-
-(message "checkpoint 43")
-
-(use-package avy
-  :ensure t
-  :init
-  (setq avy-keys-alist
-        `((avy-goto-char-timer . (?j ?k ?l ?f ?s ?d ?e ?r ?u ?i))
-          (avy-goto-line . (?j ?k ?l ?f ?s ?d ?e ?r ?u ?i))))
-  (setq avy-style 'pre)
-  :bind* (("M-m f" . avy-goto-char-timer)
-          ("M-m F" . avy-goto-line)
-		  ("C-'" . avy-goto-char)
-          ("C-," . avy-goto-char-2)))
-
-
-; dumb-jump
-; Use it to jump to function definitions. Requires no external depedencies.
-
-(use-package dumb-jump
-  :diminish dumb-jump-mode
-  :bind (("C-M-g" . dumb-jump-go)
-         ("C-M-p" . dumb-jump-back)
-         ("C-M-q" . dumb-jump-quick-look)))
-
-
-; disabling just for now
-;; Fast line numbers
-(use-package nlinum
-  :config
-  ;; Line number gutter in ncurses mode
-  (unless window-system
-    (setq nlinum-format "%d "))
-  ;; :idle
-  (global-nlinum-mode))
-
 (message "checkpoint 63")
 
 
@@ -1611,16 +1542,22 @@ Version 2015-10-14"
  '(diff-default-read-only nil)
  '(diff-switches "-u --ignore-all-space")
  '(evil-want-Y-yank-to-eol t)
+ '(golden-ratio-mode t)
  '(helm-locate-command "locate %s %s")
  '(hybrid-mode t)
  '(kill-read-only-ok t)
  '(line-spacing 0.2)
  '(package-selected-packages
    (quote
-    (ob-http quick-preview visible-mark corral ivy-hydra ob-restclient restclient free-keys js2-mode visual-regexp-steroids visual-regexp auctex auto-dim-other-buffers selected region-bindings-mode comment-dwim-2 flyspell-popup realgud helm-flyspell isend-mode color-theme-solarized web-mode xahk-mode ag ess-R-data-view ess jedi-core python-environment ctable concurrent deferred pythonic anaconda-mode flymake-cursor jedi epc company-flx uuidgen toc-org request org-plus-contrib org-bullets magit-popup link-hint hide-comnt eyebrowse evil-visual-mark-mode evil-unimpaired evil-ediff goto-chg undo-tree dumb-jump f dired-hacks-utils diminish column-enforce-mode seq company-jedi magit shell-pop shell-here highlight-indent-guides buffer-flip quickrun ido-sort-mtime drag-stuff eww-lnum fixmee auto-install counsel helm-google ranger multiple-cursors dionysos bookmark+ emms isearch-dabbrev sublimity google-maps rainbow-mode dired-k minimap imenu-anywhere tabbar color-identifiers-mode window-numbering dired-subtree yascroll dired-filter key-chord dired-quick-sort swiper fuzzy elpy pyvenv find-file-in-project ivy dired-narrow peep-dired goto-last-change shrink-whitespace git-gutter+ git-commit with-editor markdown-mode nlinum flycheck dired+ beacon smex menu-bar+ s powerline hydra spinner parent-mode projectile pkg-info epl flx smartparens iedit anzu highlight pos-tip company yasnippet packed dash helm avy helm-core async auto-complete popup package-build bind-key bind-map evil cygwin-mount persp-mode ws-butler which-key volatile-highlights vi-tilde-fringe use-package spacemacs-theme spaceline solarized-theme smooth-scrolling restart-emacs rainbow-delimiters quelpa popwin pcre2el paradox page-break-lines open-junk-file neotree move-text macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu elisp-slime-nav define-word company-statistics company-quickhelp clean-aindent-mode buffer-move bracketed-paste auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+    (helm-gtags discover ggtags keyfreq vkill company-restclient ob-http quick-preview visible-mark corral ivy-hydra ob-restclient restclient free-keys js2-mode visual-regexp-steroids visual-regexp auctex auto-dim-other-buffers selected region-bindings-mode comment-dwim-2 flyspell-popup realgud helm-flyspell isend-mode color-theme-solarized web-mode xahk-mode ag ess-R-data-view ess jedi-core python-environment ctable concurrent deferred pythonic anaconda-mode flymake-cursor jedi epc company-flx uuidgen toc-org request org-plus-contrib org-bullets magit-popup link-hint hide-comnt eyebrowse evil-visual-mark-mode evil-unimpaired evil-ediff goto-chg undo-tree dumb-jump f dired-hacks-utils diminish column-enforce-mode seq company-jedi magit shell-pop shell-here highlight-indent-guides buffer-flip quickrun ido-sort-mtime drag-stuff eww-lnum fixmee auto-install counsel helm-google ranger multiple-cursors dionysos bookmark+ emms isearch-dabbrev sublimity google-maps rainbow-mode dired-k minimap imenu-anywhere tabbar color-identifiers-mode window-numbering dired-subtree yascroll dired-filter key-chord dired-quick-sort swiper fuzzy elpy pyvenv find-file-in-project ivy dired-narrow peep-dired goto-last-change shrink-whitespace git-gutter+ git-commit with-editor markdown-mode nlinum flycheck dired+ beacon smex menu-bar+ s powerline hydra spinner parent-mode projectile pkg-info epl flx smartparens iedit anzu highlight pos-tip company yasnippet packed dash helm avy helm-core async auto-complete popup package-build bind-key bind-map evil cygwin-mount persp-mode ws-butler which-key volatile-highlights vi-tilde-fringe use-package spacemacs-theme spaceline solarized-theme smooth-scrolling restart-emacs rainbow-delimiters quelpa popwin pcre2el paradox page-break-lines open-junk-file neotree move-text macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu elisp-slime-nav define-word company-statistics company-quickhelp clean-aindent-mode buffer-move bracketed-paste auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
  '(read-file-name-completion-ignore-case t)
  '(realgud:pdb-command-name "python -m pdb")
- '(safe-local-variable-values (quote ((eval progn (pp-buffer) (indent-buffer)))))
+ '(safe-local-variable-values
+   (quote
+    ((ffip-project-root . "c:/Users/cibin/AppData/Roaming/.emacs.d/my-files/config/personal-configs/nppBackup/")
+     (eval progn
+           (pp-buffer)
+           (indent-buffer)))))
  '(scroll-bar-mode nil)
  '(send-mail-function (quote mailclient-send-it))
  '(solarized-termcolors 256)

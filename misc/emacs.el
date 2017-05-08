@@ -1,4 +1,49 @@
 
+
+//(eval-after-load "evil" '(setq expand-region-contract-fast-key "z"))
+//(global-set-key (kbd "M-w q")  'er/mark-inside-quotes)
+
+//http://stackoverflow.com/questions/5705588/python-creating-excel-workbook-and-dumping-csv-files-as-worksheets
+//http://stackoverflow.com/questions/7159607/list-directories-with-a-specified-depth-in-python
+//http://www.liamdelahunty.com/tips/linux_remove_duplicate_lines_with_uniq.php
+
+** INFO trim string (if (< 5 (length text)) (subseq text 1 (- (length text) 5)) )
+//avy-zap
+//https://emacs.stackexchange.com/questions/2427/how-to-test-rest-api-with-emacs
+
+//(defun json-format ()(interactive)(save-excursion (shell-command-on-region (mark) (point) "python -m json.tool" (buffer-name) t)))
+//** http://tonyballantyne.com/tech/3-interactive-functions-that-work-on-regions/
+
+
+
+;; (define-key global-map (kbd "C-f") 'universal-argument)
+;; (define-key universal-argument-map (kbd "C-u") nil)
+(define-key universal-argument-map (kbd "C-f") 'universal-argument-more)
+;; (define-key global-map (kbd "C-u") 'kill-whole-line)
+;; (eval-after-load 'evil-maps
+  ;; '(progn
+     ;; (define-key evil-motion-state-map (kbd "C-f") nil)
+     ;; (define-key evil-motion-state-map (kbd "C-u") 'evil-scroll-up)))
+
+(global-set-key (kbd "C-u") 'universal-argument)
+(define-key evil-motion-state-map "cu" 'universal-argument)
+
+
+(setq linum-format "%3d")
+;; Set tab width to 4 and put tab stops every 4 characters
+(setq-default tab-width 4)
+
+(setq tab-stop-list (number-sequence 4 100 4))
+
+;; shell scripts
+(setq-default sh-basic-offset 4)
+(setq-default sh-indentation 4)
+
+;; No need for ~ files when editing
+(setq create-lockfiles nil)
+on visual / t; g = google selected
+(setq evil-move-cursor-back nil)
+use dired-sort-criteria; already added
 great and good https://github.com/kaushalmodi/.emacs.d/tree/master/setup-files
 
 C-x z; repeat then z  z z z z z z

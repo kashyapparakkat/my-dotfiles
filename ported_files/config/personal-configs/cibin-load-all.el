@@ -19,6 +19,7 @@
 (load-file "~/.emacs.d/my-files/config/personal-configs/auto-spell.el")
 (load-file "~/.emacs.d/my-files/config/personal-configs/tabbar-tweaks.el")
 (load-file "~/.emacs.d/my-files/config/personal-configs/major-mode-settings.el")
+(load-file "~/.emacs.d/my-files/config/personal-configs/advanced-search.el")
 (load-file "~/.emacs.d/my-files/config/personal-configs/cbn-mode-line.el")
 (load-file "~/.emacs.d/my-files/config/personal-configs/cbn-mode-line2.el")
 

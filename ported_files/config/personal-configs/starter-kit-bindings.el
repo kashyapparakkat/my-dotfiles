@@ -25,7 +25,6 @@
 ; or use i for insert and I for trigger
 (define-key evil-visual-state-map "I" 'evil-insert)
 
-(global-set-key (kbd "C-M-g") 'cibin/goto-func-definition)
 (message "checkpoint")
 
                                         ; interpret and use ansi color codes in shell buffers
@@ -589,14 +588,6 @@ buffer preview will still display."
 (setq which-key-max-description-length 34)
 (setq which-key-side-window-max-height 0.6)
 
-; go to the last change
-(use-package goto-chg)
-
-(global-set-key [(control .)] 'goto-last-change)
-(global-set-key (kbd "C-.") 'goto-last-change)
-
-; (global-set-key [(control ,)] 'goto-last-change-reverse)
-(global-set-key (kbd "C-,") 'goto-last-change-reverse)
 
 
 ; M-. can conflict with etags tag search. But C-. can get overwritten
@@ -629,6 +620,7 @@ buffer preview will still display."
       (kill-region (region-beginning) (region-end))
     (backward-kill-word arg)))
 (global-set-key (kbd "C-w" ) 'sk/kill-region-or-backward-word)
+(define-key evil-normal-state-map (kbd "C-w" ) 'sk/kill-region-or-backward-word)
 
 (define-key evil-normal-state-map (kbd "f") 'avy-goto-char-timer)
 
@@ -658,6 +650,7 @@ buffer preview will still display."
            ( "om"  . buffer/switch-in-directory)	
            ( "oo"  . cibin/xah-open-file-at-cursor)
            ( "of"  . ffap)
+           ( "or"  . ranger-mode)
            ( "osh" . open-similar-files-in-folder)
            ( "osr" . open-similar-files-in-folder-recursively)
 

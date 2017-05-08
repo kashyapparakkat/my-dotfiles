@@ -38,7 +38,7 @@ class FtpThread(threading.Thread):
         ip_list=get_IP.getWinIP()
         print(ip_list)
         wifi_ip=str(ip_list[min(len(ip_list),1)-1]) # first IP is mostly LAN IP
-        print("Access at url ftp://" + wifi_ip + ":21 Timeout: " + str(SLEEP_TIME/60) + " mins")
+        print("\nAccess at url ftp://" + wifi_ip + ":21 Timeout: " + str(SLEEP_TIME/60) + " mins username: " + user[0] + " password: " + user[1] + "\n")
         pyperclip.copy(str("ftp://" + wifi_ip + ":21 Timeout: " + str(SLEEP_TIME/60) + " mins  username: " + user[0] + " password: " + user[1]) )
         # logging.basicConfig(filename='F:/CBN/misc/fdm dwnlds/ftp.log', level=logging.INFO)
         handler.banner = "pyftpdlib based ftpd ready."

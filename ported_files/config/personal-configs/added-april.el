@@ -65,8 +65,8 @@ end up leaving point on a space or newline character."
 ;; https://github.com/nivekuil/corral
 (global-set-key (kbd "M-9") 'corral-parentheses-backward)
 ;; (global-set-key (kbd "M-0") 'corral-parentheses-forward)
-(global-set-key (kbd "M-[") 'corral-brackets-backward)
-(global-set-key (kbd "M-]") 'corral-brackets-forward)
+ (global-set-key (kbd "M-[") 'corral-brackets-backward)
+ (global-set-key (kbd "M-]") 'corral-brackets-forward)
 (global-set-key (kbd "M-{") 'corral-braces-backward)
 (global-set-key (kbd "M-}") 'corral-braces-forward)
 (global-set-key (kbd "M-\"") 'corral-double-quotes-backward)
@@ -75,7 +75,19 @@ end up leaving point on a space or newline character."
 ;; If the point is over a word, it will always wrap around that word.
 ;; Otherwise, backward and forward commands should have different effects.
 
-
+(use-package corral
+  :config
+  (defhydra hydra-corral (:columns 4)
+    "Corral"
+    ("(" corral-parentheses-backward "Back")
+    (")" corral-parentheses-forward "Forward")
+    ("[" corral-brackets-backward "Back")
+    ("]" corral-brackets-forward "Forward")
+    ("{" corral-braces-backward "Back")
+    ("}" corral-braces-forward "Forward")
+    ("." hydra-repeat "Repeat"))
+  )
+  (global-set-key (kbd "C-c c") #'hydra-corral/body)
 
 
 ;; http://irreal.org/blog/?p=330
@@ -91,3 +103,33 @@ end up leaving point on a space or newline character."
 
 (setq exec-path (append exec-path '("c:/cygwin64/bin")))
 (setq find-program "C:\\cygwin64\\bin\\find.exe")
+
+(defun cibin/normal-mode()
+
+  (interactive)
+  (message "normal mode")
+  ;; (linum-mode 1)
+(global-linum-mode 1)
+  )
+
+(defun cibin/essential-mode()
+
+  (interactive)
+  (message "essential mode")
+(linum-mode -1)
+(nlinum-mode -1)
+(global-nlinum-mode -1)
+(line-number-mode -1)
+(global-linum-mode -1)
+  )
+
+(defun cibin/faster-mode()
+
+  (interactive)
+  (message "faster mode")
+(linum-mode -1)
+(nlinum-mode -1)
+(global-nlinum-mode-mode -1)
+(line-number-mode -1)
+(global-linum-mode -1)
+  )

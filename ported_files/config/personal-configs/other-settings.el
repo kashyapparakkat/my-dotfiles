@@ -313,9 +313,11 @@ If the new path's directories does not exist, create them."
 (define-key evil-normal-state-map "\C-y" 'yank)
 (define-key evil-insert-state-map "\C-y" 'yank)
 (define-key evil-visual-state-map "\C-y" 'yank)
-(define-key evil-normal-state-map "\C-w" 'evil-delete)
-(define-key evil-insert-state-map "\C-w" 'evil-delete)
+
+;; (define-key evil-normal-state-map "\C-w" 'evil-delete)
+;; (define-key evil-insert-state-map "\C-w" 'evil-delete)
 (define-key evil-insert-state-map "\C-r" 'search-backward)
+
 (define-key evil-visual-state-map "\C-w" 'evil-delete)
    
 
@@ -327,7 +329,15 @@ If the new path's directories does not exist, create them."
   :diminish golden-ratio-mode
   :config (progn
             (add-to-list 'golden-ratio-extra-commands 'ace-window)
-            (golden-ratio-mode 1)))
+            (golden-ratio-mode 1)
+
+            (defun my/helm-alive-p ()
+      (if (boundp 'helm-alive-p)
+          (symbol-value 'helm-alive-p)))
+
+    ;; Inhibit helm
+    (add-to-list 'golden-ratio-inhibit-functions #'my/helm-alive-p)
+            ))
 			
 
 ; volatile-highlights
@@ -341,10 +351,21 @@ If the new path's directories does not exist, create them."
   
   
 ; Large file warning
-
 ; Whenever, a large file (by Emacs standards) is opened, it asks for confirmation whether we really want to open it but the problem is the limit for this file is set pretty low. Let’s increase it a bit so that it doesn’t prompt so often.
 
 (setq large-file-warning-threshold (* 5 1024 1024))
+
+; vlf (view large files)
+; VLF lets me handle things like 2gb files gracefully.
+(use-package vlf-setup)
+
+(defun my-find-file-check-make-large-file-read-only-hook ()
+  "If a file is over a given size, make the buffer read only."
+  (when (> (buffer-size) (* 1024 1024))
+    (setq buffer-read-only t)
+    (buffer-disable-undo)
+    (fundamental-mode)))
+(add-hook 'find-file-hook 'my-find-file-check-make-large-file-read-only-hook)
 
 ; window-numbering
 ;(setq window-numbering-assign-func (lambda () (when (equal (buffer-name) "*scratch*") 9)))
@@ -826,3 +847,32 @@ file to write to."
 
 
 (menu-bar-mode 1)
+
+;; vkill
+;; Visually kill programs and processes, I use helm-occur here (thanks John Wiegley!) because it makes selecting things much easier.
+
+(use-package vkill
+  :defer t
+  :commands vkill
+  :bind ("C-x L" . vkill-and-helm-occur)
+  :init
+  (defun vkill-and-helm-occur ()
+    (interactive)
+    (vkill)
+    (my/turn-on-hl-line-mode)
+    (call-interactively #'helm-occur)))
+(require 'keyfreq)
+(setq keyfreq-excluded-commands
+      '(self-insert-command
+        abort-recursive-edit
+        forward-char
+        backward-char
+        previous-line
+        next-line))
+(keyfreq-mode 1)
+(keyfreq-autosave-mode 1)
+
+
+
+;; TODO disabling for now 
+(global-eldoc-mode -1)

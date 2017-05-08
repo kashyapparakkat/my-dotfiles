@@ -35,3 +35,13 @@ lines have identical symbols at identical goal columns as the symbol at point."
 
 
 
+;; change modeline color per evil state
+(defun mode-line-set-evil-state ()
+  (set-face-background 'mode-line
+                      (cond ((evil-motion-state-p) "#AABBDD")
+                            ((evil-visual-state-p) "#FFDDAA")
+                            ((evil-emacs-state-p) "#FCDDAA")
+                            ((evil-normal-state-p) "lightgrey")
+                            ((evil-insert-state-p) "#FF0000")
+                            (t "lightgrey"))))
+(add-hook 'post-command-hook 'mode-line-set-evil-state) 

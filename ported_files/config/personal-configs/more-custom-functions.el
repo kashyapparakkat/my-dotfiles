@@ -332,10 +332,6 @@ lines. And then it will clear all preceding whitespace."
   (let ((diff-switches "-u"))
     (diff-buffer-with-file (current-buffer))))
 
-; vlf (view large files)
-; VLF lets me handle things like 2gb files gracefully.
-(use-package vlf-setup)
-
 
 ; https://writequit.org/org/settings.html
 	(use-package eww

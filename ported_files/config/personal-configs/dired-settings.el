@@ -75,7 +75,9 @@
 
 (add-hook 'dired-mode-hook
           (lambda ()
-            (dired-hide-details-mode 1)))
+            (dired-hide-details-mode 1)
+(toggle-truncate-lines 1)
+            ))
 
 			  
 ; (autoload 'dired-jump "dired-x"   "Jump to Dired buffer corresponding to current buffer." t)
@@ -561,3 +563,56 @@ Parameters:
 (diredp-prev-dirline 1)
 (dired-find-alternate-file)
 )
+
+;;; sort by different criterias
+
+
+(defun dired-sort-criteria (criteria)
+  "sort-dired by different criteria by Robert Gloeckner "
+  (interactive 
+   (list 
+    (or (completing-read "criteria [name]: "
+			 '("size(S)" "extension(X)" "creation-time(ct)"
+			   "access-time(ut)" "time(t)" "name()"))
+	"")))
+  (string-match ".*(\\(.*\\))" criteria)
+  (dired-sort-other
+   (concat dired-listing-switches 
+	   (match-string 1 criteria))))
+
+
+;; Buffer Management
+;; When disabling the mode you can choose to kill the buffers that were opened while browsing the directories.
+(setq ranger-cleanup-on-disable t)
+
+;; Parent Window Options
+
+;; You can set the number of folders to nest to the left, adjusted by z- and z+.
+
+(setq ranger-parent-depth 1)
+;; You can set the size of the parent windows as a fraction of the frame size.
+
+(setq ranger-width-parents 0.12)
+;; When increasing number of nested parent folders, set max width as fraction of frame size to prevent filling up entire frame with parents.
+
+(setq ranger-max-parent-width 0.12)
+
+;; Preview Window Options
+
+;; Set the default preference to preview selected file.
+
+(setq ranger-preview-file t)
+;; You can choose to show previews literally, or through find-file, toggled by zi.
+
+(setq ranger-show-literal t)
+;; You can set the size of the preview windows as a fraction of the frame size.
+
+(setq ranger-width-preview 0.55)
+;; You probably don't want to open certain files like videos when previewing. To ignore certain files when moving over them you can customize the following to your liking:
+(setq ranger-excluded-extensions '("mkv" "iso" "mp4"))
+
+;; To set the max files size (in MB), set the following parameter:
+(setq ranger-max-preview-size 2)
+
+;; The preview function is also able to determine if the file selected is a binary file. If set to t, these files will not be previewed.
+(setq ranger-dont-show-binary t)

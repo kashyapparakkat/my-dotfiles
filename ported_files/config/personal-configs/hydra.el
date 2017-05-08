@@ -203,9 +203,9 @@
 
 (defhydra hydra-marked-items (dired-mode-map "")
   "
-marked items: %(length (dired-get-marked-files)) Size: %(cdrw-get-size))
 "
 ;; TODO add this to above %(async-shell-command-to-string \"du -hs\" (lambda (s) (message \"Directory size: %s\" s)))
+;; marked items: %(length (dired-get-marked-files)) Size: %(cdrw-get-size))
   ("j" dired-next-line "down")
   ("m" dired-mark "mark")
 	("k" dired-previous-line "up" )
@@ -313,29 +313,33 @@ _f_ auto-fill     : %(toggle-setting-string auto-fill-function)  _B_ battery-mod
 _t_ truncate-lines(long line wrap): %(toggle-setting-string truncate-lines)  _l_ highlight-line : %(toggle-setting-string hl-line-mode)
 _r_ read-only     : %(toggle-setting-string buffer-read-only)  _n_ line-numbers   : %(toggle-setting-string linum-mode)
 _w_ whitespace    : %(toggle-setting-string whitespace-mode)  _N_ relative lines : %(if (eq linum-format 'linum-relative) '[x] '[_])
-_j_ next-line      _k_ previous-line
+_j_ next-line      _k_ previous-line        _a_ : cibin/faster-mode    _g_:  cibin/normal-mode  _o_ : cibin/essential-mode
+
 "
+   
+   ("B" display-battery-mode nil)
+   ("N" linum-relative-toggle nil)
+   ("X" bnb/transparency-previous nil)
+   ("a" cibin/faster-mode nil)
+   ("b" orgtbl-mode nil)
+   ("d" diff-hl-mode nil)
    ("c" column-number-mode nil)
    ("e" toggle-debug-on-error nil)
-   ("u" toggle-debug-on-quit nil)
    ("f" auto-fill-mode nil)
-   ("t" toggle-truncate-lines nil)
-   ("r" dired-toggle-read-only nil)
-   ("w" whitespace-mode nil)
-   ("b" orgtbl-mode nil)
-   ("s" orgstruct-mode nil)
-   ("x" bnb/transparency-next nil)
-   ("B" display-battery-mode nil)
-   ("X" bnb/transparency-previous nil)
-   ("d" diff-hl-mode nil)
+   ("g" cibin/normal-mode nil)
    ("j" next-line nil)
    ("k" previous-line nil)
    ("l" hl-line-mode nil)
-   ("n" linum-mode nil)
-   ("N" linum-relative-toggle nil)
    ("m" bnb/hide-mode-line-mode nil)
+   ("n" linum-mode nil)
+   ("o" cibin/essential-mode nil)
+   ("r" dired-toggle-read-only nil)
+   ("s" orgstruct-mode nil)
+   ("t" toggle-truncate-lines nil)
+   ("u" toggle-debug-on-quit nil)
+   ("w" whitespace-mode nil)
+   ("x" bnb/transparency-next nil)
    ("q" nil)))
-
 
 
    (defhydra sk/hydra-expand (:pre (er/mark-word)

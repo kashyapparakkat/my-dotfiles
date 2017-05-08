@@ -73,3 +73,12 @@ X-Auth-Token: ${token}
 #+BEGIN_SRC http :file zweifisch.jpeg
 GET https://avatars.githubusercontent.com/u/447862?v=3
 #+END_SRC
+* File uploads
+
+Restclient now allows to specify file path to use as a body, like this:
+#+BEGIN_SRC 
+POST http://httpbin.org/post
+Content-type: text/plain
+
+< /etc/passwd
+#+END_SRC
