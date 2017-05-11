@@ -6,12 +6,15 @@
 ;; (setq frame-title-format '(buffer-file-name "Emacs: (%f)" "Emacs: %b"))
 ;; (setq frame-title-format `(,(user-login-name) "@" ,(system-name) "     ", (global-mode-string) "     %f" ))
   (setq frame-title-format
-    '((:eval (if (buffer-file-name)
+        '(
+          "Emacs: ("
+          (:eval (if (buffer-file-name)
                   (abbreviate-file-name (buffer-file-name))
-                    "%b"))
+                    "(%f) %b"))
+      ")"
       (:eval (if (buffer-modified-p) 
-                 " •"))
-      " - Emacs                             ["
+                 "  •"))
+      "         [ "
       (:eval (format "%s" major-mode ))
       "/ %m ]                 "
       (:eval (if (< 15 (length (format "%s" (car command-history) ))) (subseq (format "%s" (car command-history) ) 1 (- (length (format "%s" (car command-history) )) 15))(format "%s" (car command-history) ) ) )

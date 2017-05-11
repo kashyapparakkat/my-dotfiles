@@ -432,7 +432,10 @@ get_current_filepath_from_active_window()
   
    ifWinActive , Emacs:  
    {
-	   filepath:= regexreplace(title,"Emacs: \((.*)\)$","$1")
+   ; Emacs: (~/.emacs.d/my-files/config/personal-configs/cbn-mode-line.el)
+   ; Emacs: (~/.emacs.d/my-files/config/personal-configs/cbn-mode-line.el)         [ emacs-lisp-mode/ EL ]                 (eval-buffer)    |   ignore                            | no process
+	   filepath:= regexreplace(title,"Emacs: \(([^\)]*)\) (.*)$","$1")
+	   
 	  ; msgbox,%filepath%
      
     }

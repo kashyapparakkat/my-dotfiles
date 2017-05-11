@@ -138,6 +138,8 @@
 (define-key dired-mode-map "i" 'ido-find-file)
 (define-key dired-mode-map "e" 'other-window)
 
+(define-key dired-mode-map "u" 'dired-find-file-other-window)
+
  ; (evil-define-key 'normal dired-mode-map "h" 'dired-up-directory)
   ; (evil-define-key 'normal dired-mode-map "l" 'dired-find-alternate-file)
 

@@ -67,7 +67,6 @@
 (global-set-key (kbd "C-M-s") 'isearch-forward-regexp)
 (global-set-key (kbd "C-M-r") 'isearch-backward-regexp)
 
-(global-set-key (kbd "M-s s") 'swiper-all)
 
 ;; Activate occur easily inside isearch
 (define-key isearch-mode-map (kbd "C-o")
@@ -140,24 +139,6 @@
 	  ))
 	  
 	  
-
-(global-set-key (kbd "M-s s") 'swiper-all)
-;; TODO ;; (global-set-key (kbd "M-s r") ') ; recurse
-(global-set-key (kbd "M-s h") 'cibin-search-in-files-advgrep-here)
-(global-set-key (kbd "M-s c") 'cibin-search-in-common-files-bash)
-(global-set-key (kbd "M-s p") 'ag-project-at-point)
-(global-set-key (kbd "M-s o") 'occur)
-; linked
-(global-set-key (kbd "M-s l") 'cibin-search-in-text-files-related-bash)
-(global-set-key (kbd "M-s /") 'my-multi-occur-in-matching-buffers)
-
-(global-set-key (kbd "M-s a") 'helm-do-ag-buffers)
-(global-set-key (kbd "M-s w") 'ag-files) ; advanced (string file-type directory))
-(global-set-key (kbd "M-s y") 'cibin/ag-files-cwd) 
-(global-set-key (kbd "M-s b") 'cibin/helm-do-ag-cwd)
-(global-set-key (kbd "M-s d") 'helm-do-ag-this-file)
-(global-set-key (kbd "M-s e") 'cibin/helm-ag-cwd)
-(global-set-key (kbd "M-s j") 'helm-ag);; extension ; If you use helm-ag command, you can specify option like -G\.js$ search_pattern, or if you use helm-do-ag, you can use C-u prefix for specifying extension.
 
 ;; http://stackoverflow.com/questions/2641211/emacs-interactively-search-open-buffers
 (defun my-multi-occur-in-matching-buffers (regexp &optional allbufs)

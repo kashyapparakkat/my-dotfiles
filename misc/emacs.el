@@ -1,4 +1,8 @@
 
+;; Auto-refresh dired on file change
+(add-hook 'dired-mode-hook 'auto-revert-mode)
+;; Auto-refresh dired on file change
+;; tODO see if this is valid (add-hook 'ranger-mode-hook 'auto-revert-mode)
 
 //(eval-after-load "evil" '(setq expand-region-contract-fast-key "z"))
 //(global-set-key (kbd "M-w q")  'er/mark-inside-quotes)

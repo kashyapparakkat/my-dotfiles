@@ -48,10 +48,10 @@ MoveWindow2,,,
 config =
 (
 copy full pathnames from current window,parent,names only,open_in_fileManager,copy names only without ext
-,,,
-,,,
-,,,
-,,,
+,,,,
+,,,,
+,,,,
+,,,,
 clipboard:=get_current_filepath_from_active_window(),clipboard:=get_parent_filepath(),,,clipboard:=get_parent_filepath()
 ,,extract_basenames,open_in_fileManager,extract_basenames_noext
 ,,,
@@ -62,11 +62,11 @@ HK_cycle_register("<#1","Copy_Path_HK",5,3000,"Lwin", "$#q",config)
 config =
 (
 open in emacs,npp,explorer,dired,pycharm
-,,,
-,,,
-,,,
-,,,
-,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
 get_and_open_in_emacs,get_and_open_in_npp,,,get_and_open_in_pycharm
 ,,,
 )
@@ -75,11 +75,11 @@ HK_cycle_register("<#2","Copy_Path_Open_HK",5,3000,"Lwin", "$#q",config)
 config =
 (
 open file1 in emacs,file2,file3
-,,,
-,,,
-,,,
-,,,
-,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
 open_file1_in_emacs,open_file2_in_emacs,open_file1_in_emacs
 ,,,
 )
@@ -88,13 +88,13 @@ HK_cycle_register("<^+F11","Emacs_Path_HK",3,3000,"LCtrl", "$#q",config)
 config =
 (
 AOT esc,AOT hold,AOT OFF
-,
-,
-,
-,
-,
-,
-,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+nil,nil,nil,nil,nil
+,,,,
 )
 ; HK_cycle_register(">^+t","AOT_tooltip_HK",3,4000,"RCtrl", "$^q",config)
 
@@ -102,13 +102,13 @@ AOT esc,AOT hold,AOT OFF
 config =
 (
 power save,power save OFF,bright
-,
-,
-,
-,
-,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
 power_save_options,power_save_options
-,
+,,,,
 )
 ; HK_cycle_register("<^F12","power_save_HK",3,4000,"LCtrl", "$^q",config)
 
@@ -116,12 +116,12 @@ power_save_options,power_save_options
 config =
 (
 SLEEP,HIBERNATE
-,
-,
-,
-,
-,
-sleep_computer,hibernate_computer
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+sleep_computer,hibernate_computer,nil,nil
 ,
 )
 HK_cycle_register("<^F1","power_options_HK",2,4000,"LCtrl", "$^q",config)
@@ -130,12 +130,12 @@ HK_cycle_register("<^F1","power_options_HK",2,4000,"LCtrl", "$^q",config)
 config =
 (
 sel text in N++,open in quick note
-,
-,
-,
-,
-,
-sel_in_Npp,sel_in_Notepad
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+sel_in_Npp,sel_in_Notepad,nil,nil
 ,
 )
 HK_cycle_register("<^F8","open_sel_text_HK",2,4000,"LCtrl", "$^q",config)
@@ -144,12 +144,12 @@ HK_cycle_register("<^F8","open_sel_text_HK",2,4000,"LCtrl", "$^q",config)
 config =
 (
 google search,python search,map search,multi search
-,
-,
-,
-,
-,
-search_google,search_google_python,google_map_search,,multi_search
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+search_google,search_google_python,google_map_search,,multi_search,nil,nil
 ,
 )
 HK_cycle_register(">^g","google_search_HK",4,4000,"RCtrl", "$^q",config)
@@ -158,13 +158,13 @@ HK_cycle_register(">^g","google_search_HK",4,4000,"RCtrl", "$^q",config)
 config =
 (
 My computer,desktop,Downloads in Dired,Downloads,Home directory
-,
-,
-,
-,
+,,,,
+,,,,
+,,,,
+,,,,
 ,"menuEvent_function(""OpenIfFolder_SelectIfFile"",""C:\users\%a_username%\desktop"")","run_emacs_dired(""C:\users\%a_username%\Downloads"")","menuEvent_function(""OpenIfFolder_SelectIfFile"",""C:\users\%a_username%\Downloads"")","menuEvent_function(""OpenIfFolder_SelectIfFile"",""C:\users\%a_username%"")"
-open_mycomputer,
-,
+open_mycomputer,nil,nil,nil,nil
+,,,
 )
 HK_cycle_register("<#e","open_fav_folders3_HK",4,4000,"Lwin", "$#q",config)
 
@@ -172,13 +172,13 @@ HK_cycle_register("<#e","open_fav_folders3_HK",4,4000,"Lwin", "$#q",config)
 config =
 (
 download youtube url,download clipb url in IDM,
-,
-,
-,
-,
-,
-,
-,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+nil,nil,nil,nil
+,,,,
 )
 HK_cycle_register("<^f6","download_HK",2,4000,"LCtrl", "$^q",config)
 
@@ -190,12 +190,12 @@ iniread,fav_file4,running_all_settings.ini,paths,fav_file2
 config =
 (
 %fav_file1%,%fav_file2%,%fav_file3%,%fav_file4%
-,
-,
-,
-,
+,,,,
+,,,,
+,,,,
+,,,,
 "menuEvent_function(""N++"",""%fav_file1%"")","menuEvent_function(""N++"",""%fav_file2%"")","menuEvent_function(""N++"",""%fav_file3%"")","menuEvent_function(""N++"",""%fav_file4%"")",
-,
+nil,nil,nil,nil
 ,
 )
 HK_cycle_register("<#4","open_fav_files_HK",4,4000,"Lwin", "$#q",config)
@@ -207,9 +207,9 @@ get_fav_folder_list,get_fav_folder_list,get_fav_folder_list
 ,
 ,
 open_folder,open_folder,open_folder,add_to_list_open_folder
-,
-,
-,
+,,,,
+,,,,
+,,,,
 )
 HK_cycle_register("<#7","tmp_fav_folders_HK",4,4000,"Lwin", "$#q",config) 
 
@@ -220,12 +220,12 @@ iniread,fav_folders3,running_all_settings.ini,paths,fav_folders3
 config =
 (
 %fav_folders1%,%fav_folders2%,%fav_folders3%,
-,
-,
-,
-,
+,,,,
+,,,,
+,,,,
+,,,,
 "menuEvent_function(""OpenIfFolder_SelectIfFile"",""%fav_folders1%"")","menuEvent_function(""OpenIfFolder_SelectIfFile"",""%fav_folders2%"")","menuEvent_function(""OpenIfFolder_SelectIfFile"",""%fav_folders3%"")"
-,
+nil,nil,nil,nil
 ,
 )
 ; msgbox,%config%
@@ -249,12 +249,12 @@ HK_cycle_register("<#3","run_cmd_HK",4,4000,"Lwin", "$#q",config)
 
 config =
 (
-convert_path_to_windows(),convert_path_to_linux(),to_cygwin,cygwin_to windows
-,,,
-,,,
-,,,
-,,,
-convert_path_to_windows(),convert_path_to_linux()
+convert_path_to_windows(),convert_path_to_linux(),double_slash_linux,double_slash_windows
+,,,,
+,,,,
+,,,,
+,,,,
+convert_path_to_windows(),convert_path_to_linux(),double_slash_linux(),double_slash_windows()
 ,,,
 )
 
@@ -267,6 +267,19 @@ stringreplace,clipboard,clipboard,/,\,all
 convert_path_to_linux(){
 stringreplace,clipboard,clipboard,\,/,all
 }
+
+double_slash_windows(){
+stringreplace,clipboard,clipboard,/,\,all
+stringreplace,clipboard,clipboard,\\,\,all
+stringreplace,clipboard,clipboard,\,\\,all
+}
+
+double_slash_linux(){
+stringreplace,clipboard,clipboard,\,/,all
+stringreplace,clipboard,clipboard,//,/,all
+stringreplace,clipboard,clipboard,/,//,all
+}
+
  ; C:\cbn_gits\AHK\HK_cycle_hotkeys.ahkC:\cbn_gits\AHK\HK_cycle_hotkeys.ahk
 return
 
@@ -651,6 +664,8 @@ open_with_emacs:
 	run, "%emacs_f_path%" "%file%" -n -a "",,Hide
 	; The *-a ""* tells emacs to run itself as a server (daemon) if it isn't already running.
 
+return
+nil:
 return
 
 ; help tips

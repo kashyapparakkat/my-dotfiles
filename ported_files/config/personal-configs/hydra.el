@@ -1,5 +1,4 @@
 ;; it modifies the existing hk's
-
 ;; many hydra's taken from https://sriramkswamy.github.io/dotemacs/
 ;; more available at https://github.com/abo-abo/hydra/blob/master/hydra-examples.el
 
@@ -137,35 +136,27 @@
 
 ;; This is for Quickrun functionality.
 
-(defhydra sk/hydra-quickrun (:color blue
+(defhydra hydra-quickrun (:color blue
                              :hint nil)
   "
  _s_: quickrun     _a_: with arg    _c_: compile only       _q_: quit
- _r_: run region   _S_: shell       _R_: replace region
+ _r_: run region   _s_: shell       _R_: replace region
+ _p_: python
 "
-  ("s" quickrun)
-  ("r" quickrun-region)
-  ("a" quickrun-with-arg)
-  ("S" quickrun-shell)
-  ("c" quickrun-compile-only)
-  ("R" quickrun-replace-region)
-  ("q" nil :color blue))
-
 ;; TODO integrate quickrun, edebug, python
-  (defhydra hydra-quickrun (:color blue :columns 2)
-    "Quickrun"
+
+  ("e" eval-buffer)
+
     ("h" helm-quickrun "helm")
     ("q" quickrun "run")
     ("r" quickrun-region "region")
-    ("w" quickrun-with-arg "with-arg")
+    ("a" quickrun-with-arg "with-arg")
     ("s" quickrun-shell "shell")
     ("c" quickrun-compile-only "compile")
-    ("p" quickrun-replace-region "replace"))
-  (global-set-key (kbd "C-c q") 'hydra-quickrun/body)
+    ("R" quickrun-replace-region "replace")
+    ("p" sk/hydra-debug/body "sk/hydra-debug"))
 
-;; Debugging
-;; Emacs has a built-in debugger in edebug and, apparently, it’s pretty good. Let’s make a small hydra for that.
-;; A small hydra to start appropriate debuggers
+(global-set-key (kbd "C-c q") 'hydra-quickrun/body)
 
 (defhydra sk/hydra-debug (;; :pre (load-library "realgud")
                           :color blue
@@ -710,3 +701,81 @@ _r_eset        _j_ clock goto
 ;; TODO https://www.emacswiki.org/emacs/GlobalTextScaleMode
   (global-set-key (kbd "C-x -") 'cibin/hydra-zoom/body)
   (global-set-key (kbd "C-x =") 'cibin/hydra-zoom/body)
+
+
+(defhydra cibin/search (:color blue 
+                               :hint nil)
+  "
+ ^Beautify^
+^^^^^^^^^^--------------------------------------
+ _o_: occur                    _s_: swiper-all            _b_: cibin/helm-do-ag-cwd       _h_: cibin-search-in-files-advgrep-here        _q_: quit
+ _d_: helm-do-ag-this-file     _a_: helm-do-ag-buffers    _p_: ag-project-at-point        _c_: cibin-search-in-common-files-bash
+ _/_: my-multi-occur-in-matc..                            _w_: ag-files                   _l_: cibin-search-in-text-files-related-bash
+                                                          _y_: cibin/ag-files-cwd
+ _j_: helm-ag                                              
+
+"
+;; TODO ;; (global-set-key (kbd "M-s r") ') ; recurse
+; linked
+("o" occur)
+("d" helm-do-ag-this-file)
+
+("s" swiper-all)
+("a" helm-do-ag-buffers)
+("/" my-multi-occur-in-matching-buffers)
+
+("b" cibin/helm-do-ag-cwd)
+
+("h" cibin-search-in-files-advgrep-here)
+("c" cibin-search-in-common-files-bash)
+("l" cibin-search-in-text-files-related-bash)
+
+("p" ag-project-at-point)
+     
+("w" ag-files) ; advanced (string file-type directory))
+("y" cibin/ag-files-cwd) 
+("j" helm-ag);; extension ; If you use helm-ag command, you can specify option like -G\.js$ search_pattern, or if you use helm-do-ag, you can use C-u prefix for specifying extension.
+ ("q" nil :color blue))
+  (global-set-key (kbd "M-s") 'cibin/search/body)
+
+
+(defhydra cibin/open (:color blue 
+                             ;; :idle 0.5
+                             )
+
+;; "
+ ;; _n_: find-next-file-in-current-directory
+;; "
+           ;; ( "n" buffer/switch-in-directory)
+          ( "sr"  open-similar-files-in-folder-recursively)
+
+
+           ( "n"   find-next-file-in-current-directory)	
+           ( "b"   buffer/switch-in-directory)
+
+           ;; TODO not correct
+           ( "d"   xah-open-in-desktop)
+           ( "g"   bjm/ivy-dired-recent-dirs)
+           ( "j"   dired-jump)
+           ( "F"   File-cache-ido-find-file)
+           ;; ( "f"   xah open file fast)
+           ;; TODO external app or antother function
+           ( "e"   spacemacs/open-file-or-directory-in-external-app)
+           ( "p"   cibin-find-related-files)
+           ( "m"   buffer/switch-in-directory)	
+           ( "o"   cibin/xah-open-file-at-cursor)
+           ( "f"   ffap)
+           ( "r"   ranger-mode)
+           ( "sh"  open-similar-files-in-folder)
+           )
+
+(evil-define-key 'normal dired-mode-map "o" nil)
+(evil-define-key 'normal org-mode-map "o" nil)
+(define-key dired-mode-map  "o" nil)
+(define-key evil-normal-state-map  "o" nil)
+
+(define-key org-mode-map  "o" nil)
+(define-key dired-mode-map "o" 'cibin/open/body)
+(define-key evil-normal-state-map  "o" 'cibin/open/body)
+(evil-define-key 'normal org-mode-map  "o" 'cibin/open/body)
+

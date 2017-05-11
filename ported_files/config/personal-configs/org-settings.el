@@ -18,6 +18,13 @@
  (evil-insert-state)
   )
 
+(defun cibin/org-meta-return()
+  (interactive)
+  (beginning-of-line)
+  (org-meta-return)
+ (evil-insert-state)
+  )
+
 (global-set-key (kbd "C-c o") 
                 (lambda () (interactive) (find-file "~/organizer.org")))
 	   ; The pipe is optional, but if it is present, the task states following it will all be considered by Org to mean “complete
@@ -37,7 +44,9 @@
 	(define-key org-mode-map (kbd "M-r") 'org-toggle-heading)
   (define-key org-mode-map (kbd "M-e") 'other-window) ;; bring back this key
 	(define-key org-mode-map [C-return] 'cibin/org-insert-heading-respect-content)
+	(define-key org-mode-map [M-return] 'cibin/org-meta-return)
 	(evil-define-key 'normal org-mode-map [C-return] 'cibin/org-insert-heading-respect-content)
+	(evil-define-key 'normal org-mode-map [M-return] 'cibin/org-meta-return)
   (evil-define-key 'normal org-mode-map
   "gh" 'outline-up-heading
   "gj" (if (fboundp 'org-forward-same-level) ;to be backward compatible with older org version
@@ -47,7 +56,6 @@
 
   "go" 'outline-previous-heading
   "gl" 'outline-next-visible-heading
-  "t" 'org-todo
   "T" '(lambda () (interactive) (evil-org-eol-call (lambda() (org-insert-todo-heading nil))))
   "H" 'org-shiftleft
   ; "J" 'org-shiftdown
@@ -141,3 +149,23 @@
 )
 
 (add-hook 'org-mode-hook 'my-org-mode-config)
+
+
+(let* ((variable-tuple (cond ((x-list-fonts "Source Sans Pro") '(:font "Source Sans Pro"))
+                             ((x-list-fonts "Lucida Grande")   '(:font "Lucida Grande"))
+                             ((x-list-fonts "Verdana")         '(:font "Verdana"))
+                             ((x-family-fonts "Sans Serif")    '(:family "Sans Serif"))
+                             (nil (warn "Cannot find a Sans Serif Font.  Install Source Sans Pro."))))
+       (base-font-color     (face-foreground 'default nil 'default))
+       (headline           `(:inherit default :weight bold :foreground ,base-font-color)))
+
+  (custom-theme-set-faces 'user
+                          `(org-level-8 ((t (,@headline ,@variable-tuple))))
+                          `(org-level-7 ((t (,@headline ,@variable-tuple))))
+                          `(org-level-6 ((t (,@headline ,@variable-tuple))))
+                          `(org-level-5 ((t (,@headline ,@variable-tuple))))
+                          `(org-level-4 ((t (,@headline ,@variable-tuple :height 1.15))))
+                          `(org-level-3 ((t (,@headline ,@variable-tuple :height 1.2))))
+                          `(org-level-2 ((t (,@headline ,@variable-tuple :height 1.2))))
+                          `(org-level-1 ((t (,@headline ,@variable-tuple :height 1.2))))
+                          `(org-document-title ((t (,@headline ,@variable-tuple :height 1.5 :underline nil))))))
