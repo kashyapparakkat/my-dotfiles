@@ -52,3 +52,4 @@
   (setq command (format "python -u -m pdb %s " (file-name-nondirectory buffer-file-name)))
   (let ((command-with-args (read-string "Debug command: " command nil nil nil)))
     (pdb command-with-args)))
+(provide 'cbn-compile)

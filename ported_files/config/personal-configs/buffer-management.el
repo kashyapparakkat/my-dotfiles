@@ -244,3 +244,4 @@ With prefix arg, find the previous file."
 			  )))
 		(action     . switch-to-buffer)
 		))))
+(provide 'buffer-management)

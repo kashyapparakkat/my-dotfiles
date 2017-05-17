@@ -174,22 +174,6 @@
   ("q" nil :color blue))
 
 
-;;TODO
-  (defhydra hydra-cleanups (:color blue :columns 4)
-  "Command"
-  ("w" whitespace-cleanup "whitespace")
-  ("g" helm-git-grep "git-grep")
-  ("l" helm-ls-git-ls "git-ls")
-  ("k" keyword-search "keyword-search")
-  ("L" lively "lively")
-  ("S" lively-stop "lively-stop")
-  ("r" revert-buffer "revert-buffer")
-  ("R" restart-emacs "restart")
-  ("v" visit-tags-table "visit-tags")
-  ("b" bongo "bongo")
-  ("t" find-temp-file "temp"))
-(global-set-key (kbd "C-x c") 'hydra-cleanups/body)
-
 
 
 (defhydra hydra-marked-items (dired-mode-map "")
@@ -243,7 +227,7 @@
 
 
 
-      (defhydra hydra-cibin-misc (:color blue :columns 4 :post (redraw-display))
+(defhydra hydra-cibin-misc (:color blue :columns 4 :post (redraw-display))
         "hydra-toggle-mode"
         ("RET" redraw-display "<quit>")
         ("a" cibin-apply-major-mode "cibin-apply-major-mode")
@@ -630,9 +614,9 @@ _r_eset        _j_ clock goto
   "
  ^^^-blanks ---------------  ------whitespace----------------- ------dupes----------------------------   ---actions
  _r_: collapse-blank-lines   _t_: delete-trailing-whitespace    _d_: delete-duplicate-lines(incl blank   _a_: select All 
- _f_: flush-blank-lines      _l_: my-delete-leading-whitespace  _h_: hlt-highlight-line-dups-region      _w_: toggle whitespace indicators
- _b_: delete-blank-lines     _k_: keep-lines     _k_: leading, blanks,                                   _t_: truncate toggle
-                             _x_: flush-lines                                                            _t_: stats                 _q_: quit
+ _f_: flush-blank-lines      _l_: my-delete-leading-whitespace  _h_: hlt-highlight-line-dups-region      _w_: toggle whitespace indicators   _e_: other window
+ _b_: delete-blank-lines     _k_: keep-lines     _k_: leading, blanks,                                   _t_: truncate toggle                _v_: vdiff
+                             _x_: flush-lines                                                            _t_: stats                          _q_: quit
  _i_: indent                                                                                             _n_: json or quickurun hydra to & back
 "
 
@@ -651,6 +635,8 @@ _r_eset        _j_ clock goto
   ("t" delete-trailing-whitespace)
   ("l" my-delete-leading-whitespace)
   ("w" whitespace-mode)
+  ("v" vdiff-buffers)
+  ("e" other-window)
   ("q" nil :color blue))
 (bind-keys*
   ("C-x f" . cibin/hydra-for-format/body))
@@ -779,3 +765,4 @@ _r_eset        _j_ clock goto
 (define-key evil-normal-state-map  "o" 'cibin/open/body)
 (evil-define-key 'normal org-mode-map  "o" 'cibin/open/body)
 
+(provide 'cbn-hydra)

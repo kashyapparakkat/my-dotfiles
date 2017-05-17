@@ -184,3 +184,4 @@
         (buffer-face-set 'hard-to-read-font))
     (progn (font-lock-mode t) (buffer-face-mode nil))))
 ;; (add-hook 'text-mode-hook (lambda () (hard-to-read-mode t))) 
+(provide 'cbn-appearance)

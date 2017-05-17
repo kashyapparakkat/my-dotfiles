@@ -83,3 +83,4 @@ For later retrieval using `file-cache-read-cache-from-file'"
     (beginning-of-buffer)
     (setq file-cache-alist (read (current-buffer)))))
 
+(provide 'create-filecache)

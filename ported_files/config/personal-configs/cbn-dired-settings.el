@@ -618,3 +618,4 @@ Parameters:
 
 ;; The preview function is also able to determine if the file selected is a binary file. If set to t, these files will not be previewed.
 (setq ranger-dont-show-binary t)
+(provide 'cbn-dired-settings)

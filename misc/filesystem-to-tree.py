@@ -14,12 +14,12 @@ from sys import argv
 
 def tree(dir, padding, print_files=False, isLast=False, isFirst=False):
     if isFirst:
-        print padding.decode('utf8')[:-1].encode('utf8') + dir
+        print(padding.decode('utf8')[:-1].encode('utf8') + dir)
     else:
         if isLast:
-            print padding.decode('utf8')[:-1].encode('utf8') + '└── ' + basename(abspath(dir))
+            print(padding.decode('utf8')[:-1].encode('utf8') + '└── ' + basename(abspath(dir)))
         else:
-            print padding.decode('utf8')[:-1].encode('utf8') + '├── ' + basename(abspath(dir))
+            print(padding.decode('utf8')[:-1].encode('utf8') + '├── ' + basename(abspath(dir)))
     files = []
     if print_files:
         files = listdir(dir)
@@ -44,9 +44,9 @@ def tree(dir, padding, print_files=False, isLast=False, isFirst=False):
                 tree(path, padding + '│', print_files, isLast, False)
         else:
             if isLast:
-                print padding + '└── ' + file
+                print(padding + '└── ' + file)
             else:
-                print padding + '├── ' + file
+                print(padding + '├── ' + file)
 
 def usage():
     return '''Usage: %s [-f] 
@@ -57,23 +57,23 @@ PATH    Path to process''' % basename(argv[0])
 
 def main():
     if len(argv) == 1:
-        print usage()
+        print(usage())
     elif len(argv) == 2:
         # print just directories
         path = argv[1]
         if isdir(path):
             tree(path, '', False, False, True)
         else:
-            print 'ERROR: \'' + path + '\' is not a directory'
+            print('ERROR: \'' + path + '\' is not a directory')
     elif len(argv) == 3 and argv[1] == '-f':
         # print directories and files
         path = argv[2]
         if isdir(path):
             tree(path, '', True, False, True)
         else:
-            print 'ERROR: \'' + path + '\' is not a directory'
+            print('ERROR: \'' + path + '\' is not a directory')
     else:
-        print usage()
+        print(usage())
 
 if __name__ == '__main__':
     # main()

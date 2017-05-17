@@ -96,3 +96,4 @@ That is, a string used to represent it on the tab bar."
  ;; This doesn't work for revert, I don't know.
  ;;(add-hook 'after-revert-hook 'ztl-modification-state-change)
  (add-hook 'first-change-hook 'ztl-on-buffer-modification)
+(provide 'tabbar-tweaks)

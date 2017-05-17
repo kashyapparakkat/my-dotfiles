@@ -12,4 +12,4 @@ def path_to_dict(path):
         d['type'] = "file"
     return d
 
-print (json.dumps(path_to_dict(path)))
+print((json.dumps(path_to_dict(path))))

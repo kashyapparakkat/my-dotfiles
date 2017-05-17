@@ -51,3 +51,4 @@ The file is taken from a start directory set by `bjm/move-file-here-start-dir' a
         (expand-file-name (file-name-nondirectory start-file) target-dir))
   (rename-file start-file-full end-file)
   (message "moved %s to %s" start-file-full end-file)))
+(provide 'move-copy)

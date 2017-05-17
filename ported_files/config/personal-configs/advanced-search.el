@@ -79,3 +79,4 @@ If called with a prefix, prompts for flags to pass to ag."
 (define-key helm-map  (kbd "C-f")  'helm-next-source)
 (define-key helm-map  (kbd "C-j")  'helm-previous-source)
 )
+(provide 'advanced-search)

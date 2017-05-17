@@ -142,3 +142,4 @@ move point."
 ; (def-advice flyspell-auto-correct-previous-word (after flyspell-forward-word activate)
                                         ;(flyspell-goto-next-error)
 ; (forward-word)))
+(provide 'cbn-auto-spell)

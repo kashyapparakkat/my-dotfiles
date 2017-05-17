@@ -523,3 +523,4 @@
     ;;
 
 ;;; xah-fly-keys.el ends here
+(provide 'cbn-xah-fly-keys)

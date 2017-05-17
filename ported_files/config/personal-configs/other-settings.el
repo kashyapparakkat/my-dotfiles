@@ -876,3 +876,4 @@ file to write to."
 
 ;; TODO disabling for now 
 (global-eldoc-mode -1)
+(provide 'other-settings)

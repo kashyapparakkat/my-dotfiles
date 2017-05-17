@@ -66,3 +66,4 @@ version 2015-02-05"
     (ido-completing-read "shell abbrevs:" (mapcar (lambda (x) (car x)) xah-shell-abbrev-alist) "PREDICATE" "REQUIRE-MATCH")))
   (progn
     (insert (cdr (assoc *cmd-abbrev xah-shell-abbrev-alist)))))
+(provide 'cbn-auto-complete)

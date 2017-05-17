@@ -537,36 +537,6 @@ Respects `narrow-to-region'."
 
 ;; editing commands
 
-(defun xah-toggle-letter-case ()
-  "Toggle the letter case of current word or text selection.
-Always cycle in this order: Init Caps, ALL CAPS, all lower.
-
-URL `http://ergoemacs.org/emacs/modernization_upcase-word.html'
-Version 2016-01-08"
-  (interactive)
-  (let (
-        (deactivate-mark nil)
-        -p1 -p2)
-    (if (use-region-p)
-        (setq -p1 (region-beginning)
-              -p2 (region-end))
-      (save-excursion
-        (skip-chars-backward "[:alnum:]")
-        (setq -p1 (point))
-        (skip-chars-forward "[:alnum:]")
-        (setq -p2 (point))))
-    (when (not (eq last-command this-command))
-      (put this-command 'state 0))
-    (cond
-     ((equal 0 (get this-command 'state))
-      (upcase-initials-region -p1 -p2)
-      (put this-command 'state 1))
-     ((equal 1  (get this-command 'state))
-      (upcase-region -p1 -p2)
-      (put this-command 'state 2))
-     ((equal 2 (get this-command 'state))
-      (downcase-region -p1 -p2)
-      (put this-command 'state 0)))))
 
 ;; test case
 ;; test_case some
@@ -1835,14 +1805,14 @@ Version 2015-10-14"
   (let ((-fname (buffer-file-name)))
     (if -fname
         (let ((-backup-name
-               (concat -fname "~" (format-time-string "%d-%m-%Y %H %M %S") "~")))
+               (concat -fname "~" (format-time-string "backup %d-%b-%Y %Hh %Mm %Ss") "~")))
           (copy-file -fname -backup-name t)
           (message (concat "Backup saved at: " -backup-name)))
       (if (string-equal major-mode "dired-mode")
           (progn
             (mapc (lambda (-x)
                     (let ((-backup-name
-                           (concat -x "~" (format-time-string "%Y%m%dT%H%M%S") "~")))
+                           (concat -x "~" (format-time-string "backup %d-%b-%Y %Hh %Mm %Ss") "~")))
                       (copy-file -x -backup-name t)))
                   (dired-get-marked-files))
             (message "marked files backed up"))
@@ -2116,3 +2086,5 @@ Version 2015-07-30"
      ((equal -sort-by "dir") (setq -arg "-Al --si --time-style long-iso --group-directories-first"))
      (t (error "logic error 09535" )))
 (dired-sort-other -arg )))
+
+(provide 'cbn-xah-fly-keys-functions)

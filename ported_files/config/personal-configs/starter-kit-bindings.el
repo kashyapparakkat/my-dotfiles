@@ -642,3 +642,4 @@ buffer preview will still display."
   	(evil-define-key 'normal org-mode-map  (car binding) (cdr binding))
 ;(add-hook 'org-mode-hook (lambda ()(define-key org-mode-map (car binding) (cdr binding))))  )
 )
+(provide 'starter-kit-bindings)

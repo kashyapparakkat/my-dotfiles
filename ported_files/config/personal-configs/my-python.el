@@ -34,4 +34,4 @@
     (add-hook 'elpy-mode-hook 'flycheck-mode))
   ; (elpy-enable) ; TODO disabled for now
   (setq elpy-rpc-backend "jedi"))
-  
+  (provide 'my-python)

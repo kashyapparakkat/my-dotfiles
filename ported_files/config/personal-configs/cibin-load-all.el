@@ -1,32 +1,63 @@
+
+(cd (format "C:/Users/%s/AppData/Roaming/.emacs.d/my-files/config/others/el-qrencode-master" user-login-name))
+(load-file "~/.emacs.d/my-files/config/others/el-qrencode-master/load.el")
+
+(load-file "~/.emacs.d/my-files/config/others/emacs-quickrun-master/quickrun.el")
+; (load-file "~/.emacs.d/my-files/config/others/fic-ext-mode.el")
+(load-file "~/.emacs.d/my-files/config/others/zzz-to-char.el")
+(load-file "~/.emacs.d/my-files/config/others/vlfi-master/vlf-setup.el")
+
+(load-file "~/.emacs.d/my-files/config/others/dired-sort-menu.el")
+(load-file "~/.emacs.d/my-files/config/others/dired-sort-menu+.el")
+
+(load-file "~/.emacs.d/my-files/config/others/bm.el")
+
+
+(load-file "~/.emacs.d/my-files/config/others/popwin-el-master/popwin.el")
+; (load-file "~/.emacs.d/my-files/config/others/windows-path.el")
+
+;; TODO disabling for now
+(load-file "~/.emacs.d/my-files/config/personal-configs/create-filecache.el")
+
+; to save memory, make it read only when hotkey is fired
+; (file-cache-read-cache-from-file)
+
+
+
+
+(add-to-list 'load-path "~/.emacs.d/my-files/config/personal-configs/")
+
 (defun cibin-load-all-custom-bindings ()
 (interactive)
-  (message "loading all")
-(load-file "~/.emacs.d/my-files/config/personal-configs/functions.el")
-(load-file "~/.emacs.d/my-files/config/personal-configs/shell.el")
-(load-file "~/.emacs.d/my-files/config/personal-configs/my-python.el")
-(load-file "~/.emacs.d/my-files/config/personal-configs/navigation.el")
-(load-file "~/.emacs.d/my-files/config/personal-configs/move-copy.el")
-(load-file "~/.emacs.d/my-files/config/personal-configs/cbn-compile.el")
-(load-file "~/.emacs.d/my-files/config/personal-configs/search-bindings.el")
-(load-file "~/.emacs.d/my-files/config/personal-configs/dired-settings.el")
-(load-file "~/.emacs.d/my-files/config/personal-configs/dired-settings2.el")
-(load-file "~/.emacs.d/my-files/config/personal-configs/more-custom-functions.el")
-(load-file "~/.emacs.d/my-files/config/personal-configs/auto-complete.el")
-(load-file "~/.emacs.d/my-files/config/personal-configs/org-settings.el")
-(load-file "~/.emacs.d/my-files/config/personal-configs/buttonize-buffer.el")
-(load-file "~/.emacs.d/my-files/config/personal-configs/other-settings.el")
-(load-file "~/.emacs.d/my-files/config/personal-configs/appearance.el")
-(load-file "~/.emacs.d/my-files/config/personal-configs/auto-spell.el")
-(load-file "~/.emacs.d/my-files/config/personal-configs/tabbar-tweaks.el")
-(load-file "~/.emacs.d/my-files/config/personal-configs/major-mode-settings.el")
-(load-file "~/.emacs.d/my-files/config/personal-configs/advanced-search.el")
-(load-file "~/.emacs.d/my-files/config/personal-configs/cbn-mode-line.el")
-(load-file "~/.emacs.d/my-files/config/personal-configs/cbn-mode-line2.el")
 
-(load-file "~/.emacs.d/my-files/config/personal-configs/xah-fly-keys-functions.el")
-(load-file "~/.emacs.d/my-files/config/personal-configs/added-april.el")
+(message "loading all")
+(require 'cbn-functions)
+(require 'cbn-shell)
+(require 'my-python)
+(require 'cbn-navigation)
+(require 'move-copy)
+(require 'cbn-compile)
+(require 'cbn-search-bindings)
+(require 'cbn-dired-settings)
+(require 'cbn-dired-settings2)
+(require 'more-custom-functions)
+(require 'cbn-auto-complete)
+(require 'org-settings)
+(require 'cbn-dired-show)
+(require 'buttonize-buffer)
+(require 'other-settings)
+(require 'cbn-appearance)
+(require 'cbn-auto-spell)
+(require 'tabbar-tweaks)
+(require 'major-mode-settings)
+(require 'advanced-search)
+(require 'cbn-mode-line)
+(require 'cbn-mode-line2)
+
+(require 'cbn-xah-fly-keys-functions)
+(require 'added-april)
 ; (load-file "~/.emacs.d/my-files/config/personal-configs/cbn-xah-fly-keys.el")
-(load-file "~/.emacs.d/my-files/config/personal-configs/hydra.el")
+(require 'cbn-hydra)
 (cibin-load-essential-custom-bindings)
 (message "loaded all")
   )
@@ -34,8 +65,8 @@
  (defun cibin-load-essential-custom-bindings ()
 (interactive)
   (message "loading all")
-(load-file "~/.emacs.d/my-files/config/personal-configs/buffer-management.el")
-(load-file "~/.emacs.d/my-files/config/personal-configs/starter-kit-bindings.el")
+(require 'buffer-management)
+(require 'starter-kit-bindings)
   
  )
 

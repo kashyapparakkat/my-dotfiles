@@ -13,4 +13,4 @@
 (add-to-list 'auto-mode-alist '("\\.bashrc$" . shell-mode))
 (add-to-list 'auto-mode-alist '("\\.bash_profile$" . shell-mode))
 
-
+(provide 'major-mode-settings)

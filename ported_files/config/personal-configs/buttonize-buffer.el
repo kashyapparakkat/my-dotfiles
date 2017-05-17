@@ -98,3 +98,4 @@ SECS defaults to 60 seconds idle time."
   (run-with-idle-timer (or secs 60) t 'buttonize-buffer))
 
 ; (add-hook 'after-init-hook 'buttonize-current-buffer-on-idle)
+(provide 'buttonize-buffer)

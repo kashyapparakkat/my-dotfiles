@@ -294,3 +294,4 @@ nil
 (set-face-attribute 'mode-line-selection-face nil
     :inherit 'mode-line-position-face
     :foreground "black" :background "#ffb780")
+(provide 'cbn-mode-line)
