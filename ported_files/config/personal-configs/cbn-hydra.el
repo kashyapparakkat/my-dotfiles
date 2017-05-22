@@ -5,12 +5,12 @@
 (defhydra cibin/hydra-ibuffer-main (:color pink :hint nil)
 ; https://github.com/abo-abo/hydra/wiki/Ibuffer
   "
- ^Navigation^ | ^Mark^        | ^Actions^        | ^View^
--^----------^-+-^----^--------+-^-------^--------+-^----^-------
-  _k_:    ʌ   | _m_: mark     | _D_: delete      | _g_: refresh
- _RET_: visit | _u_: unmark   | _S_: save        | _s_: sort
-  _j_:    v   | _*_: specific | _a_: all actions | _/_: filter
-              | _*_: specific | _=_: diff        | _/_: filter
+ ^Navigation^     | ^Mark^          | ^Actions^           | ^View^         | ^misc^
+-^----------^-----+-^----^----------+-^-------^-----------+-^----^---------+--^----^-------
+  _k_:    ʌ       | _m_: mark       | _D_: delete         | _g_: refresh   | _q_: 
+ _RET_: visit     | _u_: unmark     | _S_: save           | _s_: sort      | _W_: kill-all-other-buffers-if-not-modified
+  _j_:    v       | _*_: specific   | _a_: all actions    | _/_: filter    | _/_: 
+                | _*_: specific   | _=_: diff           | _/_: filter    | _/_: 
 "
 ;; -^----------^-+-^----^--------+-^-------^--------+-^----^-------
   ("=" ibuffer-forward-line)
@@ -29,6 +29,7 @@
   ("g" ibuffer-update)
   ("s" hydra-ibuffer-sort/body :color blue)
   ("/" hydra-ibuffer-filter/body :color blue)
+  ("W" kill-all-other-buffers-if-not-modified :color blue)
 
   ("o" ibuffer-visit-buffer-other-window "other window" :color blue)
   ; ("q" ibuffer-quit "quit ibuffer" :color blue)
@@ -231,6 +232,7 @@
         "hydra-toggle-mode"
         ("RET" redraw-display "<quit>")
         ("a" cibin-apply-major-mode "cibin-apply-major-mode")
+        ("b" cibin-apply-default-major-mode "apply-major-mode")
         ("c" csv-mode "csv-mode")
         ("h" html-mode "html-mode")
         ("j" jinja2-mode "jinja2-mode")
@@ -289,7 +291,7 @@ _t_ truncate-lines(long line wrap): %(toggle-setting-string truncate-lines)  _l_
 _r_ read-only     : %(toggle-setting-string buffer-read-only)  _n_ line-numbers   : %(toggle-setting-string linum-mode)
 _w_ whitespace    : %(toggle-setting-string whitespace-mode)  _N_ relative lines : %(if (eq linum-format 'linum-relative) '[x] '[_])
 _j_ next-line      _k_ previous-line        _a_ : cibin/faster-mode    _g_:  cibin/normal-mode  _o_ : cibin/essential-mode
-
+_G_: golden ratio
 "
    
    ("B" display-battery-mode nil)
@@ -302,6 +304,7 @@ _j_ next-line      _k_ previous-line        _a_ : cibin/faster-mode    _g_:  cib
    ("e" toggle-debug-on-error nil)
    ("f" auto-fill-mode nil)
    ("g" cibin/normal-mode nil)
+   ("G" spacemacs/toggle-golden-ratio nil)
    ("j" next-line nil)
    ("k" previous-line nil)
    ("l" hl-line-mode nil)
@@ -692,13 +695,14 @@ _r_eset        _j_ clock goto
 (defhydra cibin/search (:color blue 
                                :hint nil)
   "
- ^Beautify^
-^^^^^^^^^^--------------------------------------
+ ^Beautify^                     ^All^                      ^here^                            ^bash^
+^^^^^^^^^^--------------------+-----------------------------------------------------------------------------------------------------------------
  _o_: occur                    _s_: swiper-all            _b_: cibin/helm-do-ag-cwd       _h_: cibin-search-in-files-advgrep-here        _q_: quit
  _d_: helm-do-ag-this-file     _a_: helm-do-ag-buffers    _p_: ag-project-at-point        _c_: cibin-search-in-common-files-bash
- _/_: my-multi-occur-in-matc..                            _w_: ag-files                   _l_: cibin-search-in-text-files-related-bash
-                                                          _y_: cibin/ag-files-cwd
+ _/_: my-multi-occur-in-matc..                          _w_: ag-files                   _l_: cibin-search-in-text-files-related-bash
+                                                      _y_: cibin/ag-files-cwd
  _j_: helm-ag                                              
+
 
 "
 ;; TODO ;; (global-set-key (kbd "M-s r") ') ; recurse
@@ -723,36 +727,44 @@ _r_eset        _j_ clock goto
 ("j" helm-ag);; extension ; If you use helm-ag command, you can specify option like -G\.js$ search_pattern, or if you use helm-do-ag, you can use C-u prefix for specifying extension.
  ("q" nil :color blue))
   (global-set-key (kbd "M-s") 'cibin/search/body)
+  (define-key dired-mode-map  (kbd "M-s") 'cibin/search/body)
 
 
 (defhydra cibin/open (:color blue 
-                             ;; :idle 0.5
+                           ;; :idle 0.5
                              )
-
-;; "
- ;; _n_: find-next-file-in-current-directory
-;; "
+ "
+  _sr_ : pen-similar-files-in-folder-recursively        _d_  : xah-open-in-desktop             _tt_  : dir-structure -Tree       _r_  : ranger-mode
+  _n_  : find-next-file-in-current-directory            _o_  : cibin/xah-open-file-at-cursor   _ta_  : dir-structure all -Tree
+  _b_  : buffer/switch-in-directory                     _e_  : in-external-app
+  _g_  : bjm/ivy-dired-recent-dirs                        
+  _j_  : dired-jump                                     _f_  : ffap
+                                                      _F_  : File-cache-ido-find-file
+  _m_  : buffer/switch-in-directory                     _p_  : cibin-find-related-files	
+ "
            ;; ( "n" buffer/switch-in-directory)
-          ( "sr"  open-similar-files-in-folder-recursively)
+          ( "sr"  open-similar-files-in-folder-recursively :color blue)
+          ( "tt"  dir-structure :color blue)
+          ( "ta"  dir-structure-all :color blue)
 
 
-           ( "n"   find-next-file-in-current-directory)	
-           ( "b"   buffer/switch-in-directory)
+           ( "n"   find-next-file-in-current-directory :color blue)	
+           ( "b"   buffer/switch-in-directory :color blue)
 
            ;; TODO not correct
-           ( "d"   xah-open-in-desktop)
-           ( "g"   bjm/ivy-dired-recent-dirs)
-           ( "j"   dired-jump)
-           ( "F"   File-cache-ido-find-file)
+           ( "d"   xah-open-in-desktop :color blue)
+           ( "g"   bjm/ivy-dired-recent-dirs :color blue)
+           ( "j"   dired-jump :color blue)
+           ( "F"   File-cache-ido-find-file :color blue)
            ;; ( "f"   xah open file fast)
            ;; TODO external app or antother function
-           ( "e"   spacemacs/open-file-or-directory-in-external-app)
-           ( "p"   cibin-find-related-files)
-           ( "m"   buffer/switch-in-directory)	
-           ( "o"   cibin/xah-open-file-at-cursor)
-           ( "f"   ffap)
-           ( "r"   ranger-mode)
-           ( "sh"  open-similar-files-in-folder)
+           ( "e"   spacemacs/open-file-or-directory-in-external-app :color blue)
+           ( "p"   cibin-find-related-files :color blue)
+           ( "m"   buffer/switch-in-directory :color blue)	
+           ( "o"   cibin/xah-open-file-at-cursor :color blue)
+           ( "f"   ffap :color blue)
+           ( "r"   ranger-mode :color blue)
+           ( "sh"  open-similar-files-in-folder :color blue)
            )
 
 (evil-define-key 'normal dired-mode-map "o" nil)

@@ -244,4 +244,11 @@ With prefix arg, find the previous file."
 			  )))
 		(action     . switch-to-buffer)
 		))))
+
+(defun cbn/ibuffer()
+  (interactive)
+
+  (ibuffer)
+  (spacemacs/maximize-horizontally)
+  )
 (provide 'buffer-management)

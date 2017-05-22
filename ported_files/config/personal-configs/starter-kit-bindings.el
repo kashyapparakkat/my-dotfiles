@@ -160,6 +160,7 @@
 ; (global-set-key (kbd "<f6>") 'switch-to-prev-buffer) 
 ; (global-set-key (kbd "<f7>") 'switch-to-next-buffer) 
 
+(define-key dired-mode-map "h" (lambda ()  (interactive) (find-alternate-file "..")))	
 
 (global-set-key (kbd "C-k") (lambda () (interactive) (evil-scroll-up nil)))
 (global-set-key (kbd "C-j") (lambda () (interactive) (evil-scroll-down nil)))
@@ -279,7 +280,7 @@
 (global-set-key (kbd "C-c y") 'bury-buffer)
 (global-set-key (kbd "C-c r") 'revert-buffer)
 (global-set-key (kbd "M-`") 'file-cache-minibuffer-complete)
-(global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key (kbd "C-x C-b") 'cbn/ibuffer)
 
 (require 'expand-region)
 ; use spc-v & then only v
@@ -314,14 +315,14 @@
 ; C-q
 (global-set-key (kbd "<f4>") (lambda () (interactive) (kill-this-buffer)))
 (global-set-key (kbd "M-q") 'kill-buffer-and-if-many-kill-window-too)
-(define-key evil-normal-state-map "q" 'kill-buffer-and-if-many-kill-window-too )
+(define-key evil-normal-state-map "q" 'xah-close-current-buffer)
 
 (global-set-key (kbd "M-Q") (lambda () (interactive) (spacemacs/toggle-maximize-buffer)))
 
 (define-key evil-normal-state-map "Q" 'cibin/toggle-maximize-buffer)
 
 ; is this needed?
-(global-set-key (kbd "C-q") 'xah-close-current-buffer)
+(global-set-key (kbd "C-q") 'kill-buffer-and-if-many-kill-window-too)
 
 (global-set-key (kbd "M-e") 'other-window)
 (define-key evil-normal-state-map "e" 'other-window)
@@ -343,6 +344,7 @@
 (define-key evil-normal-state-map (kbd "C-n") 'evil-next-visual-line)
 (define-key evil-normal-state-map (kbd "C-p") 'evil-previous-visual-line)
 (define-key evil-normal-state-map "a" 'helm-M-x)
+(define-key evil-normal-state-map "a" 'cibin-apply-default-major-mode)
 (define-key evil-normal-state-map "gl" 'end-of-buffer) ;evil-goto-line) ; goto last line
 ; goto last line in insert mode
 (define-key evil-normal-state-map "gk" (lambda (arg)

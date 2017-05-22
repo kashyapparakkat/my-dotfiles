@@ -839,7 +839,7 @@ while !(hConsole := WinExist("ahk_pid" pid))
 	Sleep 10
 	if (n>timeout)
 		break
-	}
+}
 DllCall("AttachConsole", "UInt", pid)
 DetectHiddenWindows %dhw%
 

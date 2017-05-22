@@ -1,8 +1,8 @@
-;; hellow how are you
-;; hellow how are you
-;; hellow how are you
-;; hellow how are you
-;; hellow how are you
+; how hellow are you
+; how hellow are you
+; how hellow are you
+; how hellow are you
+; how hellow are you
 
 ;; TODO
 (defun select-column-till-next-blank-line()
@@ -132,7 +132,10 @@ end up leaving point on a space or newline character."
 ;; (global-nlinum-mode-mode -1)
 (line-number-mode -1)
 (global-linum-mode -1)
- ;; (ignore-errors
+(font-lock-mode -1)
+
+
+;; (ignore-errors
  (with-demoted-errors
 (unload-feature 'ispell t)
 (unload-feature 'org-settings t)
@@ -141,10 +144,37 @@ end up leaving point on a space or newline character."
 (unload-feature 'neotree t)
 (unload-feature 'keyfreq t)
 ;(unload-feature 'tabbar t)
-(unload-feature 'popwin t)
+;; (unload-feature 'popwin t)
 (unload-feature 'corral t)
 (unload-feature 'elpy t)
 (unload-feature 'nlinum t)
+)
+)
+
+(defun write-file-to-temp-file ()
+  (interactive)
+  (setq filepath  "~/.emacs.d/my-files/emacs-temporary/scratch-buffer.txt")
+  (write-region (point-min) (point-max) filepath)
+  )
+
+(defun return-filepath()
+  (interactive)
+(if (equal major-mode 'dired-mode)
+             (expand-file-name default-directory)
+(progn  (if (not (and buffer-file-name (file-exists-p buffer-file-name)))
+    (write-file-to-temp-file)
+  (buffer-file-name)
+  ))
+)
+)
+(defun return-source-path()
+  (interactive)
+(if (equal major-mode 'dired-mode)
+             (expand-file-name default-directory)
+(progn  (if (not (and buffer-file-name (file-exists-p buffer-file-name)))
+    (write-file-to-temp-file)
+ (file-name-directory (buffer-file-name))
+  ))
 )
 )
 (provide 'added-april)

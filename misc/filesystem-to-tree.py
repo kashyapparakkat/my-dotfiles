@@ -7,7 +7,7 @@
 #
 # Prints the tree structure for the path specified on the command line
 # http://stackoverflow.com/questions/9727673/list-directory-tree-structure/9728478#9728478
-
+import os
 from os import listdir, sep
 from os.path import abspath, basename, isdir
 from sys import argv
@@ -17,16 +17,16 @@ def tree(dir, padding, print_files=False, isLast=False, isFirst=False):
         print(padding.decode('utf8')[:-1].encode('utf8') + dir)
     else:
         if isLast:
-            print(padding.decode('utf8')[:-1].encode('utf8') + '└── ' + basename(abspath(dir)))
+            print(padding.decode('utf8')[:-1].encode('utf8') + '└─── ' + basename(abspath(dir)))
         else:
-            print(padding.decode('utf8')[:-1].encode('utf8') + '├── ' + basename(abspath(dir)))
+            print(padding.decode('utf8')[:-1].encode('utf8') + '├─── ' + basename(abspath(dir)))
     files = []
     if print_files:
         files = listdir(dir)
     else:
         files = [x for x in listdir(dir) if isdir(dir + sep + x)]
     if not isFirst:
-        padding = padding + '   '
+        padding = padding + '    '
     files = sorted(files, key=lambda s: s.lower())
     count = 0
     last = len(files) - 1
@@ -44,9 +44,9 @@ def tree(dir, padding, print_files=False, isLast=False, isFirst=False):
                 tree(path, padding + '│', print_files, isLast, False)
         else:
             if isLast:
-                print(padding + '└── ' + file)
+                print(padding + '└─── ' + file)
             else:
-                print(padding + '├── ' + file)
+                print(padding + '├─── ' + file)
 
 def usage():
     return '''Usage: %s [-f] 
@@ -61,20 +61,22 @@ def main():
     elif len(argv) == 2:
         # print just directories
         path = argv[1]
-        if isdir(path):
-            tree(path, '', False, False, True)
-        else:
-            print('ERROR: \'' + path + '\' is not a directory')
+        if not isdir(path):
+            path=os.path.dirname(path)
+        tree(path, '', False, False, True)
+        # else:
+            # print('ERROR: \'' + path + '\' is not a directory')
     elif len(argv) == 3 and argv[1] == '-f':
         # print directories and files
         path = argv[2]
-        if isdir(path):
-            tree(path, '', True, False, True)
-        else:
-            print('ERROR: \'' + path + '\' is not a directory')
+        if not isdir(path):
+            path=os.path.dirname(path)
+        tree(path, '', True, False, True)
+        # else:
+            # print('ERROR: \'' + path + '\' is not a directory')
     else:
         print(usage())
 
 if __name__ == '__main__':
-    # main()
-    tree(r'D:/FILMS/sharing galaxy/','', True, False, True)
+    main()
+    # tree(r'D:/FILMS/sharing galaxy/','', True, False, True)

@@ -150,8 +150,9 @@
   
                                         ; Move to the parent directory
                                         ; open in same buffer
-(define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file) ; was dired-advertised-find-file
-(define-key dired-mode-map "h" (lambda ()  (interactive) (find-alternate-file "..")))	
+;; to reuse the buffer
+;; (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file) ; was dired-advertised-find-filely)
+(define-key dired-mode-map (kbd "RET") 'cibin/dired-find-file-literally)
 
 ; h will keep the old Dired buffers around. To fix this, we need to write a function that will jump up one directory, and close the old Dired buffer.
 
@@ -618,4 +619,47 @@ Parameters:
 
 ;; The preview function is also able to determine if the file selected is a binary file. If set to t, these files will not be previewed.
 (setq ranger-dont-show-binary t)
+
+
+(defun cibin-apply-default-major-mode ()
+(interactive)
+(set-auto-mode)
+(remove-dos-eol)
+)
+
+  (defun remove-dos-eol ()
+  "Do not show ^M in files containing mixed UNIX and DOS line endings.
+;http://stackoverflow.com/questions/730751/hiding-m-in-emacs"
+
+  (interactive)
+  (setq buffer-display-table (make-display-table))
+(aset buffer-display-table ?\^M []))
+
+
+(defun cibin/dired-find-file-literally ()
+(interactive)
+  (set-buffer-modified-p nil)
+  (let ((file  (dired-get-file-for-visit)))
+    (if (file-directory-p file) (find-alternate-file file) 
+	;(op:dired-find-file-literally)
+	(find-file-literally file)
+	)))
+
+
+	(defun dir-structure ()
+  (interactive)
+    (setq cmd-string (format "c:/cbn_gits/misc/filesystem-to-tree.py %s" (return-filepath)))
+(call-process-shell-command cmd-string nil "*Shell Command Output*" t)
+(switch-to-buffer "*Shell Command Output*")
+    )
+
+
+(defun dir-structure-all ()
+  (interactive)
+    (setq cmd-string (format "c:/cbn_gits/misc/filesystem-to-tree.py -f %s" (return-filepath)))
+(call-process-shell-command cmd-string nil "*Shell Command Output*" t)
+(switch-to-buffer "*Shell Command Output*")
+    )
+
+	
 (provide 'cbn-dired-settings)

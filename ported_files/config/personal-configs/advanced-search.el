@@ -16,7 +16,7 @@ If called with a prefix, prompts for flags to pass to ag."
   (interactive (list (read-from-minibuffer "Search string: " (ag/dwim-at-point))
                      (ag/read-file-type)
                      ;; (read-directory-name "Directory: ")
-                     (file-name-directory (buffer-file-name))
+                     (return-source-path)
                      ))
   (apply #'ag/search string directory file-type))
 
@@ -25,7 +25,7 @@ If called with a prefix, prompts for flags to pass to ag."
   (interactive)
 (setq helm-do-ag--extensions '(".e" ".txt"))
 ;; (setq helm-do-ag--extensions '("\\.txt\\'" "\\.mkd\\'"))
-  (let ((rootdir (file-name-directory (buffer-file-name))))
+  (let ((rootdir (return-source-path)))
     (unless rootdir
       (error "Could not find the project root. Create a git, hg, or svn repository there first. "))
     (helm-do-ag rootdir)))
@@ -38,7 +38,7 @@ If called with a prefix, prompts for flags to pass to ag."
       (interactive
        (list (read-from-minibuffer "Search regexp in current dir: "
                                    (ag/dwim-at-point))))
-      (ag/search string (file-name-directory (buffer-file-name)) :regexp t))
+      (ag/search string (return-source-path) :regexp t))
 
  ;; Redefine the ag-regexp function where the default search pattern is
     ;; word at point

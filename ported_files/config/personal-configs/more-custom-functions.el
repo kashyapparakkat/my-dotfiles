@@ -610,4 +610,5 @@ output as a string."
          (kill-buffer output-buffer))))
     output-buffer))
 
+
 (provide 'more-custom-functions)

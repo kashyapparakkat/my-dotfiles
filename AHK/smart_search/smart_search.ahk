@@ -2474,8 +2474,11 @@ calculator:
 
 ; tooltip,waiting %SchStr%
 ; sleep, 1000
-a:=run_python("C:\cbn_gits\AHK\smart_search\python-calc.py","python.exe",SchStr,2000)
-tooltip,%a%
+; a:=run_python("C:\cbn_gits\AHK\smart_search\python-calc.py","python.exe",SchStr,2000)
+args:=SchStr
+a := send_to_python_script_run("C:\cbn_gits\AHK\smart_search\python-calc.py",args)
+
+tooltip,a=%a%
 sleep, 100
 SchStr := a
 guicontrol, 1:,visibleSchStr,%SchStr%
