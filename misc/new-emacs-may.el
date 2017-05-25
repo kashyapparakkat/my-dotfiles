@@ -52,3 +52,25 @@
 (shell-command "python "  (buffer-name) t)
 )
 )
+
+
+
+(defun diff-files-lines ()
+(interactive)
+(setq cmd-string (format "comm -2 -3 <(sort %s) <(sort  %s)" (return-filepath) (buffer-file-name-other)))
+(message "%s" cmd-string)
+(save-excursion
+(shell-command  cmd-string "*diff_shell_output*")
+;; (switch-to-buffer "*diff_shell_output*")
+;; (vdiff-3way-layout-function-default buffer-a buffer-b "*diff_shell_output*")
+(set-window-buffer (split-window-horizontally) "*diff_shell_output*")
+)
+
+(defun vdiff-3way-layout-function-default (buffer-a buffer-b buffer-c)
+  "https://github.com/justbur/emacs-vdiff/blob/4a6f27b83ef0240c56587354277ba685d9834bc9/vdiff.el"
+
+  (delete-other-windows)
+  (switch-to-buffer buffer-a)
+  (set-window-buffer (split-window-vertically) buffer-c)
+  (set-window-buffer (split-window-horizontally) buffer-b))
+)
