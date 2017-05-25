@@ -1,21 +1,21 @@
 # cbn_gits
 
 TODO
-Automated
+##Automated
 
 You can install Emacs Prelude via the command line with either curl or wget. Naturally git is also required.
 
-Via Curl
+###Via Curl
 
 If you're using curl type the following command:
 
 curl -L https://github.com/cibinmathew/cbn_gits/raw/master/utils/installer.sh | sh
-Via Wget
+###Via Wget
 
 If you're using wget type:
 
 wget --no-check-certificate https://github.com/cibinmathew/cbn_gits/raw/master/utils/installer.sh -O - | sh
-Manual
+###Manual
 
 git clone git://github.com/bbatsov/prelude.git path/to/local/repo
 ln -s path/to/local/repo ~/.emacs.d
