@@ -315,7 +315,8 @@
 ; C-q
 (global-set-key (kbd "<f4>") (lambda () (interactive) (kill-this-buffer)))
 (global-set-key (kbd "M-q") 'kill-buffer-and-if-many-kill-window-too)
-(define-key evil-normal-state-map "q" 'xah-close-current-buffer)
+;; (define-key evil-normal-state-map "q" 'xah-close-current-buffer)
+(define-key evil-normal-state-map "q" 'kill-this-buffer-if-not-modified)
 
 (global-set-key (kbd "M-Q") (lambda () (interactive) (spacemacs/toggle-maximize-buffer)))
 

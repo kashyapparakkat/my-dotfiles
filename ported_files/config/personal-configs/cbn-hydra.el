@@ -617,17 +617,19 @@ _r_eset        _j_ clock goto
   "
  ^^^-blanks ---------------  ------whitespace----------------- ------dupes----------------------------   ---actions
  _r_: collapse-blank-lines   _t_: delete-trailing-whitespace    _d_: delete-duplicate-lines(incl blank   _a_: select All 
- _f_: flush-blank-lines      _l_: my-delete-leading-whitespace  _h_: hlt-highlight-line-dups-region      _w_: toggle whitespace indicators   _e_: other window
- _b_: delete-blank-lines     _k_: keep-lines     _k_: leading, blanks,                                   _t_: truncate toggle                _v_: vdiff
-                             _x_: flush-lines                                                            _t_: stats                          _q_: quit
- _i_: indent                                                                                             _n_: json or quickurun hydra to & back
+ _f_: flush-blank-lines      _l_: my-delete-leading-whitespace  _h_: hlt-highlight-line-dups-region      _wa_: toggle whitespace indicators   _e_: other window
+ _b_: delete-blank-lines     _k_: keep-lines     _k_: leading, blanks,                                   _t_: truncate toggle                _v_: diff
+                           _xx_: flush-lines                                                          _t_: stats                          _xa_: diff-files-lines
+ _i_: indent                _ww_: collapse multiple spaces                                                                         _n_: json or quikrun hydra to & back_q_: quit
+
 "
 
   ("r" collapse-blank-lines)
   ("c" nil)
   ("i" nil)
-  ("x" flush-lines)
+  ("xx" flush-lines)
   ("h" hlt-highlight-line-dups-region)
+  ("e" other-window)
   ("j" nil)
   ("n" nil)
   ("k" keep-lines)
@@ -637,10 +639,13 @@ _r_eset        _j_ clock goto
   ("f" flush-blank-lines)
   ("t" delete-trailing-whitespace)
   ("l" my-delete-leading-whitespace)
-  ("w" whitespace-mode)
-  ("v" vdiff-buffers)
-  ("e" other-window)
-  ("q" nil :color blue))
+  ("wa" whitespace-mode)
+  ("v" cibin/diff-hydra/body :color blue)
+  ("xa" diff-files-lines)
+  ;; ("xb" diff-files-lines)
+  ("ww" nil )
+  ("q" nil :color blue)
+  )
 (bind-keys*
   ("C-x f" . cibin/hydra-for-format/body))
 
@@ -777,4 +782,53 @@ _r_eset        _j_ clock goto
 (define-key evil-normal-state-map  "o" 'cibin/open/body)
 (evil-define-key 'normal org-mode-map  "o" 'cibin/open/body)
 
+;TODO
+(defun cibin/vdiff-buffers()
+  (interactive)
+  ; (call-interactively 'vdiff-buffers)
+(vdiff-buffers (find-file-noselect (buffer-file-name)) (find-file-noselect (buffer-file-name-other)))
+ (vdiff-hydra/body)
+  )
+(defun buffer-file-name-other()
+  "return other file name or temporary file name if not visiting a file "
+  (interactive)
+      (other-window -1)
+      (setq aother-buffer (return-filepath))
+(other-window -1)
+(message (format "%s" aother-buffer))
+       )
+
+(defhydra cibin/hydra-all (:color blue
+                           ;; :idle 0.5
+ :foreign-keys run                            )
+ "
+_q_: quit
+_a_ : format
+"
+ ("a" cibin/hydra-for-format/body :color blue)
+ ("q" nil)
+ )
+"
+foreign keys:
+a= all; e
+g hjkl
+
+"
+(defhydra cibin/diff-hydra (:color blue 
+                           ;; :idle 0.5
+                             )
+ "
+ _r_  : A-B  _=_ : common lines
+_v_ : vdiff _b_: vdiff buffers L&R _q_: quit
+
+ "
+ ("v" nil)
+ ("=" nil)
+ ("b" nil)
+  ("r" diff-files-lines)
+ ("q" nil)
+           )
+
+
 (provide 'cbn-hydra)
+
