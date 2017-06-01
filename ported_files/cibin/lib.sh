@@ -23,10 +23,24 @@
 # echo "${@:1:2}"
 # echo "$HOME"
 # $HOME is different for cmd,bash,emacs terminals
-source /home/"$USERNAME"/myalias.sh
-source /home/"$USERNAME"/set_defaults.sh
+#source /home/"$USERNAME"/myalias.sh
+
+# BASH_SOURCE array, and how the first element in this array always points to the current source
+DIR="${BASH_SOURCE%/*}"
+if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
+source "$DIR/myalias.sh"
+source "$DIR/set_defaults.sh"
+
+# script_name=$0
+# echo $script_name
+# script_full_path=$(dirname "$0")
+# echo "$script_full_path/myalias.sh"
+# source "$script_full_path/myalias.sh"
+# source ./set_defaults.sh
 # source $HOME/myalias.sh
 # source $HOME/set_defaults.sh 
+
+
 
 function grephere() {
 
