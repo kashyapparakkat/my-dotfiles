@@ -22,6 +22,8 @@ curl -L https://github.com/cibinmathew/cbn_gits/raw/master/utils/installer.sh | 
 If you're using `wget` type:
 
 ```bash
+wget --no-check-certificate https://github.com/cibinmathew/cbn_gits/raw/master/utils/basic-installer.sh -O - | sh
+# or 
 wget --no-check-certificate https://github.com/cibinmathew/cbn_gits/raw/master/utils/installer.sh -O - | sh
 ```
 

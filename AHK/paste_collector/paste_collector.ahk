@@ -3358,7 +3358,8 @@ add_to_hist:
  If  (MC_Clip1==Clipboard)
 	{		
 		; sleep,30
-		tooltip,Same selection done
+		stringleft,myText,Clipboard,30
+		tooltip,Same selection done`n`n%myText%
 		settimer,removetooltip,400
 		; tooltip,
 	
