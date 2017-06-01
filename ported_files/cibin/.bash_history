@@ -90,3 +90,8 @@ exit
 advgrep rhere ahk include
 ash
 exit
+exit
+bash
+exit
+bash
+exit

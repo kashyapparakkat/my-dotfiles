@@ -7,12 +7,42 @@ wget --no-check-certificate https://github.com/cibinmathew/cbn_gits/raw/master/p
 wget --no-check-certificate https://github.com/cibinmathew/cbn_gits/raw/master/ported_files/cibin/myalias.sh -O ~/myalias.sh
 
 
-## ranger
+## TODO cd to tmp directory
+mkdir ~/tmp-installers
+cd ~/tmp-installers
 
-sudo apt install ranger
+
+## ranger
+# We will also install some other applications that allow ranger to preview various file formats effectively.
+# sudo apt-get update
+
+#if debian
+# sudo apt-get install ranger caca-utils highlight atool w3m poppler-utils mediainfo
+
+
 # or
+
+git clone https://github.com/hut/ranger.git
+cd ranger
+sudo make install
+
 # git clone git://git.savannah.nongnu.org/ranger.git
 # or
 # tar xvf ranger-stable.tar.gz
 # cd ranger-stable
 # cd ranger
+
+
+### FASD
+git clone https://github.com/clvv/fasd.git
+cd fasd
+sudo make install
+
+
+
+
+
+
+
+
+

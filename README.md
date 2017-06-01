@@ -6,8 +6,8 @@ TODO
 
 ### Automated
 
-You can install **Emacs Prelude** via the command line with either `curl` or
-`wget`. Naturally `git` is also required.
+You can install **packages** via the command line with either `curl` or
+`wget`.  `git` is also required.
 
 #### Via Curl
 
@@ -23,12 +23,15 @@ If you're using `wget` type:
 
 ```bash
 wget --no-check-certificate https://github.com/cibinmathew/cbn_gits/raw/master/utils/basic-installer.sh -O - | sh
-# or 
+
+# emacs spacemacs
 wget --no-check-certificate https://github.com/cibinmathew/cbn_gits/raw/master/utils/installer.sh -O - | sh
 ```
 
+
 ### Manual
 
+TODO
 ```bash
 git clone git://github.com/cibinmathew/cbn_gits.git path/to/local/repo
 ln -s path/to/local/repo ~/.emacs.d

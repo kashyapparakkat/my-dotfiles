@@ -48,7 +48,7 @@ bind "set mark-directories on"
 
 source $HOME/misc_lib.sh
 source $HOME/lib.sh
-source $HOME/myalias.sh
+#source $HOME/myalias.sh
 function op() {
 echo "$#"
 echo "$2"

@@ -10,6 +10,8 @@
 # my custom functions
 # add these to initialise.sh also
 
+alias r='ranger'
+
 alias f='pcfind common db'
 alias fa='pcfind all db'
 alias fr='pcfind rhere live' # recurse here
@@ -186,3 +188,38 @@ alias wget='wget -c'
 # alias ec='emacsclient -c'
 # alias vim='emacsclient -t'
 # alias vi='emacsclient -t'
+
+
+
+
+
+
+### FASD
+# To get fasd working in a shell, some initialization code must be run. Put the line below in your shell rc.
+
+eval "$(fasd --init auto)"
+# Note that this method will slightly increase your shell start-up time, since calling binaries has overhead. You can cache fasd init code if you want minimal overhead. Example code for bash (to be put into .bashrc):
+
+fasd_cache="$HOME/.fasd-init-bash"
+if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
+  fasd --init posix-alias bash-hook bash-ccomp bash-ccomp-install >| "$fasd_cache"
+fi
+source "$fasd_cache"
+unset fasd_cache
+
+# Fasd comes with some useful aliases by default:
+
+alias a='fasd -a'        # any
+alias s='fasd -si'       # show / search / select
+alias d='fasd -d'        # directory
+alias f='fasd -f'        # file
+alias sd='fasd -sid'     # interactive directory selection
+alias sf='fasd -sif'     # interactive file selection
+alias z='fasd_cd -d'     # cd, same functionality as j in autojump
+alias zz='fasd_cd -d -i' # cd with interactive selection
+
+alias v='f -e vim' # quick opening files with vim
+
+
+
+
