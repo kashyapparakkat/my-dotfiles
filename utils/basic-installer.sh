@@ -6,6 +6,8 @@ wget --no-check-certificate https://github.com/cibinmathew/cbn_gits/raw/master/p
 wget --no-check-certificate https://github.com/cibinmathew/cbn_gits/raw/master/ported_files/cibin/set_defaults.sh -O ~/set_defaults.sh
 wget --no-check-certificate https://github.com/cibinmathew/cbn_gits/raw/master/ported_files/cibin/myalias.sh -O ~/myalias.sh
 
+# wget --no-check-certificate https://github.com/cibinmathew/cbn_gits/raw/master/ported_files/cibin/rc.conf -O ~/.config/ranger/rc.conf.sh
+
 
 ## TODO cd to tmp directory
 mkdir ~/tmp-installers
@@ -21,7 +23,6 @@ cd ~/tmp-installers
 
 
 # or
-
 git clone https://github.com/hut/ranger.git
 cd ranger
 sudo make install
@@ -32,6 +33,8 @@ sudo make install
 # cd ranger-stable
 # cd ranger
 
+
+cd ~/tmp-installers
 
 ### FASD
 git clone https://github.com/clvv/fasd.git

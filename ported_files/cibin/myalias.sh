@@ -10,7 +10,7 @@
 # my custom functions
 # add these to initialise.sh also
 
-alias r='ranger'
+
 
 alias f='pcfind common db'
 alias fa='pcfind all db'

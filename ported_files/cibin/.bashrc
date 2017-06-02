@@ -146,5 +146,21 @@ if [ $# -eq 0 -o  -n "$1" ]; then
 	#*)  echo "too many arguments"  ;; 
 	#esac
 
-	
-	
+## RANGER	
+# Preventing nested ranger instances
+# You can start a shell in the current directory with S, when you exit the shell you get back to your ranger instance.
+# When you however forget that you already are in a ranger shell and start ranger again you end up with ranger running a shell running ranger.
+# To prevent this you can create the following function in your shell's startup file:
+ranger() {
+    if [ -z "$RANGER_LEVEL" ]; then
+        # /usr/bin/ranger "$@"
+        ranger "$@"
+    else
+        exit
+    fi
+}
+
+alias r='ranger'
+# alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
+# alias ranger='ranger; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
+
