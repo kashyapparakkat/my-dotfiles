@@ -26,6 +26,8 @@ cd ~/tmp-installers
 git clone https://github.com/hut/ranger.git
 cd ranger
 sudo make install
+wget --no-check-certificate https://github.com/cibinmathew/cbn_gits/raw/master/ported_files/cibin/.config/ranger/rc.conf -O ~/.config/ranger/rc.conf
+wget --no-check-certificate https://github.com/cibinmathew/cbn_gits/raw/master/ported_files/cibin/.config/ranger/commands.py -O ~/.config/ranger/commands.py
 
 # git clone git://git.savannah.nongnu.org/ranger.git
 # or
