@@ -44,10 +44,11 @@ cd fasd
 sudo make install
 
 
+# http://seanbowman.me/blog/fzf-fasd-and-bash-aliases/
+cd ~/tmp-installers
 
-
-
-
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+sudo ~/.fzf/install
 
 
 
