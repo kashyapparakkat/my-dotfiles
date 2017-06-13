@@ -56,6 +56,9 @@ echo "$2" | head -"$1" | tail -1
 # echo "$1"
 
 }
+alias mkcd='_(){ mkdir $1; cd $1; }; _'
+
+
 
 # ls after cd
 # I always, no matter what, want to list the current folders contents when I enter it. So after a while when gotten tired of typing ls all the time. I wrote a little function to do the job:

@@ -1,10 +1,10 @@
-# Cygwin Run the relevant setup-*.exe, and select "the_silver_searcher" in the "Utils" category.
+﻿# Cygwin Run the relevant setup-*.exe, and select "the_silver_searcher" in the "Utils" category.
 # Essential installs:
 # and maybe svn and git-svn
-# http://preshing.com/20141108/how-to-install-the-latest-gcc-on-windows/
+# http://preshing.com/20141108/how-to-install-the-latest-gcc-on-windows
 # cygwin cpp packages
 gdb =gcc debugger
-C:\cygwin64>setup-x86_64.exe -q -P wget -P gcc-g++ -P make -P diffutils -P libmpfr-devel -P libgmp-devel -P libmpc-devel -P hg -P git -P patchutils -P patch -P vim -P curl -P ag -P unzip -P cron
+C:\cygwin64>setup-x86_64.exe -q -P wget -P gcc-g++ -P make -P diffutils -P libmpfr-devel -P libgmp-devel -P libmpc-devel -P hg -P git -P patchutils -P patch -P vim -P curl -P ag -P unzip -P cron -P highlight -P w3m -P atool -P bsdtar
 
 
 # keep a copy of find in bin folder
@@ -40,3 +40,16 @@ apt-cyg install curl
 apt-cyg install git
 apt-cyg install git-svn
 apt-cyg install rsync
+
+
+
+## RANGER 
+-P highlight -P w3m
+# img2txt (from caca-utils) for ASCII-art image previews
+# highlight or pygmentize for syntax highlighting of code
+# atool, bsdtar and/or unrar for previews of archives
+# lynx, w3m or elinks for previews of html pages
+# pdftotext for pdf previews
+# transmission-show for viewing bit-torrent information
+# mediainfo or exiftool for viewing information about media files
+# odt2txt for OpenDocument text files (odt, ods, odp and sxw)

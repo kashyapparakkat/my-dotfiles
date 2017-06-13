@@ -25,7 +25,16 @@ cd ~/tmp-installers
 # or
 git clone https://github.com/hut/ranger.git
 cd ranger
-sudo make install
+sudo make install 
+sudo make install 
+
+
+## for windows 
+## works only woith cygwing python
+## make install This translates roughly to: 
+## python setup.py install --optimize=1 --record=install_log.txt # specify python path here
+
+
 wget --no-check-certificate https://github.com/cibinmathew/cbn_gits/raw/master/ported_files/cibin/.config/ranger/rc.conf -O ~/.config/ranger/rc.conf
 wget --no-check-certificate https://github.com/cibinmathew/cbn_gits/raw/master/ported_files/cibin/.config/ranger/commands.py -O ~/.config/ranger/commands.py
 
@@ -51,4 +60,19 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 sudo ~/.fzf/install
 
 
+####################
+##				  ##
+##   FOR WINDOWS  ##
+##				  ##
+####################
+
+# add cygwin utils here
+# fasd, ranger
+
+# cd ~/tmp-installers
+
+### FASD
+# git clone https://github.com/clvv/fasd.git
+# cd fasd
+# sudo make install
 

@@ -9,11 +9,15 @@
 
 
 # hlsearch on (H) or off (h):
-~h
+~H
 # Last Substitute String:
 $
 
 # Command Line History (newest to oldest):
+:wq
+|2,0,1497201605,,"wq"
+:w
+|2,0,1496945213,,"w"
 :q
 |2,0,1487707266,,"q"
 
@@ -28,13 +32,256 @@ $
 # Debug Line History (newest to oldest):
 
 # Registers:
+""-	CHAR	0
+	h
+|3,1,36,0,1,0,1496945208,"h"
 
 # File marks:
-'0  8  0  /tmp/git-difftool.5ANo4/left
-|4,48,8,0,1487707266,"/tmp/git-difftool.5ANo4/left"
+'0  1  4  /cygdrive/c/cbn_gits/AHK/! GOOD SCRIPTS/test15.txt
+|4,48,1,4,1497201605,"/cygdrive/c/cbn_gits/AHK/! GOOD SCRIPTS/test15.txt"
+'1  833  7  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,49,833,7,1497194301,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+'2  1  0  /cygdrive/c/Users/cibin/Downloads/todo - Copy.txt
+|4,50,1,0,1496945192,"/cygdrive/c/Users/cibin/Downloads/todo - Copy.txt"
+'3  1  0  /cygdrive/c/cbn_gits/AHK/smart_search/a.txt
+|4,51,1,0,1496945110,"/cygdrive/c/cbn_gits/AHK/smart_search/a.txt"
+'4  1  0  /cygdrive/c/Users/cibin/Downloads/delete.c
+|4,52,1,0,1496774673,"/cygdrive/c/Users/cibin/Downloads/delete.c"
+'5  25  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,53,25,0,1496774158,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+'6  8  0  /tmp/git-difftool.5ANo4/left
+|4,54,8,0,1487707266,"/tmp/git-difftool.5ANo4/left"
 
 # Jumplist (newest first):
--'  8  0  /tmp/git-difftool.5ANo4/left
-|4,39,8,0,1487707266,"/tmp/git-difftool.5ANo4/left"
+-'  1  4  /cygdrive/c/cbn_gits/AHK/! GOOD SCRIPTS/test15.txt
+|4,39,1,4,1497201605,"/cygdrive/c/cbn_gits/AHK/! GOOD SCRIPTS/test15.txt"
+-'  833  7  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,833,7,1497194301,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  833  7  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,833,7,1497194301,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  376  59  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,376,59,1496948318,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  376  59  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,376,59,1496948318,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  379  15  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,379,15,1496948304,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  379  15  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,379,15,1496948304,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,1,0,1496945198,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,1,0,1496945198,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/todo - Copy.txt
+|4,39,1,0,1496945192,"/cygdrive/c/Users/cibin/Downloads/todo - Copy.txt"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/todo - Copy.txt
+|4,39,1,0,1496945192,"/cygdrive/c/Users/cibin/Downloads/todo - Copy.txt"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/todo - Copy.txt
+|4,39,1,0,1496945192,"/cygdrive/c/Users/cibin/Downloads/todo - Copy.txt"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/todo - Copy.txt
+|4,39,1,0,1496945192,"/cygdrive/c/Users/cibin/Downloads/todo - Copy.txt"
+-'  1  0  /cygdrive/c/cbn_gits/AHK/smart_search/a.txt
+|4,39,1,0,1496945110,"/cygdrive/c/cbn_gits/AHK/smart_search/a.txt"
+-'  1  0  /cygdrive/c/cbn_gits/AHK/smart_search/a.txt
+|4,39,1,0,1496945110,"/cygdrive/c/cbn_gits/AHK/smart_search/a.txt"
+-'  1  0  /cygdrive/c/cbn_gits/AHK/smart_search/a.txt
+|4,39,1,0,1496945110,"/cygdrive/c/cbn_gits/AHK/smart_search/a.txt"
+-'  1  0  /cygdrive/c/cbn_gits/AHK/smart_search/a.txt
+|4,39,1,0,1496945110,"/cygdrive/c/cbn_gits/AHK/smart_search/a.txt"
+-'  1  0  /cygdrive/c/cbn_gits/AHK/smart_search/a.txt
+|4,39,1,0,1496945110,"/cygdrive/c/cbn_gits/AHK/smart_search/a.txt"
+-'  1  0  /cygdrive/c/cbn_gits/AHK/smart_search/a.txt
+|4,39,1,0,1496945110,"/cygdrive/c/cbn_gits/AHK/smart_search/a.txt"
+-'  1  0  /cygdrive/c/cbn_gits/AHK/smart_search/a.txt
+|4,39,1,0,1496945110,"/cygdrive/c/cbn_gits/AHK/smart_search/a.txt"
+-'  1  0  /cygdrive/c/cbn_gits/AHK/smart_search/a.txt
+|4,39,1,0,1496945110,"/cygdrive/c/cbn_gits/AHK/smart_search/a.txt"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/delete.c
+|4,39,1,0,1496774673,"/cygdrive/c/Users/cibin/Downloads/delete.c"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/delete.c
+|4,39,1,0,1496774673,"/cygdrive/c/Users/cibin/Downloads/delete.c"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/delete.c
+|4,39,1,0,1496774673,"/cygdrive/c/Users/cibin/Downloads/delete.c"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/delete.c
+|4,39,1,0,1496774673,"/cygdrive/c/Users/cibin/Downloads/delete.c"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/delete.c
+|4,39,1,0,1496774673,"/cygdrive/c/Users/cibin/Downloads/delete.c"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/delete.c
+|4,39,1,0,1496774673,"/cygdrive/c/Users/cibin/Downloads/delete.c"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/delete.c
+|4,39,1,0,1496774673,"/cygdrive/c/Users/cibin/Downloads/delete.c"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/delete.c
+|4,39,1,0,1496774673,"/cygdrive/c/Users/cibin/Downloads/delete.c"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/delete.c
+|4,39,1,0,1496774673,"/cygdrive/c/Users/cibin/Downloads/delete.c"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/delete.c
+|4,39,1,0,1496774673,"/cygdrive/c/Users/cibin/Downloads/delete.c"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/delete.c
+|4,39,1,0,1496774673,"/cygdrive/c/Users/cibin/Downloads/delete.c"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/delete.c
+|4,39,1,0,1496774673,"/cygdrive/c/Users/cibin/Downloads/delete.c"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/delete.c
+|4,39,1,0,1496774673,"/cygdrive/c/Users/cibin/Downloads/delete.c"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/delete.c
+|4,39,1,0,1496774673,"/cygdrive/c/Users/cibin/Downloads/delete.c"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/delete.c
+|4,39,1,0,1496774673,"/cygdrive/c/Users/cibin/Downloads/delete.c"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/delete.c
+|4,39,1,0,1496774673,"/cygdrive/c/Users/cibin/Downloads/delete.c"
+-'  25  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,25,0,1496774158,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  25  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,25,0,1496774158,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  25  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,25,0,1496774158,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  25  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,25,0,1496774158,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  25  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,25,0,1496774158,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  25  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,25,0,1496774158,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  25  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,25,0,1496774158,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  25  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,25,0,1496774158,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  25  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,25,0,1496774158,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  25  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,25,0,1496774158,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  25  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,25,0,1496774158,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  25  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,25,0,1496774158,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  25  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,25,0,1496774158,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  25  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,25,0,1496774158,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  25  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,25,0,1496774158,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  25  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,25,0,1496774158,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  25  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,25,0,1496774158,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  25  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,25,0,1496774158,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  25  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,25,0,1496774158,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  25  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,25,0,1496774158,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  25  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,25,0,1496774158,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  25  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,25,0,1496774158,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  25  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,25,0,1496774158,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  25  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,25,0,1496774158,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  25  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,25,0,1496774158,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  25  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,25,0,1496774158,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  25  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,25,0,1496774158,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  25  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,25,0,1496774158,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  25  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,25,0,1496774158,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  25  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,25,0,1496774158,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  25  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,25,0,1496774158,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  25  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,25,0,1496774158,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  1  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,1,0,1496774156,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  1  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,1,0,1496774156,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  1  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,1,0,1496774156,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  1  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,1,0,1496774156,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  1  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,1,0,1496774156,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  1  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,1,0,1496774156,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  1  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,1,0,1496774156,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  1  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,1,0,1496774156,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  1  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,1,0,1496774156,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  1  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,1,0,1496774156,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  1  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,1,0,1496774156,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  1  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,1,0,1496774156,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  1  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,1,0,1496774156,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  1  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,1,0,1496774156,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  1  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,1,0,1496774156,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  1  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,1,0,1496774156,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  1  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,1,0,1496774156,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  1  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,1,0,1496774156,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  1  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,1,0,1496774156,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  1  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,1,0,1496774156,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  1  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,1,0,1496774156,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  1  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,1,0,1496774156,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  1  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,1,0,1496774156,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  1  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,1,0,1496774156,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  1  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,1,0,1496774156,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  1  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,1,0,1496774156,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  1  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,1,0,1496774156,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  1  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,1,0,1496774156,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  1  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,1,0,1496774156,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  1  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,1,0,1496774156,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
+-'  1  0  /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+|4,39,1,0,1496774156,"/cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt"
 
 # History of marks within files (newest to oldest):
+
+> /cygdrive/c/cbn_gits/AHK/! GOOD SCRIPTS/test15.txt
+	*	1497201603	0
+	"	1	4
+	^	1	5
+	.	1	4
+	+	1	4
+
+> /cygdrive/c/Users/cibin/Downloads/todo.org
+	*	1497072065	0
+	"	833	7
+	^	3	1
+	.	3	0
+	+	3	0
+
+> /cygdrive/c/Users/cibin/Downloads/todo - Copy.txt
+	*	1496945191	0
+	"	1	0
+
+> /cygdrive/c/cbn_gits/AHK/smart_search/a.txt
+	*	1496945109	0
+	"	1	0
+
+> /cygdrive/c/Users/cibin/Downloads/delete.c
+	*	1496774671	0
+	"	1	0
+
+> /cygdrive/d/FILMS/12 angry men/12 Angry Men[1957]DvDrip[Eng]-Stealthmaster.srt
+	*	1496774157	0
+	"	25	0

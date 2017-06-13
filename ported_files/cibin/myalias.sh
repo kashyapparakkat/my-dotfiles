@@ -196,16 +196,17 @@ alias wget='wget -c'
 
 ### FASD
 # To get fasd working in a shell, some initialization code must be run. Put the line below in your shell rc.
-
-eval "$(fasd --init auto)"
+# echo "fasd begin"
+# eval "$(fasd --init auto)"
 # Note that this method will slightly increase your shell start-up time, since calling binaries has overhead. You can cache fasd init code if you want minimal overhead. Example code for bash (to be put into .bashrc):
 
-fasd_cache="$HOME/.fasd-init-bash"
-if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
-  fasd --init posix-alias bash-hook bash-ccomp bash-ccomp-install >| "$fasd_cache"
-fi
-source "$fasd_cache"
-unset fasd_cache
+# fasd_cache="$HOME/.fasd-init-bash"
+# if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
+  # fasd --init posix-alias bash-hook bash-ccomp bash-ccomp-install >| "$fasd_cache"
+# fi
+# source "$fasd_cache"
+# unset fasd_cache
+# echo "fasd ended"
 
 # Fasd comes with some useful aliases by default:
 

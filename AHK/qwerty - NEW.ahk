@@ -45,8 +45,8 @@ return
 space & 0::
 space & 1::
 space & 2::
-space & 3::
-space & 4::
+; space & 3::
+; space & 4::
 space & 5::
 space & 6::
 space & 7::
@@ -382,6 +382,7 @@ Space & 6::
 	send,{Rbutton}
 return
 
+
 Space & 3::	; na
 	MouseMove, 0, -9, 0, R
 return
@@ -398,6 +399,8 @@ Space & 7::	; na
 	MouseMove, 9, 0, 0, R
 return
 */
+
+
 
 
 Ralt & 3::
@@ -787,15 +790,64 @@ Runwait, %comspec% /c ""C:/Users/cibin/Downloads/7z1604-extra/7za.exe" e "%sel_m
 return
 
 #IfWinActive
+
 ; http://www.howtogeek.com/howto/8955/make-backspace-in-windows-7-or-vista-explorer-go-up-like-xp-did/
 #IfWinActive, ahk_class CabinetWClass
 Backspace::
-ControlGet renamestatus,Visible,,Edit1,A
-ControlGetFocus focussed, A
-if(renamestatus!=1 && (focussed=”DirectUIHWND3″||focussed=SysTreeView321))
-{
-SendInput {Alt Down}{Up}{Alt Up}
-}else{
-Send {Backspace}
-}
+	ControlGet renamestatus,Visible,,Edit1,A
+	ControlGetFocus focussed, A
+	if(renamestatus!=1 && (focussed=”DirectUIHWND3″||focussed=SysTreeView321))
+	{
+	SendInput {Alt Down}{Up}{Alt Up}
+	}else{
+	Send {Backspace}
+	}
+return
 #IfWinActive
+
+Space & 3::	; na
+	sourcepath:=get_current_sourcepath_from_active_window()
+	msgbox,%sourcepath%
+	run, C:\cygwin64\bin\python3.6m.exe C:\cygwin64\bin\ranger,%sourcepath%,max
+	;run, C:\cygwin64\bin\bash.exe C:\cygwin64\bin\python3.6m.exe C:\cygwin64\bin\ranger C:\,,max
+return
+
+
+Space & 4::	; na
+	filepath:=get_current_filepath_from_active_window()
+	run, C:\cygwin64\bin\vim.exe "%filepath%",,max
+return
+
+;r = ranger in cmd;bash; rr in vi; emacs
+;oe = in vi opens in spacemacs ; in emacs opens in separate lightweight vi theread
+/*
+use sp & 2 instead of #2. lly #3 #1
+  
+selected : `space/ sp &7, `1 `2
+hk:: use clipb instead of selected
+
+active window: #2 vi em 
+explorerss: ranger,dired
+
+
+
+goto everything from everything
+shell
+vi 
+ranger
+emacs
+explorer
+active window
+
+%f hover file
+
+mv %f/* . ; flatten
+rm -rf %d use with caution
+
+&& rmdir foo/
+mv * ../
+ 
+ 
+ 
+ 
+*/

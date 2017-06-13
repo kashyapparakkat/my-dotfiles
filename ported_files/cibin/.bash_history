@@ -95,3 +95,34 @@ bash
 exit
 bash
 exit
+ls
+ls
+exit
+eval "$(fasd --init auto)"
+fasd
+fassd
+fassd
+fasd
+exit
+pwd
+touch test.txt
+exit
+touch test1.txt
+touch test2.txt
+exit
+touch test1.txt
+touch test2.txt
+touch test15.txt
+exit
+touch del dell dell
+exit
+exit
+exit
+exit
+mkdir delete
+cd delete/
+touch a b
+ls
+exit
+touch c d
+exit

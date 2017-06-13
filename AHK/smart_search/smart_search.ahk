@@ -242,6 +242,19 @@ if (A_PriorHotKey = "~*Lshift" AND A_TimeSincePriorHotkey < 300)
 
 		
 	}
+	else if (state_c =="D"  and state_a!="D")
+	{
+		trigger_HK=clipb_text
+		SelectedLine=calculator
+		update_combo_box_filter(keywordChoice,keywordChoice_all,SelectedLine)
+		action_term =
+		guicontrol,1:,action_term_selected,%action_term%
+		SetTimer,search,-1
+		
+		; SetTimer, tIncrementalSearch, 500
+
+		
+	}
 	else if(state_a=="D")	
 	{
 		; trigger_HK=clipb_text
@@ -383,24 +396,28 @@ update_combo_box_filter(keywordChoice,keywordChoice_all,SelectedLine="")
 		}
 		
 show_gui_if_not_shown() {
+global
 	if (!gui_ON)
 	{
+	
 		Gui 1:+LastFound
 		; msgbox,preselection
 		settimer,showGui_animate,-1	
 		; sleep,1255
 		; sleep,3255
-		; tooltip,SendMessage
+		tooltip,SendMessage
 		; sleep,3255
 		GuiControl, 1:focus, visibleSchStr
 		SendMessage,( EM_SETSEL := 0xB1 ), 0, -1, , ahk_id %ED1%	;preselects the text
+		
 		; SendMessage,( EM_SETSEL := 0xB1 ), 1, 5, , ahk_id %ED1%	;preselects the text
 
 		; tooltip,b
 		; sleep,1255
 		WinSet, Region, 0-23  w%search_box_width% H35 ;H75
 	}
-	gui_ON:=1		
+	gui_ON:=1	
+return	
 	}
 tIncrementalSearch:
 ; return
@@ -629,6 +646,7 @@ search:
 				
 ;				result := send_to_python_script("C:\cbn_gits\AHK\smart_search\smart_search_api.py",args)
 				result := send_to_python_script_run("C:\cbn_gits\AHK\smart_search\smart_search_api.py",args)
+				
 				;tooltip,sent recieved,130,,3
 				if (text_changed)
 					goto, ENDSEARCH
@@ -2472,16 +2490,26 @@ cancelHotkeySTEP88:	;	cancel without action
 calculator:
 
 
-; tooltip,waiting %SchStr%
-; sleep, 1000
+tooltip,waiting %SchStr%
+;sleep, 1000
 ; a:=run_python("C:\cbn_gits\AHK\smart_search\python-calc.py","python.exe",SchStr,2000)
 args:=SchStr
+tooltip,started...,,244,4
 a := send_to_python_script_run("C:\cbn_gits\AHK\smart_search\python-calc.py",args)
+tooltip,ended....,,444,4
 
+;sleep, 200
 tooltip,a=%a%
-sleep, 100
-SchStr := a
+;sleep, 100
+gui, 1:Submit, NoHide
+; update only if not changed
+if (visibleSchStr==args)
+	SchStr := a
+else
+	return
 guicontrol, 1:,visibleSchStr,%SchStr%
+SendMessage, 0xB1,-2, -1,, ahk_id %ED1% ; EM_SETSEL
+
 	calculator_mode:=0
 	; calculator	
 
@@ -2823,7 +2851,7 @@ send_to_python_script_run(script_pathname,args)
 	Random, output_filename, 1000000, 100000000
 	output_filename = python_output_%output_filename%.txt
 	filedelete,%output_filename%
-	Run, %script_pathname% %output_filename% %args%,, Hide,OutputVarPID	
+	Run, pythonw %script_pathname% %output_filename% %args%,, Hide,OutputVarPID	
 	exist := 1
 	n:=0
 	while (exist && !text_changed)
@@ -2833,7 +2861,7 @@ send_to_python_script_run(script_pathname,args)
 		Process, Exist , %OutputVarPID%
 		exist := ErrorLevel
 	}
-	;tooltip,%n% sent waiting finishedddddddd %exist% && %text_changed%,,120,2
+	tooltip,%n% sent waiting finishedddddddd %exist% && %text_changed%`n%output_filename%,,120,2
 	if (text_changed)
 		return
 	;tooltip,sent recievd run,,140,3
