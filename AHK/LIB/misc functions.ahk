@@ -428,7 +428,7 @@ get_current_sourcepath_from_active_window()
 	sourcepath :=get_current_filepath_from_active_window()
 	if sourcepath =
 		sourcepath :=get_parent_filepath()
-	msgbox,%sourcepath%
+	;msgbox,%sourcepath%
 	stringreplace,sourcepath,sourcepath,/,\,All
 	If( InStr( FileExist(sourcepath), "D") )
 		return sourcepath

@@ -157,6 +157,19 @@ HK_cycle_register(">^g","google_search_HK",4,4000,"RCtrl", "$^q",config)
 
 config =
 (
+ranger,explorer,Dired
+,,,,
+,,,,
+,,,,
+,,,,
+,"menuEvent_function(""OpenIfFolder_SelectIfFile"",""C:\users\%a_username%\desktop"")","run_emacs_dired(""C:\users\%a_username%\Downloads"")","menuEvent_function(""OpenIfFolder_SelectIfFile"",""C:\users\%a_username%\Downloads"")","menuEvent_function(""OpenIfFolder_SelectIfFile"",""C:\users\%a_username%"")"
+open_mycomputer,nil,nil,nil,nil
+,,,
+)
+HK_cycle_register("<#t","open_fav_folders4_HK",3,4000,"Lwin", "$#q",config)
+
+config =
+(
 My computer,desktop,Downloads in Dired,Downloads,Home directory
 ,,,,
 ,,,,

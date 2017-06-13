@@ -807,7 +807,7 @@ return
 
 Space & 3::	; na
 	sourcepath:=get_current_sourcepath_from_active_window()
-	msgbox,%sourcepath%
+	;msgbox,%sourcepath%
 	run, C:\cygwin64\bin\python3.6m.exe C:\cygwin64\bin\ranger,%sourcepath%,max
 	;run, C:\cygwin64\bin\bash.exe C:\cygwin64\bin\python3.6m.exe C:\cygwin64\bin\ranger C:\,,max
 return
