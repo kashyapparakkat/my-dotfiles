@@ -126,3 +126,38 @@ ls
 exit
 touch c d
 exit
+exit
+exit
+exit
+exit
+ex
+r
+ex
+ex
+ex
+ex
+ex
+ex
+ex
+most
+ex
+ls
+
+bind -x '"|C-q":"exit\n"'
+bind -x '"|C-l":"exit\n"'
+bind -x '"|C-q":"exit\n"'
+bind -x '"|C-q":exit"'
+ls -la | vim -
+set -o vi
+ls
+ls -l 
+set -o emacs
+ 
+set -o emacs
+ex
+touch delete1.txt delete2.txt
+vi delete1.txt 
+cat delete1.txt 
+ex
+swap_filenames 
+ex

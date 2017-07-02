@@ -2490,17 +2490,20 @@ cancelHotkeySTEP88:	;	cancel without action
 calculator:
 
 
-tooltip,waiting %SchStr%
-;sleep, 1000
-; a:=run_python("C:\cbn_gits\AHK\smart_search\python-calc.py","python.exe",SchStr,2000)
-args:=SchStr
-tooltip,started...,,244,4
-a := send_to_python_script_run("C:\cbn_gits\AHK\smart_search\python-calc.py",args)
-tooltip,ended....,,444,4
+if (keywordchoice="calculator")
+{
+	tooltip,waiting %SchStr%
+	;sleep, 1000
+	; a:=run_python("C:\cbn_gits\AHK\smart_search\python-calc.py","python.exe",SchStr,2000)
+	args:=SchStr
+	tooltip,started...,,244,4
+	a := send_to_python_script_run("C:\cbn_gits\AHK\smart_search\python-calc.py",args)
+	tooltip,ended....,,444,4
 
-;sleep, 200
-tooltip,a=%a%
-;sleep, 100
+	;sleep, 200
+	tooltip,a=%a%
+	;sleep, 100
+}
 gui, 1:Submit, NoHide
 ; update only if not changed
 if (visibleSchStr==args)

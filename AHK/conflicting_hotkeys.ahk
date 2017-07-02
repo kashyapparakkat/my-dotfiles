@@ -1,3 +1,7 @@
+; multiple example for capslock use cases http://vim.wikia.com/wiki/Map_caps_lock_to_escape_in_Windows
+
+
+
 menu, Tray, Icon, Shell32.dll, 90
 #SingleInstance Force
 #InstallKeybdHook
@@ -25,7 +29,9 @@ return
 ; CapsLock::	; na
 	;GetKeyState, state, CapsLock, P
 	;if (state="D")
-CapsLock up::	; na
+Capslock::Esc
+
+;CapsLock up::	; na
 	state := GetKeyState("Space" , "P")
 
 	if !state

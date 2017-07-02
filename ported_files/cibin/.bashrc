@@ -33,6 +33,13 @@ bind "set mark-directories on"
 # bind "set show-all-if-unmodified on"
 # bind "set show-mode-in-prompt on"
 
+bind -x '"|C-q":"exit\n"'
+bind -x '"|C-l": clear:echo "cleared"'
+# for f12
+bind '"\e[24~":"pwd\n"'
+# binds Alt 0
+bind -x '"\e0":ranger'
+
 
 
 # C-u=kill till beginning

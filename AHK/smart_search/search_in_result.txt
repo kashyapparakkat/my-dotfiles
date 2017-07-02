@@ -1,4 +1,0 @@
-"include emails,my phone nos,","80","! python task.txt","C:/Users/cibin/Downloads/text\! python task.txt"
-"if result cannot be included inside the listview on changing focus in listview item show tooltip also","126","miscNotes.txt","C:/Users/cibin/Downloads/text\miscNotes.txt"
-"include python scripting also","157","miscNotes.txt","C:/Users/cibin/Downloads/text\miscNotes.txt"
-"It includes drawing the components and aligning them as stacks and ha pairs etc.","30","mtech project mail guide.txt","C:/Users/cibin/Downloads/text\mtech project mail guide.txt"

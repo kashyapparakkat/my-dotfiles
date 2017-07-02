@@ -11,9 +11,13 @@
 # add these to initialise.sh also
 
 
-
+alias ex='exit'
+alias ff='pcfind common_fuzzy fuzzy_db'
 alias f='pcfind common db'
 alias fa='pcfind all db'
+alias ffa='pcfind all_fuzzy fuzzy_db'
+alias faf='pcfind all_fuzzy fuzzy_db'
+
 alias fr='pcfind rhere live' # recurse here
 alias frr='pcfind rrhere live' # recurse here
 alias fh='pcfind h live' # recurse here only 2 levels
@@ -26,7 +30,7 @@ alias gn='advgrep notes'
 alias gnc='advgrep notes common'
 alias gat='advgrep all txt'
 
-
+## LINUX AND WINDOWS COMMON ALIASES
 
 ## Colorize the grep command output for ease of use (good for log files)##
 alias grep='grep --color=auto'
@@ -38,12 +42,16 @@ alias cd..='cd ..'
  
 ## a quick way to get out of current directory ##
 
-alias cdd='cd /cygdrive/c/Users/cibin/Downloads'
+alias cd~='cd ~'
+alias cdmisc='cd /cygdrive/c/cbn_gits/misc'
+alias cdahk='cd /cygdrive/c/cbn_gits/AHK'
+alias cdd='cd /cygdrive/c/Users/$USERNAME/Downloads'
+
 # alias cdd='cd ~/Downloads'
 
 alias cd.='cd ..' 
-alias cd..='cd ..' 
-alias cd...='cd ../..' 
+alias cd..='cd ../..' 
+alias cd...='cd ../../..' 
 
 alias ..='cd ..' 
 alias ...='cd ../../../' 
@@ -51,6 +59,9 @@ alias ....='cd ../../../../'
 alias .....='cd ../../../../' 
 alias .4='cd ../../../../' 
 alias .5='cd ../../../../..'
+
+
+
 
 # Show me the size (sorted) of only the folders in this directory
 alias folders="lfind . -maxdepth 1 -type d -print | xargs du -sk | sort -rn"
@@ -65,6 +76,10 @@ PATH="$HOME/bin:$PATH"
 # cd into the old directory
 alias bd='cd "$OLDPWD"'
 
+alias emacsmode='set -o emacs'
+alias vimode='set -o vi'
+
+alias ins='sudo apt-get install'
 #I use this about 20 times a day to cd into the last changed directory:
 
 cl()

@@ -45,11 +45,12 @@ apt-cyg install rsync
 
 ## RANGER 
 -P highlight -P w3m
+poppler
 # img2txt (from caca-utils) for ASCII-art image previews
 # highlight or pygmentize for syntax highlighting of code
 # atool, bsdtar and/or unrar for previews of archives
 # lynx, w3m or elinks for previews of html pages
-# pdftotext for pdf previews
+# poppler or pdftotext for pdf previews
 # transmission-show for viewing bit-torrent information
 # mediainfo or exiftool for viewing information about media files
 # odt2txt for OpenDocument text files (odt, ods, odp and sxw)

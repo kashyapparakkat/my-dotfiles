@@ -13,7 +13,7 @@
 # dir=$(dirname "$BASH_SOURCE[0]$$*/}")
 
 # A=( foo bar "a  b c" 42 )
-# B=("${A[@]:1:2}") # :1:2 takes a slice of length 2, starting at index 1. 
+# B=("${A[@]:1:2}") # :1:2 takes a slice of length 2, starting at index 1.
 # C=("${A[@]:1}")   # slice to the end of the array
 # echo "${B[@]}"    # bar a  b c
 # echo "${B[1]}"    # a b c
@@ -38,7 +38,7 @@ source "$DIR/set_defaults.sh"
 # source "$script_full_path/myalias.sh"
 # source ./set_defaults.sh
 # source $HOME/myalias.sh
-# source $HOME/set_defaults.sh 
+# source $HOME/set_defaults.sh
 
 
 
@@ -93,7 +93,7 @@ function extract {
         NAME=${1%.*}
         mkdir $NAME && cd $NAME
         echo "name is $NAME"
-        
+
         case $1 in
           *.tar.bz2)   tar xvjf ../$1    ;;
           *.tar.gz)    tar xvzf ../$1    ;;
@@ -172,6 +172,7 @@ function make_wildcard_search_term() {
 }
 
 function pcfind() {
+echo "$*"
 	if [ -z "$3" ]; then
 		echo "Usage: cibin find $1"
 	else
@@ -182,6 +183,8 @@ function pcfind() {
 		case "$1" in
 			"all"			) files="$Universal_home/Downloads/all_files_unfiltered.db";;
 			"common"		) files="$Universal_home/Downloads/all_files.db";;
+			"all_fuzzy"		) files="$Universal_home/Downloads/all_files_unfiltered-fuzzy.db";;
+			"common_fuzzy"	) files="$Universal_home/Downloads/all_files-fuzzy.db";;
 			"h"|"here"		) files=("$(pwd)");maxdepth=1;;
 			"hh"			) files=("$(pwd)");maxdepth=2;;
 			"hhh"			) files=("$(pwd)");maxdepth=3;;
@@ -190,18 +193,26 @@ function pcfind() {
 			"rrhere" 	) files=("$(dirname "$(pwd)")"/*);;
 		esac
 		echo "$files"
-		
+
 		case "$2" in
+			"fuzzy_db"		)
+					#extract line number; then print those lines from original file
+					grep -rPIni "$search_term" --color=auto "$files" | cut -f1 -d:|print_nth_line |  remove_cygdrive;;
 			"db"		)
 					# echo "adfadsf"
 					grep -rPIi "$search_term" --color=auto "$files" |  remove_cygdrive;;
-			"live"		) 
+			"live"		)
 					# echo "adf"
 					lfind "$files" -maxdepth "$maxdepth" -iname "*" | grep -Pi "$search_term" --color=auto|remove_cygdrive;;
-					
+
 		esac
 	fi
 }
+function print_nth_line() {
+while read -r line; do head -n "$line" /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered.db| tail -n 1;done
+
+}
+
 function remove_cygdrive() {
 
 # converts /cygdrive/c/abc to c:/abc
@@ -214,20 +225,20 @@ function remove_cygdrive() {
         # arg="$*"
     # fi
 	# echo "$arg"
-	
+
 	sed -e "s/\\/cygdrive\\/\\(.\\)\\//\\1:\\//"  -- "$@"
 }
 
-function cron-jobs-cibin() {
+function cron_jobs_cibin() {
 
 	echo "other_indexes"
-	echo "myindexemacs"    
+	echo "myindexemacs"
 	echo "myindex"
 	# TODO: separate the jobs or add interval info to it
 
 	# locatedb update
 	# updatedb
-	
+
 	# Change mlocate Database Location
 # The default database that locate utility reads is /var/lib/mlocate/mlocate.db, but if you wish to link the locate command with some other database kept at some other location, use the -d option.
 # For example :
@@ -239,9 +250,9 @@ function cron-jobs-cibin() {
 	myindexemacs
     # all_files.db indexing
     myindex
-	
+
 	echo "TODO"
-    
+
 }
 
 # TODO:
@@ -262,11 +273,11 @@ sed -i "s/<username>/$USERNAME/g" C:/Users/"$USERNAME"/AppData/Roaming/.emacs.d/
 	tr -d '\r' < C:/Users/"$USERNAME"/AppData/Roaming/.emacs.d/my-files/settings-files/all-common-filelist.txt > C:/Users/"$USERNAME"/AppData/Roaming/.emacs.d/my-files/emacs-tmp/filelist2.txt
 	run_grepfilelist $1
 }
-	
+
 function run_grepfilelist() {
-	while read filename; do 
+	while read filename; do
 		# echo "$filename"
-		grep -PnIi $1 --color=auto  "$filename"  /dev/null; 
+		grep -PnIi $1 --color=auto  "$filename"  /dev/null;
 	done <C:/Users/"$USERNAME"/AppData/Roaming/.emacs.d/my-files/emacs-tmp/filelist2.txt
 }
 
@@ -298,7 +309,7 @@ while getopts ":ABC:" opt; do
   esac
 done
 
-				
+
 	declare -a files=("$Universal_home/Downloads/*txt")
 	ext=".*\.\(txt\|org\)"
 	# TODO:
@@ -306,7 +317,7 @@ done
 	# all_notes=$(sed -n 's/.*all_notes *= *\([^ ]*.*\)/\1/p' < settings.ini)
 	# all_notes=($all_notes)
 	declare -a all_notes=("C:/cbn_gits/misc/*" "$Universal_home/Downloads/notes.txt" "$Universal_home/Downloads/notes3.txt" "$Universal_home/Downloads/todo.txt" "$Universal_home/Downloads/work-todo.txt" "$Universal_home/Downloads/work-notes.txt" "$Universal_home/Downloads/todo.org" "$Universal_home/Downloads/clear these doubts.txt")
-	
+
 	echo "pwd= $(pwd)"
 	if [ -z "$1" ]; then
 		echo "cmd  all/common/downs/ahk/notes/here/hhere   common/code/txt   searchTerm"
@@ -325,28 +336,28 @@ done
 				"rhere" 	) files=("$(pwd)"/*);;
 			esac
 			echo "searching in file $files"
-			
-			if [ -z "$3" ]; then		
+
+			if [ -z "$3" ]; then
 				search_term="$2"
-				
+
 			else
 				ext=".*\.\($2\)"
 				case "$2" in
 				"code"                 ) ext=".*\.\(txt\|org\|py\|ini\|java\|ahk\|sh\|c\|cpp\)";;
 				"."                 ) ext=".*";;
 				"*"                 ) ext=".*";;
-				
+
 			   "common"  ) ext=".*\.\(txt\|org\)";;
 
 				esac
 				echo "extension is $ext"
 				search_term="${@:3}"
-			fi	
-		
-		fi	
-		 
+			fi
+
+		fi
+
 	# declare -a files=("$Universal_home/Downloads/notes.txt" "$Universal_home/Downloads/notes3.txt" "$Universal_home/Downloads/todo.txt" "$Universal_home/Downloads/work-todo.txt" "$Universal_home/Downloads/work-notes.txt" "$Universal_home/Downloads/todo.org" "$Universal_home/Downloads/clear these doubts.txt" )
-		 
+
 		echo $ext
 		# echo "searching: $search_term"
 		search_term=$(make_lookaround_search_term $search_term)
@@ -366,13 +377,14 @@ done
 					done
 				# fi
 		fi
-	fi	
+	fi
 # lfind  $files  -iregex $ext -type f -exec grep -PrnIi $search_term --color=auto {} /dev/null \;
 
 
 	# lfind  "$Universal_home"/Desktop/l* "$Universal_home"/Downloads/* /cygdrive/f/july\ 2/text/* /cygdrive/f/july\ 2/Projects/python_scripts  /cygdrive/d/*  -iregex ".*\.\(txt\|py\|ini\|java\|ahk\)" -type f -exec grep -PrnIi "$1"  --color=auto {} /dev/null \;
-	
+
 # By using /dev/null as an extra input file grep "thinks" it dealing with multiple files, but /dev/null is of course empty, so it will not show up in the match list
+echo "finished"
  }
 
 
@@ -387,7 +399,7 @@ done
 
 
 
-function myallgrep() { 
+function myallgrep() {
 	if [ -z "$1" ]; then
 		echo "Usage: cibin grepp for text files"
 	 else
@@ -395,13 +407,13 @@ function myallgrep() {
 	 fi
  }
 
-function mygrep() { 
+function mygrep() {
 	if [ -z "$1" ]; then
 		# display usage if no parameters given
 		echo "Usage: cibin grepp for text files"
 	 else
 
-	 grep -PrnIi "$1" --color=auto /cygdrive/f/july\ 2/text/* /cygdrive/f/july\ 2/Projects/python_scripts; 
+	 grep -PrnIi "$1" --color=auto /cygdrive/f/july\ 2/text/* /cygdrive/f/july\ 2/Projects/python_scripts;
 	 fi
  }
- 
+

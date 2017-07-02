@@ -63,8 +63,6 @@ return
 return
 
 
-
-
 	
 #ifWinActive ahk_class Notepad++
 
@@ -80,7 +78,7 @@ return
 
 return
 
-!1:: ; calculator
+<!1:: ; calculator
 	selText :=Get_Selected_Text()
 	sum=0
 	tot_items := 0

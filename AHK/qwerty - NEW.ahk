@@ -848,6 +848,7 @@ rm -rf %d use with caution
 mv * ../
  
  
- 
+ :flat 0/1/-1
+ i=toggle full screen preview
  
 */

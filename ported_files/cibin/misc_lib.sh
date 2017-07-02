@@ -27,6 +27,10 @@ if [ -z "$1" ]; then
     echo "cibin/ indexing all files to $Universal_home/Downloads/all_files_unfiltered.db"
 	lfind /cygdrive -iname "*"  > "$Universal_home/Downloads/all_files_unfiltered.db"
 	cat "$Universal_home/Downloads/all_files_unfiltered.db" | grep -i -v "/cygdrive/./\$Recycle.Bin/" | grep -v "/cygdrive/./\$WINDOWS.~BT/" | grep -v "/cygdrive/c/Users/cibin/AppData/" | grep -v "/cygdrive/c/my_bin/" | grep -v "/cygdrive/c/Windows/" > "$Universal_home/Downloads/all_files.db"
+	
+	# cat "$Universal_home/Downloads/all_files_unfiltered.db" | sed 's/ //g'| sed 's/_//g' | sed 's/-//g'  > "$Universal_home/Downloads/all_files-fuzzy.db"
+	cat "$Universal_home/Downloads/all_files_unfiltered.db" |  sed 's/[!@#$%^&*()_ -]//g'  > "$Universal_home/Downloads/all_files_unfiltered-fuzzy.db"
+	cat "$Universal_home/Downloads/all_files.db" |  sed 's/[!@#$%^&*()_ -]//g'  > "$Universal_home/Downloads/all_files-fuzzy.db"
 	# "/cygdrive/c/Windows/WinSxS/" | grep -v "/cygdrive/c/Windows/Microsoft.NET/" 
  
  fi
@@ -43,3 +47,10 @@ if [ -z "$1" ]; then
 	fi
  }
 
+ function swap_filenames()         
+{
+    local TMPFILE=tmp.$$
+    mv "$1" $TMPFILE
+    mv "$2" "$1"
+    mv $TMPFILE "$2"
+}
