@@ -4,8 +4,7 @@
 # http://preshing.com/20141108/how-to-install-the-latest-gcc-on-windows
 # cygwin cpp packages
 gdb =gcc debugger
-C:\cygwin64>setup-x86_64.exe -q -P wget -P gcc-g++ -P make -P diffutils -P libmpfr-devel -P libgmp-devel -P libmpc-devel -P hg -P git -P patchutils -P patch -P vim -P curl -P ag -P unzip -P cron -P highlight -P w3m -P atool -P bsdtar
-
+C:\cygwin64>setup-x86_64.exe -q -P wget -P gcc-g++ -P make -P diffutils -P libmpfr-devel -P libgmp-devel -P libmpc-devel -P hg -P git -P patchutils -P patch -P vim -P curl -P ag -P unzip -P cron -P highlight -P w3m -P atool -P bsdtar -P bash-completion -P tree -P xsel -P xclip
 
 # keep a copy of find in bin folder
 

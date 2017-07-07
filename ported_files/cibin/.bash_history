@@ -161,3 +161,9 @@ cat delete1.txt
 ex
 swap_filenames 
 ex
+ls
+r
+fd() {   local dir   dir=$(lfind . -name "*.$1" -exec tail -n +1 -- {} + | fzf +m) &&   echo "$dir"; }
+fd
+fd txt
+ex

@@ -1,3 +1,4 @@
+source ~/.vim/autoload/ranger.vim
 source ~/.vim/autoload/open_file_under_cursor.vim
 function! GotoFileWithLineNum() 
     " filename under the cursor 

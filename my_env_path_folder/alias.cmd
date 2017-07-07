@@ -9,4 +9,5 @@ doskey cdmisc=cd C:\cbn_gits\misc
 doskey cdahk=cd C:\cbn_gits\AHK
 doskey cd~=cd %USERPROFILE%
 doskey cdd=cd %USERPROFILE%\Downloads
-doskey ex=exit
+doskey ex=exit 
+

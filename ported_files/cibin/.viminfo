@@ -17,6 +17,22 @@
 $
 
 # Command Line History (newest to oldest):
+:set cursorline
+|2,0,1499399591,,"set cursorline"
+:set number
+|2,0,1499399587,,"set number"
+:nnoremap <leader>o :FZF -m<cr>  
+|2,0,1499286884,,"nnoremap <leader>o :FZF -m<cr>  "
+:RangerEdit
+|2,0,1499110715,,"RangerEdit"
+:R
+|2,0,1499110753,,"R"
+:! ranger
+|2,0,1499110450,,"! ranger"
+:ranger
+|2,0,1499110446,,"ranger"
+:q
+|2,0,1499108135,,"q"
 :noremap r :! C:/cygwin64/bin/python3.6m.exe C:/cygwin64/bin/ranger<CR>
 |2,0,1499025368,,"noremap r :! C:/cygwin64/bin/python3.6m.exe C:/cygwin64/bin/ranger<CR>"
 :.,.+1!kj
@@ -29,8 +45,6 @@ $
 |2,0,1498979229,,"!pwd"
 :!q
 |2,0,1498979096,,"!q"
-:q
-|2,0,1498979085,,"q"
 :nnoremap ; :
 |2,0,1498764235,,"nnoremap ; :"
 :CtrlPBuffer
@@ -70,237 +84,275 @@ $
 |3,0,36,0,1,0,1496945208,"h"
 
 # File marks:
-'0  7  0  ~/dev.vimrc
-|4,48,7,0,1499025518,"~/dev.vimrc"
-'1  4  0  ~/dev.vimrc
-|4,49,4,0,1499025485,"~/dev.vimrc"
-'2  4  0  ~/dev.vimrc
-|4,50,4,0,1499025485,"~/dev.vimrc"
-'3  1  1  ~/dev.vimrc
-|4,51,1,1,1499024636,"~/dev.vimrc"
-'4  1  1  ~/dev.vimrc
-|4,52,1,1,1499024636,"~/dev.vimrc"
-'5  1  1  ~/dev.vimrc
-|4,53,1,1,1499024636,"~/dev.vimrc"
-'6  1  1  ~/dev.vimrc
-|4,54,1,1,1499024636,"~/dev.vimrc"
-'7  1  0  /usr/lib/python3.6/site-packages/ranger/data/scope.sh
-|4,55,1,0,1499023678,"/usr/lib/python3.6/site-packages/ranger/data/scope.sh"
-'8  2  0  ~/myalias.sh
-|4,56,2,0,1498990330,"~/myalias.sh"
-'9  1  0  ~/bin/fasd
-|4,57,1,0,1498989936,"~/bin/fasd"
+'0  1  0  /cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java
+|4,48,1,0,1499399905,"/cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java"
+'1  100  1  /cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java
+|4,49,100,1,1499399890,"/cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java"
+'2  100  1  /cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java
+|4,50,100,1,1499399890,"/cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java"
+'3  923  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,51,923,0,1499399608,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+'4  13  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,52,13,0,1499286889,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+'5  13  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,53,13,0,1499286889,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+'6  14  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,54,14,0,1499286728,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+'7  14  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,55,14,0,1499286728,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+'8  14  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,56,14,0,1499286728,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+'9  14  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,57,14,0,1499286728,"/cygdrive/c/Users/cibin/Downloads/todo.org"
 
 # Jumplist (newest first):
--'  7  0  ~/dev.vimrc
-|4,39,7,0,1499025518,"~/dev.vimrc"
--'  4  0  ~/dev.vimrc
-|4,39,4,0,1499025511,"~/dev.vimrc"
--'  4  0  ~/dev.vimrc
-|4,39,4,0,1499025485,"~/dev.vimrc"
--'  1  0  ~/dev.vimrc
-|4,39,1,0,1499025063,"~/dev.vimrc"
--'  1  0  ~/dev.vimrc
-|4,39,1,0,1499025063,"~/dev.vimrc"
--'  1  1  ~/dev.vimrc
-|4,39,1,1,1499024636,"~/dev.vimrc"
--'  1  0  /usr/lib/python3.6/site-packages/ranger/data/scope.sh
-|4,39,1,0,1499023678,"/usr/lib/python3.6/site-packages/ranger/data/scope.sh"
--'  1  0  /usr/lib/python3.6/site-packages/ranger/data/scope.sh
-|4,39,1,0,1499023678,"/usr/lib/python3.6/site-packages/ranger/data/scope.sh"
--'  1  0  /usr/lib/python3.6/site-packages/ranger/data/scope.sh
-|4,39,1,0,1499023678,"/usr/lib/python3.6/site-packages/ranger/data/scope.sh"
--'  1  0  /usr/lib/python3.6/site-packages/ranger/data/scope.sh
-|4,39,1,0,1499023678,"/usr/lib/python3.6/site-packages/ranger/data/scope.sh"
--'  1  0  /usr/lib/python3.6/site-packages/ranger/data/scope.sh
-|4,39,1,0,1499023678,"/usr/lib/python3.6/site-packages/ranger/data/scope.sh"
--'  1  0  /usr/lib/python3.6/site-packages/ranger/data/scope.sh
-|4,39,1,0,1499023678,"/usr/lib/python3.6/site-packages/ranger/data/scope.sh"
--'  1  0  /usr/lib/python3.6/site-packages/ranger/data/scope.sh
-|4,39,1,0,1499023678,"/usr/lib/python3.6/site-packages/ranger/data/scope.sh"
--'  1  0  /usr/lib/python3.6/site-packages/ranger/data/scope.sh
-|4,39,1,0,1499023678,"/usr/lib/python3.6/site-packages/ranger/data/scope.sh"
--'  144  1  ~/lib.sh
-|4,39,144,1,1498990369,"~/lib.sh"
--'  144  1  ~/lib.sh
-|4,39,144,1,1498990369,"~/lib.sh"
--'  144  1  ~/lib.sh
-|4,39,144,1,1498990369,"~/lib.sh"
--'  144  1  ~/lib.sh
-|4,39,144,1,1498990369,"~/lib.sh"
--'  144  1  ~/lib.sh
-|4,39,144,1,1498990369,"~/lib.sh"
--'  144  1  ~/lib.sh
-|4,39,144,1,1498990369,"~/lib.sh"
--'  144  1  ~/lib.sh
-|4,39,144,1,1498990369,"~/lib.sh"
--'  144  1  ~/lib.sh
-|4,39,144,1,1498990369,"~/lib.sh"
--'  144  1  ~/lib.sh
-|4,39,144,1,1498990369,"~/lib.sh"
--'  144  1  ~/lib.sh
-|4,39,144,1,1498990369,"~/lib.sh"
--'  144  1  ~/lib.sh
-|4,39,144,1,1498990369,"~/lib.sh"
--'  144  1  ~/lib.sh
-|4,39,144,1,1498990369,"~/lib.sh"
--'  144  1  ~/lib.sh
-|4,39,144,1,1498990369,"~/lib.sh"
--'  144  1  ~/lib.sh
-|4,39,144,1,1498990369,"~/lib.sh"
--'  144  1  ~/lib.sh
-|4,39,144,1,1498990369,"~/lib.sh"
--'  144  1  ~/lib.sh
-|4,39,144,1,1498990369,"~/lib.sh"
--'  2  0  ~/myalias.sh
-|4,39,2,0,1498990330,"~/myalias.sh"
--'  2  0  ~/myalias.sh
-|4,39,2,0,1498990330,"~/myalias.sh"
--'  2  0  ~/myalias.sh
-|4,39,2,0,1498990330,"~/myalias.sh"
--'  2  0  ~/myalias.sh
-|4,39,2,0,1498990330,"~/myalias.sh"
--'  2  0  ~/myalias.sh
-|4,39,2,0,1498990330,"~/myalias.sh"
--'  2  0  ~/myalias.sh
-|4,39,2,0,1498990330,"~/myalias.sh"
--'  2  0  ~/myalias.sh
-|4,39,2,0,1498990330,"~/myalias.sh"
--'  2  0  ~/myalias.sh
-|4,39,2,0,1498990330,"~/myalias.sh"
--'  2  0  ~/myalias.sh
-|4,39,2,0,1498990330,"~/myalias.sh"
--'  2  0  ~/myalias.sh
-|4,39,2,0,1498990330,"~/myalias.sh"
--'  2  0  ~/myalias.sh
-|4,39,2,0,1498990330,"~/myalias.sh"
--'  2  0  ~/myalias.sh
-|4,39,2,0,1498990330,"~/myalias.sh"
--'  2  0  ~/myalias.sh
-|4,39,2,0,1498990330,"~/myalias.sh"
--'  2  0  ~/myalias.sh
-|4,39,2,0,1498990330,"~/myalias.sh"
--'  2  0  ~/myalias.sh
-|4,39,2,0,1498990330,"~/myalias.sh"
--'  2  0  ~/myalias.sh
-|4,39,2,0,1498990330,"~/myalias.sh"
--'  2  0  ~/myalias.sh
-|4,39,2,0,1498990330,"~/myalias.sh"
--'  2  0  ~/myalias.sh
-|4,39,2,0,1498990330,"~/myalias.sh"
--'  2  0  ~/myalias.sh
-|4,39,2,0,1498990330,"~/myalias.sh"
--'  2  0  ~/myalias.sh
-|4,39,2,0,1498990330,"~/myalias.sh"
--'  2  0  ~/myalias.sh
-|4,39,2,0,1498990330,"~/myalias.sh"
--'  2  0  ~/myalias.sh
-|4,39,2,0,1498990330,"~/myalias.sh"
--'  2  0  ~/myalias.sh
-|4,39,2,0,1498990330,"~/myalias.sh"
--'  2  0  ~/myalias.sh
-|4,39,2,0,1498990330,"~/myalias.sh"
--'  2  0  ~/myalias.sh
-|4,39,2,0,1498990330,"~/myalias.sh"
--'  2  0  ~/myalias.sh
-|4,39,2,0,1498990330,"~/myalias.sh"
--'  2  0  ~/myalias.sh
-|4,39,2,0,1498990330,"~/myalias.sh"
--'  2  0  ~/myalias.sh
-|4,39,2,0,1498990330,"~/myalias.sh"
--'  2  0  ~/myalias.sh
-|4,39,2,0,1498990330,"~/myalias.sh"
--'  2  0  ~/myalias.sh
-|4,39,2,0,1498990330,"~/myalias.sh"
--'  2  0  ~/myalias.sh
-|4,39,2,0,1498990330,"~/myalias.sh"
--'  2  0  ~/myalias.sh
-|4,39,2,0,1498990330,"~/myalias.sh"
--'  1  0  ~/myalias.sh
-|4,39,1,0,1498990329,"~/myalias.sh"
--'  1  0  ~/myalias.sh
-|4,39,1,0,1498990329,"~/myalias.sh"
--'  1  0  ~/myalias.sh
-|4,39,1,0,1498990329,"~/myalias.sh"
--'  1  0  ~/myalias.sh
-|4,39,1,0,1498990329,"~/myalias.sh"
--'  1  0  ~/myalias.sh
-|4,39,1,0,1498990329,"~/myalias.sh"
--'  1  0  ~/myalias.sh
-|4,39,1,0,1498990329,"~/myalias.sh"
--'  1  0  ~/myalias.sh
-|4,39,1,0,1498990329,"~/myalias.sh"
--'  1  0  ~/myalias.sh
-|4,39,1,0,1498990329,"~/myalias.sh"
--'  1  0  ~/myalias.sh
-|4,39,1,0,1498990329,"~/myalias.sh"
--'  1  0  ~/myalias.sh
-|4,39,1,0,1498990329,"~/myalias.sh"
--'  1  0  ~/myalias.sh
-|4,39,1,0,1498990329,"~/myalias.sh"
--'  1  0  ~/myalias.sh
-|4,39,1,0,1498990329,"~/myalias.sh"
--'  1  0  ~/myalias.sh
-|4,39,1,0,1498990329,"~/myalias.sh"
--'  1  0  ~/myalias.sh
-|4,39,1,0,1498990329,"~/myalias.sh"
--'  1  0  ~/myalias.sh
-|4,39,1,0,1498990329,"~/myalias.sh"
--'  1  0  ~/myalias.sh
-|4,39,1,0,1498990329,"~/myalias.sh"
--'  1  0  ~/myalias.sh
-|4,39,1,0,1498990329,"~/myalias.sh"
--'  1  0  ~/myalias.sh
-|4,39,1,0,1498990329,"~/myalias.sh"
--'  1  0  ~/myalias.sh
-|4,39,1,0,1498990329,"~/myalias.sh"
--'  1  0  ~/myalias.sh
-|4,39,1,0,1498990329,"~/myalias.sh"
--'  1  0  ~/myalias.sh
-|4,39,1,0,1498990329,"~/myalias.sh"
--'  1  0  ~/myalias.sh
-|4,39,1,0,1498990329,"~/myalias.sh"
--'  1  0  ~/myalias.sh
-|4,39,1,0,1498990329,"~/myalias.sh"
--'  1  0  ~/myalias.sh
-|4,39,1,0,1498990329,"~/myalias.sh"
--'  1  0  ~/myalias.sh
-|4,39,1,0,1498990329,"~/myalias.sh"
--'  1  0  ~/myalias.sh
-|4,39,1,0,1498990329,"~/myalias.sh"
--'  1  0  ~/myalias.sh
-|4,39,1,0,1498990329,"~/myalias.sh"
--'  1  0  ~/myalias.sh
-|4,39,1,0,1498990329,"~/myalias.sh"
--'  1  0  ~/myalias.sh
-|4,39,1,0,1498990329,"~/myalias.sh"
--'  1  0  ~/myalias.sh
-|4,39,1,0,1498990329,"~/myalias.sh"
--'  1  0  ~/myalias.sh
-|4,39,1,0,1498990329,"~/myalias.sh"
--'  1  0  ~/myalias.sh
-|4,39,1,0,1498990329,"~/myalias.sh"
--'  1  0  ~/bin/fasd
-|4,39,1,0,1498989936,"~/bin/fasd"
--'  1  0  ~/bin/fasd
-|4,39,1,0,1498989936,"~/bin/fasd"
--'  1  0  ~/bin/fasd
-|4,39,1,0,1498989936,"~/bin/fasd"
--'  1  0  ~/bin/fasd
-|4,39,1,0,1498989936,"~/bin/fasd"
--'  1  0  ~/bin/fasd
-|4,39,1,0,1498989936,"~/bin/fasd"
--'  1  0  ~/bin/fasd
-|4,39,1,0,1498989936,"~/bin/fasd"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java
+|4,39,1,0,1499399905,"/cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java"
+-'  230  0  /cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java
+|4,39,230,0,1499399904,"/cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java"
+-'  120  1  /cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java
+|4,39,120,1,1499399902,"/cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java"
+-'  100  1  /cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java
+|4,39,100,1,1499399896,"/cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java"
+-'  100  1  /cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java
+|4,39,100,1,1499399890,"/cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java
+|4,39,1,0,1499399870,"/cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java"
+-'  923  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,923,0,1499399608,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  923  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,923,0,1499399608,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  923  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,923,0,1499399608,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  923  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,923,0,1499399608,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  975  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,975,0,1499399582,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  13  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,13,0,1499399582,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  975  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,975,0,1499399582,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  13  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,13,0,1499399582,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  975  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,975,0,1499399582,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  13  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,13,0,1499399582,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  975  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,975,0,1499399582,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  13  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,13,0,1499399582,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  13  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,13,0,1499286889,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  13  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,13,0,1499286889,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  13  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,13,0,1499286889,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  13  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,13,0,1499286889,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  14  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,14,0,1499286747,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  14  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,14,0,1499286747,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  14  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,14,0,1499286747,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  14  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,14,0,1499286747,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  14  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,14,0,1499286747,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  14  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,14,0,1499286747,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  14  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,14,0,1499286747,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  14  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,14,0,1499286747,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  14  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,14,0,1499286728,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  14  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,14,0,1499286728,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  14  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,14,0,1499286728,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  14  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,14,0,1499286728,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,1,0,1499286710,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,1,0,1499286710,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,1,0,1499286710,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,1,0,1499286710,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,1,0,1499286710,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,1,0,1499286710,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,1,0,1499286710,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,1,0,1499286710,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,1,0,1499286710,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,1,0,1499286710,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,1,0,1499286710,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,1,0,1499286710,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
 
 # History of marks within files (newest to oldest):
 
+> /cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java
+	*	1499399904	0
+	"	1	0
+
+> /cygdrive/c/Users/cibin/Downloads/todo.org
+	*	1499399599	0
+	"	923	0
+
+> /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
+	*	1499286582	0
+	"	778721	0
+
+> /cygdrive/c/Users/cibin/Downloads/work-notes.org
+	*	1499283759	0
+	"	1	0
+
+> ~/cron_jobs.sh
+	*	1499110766	0
+	"	3	0
+
+> /cygdrive/c/cbn_gits/AHK/NERD_tree_1
+	*	1499110763	0
+	"	10	0
+	.	1	0
+	+	1	0
+
+> ~/.vimrc
+	*	1499110753	0
+	"	1	0
+
+> /cygdrive/c/cbn_gits/my_env_path_folder/alias.cmd
+	*	1499110719	0
+	"	6	0
+
 > ~/dev.vimrc
-	*	1499025516	0
-	"	7	0
+	*	1499110136	0
+	"	1	0
 	^	1	2
 	.	1	0
 	+	1	0
+
+> ~/.config/ranger/rc.conf
+	*	1499109415	0
+	"	12	0
 
 > /usr/lib/python3.6/site-packages/ranger/data/scope.sh
 	*	1499023674	0
@@ -322,10 +374,6 @@ $
 	*	1498989935	0
 	"	1	0
 
-> ~/.vimrc
-	*	1498989732	0
-	"	1	0
-
 > /cygdrive/c/Users/cibin/Downloads/cbn_all_details.txt
 	*	1498989277	0
 	"	1	0
@@ -333,10 +381,6 @@ $
 > ~/.vim/autoload/open_file_under_cursor.vim
 	*	1498982189	0
 	"	2	0
-
-> ~/.config/ranger/rc.conf
-	*	1498982168	0
-	"	17	0
 
 > ~/.config/ranger/commands.py
 	*	1498979680	0
@@ -353,41 +397,3 @@ $
 > ~/misc_lib.sh
 	*	1498764237	0
 	"	3	0
-
-> ~/documentation.txt
-	*	1498764185	0
-	"	1	0
-
-> ~/delete.sh
-	*	1498764175	0
-	"	1	0
-
-> ~/.vim_runtime/update_plugins.py
-	*	1498763063	0
-	"	1	0
-	^	4	2
-	.	5	0
-	+	20	0
-	+	2	0
-	+	5	0
-
-> /cygdrive/c/cbn_gits/AHK/ControlP
-	*	1498761840	0
-	"	1	0
-	.	1	0
-	+	1	0
-
-> /cygdrive/c/cbn_gits/AHK/nppBackup/qwerty - NEW_delete.ahk.2017-04-08_170920.bak
-	*	1497379783	0
-	"	2	0
-
-> /cygdrive/c/cbn_gits/AHK/smart_search/python-calc.py
-	*	1497330404	0
-	"	21	0
-
-> /cygdrive/c/cbn_gits/AHK/! GOOD SCRIPTS/test15.txt
-	*	1497201603	0
-	"	1	4
-	^	1	5
-	.	1	4
-	+	1	4

@@ -417,3 +417,21 @@ function mygrep() {
 	 fi
  }
 
+
+function fd() {
+  local dir
+  #dir=$(cat *.txt | fzf +m) &&
+  dir=$(lfind . -name "*.$1" -exec tail -n +1 -- {} + | fzf +m) &&
+  echo "$dir"
+}
+
+# extra option available https://jamesoff.net/2016/05/31/fzf-brew-upgrade.html
+searchText () {
+echo "\$cmd extension searchTerm"
+	CHOICE=$(ag -G $1$ --color ${@:2} | fzf -0 -1 --ansi)
+	echo "$CHOICE" | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } '
+	if [ ! -z "$CHOICE" ]
+	then
+		vim $( echo "$CHOICE" | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') 
+	fi
+}

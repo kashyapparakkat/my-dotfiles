@@ -808,7 +808,7 @@ return
 Space & 3::	; na
 	sourcepath:=get_current_sourcepath_from_active_window()
 	;msgbox,%sourcepath%
-	run, C:\cygwin64\bin\python3.6m.exe C:\cygwin64\bin\ranger,%sourcepath%,max
+	run, C:\cygwin64\bin\python3.6m.exe C:\cygwin64\bin\ranger --choosefile=C:/cygwin64/home/cibin/dev.vimrc,%sourcepath%,max
 	;run, C:\cygwin64\bin\bash.exe C:\cygwin64\bin\python3.6m.exe C:\cygwin64\bin\ranger C:\,,max
 return
 
@@ -851,4 +851,17 @@ mv * ../
  :flat 0/1/-1
  i=toggle full screen preview
  
+*/
+
+/*
+a::1
+s::2
+d::3
+f::4
+g::5
+h::6
+j::7
+k::8
+l::9
+
 */

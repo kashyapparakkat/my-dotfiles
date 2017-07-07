@@ -1,3 +1,6 @@
+set number
+set cursorline
+
 noremap q :q<cr>
 " next/prev buffer
 noremap e <C-w><C-w>
@@ -5,9 +8,16 @@ noremap <C-k> :bp<CR>
 noremap <C-l> :bn<CR>
 noremap <leader>f :Ranger<CR>
 
-noremap <F7> :vsplit<CR>
+noremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+
+
+noremap <C-l> <C-w>v:ConqueTerm bash<CR>
+" open a file"
+noremap <F7> :tabe %:p:h<CR>
+noremap <F7> <C-w>v<C-w>l<CR>
+
 "noremap ,r :! C:/cygwin64/bin/python3.6m.exe C:/cygwin64/bin/ranger<CR>
-noremap r :! C:/cygwin64/bin/python3.6m.exe C:/cygwin64/bin/ranger<CR>
+noremap r :! C:/cygwin64/bin/python3.6m.exe C:/cygwin64/bin/ranger --choosedir=%:p:h<CR>
 
 
 " C-w s/v split
@@ -45,7 +55,38 @@ call plug#begin('~/.vim/plugged')
 
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
+Plug 'roman/golden-ratio'
 
+" shell inside vi
+Plug 'wkentaro/conque.vim'
 Plug 'https://github.com/kien/ctrlp.vim.git'
+
 " Initialize plugin system
 call plug#end()
+" use :PlugInstall from vim to install one time"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
