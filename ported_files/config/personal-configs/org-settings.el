@@ -14,6 +14,7 @@
 
 (defun cibin/org-insert-heading-respect-content()
   (interactive)
+  "insert new heading below"
  (org-insert-heading-respect-content nil)
  (evil-insert-state)
   )
@@ -23,6 +24,20 @@
   (beginning-of-line)
   (org-meta-return)
  (evil-insert-state)
+  )
+(defun cibin/org-new-subheading()
+  (interactive)
+  (end-of-line)
+  (org-meta-return)
+(org-metaright)
+ (evil-insert-state)
+  )
+(defun cibin/org-new-heading()
+  (interactive)
+  (end-of-line)
+  (org-meta-return)
+ (evil-insert-state)
+;(org-metaright)
   )
 
 (global-set-key (kbd "C-c o") 
@@ -40,12 +55,16 @@
 (setq org-adapt-indentation nil)
 (message "check point 1")
 (setq org-startup-idented t)
-
+  (define-key org-mode-map (kbd "C-S-L") 'org-metaright)
+  (define-key org-mode-map (kbd "C-S-H") 'org-metaleft)
+  (define-key org-mode-map (kbd "C-S-K") 'org-metaup)
+  (define-key org-mode-map  (kbd "C-S-J") 'org-metadown)
 	(define-key org-mode-map (kbd "M-r") 'org-toggle-heading)
   (define-key org-mode-map (kbd "M-e") 'other-window) ;; bring back this key
-	(define-key org-mode-map [C-return] 'cibin/org-insert-heading-respect-content)
+	(define-key org-mode-map [S-return] 'cibin/org-new-subheading)
+	(define-key org-mode-map [C-return] 'cibin/org-new-heading)
 	(define-key org-mode-map [M-return] 'cibin/org-meta-return)
-	(evil-define-key 'normal org-mode-map [C-return] 'cibin/org-insert-heading-respect-content)
+	(evil-define-key 'normal org-mode-map [C-return] 'cibin/org-new-heading)
 	(evil-define-key 'normal org-mode-map [M-return] 'cibin/org-meta-return)
   (evil-define-key 'normal org-mode-map
   "gh" 'outline-up-heading

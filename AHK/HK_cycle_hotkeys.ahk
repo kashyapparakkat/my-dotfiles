@@ -248,12 +248,12 @@ HK_cycle_register("<#8","open_fav_folders2_HK",3,4000,"Lwin", "$#q",config)
 ; runs cmd console
 config =
 (
-emacs here,cmd here,bash here,on sel path
+bash here,emacs here,cmd here,on sel path
 ,
 ,
 sourcepath:=get_parent_filepath(),sourcepath:=get_parent_filepath(),sourcepath:=get_parent_filepath(),
 ,
-"run_emacs_shell(sourcepath)","run_cmd_prompt(sourcepath)","run_bash_prompt(sourcepath)",
+"run_bash_prompt(sourcepath)","run_emacs_shell(sourcepath)","run_cmd_prompt(sourcepath)",
 ,
 ,
 )

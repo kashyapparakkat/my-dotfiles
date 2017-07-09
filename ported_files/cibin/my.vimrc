@@ -54,6 +54,7 @@ call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
 
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+Plug 'hecal3/vim-leader-guide'
 Plug 'junegunn/vim-easy-align'
 Plug 'roman/golden-ratio'
 Plug 'vim-scripts/ag.vim'
@@ -65,10 +66,13 @@ Plug 'https://github.com/kien/ctrlp.vim.git'
 call plug#end()
 " use :PlugInstall from vim to install one time"
 
+set title
+" set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:p:h\")})%)%(\ %a%)\ -\ %{v:servername}
+set titlestring=%{expand(\"%:p:h\")}/%t
 
 
 
-
+set showcmd
 
 
 

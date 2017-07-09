@@ -755,8 +755,13 @@ return
 ; Space & up::
 	send ^{up}
 return
+
 Space & enter::
-	send ^{enter}
+	GetKeyState, state_lshift,lshift
+	if state_lshift=D
+		send ^+{enter}
+	else
+		send ^{enter}
 return
 
 Space & RButton::
@@ -806,9 +811,13 @@ return
 #IfWinActive
 
 Space & 3::	; na
-	sourcepath:=get_current_sourcepath_from_active_window()
-	;msgbox,%sourcepath%
-	run, C:\cygwin64\bin\python3.6m.exe C:\cygwin64\bin\ranger --choosefile=C:/cygwin64/home/cibin/dev.vimrc,%sourcepath%,max
+	;filepath:=get_current_sourcepath_from_active_window()
+	filepath:=get_current_filepath_from_active_window()
+	filepath:=convert_to_cygwin_path(filepath)
+	
+	run, C:\cygwin64\bin\python3.6m.exe C:\cygwin64\bin\ranger --selectfile="%filepath%",,max
+
+	
 	;run, C:\cygwin64\bin\bash.exe C:\cygwin64\bin\python3.6m.exe C:\cygwin64\bin\ranger C:\,,max
 return
 

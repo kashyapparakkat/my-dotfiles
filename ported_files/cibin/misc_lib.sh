@@ -8,6 +8,7 @@ if [ -z "$1" ]; then
    cat "$Universal_home/Downloads/all_folders.db" | sed -r "s/\\/cygdrive\\/(.)\\//\1:\\\\\\\/" | sed -e "s/\\//\\\\\\\/g"  > "$Universal_home/Downloads/all_folders2.db"
 fi
  }
+ 
 
 function myindexemacs() { 
 file="$Universal_home/AppData/Roaming/.emacs.d/my-files/emacs-tmp/.file_cache"

@@ -59,6 +59,7 @@ elif action =='into_this_repo':
         # copy subdirectory example
         # fromDirectory = "/a/b/c"
         # toDirectory = "/x/y/z"
+        print('copying to repo from ' + str(f) + "....")
         if os.path.isdir(f):
             copy_tree(f,os.path.join(parent,'ported_files', os.path.basename(f)) )
         else:

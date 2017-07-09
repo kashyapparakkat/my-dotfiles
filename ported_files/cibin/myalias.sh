@@ -10,6 +10,9 @@
 # my custom functions
 # add these to initialise.sh also
 
+alias st='searchText'
+alias sn='searchNotes'
+alias sf='searchFiles'
 
 alias ex='exit'
 alias ff='pcfind common_fuzzy fuzzy_db'
@@ -107,7 +110,7 @@ alias myip="curl http://ipecho.net/plain; echo"
 
 alias upload="sftp username@server.com:/path/to/upload/directory"
 alias ll='ls -lhA --color=auto'
-alias ls='ls --color=auto'
+alias ls='ls --color=auto -p'
 ## Show hidden files ##
 alias l.='ls -d .* --color=auto'
 

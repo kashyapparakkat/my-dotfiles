@@ -425,10 +425,11 @@ get_selected_filepath()	; if selected_file=0 find path of parent
 
 get_current_sourcepath_from_active_window()
 {
+
 	sourcepath :=get_current_filepath_from_active_window()
 	if sourcepath =
 		sourcepath :=get_parent_filepath()
-	;msgbox,%sourcepath%
+	msgbox,%sourcepath%
 	stringreplace,sourcepath,sourcepath,/,\,All
 	If( InStr( FileExist(sourcepath), "D") )
 		return sourcepath
@@ -436,6 +437,7 @@ get_current_sourcepath_from_active_window()
 		{
 			splitpath,sourcepath,,sourcepath
 		}
+		
 return sourcepath
 }
 
@@ -449,11 +451,11 @@ get_current_filepath_from_active_window()
   
    ifWinActive , Emacs:  
    {
-   ; Emacs: (~/.emacs.d/my-files/config/personal-configs/cbn-mode-line.el)
-   ; Emacs: (~/.emacs.d/my-files/config/personal-configs/cbn-mode-line.el)         [ emacs-lisp-mode/ EL ]                 (eval-buffer)    |   ignore                            | no process
-	   filepath:= regexreplace(title,"Emacs: \(([^\)]*)\) (.*)$","$1")
-	   
-	  ; msgbox,%filepath%
+	   ; Emacs: (~/.emacs.d/my-files/config/personal-configs/cbn-mode-line.el)
+	   ; Emacs: (~/.emacs.d/my-files/config/personal-configs/cbn-mode-line.el)         [ emacs-lisp-mode/ EL ]                 (eval-buffer)    |   ignore                            | no process
+		   filepath:= regexreplace(title,"Emacs: \(([^\)]*)\) (.*)$","$1")
+		   
+		  ; msgbox,%filepath%
      
     }
 	else ifWinActive , - Notepad++ 
@@ -499,10 +501,33 @@ get_current_filepath_from_active_window()
 		clipboard:=clip			
 		return
 	}
+	else
+	{
+	
+		; cygwin when selection is there  Select /cygdrive/c/Users
+		window_title :=regexreplace(window_title,"Select (.*)$","$1")
+		window_title :=regexreplace(Title,"ranger:(.*)$","$1")
+		window_title :=regexreplace(window_title,"/cygdrive/(.)(.*)$","$1:\$2")
+		stringreplace,window_title,window_title,/,\,all
+		
+		ifexist,%window_title%
+			
+			filepath:=window_title
+		else 
+			tooltip,"not found"
+	}
 	stringreplace,filepath,filepath,\\,\,all
 	stringreplace,filepath,filepath,\,/,all
 	return filepath
 	  
+}
+
+convert_to_cygwin_path(filepath)
+{
+stringreplace,filepath,filepath,\,/,all
+filepath:=regexreplace(filepath,"(\w):(.*)$","/cygdrive/$1$2")
+
+return filepath
 }
 suspend_if_VMwareHorizonClient()
 {

@@ -1,1 +1,0 @@
-setx PATH "%PATH%;C:\cbn_gits\my_env_path_folder"

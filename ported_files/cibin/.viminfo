@@ -5,7 +5,7 @@
 |1,4
 
 # Value of 'encoding' when this file was written
-*encoding=utf-8
+*encoding=latin1
 
 
 # hlsearch on (H) or off (h):
@@ -17,6 +17,10 @@
 $
 
 # Command Line History (newest to oldest):
+:q!
+|2,0,1499629573,,"q!"
+:q
+|2,0,1499625233,,"q"
 :set cursorline
 |2,0,1499399591,,"set cursorline"
 :set number
@@ -31,14 +35,10 @@ $
 |2,0,1499110450,,"! ranger"
 :ranger
 |2,0,1499110446,,"ranger"
-:q
-|2,0,1499108135,,"q"
 :noremap r :! C:/cygwin64/bin/python3.6m.exe C:/cygwin64/bin/ranger<CR>
 |2,0,1499025368,,"noremap r :! C:/cygwin64/bin/python3.6m.exe C:/cygwin64/bin/ranger<CR>"
 :.,.+1!kj
 |2,0,1498990378,,".,.+1!kj"
-:q!
-|2,0,1498989686,,"q!"
 :w
 |2,0,1498989162,,"w"
 :!pwd
@@ -84,238 +84,270 @@ $
 |3,0,36,0,1,0,1496945208,"h"
 
 # File marks:
-'0  1  0  /cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java
-|4,48,1,0,1499399905,"/cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java"
-'1  100  1  /cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java
-|4,49,100,1,1499399890,"/cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java"
-'2  100  1  /cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java
-|4,50,100,1,1499399890,"/cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java"
-'3  923  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,51,923,0,1499399608,"/cygdrive/c/Users/cibin/Downloads/todo.org"
-'4  13  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,52,13,0,1499286889,"/cygdrive/c/Users/cibin/Downloads/todo.org"
-'5  13  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,53,13,0,1499286889,"/cygdrive/c/Users/cibin/Downloads/todo.org"
-'6  14  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,54,14,0,1499286728,"/cygdrive/c/Users/cibin/Downloads/todo.org"
-'7  14  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,55,14,0,1499286728,"/cygdrive/c/Users/cibin/Downloads/todo.org"
-'8  14  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,56,14,0,1499286728,"/cygdrive/c/Users/cibin/Downloads/todo.org"
-'9  14  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,57,14,0,1499286728,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+'0  83  1  /cygdrive/c/cbn_gits/AHK/qwerty - NEW.ahk
+|4,48,83,1,1499630363,"/cygdrive/c/cbn_gits/AHK/qwerty - NEW.ahk"
+'1  721  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,49,721,0,1499629573,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+'2  58  0  /cygdrive/C/cygwin64/home/cibin/.config/ranger/rc.conf
+|4,50,58,0,1499629103,"/cygdrive/C/cygwin64/home/cibin/.config/ranger/rc.conf"
+'3  1  0  /cygdrive/C/cygwin64/home/cibin/.config/ranger/commands.py
+|4,51,1,0,1499628247,"/cygdrive/C/cygwin64/home/cibin/.config/ranger/commands.py"
+'4  1  0  ~/.SpaceVim.d/init.vim
+|4,52,1,0,1499625233,"~/.SpaceVim.d/init.vim"
+'5  1  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,53,1,0,1499624986,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+'6  74  0  /cygdrive/c/cbn_gits/AHK/alphasearch/AlphaSearch.ahk
+|4,54,74,0,1499458785,"/cygdrive/c/cbn_gits/AHK/alphasearch/AlphaSearch.ahk"
+'7  1  0  /cygdrive/c/cbn_gits/AHK/!
+|4,55,1,0,1499458771,"/cygdrive/c/cbn_gits/AHK/!"
+'8  1  0  /cygdrive/c/cbn_gits/AHK/!
+|4,56,1,0,1499458771,"/cygdrive/c/cbn_gits/AHK/!"
+'9  1  0  /cygdrive/c/cbn_gits/AHK/!
+|4,57,1,0,1499458771,"/cygdrive/c/cbn_gits/AHK/!"
 
 # Jumplist (newest first):
--'  1  0  /cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java
-|4,39,1,0,1499399905,"/cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java"
--'  230  0  /cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java
-|4,39,230,0,1499399904,"/cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java"
--'  120  1  /cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java
-|4,39,120,1,1499399902,"/cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java"
--'  100  1  /cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java
-|4,39,100,1,1499399896,"/cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java"
--'  100  1  /cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java
-|4,39,100,1,1499399890,"/cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java"
--'  1  0  /cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java
-|4,39,1,0,1499399870,"/cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java"
+-'  83  1  /cygdrive/c/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,83,1,1499630363,"/cygdrive/c/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  1  0  /cygdrive/c/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,1,0,1499630342,"/cygdrive/c/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  721  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,721,0,1499629573,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  721  0  /cygdrive/c/Users/cibin/Downloads/todo.org
+|4,39,721,0,1499629573,"/cygdrive/c/Users/cibin/Downloads/todo.org"
 -'  923  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,923,0,1499399608,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+|4,39,923,0,1499629565,"/cygdrive/c/Users/cibin/Downloads/todo.org"
 -'  923  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,923,0,1499399608,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  923  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,923,0,1499399608,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  923  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,923,0,1499399608,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  975  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,975,0,1499399582,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  13  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,13,0,1499399582,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  975  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,975,0,1499399582,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  13  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,13,0,1499399582,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  975  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,975,0,1499399582,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  13  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,13,0,1499399582,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  975  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,975,0,1499399582,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  13  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,13,0,1499399582,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  13  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,13,0,1499286889,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  13  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,13,0,1499286889,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  13  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,13,0,1499286889,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  13  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,13,0,1499286889,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  14  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,14,0,1499286747,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  14  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,14,0,1499286747,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  14  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,14,0,1499286747,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  14  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,14,0,1499286747,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  14  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,14,0,1499286747,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  14  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,14,0,1499286747,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  14  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,14,0,1499286747,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  14  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,14,0,1499286747,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  14  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,14,0,1499286728,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  14  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,14,0,1499286728,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  14  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,14,0,1499286728,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  14  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,14,0,1499286728,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  1  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,1,0,1499286710,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  1  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,1,0,1499286710,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  1  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,1,0,1499286710,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  1  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,1,0,1499286710,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  1  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,1,0,1499286710,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  1  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,1,0,1499286710,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  1  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,1,0,1499286710,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  1  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,1,0,1499286710,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  1  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,1,0,1499286710,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  1  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,1,0,1499286710,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  1  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,1,0,1499286710,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  1  0  /cygdrive/c/Users/cibin/Downloads/todo.org
-|4,39,1,0,1499286710,"/cygdrive/c/Users/cibin/Downloads/todo.org"
--'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  778721  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,778721,0,1499286582,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
--'  1  0  /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
-|4,39,1,0,1499286573,"/cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db"
+|4,39,923,0,1499629565,"/cygdrive/c/Users/cibin/Downloads/todo.org"
+-'  58  0  /cygdrive/C/cygwin64/home/cibin/.config/ranger/rc.conf
+|4,39,58,0,1499629103,"/cygdrive/C/cygwin64/home/cibin/.config/ranger/rc.conf"
+-'  58  0  /cygdrive/C/cygwin64/home/cibin/.config/ranger/rc.conf
+|4,39,58,0,1499629103,"/cygdrive/C/cygwin64/home/cibin/.config/ranger/rc.conf"
+-'  58  0  /cygdrive/C/cygwin64/home/cibin/.config/ranger/rc.conf
+|4,39,58,0,1499629103,"/cygdrive/C/cygwin64/home/cibin/.config/ranger/rc.conf"
+-'  58  0  /cygdrive/C/cygwin64/home/cibin/.config/ranger/rc.conf
+|4,39,58,0,1499629103,"/cygdrive/C/cygwin64/home/cibin/.config/ranger/rc.conf"
+-'  1  0  /cygdrive/C/cygwin64/home/cibin/.config/ranger/rc.conf
+|4,39,1,0,1499629094,"/cygdrive/C/cygwin64/home/cibin/.config/ranger/rc.conf"
+-'  1  0  /cygdrive/C/cygwin64/home/cibin/.config/ranger/rc.conf
+|4,39,1,0,1499629094,"/cygdrive/C/cygwin64/home/cibin/.config/ranger/rc.conf"
+-'  1  0  /cygdrive/C/cygwin64/home/cibin/.config/ranger/rc.conf
+|4,39,1,0,1499629094,"/cygdrive/C/cygwin64/home/cibin/.config/ranger/rc.conf"
+-'  1  0  /cygdrive/C/cygwin64/home/cibin/.config/ranger/rc.conf
+|4,39,1,0,1499629094,"/cygdrive/C/cygwin64/home/cibin/.config/ranger/rc.conf"
+-'  1  0  /cygdrive/C/cygwin64/home/cibin/.config/ranger/commands.py
+|4,39,1,0,1499628247,"/cygdrive/C/cygwin64/home/cibin/.config/ranger/commands.py"
+-'  1  0  /cygdrive/C/cygwin64/home/cibin/.config/ranger/commands.py
+|4,39,1,0,1499628247,"/cygdrive/C/cygwin64/home/cibin/.config/ranger/commands.py"
+-'  1  0  /cygdrive/C/cygwin64/home/cibin/.config/ranger/commands.py
+|4,39,1,0,1499628247,"/cygdrive/C/cygwin64/home/cibin/.config/ranger/commands.py"
+-'  1  0  /cygdrive/C/cygwin64/home/cibin/.config/ranger/commands.py
+|4,39,1,0,1499628247,"/cygdrive/C/cygwin64/home/cibin/.config/ranger/commands.py"
+-'  1  0  /cygdrive/C/cygwin64/home/cibin/.config/ranger/commands.py
+|4,39,1,0,1499628247,"/cygdrive/C/cygwin64/home/cibin/.config/ranger/commands.py"
+-'  1  0  /cygdrive/C/cygwin64/home/cibin/.config/ranger/commands.py
+|4,39,1,0,1499628247,"/cygdrive/C/cygwin64/home/cibin/.config/ranger/commands.py"
+-'  1  0  /cygdrive/C/cygwin64/home/cibin/.config/ranger/commands.py
+|4,39,1,0,1499628247,"/cygdrive/C/cygwin64/home/cibin/.config/ranger/commands.py"
+-'  1  0  /cygdrive/C/cygwin64/home/cibin/.config/ranger/commands.py
+|4,39,1,0,1499628247,"/cygdrive/C/cygwin64/home/cibin/.config/ranger/commands.py"
+-'  1  0  ~/.SpaceVim.d/init.vim
+|4,39,1,0,1499625233,"~/.SpaceVim.d/init.vim"
+-'  1  0  ~/.SpaceVim.d/init.vim
+|4,39,1,0,1499625233,"~/.SpaceVim.d/init.vim"
+-'  1  0  ~/.SpaceVim.d/init.vim
+|4,39,1,0,1499625233,"~/.SpaceVim.d/init.vim"
+-'  1  0  ~/.SpaceVim.d/init.vim
+|4,39,1,0,1499625233,"~/.SpaceVim.d/init.vim"
+-'  1  0  ~/.SpaceVim.d/init.vim
+|4,39,1,0,1499625233,"~/.SpaceVim.d/init.vim"
+-'  1  0  ~/.SpaceVim.d/init.vim
+|4,39,1,0,1499625233,"~/.SpaceVim.d/init.vim"
+-'  1  0  ~/.SpaceVim.d/init.vim
+|4,39,1,0,1499625233,"~/.SpaceVim.d/init.vim"
+-'  1  0  ~/.SpaceVim.d/init.vim
+|4,39,1,0,1499625233,"~/.SpaceVim.d/init.vim"
+-'  1  0  ~/.SpaceVim.d/init.vim
+|4,39,1,0,1499625233,"~/.SpaceVim.d/init.vim"
+-'  1  0  ~/.SpaceVim.d/init.vim
+|4,39,1,0,1499625233,"~/.SpaceVim.d/init.vim"
+-'  1  0  ~/.SpaceVim.d/init.vim
+|4,39,1,0,1499625233,"~/.SpaceVim.d/init.vim"
+-'  1  0  ~/.SpaceVim.d/init.vim
+|4,39,1,0,1499625233,"~/.SpaceVim.d/init.vim"
+-'  1  0  ~/.SpaceVim.d/init.vim
+|4,39,1,0,1499625233,"~/.SpaceVim.d/init.vim"
+-'  1  0  ~/.SpaceVim.d/init.vim
+|4,39,1,0,1499625233,"~/.SpaceVim.d/init.vim"
+-'  1  0  ~/.SpaceVim.d/init.vim
+|4,39,1,0,1499625233,"~/.SpaceVim.d/init.vim"
+-'  1  0  ~/.SpaceVim.d/init.vim
+|4,39,1,0,1499625233,"~/.SpaceVim.d/init.vim"
+-'  1  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,1,0,1499624986,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  1  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,1,0,1499624986,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  1  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,1,0,1499624986,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  1  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,1,0,1499624986,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  1  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,1,0,1499624986,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  1  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,1,0,1499624986,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  1  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,1,0,1499624986,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  1  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,1,0,1499624986,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  1  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,1,0,1499624986,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  1  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,1,0,1499624986,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  1  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,1,0,1499624986,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  1  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,1,0,1499624986,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  1  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,1,0,1499624986,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  1  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,1,0,1499624986,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  1  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,1,0,1499624986,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  1  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,1,0,1499624986,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  1  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,1,0,1499624986,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  1  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,1,0,1499624986,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  1  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,1,0,1499624986,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  1  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,1,0,1499624986,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  1  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,1,0,1499624986,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  1  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,1,0,1499624986,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  1  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,1,0,1499624986,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  1  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,1,0,1499624986,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  1  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,1,0,1499624986,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  1  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,1,0,1499624986,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  1  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,1,0,1499624986,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  1  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,1,0,1499624986,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  1  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,1,0,1499624986,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  1  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,1,0,1499624986,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  1  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,1,0,1499624986,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  1  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,1,0,1499624986,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  31  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,31,0,1499624980,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  31  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,31,0,1499624980,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  31  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,31,0,1499624980,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  31  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,31,0,1499624980,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  31  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,31,0,1499624980,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  31  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,31,0,1499624980,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  31  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,31,0,1499624980,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  31  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,31,0,1499624980,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  31  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,31,0,1499624980,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  31  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,31,0,1499624980,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  31  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,31,0,1499624980,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  31  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,31,0,1499624980,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  31  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,31,0,1499624980,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  31  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,31,0,1499624980,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  31  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,31,0,1499624980,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  31  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,31,0,1499624980,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  31  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,31,0,1499624980,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  31  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,31,0,1499624980,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  31  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,31,0,1499624980,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  31  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,31,0,1499624980,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  31  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,31,0,1499624980,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  31  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,31,0,1499624980,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  31  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,31,0,1499624980,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  31  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,31,0,1499624980,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  31  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,31,0,1499624980,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  31  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,31,0,1499624980,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  31  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,31,0,1499624980,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  31  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,31,0,1499624980,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  31  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,31,0,1499624980,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
+-'  31  0  /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+|4,39,31,0,1499624980,"/cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf"
 
 # History of marks within files (newest to oldest):
+
+> /cygdrive/c/cbn_gits/AHK/qwerty - NEW.ahk
+	*	1499630362	0
+	"	83	1
+	^	83	2
+	.	83	0
+	+	83	0
+
+> /cygdrive/c/Users/cibin/Downloads/todo.org
+	*	1499629571	0
+	"	721	0
+
+> /cygdrive/C/cygwin64/home/cibin/.config/ranger/rc.conf
+	*	1499629100	0
+	"	58	0
+
+> /cygdrive/C/cygwin64/home/cibin/.config/ranger/commands.py
+	*	1499628244	0
+	"	1	0
+
+> ~/.SpaceVim.d/init.vim
+	*	1499625231	0
+	"	1	0
+
+> /cygdrive/C/cygwin64/lib/python3.6/site-packages/ranger/config/rc.conf
+	*	1499624984	0
+	"	1	0
+	^	1	0
+
+> /cygdrive/c/cbn_gits/AHK/!
+	*	1499460113	0
+	"	1	0
+
+> /cygdrive/c/cbn_gits/AHK/alphasearch/AlphaSearch.ahk
+	*	1499458780	0
+	"	74	0
 
 > /cygdrive/c/Users/cibin/Downloads/kashyap/javamail1_4_5/javamail-1.4.5/demo/outlook/MSMessage.java
 	*	1499399904	0
 	"	1	0
-
-> /cygdrive/c/Users/cibin/Downloads/todo.org
-	*	1499399599	0
-	"	923	0
 
 > /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered-fuzzy.db
 	*	1499286582	0
@@ -369,31 +401,3 @@ $
 > ~/myalias.sh
 	*	1498990329	0
 	"	2	0
-
-> ~/bin/fasd
-	*	1498989935	0
-	"	1	0
-
-> /cygdrive/c/Users/cibin/Downloads/cbn_all_details.txt
-	*	1498989277	0
-	"	1	0
-
-> ~/.vim/autoload/open_file_under_cursor.vim
-	*	1498982189	0
-	"	2	0
-
-> ~/.config/ranger/commands.py
-	*	1498979680	0
-	"	3	0
-
-> /usr/lib/python3.6/site-packages/ranger/config/commands.py
-	*	1498979079	0
-	"	724	0
-
-> /usr/lib/python3.6/site-packages/ranger/config/__init__.py
-	*	1498977005	0
-	"	1	0
-
-> ~/misc_lib.sh
-	*	1498764237	0
-	"	3	0

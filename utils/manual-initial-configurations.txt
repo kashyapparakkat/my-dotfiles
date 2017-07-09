@@ -1,0 +1,2 @@
+﻿ranger:  
+	remove from scope.sh , exe,iso file preview handling to improve performance

@@ -1,3 +1,5 @@
+REM @echo off
+
 REM http://winaero.com/blog/how-to-set-aliases-for-the-command-prompt-in-windows/
 doskey cd.=cd ..
 doskey cd..=cd ..\..
@@ -11,3 +13,6 @@ doskey cd~=cd %USERPROFILE%
 doskey cdd=cd %USERPROFILE%\Downloads
 doskey ex=exit 
 
+doskey cd = cd /d $* ^&^& "C:\cbn_gits\my_env_path_folder\cmd-set-title.bat"
+doskey cd=@echo off$Tcd /d $*$T@title ^%cd^%$Techo on
+title %cd%

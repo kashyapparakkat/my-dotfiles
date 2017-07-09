@@ -33,9 +33,15 @@ bind "set mark-directories on"
 # bind "set show-all-if-unmodified on"
 # bind "set show-mode-in-prompt on"
 
-bind -x '"|C-i":"cd -\n"'
-bind -x '"|C-u":"cd ..\n"'
-bind -x '"|C-q":"exit\n"'
+#bind -x '"|C-i": cd -\n"'
+#bind -x '"|C-i"\C-asudo \C-e"'
+#bind -x '"|C-u":"cd ..\n"'
+bind '"\C-p":history-search-backward'
+bind '"\C-q":"exit\r"'
+bind '"\C-i":"cd -\r"'
+bind '"\C-i":"\C-asudo \C-e"'
+bind '"\C-u":"cd ..\r"'
+#bind -x '"|C-q":"exit\n"'
 bind -x '"|C-l": clear:echo "cleared"'
 # for f12
 bind '"\e[24~":"pwd\n"'
@@ -76,8 +82,18 @@ function cd()
 {
   builtin cd ${1:-$HOME} && ls
 }
+
 # Fast ls
 # As you might figure out from the previous tip, I like to know what I have in the current folder, all the time. The above only helps if I move around between different folders. So I needed something when changing a lot in the current folder.
+function lss(){
+#ls stats
+ls
+lfind . -type f | sed 's/.*\.//' | sort | uniq -c
+ls|wc -l
+#du
+}
+alias ls='_(){ ls --color=auto -p "$@" ; lfind . ! -name . -prune -print | grep -c /; }; _'
+
 
 bind -x '"\C-o"':"ls -lh"
 # Put this in your ~/.bashrc file and then source it with source ~/.bashrc and try it out by pressing C-o (Ctrl and o).
@@ -178,3 +194,39 @@ alias r='ranger'
 
 
 #[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+
+# https://stackoverflow.com/questions/12870928/mac-bash-git-ps1-command-not-found
+source ~/.git-prompt.sh
+#PS1=$PS1'$(__git_ps1 "(%s) ")'
+PS1='\# \[\e[0;31m\]$(r=$?; [[ $r == "0" ]] || echo "[$r] ")\[\e[0m\]\[\e[0;36m\]\u\[\e[0m\] \W\[\e[0;33m\]$(__git_branch)\[\e[0m\]> '
+
+__git_branch() {
+    git branch 2>/dev/null | grep -e '^*' | sed -E 's/^\* (.+)$/(\1)/'
+}
+
+#Sometimes you have multiple terminal windows open at the same time. By default, the window that closes last, will overwrite the bash history file, loosing the history of all the other terminal windows and ssh sessions in the process. This can be avoided by this little setting:
+
+# merge session histories
+shopt -s histappend
+
+#colorize my man pages (and all less output in general):
+# colorful man pages
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m' # end the info box
+export LESS_TERMCAP_so=$'\E[01;42;30m' # begin the info box
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
+
+
+# use colordiff instead of diff if available
+command -v colordiff >/dev/null 2>&1 && alias diff="colordiff -u"
+ 
+# use htop instead of top if installed
+command -v htop >/dev/null 2>&1 && alias top=htop
+#The command -v bit checks if the app in question is installed, and creates the alias only if it is found. I’m redirecting the output so that I don’t get error messages scrolling on the screen when I log in.
+
+# corrects typos (eg: cd /ect becomes cd /etc)
+shopt -s cdspell

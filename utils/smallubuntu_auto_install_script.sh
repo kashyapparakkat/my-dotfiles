@@ -1,6 +1,14 @@
 #!/bin/bash
 
 # http://blog.self.li/post/74294988486/creating-a-post-installation-script-for-ubuntu
+if [ -z "$1" ]; then
+    echo "Usage: empty arg"
+else 
+download-all
+fi
+		
+function download-all() {
+
 
 
 # add repos
@@ -37,3 +45,6 @@ echo "===================="
 echo " TIME FOR A REBOOT! "
 echo "===================="
 echo ""
+
+
+}

@@ -1,4 +1,13 @@
+if [ -z "$1" ]; then
+    echo "Usage: empty arg"
+else 
+download-all
+fi
+		
+function download-all() {
 
+
+echo "downloading ..."
 wget --no-check-certificate https://github.com/cibinmathew/cbn_gits/raw/master/ported_files/cibin/.bashrc -O ~/.bashrc
 wget --no-check-certificate https://github.com/cibinmathew/cbn_gits/raw/master/ported_files/cibin/.vimrc -O ~/.vimrc
 wget --no-check-certificate https://github.com/cibinmathew/cbn_gits/raw/master/ported_files/cibin/lib.sh -O ~/lib.sh
@@ -76,3 +85,10 @@ sudo ~/.fzf/install
 # cd fasd
 # sudo make install
 
+
+# https://stackoverflow.com/questions/12870928/mac-bash-git-ps1-command-not-found
+curl -o ~/.git-prompt.sh \
+    https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+	
+	
+	}

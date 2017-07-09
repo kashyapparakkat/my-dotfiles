@@ -1,3 +1,10 @@
+if [ -z "$1" ]; then
+    echo "Usage: empty arg"
+else 
+download-all
+fi
+		
+function download-all() {
 
 # yum install java
 yum install java-1.8.0-openjdk java-1.8.0-openjdk-devel
@@ -15,3 +22,5 @@ wget -c http://ftp.jaist.ac.jp/pub/eclipse/oomph/epp/neon/R2a/eclipse-inst-linux
 tar -zxvf eclipse-inst-linux64.tar.gz -C /opt
 # Make symbolic link to bin directory:
 ln -s /opt/eclipse/eclipse /usr/bin/eclipse
+
+}

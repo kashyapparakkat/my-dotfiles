@@ -425,13 +425,30 @@ function fd() {
   echo "$dir"
 }
 
+
+
+#searchFiles () {
+
+function searchNotes () {
+# ag $* -G org$ /cygdrive/c/Users/cibin/Downloads/ --color
+
+
+ag $* -G org$ /cygdrive/c/Users/cibin/Downloads/ --color
+# ag $* -G todo.org$ /cygdrive/c/Users/cibin/Downloads/ --color
+ag $* -G ^notes.txt$ /cygdrive/c/Users/cibin/Downloads/ --color
+ag $* -G notes.org$ /cygdrive/c/Users/cibin/Downloads/ --color
+ag $* -G work-notes.txt$ /cygdrive/c/Users/cibin/Downloads/ --color
+ag $* -G work-notes.org$ /cygdrive/c/Users/cibin/Downloads/ --color
+}
+
+
 # extra option available https://jamesoff.net/2016/05/31/fzf-brew-upgrade.html
 searchText () {
-echo "\$cmd extension searchTerm"
+	echo "\$cmd extension searchTerm"
 	CHOICE=$(ag -G $1$ --color ${@:2} | fzf -0 -1 --ansi)
-	echo "$CHOICE" | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } '
+	echo "$CHOICE" | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ' 
 	if [ ! -z "$CHOICE" ]
 	then
-		vim $( echo "$CHOICE" | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') 
+		vim $( echo "$CHOICE" | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') +"LAg! '$*'" "+wincmd k"
 	fi
 }
