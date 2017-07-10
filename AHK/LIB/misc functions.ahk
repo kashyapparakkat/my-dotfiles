@@ -505,8 +505,11 @@ get_current_filepath_from_active_window()
 	{
 	
 		; cygwin when selection is there  Select /cygdrive/c/Users
-		window_title :=regexreplace(window_title,"Select (.*)$","$1")
-		window_title :=regexreplace(Title,"ranger:(.*)$","$1")
+		window_title :=regexreplace(Title,"ranger:\s*(.*)$","$1")
+		msgbox,%window_title%
+		window_title :=regexreplace(window_title,"less:\s*(.*)$","$1")
+		window_title :=regexreplace(window_title,"vim:\s*(.*)$","$1")
+		window_title :=regexreplace(window_title,"Select\s*(.*)$","$1")
 		window_title :=regexreplace(window_title,"/cygdrive/(.)(.*)$","$1:\$2")
 		stringreplace,window_title,window_title,/,\,all
 		

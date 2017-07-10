@@ -167,3 +167,11 @@ fd() {   local dir   dir=$(lfind . -name "*.$1" -exec tail -n +1 -- {} + | fzf +
 fd
 fd txt
 ex
+ls
+ll
+ls
+cdd
+r
+less
+r
+ex

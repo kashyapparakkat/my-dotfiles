@@ -179,19 +179,19 @@ if [ $# -eq 0 -o  -n "$1" ]; then
 # You can start a shell in the current directory with S, when you exit the shell you get back to your ranger instance.
 # When you however forget that you already are in a ranger shell and start ranger again you end up with ranger running a shell running ranger.
 # To prevent this you can create the following function in your shell's startup file:
-ranger() {
-    if [ -z "$RANGER_LEVEL" ]; then
-        # /usr/bin/ranger "$@"
-        ranger "$@"
-    else
-        exit
-    fi
-}
+# ranger() {
+    # if [ -z "$RANGER_LEVEL" ]; then
+				#####/usr/bin/ranger "$@"
+        # ranger "$@"
+    # else
+        # exit
+    # fi
+# }
+
+# alias ranger='/usr/bin/python3.6m.exe /cygdrive/c/cygwin64/bin/ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
+alias ranger='/usr/bin/python3.6m.exe /cygdrive/c/cygwin64/bin/ranger' #; LASTDIR=`cat $(cd)`; cd "$LASTDIR"'
 
 alias r='ranger'
-# alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
-# alias ranger='ranger; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
-
 
 #[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
@@ -230,3 +230,6 @@ command -v htop >/dev/null 2>&1 && alias top=htop
 
 # corrects typos (eg: cd /ect becomes cd /etc)
 shopt -s cdspell
+
+export PAGER="/usr/bin/less -isM"
+export LESS="/usr/bin/less -isM"

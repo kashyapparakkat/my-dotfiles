@@ -6,7 +6,10 @@ noremap q :q<cr>
 noremap e <C-w><C-w>
 noremap <C-k> :bp<CR>
 noremap <C-l> :bn<CR>
+noremap gl G
 noremap <leader>f :Ranger<CR>
+
+noremap b :CtrlP<CR>
 
 noremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
@@ -17,7 +20,18 @@ noremap <F7> :tabe %:p:h<CR>
 noremap <F7> <C-w>v<C-w>l<CR>
 
 "noremap ,r :! C:/cygwin64/bin/python3.6m.exe C:/cygwin64/bin/ranger<CR>
-noremap r :! C:/cygwin64/bin/python3.6m.exe C:/cygwin64/bin/ranger --choosedir=%:p:h<CR>
+
+"  %:p to get the full path to the current file."
+"  :~: Get the file path relative to the home directory (this one didn't work for me for some reason)
+"  :.: Get the file path relative to the current directory (% default)
+"  :r: File name root. The name of the file without the extension.
+"  :e: File's extension.
+"  :h: Split on / and return the left half (i.e. if I'm editing a file in a path of /tmp/test.txt and run %:p:h will return /tmp
+"  :t: Split on / and return the right half (i.e. if I'm editing a file in a path of /tmp/test.txt and run %:p:t will return text.txt
+
+
+noremap r :! C:/cygwin64/bin/python3.6m.exe C:/cygwin64/bin/ranger --selectfile=%:p<CR>
+" --choosedir=%:p:h"
 
 
 " C-w s/v split
@@ -68,7 +82,7 @@ call plug#end()
 
 set title
 " set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:p:h\")})%)%(\ %a%)\ -\ %{v:servername}
-set titlestring=%{expand(\"%:p:h\")}/%t
+set titlestring=vim:\ %{expand(\"%:p:h\")}/%t
 
 
 
