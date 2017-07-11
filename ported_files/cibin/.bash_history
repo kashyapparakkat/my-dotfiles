@@ -175,3 +175,11 @@ r
 less
 r
 ex
+recent
+ex
+l sh
+ex
+l sh
+less -ism *.sh
+bash
+ex

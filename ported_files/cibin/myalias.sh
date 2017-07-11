@@ -10,6 +10,11 @@
 # my custom functions
 # add these to initialise.sh also
 
+function l() {
+  less -ism *.$1
+}
+
+
 alias st='searchText'
 alias sn='searchNotes'
 alias sf='searchFiles'

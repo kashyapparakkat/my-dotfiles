@@ -1,3 +1,22 @@
+#grep "/.*" -E -o ~/.viminfo |sort |uniq|fzf|sed 's/"//g'
+#echo "$(grep "/.*" -E -o ~/.viminfo |sed 's/"//g'|sort|uniq|fzf)"
+
+function re(){
+# recent
+grep "/.*" -E -o ~/.viminfo |sed 's/"//g'>>~/cbn_history.txt
+grep "\\w:\\\[^\"]*\" " -E -o /cygdrive/c/Users/"$USERNAME"/AppData/Roaming/Notepad++/session.xml>~/cbn_history.txt
+
+#remove ", trailing spaces
+vim $(cat ~/cbn_history.txt|convert_to_cygdrive|sed 's/"//g'|sed 's/ *$//'|sort|uniq|fzf|sed 's/ /\\ /g')
+#C:\Users\cibin\AppData\Roaming\Notepad++\session.xml
+
+}
+
+function convert_to_cygdrive(){
+
+	sed -e "s/\\(.\\):/\\/cygdrive\\/\\1/"  -- "$@"|sed 's/\\/\//g'
+
+}
 #www.cibinmathew.com
 #github.com/cibinmathew
 
@@ -38,15 +57,28 @@ bind "set mark-directories on"
 #bind -x '"|C-u":"cd ..\n"'
 bind '"\C-p":history-search-backward'
 bind '"\C-q":"exit\r"'
-bind '"\C-i":"cd -\r"'
-bind '"\C-i":"\C-asudo \C-e"'
-bind '"\C-u":"cd ..\r"'
+bind '"\C-u":"cd -\r"'
+bind '"\C-o":"\C-asudo \C-e"'
+bind '"\C-l":"cd ..\r"'
+
 #bind -x '"|C-q":"exit\n"'
-bind -x '"|C-l": clear:echo "cleared"'
+
+# bind -x '"|C-l": clear:echo "cleared"'
 # for f12
 bind '"\e[24~":"pwd\n"'
 # binds Alt 0
 bind -x '"\e0":ranger'
+
+# don't put duplicate lines or empty spaces in the history
+export HISTCONTROL=ignoreboth
+
+# merge session histories
+shopt -s histappend
+
+# Ctrl+C kills the current process and that Ctrl+D will quit current shell and log you out. I like to put this in my .bashrc to prevent that last thing happening by accident:
+
+# Ctrl+D must be pressed twice
+export IGNOREEOF=1
 
 
 

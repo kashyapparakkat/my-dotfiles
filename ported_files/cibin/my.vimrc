@@ -1,3 +1,13 @@
+":oldfiles
+
+
+" open each buffer in its own tabpage, add this to your vimrc:
+" may freeze also
+:au BufAdd,BufNewFile * nested tab sball
+
+" open in less"
+nnoremap c :exe ':silent !less %'<CR>
+
 set number
 set cursorline
 
@@ -9,7 +19,9 @@ noremap <C-l> :bn<CR>
 noremap gl G
 noremap <leader>f :Ranger<CR>
 
-noremap b :CtrlP<CR>
+noremap b :CtrlPMixed<CR>
+noremap <C-x>b :CtrlP<CR>
+" Press <c-f> and <c-b> to cycle between modes.
 
 noremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
@@ -75,7 +87,7 @@ Plug 'vim-scripts/ag.vim'
 " shell inside vi
 Plug 'wkentaro/conque.vim'
 Plug 'https://github.com/kien/ctrlp.vim.git'
-
+Plug 'junegunn/fzf.vim'
 " Initialize plugin system
 call plug#end()
 " use :PlugInstall from vim to install one time"
@@ -84,10 +96,12 @@ set title
 " set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:p:h\")})%)%(\ %a%)\ -\ %{v:servername}
 set titlestring=vim:\ %{expand(\"%:p:h\")}/%t
 
-
-
+set laststatus=2            " always a status line
+set incsearch
+set ignorecase
+set smartcase
 set showcmd
-
+set scrolloff=4 		"offset
 
 
 

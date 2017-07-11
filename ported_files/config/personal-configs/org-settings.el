@@ -1,6 +1,10 @@
 ;; http://ergoemacs.org/emacs/emacs_org_babel_literate_programing.html
 
 
+;;  `auto'  Org will look at the surrounding headings/items and try to make an intelligent decision whether to insert a blank line or not.
+(setf org-blank-before-new-entry '((heading . nil) (plain-list-item . nil)))
+
+
 (setq org-agenda-files (list (format "C:/Users/%s/Downloads/todo.org" user-login-name)                            
                         (format "C:/Users/%s/Downloads/todo.txt" user-login-name)                           
                              "~/.emacs.d/my-files/org/work.org"))

@@ -433,12 +433,12 @@ function searchNotes () {
 # ag $* -G org$ /cygdrive/c/Users/cibin/Downloads/ --color
 
 
-ag $* -G org$ /cygdrive/c/Users/cibin/Downloads/ --color
-# ag $* -G todo.org$ /cygdrive/c/Users/cibin/Downloads/ --color
-ag $* -G ^notes.txt$ /cygdrive/c/Users/cibin/Downloads/ --color
-ag $* -G notes.org$ /cygdrive/c/Users/cibin/Downloads/ --color
-ag $* -G work-notes.txt$ /cygdrive/c/Users/cibin/Downloads/ --color
-ag $* -G work-notes.org$ /cygdrive/c/Users/cibin/Downloads/ --color
+ag $* -n -G org$ /cygdrive/c/Users/"$USERNAME"/Downloads/ --color
+# ag $* -n -G todo.org$ /cygdrive/c/Users/"$USERNAME"/Downloads/ --color
+ag $* -n -G ^notes.txt$ /cygdrive/c/Users/"$USERNAME"/Downloads/ --color
+ag $* -n -G notes.org$ /cygdrive/c/Users/"$USERNAME"/Downloads/ --color
+ag $* -n -G work-notes.txt$ /cygdrive/c/"$USERNAME"/cibin/Downloads/ --color
+ag $* -n -G work-notes.org$ /cygdrive/c/Users/"$USERNAME"/Downloads/ --color
 }
 
 

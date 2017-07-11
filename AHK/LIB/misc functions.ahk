@@ -429,7 +429,7 @@ get_current_sourcepath_from_active_window()
 	sourcepath :=get_current_filepath_from_active_window()
 	if sourcepath =
 		sourcepath :=get_parent_filepath()
-	msgbox,%sourcepath%
+	;msgbox,%sourcepath%
 	stringreplace,sourcepath,sourcepath,/,\,All
 	If( InStr( FileExist(sourcepath), "D") )
 		return sourcepath
@@ -473,7 +473,11 @@ get_current_filepath_from_active_window()
 			StringTrimRight, filepath, Title, 30
 		else ifWinActive, - Sublime Text
 			StringTrimRight, filepath, Title, 15
-	  StringReplace, filepath,filepath,•,
+	;msgbox,%filepath%
+	  Stringreplace,filepath,filepath,•,,All
+	  
+	;msgbox,%filepath%
+	  
 	} 
 	else ifWinActive , - VLC media player
 	; gives only filename now
