@@ -47,7 +47,7 @@ space & 1::
 space & 2::
 ; space & 3::
 ; space & 4::
-space & 5::
+;; space & 5::
 space & 6::
 space & 7::
 space & 8::
@@ -810,7 +810,7 @@ Backspace::
 return
 #IfWinActive
 
-Space & 3::	; na
+Space & 4::	; na
 	;filepath:=get_current_sourcepath_from_active_window()
 	filepath:=get_current_filepath_from_active_window()
 	filepath:=convert_to_cygwin_path(filepath)
@@ -822,9 +822,15 @@ Space & 3::	; na
 return
 
 
-Space & 4::	; na
+Space & 5::	; na
 	filepath:=get_current_filepath_from_active_window()
 	run, C:\cygwin64\bin\vim.exe "%filepath%",,max
+return
+
+Space & 3::	; na
+	sourcepath:=get_current_sourcepath_from_active_window()
+	run_bash_prompt(sourcepath)
+	
 return
 
 ;r = ranger in cmd;bash; rr in vi; emacs

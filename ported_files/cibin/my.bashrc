@@ -1,14 +1,32 @@
 #grep "/.*" -E -o ~/.viminfo |sort |uniq|fzf|sed 's/"//g'
 #echo "$(grep "/.*" -E -o ~/.viminfo |sed 's/"//g'|sort|uniq|fzf)"
 
-function re(){
+function recent_files(){
 # recent
 grep "/.*" -E -o ~/.viminfo |sed 's/"//g'>>~/cbn_history.txt
 grep "\\w:\\\[^\"]*\" " -E -o /cygdrive/c/Users/"$USERNAME"/AppData/Roaming/Notepad++/session.xml>~/cbn_history.txt
 
 #remove ", trailing spaces
-vim $(cat ~/cbn_history.txt|convert_to_cygdrive|sed 's/"//g'|sed 's/ *$//'|sort|uniq|fzf|sed 's/ /\\ /g')
+echo  "$(cat ~/cbn_history.txt|convert_to_cygdrive|sed 's/"//g'|sed 's/ *$//'|sort|uniq)"
 #C:\Users\cibin\AppData\Roaming\Notepad++\session.xml
+}
+
+function re() {
+	vim $(recent_files|fzf|sed 's/ /\\ /g')
+}
+
+function red(){
+# recent d
+cd "$(recent_dirs|fzf|sed 's/ /\\ /g')"
+
+}
+
+function recent_dirs() {
+
+#remove ", trailing spaces
+# TODO get dires of recent_files in vim,ranger,sublime
+
+echo "$(cat ~/.z|cut -d'|' -f1|convert_to_cygdrive|sed 's/"//g'|sed 's/ *$//'|sort|uniq)"
 
 }
 
@@ -231,7 +249,7 @@ alias r='ranger'
 # https://stackoverflow.com/questions/12870928/mac-bash-git-ps1-command-not-found
 source ~/.git-prompt.sh
 #PS1=$PS1'$(__git_ps1 "(%s) ")'
-PS1='\# \[\e[0;31m\]$(r=$?; [[ $r == "0" ]] || echo "[$r] ")\[\e[0m\]\[\e[0;36m\]\u\[\e[0m\] \W\[\e[0;33m\]$(__git_branch)\[\e[0m\]> '
+PS1='\# \[\e[0;31m\]$(r=$?; [[ $r == "0" ]] || echo "[$r] ")\[\e[0m\]\[\e[0;36m\]\u\[\e[0m\] \w\[\e[0;33m\]$(__git_branch)\[\e[0m\]> '
 
 __git_branch() {
     git branch 2>/dev/null | grep -e '^*' | sed -E 's/^\* (.+)$/(\1)/'
@@ -265,3 +283,7 @@ shopt -s cdspell
 
 export PAGER="/usr/bin/less -isM"
 export LESS="/usr/bin/less -isM"
+
+
+#z fuzzy cd completion
+source ~/my-scripts/z/z.sh

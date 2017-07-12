@@ -251,7 +251,7 @@ config =
 bash here,emacs here,cmd here,on sel path
 ,
 ,
-sourcepath:=get_current_sourcepath_from_active_window(),sourcepath:=get_parent_filepath(),sourcepath:=get_parent_filepath(),
+sourcepath:=get_current_sourcepath_from_active_window(),sourcepath:=get_current_sourcepath_from_active_window(),sourcepath:=get_current_sourcepath_from_active_window(),
 ,
 "run_bash_prompt(sourcepath)","run_emacs_shell(sourcepath)","run_cmd_prompt(sourcepath)",
 ,

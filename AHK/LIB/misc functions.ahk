@@ -510,7 +510,7 @@ get_current_filepath_from_active_window()
 	
 		; cygwin when selection is there  Select /cygdrive/c/Users
 		window_title :=regexreplace(Title,"ranger:\s*(.*)$","$1")
-		msgbox,%window_title%
+		; msgbox,%window_title%
 		window_title :=regexreplace(window_title,"less:\s*(.*)$","$1")
 		window_title :=regexreplace(window_title,"vim:\s*(.*)$","$1")
 		window_title :=regexreplace(window_title,"Select\s*(.*)$","$1")
@@ -521,7 +521,10 @@ get_current_filepath_from_active_window()
 			
 			filepath:=window_title
 		else 
+			{
 			tooltip,"not found"
+			settimer,removetooltip,-1000
+			}
 	}
 	stringreplace,filepath,filepath,\\,\,all
 	stringreplace,filepath,filepath,\,/,all
@@ -779,6 +782,10 @@ regex_safe_escape(source_string)
 }
 run_emacs_shell(sourcepath)
 {
+
+ifNotExist,%sourcepath%
+	sourcepath=C:\Users\%A_UserName%\Downloads
+
 	stringreplace,sourcepath,sourcepath,\,/,all
 	eval_expression=(progn (print default-directory)(setq default-directory \"%sourcepath%/\")(print default-directory)(shell))
 	iniread,f_path,C:\cbn_gits\AHK\running_all_settings.ini,paths,emacs
@@ -798,12 +805,17 @@ run_emacs_dired(sourcepath)
 
 run_cmd_prompt(sourcepath="") ; run_cmd_prompt
 {
+
+ifNotExist,%sourcepath%
+	sourcepath=C:\Users\%A_UserName%\Downloads
 	run,cmd /k C:\cbn_gits\my_env_path_folder\alias.cmd,%sourcepath%
 }
 
 run_bash_prompt(sourcepath="") ; run_cmd_prompt
 {
-; msgbox
+
+ifNotExist,%sourcepath%
+	sourcepath=C:\Users\%A_UserName%\Downloads
 	run,bash.exe,%sourcepath% ; C:\Users\%A_UserName%\.bashrc,%sourcepath%
 	
 }

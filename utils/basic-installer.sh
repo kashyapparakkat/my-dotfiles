@@ -61,6 +61,8 @@ git clone https://github.com/clvv/fasd.git
 cd fasd
 sudo make install
 
+### z fuzzy cd completion
+git clone https://github.com/rupa/z.git ~/my-scripts/z
 
 # http://seanbowman.me/blog/fzf-fasd-and-bash-aliases/
 cd ~/tmp-installers
