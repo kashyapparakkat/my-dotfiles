@@ -13,13 +13,17 @@
 function l() {
   less -ism *.$1
 }
-
-
-alias st='searchText'
-alias sn='searchNotes'
-alias sf='searchFiles'
+# if WINDOWS
+  alias find='lfind'
+# else if linux
+#   alias lfind='find'
+alias st='searchtext'
+alias sn='searchnotes'
+alias sf='searchfiles'
+alias sa='searchall'
 
 alias ex='exit'
+
 alias ff='pcfind common_fuzzy fuzzy_db'
 alias f='pcfind common db'
 alias fa='pcfind all db'
@@ -44,6 +48,7 @@ alias gat='advgrep all txt'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
+alias cgrep='cgrep --color=auto -C 1'
 
 ## get rid of command not found ##
 alias cd..='cd ..' 

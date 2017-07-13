@@ -61,16 +61,16 @@ HK_cycle_register("<#1","Copy_Path_HK",5,3000,"Lwin", "$#q",config)
 
 config =
 (
-open in emacs,npp,explorer,dired,pycharm
+open in emacs,sublime,npp,explorer,dired,pycharm
 ,,,,
 ,,,,
 ,,,,
 ,,,,
 ,,,,
-get_and_open_in_emacs,get_and_open_in_npp,,,get_and_open_in_pycharm
+get_and_open_in_emacs,get_and_open_in_sublime,get_and_open_in_npp,,,get_and_open_in_pycharm
 ,,,
 )
-HK_cycle_register("<#2","Copy_Path_Open_HK",5,3000,"Lwin", "$#q",config)
+HK_cycle_register("<#2","Copy_Path_Open_HK",6,3000,"Lwin", "$#q",config)
 
 config =
 (
@@ -656,6 +656,11 @@ open_in_emacs:
 
 	settimer,removetooltip,800
 	gosub,open_with_emacs
+return
+
+get_and_open_in_sublime:
+	file:=get_current_filepath_from_active_window()
+	menuEvent_function("sublime",file)
 return
 
 get_and_open_in_npp:

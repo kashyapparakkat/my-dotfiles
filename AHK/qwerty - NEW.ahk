@@ -50,7 +50,7 @@ space & 2::
 ;; space & 5::
 space & 6::
 space & 7::
-space & 8::
+;; space & 8::
 space & 9::
 
 space & a::
@@ -821,6 +821,10 @@ Space & 4::	; na
 	;run, C:\cygwin64\bin\bash.exe C:\cygwin64\bin\python3.6m.exe C:\cygwin64\bin\ranger C:\,,max
 return
 
+Space & 8::	; na
+	sourcepath:=get_current_sourcepath_from_active_window()
+	run, C:\cygwin64\bin\mintty.exe /bin/tmux,%sourcepath%,max
+return
 
 Space & 5::	; na
 	filepath:=get_current_filepath_from_active_window()
@@ -829,7 +833,8 @@ return
 
 Space & 3::	; na
 	sourcepath:=get_current_sourcepath_from_active_window()
-	run_bash_prompt(sourcepath)
+	run, C:\cygwin64\bin\mintty.exe /bin/tmux,%sourcepath%,max
+	;run_bash_prompt(sourcepath)
 	
 return
 

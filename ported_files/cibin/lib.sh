@@ -234,10 +234,11 @@ function cron_jobs_cibin() {
 	echo "other_indexes"
 	echo "myindexemacs"
 	echo "myindex"
+	echo "updatedb"
 	# TODO: separate the jobs or add interval info to it
 
 	# locatedb update
-	# updatedb
+	updatedb
 
 	# Change mlocate Database Location
 # The default database that locate utility reads is /var/lib/mlocate/mlocate.db, but if you wish to link the locate command with some other database kept at some other location, use the -d option.
@@ -418,12 +419,75 @@ function mygrep() {
  }
 
 
-function fd() {
+function ffd() {
   local dir
   #dir=$(cat *.txt | fzf +m) &&
   dir=$(lfind . -name "*.$1" -exec tail -n +1 -- {} + | fzf +m) &&
   echo "$dir"
 }
+
+
+
+### https://github.com/zhhz/vim-settings/blob/master/fzf.bash
+##
+##Changing directory
+##
+# fd - cd to selected directory
+fda() {
+  local dir
+  dir=$(lfind ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
+
+# fd - including hidden directories
+fd() {
+  local dir
+  dir=$(lfind ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
+}
+
+# fdr - cd to selected parent directory
+fdr() {
+  local declare dirs=()
+  get_parent_dirs() {
+    if [[ -d "${1}" ]]; then dirs+=("$1"); else return; fi
+    if [[ "${1}" == '/' ]]; then
+      for _dir in "${dirs[@]}"; do echo $_dir; done
+    else
+      get_parent_dirs $(dirname "$1")
+    fi
+  }
+  local DIR=$(get_parent_dirs $(realpath "${1:-$(pwd)}") | fzf-tmux --tac)
+  cd "$DIR"
+}
+
+# cf - fuzzy cd from anywhere
+# ex: cf word1 word2 ... (even part of a file name)
+# zsh autoload function
+cf() {
+echo  e"x: cf word1 word2 ... (even part of a file name)"
+  local file
+
+  file="$(locate -Ai -0 $@ | grep -z -vE '~$' | fzf --read0 -0 -1)"
+
+  if [[ -n $file ]]
+  then
+     if [[ -d $file ]]
+     then
+        cd -- $file
+     else
+        cd -- ${file:h}
+     fi
+  fi
+}
+
+# cdf - cd into the directory of the selected file
+cdf() {
+   local file
+   local dir
+   file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
+}
+
 
 
 

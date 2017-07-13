@@ -12,7 +12,7 @@
 (setq org-list-description-max-indent 5)
 (use-package org-bullets
   :init
-  (setq org-bullets-bullet-list '("●" "•" "▪" "►" "♦" "■" "○" ))
+  (setq org-bullets-bullet-list '("●" "•" "▪" "♦" "►" "■" "○" ))
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 )
 

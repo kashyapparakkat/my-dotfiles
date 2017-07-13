@@ -15,9 +15,9 @@ class newcmd(Command):
         self.fm.notify(self.fm.thisdir)
         # Run a shell command.
         self.fm.run(['touch', 'newfile'])
-		
+        
 # Visit frequently used directories
-# https://github.com/ranger/ranger/wiki/Commands		
+# https://github.com/ranger/ranger/wiki/Commands        
 # This command uses fasd to jump to a frequently visited directory with a given substring of its path.
 
 class fasd(Command):
@@ -31,7 +31,7 @@ class fasd(Command):
         arg = self.rest(1)
         if arg:
             directory = subprocess.check_output(["fasd", "-d"]+arg.split(), universal_newlines=True).strip()
-            self.fm.cd(directory)	
+            self.fm.cd(directory)    
 
 ## fzf integration
 
@@ -62,10 +62,10 @@ class fzf_select(Command):
             if os.path.isdir(fzf_file):
                 self.fm.cd(fzf_file)
             else:
-                self.fm.select_file(fzf_file)			
-				
-				
-#  https://github.com/ranger/ranger/issues/255		
+                self.fm.select_file(fzf_file)            
+                
+                
+#  https://github.com/ranger/ranger/issues/255        
 from subprocess import PIPE
 class fzfcd(Command):
     def execute(self):
@@ -73,7 +73,7 @@ class fzfcd(Command):
         fzf = self.fm.execute_command(command, stdout=PIPE)
         stdout, stderr = fzf.communicate()
         directory = stdout.decode('utf-8').rstrip('\n')
-        self.fm.cd(directory)			
+        self.fm.cd(directory)            
  
  
 class fzfsearch(Command):
@@ -82,4 +82,35 @@ class fzfsearch(Command):
         fzf = self.fm.execute_command(command, stdout=PIPE)
         stdout, stderr = fzf.communicate()
         directory = stdout.decode('utf-8').rstrip('\n')
-        #self.fm.cd(directory)				
+        #self.fm.cd(directory)                
+        
+# ~/.config/ranger/commands.py
+from ranger.api.commands import *
+import ranger.fsobject.directory        
+original_accept_file = ranger.fsobject.directory.accept_file
+
+# this was copy&pasted from ranger/fsobject/directory.py and modified
+# to make filters case insensitive
+def insensitive_accept_file(fname, dirname, hidden_filter, name_filter):
+    if hidden_filter:
+        try:
+            if hidden_filter.search(fname):
+                return False
+        except:
+            if hidden_filter in fname:
+                return False
+    if name_filter and name_filter.lower() not in fname.lower():
+        return False
+    return True
+
+class filter(Command):
+    def quick(self):
+        ranger.fsobject.directory.accept_file = original_accept_file
+        self.fm.set_filter(self.rest(1))
+        self.fm.reload_cwd()
+
+class filter_i(Command):
+    def quick(self):
+        ranger.fsobject.directory.accept_file = insensitive_accept_file
+        self.fm.set_filter(self.rest(1))
+        self.fm.reload_cwd()        

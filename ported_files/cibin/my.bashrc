@@ -1,11 +1,24 @@
+# C:\cygwin64\bin\mintty.exe --dir "%1" /bin/bash
+# C:\cygwin64\bin\mintty.exe --dir "%1" /bin/env CHERE_INVOKING=1 /bin/bash -l
+
+# C:\cygwin\bin\mintty.exe -h always -e /bin/sh -c '/cygdrive/c/cygwin64/mysql2sqlite.sh| /bin/sqlite3 database.sqlite'
+
 #grep "/.*" -E -o ~/.viminfo |sort |uniq|fzf|sed 's/"//g'
 #echo "$(grep "/.*" -E -o ~/.viminfo |sed 's/"//g'|sort|uniq|fzf)"
-
+function cbn(){
+echo "
+st='searchText'
+alias sn='searchNotes'
+alias sf='searchFiles'
+"
+}
 function recent_files(){
 # recent
 grep "/.*" -E -o ~/.viminfo |sed 's/"//g'>>~/cbn_history.txt
 grep "\\w:\\\[^\"]*\" " -E -o /cygdrive/c/Users/"$USERNAME"/AppData/Roaming/Notepad++/session.xml>~/cbn_history.txt
-
+# linux ~/.config/sublime-text-2/Settings/Session.sublime_session, so look for such a file in the Settings folder in your user directory.
+# In Mac OS X this list is stored in a file called Session.sublime_session under ~/Library/Application Support/Sublime Text 2/Settings, 
+sublime_file=C:/Users/$USER/AppData/Roaming/Sublime\ Text\ 3/Local/Session.sublime_session
 #remove ", trailing spaces
 echo  "$(cat ~/cbn_history.txt|convert_to_cygdrive|sed 's/"//g'|sed 's/ *$//'|sort|uniq)"
 #C:\Users\cibin\AppData\Roaming\Notepad++\session.xml

@@ -5,7 +5,7 @@
 |1,4
 
 # Value of 'encoding' when this file was written
-*encoding=latin1
+*encoding=utf-8
 
 
 # hlsearch on (H) or off (h):
@@ -17,6 +17,8 @@
 $
 
 # Command Line History (newest to oldest):
+:help
+|2,0,1499963231,,"help"
 :q
 |2,0,1499801184,,"q"
 :q!
@@ -113,230 +115,246 @@ $
 |3,0,36,0,1,0,1496945208,"h"
 
 # File marks:
-'0  1  0  ~/my.vimrc
-|4,48,1,0,1499802019,"~/my.vimrc"
-'1  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,49,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
-'2  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,50,1,0,1499801783,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
-'3  14  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,51,14,0,1499801573,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
-'4  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\ -\ NEW.ahk
-|4,52,1,0,1499801558,"/cygdrive/C/cbn_gits/AHK/qwerty\\ -\\ NEW.ahk"
-'5  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,53,1,0,1499801529,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
-'6  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,54,1,0,1499801529,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
-'7  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,55,1,0,1499801413,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
-'8  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk\
-|4,56,1,0,1499801229,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk\\"
+'0  1  0  /tmp/bash-fc.mZVhag
+|4,48,1,0,1499970879,"/tmp/bash-fc.mZVhag"
+'1  6  0  ~/cbn_history.txt
+|4,49,6,0,1499967896,"~/cbn_history.txt"
+'2  3  0  /cygdrive/c/cbn_gits/AHK/! new smart run open_with2.txt
+|4,50,3,0,1499967088,"/cygdrive/c/cbn_gits/AHK/! new smart run open_with2.txt"
+'3  1  0  /usr/share/vim/vim80/doc/help.txt
+|4,51,1,0,1499963248,"/usr/share/vim/vim80/doc/help.txt"
+'4  1  0  ~/my.vimrc
+|4,52,1,0,1499802019,"~/my.vimrc"
+'5  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,53,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+'6  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
+|4,54,1,0,1499801783,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
+'7  14  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,55,14,0,1499801573,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+'8  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\ -\ NEW.ahk
+|4,56,1,0,1499801558,"/cygdrive/C/cbn_gits/AHK/qwerty\\ -\\ NEW.ahk"
 '9  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,57,1,0,1499801206,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+|4,57,1,0,1499801529,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
 
 # Jumplist (newest first):
+-'  1  0  /tmp/bash-fc.mZVhag
+|4,39,1,0,1499970879,"/tmp/bash-fc.mZVhag"
+-'  6  0  ~/cbn_history.txt
+|4,39,6,0,1499967896,"~/cbn_history.txt"
+-'  6  0  ~/cbn_history.txt
+|4,39,6,0,1499967896,"~/cbn_history.txt"
+-'  1  0  ~/cbn_history.txt
+|4,39,1,0,1499967893,"~/cbn_history.txt"
+-'  1  0  ~/cbn_history.txt
+|4,39,1,0,1499967893,"~/cbn_history.txt"
+-'  3  0  /cygdrive/c/cbn_gits/AHK/! new smart run open_with2.txt
+|4,39,3,0,1499967088,"/cygdrive/c/cbn_gits/AHK/! new smart run open_with2.txt"
+-'  3  0  /cygdrive/c/cbn_gits/AHK/! new smart run open_with2.txt
+|4,39,3,0,1499967088,"/cygdrive/c/cbn_gits/AHK/! new smart run open_with2.txt"
+-'  3  0  /cygdrive/c/cbn_gits/AHK/! new smart run open_with2.txt
+|4,39,3,0,1499967088,"/cygdrive/c/cbn_gits/AHK/! new smart run open_with2.txt"
+-'  3  0  /cygdrive/c/cbn_gits/AHK/! new smart run open_with2.txt
+|4,39,3,0,1499967088,"/cygdrive/c/cbn_gits/AHK/! new smart run open_with2.txt"
+-'  1  0  /cygdrive/c/cbn_gits/AHK/! new smart run open_with2.txt
+|4,39,1,0,1499966773,"/cygdrive/c/cbn_gits/AHK/! new smart run open_with2.txt"
+-'  1  0  /cygdrive/c/cbn_gits/AHK/! new smart run open_with2.txt
+|4,39,1,0,1499966773,"/cygdrive/c/cbn_gits/AHK/! new smart run open_with2.txt"
+-'  1  0  /cygdrive/c/cbn_gits/AHK/! new smart run open_with2.txt
+|4,39,1,0,1499966773,"/cygdrive/c/cbn_gits/AHK/! new smart run open_with2.txt"
+-'  1  0  /cygdrive/c/cbn_gits/AHK/! new smart run open_with2.txt
+|4,39,1,0,1499966773,"/cygdrive/c/cbn_gits/AHK/! new smart run open_with2.txt"
+-'  1  0  /usr/share/vim/vim80/doc/help.txt
+|4,39,1,0,1499963248,"/usr/share/vim/vim80/doc/help.txt"
+-'  1  0  /usr/share/vim/vim80/doc/help.txt
+|4,39,1,0,1499963248,"/usr/share/vim/vim80/doc/help.txt"
+-'  1  0  /usr/share/vim/vim80/doc/help.txt
+|4,39,1,0,1499963248,"/usr/share/vim/vim80/doc/help.txt"
+-'  1  0  /usr/share/vim/vim80/doc/help.txt
+|4,39,1,0,1499963248,"/usr/share/vim/vim80/doc/help.txt"
+-'  1  0  /usr/share/vim/vim80/doc/help.txt
+|4,39,1,0,1499963248,"/usr/share/vim/vim80/doc/help.txt"
+-'  1  0  /usr/share/vim/vim80/doc/help.txt
+|4,39,1,0,1499963248,"/usr/share/vim/vim80/doc/help.txt"
+-'  1  0  /usr/share/vim/vim80/doc/help.txt
+|4,39,1,0,1499963248,"/usr/share/vim/vim80/doc/help.txt"
+-'  1  0  /usr/share/vim/vim80/doc/help.txt
+|4,39,1,0,1499963248,"/usr/share/vim/vim80/doc/help.txt"
+-'  1  0  ~/my.vimrc
+|4,39,1,0,1499802019,"~/my.vimrc"
+-'  1  0  ~/my.vimrc
+|4,39,1,0,1499802019,"~/my.vimrc"
+-'  1  0  ~/my.vimrc
+|4,39,1,0,1499802019,"~/my.vimrc"
+-'  1  0  ~/my.vimrc
+|4,39,1,0,1499802019,"~/my.vimrc"
+-'  1  0  ~/my.vimrc
+|4,39,1,0,1499802019,"~/my.vimrc"
+-'  1  0  ~/my.vimrc
+|4,39,1,0,1499802019,"~/my.vimrc"
+-'  1  0  ~/my.vimrc
+|4,39,1,0,1499802019,"~/my.vimrc"
+-'  1  0  ~/my.vimrc
+|4,39,1,0,1499802019,"~/my.vimrc"
+-'  1  0  ~/my.vimrc
+|4,39,1,0,1499802019,"~/my.vimrc"
+-'  1  0  ~/my.vimrc
+|4,39,1,0,1499802019,"~/my.vimrc"
+-'  1  0  ~/my.vimrc
+|4,39,1,0,1499802019,"~/my.vimrc"
+-'  1  0  ~/my.vimrc
+|4,39,1,0,1499802019,"~/my.vimrc"
+-'  1  0  ~/my.vimrc
+|4,39,1,0,1499802019,"~/my.vimrc"
+-'  1  0  ~/my.vimrc
+|4,39,1,0,1499802019,"~/my.vimrc"
+-'  1  0  ~/my.vimrc
+|4,39,1,0,1499802019,"~/my.vimrc"
 -'  1  0  ~/my.vimrc
 |4,39,1,0,1499802019,"~/my.vimrc"
 -'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
 |4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
 -'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
 |4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
 -'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
 |4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
 -'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
 |4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,39,1,0,1499801783,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,39,1,0,1499801783,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,39,1,0,1499801783,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,39,1,0,1499801783,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
--'  14  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,39,14,0,1499801573,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
--'  14  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,39,14,0,1499801573,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
--'  14  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,39,14,0,1499801573,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
--'  14  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,39,14,0,1499801573,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
--'  14  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,39,14,0,1499801573,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
--'  14  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,39,14,0,1499801573,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
--'  14  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,39,14,0,1499801573,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
--'  14  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,39,14,0,1499801573,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,39,1,0,1499801570,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,39,1,0,1499801570,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,39,1,0,1499801570,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,39,1,0,1499801570,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,39,1,0,1499801570,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,39,1,0,1499801570,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,39,1,0,1499801570,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,39,1,0,1499801570,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\ -\ NEW.ahk
-|4,39,1,0,1499801558,"/cygdrive/C/cbn_gits/AHK/qwerty\\ -\\ NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\ -\ NEW.ahk
-|4,39,1,0,1499801558,"/cygdrive/C/cbn_gits/AHK/qwerty\\ -\\ NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\ -\ NEW.ahk
-|4,39,1,0,1499801558,"/cygdrive/C/cbn_gits/AHK/qwerty\\ -\\ NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\ -\ NEW.ahk
-|4,39,1,0,1499801558,"/cygdrive/C/cbn_gits/AHK/qwerty\\ -\\ NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\ -\ NEW.ahk
-|4,39,1,0,1499801558,"/cygdrive/C/cbn_gits/AHK/qwerty\\ -\\ NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\ -\ NEW.ahk
-|4,39,1,0,1499801558,"/cygdrive/C/cbn_gits/AHK/qwerty\\ -\\ NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\ -\ NEW.ahk
-|4,39,1,0,1499801558,"/cygdrive/C/cbn_gits/AHK/qwerty\\ -\\ NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\ -\ NEW.ahk
-|4,39,1,0,1499801558,"/cygdrive/C/cbn_gits/AHK/qwerty\\ -\\ NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\ -\ NEW.ahk
-|4,39,1,0,1499801558,"/cygdrive/C/cbn_gits/AHK/qwerty\\ -\\ NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\ -\ NEW.ahk
-|4,39,1,0,1499801558,"/cygdrive/C/cbn_gits/AHK/qwerty\\ -\\ NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\ -\ NEW.ahk
-|4,39,1,0,1499801558,"/cygdrive/C/cbn_gits/AHK/qwerty\\ -\\ NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\ -\ NEW.ahk
-|4,39,1,0,1499801558,"/cygdrive/C/cbn_gits/AHK/qwerty\\ -\\ NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\ -\ NEW.ahk
-|4,39,1,0,1499801558,"/cygdrive/C/cbn_gits/AHK/qwerty\\ -\\ NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\ -\ NEW.ahk
-|4,39,1,0,1499801558,"/cygdrive/C/cbn_gits/AHK/qwerty\\ -\\ NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\ -\ NEW.ahk
-|4,39,1,0,1499801558,"/cygdrive/C/cbn_gits/AHK/qwerty\\ -\\ NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\ -\ NEW.ahk
-|4,39,1,0,1499801558,"/cygdrive/C/cbn_gits/AHK/qwerty\\ -\\ NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,39,1,0,1499801529,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,39,1,0,1499801529,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,39,1,0,1499801529,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,39,1,0,1499801529,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,39,1,0,1499801529,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,39,1,0,1499801529,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,39,1,0,1499801529,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,39,1,0,1499801529,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,39,1,0,1499801529,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,39,1,0,1499801529,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,39,1,0,1499801529,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,39,1,0,1499801529,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,39,1,0,1499801529,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,39,1,0,1499801529,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,39,1,0,1499801529,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,39,1,0,1499801529,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,39,1,0,1499801413,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,39,1,0,1499801413,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,39,1,0,1499801413,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,39,1,0,1499801413,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,39,1,0,1499801413,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,39,1,0,1499801413,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,39,1,0,1499801413,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,39,1,0,1499801413,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,39,1,0,1499801413,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,39,1,0,1499801413,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,39,1,0,1499801413,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,39,1,0,1499801413,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,39,1,0,1499801413,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,39,1,0,1499801413,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,39,1,0,1499801413,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,39,1,0,1499801413,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,39,1,0,1499801413,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,39,1,0,1499801413,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,39,1,0,1499801413,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,39,1,0,1499801413,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,39,1,0,1499801413,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,39,1,0,1499801413,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,39,1,0,1499801413,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,39,1,0,1499801413,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,39,1,0,1499801413,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,39,1,0,1499801413,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,39,1,0,1499801413,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,39,1,0,1499801413,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,39,1,0,1499801413,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,39,1,0,1499801413,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,39,1,0,1499801413,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,39,1,0,1499801413,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk\
-|4,39,1,0,1499801229,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk\\"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk\
-|4,39,1,0,1499801229,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk\\"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk\
-|4,39,1,0,1499801229,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk\\"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk\
-|4,39,1,0,1499801229,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk\\"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk\
-|4,39,1,0,1499801229,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk\\"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk\
-|4,39,1,0,1499801229,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk\\"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk\
-|4,39,1,0,1499801229,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk\\"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk\
-|4,39,1,0,1499801229,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk\\"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk\
-|4,39,1,0,1499801229,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk\\"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk\
-|4,39,1,0,1499801229,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk\\"
--'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk\
-|4,39,1,0,1499801229,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk\\"
+-'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
+|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
 
 # History of marks within files (newest to oldest):
+
+> /tmp/bash-fc.mZVhag
+	*	1499970848	0
+	"	1	0
+
+> ~/cbn_history.txt
+	*	1499967895	0
+	"	6	0
+
+> /cygdrive/c/cbn_gits/AHK/! new smart run open_with2.txt
+	*	1499967087	0
+	"	3	0
+
+> /usr/share/vim/vim80/doc/help.txt
+	*	1499963246	0
+	"	1	0
 
 > /cygdrive/C/cygwin64/home/cibin/lib.sh
 	*	1499801990	0
@@ -406,22 +424,4 @@ $
 
 > /cygdrive/c/Users/cibin/Downloads/fzy-master/fzy-master/test/test_properties.c
 	*	1499698392	0
-	"	1	0
-
-> ~/lib.sh
-	*	1499696794	0
-	"	11	0
-	.	12	0
-	+	388	15
-	+	17	0
-	+	3	0
-	+	12	0
-	a	2	0
-
-> /cygdrive/c/Users/cibin/Downloads/todo.org
-	*	1499629571	0
-	"	721	0
-
-> /cygdrive/C/cygwin64/home/cibin/.config/ranger/commands.py
-	*	1499628244	0
 	"	1	0

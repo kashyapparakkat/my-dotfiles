@@ -115,6 +115,8 @@ menuEvent_function(MenuItem,FileFullpath,params="")
 			Run properties "%FileFullpath%",, UseErrorLevel
 		else If (MenuItem = "N++")
 			gosub,open_in_npp
+		else If (MenuItem = "sublime")
+			gosub,open_in_sublime
 		else If (MenuItem = "open_in_texteditor")
 			gosub,open_in_texteditor
 		else If (MenuItem = "open_in_sublime")
@@ -320,6 +322,7 @@ menuEvent_function(MenuItem,FileFullpath,params="")
 		winactivate,ahk_class PX_WINDOW_CLASS
 		return
 		
+	
 	open_in_npp:
 	
 		Run   "%notepadPP_path%" "%FileFullpath%" %params%

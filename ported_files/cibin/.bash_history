@@ -183,3 +183,12 @@ l sh
 less -ism *.sh
 bash
 ex
+ls
+tmux
+ls
+cd -
+tmux source ~/.tmux.conf 
+send-prefix
+send-prefix
+tmux source ~/.tmux.conf 
+
