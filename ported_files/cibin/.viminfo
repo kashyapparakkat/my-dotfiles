@@ -5,7 +5,7 @@
 |1,4
 
 # Value of 'encoding' when this file was written
-*encoding=utf-8
+*encoding=latin1
 
 
 # hlsearch on (H) or off (h):
@@ -79,14 +79,14 @@ $
 |2,0,1497201605,,"wq"
 
 # Search String History (newest to oldest):
+? @$
+|2,1,1500229725,,"@$"
 ? \s\+$
 |2,1,1498989162,,"\\s\\+$"
 ?/advg
 |2,1,1498989140,47,"advg"
 ?/vim
 |2,1,1498762300,47,"vim"
-? @$
-|2,1,1497379775,,"@$"
 
 # Expression History (newest to oldest):
 
@@ -99,7 +99,7 @@ $
 # Registers:
 ""0	LINE	0
 	# parent path ${0%/*}
-|3,1,0,1,1,0,1499795513,"# parent path ${0%/*}"
+|3,1,0,1,1,0,1500229725,"# parent path ${0%/*}"
 "1	LINE	0
 	# parent path ${0%/*}
 |3,0,1,1,1,0,1499696782,"# parent path ${0%/*}"
@@ -115,230 +115,232 @@ $
 |3,0,36,0,1,0,1496945208,"h"
 
 # File marks:
-'0  1  0  /tmp/bash-fc.mZVhag
-|4,48,1,0,1499970879,"/tmp/bash-fc.mZVhag"
-'1  6  0  ~/cbn_history.txt
-|4,49,6,0,1499967896,"~/cbn_history.txt"
-'2  3  0  /cygdrive/c/cbn_gits/AHK/! new smart run open_with2.txt
-|4,50,3,0,1499967088,"/cygdrive/c/cbn_gits/AHK/! new smart run open_with2.txt"
-'3  1  0  /usr/share/vim/vim80/doc/help.txt
-|4,51,1,0,1499963248,"/usr/share/vim/vim80/doc/help.txt"
-'4  1  0  ~/my.vimrc
-|4,52,1,0,1499802019,"~/my.vimrc"
-'5  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,53,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
-'6  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\-\NEW.ahk
-|4,54,1,0,1499801783,"/cygdrive/C/cbn_gits/AHK/qwerty\\-\\NEW.ahk"
-'7  14  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,55,14,0,1499801573,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
-'8  1  0  /cygdrive/C/cbn_gits/AHK/qwerty\ -\ NEW.ahk
-|4,56,1,0,1499801558,"/cygdrive/C/cbn_gits/AHK/qwerty\\ -\\ NEW.ahk"
-'9  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
-|4,57,1,0,1499801529,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+'0  8  0  ~/
+|4,48,8,0,1500229727,"~/"
+'2  8  0  ~/
+|4,50,8,0,1500229712,"~/"
+'4  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,52,1,0,1500117928,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+'5  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,53,1,0,1500117921,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+'6  8  0  /home
+|4,54,8,0,1500114085,"/home"
+'7  8  0  /cygdrive/c/cbn_gits/AHK
+|4,55,8,0,1500111829,"/cygdrive/c/cbn_gits/AHK"
+'8  1  0  /.config/ranger/rc.conf
+|4,56,1,0,1499973540,"/.config/ranger/rc.conf"
 
 # Jumplist (newest first):
--'  1  0  /tmp/bash-fc.mZVhag
-|4,39,1,0,1499970879,"/tmp/bash-fc.mZVhag"
--'  6  0  ~/cbn_history.txt
-|4,39,6,0,1499967896,"~/cbn_history.txt"
--'  6  0  ~/cbn_history.txt
-|4,39,6,0,1499967896,"~/cbn_history.txt"
--'  1  0  ~/cbn_history.txt
-|4,39,1,0,1499967893,"~/cbn_history.txt"
--'  1  0  ~/cbn_history.txt
-|4,39,1,0,1499967893,"~/cbn_history.txt"
--'  3  0  /cygdrive/c/cbn_gits/AHK/! new smart run open_with2.txt
-|4,39,3,0,1499967088,"/cygdrive/c/cbn_gits/AHK/! new smart run open_with2.txt"
--'  3  0  /cygdrive/c/cbn_gits/AHK/! new smart run open_with2.txt
-|4,39,3,0,1499967088,"/cygdrive/c/cbn_gits/AHK/! new smart run open_with2.txt"
--'  3  0  /cygdrive/c/cbn_gits/AHK/! new smart run open_with2.txt
-|4,39,3,0,1499967088,"/cygdrive/c/cbn_gits/AHK/! new smart run open_with2.txt"
--'  3  0  /cygdrive/c/cbn_gits/AHK/! new smart run open_with2.txt
-|4,39,3,0,1499967088,"/cygdrive/c/cbn_gits/AHK/! new smart run open_with2.txt"
--'  1  0  /cygdrive/c/cbn_gits/AHK/! new smart run open_with2.txt
-|4,39,1,0,1499966773,"/cygdrive/c/cbn_gits/AHK/! new smart run open_with2.txt"
--'  1  0  /cygdrive/c/cbn_gits/AHK/! new smart run open_with2.txt
-|4,39,1,0,1499966773,"/cygdrive/c/cbn_gits/AHK/! new smart run open_with2.txt"
--'  1  0  /cygdrive/c/cbn_gits/AHK/! new smart run open_with2.txt
-|4,39,1,0,1499966773,"/cygdrive/c/cbn_gits/AHK/! new smart run open_with2.txt"
--'  1  0  /cygdrive/c/cbn_gits/AHK/! new smart run open_with2.txt
-|4,39,1,0,1499966773,"/cygdrive/c/cbn_gits/AHK/! new smart run open_with2.txt"
--'  1  0  /usr/share/vim/vim80/doc/help.txt
-|4,39,1,0,1499963248,"/usr/share/vim/vim80/doc/help.txt"
--'  1  0  /usr/share/vim/vim80/doc/help.txt
-|4,39,1,0,1499963248,"/usr/share/vim/vim80/doc/help.txt"
--'  1  0  /usr/share/vim/vim80/doc/help.txt
-|4,39,1,0,1499963248,"/usr/share/vim/vim80/doc/help.txt"
--'  1  0  /usr/share/vim/vim80/doc/help.txt
-|4,39,1,0,1499963248,"/usr/share/vim/vim80/doc/help.txt"
--'  1  0  /usr/share/vim/vim80/doc/help.txt
-|4,39,1,0,1499963248,"/usr/share/vim/vim80/doc/help.txt"
--'  1  0  /usr/share/vim/vim80/doc/help.txt
-|4,39,1,0,1499963248,"/usr/share/vim/vim80/doc/help.txt"
--'  1  0  /usr/share/vim/vim80/doc/help.txt
-|4,39,1,0,1499963248,"/usr/share/vim/vim80/doc/help.txt"
--'  1  0  /usr/share/vim/vim80/doc/help.txt
-|4,39,1,0,1499963248,"/usr/share/vim/vim80/doc/help.txt"
--'  1  0  ~/my.vimrc
-|4,39,1,0,1499802019,"~/my.vimrc"
--'  1  0  ~/my.vimrc
-|4,39,1,0,1499802019,"~/my.vimrc"
--'  1  0  ~/my.vimrc
-|4,39,1,0,1499802019,"~/my.vimrc"
--'  1  0  ~/my.vimrc
-|4,39,1,0,1499802019,"~/my.vimrc"
--'  1  0  ~/my.vimrc
-|4,39,1,0,1499802019,"~/my.vimrc"
--'  1  0  ~/my.vimrc
-|4,39,1,0,1499802019,"~/my.vimrc"
--'  1  0  ~/my.vimrc
-|4,39,1,0,1499802019,"~/my.vimrc"
--'  1  0  ~/my.vimrc
-|4,39,1,0,1499802019,"~/my.vimrc"
--'  1  0  ~/my.vimrc
-|4,39,1,0,1499802019,"~/my.vimrc"
--'  1  0  ~/my.vimrc
-|4,39,1,0,1499802019,"~/my.vimrc"
--'  1  0  ~/my.vimrc
-|4,39,1,0,1499802019,"~/my.vimrc"
--'  1  0  ~/my.vimrc
-|4,39,1,0,1499802019,"~/my.vimrc"
--'  1  0  ~/my.vimrc
-|4,39,1,0,1499802019,"~/my.vimrc"
--'  1  0  ~/my.vimrc
-|4,39,1,0,1499802019,"~/my.vimrc"
--'  1  0  ~/my.vimrc
-|4,39,1,0,1499802019,"~/my.vimrc"
--'  1  0  ~/my.vimrc
-|4,39,1,0,1499802019,"~/my.vimrc"
--'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  34  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,34,0,1499801990,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
--'  26  0  /cygdrive/C/cygwin64/home/cibin/lib.sh
-|4,39,26,0,1499801988,"/cygdrive/C/cygwin64/home/cibin/lib.sh"
+-'  8  0  ~/
+|4,39,8,0,1500229727,"~/"
+-'  8  0  ~/
+|4,39,8,0,1500229712,"~/"
+-'  8  0  ~/
+|4,39,8,0,1500229636,"~/"
+-'  8  0  ~/
+|4,39,8,0,1500229617,"~/"
+-'  8  0  ~/
+|4,39,8,0,1500132694,"~/"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117928,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117928,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117928,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117928,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117928,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117928,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117928,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117928,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117928,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117928,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117928,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117928,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117928,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117928,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117928,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117928,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117928,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117928,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117928,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117928,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117928,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117928,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117928,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117928,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117928,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117928,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117928,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117928,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117928,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117928,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117928,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117928,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117921,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117921,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117921,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117921,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117921,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117921,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117921,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117921,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117921,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117921,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117921,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117921,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117921,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117921,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117921,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117921,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117921,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117921,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117921,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117921,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117921,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117921,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117921,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117921,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117921,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117921,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117921,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117921,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117921,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117921,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117921,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/work-notes.org
+|4,39,1,0,1500117921,"/cygdrive/c/Users/cibin/Downloads/work-notes.org"
+-'  8  0  /home
+|4,39,8,0,1500114085,"/home"
+-'  8  0  /home
+|4,39,8,0,1500114085,"/home"
+-'  8  0  /home
+|4,39,8,0,1500114085,"/home"
+-'  8  0  /home
+|4,39,8,0,1500114085,"/home"
+-'  8  0  /home
+|4,39,8,0,1500114085,"/home"
+-'  8  0  /home
+|4,39,8,0,1500114085,"/home"
+-'  8  0  /home
+|4,39,8,0,1500114085,"/home"
+-'  8  0  /home
+|4,39,8,0,1500114085,"/home"
+-'  8  0  /home
+|4,39,8,0,1500114085,"/home"
+-'  8  0  /home
+|4,39,8,0,1500114085,"/home"
+-'  8  0  /home
+|4,39,8,0,1500114085,"/home"
+-'  8  0  /home
+|4,39,8,0,1500114085,"/home"
+-'  8  0  /home
+|4,39,8,0,1500114085,"/home"
+-'  8  0  /home
+|4,39,8,0,1500114085,"/home"
+-'  8  0  /home
+|4,39,8,0,1500114085,"/home"
+-'  8  0  /home
+|4,39,8,0,1500114085,"/home"
+-'  8  0  /home
+|4,39,8,0,1500114085,"/home"
+-'  8  0  /home
+|4,39,8,0,1500114085,"/home"
+-'  8  0  /home
+|4,39,8,0,1500114085,"/home"
+-'  8  0  /home
+|4,39,8,0,1500114085,"/home"
+-'  8  0  /home
+|4,39,8,0,1500114085,"/home"
+-'  8  0  /home
+|4,39,8,0,1500114085,"/home"
+-'  8  0  /home
+|4,39,8,0,1500114085,"/home"
+-'  8  0  /home
+|4,39,8,0,1500114085,"/home"
+-'  8  0  /home
+|4,39,8,0,1500114085,"/home"
+-'  8  0  /home
+|4,39,8,0,1500114085,"/home"
+-'  8  0  /home
+|4,39,8,0,1500114085,"/home"
+-'  8  0  /home
+|4,39,8,0,1500114085,"/home"
+-'  8  0  /home
+|4,39,8,0,1500114085,"/home"
 
 # History of marks within files (newest to oldest):
+
+> /cygdrive/c/Users/cibin/Downloads/work-notes.org
+	*	1500117927	0
+	"	1	0
+
+> /.config/ranger/rc.conf
+	*	1499973538	0
+	"	1	0
+
+> /cygdrive/c/Users/cibin/AppData/Roaming/Sublime Text 3/Local/Session.sublime_session
+	*	1499973491	0
+	"	1	0
 
 > /tmp/bash-fc.mZVhag
 	*	1499970848	0
@@ -409,19 +411,3 @@ $
 	*	1499795559	0
 	"	631	0
 	^	38	0
-
-> /cygdrive/c/cbn_gits/AHK/ControlP
-	*	1499795558	0
-	"	1	0
-	.	1	0
-	+	1	0
-	+	2	0
-	+	1	0
-
-> ~/my.vimrc
-	*	1499793711	0
-	"	59	0
-
-> /cygdrive/c/Users/cibin/Downloads/fzy-master/fzy-master/test/test_properties.c
-	*	1499698392	0
-	"	1	0

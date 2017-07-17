@@ -14,18 +14,26 @@ alias sf='searchFiles'
 }
 function recent_files(){
 # recent
-grep "/.*" -E -o ~/.viminfo |sed 's/"//g'>>~/cbn_history.txt
-grep "\\w:\\\[^\"]*\" " -E -o /cygdrive/c/Users/"$USERNAME"/AppData/Roaming/Notepad++/session.xml>~/cbn_history.txt
+
 # linux ~/.config/sublime-text-2/Settings/Session.sublime_session, so look for such a file in the Settings folder in your user directory.
 # In Mac OS X this list is stored in a file called Session.sublime_session under ~/Library/Application Support/Sublime Text 2/Settings, 
-sublime_file=C:/Users/$USER/AppData/Roaming/Sublime\ Text\ 3/Local/Session.sublime_session
+sublime_file=C:/Users/$USERNAME/AppData/Roaming/Sublime\ Text\ 3/Local/Session.sublime_session
+
+grep "~?/.*" -E -o ~/.viminfo |sed 's/"//g'>~/cbn_history.txt
+grep "~?/.*\"" -E -o "$sublime_file" |sed 's/"//g'>>~/cbn_history.txt
+grep "\\w:\\\[^\"]*\" " -E -o /cygdrive/c/Users/"$USERNAME"/AppData/Roaming/Notepad++/session.xml>>~/cbn_history.txt
 #remove ", trailing spaces
 echo  "$(cat ~/cbn_history.txt|convert_to_cygdrive|sed 's/"//g'|sed 's/ *$//'|sort|uniq)"
 #C:\Users\cibin\AppData\Roaming\Notepad++\session.xml
 }
 
 function re() {
-	vim $(recent_files|fzf|sed 's/ /\\ /g')
+	file="$(recent_files|fzf|sed 's/ /\\ /g')"
+	if [ -f "$file" ]; then		
+    vim "$file"
+else
+	echo "file:$file not found"
+fi
 }
 
 function red(){
@@ -70,35 +78,7 @@ function convert_to_cygdrive(){
 # for case insensitive autocompletion, in  /etc/inputrc or ~/.inputrc uncomment
 # set completion-ignore-case on 
 
-# This makes it unnecessary to press Tab twice when there is more than one match.
-# set show-all-if-ambiguous on
 
-bind "set completion-ignore-case on"
-bind "set show-all-if-ambiguous on"
-bind "TAB: menu-complete"
-bind "set blink-matching-paren on"
-bind "set colored-completion-prefix on"
-bind "set completion-map-case on"
-bind "set mark-directories on"
-# bind "set show-all-if-unmodified on"
-# bind "set show-mode-in-prompt on"
-
-#bind -x '"|C-i": cd -\n"'
-#bind -x '"|C-i"\C-asudo \C-e"'
-#bind -x '"|C-u":"cd ..\n"'
-bind '"\C-p":history-search-backward'
-bind '"\C-q":"exit\r"'
-bind '"\C-u":"cd -\r"'
-bind '"\C-o":"\C-asudo \C-e"'
-bind '"\C-l":"cd ..\r"'
-
-#bind -x '"|C-q":"exit\n"'
-
-# bind -x '"|C-l": clear:echo "cleared"'
-# for f12
-bind '"\e[24~":"pwd\n"'
-# binds Alt 0
-bind -x '"\e0":ranger'
 
 # don't put duplicate lines or empty spaces in the history
 export HISTCONTROL=ignoreboth
@@ -106,23 +86,7 @@ export HISTCONTROL=ignoreboth
 # merge session histories
 shopt -s histappend
 
-# Ctrl+C kills the current process and that Ctrl+D will quit current shell and log you out. I like to put this in my .bashrc to prevent that last thing happening by accident:
 
-# Ctrl+D must be pressed twice
-export IGNOREEOF=1
-
-
-
-# C-u=kill till beginning
-# emacs bindings
-# reverse-search-history (C-r)
-# Search backward starting at the current line and moving `up' through the history as necessary.  This is an incremental search.
-# man bash | grep -A294 'Commands for' 
-# Set Vi Mode in bash:
-# set -o vi 
-
-# Set Emacs Mode in bash:
-# set -o emacs 
 
 source $HOME/misc_lib.sh
 source $HOME/lib.sh
@@ -300,3 +264,7 @@ export LESS="/usr/bin/less -isM"
 
 #z fuzzy cd completion
 source ~/my-scripts/z/z.sh
+
+
+source ~/my.keybindings.sh
+

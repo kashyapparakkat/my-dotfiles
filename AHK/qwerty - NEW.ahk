@@ -823,7 +823,8 @@ return
 
 Space & 8::	; na
 	sourcepath:=get_current_sourcepath_from_active_window()
-	run, C:\cygwin64\bin\mintty.exe /bin/tmux,%sourcepath%,max
+	run, C:\cygwin64\bin\mintty.exe /bin/bash -c pwd,%sourcepath%,max
+	;run, C:\cygwin64\bin\mintty.exe /bin/tmux,%sourcepath%,max
 return
 
 Space & 5::	; na

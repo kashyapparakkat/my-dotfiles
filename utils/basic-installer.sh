@@ -39,7 +39,7 @@ sudo make install
 
 
 ## for windows 
-## works only woith cygwing python
+## works only with cygwing python
 ## make install This translates roughly to: 
 ## python setup.py install --optimize=1 --record=install_log.txt # specify python path here
 
@@ -97,3 +97,11 @@ curl -o ~/.git-prompt.sh \
 
 # Oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# ack
+curl https://beyondgrep.com/ack-2.18-single-file > ~/bin/ack && chmod 0755 ~/bin/ack
+
+git clone https://github.com/jhawthorn/fzy.git  ~/my-scripts/fzy
+
+cd ~/my-scripts/fzy
+make install

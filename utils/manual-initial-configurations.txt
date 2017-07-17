@@ -8,3 +8,4 @@ vim PlugInstall
 
 https://ascending.wordpress.com/2011/02/11/unix-tip-make-less-more-friendly/
 
+add C:\cygwin64\usr\local\bin to path

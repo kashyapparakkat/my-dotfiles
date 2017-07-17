@@ -192,3 +192,7 @@ send-prefix
 send-prefix
 tmux source ~/.tmux.conf 
 
+zsh
+ex
+pwd
+ex

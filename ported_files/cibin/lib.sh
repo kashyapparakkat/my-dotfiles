@@ -197,16 +197,22 @@ echo "$*"
 		case "$2" in
 			"fuzzy_db"		)
 					#extract line number; then print those lines from original file
-					grep -rPIni "$search_term" --color=auto "$files" | cut -f1 -d:|print_nth_line |  remove_cygdrive;;
+					grep -rPIni "$search_term" --color=auto "$files" | cut -f1 -d:|print_nth_line |  remove_cygdrive|colourise_filenames;;
 			"db"		)
 					# echo "adfadsf"
-					grep -rPIi "$search_term" --color=auto "$files" |  remove_cygdrive;;
+					grep -rPIi "$search_term" --color=auto "$files" |  remove_cygdrive|colourise_filenames;;
 			"live"		)
 					# echo "adf"
-					lfind "$files" -maxdepth "$maxdepth" -iname "*" | grep -Pi "$search_term" --color=auto|remove_cygdrive;;
+					lfind "$files" -maxdepth "$maxdepth" -iname "*" | grep -Pi "$search_term" --color=auto|remove_cygdrive|colourise_filenames;;
 
 		esac
 	fi
+}
+function colourise_filenames(){
+	# 'pattern|$' = colourise pattern but will show non matching lines as well
+GREP_COLOR="1;32" grep -E --color '[^\\/]*$|$'
+# $search\(?=.*$arg[^\\/]*$\)
+
 }
 function print_nth_line() {
 while read -r line; do head -n "$line" /cygdrive/c/Users/cibin/Downloads/all_files_unfiltered.db| tail -n 1;done
@@ -317,7 +323,7 @@ done
 	# load notes filelist from settings.ini
 	# all_notes=$(sed -n 's/.*all_notes *= *\([^ ]*.*\)/\1/p' < settings.ini)
 	# all_notes=($all_notes)
-	declare -a all_notes=("C:/cbn_gits/misc/*" "$Universal_home/Downloads/notes.txt" "$Universal_home/Downloads/notes3.txt" "$Universal_home/Downloads/todo.txt" "$Universal_home/Downloads/work-todo.txt" "$Universal_home/Downloads/work-notes.txt" "$Universal_home/Downloads/todo.org" "$Universal_home/Downloads/clear these doubts.txt")
+	declare -a all_notes=("C:/cbn_gits/misc/*" "$Universal_home/Downloads/notes.txt" "$Universal_home/Downloads/notes3.txt" "$Universal_home/Downloads/todo.txt" "$Universal_home/Downloads/work-todo.txt" "$Universal_home/Downloads/work-notes.txt" "$Universal_home/Downloads/todo-notes.org" "$Universal_home/Downloads/clear these doubts.txt")
 
 	echo "pwd= $(pwd)"
 	if [ -z "$1" ]; then
@@ -357,7 +363,7 @@ done
 
 		fi
 
-	# declare -a files=("$Universal_home/Downloads/notes.txt" "$Universal_home/Downloads/notes3.txt" "$Universal_home/Downloads/todo.txt" "$Universal_home/Downloads/work-todo.txt" "$Universal_home/Downloads/work-notes.txt" "$Universal_home/Downloads/todo.org" "$Universal_home/Downloads/clear these doubts.txt" )
+	# declare -a files=("$Universal_home/Downloads/notes.txt" "$Universal_home/Downloads/notes3.txt" "$Universal_home/Downloads/todo.txt" "$Universal_home/Downloads/work-todo.txt" "$Universal_home/Downloads/work-notes.txt" "$Universal_home/Downloads/todo-notes.org" "$Universal_home/Downloads/clear these doubts.txt" )
 
 		echo $ext
 		# echo "searching: $search_term"
@@ -488,21 +494,24 @@ cdf() {
    file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
 }
 
-
-
+# lfind /cygdrive/c/Users/cibin/Downloads/ -type f -iname *notes.org  -exec ag domain --color {} \;
 
 #searchFiles () {
 
 function searchNotes () {
 # ag $* -G org$ /cygdrive/c/Users/cibin/Downloads/ --color
 
+lfind /cygdrive/c/Users/cibin/Downloads/ -maxdepth 2 -iname "*notes.org" -exec  echo {} +
+lfind /cygdrive/c/Users/cibin/Downloads/ -maxdepth 2 -iname "*notes.txt" -exec  echo {} +
+lfind /cygdrive/c/Users/cibin/Downloads/ -maxdepth 2 -iname "*notes.org" -exec  ag -i --heading --color $* {} +
+lfind /cygdrive/c/Users/cibin/Downloads/ -maxdepth 2 -iname "*notes.txt" -exec  ag -i --heading --color $* {} +
 
-ag $* -n -G org$ /cygdrive/c/Users/"$USERNAME"/Downloads/ --color
-# ag $* -n -G todo.org$ /cygdrive/c/Users/"$USERNAME"/Downloads/ --color
-ag $* -n -G ^notes.txt$ /cygdrive/c/Users/"$USERNAME"/Downloads/ --color
-ag $* -n -G notes.org$ /cygdrive/c/Users/"$USERNAME"/Downloads/ --color
-ag $* -n -G work-notes.txt$ /cygdrive/c/"$USERNAME"/cibin/Downloads/ --color
-ag $* -n -G work-notes.org$ /cygdrive/c/Users/"$USERNAME"/Downloads/ --color
+# ag $* -n -G org$ /cygdrive/c/Users/"$USERNAME"/Downloads/ --color
+# # ag $* -n -G todo-notes.org$ /cygdrive/c/Users/"$USERNAME"/Downloads/ --color
+# ag $* -n -G ^notes.txt$ /cygdrive/c/Users/"$USERNAME"/Downloads/ --color
+# ag $* -n -G notes.org$ /cygdrive/c/Users/"$USERNAME"/Downloads/ --color
+# ag $* -n -G work-notes.txt$ /cygdrive/c/"$USERNAME"/cibin/Downloads/ --color
+# ag $* -n -G work-notes.org$ /cygdrive/c/Users/"$USERNAME"/Downloads/ --color
 }
 
 
