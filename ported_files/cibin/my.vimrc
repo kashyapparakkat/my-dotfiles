@@ -1,3 +1,5 @@
+" source ~/my.vimrc
+
 ":oldfiles
 
 

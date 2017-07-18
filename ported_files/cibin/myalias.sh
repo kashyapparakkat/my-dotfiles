@@ -19,6 +19,7 @@ function l() {
 #   alias lfind='find'
 alias st='searchtext'
 alias sn='searchnotes'
+alias snf='searchnotes .|fzs' # sn fuzzy
 alias sf='searchfiles'
 alias sa='searchall'
 

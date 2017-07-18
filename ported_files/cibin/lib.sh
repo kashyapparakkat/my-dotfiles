@@ -498,13 +498,13 @@ cdf() {
 
 #searchFiles () {
 
-function searchNotes () {
+function searchnotes () {
 # ag $* -G org$ /cygdrive/c/Users/cibin/Downloads/ --color
 
-lfind /cygdrive/c/Users/cibin/Downloads/ -maxdepth 2 -iname "*notes.org" -exec  echo {} +
-lfind /cygdrive/c/Users/cibin/Downloads/ -maxdepth 2 -iname "*notes.txt" -exec  echo {} +
-lfind /cygdrive/c/Users/cibin/Downloads/ -maxdepth 2 -iname "*notes.org" -exec  ag -i --heading --color $* {} +
-lfind /cygdrive/c/Users/cibin/Downloads/ -maxdepth 2 -iname "*notes.txt" -exec  ag -i --heading --color $* {} +
+lfind "/cygdrive/c/Users/$USERNAME/Downloads/" -maxdepth 2 -iname "*notes.org" -exec  echo {} +
+lfind "/cygdrive/c/Users/$USERNAME/Downloads/" -maxdepth 2 -iname "*notes.txt" -exec  echo {} +
+lfind "/cygdrive/c/Users/$USERNAME/Downloads/" -maxdepth 2 -iname "*notes.org" -exec  ag -i --noheading --color $* {} +
+lfind "/cygdrive/c/Users/$USERNAME/Downloads/" -maxdepth 2 -iname "*notes.txt" -exec  ag -i --noheading --color $* {} +
 
 # ag $* -n -G org$ /cygdrive/c/Users/"$USERNAME"/Downloads/ --color
 # # ag $* -n -G todo-notes.org$ /cygdrive/c/Users/"$USERNAME"/Downloads/ --color
@@ -516,12 +516,35 @@ lfind /cygdrive/c/Users/cibin/Downloads/ -maxdepth 2 -iname "*notes.txt" -exec  
 
 
 # extra option available https://jamesoff.net/2016/05/31/fzf-brew-upgrade.html
-searchText () {
+searchtext () {
 	echo "\$cmd extension searchTerm"
-	CHOICE=$(ag -G $1$ --color ${@:2} | fzf -0 -1 --ansi)
+	CHOICE=$(ag -i -G $1$ --color ${@:2} | fzf -0 -1 --ansi)
 	echo "$CHOICE" | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ' 
 	if [ ! -z "$CHOICE" ]
 	then
 		vim $( echo "$CHOICE" | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') +"LAg! '$*'" "+wincmd k"
+	fi
+}
+
+searchall () {
+	echo "\$cmd extension searchTerm"
+	CHOICE=$(ag -i  --color ${@:1} | fzf -0 -1 --ansi)
+	echo "$CHOICE" | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ' 
+	if [ ! -z "$CHOICE" ]
+	then
+		vim $( echo "$CHOICE" | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') +"LAg! '$*'" "+wincmd k"
+	fi
+}
+
+# should be able to open paths starting with filepath:line number or  similar format
+fzs () {
+	
+
+	CHOICE=$(fzf -0 -1 --ansi)
+	echo "$CHOICE" | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } '
+	echo "$CHOICE" |escape_spaces
+	if [ ! -z "$CHOICE" ]
+	then
+		vim $( echo "$CHOICE"|escape_spaces | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') +"LAg! '$*'" "+wincmd k"
 	fi
 }

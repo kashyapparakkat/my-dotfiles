@@ -196,3 +196,5 @@ zsh
 ex
 pwd
 ex
+~/my-scripts/open_explorer.sh "/cygdrive/C/cygwin64/home/cibin/my-scripts/fzy"
+ex

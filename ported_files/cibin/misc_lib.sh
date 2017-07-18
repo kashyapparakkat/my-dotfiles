@@ -26,9 +26,9 @@ function myindex() {
 if [ -z "$1" ]; then
     # display usage if no parameters given
     echo "cibin/ indexing all files to $Universal_home/Downloads/all_files_unfiltered.db"
-	lfind /cygdrive -iname "*"  > "$Universal_home/Downloads/all_files_unfiltered.db"
-	cat "$Universal_home/Downloads/all_files_unfiltered.db" | grep -i -v "/cygdrive/c/cygwin64/usr/" |  grep -i -v "/cygdrive/c/Users/$USERNAME/Anaconda" | grep -i -v "/cygdrive/c/MinGW/" | grep -i -v "/cygdrive/./\$Recycle.Bin/" | grep -v "/cygdrive/./\$WINDOWS.~BT/" | grep -v "/cygdrive/c/Users/cibin/AppData/" | grep -v "/cygdrive/c/my_bin/" | grep -v "/cygdrive/c/Python27/" | grep -v "/cygdrive/c/Program Files (x86)/" | grep -v "/cygdrive/c/Program Files/" | grep -v "/cygdrive/c/Windows/" > "$Universal_home/Downloads/all_files.db"
-	
+	#lfind /cygdrive -iname "*"  > "$Universal_home/Downloads/all_files_unfiltered.db"
+	cat "$Universal_home/Downloads/all_files_unfiltered.db" | grep -i -v "/cygdrive/c/cygwin64/usr/" |  grep -i -v "/cygdrive/c/Users/$USERNAME/Anaconda" | grep -i -v "/cygdrive/c/MinGW/" | grep -i -v "/cygdrive/./\$Recycle.Bin/" | grep -v "/cygdrive/./\$WINDOWS.~BT/" | grep -v "/cygdrive/c/Users/cibin/AppData/" | grep -v "/cygdrive/c/my_bin/" | grep -v "/cygdrive/c/Python27/" | grep -v "/cygdrive/c/Program Files (x86)/" | grep -v "/cygdrive/c/Program Files/" | grep -v "/cygdrive/c/Windows/" | grep -v "/cygdrive/c/ProgramData/"  | grep -v "/cygdrive/c/Users/$USERNAME/AppData/" > "$Universal_home/Downloads/all_files.db"
+	 
 	# cat "$Universal_home/Downloads/all_files_unfiltered.db" | sed 's/ //g'| sed 's/_//g' | sed 's/-//g'  > "$Universal_home/Downloads/all_files-fuzzy.db"
 	cat "$Universal_home/Downloads/all_files_unfiltered.db" |  sed 's/[!@#$%^&*()_ -]//g'  > "$Universal_home/Downloads/all_files_unfiltered-fuzzy.db"
 	cat "$Universal_home/Downloads/all_files.db" |  sed 's/[!@#$%^&*()_ -]//g'  > "$Universal_home/Downloads/all_files-fuzzy.db"

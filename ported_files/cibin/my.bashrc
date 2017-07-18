@@ -26,7 +26,10 @@ grep "\\w:\\\[^\"]*\" " -E -o /cygdrive/c/Users/"$USERNAME"/AppData/Roaming/Note
 echo  "$(cat ~/cbn_history.txt|convert_to_cygdrive|sed 's/"//g'|sed 's/ *$//'|sort|uniq)"
 #C:\Users\cibin\AppData\Roaming\Notepad++\session.xml
 }
+function escape_spaces(){
+	sed 's/ /\\ /g'
 
+}
 function re() {
 	file="$(recent_files|fzf|sed 's/ /\\ /g')"
 	if [ -f "$file" ]; then		
@@ -52,7 +55,7 @@ echo "$(cat ~/.z|cut -d'|' -f1|convert_to_cygdrive|sed 's/"//g'|sed 's/ *$//'|so
 }
 
 function convert_to_cygdrive(){
-
+#also converts slashes
 	sed -e "s/\\(.\\):/\\/cygdrive\\/\\1/"  -- "$@"|sed 's/\\/\//g'
 
 }
