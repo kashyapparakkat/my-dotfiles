@@ -1,6 +1,9 @@
 echo "$1"
-# convert cygdrive|convert slashes|remove single and double quotes
-file=$(echo "$1"|sed -e "s/\\/cygdrive\\/\\(.\\)\\//\\1:\\\/"|sed 's/\//\\/g'|sed "s/'//g")
+
+file=$(./convert_path_to_windows.sh "$*")
 
 echo "$file"
-explorer.exe /Select, "$file"
+open explorer.bat "$file"
+
+# cygwin works for below
+# explorer.exe /Select, "$file"

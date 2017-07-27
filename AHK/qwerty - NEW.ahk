@@ -49,9 +49,9 @@ space & 2::
 ; space & 4::
 ;; space & 5::
 space & 6::
-space & 7::
+;; space & 7::
 ;; space & 8::
-space & 9::
+;; space & 9::
 
 space & a::
 space & b::
@@ -821,7 +821,19 @@ Space & 4::	; na
 	;run, C:\cygwin64\bin\bash.exe C:\cygwin64\bin\python3.6m.exe C:\cygwin64\bin\ranger C:\,,max
 return
 
+Space & 7::	; na
+	sourcepath:=get_current_sourcepath_from_active_window()
+	run,C:\cbn_gits\misc\recent_files.bat,%sourcepath%,max
+	;run, C:\cygwin64\bin\mintty.exe /bin/tmux,%sourcepath%,max
+return
+
 Space & 8::	; na
+	sourcepath:=get_current_sourcepath_from_active_window()
+	run,C:\cbn_gits\misc\recent_folders.bat,%sourcepath%,max
+	;run, C:\cygwin64\bin\mintty.exe /bin/tmux,%sourcepath%,max
+return
+
+Space & 9::	; na
 	sourcepath:=get_current_sourcepath_from_active_window()
 	run, C:\cygwin64\bin\mintty.exe /bin/bash -c pwd,%sourcepath%,max
 	;run, C:\cygwin64\bin\mintty.exe /bin/tmux,%sourcepath%,max
@@ -834,7 +846,8 @@ return
 
 Space & 3::	; na
 	sourcepath:=get_current_sourcepath_from_active_window()
-	run, C:\cygwin64\bin\mintty.exe /bin/tmux,%sourcepath%,max
+	;run, C:\cygwin64\bin\mintty.exe /bin/tmux,%sourcepath%,max
+	run, C:\cygwin64\bin\bash.exe ,%sourcepath%,max
 	;run_bash_prompt(sourcepath)
 	
 return

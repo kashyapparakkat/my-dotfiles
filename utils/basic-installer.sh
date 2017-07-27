@@ -56,19 +56,14 @@ wget --no-check-certificate https://github.com/cibinmathew/cbn_gits/raw/master/p
 
 cd ~/tmp-installers
 
-### FASD
-git clone https://github.com/clvv/fasd.git
-cd fasd
-sudo make install
-
 ### z fuzzy cd completion
 git clone https://github.com/rupa/z.git ~/my-scripts/z
 
 # http://seanbowman.me/blog/fzf-fasd-and-bash-aliases/
 cd ~/tmp-installers
 
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-sudo ~/.fzf/install
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/my-scripts/fzf
+sudo ~/my-scripts/fzf/install
 
 
 ####################
@@ -81,12 +76,14 @@ sudo ~/.fzf/install
 # fasd, ranger
 
 # cd ~/tmp-installers
+########### WINDOWS Ends here
+### FASD
+
 
 ### FASD
-# git clone https://github.com/clvv/fasd.git
-# cd fasd
-# sudo make install
-
+git clone https://github.com/clvv/fasd.git ~/my-scripts/fasd
+cd ~/my-scripts/fasd
+sudo make install
 
 # https://stackoverflow.com/questions/12870928/mac-bash-git-ps1-command-not-found
 curl -o ~/.git-prompt.sh \

@@ -1,4 +1,22 @@
-﻿# Cygwin Run the relevant setup-*.exe, and select "the_silver_searcher" in the "Utils" category.
+﻿windows only
+linux
+	any linux
+		cbn-.bashrc,.vimrc
+		ranger,.....
+	ubuntu
+	cent
+	darvin
+
+
+# install cygwin,git bash to get all features
+
+
+# for windows 10 ubuntu : make,ranger,zsh,git,tree
+bash -c "ls|fzy;bash"
+zathura
+
+
+# Cygwin Run the relevant setup-*.exe, and select "the_silver_searcher" in the "Utils" category.
 # Essential installs:
 # and maybe svn and git-svn
 # http://preshing.com/20141108/how-to-install-the-latest-gcc-on-windows

@@ -1,30 +1,137 @@
+# fzy is faster than fzf
+
+# map C:\cbn_gits to linux also
+# sublime $(convert_path path)
+#convert_path(){
+# if windows: convert to C:\ from cygdrive&/mnt/c
+# if linux:
+#	
+#}
 # C:\cygwin64\bin\mintty.exe --dir "%1" /bin/bash
 # C:\cygwin64\bin\mintty.exe --dir "%1" /bin/env CHERE_INVOKING=1 /bin/bash -l
 
 # C:\cygwin\bin\mintty.exe -h always -e /bin/sh -c '/cygdrive/c/cygwin64/mysql2sqlite.sh| /bin/sqlite3 database.sqlite'
 
-#grep "/.*" -E -o ~/.viminfo |sort |uniq|fzf|sed 's/"//g'
-#echo "$(grep "/.*" -E -o ~/.viminfo |sed 's/"//g'|sort|uniq|fzf)"
-function cbn(){
-echo "
-st='searchText'
-alias sn='searchNotes'
-alias sf='searchFiles'
-"
-}
-function recent_files(){
-# recent
+#grep "/.*" -E -o ~/.viminfo |sort |uniq -i|fzf|sed 's/"//g'
+#echo "$(grep "/.*" -E -o ~/.viminfo |sed 's/"//g'|sort|uniq -i|fzf)"
 
-# linux ~/.config/sublime-text-2/Settings/Session.sublime_session, so look for such a file in the Settings folder in your user directory.
-# In Mac OS X this list is stored in a file called Session.sublime_session under ~/Library/Application Support/Sublime Text 2/Settings, 
-sublime_file=C:/Users/$USERNAME/AppData/Roaming/Sublime\ Text\ 3/Local/Session.sublime_session
+###TODO
+
+function network() {
+# ping abc,nslookup abc,traceroute,host,host -t CNAME www.redhat.com
+ping "$1"
+echo -e "\n\nnslookup\n"
+nslookup "$1"
+echo -e "\n\nhost -t CNAME"
+host -t CNAME "$1"
+echo -e "\n\ntraceroute\n"
+echo -e "\n\ndig\n"
+dig "$1"
+traceroute "$1"
+}
+function smart_recent(){
+	pwd
+# call re
+# case $1 in
+# npp: npp choice 
+}
+
+
+function recent_in_app(){
+
 
 grep "~?/.*" -E -o ~/.viminfo |sed 's/"//g'>~/cbn_history.txt
 grep "~?/.*\"" -E -o "$sublime_file" |sed 's/"//g'>>~/cbn_history.txt
 grep "\\w:\\\[^\"]*\" " -E -o /cygdrive/c/Users/"$USERNAME"/AppData/Roaming/Notepad++/session.xml>>~/cbn_history.txt
 #remove ", trailing spaces
 echo  "$(cat ~/cbn_history.txt|convert_to_cygdrive|sed 's/"//g'|sed 's/ *$//'|sort|uniq)"
+
+file="$(recent_files|fzf|sed 's/ /\\ /g')"
+while true; do
+    read -n 1 -p "Do you want to update the tv feed? [sublime/notepad++/explorer/vim/emacs] " ynq
+    case $ynq in
+    [Yy]* ) rm ~/cron/beeb.txt; /usr/bin/get-iplayer --type tv>>~/cron/beeb.txt; break;;
+    [Ss]* ) echo; break;;
+    [Nn]* ) echo; break;;
+    [Qq]* ) exit; break;;
+    * ) echo "Please answer yes or no. ";;
+    esac
+    	
+	echo "file:$file not found"
+	done
+
+
+}
+
+
+function cbn(){
+echo "
+alias sf='searchfiles'
+
+alias st='searchtext'
+# search is recursive by default
+alias sth='searchhere'
+
+# alias stf='searchtext .'
+
+alias sn='searchnotes'
+alias snf='searchnotes .|fzs' # sn fuzzy
+
+alias sa='searchall'
+alias saf='searchall .'
+
+
+# TODO
+alias srf='searchInRecentfiles .'
+
+
+alias ex='exit'
+
+alias ff='pcfind common_fuzzy fuzzy_db'
+alias f='pcfind common db'
+alias fa='pcfind all db'
+alias ffa='pcfind all_fuzzy fuzzy_db'
+alias faf='pcfind all_fuzzy fuzzy_db'
+"|fzy -l 22
+}
+
+#set PATH $PATH=/usr/local/bin
+export PATH=/usr/local/bin:$PATH
+export PATH=~/anaconda3/bin:$PATH
+export PATH=$PATH:/mnt/c/Windows/System32
+# copy file path to clipboard
+  #newline must be stripped http://stackoverflow.com/questions/12524308/bash-strip-trailing-linebreak-from-output
+  mpf() {
+    FILE=$(mdfind -name . 2> /dev/null | fzf) \
+      && echo "${FILE}" | tr -d '\n' | pbcopy
+  }
+
+function recent_files(){
+# recent
+
+# linux ~/.config/sublime-text-2/Settings/Session.sublime_session, so look for such a file in the Settings folder in your user directory.
+# In Mac OS X this list is stored in a file called Session.sublime_session under ~/Library/Application Support/Sublime Text 2/Settings, 
+sublime_file=C:/Users/$USERNAME/AppData/Roaming/Sublime\ Text\ 3/Local/Session.sublime_session
+notepadpp_file=/cygdrive/c/Users/"$USERNAME"/AppData/Roaming/Notepad++/session.xml
+if [ -f ~/.viminfo ]; then
+grep "~?/.*" -E -o ~/.viminfo |sed 's/"//g'>~/cbn_history.txt
+fi
+if [ -f "$sublime_file" ]; then
+	# TODO  below json parsing is not proper when multiple entries in the array ['windows'][0]
+cat "$sublime_file"|python -c "import sys, json; print('\n'.join(json.load(sys.stdin)['windows'][0]['file_history']))"|convert_forwardslash_windows_to_cygdrive
+# grep "~?/.*\"" -E -o "$sublime_file" |sed 's/"//g'>>~/cbn_history.txt
+fi
+if [ -f "$notepadpp_file" ]; then  
+	grep "\\w:\\\[^\"]*\" " -E -o "$notepadpp_file">>~/cbn_history.txt
+fi
+#remove ", trailing spaces
+echo  "$(cat ~/cbn_history.txt|convert_to_cygdrive|clean_filepaths|lsort|uniq -i)"
 #C:\Users\cibin\AppData\Roaming\Notepad++\session.xml
+}
+function clean_filepaths(){
+# remove quotes|remove trailing spaces
+sed 's/"//g'|sed 's/ *$//'| sed '/^ *$/d'
+
 }
 function escape_spaces(){
 	sed 's/ /\\ /g'
@@ -45,12 +152,20 @@ cd "$(recent_dirs|fzf|sed 's/ /\\ /g')"
 
 }
 
-function recent_dirs() {
+
+function recent_dirs(){
 
 #remove ", trailing spaces
 # TODO get dires of recent_files in vim,ranger,sublime
 
-echo "$(cat ~/.z|cut -d'|' -f1|convert_to_cygdrive|sed 's/"//g'|sed 's/ *$//'|sort|uniq)"
+# echo  "$(cat ~/cbn_history.txt|convert_to_cygdrive|clean_filepaths|lsort|uniq -i)"	
+cd_history=$(cat ~/.z|cut -d'|' -f1|convert_to_cygdrive)
+all_recent_files=$(recent_files|sed 's|/[^/]*$||')
+# all_dirs=$all_recent_files$cd_history	
+
+# TODO \n not working
+all_dirs="${all_recent_files}zzzzzz${cd_history}"
+echo "$all_dirs" |sed 's=/[^\\/]*$=='|clean_filepaths| lsort|uniq -i
 
 }
 
@@ -59,6 +174,15 @@ function convert_to_cygdrive(){
 	sed -e "s/\\(.\\):/\\/cygdrive\\/\\1/"  -- "$@"|sed 's/\\/\//g'
 
 }
+
+function convert_forwardslash_windows_to_cygdrive(){
+	#with/without colon
+#also converts slashes
+# /c/xyz or /c:/xyz -> /cygdrive.c/xyz
+	sed -e "s/\\/\\(.\\):\?\\//\\/cygdrive\\/\\1\\//"  -- "$@"|sed 's/\\/\//g'
+
+}
+
 #www.cibinmathew.com
 #github.com/cibinmathew
 
@@ -270,4 +394,45 @@ source ~/my-scripts/z/z.sh
 
 
 source ~/my.keybindings.sh
+# Rename command prompt
+export PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
+if [[ "$unamestr" == 'Darwin' ]]; then
+  export PROMPT_COMMAND='echo -ne "\033]0;🍎${PWD##*/}\007"'
+elif [[ "$unamestr" == 'Linux' ]]; then
+  export PROMPT_COMMAND='echo -ne "\033]0;🐧${PWD##*/}\007"'
+fi
+
+# Set the PS1 prompt (with colors).
+# Based on http://www-128.ibm.com/developerworks/linux/library/l-tip-prompt/
+# And http://networking.ringofsaturn.com/Unix/Bash-prompts.php .
+# http://ezprompt.net/
+if [[ "$unamestr" == 'Darwin' ]]; then
+  export PS1="\[\e[00;33m\]\u\[\e[0m\]\[\e[00;37m\]@\h:\[\e[0m\]\[\e[00;36m\]\w\[\e[0m\]\[\e[00;37m\] \[\e[0m\] \D{%T} \n$ "
+elif [[ "$unamestr" == 'Linux' ]]; then
+  #extremely different colors for linux so I don't confuse myself when SSH'ing
+  export PS1="\[\e[00;32m\] 🐧 \u\[\e[0m\]\[\e[00;45m\]@\h:\[\e[0m\]\[\e[00;36m\]\w\[\e[0m\]\[\e[00;37m\] \[\e[0m\] \D{%T} \n$ "
+fi
+
+
+
+# Force prompt to write history after every command.
+# http://superuser.com/questions/20900/bash-history-loss
+
+PROMPT_COMMAND="history -a; history -n; $PROMPT_COMMAND"
+# Eternal bash history.
+# ---------------------
+# Undocumented feature which sets the size to "unlimited".
+# http://stackoverflow.com/questions/9457233/unlimited-bash-history
+export HISTFILESIZE=
+export HISTSIZE=
+export HISTTIMEFORMAT="[%F %T] "
+# Change the file location because certain bash sessions truncate .bash_history file upon close.
+# http://superuser.com/questions/575479/bash-history-truncated-to-500-lines-on-each-login
+
+if [[ "$unamestr" == 'Darwin' ]]; then
+  export HISTFILE=$HOME/Dropbox/dev/bash_eternal_history_mac.txt
+elif [[ "$unamestr" == 'Linux' ]]; then
+  export HISTFILE=$HOME/dev/bash_eternal_history_linux.txt
+fi
+
 

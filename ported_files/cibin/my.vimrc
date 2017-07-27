@@ -44,7 +44,12 @@ noremap <F7> <C-w>v<C-w>l<CR>
 "  :t: Split on / and return the right half (i.e. if I'm editing a file in a path of /tmp/test.txt and run %:p:t will return text.txt
 
 
-noremap r :! C:/cygwin64/bin/python3.6m.exe C:/cygwin64/bin/ranger --selectfile=%:p<CR>
+noremap od :silent !~/my-scripts/open_explorer.sh "$(~/my-scripts/convert_path_to_windows.sh %:p)"<CR>
+noremap oe :silent !~/my-scripts/emacs.sh "$(~/my-scripts/convert_path_to_windows.sh %:p)"<CR>
+noremap os :silent !~/my-scripts/sublime_text.sh "$(~/my-scripts/convert_path_to_windows.sh %:p)"<CR>
+noremap on :silent !~/my-scripts/npp.sh "$(~/my-scripts/convert_path_to_windows.sh %:p)"<CR>
+noremap ol :silent !less "$(~/my-scripts/convert_path_to_windows.sh %:p)"<CR>
+noremap or :! C:/cygwin64/bin/python3.6m.exe C:/cygwin64/bin/ranger --selectfile=%:p<CR>
 " --choosedir=%:p:h"
 
 
@@ -90,6 +95,10 @@ Plug 'vim-scripts/ag.vim'
 Plug 'wkentaro/conque.vim'
 Plug 'https://github.com/kien/ctrlp.vim.git'
 Plug 'junegunn/fzf.vim'
+Plug 'hecal3/vim-leader-guide'
+Plug 'francoiscabrol/ranger.vim'
+
+
 " Initialize plugin system
 call plug#end()
 " use :PlugInstall from vim to install one time"
@@ -106,21 +115,13 @@ set showcmd
 set scrolloff=4 		"offset
 
 
+:let mapleader = ","
 
+"#"suppose  leader is space
+"nnoremap <silent> <leader> :<c-u>LeaderGuide '<Space>'<CR>
+"vnoremap <silent> <leader> :<c-u>LeaderGuideVisual '<Space>'<CR>
+autocmd FileType gitcommit  noremap <buffer> <leader> <Plug>leaderguide-buffer
+" for fugitive
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
+autocmd BufEnter __Tagbar__  noremap <buffer> <leader> <Plug>leaderguide-buffer
+" for tagbar

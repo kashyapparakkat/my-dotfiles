@@ -1,7 +1,7 @@
 # https://superuser.com/questions/1048647/how-to-define-new-commands-in-the-ranger-file-manager/1048648
 
 
-
+from ranger.api.commands import Command
 from ranger.api.commands import *
 
 class newcmd(Command):
@@ -49,11 +49,11 @@ class fzf_select(Command):
         import subprocess
         if self.quantifier:
             # match only directories
-            command="lfind -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
+            command="find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
             -o -type d -print 2> /dev/null | sed 1d | cut -b3- | fzf +m"
-        else:
+        else: 
             # match files and directories
-            command="lfind -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
+            command="find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
             -o -print 2> /dev/null | sed 1d | cut -b3- | fzf +m"
         fzf = self.fm.execute_command(command, stdout=subprocess.PIPE)
         stdout, stderr = fzf.communicate()
@@ -69,7 +69,7 @@ class fzf_select(Command):
 from subprocess import PIPE
 class fzfcd(Command):
     def execute(self):
-        command="lfind -L \( -path '*.wine-pipelight' -o -path '*.ivy2*' -o -path '*.texlive*' -o -path '*.git' -o -path '*.metadata' -o -path '*_notes' \) -prune -o -type d -print 2>/dev/null | fzf"
+        command="find -L \( -path '*.wine-pipelight' -o -path '*.ivy2*' -o -path '*.texlive*' -o -path '*.git' -o -path '*.metadata' -o -path '*_notes' \) -prune -o -type d -print 2>/dev/null | fzf"
         fzf = self.fm.execute_command(command, stdout=PIPE)
         stdout, stderr = fzf.communicate()
         directory = stdout.decode('utf-8').rstrip('\n')

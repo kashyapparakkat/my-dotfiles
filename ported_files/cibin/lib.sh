@@ -1,5 +1,8 @@
 #!/usr/bin/sh
 
+
+# TODO
+# functions: convert to linux path;windows path;cygwinpath;windowsubuntupath
 # good tuts on arrays http://www.thegeekstuff.com/2010/06/bash-array-tutorial
 # array:
 # ${arr[*]} # All of the items in the array
@@ -28,8 +31,8 @@
 # BASH_SOURCE array, and how the first element in this array always points to the current source
 DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
-source "$DIR/myalias.sh"
-source "$DIR/set_defaults.sh"
+source ~/myalias.sh
+source ~/set_defaults.sh
 
 # script_name=$0
 # echo $script_name
@@ -496,7 +499,9 @@ cdf() {
 
 # lfind /cygdrive/c/Users/cibin/Downloads/ -type f -iname *notes.org  -exec ag domain --color {} \;
 
-#searchFiles () {
+function searchfiles () {
+cat "$Universal_home/Downloads/all_files.db"|fzy -l 20
+}
 
 function searchnotes () {
 # ag $* -G org$ /cygdrive/c/Users/cibin/Downloads/ --color
@@ -527,7 +532,7 @@ searchtext () {
 }
 
 searchall () {
-	echo "\$cmd extension searchTerm"
+	echo "\$cmd searchTerm"
 	CHOICE=$(ag -i  --color ${@:1} | fzf -0 -1 --ansi)
 	echo "$CHOICE" | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ' 
 	if [ ! -z "$CHOICE" ]
@@ -536,11 +541,24 @@ searchall () {
 	fi
 }
 
-# should be able to open paths starting with filepath:line number or  similar format
-fzs () {
-	
 
-	CHOICE=$(fzf -0 -1 --ansi)
+function searchInRecentfiles(){
+  recent_files>/tmp/filelist2.txt
+  tr -d '\r' </tmp/filelist2.txt >/tmp/filelist.txt
+  while read FILE  ; do
+  	# echo " = $FILE";
+    grep -PrnIi "$1" --color=auto "$FILE" /dev/null --no-messages;
+  done </tmp/filelist.txt
+}
+
+# should be able to open paths starting with filepath:line number or  similar format
+function fzs(){
+	read -r line
+    echo "$line"
+
+	# CHOICE=$(fzf -0 -1 --ansi)
+	echo " = $@"
+	CHOICE="$line"
 	echo "$CHOICE" | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } '
 	echo "$CHOICE" |escape_spaces
 	if [ ! -z "$CHOICE" ]
