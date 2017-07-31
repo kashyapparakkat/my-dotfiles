@@ -533,23 +533,23 @@ searchtext () {
 		searchtext=${@:2}
 	fi
 
-	CHOICE=$(ag -i -G $arg$ --color $searchtext | fzf -0 -1 --ansi)
-	echo "$CHOICE" | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ' 
-	if [ ! -z "$CHOICE" ]
-	then
-		vim $( echo "$CHOICE" | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') +"LAg! '$*'" "+wincmd k"
-	fi
+	ag -i -G $arg$ --color "$searchtext"
+	# CHOICE=$(ag -i -G $arg$ --color "$searchtext"| fzf -0 -1 --ansi)
+	# echo "$CHOICE"|extract_filepath_linenum|open_in_app
 }
 
-searchall () {
-	echo "\$cmd searchTerm"
-	CHOICE=$(ag -i  --color ${@:1} | fzf -0 -1 --ansi)
-	echo "$CHOICE" | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ' 
-	if [ ! -z "$CHOICE" ]
-	then
-		vim $( echo "$CHOICE" | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') +"LAg! '$*'" "+wincmd k"
-		vim $( echo "$CHOICE" | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') +"LAg! '$*'" "+wincmd k"																	
+searchall() {
+	echo "\$cmd searchTerm."
+	if [ -z "$1" ]; then
+		read -p "enter search_term: " searchtext < /dev/tty 
+	else
+		
+		searchtext=${@:1}
 	fi
+	ag -i  --color "$searchtext"
+	# CHOICE=$(ag -i  --color "$searchtext"| fzy)
+	# CHOICE=$(ag -i  --color "$searchtext"| fzf -0 -1 --ansi)
+	
 }
 
 
@@ -574,29 +574,24 @@ function open_in_vim(){
 	
 	# vim < /dev/tty $@
 
+	# TODO strip linenum and check if exists
 	# if [ ! -z "$arg" ]
 	# 	then
-	# 		echo "open_in_vim $arg"
-		vim -- "$(echo $arg)" #|sed -e 's/\x1b\[[0-9;]*m//g')"
-	
-		# 	# vim $(echo "$arg"|awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') 
+	# vim -- "$(echo $arg)" #|sed -e 's/\x1b\[[0-9;]*m//g')"
+	vim $(echo "$arg"|awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') 
 		# 	# below works for ag.vim plugin; check what it does
 		# 	# vim $(echo "$arg"|escape_spaces | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') + "LAg! '$*'" "+wincmd k"
 	# fi
 }
 
-function asdfas(){
-	read -e arg
-	# arg=$(return_arg_or_piped_input $*)
-	
 
-}
 
 function open_in_ranger(){
 # should be able to open paths starting with filepath:line number or  similar format
 arg=$(return_arg_or_piped_input $*)
+
 	# read -r arg
-	echo "opening in ranger..."
+	echo "opening file: $arg in ranger..."
 	if [ ! -z "$arg" ]
 	then
 		/usr/bin/python3.6m.exe /cygdrive/c/cygwin64/bin/ranger --selectfile="$arg"

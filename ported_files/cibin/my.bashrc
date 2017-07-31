@@ -87,8 +87,9 @@ function recent_files(){
 
 	# linux ~/.config/sublime-text-2/Settings/Session.sublime_session, so look for such a file in the Settings folder in your user directory.
 	# In Mac OS X this list is stored in a file called Session.sublime_session under ~/Library/Application Support/Sublime Text 2/Settings, 
-	sublime_file=C:/Users/$USERNAME/AppData/Roaming/Sublime\ Text\ 3/Local/Session.sublime_session
+	sublime_file=C:/Users/"$USERNAME"/AppData/Roaming/Sublime\ Text\ 3/Local/Session.sublime_session
 	notepadpp_file=/cygdrive/c/Users/"$USERNAME"/AppData/Roaming/Notepad++/session.xml
+	notepadpp_file2=/cygdrive/c/Users/"$USERNAME"/AppData/Roaming/Notepad++/session.xml
 	if [ -f ~/.viminfo ]; then
 	grep "~?/.*" -E -o ~/.viminfo |sed 's/"//g'>~/cbn_history.txt
 	fi
@@ -97,9 +98,11 @@ function recent_files(){
 	cat "$sublime_file"|python -c "import sys, json; print('\n'.join(json.load(sys.stdin)['windows'][0]['file_history']))"|convert_forwardslash_windows_to_cygdrive
 	# grep "~?/.*\"" -E -o "$sublime_file" |sed 's/"//g'>>~/cbn_history.txt
 	fi
-	if [ -f "$notepadpp_file" ]; then  
-		grep "\\w:\\\[^\"]*\" " -E -o "$notepadpp_file">>~/cbn_history.txt
-	fi
+	[ -f "$notepadpp_file" ] && grep "\\w:\\\[^\"]*\" " -E -o "$notepadpp_file">>~/cbn_history.txt
+	[ -f "$notepadpp_file2" ] && grep "\\w:\\\[^\"]*\" " -E -o "$notepadpp_file2">>~/cbn_history.txt
+	# if [ -f "$notepadpp_file" ]; then  
+	# 	grep "\\w:\\\[^\"]*\" " -E -o "$notepadpp_file">>~/cbn_history.txt
+	# fi
 	#remove ", trailing spaces
 	echo  "$(cat ~/cbn_history.txt|convert_to_cygdrive|clean_filepaths|lsort|uniq -i)"
 	#C:\Users\cibin\AppData\Roaming\Notepad++\session.xml
@@ -451,8 +454,9 @@ function prompt_for_s(){
 	read -n 1 -p "a/f/n/r/t " pressedkey < /dev/tty;
 	case $pressedkey in
 		 n ) echo " searching...";snf|extract_filepath_linenum|open_in_app;;
-		 t ) stf|extract_filepath_linenum|open_in_app;;
+		 t ) st|extract_filepath_linenum|open_in_app;;
 		 r ) srf|extract_filepath_linenum|open_in_app;;
+		 a ) saf|extract_filepath_linenum|open_in_app;;
 		 f ) sf|open_in_app;;
 		 d ) echo "HHHHHHHHHHHHHHH $filepath"|clip;;
 	esac
@@ -467,7 +471,7 @@ cr=${cr%.}
 	case $pressedkey in
 
 	    s ) echo; prompt_for_s;;
-	    r ) echo "$filepath"|open_in_ranger ;;
+	    r ) echo "$filepath";open_in_ranger $(echo "$filepath");;
 	    v ) echo "$filepath";open_in_vim $(echo "$filepath");;
 	    e ) open_in_explorer $(echo "$filepath");;
 	esac

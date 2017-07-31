@@ -42,7 +42,7 @@ Return
 nil:
 return
 
-<^+p::	; ClipbSave to file hk cycle 
+>^+p::	; ClipbSave to file hk cycle 
 settimer,cancelClipbSaveHotkey,off	
 if !(ClipbSaveHotkey)	;	if hotkey is currently not in cycle mode 
 {

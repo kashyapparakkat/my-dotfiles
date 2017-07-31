@@ -1625,3 +1625,27 @@ tree -c
 tree
 #1501472774
 ls
+#1501524436
+tree
+#1501526679
+st
+#1501527121
+stf
+#1501527121
+stf
+#1501527203
+saf
+#1501527247
+searchall .|fzy
+#1501527327
+cdahk hk
+#1501527330
+cdahk
+#1501527335
+saf
+#1501527421
+searchall .
+#1501528131
+ranger
+#1501528254
+/usr/bin/python3.6m.exe /cygdrive/c/cygwin64/bin/ranger

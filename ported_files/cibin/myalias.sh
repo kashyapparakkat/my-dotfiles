@@ -23,7 +23,7 @@ function l() {
 alias s='prompt_for_s'
 
 alias sa='searchall'
-alias saf='searchall .|fzf'
+alias saf='searchall .|fzy -l 25'
 
 alias sf='searchfiles'
 
@@ -37,7 +37,7 @@ alias srf='searchInRecentfiles .|fzf'
 alias sr='searchInRecentfiles'
 
 alias st='searchtext'
-alias stf='searchtext .|fzy -l 25'
+alias stf='searchtext'
 # search is recursive by default
 alias sth='searchhere'
 # alias stf='searchtext .'
