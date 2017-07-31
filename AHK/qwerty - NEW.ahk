@@ -823,13 +823,13 @@ return
 
 Space & 7::	; na
 	sourcepath:=get_current_sourcepath_from_active_window()
-	run,C:\cbn_gits\misc\recent_files.bat,%sourcepath%,max
+	run,C:\cbn_gits\misc\smart_open.bat,%sourcepath%,max
 	;run, C:\cygwin64\bin\mintty.exe /bin/tmux,%sourcepath%,max
 return
 
 Space & 8::	; na
 	sourcepath:=get_current_sourcepath_from_active_window()
-	run,C:\cbn_gits\misc\recent_folders.bat,%sourcepath%,max
+	run,C:\cbn_gits\misc\recent_files.bat,%sourcepath%,max
 	;run, C:\cygwin64\bin\mintty.exe /bin/tmux,%sourcepath%,max
 return
 

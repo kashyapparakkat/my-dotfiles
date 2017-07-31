@@ -20,25 +20,27 @@ function l() {
 
 # s file/text-ext/all-text/common-text/notes [=recurse/here/recent/allfileslist] [fuzzy] 
 
-alias sf='searchfiles'
-
-alias st='searchtext'
-# search is recursive by default
-alias sth='searchhere'
-
-# alias stf='searchtext .'
-
-alias sn='searchnotes'
-alias snf='searchnotes .|fzs' # sn fuzzy
+alias s='prompt_for_s'
 
 alias sa='searchall'
 alias saf='searchall .|fzf'
 
+alias sf='searchfiles'
 
-# TODO
+
+
+alias sn='searchnotes'
+alias snf='searchnotes .|fzy -l 25' # sn fuzzy
+
+
 alias srf='searchInRecentfiles .|fzf'
 alias sr='searchInRecentfiles'
 
+alias st='searchtext'
+alias stf='searchtext .|fzy -l 25'
+# search is recursive by default
+alias sth='searchhere'
+# alias stf='searchtext .'
 
 
 alias ex='exit'
@@ -258,9 +260,9 @@ alias wget='wget -c'
 # Fasd comes with some useful aliases by default:
 
 alias a='fasd -a'        # any
-alias s='fasd -si'       # show / search / select
+# alias s='fasd -si'       # show / search / select
 alias d='fasd -d'        # directory
-alias f='fasd -f'        # file
+# alias f='fasd -f'        # file
 alias sd='fasd -sid'     # interactive directory selection
 # alias sf='fasd -sif'     # interactive file selection
 alias z='fasd_cd -d'     # cd, same functionality as j in autojump

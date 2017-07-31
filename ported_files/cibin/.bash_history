@@ -1095,3 +1095,533 @@ fzs
 sr fzs|fzs
 #1501128795
 echo "sf"|fzs
+#1501128878
+echo "asdf"|fzs
+#1501128882
+fzs
+#1501128892
+fzs as
+#1501129034
+echo "fas asd"|fzs
+#1501129069
+sr fzs|fzs
+#1501175200
+echo "/cygdrive/c/cbn_gits/files_to_port-cbnPC.txt"|open_in_vim
+#1501175306
+echo /cygdrive/c/cbn_gits/files_to_port-cbnPC.txt|open_in_vim
+#1501175378
+echo "/cygdrive/c/"|escape_spaces | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } '
+#1501175613
+echo "/c/afas/cvx.txt:22"|escape_spaces | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } '
+#1501175631
+vim +2 "/cygdrive/c/cbn_gits/files_to_port-cbnPC.txt"
+#1501175647
+echo "/c/afas/cvx.txt:22"|escape_spaces | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } '
+#1501175697
+vim $(echo "/cygdrive/c/cbn_gits/delete.py:2"|escape_spaces | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') + "LAg! '$*'" "+wincmd k"
+#1501175714
+vim $(echo "/cygdrive/c/cbn_gits/delete.py:2"|escape_spaces | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ')
+#1501175808
+vim
+#1501175834
+vim $(echo "/cygdrive/c/cbn_gits/delete.py:2"|escape_spaces | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') + "LAg! '$*'" "+wincmd k"
+#1501175976
+function agvim () { CHOICE=$(ag --color $* | fzf -0 -1 --ansi); if [ ! -z "$CHOICE" ]; then vim $( echo "$CHOICE" | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') +"LAg! '$*'" "+wincmd k"; fi; }
+#1501175980
+agvim
+#1501175987
+agvim sh
+#1501176067
+vim $(echo "/cygdrive/c/cbn_gits/delete.py:2:"|escape_spaces | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') + "LAg! '$*'" "+wincmd k"
+#1501176276
+vim $(echo "/cygdrive/c/cbn_gits/delete.py:2:"|escape_spaces | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') 
+#1501176629
+ls|fzs
+#1501176631
+ls
+#1501176634
+ls|fzs
+#1501176702
+ls
+#1501176705
+ls|fzs
+#1501176730
+arg=$(ls)
+#1501176734
+echo "$arg"|fzf -0 -1 --ansi
+#1501176762
+ls|fzs
+#1501176765
+ls
+#1501176831
+ls|fzs
+#1501176948
+fa sts
+#1501176990
+fa sts zip
+#1501177440
+echo "/cygdrive/c/cbn_gits/delete.py:2:"|escape_spaces
+#1501177451
+echo "/cygdrive/c/cbn_gits/delete.py:2:"|escape_spaces|open_in_vim
+#1501177530
+vim $(echo "/cygdrive/c/cbn_gits/delete.py:2"|escape_spaces|open_in_vim
+#1501177594
+vim $(echo "/cygdrive/c/cbn_gits/delete.py"|escape_spaces|open_in_vim
+#1501177651
+echo "/cygdrive/c/cbn_gits/delete.py:2"|escape_spaces|open_in_vim
+#1501178105
+recent_files|fzf|sed 's/ /\\ /g'
+#1501178157
+function recent_in_app(){ file="$(recent_files|fzf|sed 's/ /\\ /g')"; while true; do     read -n 1 -p "Do you want to update the tv feed? [sublime/notepad++/explorer/vim/emacs] " ynq;     case $ynq in     [Ss]* ) echo; break;;     [Nn]* ) echo; break;;     [Qq]* ) exit; break;;     * ) echo "Please answer yes or no. ";;     esac    ; echo "file:$file not found"; done;  }
+#1501178168
+recent_in_app 
+#1501178202
+function recent_in_app(){ file="$(recent_files|fzf|sed 's/ /\\ /g')"; while true; do     read -n 1 -p "Do you want to update the tv feed? [sublime/notepad++/explorer/vim/emacs] " ynq;     case $ynq in     [Ss]* ) echo; break;;     [Nn]* ) echo; break;;     [Qq]* ) exit; break;;     * ) echo "Please answer yes or no. ";;     esac    ; echo "file:$file not found"; done;  }
+#1501178207
+recent_in_app 
+#1501179371
+n
+#1501179445
+recent_in_app 
+#1501179754
+echo "/cygdrive/c/cbn_gits/delete.py"|open_in_app
+#1501179814
+open_in_app 
+#1501180198
+echo "adfs"|open_in_app 
+#1501181867
+echo "adfs"|open_in_app
+#1501182660
+open_in_app 
+#1501182671
+yyy
+#1501182692
+echo "adfs"|open_in_app
+#1501215756
+echo "hello" |sss
+#1501215785
+echo "hell"|sss
+#1501254566
+echo "/cygdrive/c/a.txt"|open_in_app
+#1501254873
+open_in_app <<< e
+#1501254980
+echo "/cygdrive/c/a.txt"|open_in_app
+#1501255086
+echo "~/cbn_history.txt"|open_in_app
+#1501255162
+echo "/cygdrive/c/cbn_gits/delete.py"|open_in_app
+#1501255319
+recent_in_app 
+#1501257015
+r
+#1501258502
+echo "/cygdrive/c/cbn_gits/delete.py"|open_in_vim
+#1501258539
+vim +5 /cygdrive/c/cbn_gits/delete.py
+#1501258650
+echo "/cygdrive/c/cbn_gits/delete.py"|open_in_vim
+#1501258675
+open_in_vim "/cygdrive/c/cbn_gits/delete.py"
+#1501259302
+type ls 
+#1501259313
+alias ls
+#1501259528
+bash_prompt_command() {     RTN=$?;     prevCmd=$(prevCmd $RTN); }
+#1501260177
+l
+#1501260184
+ls
+#1501260197
+ll
+#1501260199
+l
+#1501260234
+nmap
+#1501260319
+# for easily editting the path variable
+#1501260322
+nanopath () {     declare TFILE=/tmp/path.$LOGNAME.$$;     echo $PATH | sed 's/^:/.:/;s/:$/:./' | sed 's/::/:.:/g' | tr ':' '12' > $TFILE;     nano $TFILE;     PATH=`awk ' { if (NR>1) printf ":"
+      printf "%s",$1 }' $TFILE`;     rm -f $TFILE;     echo $PATH; }
+#1501260323
+alias nanopath='nanopath'
+#1501260325
+nanopath 
+#1501260760
+echo "ad"|aaa
+#1501260780
+aaa adfasdf
+#1501260899
+echo "ad"|aaa
+#1501260937
+aaa adfasdf
+#1501260941
+echo "ad"|aaa
+#1501260992
+open_in_vim /cygdrive/c/cbn_gits/delete.py
+#1501261453
+open_in_vim /cygdrive/C/cygwin64/home/cibin/lib.sh
+#1501266592
+a=/cygdrive/c/cbn_gits
+#1501266596
+~/my-scripts/open_explorer.sh "$(~/my-scripts/convert_path_to_windows.sh $a")
+#1501266608
+~/my-scripts/open_explorer.sh "$(~/my-scripts/convert_path_to_windows.sh $a)"
+#1501266728
+~/my-scripts/open_explorer.sh "C:/cbn_gits"
+#1501266741
+~/my-scripts/open_explorer.sh "C:\cbn_gits"
+#1501266772
+explorer
+#1501266781
+~/my-scripts/open_explorer.sh "C:\cbn_gits"
+#1501266855
+explorer.exe /Select, "C:\"
+#1501266864
+explorer.exe /Select, "C:\\"
+#1501266872
+explorer.exe /Select, "C:\\cbn_gits"
+#1501266883
+~/my-scripts/open_explorer.sh "C:\\cbn_gits"
+#1501266926
+open 
+#1501266947
+open explorer.bat "C:\\"
+#1501266996
+open explorer.bat "/cygdrive/c"
+#1501267567
+a=/cygdrive/c/cbn_gits
+#1501267571
+~/my-scripts/open_explorer.sh "$(~/my-scripts/convert_path_to_windows.sh $a")
+#1501267628
+~/my-scripts/open_explorer.sh "$(~/my-scripts/convert_path_to_windows.sh $a)"
+#1501267773
+a=/cygdrive/c/cbn_gits
+#1501267792
+~/my-scripts/open_explorer.sh "$a"
+#1501267829
+host
+#1501267959
+a=/cygdrive/c/cbn_gits
+#1501267959
+~/my-scripts/open_explorer.sh "$(~/my-scripts/convert_path_to_windows.sh $a")
+#1501267966
+~/my-scripts/open_explorer.sh "$(~/my-scripts/convert_path_to_windows.sh $a)"
+#1501269938
+open_in_vim /cygdrive/c/cbn_gits/port_files.py 
+#1501271115
+echo "afadsfasdf"|aaa
+#1501271129
+function aaa(){ c=$(return_arg_or_piped_input $*); echo "aaa=$c"; }
+#1501271131
+echo "afadsfasdf"|aaa
+#1501271182
+echo "afadsfasdf"|open_in_vim 
+#1501273105
+echo "q - new"|escape_spaces 
+#1501273414
+echo "q - new"|sed -e 's/[ -]/\\\\1/g'
+#1501273423
+echo "q - new"|sed -e 's/[ -]*/\\\\1/g'
+#1501273432
+echo "q - new"|sed -e 's/[ -]/\\/g'
+#1501273445
+echo "q - new"|sed -e 's/[ -]/\\ /g'
+#1501273452
+echo "q - new"|sed -e 's/[ -]/\\\\1/g'
+#1501273458
+echo "q - new"|sed -e 's/[ -]/\\\1/g'
+#1501273507
+echo "q - new"|sed -e 's/[ -]/\\\1/'
+#1501273520
+echo "q - new"|sed -e 's/[ -]/\\\\1/'
+#1501273539
+echo "q - new"|sed -e 's/[ -]/\\\1/'
+#1501273542
+echo "q - new"|sed -e 's/[ -]/\\\\1/'
+#1501273547
+echo "q - new"|sed -e 's/[ -]/\\\\1/g'
+#1501273553
+echo "q - new"|sed -e 's/[ -]/\\\\1/'
+#1501273703
+echo "q - new"|sed -e 's/[\s-]/\\\\1/'
+#1501273770
+echo "q - new"|sed -e 's/[\s-]/\1/'
+#1501273786
+echo "q - new"|sed -e 's/\\([\s-]\\)/\1/'
+#1501273790
+echo "q - new"|sed -e 's/\\([\s-]\\)/\\1/'
+#1501273795
+echo "q - new"|sed -e 's/\\([\s-]\\)/\\\\1/'
+#1501273799
+echo "q - new"|sed -e 's/\\([\s-]\\)/\\\\\1/'
+#1501273802
+echo "q - new"|sed -e 's/\\([\s-]\\)/\\1/'
+#1501273812
+echo "q - new"|sed -e 's/\\([\s-]\\)/\\\\\\1/'
+#1501273816
+echo "q - new"|sed -e 's/\\([\s-]\\)/\\\\\\\\1/'
+#1501273828
+echo "q - new"|sed -e 's/\\([\s-]\\)/ \\1/'
+#1501273834
+echo "q - new"|sed -e 's/\\([\s-]\\)/\\1/'
+#1501273838
+echo "q - new"|sed -e 's/\\([\s-]\\)/\\1 /'
+#1501273841
+echo "q - new"|sed -e 's/\\([\s-]\\)/\\1s /'
+#1501273846
+echo "q - new"|sed -e 's/\\([\s-]*\\)/\\1s /'
+#1501273906
+vim /cygdrive/c/cbn_gits/AHK/qwerty\ -\ NEW.ahk
+#1501273954
+srf
+#1501319732
+ranger
+#1501319745
+alias ranger
+#1501319778
+open_in_ranger /cygdrive/c/cbn_gits
+#1501321089
+open delete.bat 
+#1501321103
+delete.bat 
+#1501321267
+explorer.exe C:\
+#1501321274
+explorer.exe C:\\
+#1501321283
+explorer.exe C:\\cbn_gits
+#1501321299
+explorer.exe C:\\cbn_gits\\README.md.txt
+#1501320026
+open_in_ranger "/cygdrive/c/cbn_gits"
+#1501325836
+dir=/home/smith/Desktop/Test
+#1501325840
+parentdir="$(dirname "$dir")"
+#1501325846
+echo $parentdir 
+#1501326043
+pwd
+#1501326099
+a=/cygdrive/C/cygwin64/home/cibin/my-scripts/open_explorer.sh
+#1501326108
+arg=/cygdrive/C/cygwin64/home/cibin/my-scripts/open_explorer.sh
+#1501326114
+parentdir="$(dirname "$arg")"
+#1501326115
+cd "${parentdir}"
+#1501327015
+smart_open 
+#1501327071
+ls
+#1501327072
+ll
+#1501327425
+srf
+#1501327517
+alias srf
+#1501328197
+echo "/adsf/asdfa/a/cva.a:23:|sed -e 's/[^:]*:/asdf//'
+
+#1501328224
+echo "/adsf/asdfa/a/cva.a:23:"|sed -e 's/[^:]*:/asdf//'
+#1501328228
+echo "/adsf/asdfa/a/cva.a:23:"|sed -e 's/[\\^:]*:/asdf//'
+#1501328235
+echo "/adsf/asdfa/a/cva.a:23:"|sed -e 's/[\\^:]/a//'
+#1501328242
+echo "/adsf/asdfa/a/cva.a:23:"|sed -e 's/[:]/a//'
+#1501328277
+echo "/adsf/asdfa/a/cva.a:23:"|sed -e "s/[:]/a//"
+#1501328284
+echo "/adsf/asdfa/a/cva.a:23:"|sed -e "s/hgjgj/a//"
+#1501328297
+echo "/adsf/asdfa/a/cva.a:23:"|sed -e "s/hgjgj/a//" -- "$@"
+#1501328369
+echo "/adsf/asdfa/a/cva.a:23:"|sed -e "s/hgjgj/a/" -- "$@"
+#1501328377
+echo "/adsf/asdfa/a/cva.a:23:"|sed -e "s/hgjgj/      /" -- "$@"
+#1501328390
+echo "/adsf/asdfa/a/cva.a:23:"|sed -e "s/[^:]*/      /" -- "$@"
+#1501328398
+echo "/adsf/asdfa/a/cva.a:23:"|sed -e "s/[^:]*:/      /" -- "$@"
+#1501328434
+echo "/adsf/asdfa/a/cva.a:23:"|sed -e "s/\\([^:]*:\\)/\1      /" -- "$@"
+#1501328440
+echo "/adsf/asdfa/a/cva.a:23:"|sed -e "s/\\([^:]*:\\)/\\1      /" -- "$@"
+#1501328448
+echo "/adsf/asdfa/a/cva.a:23:"|sed -e "s/\\([^:]*:\\)/\\      /" -- "$@"
+#1501328450
+echo "/adsf/asdfa/a/cva.a:23:"|sed -e "s/\\([^:]*:\\)/\\1      /" -- "$@"
+#1501328498
+echo "/adsf/asdfa/a/cva.a:23:"|sed -e "s/\\([^:]*:\\)\\(.*\\)/\\1      /" -- "$@"
+#1501328524
+echo "/adsf/asdfa/a/cva.a:23:"|sed -e "s/\\([^:]*:\\)\\(\\d+\\)\\(.*\\)/\\1      /" -- "$@"
+#1501328531
+echo "/adsf/asdfa/a/cva.a:23:"|sed -e "s/\\([^:]*:\\)\\(\\d+\\)\\(.*\\)/\\1 = \\2      /" -- "$@"
+#1501328544
+echo "/adsf/asdfa/a/cva.a:23:"|sed -e "s/\\([^:]*\\)\\(:\\d+\\)\\(.*\\)/\\1 = \\2      /" -- "$@"
+#1501328562
+echo "/adsf/asdfa/a/cva.a:23:"|sed -e "s/\\([^:]*\\)\\(:\d+\\)\\(.*\\)/\\1 = \\2      /" -- "$@"
+#1501328571
+echo "/adsf/asdfa/a/cva.a:23:"|sed -e "s/\\([^:]*\\)\\(:\\\d+\\)\\(.*\\)/\\1 = \\2      /" -- "$@"
+#1501328588
+echo "/adsf/asdfa/a/cva.a:23:"|sed -e "s/\\([^:]*\\)\\(:\\\\d+\\)\\(.*\\)/\\1 = \\2      /" -- "$@"
+#1501328591
+echo "/adsf/asdfa/a/cva.a:23:"|sed -e "s/\\([^:]*\\)\\(:\\\d+\\)\\(.*\\)/\\1 = \\2      /" -- "$@"
+#1501328857
+echo "/adsf/asdfa/a/cva.a:23:adfasdf"|sed -e "s/\\([^:]*\\)\\(.*\\)/\\1/" -- "$@"
+#1501328865
+echo "/adsf/asdfa/a/cva.a:23:adfasdf"|sed -e "s/\\([^:]*\\)\\(.*\\)/\\1   \\2/" -- "$@"
+#1501328871
+echo "/adsf/asdfa/a/cva.a:23:adfasdf"|sed -e "s/\\([^:]*\\)\\(.*\\)/\\1  = \\2/" -- "$@"
+#1501328887
+echo "/adsf/asdfa/a/cva.a:23:adfasdf"|sed -e "s/\\([^:]*\\)\\(23\\)\\(.*\\)/\\1  = \\2/" -- "$@"
+#1501328905
+echo "/adsf/asdfa/a/cva.a:23:3535:adfasdf"|sed -e "s/\\([^:]*\\)\\(23\\)\\(.*\\)/\\1  = \\2/" -- "$@"
+#1501328921
+echo "/adsf/asdfa/a/cva.a:23:3535:adfasdf"|sed -e "s/\\([^:]*\\)\\(23\\)\\(.*\\)/\\1====\\2===\\3/" -- "$@"
+#1501328931
+echo "/adsf/asdfa/a/cva.a:23:3535:adfasdf"|sed -e "s/\\([^\:]*\\)\\(23\\)\\(.*\\)/\\1====\\2===\\3/" -- "$@"
+#1501328938
+echo "/adsf/asdfa/a/cva.a:23:3535:adfasdf"|sed -e "s/\\([^\\:]*\\)\\(23\\)\\(.*\\)/\\1====\\2===\\3/" -- "$@"
+#1501328950
+echo "/adsf/asdfa/a/cva.a:23:3535:adfasdf"|sed -e "s/\\([^:]*\\)\\(:23\\)\\(.*\\)/\\1====\\2===\\3/" -- "$@"
+#1501328963
+echo "/adsf/asdfa/a/cva.a:23:3535:adfasdf"|sed -e "s/\\([^:]*\\):?\\(23\\)\\(.*\\)/\\1====\\2===\\3/" -- "$@"
+#1501328970
+echo "/adsf/asdfa/a/cva.a:23:3535:adfasdf"|sed -e "s/\\([^:]*\\):\?\\(23\\)\\(.*\\)/\\1====\\2===\\3/" -- "$@"
+#1501328981
+echo "/adsf/asdfa/a/cva.a:23:3535:adfasdf"|sed -e "s/\\([^:]*\\):\?\\(23\\)\\(.*\\)/\\1:\\2===\\3/" -- "$@"
+#1501328990
+echo "/adsf/asdfa/a/cva.a:23:3535:adfasdf"|sed -e "s/\\([^:]*\\):\?\\(23\\)\\(.*\\)/\\1:\\2" -- "$@"
+#1501328993
+echo "/adsf/asdfa/a/cva.a:23:3535:adfasdf"|sed -e "s/\\([^:]*\\):\?\\(23\\)\\(.*\\)/\\1:\\2/" -- "$@"
+#1501353824
+snf
+#1501354046
+echo "/cygdrive/c/Users/cibin/Downloads/interview-preps-notes.org:6:** data sto"|extract_filepath_linenum
+#1501354074
+echo "/cygdrive/c/Users/cibin/Downloads/interview-preps-notes.org:6:** data sto"|sed -e "s/\\([^:]*\\):\?\\(23\\)\\(.*\\)/\\1:\\2/" -- "$@"
+#1501354090
+echo "/cygdrive/c/Users/cibin/Downloads/interview-preps-notes.org:6:** data sto"|sed -e "s/\\([^:]*\\):\?\\(2\d\\)\\(.*\\)/\\1:\\2/" -- "$@"
+#1501354096
+echo "/cygdrive/c/Users/cibin/Downloads/interview-preps-notes.org:6:** data sto"|sed -e "s/\\([^:]*\\):\?\\(2\\d\\)\\(.*\\)/\\1:\\2/" -- "$@"
+#1501354102
+echo "/cygdrive/c/Users/cibin/Downloads/interview-preps-notes.org:6:** data sto"|sed -e "s/\\([^:]*\\):\?\\(2\\\d\\)\\(.*\\)/\\1:\\2/" -- "$@"
+#1501354107
+echo "/cygdrive/c/Users/cibin/Downloads/interview-preps-notes.org:6:** data sto"|sed -e "s/\\([^:]*\\):\?\\(2\\\\d\\)\\(.*\\)/\\1:\\2/" -- "$@"
+#1501354178
+echo "/cygdrive/c/Users/cibin/Downloads/interview-preps-notes.org:6:** data sto"|sed -e "s/\\([^:]*\\):\?\\([[:digit:]]\+\\)\\(.*\\)/\\1:\\2/" -- "$@"
+#1501354392
+vim /cygdrive/c/Users/cibin/Downloads/raspberrypi\ notes.txt
+#1501354586
+echo "/cygdrive/c/Users/cibin/Downloads/raspberrypi\ notes.txt"|open_in_vim
+#1501354600
+echo "/cygdrive/c/Users/cibin/Downloads/raspberrypi notes.txt"|open_in_vim
+#1501354734
+echo "/cygdrive/c/Users/cibin/Downloads/raspberrypi\ notes.txt"|open_in_vim
+#1501354737
+echo "/cygdrive/c/Users/cibin/Downloads/raspberrypi notes.txt"|open_in_vim
+#1501355257
+echo "/cygdrive/c/Users/cibin/Downloads/raspberrypi\ notes.txt"|open_in_vim
+#1501355284
+function open_in_vim(){  vim < /dev/tty "$@"}; function open_in_vim(){  vim < /dev/tty "$@"}; function open_in_vim(){  vim < /dev/tty "$@"}; function open_in_vim(){  vim < /dev/tty "$@" }
+#1501355323
+function open_in_vim(){  vim < /dev/tty "$@" }
+#1501355329
+function open_in_vim() {  vim < /dev/tty "$@" }
+#1501355338
+function open_in_vim() {  vim < /dev/tty $@ }
+#1501355368
+echo "/cygdrive/c/Users/cibin/Downloads/raspberrypi\ notes.txt"|open_in_vim
+#1501355377
+echo "/cygdrive/c/Users/cibin/Downloads/raspberrypi notes.txt"|open_in_vim
+#1501355724
+open_in_vim echo /cygdrive/c/Users/cibin/Downloads/raspberrypi notes.txt"
+#1501355730
+open_in_vim echo /cygdrive/c/Users/cibin/Downloads/raspberrypi notes.txt
+#1501355754
+open_in_vim /cygdrive/c/Users/cibin/Downloads/raspberrypi\ notes.txt
+#1501355775
+open_in_vim "/cygdrive/c/Users/cibin/Downloads/raspberrypi notes.txt"
+#1501355786
+open_in_vim "/cygdrive/c/Users/cibin/Downloads/raspberrypi notes.txt" 
+#1501355796
+open_in_vim -- "/cygdrive/c/Users/cibin/Downloads/raspberrypi notes.txt" 
+#1501355805
+open_in_vim -- /cygdrive/c/Users/cibin/Downloads/raspberrypi notes.txt 
+#1501355810
+open_in_vim --/cygdrive/c/Users/cibin/Downloads/raspberrypi notes.txt 
+#1501403961
+vim /cygdrive/c/Users/cibin/Downloads/raspberrypi notes.txt 
+#1501403973
+vim /cygdrive/c/Users/cibin/Downloads/raspberrypi\ notes.txt 
+#1501405887
+echo "/cyg/a.vim"|open_in_vim 
+#1501406393
+echo "/cygdrive/c/cbn_gits/delete.py"|open_in_vim
+#1501406673
+echo "/cygdrive/c/Users/cibin/Downloads/raspberrypi notes.txt"|open_in_vim
+#1501406692
+echo "/cygdrive/c/Users/cibin/Downloads/raspberrypi\ notes.txt"|open_in_vim
+#1501406980
+echo "/cygdrive/c/Users/cibin/Downloads/raspberrypi\\\ notes.txt"|open_in_vim
+#1501407711
+echo "/cygdrive/c/Users/cibin/Downloads/raspberrypi\ notes.txt"|open_in_vimiii
+#1501407732
+echo /cygdrive/c/Users/cibin/Downloads/raspberrypi\ notes.txt|open_in_vimiii
+#1501407737
+echo /cygdrive/c/Users/cibin/Downloads/raspberrypi\ notes.txt|open_in_vim
+#1501407758
+echo /cygdrive/c/Users/cibin/Downloads/raspberrypi\\ notes.txt|open_in_vim
+#1501407927
+echo /cygdrive/c/Users/cibin/Downloads/raspberrypi\ notes.txt|open_in_vim
+#1501407956
+echo "/cygdrive/c/Users/cibin/Downloads/raspberrypi notes.txt"|open_in_vim
+#1501408030
+echo /cygdrive/c/Users/cibin/Downloads/raspberrypi\ notes.txt|open_in_vim
+#1501408085
+echo "/cygdrive/c/Users/cibin/Downloads/raspberrypi\ notes.txt"|open_in_vim
+#1501408156
+echo /cygdrive/c/Users/cibin/Downloads/raspberrypi\ notes.txt|open_in_vim
+#1501408532
+snf
+#1501430506
+echo -e "\e[1;31mThis is red text\e[0m"
+#1501430512
+echo "\e[1;31mThis is red text\e[0m"
+#1501431413
+s
+#1501431686
+stf
+#1501431700
+st
+#1501431908
+searchtext .
+#1501432084
+textreset=$(tput sgr0) # reset the foreground colour
+#1501432084
+red=$(tput setaf 1)
+#1501432084
+yellow=$(tput setaf 2) 
+#1501432085
+echo "Output a ${yellow} coloured ${textreset} ${red} word ${textreset}."
+#1501432390
+yellow=$(tput setaf 2) 
+#1501432391
+echo "Output a ${yellow} coloured ${textreset} ${red} word ${textreset}."
+#1501432701
+st
+#1501443984
+j
+#1501443987
+ls
+#1501472770
+tree -c
+#1501472772
+tree
+#1501472774
+ls

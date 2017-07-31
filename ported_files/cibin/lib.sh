@@ -500,7 +500,9 @@ cdf() {
 # lfind /cygdrive/c/Users/cibin/Downloads/ -type f -iname *notes.org  -exec ag domain --color {} \;
 
 function searchfiles () {
+	
 cat "$Universal_home/Downloads/all_files.db"|fzy -l 20
+
 }
 
 function searchnotes () {
@@ -523,7 +525,15 @@ lfind "/cygdrive/c/Users/$USERNAME/Downloads/" -maxdepth 2 -iname "*notes.txt" -
 # extra option available https://jamesoff.net/2016/05/31/fzf-brew-upgrade.html
 searchtext () {
 	echo "\$cmd extension searchTerm"
-	CHOICE=$(ag -i -G $1$ --color ${@:2} | fzf -0 -1 --ansi)
+	if [ -z "$1" ]; then
+		read -p "enter extension: " arg < /dev/tty 
+		read -p "enter search_term: " searchtext < /dev/tty 
+	else
+		arg=$1
+		searchtext=${@:2}
+	fi
+
+	CHOICE=$(ag -i -G $arg$ --color $searchtext | fzf -0 -1 --ansi)
 	echo "$CHOICE" | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ' 
 	if [ ! -z "$CHOICE" ]
 	then
@@ -538,6 +548,7 @@ searchall () {
 	if [ ! -z "$CHOICE" ]
 	then
 		vim $( echo "$CHOICE" | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') +"LAg! '$*'" "+wincmd k"
+		vim $( echo "$CHOICE" | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') +"LAg! '$*'" "+wincmd k"																	
 	fi
 }
 
@@ -551,18 +562,54 @@ function searchInRecentfiles(){
   done </tmp/filelist.txt
 }
 
-# should be able to open paths starting with filepath:line number or  similar format
-function fzs(){
-	read -r line
-    echo "$line"
 
-	# CHOICE=$(fzf -0 -1 --ansi)
-	echo " = $@"
-	CHOICE="$line"
-	echo "$CHOICE" | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } '
-	echo "$CHOICE" |escape_spaces
-	if [ ! -z "$CHOICE" ]
+# echo "/cygdrive/c/Users/cibin/Downloads/raspberrypi notes.txt"|open_in_vim
+# OR  echo /cygdrive/c/Users/cibin/Downloads/raspberrypi\ notes.txt|open_in_vim
+# fzf|extract_path_and_line|escape_spaces|open_in_vim
+
+function open_in_vim(){
+	# should be able to open paths starting with filepath:line number or  similar format
+	read -r arg # < /dev/tty $@
+	echo "arg=$arg="
+	
+	# vim < /dev/tty $@
+
+	# if [ ! -z "$arg" ]
+	# 	then
+	# 		echo "open_in_vim $arg"
+		vim -- "$(echo $arg)" #|sed -e 's/\x1b\[[0-9;]*m//g')"
+	
+		# 	# vim $(echo "$arg"|awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') 
+		# 	# below works for ag.vim plugin; check what it does
+		# 	# vim $(echo "$arg"|escape_spaces | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') + "LAg! '$*'" "+wincmd k"
+	# fi
+}
+
+function asdfas(){
+	read -e arg
+	# arg=$(return_arg_or_piped_input $*)
+	
+
+}
+
+function open_in_ranger(){
+# should be able to open paths starting with filepath:line number or  similar format
+arg=$(return_arg_or_piped_input $*)
+	# read -r arg
+	echo "opening in ranger..."
+	if [ ! -z "$arg" ]
 	then
-		vim $( echo "$CHOICE"|escape_spaces | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') +"LAg! '$*'" "+wincmd k"
+		/usr/bin/python3.6m.exe /cygdrive/c/cygwin64/bin/ranger --selectfile="$arg"
 	fi
+	
+
+}
+
+
+function fzs(){
+	read  arg
+	echo "$arg"
+# 	CHOICE=$(echo "$arg"|fzf -0 -1 --ansi)
+# echo "$CHOICE"| escape_spaces
+
 }
