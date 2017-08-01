@@ -1649,3 +1649,59 @@ searchall .
 ranger
 #1501528254
 /usr/bin/python3.6m.exe /cygdrive/c/cygwin64/bin/ranger
+#1501610801
+f
+#1501610806
+f eclipse exe
+#1501610832
+sf
+#1501611536
+s
+#1501612845
+curl -i -X POST _H "Content-Type:application/json" -d '{"firstName':"cbn", "lastName": "asdf"}' localhost:8080/persons
+#1501612861
+curl -i -X POST _H "Content-Type:application/json" -d '{"firstName":"cbn", "lastName": "asdf"}' localhost:8080/persons
+#1501612886
+curl -i -X POST -H "Content-Type:application/json" -d '{"firstName":"cbn", "lastName": "asdf"}' localhost:8080/persons
+#1501616345
+sublime_file=C:/Users/"$USERNAME"/AppData/Roaming/Sublime\ Text\ 3/Local/Session.sublime_session
+#1501616345
+notepadpp_file=/cygdrive/c/Users/"$USERNAME"/AppData/Roaming/Notepad++/session.xml
+#1501616345
+notepadpp_file2=/cygdrive/c/Users/"$USERNAME"/AppData/Roaming/Notepad++/config.xml
+#1501616355
+cat "$sublime_file"|python -c "import sys, json; all=json.load(sys.stdin)['windows'][0]['buffers']));print('\n'.join([a['file'] for a in all]"
+#1501616369
+cat "$sublime_file"|python -c "import sys, json; all=json.load(sys.stdin)['windows'][0]['buffers']);print('\n'.join([a['file'] for a in all]"
+#1501616375
+cat "$sublime_file"|python -c "import sys, json; all=json.load(sys.stdin)['windows'][0]['buffers'];print('\n'.join([a['file'] for a in all]"
+#1501616381
+cat "$sublime_file"|python -c "import sys, json; all=json.load(sys.stdin)['windows'][0]['buffers'];print('\n'.join([a['file'] for a in all])"
+#1501616432
+cat "$sublime_file"|python -c "import sys, json; all=json.load(sys.stdin)['windows'][0]['buffers'];print('\n'.join([a['file'] for a in all]))"
+#1501616483
+cat "$sublime_file"|python -c "import sys, json; all=json.load(sys.stdin)['windows'][0]['buffers'];print(all)"
+#1501616630
+cat "$sublime_file"|python -c "import sys, json; all=json.load(sys.stdin)['windows'][0]['buffers'];print('\n'.join([a['file'] for a in all]))"
+#1501616765
+cat "$sublime_file"|python -c "import sys, json; all=json.load(sys.stdin)['windows'][0]['buffers'];print('\n'.join([a['file'] if a['file'] else None for a in all]))"
+#1501616800
+cat "$sublime_file"|python -c "import sys, json; all=json.load(sys.stdin)['windows'][0]['buffers'];print('\n'.join([a['file'] if a['file'] is not None else '' for a in all]))"
+#1501616847
+cat "$sublime_file"|python -c "import sys, json; all=json.load(sys.stdin)['windows'][0]['buffers'];print('\n'.join([a['file'] if 'file' in a else '' for a in all]))"
+#1501616864
+cat "$sublime_file"|python -c "import sys, json; all=json.load(sys.stdin)['windows'][0]['buffers'];print('\n'.join([a['file'] if 'file' in a else None for a in all]))"
+#1501616872
+cat "$sublime_file"|python -c "import sys, json; all=json.load(sys.stdin)['windows'][0]['buffers'];print('\n'.join([a['file'] if 'file' in a else [] for a in all]))"
+#1501616887
+cat "$sublime_file"|python -c "import sys, json; all=json.load(sys.stdin)['windows'][0]['buffers'];print('\n'.join([a['file'] if 'file' in a else continue for a in all]))"
+#1501617000
+cat "$sublime_file"|python -c "import sys, json; all=json.load(sys.stdin)['windows'][0]['buffers'];print('\n'.join([a['file'] if 'file' in a else '' for a in all]))"
+#1501617005
+cat "$sublime_file"|python -c "import sys, json; all=json.load(sys.stdin)['windows'][0]['buffers'];print('\n'.join([a['file'] if 'file' in a else '' for a in all]))"|convert_forwardslash_windows_to_cygdrive
+#1501617015
+cat "$sublime_file"|python -c "import sys, json; print('\n'.join(json.load(sys.stdin)['windows'][0]['file_history']))"|convert_forwardslash_windows_to_cygdrive
+#1501617829
+ls
+#1501617947
+sf
