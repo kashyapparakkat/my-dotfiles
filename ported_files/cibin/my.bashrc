@@ -1,5 +1,12 @@
 # fzy is faster than fzf
 
+
+# Create path variables
+WORKING_PATH="$(pwd)"
+SCRIPT=$(readlink -f "$0")
+SCRIPT_PATH=$(dirname "$SCRIPT")
+
+
 # map C:\cbn_gits to linux also
 # sublime $(convert_path path)
 #convert_path(){
@@ -458,7 +465,7 @@ function prompt_for_s(){
 	read -n 1 -p "a/f/n/r/t " pressedkey < /dev/tty;
 	case $pressedkey in
 		 n ) echo " searching...";snf|extract_filepath_linenum|open_in_app;;
-		 t ) st|extract_filepath_linenum|open_in_app;;
+		 t ) echo "$(stf)"|extract_filepath_linenum|open_in_app;;
 		 r ) srf|extract_filepath_linenum|open_in_app;;
 		 a ) saf|extract_filepath_linenum|open_in_app;;
 		 f ) sf;;
@@ -547,8 +554,8 @@ while true; do
 	    [Nn]* ) open_in_npp $(echo "$filepath"); break;;
 	    [Ss]* ) open_in_sublime_text $(echo "$filepath"); exit;break;;
 	    [Qq]* ) exit; break;;
-	    v ) echo "$escaped_filepath"|open_in_vim; break;;
-	    * ) echo "$escaped_filepath"|open_in_vim ; break;;
+	    v ) echo "$filepath"|open_in_vim; break;;
+	    * ) echo "$filepath"|open_in_vim ; break;;
     esac    	
 	echo "try again" #;break;
 done
@@ -623,4 +630,101 @@ function default_run(){
 }
 
 
+# TODO
+function gitinit(){
 
+	# Create path variables
+WORKING_PATH="$(pwd)"
+SCRIPT=$(readlink -f "$0")
+SCRIPT_PATH=$(dirname "$SCRIPT")
+
+
+# Initialize empty git repo
+if [ -d "$WORKING_PATH/.git" ]; then
+  read -r -p ".git already exists in directory, do you want to reinitialize? [y/N] " response
+  case "$response" in
+    [yY][eE][sS]|[yY])
+      git init
+    
+      read -p "remote? : git@github.com:User/UserRepo.git" remote_url< /dev/tty 
+	echo "$remote_url: "
+	git remote add origin "$remote_url"
+
+      ;;
+    *)
+      fatal "Program exiting"
+    ;;
+  esac
+else
+  git init
+  read -p "remote? : " remote_url< /dev/tty 
+	echo "$remote_url"
+	git remote add origin "$remote_url"
+fi
+
+
+# Create README.md
+README="$WORKING_PATH/README.md"
+[ -e "$README" ] && rm "$README"
+touch "$README"
+
+# Add project name as title of README
+if [ "$project_name" ]; then
+  echo "# $(tr '[:upper:]' '[:lower:]' <<<"$project_name")" > "$README"
+else
+  while [[ $project_name == '' ]]
+  do
+    read -r -p "What is the name your project (added as title to README):" project_name
+  done
+  echo "# $(tr '[:upper:]' '[:lower:]' <<<"$project_name")" > "$README"
+  info "Title added to README"
+fi
+
+# Copy .gitignore
+
+git add README.md
+# git add .
+git commit -m "Initial commit: Project created"
+
+
+
+}
+
+function git2() {
+# https://github.com/chrissimpkins/scriptacular/blob/master/version-control/gitinit.sh
+
+
+
+	# Initialize a directory with git, stage and commit existing files
+# Copyright 2013 Christopher Simpkins
+# MIT License
+
+FILE_TYPE="."
+INITIAL_COMMIT_MESSAGE="Initial commit"
+
+if [ -d ".git" ]; then
+	echo "This directory has already been initialized with git."
+	exit 1
+else
+	git init
+	if (( $? )); then
+		echo "Unable to initialize your directory" >&2
+		exit 1
+	fi
+	git add "$FILE_TYPE"
+	if (( $? )); then
+		echo "Unable to stage files" >&2
+		exit 1
+	fi
+	git commit -m "$INITIAL_COMMIT_MESSAGE"
+	if (( $? )); then
+		echo "Unable to create the initial commit" >&2
+		exit 1
+	fi
+	touch README.md
+	touch .gitignore
+	echo " ----- "
+	echo "The directory was initialized and an initial commit was performed with the files matching the pattern '$FILE_TYPE'"
+fi
+exit 0
+}

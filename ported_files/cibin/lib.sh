@@ -508,10 +508,10 @@ cat "$Universal_home/Downloads/all_files.db"|fzy -l 20
 function searchnotes () {
 # ag $* -G org$ /cygdrive/c/Users/cibin/Downloads/ --color
 
-lfind "/cygdrive/c/Users/$USERNAME/Downloads/" -maxdepth 2 -iname "*notes.org" -exec  echo {} +
-lfind "/cygdrive/c/Users/$USERNAME/Downloads/" -maxdepth 2 -iname "*notes.txt" -exec  echo {} +
-lfind "/cygdrive/c/Users/$USERNAME/Downloads/" -maxdepth 2 -iname "*notes.org" -exec  ag -i --noheading --color $* {} +
-lfind "/cygdrive/c/Users/$USERNAME/Downloads/" -maxdepth 2 -iname "*notes.txt" -exec  ag -i --noheading --color $* {} +
+lfind "/cygdrive/c/Users/$USERNAME/Downloads/" -maxdepth 2 -iname "*notes*.org" -exec  echo {} +
+lfind "/cygdrive/c/Users/$USERNAME/Downloads/" -maxdepth 2 -iname "*notes*.txt" -exec  echo {} +
+lfind "/cygdrive/c/Users/$USERNAME/Downloads/" -maxdepth 2 -iname "*notes*.org" -exec  ag -i --noheading --color $* {} +
+lfind "/cygdrive/c/Users/$USERNAME/Downloads/" -maxdepth 2 -iname "*notes*.txt" -exec  ag -i --noheading --color $* {} +
 
 # ag $* -n -G org$ /cygdrive/c/Users/"$USERNAME"/Downloads/ --color
 # # ag $* -n -G todo-notes.org$ /cygdrive/c/Users/"$USERNAME"/Downloads/ --color
