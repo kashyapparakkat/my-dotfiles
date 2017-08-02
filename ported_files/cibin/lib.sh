@@ -563,7 +563,7 @@ function searchInRecentfiles(){
 }
 
 
-# echo "/cygdrive/c/Users/cibin/Downloads/raspberrypi notes.txt"|open_in_vim
+# echo "/cygdrive/c/Users/cibin/Downloads/raspberrypi notes.txt:3"|open_in_vim
 # OR  echo /cygdrive/c/Users/cibin/Downloads/raspberrypi\ notes.txt|open_in_vim
 # fzf|extract_path_and_line|escape_spaces|open_in_vim
 
@@ -571,14 +571,16 @@ function open_in_vim(){
 	# should be able to open paths starting with filepath:line number or  similar format
 	read -r arg # < /dev/tty $@
 	echo "arg=$arg="
-	
-	# vim < /dev/tty $@
-
+	line=$(echo "$arg"|awk 'BEGIN { FS=":" } { printf "+%d", $2 } ') 
+	File=$(echo "$arg"|awk 'BEGIN { FS=":" } { printf "%s", $1 } ') 
+	vim < /dev/tty $line "$File"
+	echo "$line"
+	echo "$File"
 	# TODO strip linenum and check if exists
 	# if [ ! -z "$arg" ]
 	# 	then
 	# vim -- "$(echo $arg)" #|sed -e 's/\x1b\[[0-9;]*m//g')"
-	vim $(echo "$arg"|awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') 
+	# vim $(echo "$arg"|awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') 
 		# 	# below works for ag.vim plugin; check what it does
 		# 	# vim $(echo "$arg"|escape_spaces | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') + "LAg! '$*'" "+wincmd k"
 	# fi
@@ -594,7 +596,8 @@ arg=$(return_arg_or_piped_input $*)
 	echo "opening file: $arg in ranger..."
 	if [ ! -z "$arg" ]
 	then
-		/usr/bin/python3.6m.exe /cygdrive/c/cygwin64/bin/ranger --selectfile="$arg"
+		/usr/bin/python3.6m.exe /cygdrive/c/cygwin64/bin/ranger # --selectfile="$arg"
+		# ranger #--selectfile="$arg"
 	fi
 	
 

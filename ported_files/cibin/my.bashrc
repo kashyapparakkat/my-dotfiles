@@ -89,22 +89,26 @@ function recent_files(){
 	# In Mac OS X this list is stored in a file called Session.sublime_session under ~/Library/Application Support/Sublime Text 2/Settings, 
 	sublime_file=C:/Users/"$USERNAME"/AppData/Roaming/Sublime\ Text\ 3/Local/Session.sublime_session
 	notepadpp_file=/cygdrive/c/Users/"$USERNAME"/AppData/Roaming/Notepad++/session.xml
-	notepadpp_file2=/cygdrive/c/Users/"$USERNAME"/AppData/Roaming/Notepad++/session.xml
+	notepadpp_file2=/cygdrive/c/Users/"$USERNAME"/AppData/Roaming/Notepad++/config.xml
 	if [ -f ~/.viminfo ]; then
 	grep "~?/.*" -E -o ~/.viminfo |sed 's/"//g'>~/cbn_history.txt
 	fi
 	if [ -f "$sublime_file" ]; then
 		# TODO  below json parsing is not proper when multiple entries in the array ['windows'][0]
-	cat "$sublime_file"|python -c "import sys, json; print('\n'.join(json.load(sys.stdin)['windows'][0]['file_history']))"|convert_forwardslash_windows_to_cygdrive
+	cat "$sublime_file"|python -c "import sys, json; print('\n'.join(json.load(sys.stdin)['windows'][0]['file_history']))"|convert_forwardslash_windows_to_cygdrive>>~/cbn_history.txt
+	cat "$sublime_file"|python -c "import sys, json; all=json.load(sys.stdin)['windows'][0]['buffers'];print('\n'.join([a['file'] if 'file' in a else '' for a in all]))"|convert_forwardslash_windows_to_cygdrive>>~/cbn_history.txt
 	# grep "~?/.*\"" -E -o "$sublime_file" |sed 's/"//g'>>~/cbn_history.txt
 	fi
+
+	# TODO use python to properly extract xml data
 	[ -f "$notepadpp_file" ] && grep "\\w:\\\[^\"]*\" " -E -o "$notepadpp_file">>~/cbn_history.txt
 	[ -f "$notepadpp_file2" ] && grep "\\w:\\\[^\"]*\" " -E -o "$notepadpp_file2">>~/cbn_history.txt
+
 	# if [ -f "$notepadpp_file" ]; then  
 	# 	grep "\\w:\\\[^\"]*\" " -E -o "$notepadpp_file">>~/cbn_history.txt
 	# fi
 	#remove ", trailing spaces
-	echo  "$(cat ~/cbn_history.txt|convert_to_cygdrive|clean_filepaths|lsort|uniq -i)"
+	echo  "$(cat ~/cbn_history.txt|convert_to_cygdrive|clean_filepaths|remove_color_code|lsort|uniq -i)"
 	#C:\Users\cibin\AppData\Roaming\Notepad++\session.xml
 }
 function clean_filepaths(){
@@ -444,7 +448,7 @@ echo -e "$arg"|remove_color_code|  sed -e 's/\x1b\[[0-9;]*m//g'|sed -e "s/\\([^:
 
 function recent_in_app(){
 	# file="$(recent_files|escape_spaces|fzf|open_in_app)"
-	recent_files|remove_color_code|escape_spaces|fzf|open_in_app
+	recent_files|escape_spaces|fzf|open_in_app
 	# echo "$file"
 }
 
@@ -457,7 +461,7 @@ function prompt_for_s(){
 		 t ) st|extract_filepath_linenum|open_in_app;;
 		 r ) srf|extract_filepath_linenum|open_in_app;;
 		 a ) saf|extract_filepath_linenum|open_in_app;;
-		 f ) sf|open_in_app;;
+		 f ) sf;;
 		 d ) echo "HHHHHHHHHHHHHHH $filepath"|clip;;
 	esac
 }
@@ -467,12 +471,15 @@ function smart_open(){
 cr=`echo $'\n.'`
 cr=${cr%.}
 
+textreset=$(tput sgr0) # reset the foreground colour
+yellow=$(tput setaf 2) 
+echo "${yellow}$(pwd) ${textreset}"
  read -n 1 -p "s/z$cr" pressedkey </dev/tty
 	case $pressedkey in
 
 	    s ) echo; prompt_for_s;;
 	    r ) echo "$filepath";open_in_ranger $(echo "$filepath");;
-	    v ) echo "$filepath";open_in_vim $(echo "$filepath");;
+	    v ) echo "$filepath"|open_in_vim;;
 	    e ) open_in_explorer $(echo "$filepath");;
 	esac
 
@@ -509,7 +516,7 @@ cr=${cr%.}
 
 
 while true; do
-    read -n 1 -s -p "Open in [sublime/notepad++/explorer/vim/emacs /less $cr e explorer/d desktop/r ranger] $cr cc clipb1 cd cygdrive 2 windows $cr cd   q=quit  f=foldersearch r=recent again d=directory search] $cr" pressedkey </dev/tty
+    read -n 1 -s -p "Open in [sublime/notepad++/explorer/vim/emacs /less $cr e explorer/d desktop/r ranger] $cr o=open $cr cc clipb1 cd cygdrive 2 windows $cr cd   q=quit  f=foldersearch r=recent again d=directory search] $cr" pressedkey </dev/tty
 	# if [ "$pressedkey" = $'\e' ]; then
 	#         echo -e "\n [ESC] Pressed"
 	        
@@ -523,7 +530,6 @@ while true; do
 	    # [Yy]* ) rm ~/cron/beeb.txt; /usr/bin/get-iplayer --type tv>>~/cron/beeb.txt; break;;
 	    l ) less "$filepath"; break;;
 	    r ) echo "$filepath"|open_in_ranger ; break;;
-	    v ) echo "$escaped_filepath"|open_in_vim; break;;
 	    e ) open_in_explorer $(echo "$filepath"); break;;
 	   
 	    b ) cd_to_directory $(echo "$filepath"); break;;
@@ -537,10 +543,12 @@ while true; do
 			
 	     break;;
 	    o ) default_run $(echo "$filepath"); break;;
+	    p ) echo "extra details like size if it exists or not TODO"; break;;
 	    [Nn]* ) open_in_npp $(echo "$filepath"); break;;
 	    [Ss]* ) open_in_sublime_text $(echo "$filepath"); exit;break;;
 	    [Qq]* ) exit; break;;
-	        * ) echo "adfasf";echo "$filepath";open_in_vim $(echo "$filepath"); break;;
+	    v ) echo "$escaped_filepath"|open_in_vim; break;;
+	    * ) echo "$escaped_filepath"|open_in_vim ; break;;
     esac    	
 	echo "try again" #;break;
 done

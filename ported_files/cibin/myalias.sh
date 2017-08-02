@@ -25,7 +25,7 @@ alias s='prompt_for_s'
 alias sa='searchall'
 alias saf='searchall .|fzy -l 25'
 
-alias sf='searchfiles'
+alias sf='searchfiles|open_in_app'
 
 
 
