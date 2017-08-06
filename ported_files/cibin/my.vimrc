@@ -130,3 +130,29 @@ autocmd BufEnter __Tagbar__  noremap <buffer> <leader> <Plug>leaderguide-buffer
 " http://vim.wikia.com/wiki/Accessing_the_system_clipboard
 " Note: in vim 7.3.74 and higher you can set clipboard=unnamedplus to alias unnamed register to the + register, which is the X Window clipboard.
 set clipboard=unnamed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+source ~/my.guide.vim

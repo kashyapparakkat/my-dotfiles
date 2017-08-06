@@ -11,7 +11,7 @@
 # add these to initialise.sh also
 
 function l() {
-  less -ism *.$1
+  less -isNm *.$1
 }
 # if WINDOWS
   alias find='lfind'

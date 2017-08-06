@@ -1,0 +1,9 @@
+[
+  { "keys": ["g", "t"], "command": "next_view", "context": [{"key": "setting.command_mode"}] }	,
+
+	{ "keys": ["ctrl+shift+f"], "command": "show_panel", "args": {"panel": "find_in_files"} },
+	{ "keys": ["g","l"], "command": "move_to", "args": {"to": "eof", "extend": false} },
+	{"keys": ["o","d"], "command": "open_file_folder"},
+{"keys": ["ctrl+alt+e"], "command": "open_project_folder"}
+
+] 

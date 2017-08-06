@@ -48,7 +48,7 @@ space & 2::
 ; space & 3::
 ; space & 4::
 ;; space & 5::
-space & 6::
+;; space & 6::
 ;; space & 7::
 ;; space & 8::
 ;; space & 9::
@@ -825,6 +825,14 @@ Space & 7::	; na
 	sourcepath:=get_current_sourcepath_from_active_window()
 	run,C:\cbn_gits\misc\smart_open.bat,%sourcepath%,max
 	;run, C:\cygwin64\bin\mintty.exe /bin/tmux,%sourcepath%,max
+return
+
+Space & 6::	; na
+	filepath:=get_current_filepath_from_active_window()
+	filepath:=convert_to_cygwin_path(filepath)
+	sourcepath:=get_current_sourcepath_from_active_window()
+	run,C:\cbn_gits\misc\open_files.bat %filepath%,%sourcepath%,max
+
 return
 
 Space & 8::	; na
