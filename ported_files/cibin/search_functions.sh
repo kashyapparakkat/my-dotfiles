@@ -69,7 +69,9 @@ function recent_in_app(){
 
 
 function smart_open(){
-
+echo "arg=$1"
+cd_to_directory "$1"
+pwd
 	cr=`echo $'\n.'`
 	cr=${cr%.}
 
@@ -79,10 +81,11 @@ function smart_open(){
 	read -n 1 -p "s/o/z$cr" pressedkey </dev/tty
 	case $pressedkey in
 
-	    s ) echo; prompt_for_s;;
+	    s ) echo; prompt_for_s "$@";;
 	    r ) echo "$filepath";open_in_ranger $(echo "$filepath");;
 	    v ) echo "$filepath"|open_in_vim;;
 	    z ) searchfiles|open_in_app;;
+	    o ) echo "$filepath"|open_in_app;;
 	esac
 
 
@@ -92,22 +95,25 @@ function smart_open(){
 
 
 function prompt_for_s(){
-
+echo "aaarg=$1"
+# echo "${$1%%.*}"
 while true; do
 	read -n 1 -p "a/f/n/r/t " pressedkey < /dev/tty;
 	case $pressedkey in
-		 n ) echo " searching...";snf|extract_filepath_linenum|open_in_app;;
+		 n ) echo " searching...";snf|extract_filepath_linenum|open_in_app;break;;
 		 t ) echo;
-				read -n 1 -p "here/fuzzy " pressedkey2 < /dev/tty;
+				read -n 1 -p "[a] auto/[h] here/fuzzy/ advanced " pressedkey2 < /dev/tty;
 				case $pressedkey2 in
 					h ) echo;echo "$(sth)"|extract_filepath_linenum|open_in_app;break;;
+					a ) echo;ext="${1#*.}"; echo "ext=$ext";echo "$(searchtext $ext .|fzy)"|extract_filepath_linenum|open_in_app;break;;
 					f ) echo;echo "$(stf)"|extract_filepath_linenum|open_in_app;break;;
 				esac
 				break;;
-		 r ) srf|extract_filepath_linenum|open_in_app;;
-		 a ) saf|extract_filepath_linenum|open_in_app;;
-		 f ) sf;;
-		 d ) echo "HHHHHHHHHHHHHHH $filepath"|clip;;
+		 r ) srf|extract_filepath_linenum|open_in_app;break;;
+		 a ) saf|extract_filepath_linenum|open_in_app;break;;
+		 f ) echo;sf;break;;
+		 d ) echo "HHHHHHHHHHHHHHH $filepath"|clip;break;;
+	     q ) echo;break;;
 	esac
 done	
 }
@@ -142,7 +148,7 @@ cr=${cr%.}
 
 
 while true; do
-    read -n 1 -s -p "Open in [sublime/notepad++/explorer/vim/emacs /less $cr e explorer/d desktop/r ranger] $cr o=open $cr cc clipb1 cd cygdrive 2 windows $cr cd   q=quit  f=foldersearch r=recent again d=directory search] $cr" pressedkey </dev/tty
+    read -n 1 -s -p " s sublime                           c clipss         q quit $cr n notepad++     d desktop           cc windows $cr v vim           r ranger            cc cygdrive$cr e emacs         o open default $cr l less          b cd                p details $cr $cr f=foldersearch r=recent again d=directory search] $cr" pressedkey </dev/tty
 	# if [ "$pressedkey" = $'\e' ]; then
 	#         echo -e "\n [ESC] Pressed"
 	        
@@ -151,28 +157,28 @@ while true; do
 	        
 	# fi	
 	escaped_filepath=$(echo "$filepath"|escape_spaces)
-	echo -e "escaped_filepath=$escaped_filepath\n"
+	# echo -e "escaped_filepath=$escaped_filepath\n"
     case $pressedkey in
 	    # [Yy]* ) rm ~/cron/beeb.txt; /usr/bin/get-iplayer --type tv>>~/cron/beeb.txt; break;;
-	    l ) less "$filepath"; break;;
+	    l ) less -iN "$filepath"; break;;
 	    r ) echo "$filepath"|open_in_ranger ; break;;
-	    e ) open_in_explorer $(echo "$filepath"); break;;
+	    d ) open_in_explorer $(echo "$filepath"); break;;
 	   
-	    b ) cd_to_directory $(echo "$filepath"); break;;
+	    b ) cd_to_directory "$(echo "$filepath")"; break;;
 
 	    c ) echo "$filepath"|clip; 
 				read -n 1 -s -p "1/2" pressedkey < /dev/tty;
 				case $pressedkey in
 					 c ) echo "$filepath"|clip; break;;
-					 d ) echo "HHHHHHHHHHHHHHH $filepath"|clip; break;;
+					 d ) echo "cd to directory $filepath"|clip; break;;
 				esac
 			
 	     break;;
 	    o ) default_run $(echo "$filepath"); break;;
-	    p ) echo "extra details like size if it exists or not TODO"; break;;
+	    p ) echo "extra details like size if it exists or not TODO";ls -lh "$filepath";break;;
 	    [Nn]* ) open_in_npp $(echo "$filepath"); break;;
 	    [Ss]* ) open_in_sublime_text $(echo "$filepath"); exit;break;;
-	    [Qq]* ) exit; break;;
+	    [Qq]* ) echo; exit; break;;
 	    v ) echo "$filepath"|open_in_vim; break;;
 	    * ) echo "$filepath"|open_in_vim ; break;;
     esac    	

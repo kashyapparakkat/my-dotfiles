@@ -5,355 +5,373 @@
 |1,4
 
 # Value of 'encoding' when this file was written
-*encoding=latin1
+*encoding=utf-8
 
 
 # hlsearch on (H) or off (h):
 ~H
 # Last Search Pattern:
-~mSle0~/c/daaas
+~MSle0~/@$
+
+# Last Substitute String:
+$
 
 # Command Line History (newest to oldest):
+:silent !less "$(~/my-scripts/convert_path_to_windows.sh %:p)"
+|2,0,1501875944,,"silent !less \"$(~/my-scripts/convert_path_to_windows.sh %:p)\""
+:Ranger
+|2,0,1501875349,,"Ranger"
+:q!
+|2,0,1501702927,,"q!"
+:q
+|2,0,1501617693,,"q"
 :w!
 |2,0,1501443722,,"w!"
 :w
 |2,0,1501443718,,"w"
 :ls
 |2,0,1501355757,,"ls"
-:q!
-|2,0,1501354314,,"q!"
 :PlugInstall
 |2,0,1501175818,,"PlugInstall"
-:q
-|2,0,1501093926,,"q"
 :Q
 |2,0,1501091253,,"Q"
 
 # Search String History (newest to oldest):
+? @$
+|2,1,1501619456,,"@$"
 
 # Expression History (newest to oldest):
 
 # Input Line History (newest to oldest):
+@jjjjjjjjjjjjjjj
+|2,3,1501875950,,"jjjjjjjjjjjjjjj"
+@k
+|2,3,1501875136,,"k"
+@qq
+|2,3,1501875731,,"qq"
+@q
+|2,3,1501875638,,"q"
 
 # Debug Line History (newest to oldest):
 
 # Registers:
-"0	CHAR	0
-	#
-|3,0,0,0,1,0,1501443236,"#"
-""1	LINE	0
+"0	LINE	0
 	
-|3,1,1,1,1,0,1501443713,""
-"-	CHAR	0
-	#
-|3,0,36,0,1,0,1501091243,"#"
+|3,0,0,1,1,0,1501619456,""
+"1	LINE	0
+	
+|3,0,1,1,1,0,1501443713,""
+""-	CHAR	0
+	s
+|3,1,36,0,1,0,1501702917,"s"
 
 # File marks:
-'0  1  1  /cygdrive/C/cbn_gits/my_env_path_folder/alias.cmd
-|4,48,1,1,1501524853,"/cygdrive/C/cbn_gits/my_env_path_folder/alias.cmd"
-'1  36  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,49,36,0,1501443981,"/cygdrive/C/Users/cibin/Downloads/todo.org"
-'2  2  0  /cygdrive/C/cbn_gits/misc/recent.bat
-|4,50,2,0,1501431118,"/cygdrive/C/cbn_gits/misc/recent.bat"
-'3  1  0  [K/cygdrive/c/Users/cibin/Downloads/interview-preps-notes.org[K
-|4,51,1,0,1501429884,"[K/cygdrive/c/Users/cibin/Downloads/interview-preps-notes.org[K"
-'4  1  0  /cygdrive/c/Users/cibin/Downloads/interview-preps-notes.org[K
-|4,52,1,0,1501429861,"/cygdrive/c/Users/cibin/Downloads/interview-preps-notes.org[K"
-'5  1  0  /cygdrive/c/Users/cibin/Downloads/interview-preps-notes.org[
-|4,53,1,0,1501408551,"/cygdrive/c/Users/cibin/Downloads/interview-preps-notes.org["
-'6  1  0  /cygdrive/c/Users/cibin/Downloads/raspberrypi\
-|4,54,1,0,1501408091,"/cygdrive/c/Users/cibin/Downloads/raspberrypi\\"
-'7  1  0  /cygdrive/c/Users/cibin/Downloads/raspberrypi
-|4,55,1,0,1501408036,"/cygdrive/c/Users/cibin/Downloads/raspberrypi"
-'8  1  0  /cygdrive/c/Users/cibin/Downloads/raspberrypi
-|4,56,1,0,1501408018,"/cygdrive/c/Users/cibin/Downloads/raspberrypi"
-'9  1  0  /cygdrive/c/Users/cibin/Downloads/raspberrypi
-|4,57,1,0,1501407962,"/cygdrive/c/Users/cibin/Downloads/raspberrypi"
+'0  60  0  /cygdrive/C/Users/cibin/Downloads/todo.org
+|4,48,60,0,1502134940,"/cygdrive/C/Users/cibin/Downloads/todo.org"
+'1  649  0  /cygdrive/C/cbn_gits/AHK/LIB/tf.ahk
+|4,49,649,0,1502124516,"/cygdrive/C/cbn_gits/AHK/LIB/tf.ahk"
+'2  18  5  /cygdrive/c/Users/cibin/Downloads/Sync.txt
+|4,50,18,5,1502042557,"/cygdrive/c/Users/cibin/Downloads/Sync.txt"
+'3  1  0  /cygdrive/C/cygwin64/home/cibin/search_functions.sh
+|4,51,1,0,1502041870,"/cygdrive/C/cygwin64/home/cibin/search_functions.sh"
+'4  1  0  /cygdrive/C/cygwin64/home/cibin/search_functions.sh
+|4,52,1,0,1502010399,"/cygdrive/C/cygwin64/home/cibin/search_functions.sh"
+'5  28  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,53,28,0,1501964181,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+'6  1  0  /cygdrive/C/cbn_gits/misc/open_files.bat
+|4,54,1,0,1501963387,"/cygdrive/C/cbn_gits/misc/open_files.bat"
+'7  22  0  ~/my.guide.vim
+|4,55,22,0,1501875951,"~/my.guide.vim"
+'8  13  0  ~/my.guide.vim
+|4,56,13,0,1501875739,"~/my.guide.vim"
+'9  13  0  ~/my.guide.vim
+|4,57,13,0,1501875739,"~/my.guide.vim"
 
 # Jumplist (newest first):
--'  1  1  /cygdrive/C/cbn_gits/my_env_path_folder/alias.cmd
-|4,39,1,1,1501524853,"/cygdrive/C/cbn_gits/my_env_path_folder/alias.cmd"
--'  36  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,36,0,1501443981,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  36  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,36,0,1501443981,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  36  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,36,0,1501443981,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  36  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,36,0,1501443981,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  36  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,36,0,1501443981,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  36  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,36,0,1501443981,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  36  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,36,0,1501443981,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  36  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,36,0,1501443981,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  36  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,36,0,1501443981,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  36  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,36,0,1501443981,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  36  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,36,0,1501443981,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  36  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,36,0,1501443981,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  36  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,36,0,1501443981,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  36  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,36,0,1501443981,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  36  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,36,0,1501443981,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  36  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,36,0,1501443981,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  1276  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,1276,0,1501443708,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  1276  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,1276,0,1501443708,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  1276  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,1276,0,1501443708,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  1276  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,1276,0,1501443708,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  1276  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,1276,0,1501443708,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  1276  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,1276,0,1501443708,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  1276  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,1276,0,1501443708,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  1276  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,1276,0,1501443708,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  1276  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,1276,0,1501443708,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  1276  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,1276,0,1501443708,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  1276  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,1276,0,1501443708,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  1276  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,1276,0,1501443708,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  1276  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,1276,0,1501443708,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  1276  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,1276,0,1501443708,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  1276  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,1276,0,1501443708,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  1276  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,1276,0,1501443708,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  61  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,61,0,1501443707,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  61  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,61,0,1501443707,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  61  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,61,0,1501443707,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  61  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,61,0,1501443707,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  61  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,61,0,1501443707,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  61  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,61,0,1501443707,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  61  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,61,0,1501443707,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  61  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,61,0,1501443707,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  61  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,61,0,1501443707,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  61  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,61,0,1501443707,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  61  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,61,0,1501443707,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  61  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,61,0,1501443707,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  61  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,61,0,1501443707,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  61  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,61,0,1501443707,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  61  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,61,0,1501443707,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  61  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,61,0,1501443707,"/cygdrive/C/Users/cibin/Downloads/todo.org"
+-'  60  0  /cygdrive/C/Users/cibin/Downloads/todo.org
+|4,39,60,0,1502134940,"/cygdrive/C/Users/cibin/Downloads/todo.org"
 -'  1  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,1,0,1501443214,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  1  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,1,0,1501443214,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  1  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,1,0,1501443214,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  1  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,1,0,1501443214,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  1  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,1,0,1501443214,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  1  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,1,0,1501443214,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  1  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,1,0,1501443214,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  1  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,1,0,1501443214,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  1  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,1,0,1501443214,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  1  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,1,0,1501443214,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  1  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,1,0,1501443214,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  1  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,1,0,1501443214,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  1  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,1,0,1501443214,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  1  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,1,0,1501443214,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  1  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,1,0,1501443214,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  1  0  /cygdrive/C/Users/cibin/Downloads/todo.org
-|4,39,1,0,1501443214,"/cygdrive/C/Users/cibin/Downloads/todo.org"
--'  2  0  /cygdrive/C/cbn_gits/misc/recent.bat
-|4,39,2,0,1501431118,"/cygdrive/C/cbn_gits/misc/recent.bat"
--'  2  0  /cygdrive/C/cbn_gits/misc/recent.bat
-|4,39,2,0,1501431118,"/cygdrive/C/cbn_gits/misc/recent.bat"
--'  2  0  /cygdrive/C/cbn_gits/misc/recent.bat
-|4,39,2,0,1501431118,"/cygdrive/C/cbn_gits/misc/recent.bat"
--'  2  0  /cygdrive/C/cbn_gits/misc/recent.bat
-|4,39,2,0,1501431118,"/cygdrive/C/cbn_gits/misc/recent.bat"
--'  2  0  /cygdrive/C/cbn_gits/misc/recent.bat
-|4,39,2,0,1501431118,"/cygdrive/C/cbn_gits/misc/recent.bat"
--'  2  0  /cygdrive/C/cbn_gits/misc/recent.bat
-|4,39,2,0,1501431118,"/cygdrive/C/cbn_gits/misc/recent.bat"
--'  2  0  /cygdrive/C/cbn_gits/misc/recent.bat
-|4,39,2,0,1501431118,"/cygdrive/C/cbn_gits/misc/recent.bat"
--'  2  0  /cygdrive/C/cbn_gits/misc/recent.bat
-|4,39,2,0,1501431118,"/cygdrive/C/cbn_gits/misc/recent.bat"
--'  2  0  /cygdrive/C/cbn_gits/misc/recent.bat
-|4,39,2,0,1501431118,"/cygdrive/C/cbn_gits/misc/recent.bat"
--'  2  0  /cygdrive/C/cbn_gits/misc/recent.bat
-|4,39,2,0,1501431118,"/cygdrive/C/cbn_gits/misc/recent.bat"
--'  2  0  /cygdrive/C/cbn_gits/misc/recent.bat
-|4,39,2,0,1501431118,"/cygdrive/C/cbn_gits/misc/recent.bat"
--'  2  0  /cygdrive/C/cbn_gits/misc/recent.bat
-|4,39,2,0,1501431118,"/cygdrive/C/cbn_gits/misc/recent.bat"
--'  2  0  /cygdrive/C/cbn_gits/misc/recent.bat
-|4,39,2,0,1501431118,"/cygdrive/C/cbn_gits/misc/recent.bat"
--'  2  0  /cygdrive/C/cbn_gits/misc/recent.bat
-|4,39,2,0,1501431118,"/cygdrive/C/cbn_gits/misc/recent.bat"
--'  2  0  /cygdrive/C/cbn_gits/misc/recent.bat
-|4,39,2,0,1501431118,"/cygdrive/C/cbn_gits/misc/recent.bat"
--'  2  0  /cygdrive/C/cbn_gits/misc/recent.bat
-|4,39,2,0,1501431118,"/cygdrive/C/cbn_gits/misc/recent.bat"
--'  2  0  /cygdrive/C/cbn_gits/misc/recent.bat
-|4,39,2,0,1501431118,"/cygdrive/C/cbn_gits/misc/recent.bat"
--'  2  0  /cygdrive/C/cbn_gits/misc/recent.bat
-|4,39,2,0,1501431118,"/cygdrive/C/cbn_gits/misc/recent.bat"
--'  2  0  /cygdrive/C/cbn_gits/misc/recent.bat
-|4,39,2,0,1501431118,"/cygdrive/C/cbn_gits/misc/recent.bat"
--'  2  0  /cygdrive/C/cbn_gits/misc/recent.bat
-|4,39,2,0,1501431118,"/cygdrive/C/cbn_gits/misc/recent.bat"
--'  2  0  /cygdrive/C/cbn_gits/misc/recent.bat
-|4,39,2,0,1501431118,"/cygdrive/C/cbn_gits/misc/recent.bat"
--'  2  0  /cygdrive/C/cbn_gits/misc/recent.bat
-|4,39,2,0,1501431118,"/cygdrive/C/cbn_gits/misc/recent.bat"
--'  2  0  /cygdrive/C/cbn_gits/misc/recent.bat
-|4,39,2,0,1501431118,"/cygdrive/C/cbn_gits/misc/recent.bat"
--'  2  0  /cygdrive/C/cbn_gits/misc/recent.bat
-|4,39,2,0,1501431118,"/cygdrive/C/cbn_gits/misc/recent.bat"
--'  2  0  /cygdrive/C/cbn_gits/misc/recent.bat
-|4,39,2,0,1501431118,"/cygdrive/C/cbn_gits/misc/recent.bat"
--'  2  0  /cygdrive/C/cbn_gits/misc/recent.bat
-|4,39,2,0,1501431118,"/cygdrive/C/cbn_gits/misc/recent.bat"
--'  2  0  /cygdrive/C/cbn_gits/misc/recent.bat
-|4,39,2,0,1501431118,"/cygdrive/C/cbn_gits/misc/recent.bat"
--'  2  0  /cygdrive/C/cbn_gits/misc/recent.bat
-|4,39,2,0,1501431118,"/cygdrive/C/cbn_gits/misc/recent.bat"
--'  2  0  /cygdrive/C/cbn_gits/misc/recent.bat
-|4,39,2,0,1501431118,"/cygdrive/C/cbn_gits/misc/recent.bat"
--'  2  0  /cygdrive/C/cbn_gits/misc/recent.bat
-|4,39,2,0,1501431118,"/cygdrive/C/cbn_gits/misc/recent.bat"
--'  2  0  /cygdrive/C/cbn_gits/misc/recent.bat
-|4,39,2,0,1501431118,"/cygdrive/C/cbn_gits/misc/recent.bat"
--'  2  0  /cygdrive/C/cbn_gits/misc/recent.bat
-|4,39,2,0,1501431118,"/cygdrive/C/cbn_gits/misc/recent.bat"
--'  1  0  /cygdrive/C/cbn_gits/misc/recent.bat
-|4,39,1,0,1501431113,"/cygdrive/C/cbn_gits/misc/recent.bat"
--'  1  0  /cygdrive/C/cbn_gits/misc/recent.bat
-|4,39,1,0,1501431113,"/cygdrive/C/cbn_gits/misc/recent.bat"
--'  1  0  /cygdrive/C/cbn_gits/misc/recent.bat
-|4,39,1,0,1501431113,"/cygdrive/C/cbn_gits/misc/recent.bat"
+|4,39,1,0,1502134934,"/cygdrive/C/Users/cibin/Downloads/todo.org"
+-'  649  0  /cygdrive/C/cbn_gits/AHK/LIB/tf.ahk
+|4,39,649,0,1502124516,"/cygdrive/C/cbn_gits/AHK/LIB/tf.ahk"
+-'  649  0  /cygdrive/C/cbn_gits/AHK/LIB/tf.ahk
+|4,39,649,0,1502124516,"/cygdrive/C/cbn_gits/AHK/LIB/tf.ahk"
+-'  1  0  /cygdrive/C/cbn_gits/AHK/LIB/tf.ahk
+|4,39,1,0,1502124513,"/cygdrive/C/cbn_gits/AHK/LIB/tf.ahk"
+-'  1  0  /cygdrive/C/cbn_gits/AHK/LIB/tf.ahk
+|4,39,1,0,1502124513,"/cygdrive/C/cbn_gits/AHK/LIB/tf.ahk"
+-'  18  5  /cygdrive/c/Users/cibin/Downloads/Sync.txt
+|4,39,18,5,1502042557,"/cygdrive/c/Users/cibin/Downloads/Sync.txt"
+-'  18  5  /cygdrive/c/Users/cibin/Downloads/Sync.txt
+|4,39,18,5,1502042557,"/cygdrive/c/Users/cibin/Downloads/Sync.txt"
+-'  18  5  /cygdrive/c/Users/cibin/Downloads/Sync.txt
+|4,39,18,5,1502042557,"/cygdrive/c/Users/cibin/Downloads/Sync.txt"
+-'  18  5  /cygdrive/c/Users/cibin/Downloads/Sync.txt
+|4,39,18,5,1502042557,"/cygdrive/c/Users/cibin/Downloads/Sync.txt"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/Sync.txt
+|4,39,1,0,1502042529,"/cygdrive/c/Users/cibin/Downloads/Sync.txt"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/Sync.txt
+|4,39,1,0,1502042529,"/cygdrive/c/Users/cibin/Downloads/Sync.txt"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/Sync.txt
+|4,39,1,0,1502042529,"/cygdrive/c/Users/cibin/Downloads/Sync.txt"
+-'  1  0  /cygdrive/c/Users/cibin/Downloads/Sync.txt
+|4,39,1,0,1502042529,"/cygdrive/c/Users/cibin/Downloads/Sync.txt"
+-'  1  0  /cygdrive/C/cygwin64/home/cibin/search_functions.sh
+|4,39,1,0,1502041870,"/cygdrive/C/cygwin64/home/cibin/search_functions.sh"
+-'  1  0  /cygdrive/C/cygwin64/home/cibin/search_functions.sh
+|4,39,1,0,1502041870,"/cygdrive/C/cygwin64/home/cibin/search_functions.sh"
+-'  1  0  /cygdrive/C/cygwin64/home/cibin/search_functions.sh
+|4,39,1,0,1502041870,"/cygdrive/C/cygwin64/home/cibin/search_functions.sh"
+-'  1  0  /cygdrive/C/cygwin64/home/cibin/search_functions.sh
+|4,39,1,0,1502041870,"/cygdrive/C/cygwin64/home/cibin/search_functions.sh"
+-'  1  0  /cygdrive/C/cygwin64/home/cibin/search_functions.sh
+|4,39,1,0,1502041870,"/cygdrive/C/cygwin64/home/cibin/search_functions.sh"
+-'  1  0  /cygdrive/C/cygwin64/home/cibin/search_functions.sh
+|4,39,1,0,1502041870,"/cygdrive/C/cygwin64/home/cibin/search_functions.sh"
+-'  1  0  /cygdrive/C/cygwin64/home/cibin/search_functions.sh
+|4,39,1,0,1502041870,"/cygdrive/C/cygwin64/home/cibin/search_functions.sh"
+-'  1  0  /cygdrive/C/cygwin64/home/cibin/search_functions.sh
+|4,39,1,0,1502041870,"/cygdrive/C/cygwin64/home/cibin/search_functions.sh"
+-'  1  0  /cygdrive/C/cygwin64/home/cibin/search_functions.sh
+|4,39,1,0,1502010399,"/cygdrive/C/cygwin64/home/cibin/search_functions.sh"
+-'  1  0  /cygdrive/C/cygwin64/home/cibin/search_functions.sh
+|4,39,1,0,1502010399,"/cygdrive/C/cygwin64/home/cibin/search_functions.sh"
+-'  1  0  /cygdrive/C/cygwin64/home/cibin/search_functions.sh
+|4,39,1,0,1502010399,"/cygdrive/C/cygwin64/home/cibin/search_functions.sh"
+-'  1  0  /cygdrive/C/cygwin64/home/cibin/search_functions.sh
+|4,39,1,0,1502010399,"/cygdrive/C/cygwin64/home/cibin/search_functions.sh"
+-'  1  0  /cygdrive/C/cygwin64/home/cibin/search_functions.sh
+|4,39,1,0,1502010399,"/cygdrive/C/cygwin64/home/cibin/search_functions.sh"
+-'  1  0  /cygdrive/C/cygwin64/home/cibin/search_functions.sh
+|4,39,1,0,1502010399,"/cygdrive/C/cygwin64/home/cibin/search_functions.sh"
+-'  1  0  /cygdrive/C/cygwin64/home/cibin/search_functions.sh
+|4,39,1,0,1502010399,"/cygdrive/C/cygwin64/home/cibin/search_functions.sh"
+-'  1  0  /cygdrive/C/cygwin64/home/cibin/search_functions.sh
+|4,39,1,0,1502010399,"/cygdrive/C/cygwin64/home/cibin/search_functions.sh"
+-'  28  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,28,0,1501964181,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  28  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,28,0,1501964181,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  28  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,28,0,1501964181,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  28  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,28,0,1501964181,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  28  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,28,0,1501964181,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  28  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,28,0,1501964181,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  28  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,28,0,1501964181,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  28  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,28,0,1501964181,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  28  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,28,0,1501964181,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  28  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,28,0,1501964181,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  28  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,28,0,1501964181,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  28  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,28,0,1501964181,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  28  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,28,0,1501964181,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  28  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,28,0,1501964181,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  28  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,28,0,1501964181,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  28  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,28,0,1501964181,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  28  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,28,0,1501964181,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  28  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,28,0,1501964181,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  28  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,28,0,1501964181,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  28  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,28,0,1501964181,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  28  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,28,0,1501964181,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  28  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,28,0,1501964181,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  28  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,28,0,1501964181,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  28  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,28,0,1501964181,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  28  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,28,0,1501964181,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  28  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,28,0,1501964181,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  28  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,28,0,1501964181,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  28  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,28,0,1501964181,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  28  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,28,0,1501964181,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  28  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,28,0,1501964181,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  28  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,28,0,1501964181,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  28  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,28,0,1501964181,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,1,0,1501964179,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,1,0,1501964179,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,1,0,1501964179,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,1,0,1501964179,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,1,0,1501964179,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,1,0,1501964179,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,1,0,1501964179,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,1,0,1501964179,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,1,0,1501964179,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,1,0,1501964179,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,1,0,1501964179,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,1,0,1501964179,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,1,0,1501964179,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,1,0,1501964179,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,1,0,1501964179,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,1,0,1501964179,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,1,0,1501964179,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,1,0,1501964179,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,1,0,1501964179,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,1,0,1501964179,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,1,0,1501964179,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,1,0,1501964179,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,1,0,1501964179,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,1,0,1501964179,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,1,0,1501964179,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,1,0,1501964179,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,1,0,1501964179,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,1,0,1501964179,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,1,0,1501964179,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,1,0,1501964179,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,1,0,1501964179,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  1  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,1,0,1501964179,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  66  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,66,0,1501964178,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  66  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,66,0,1501964178,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  66  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,66,0,1501964178,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  66  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,66,0,1501964178,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  66  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,66,0,1501964178,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
+-'  66  0  /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+|4,39,66,0,1501964178,"/cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk"
 
 # History of marks within files (newest to oldest):
+
+> /cygdrive/C/Users/cibin/Downloads/todo.org
+	*	1502134939	0
+	"	60	0
+	.	12	0
+	+	12	0
+
+> /cygdrive/C/cbn_gits/AHK/LIB/tf.ahk
+	*	1502124513	0
+	"	649	0
+
+> /cygdrive/c/Users/cibin/Downloads/Sync.txt
+	*	1502042557	0
+	"	18	5
+
+> /cygdrive/C/cygwin64/home/cibin/search_functions.sh
+	*	1502041867	0
+	"	1	0
+
+> /cygdrive/C/cbn_gits/AHK/qwerty - NEW.ahk
+	*	1501964181	0
+	"	28	0
+	^	66	1
+	.	66	1
+	+	66	1
+
+> /cygdrive/C/cbn_gits/misc/open_files.bat
+	*	1501963385	0
+	"	1	0
+
+> ~/my.guide.vim
+	*	1501875951	0
+	"	22	0
+
+> ~/my.vimrc
+	*	1501874331	0
+	"	22	5
+
+> /cygdrive/C/cbn_gits/AHK/copy_paths.ahk
+	*	1501701141	0
+	"	112	1
+
+> /cygdrive/c/Users/cibin/Downloads/raspberrypi
+	*	1501700578	0
+	"	1	0
+
+> /cygdrive/c/cbn_gits/AHK/notes.txt
+	*	1501700577	0
+	"	1	0
+
+> /cygdrive/c/Users/cibin/Downloads/raspberrypi\ notes.txt
+	*	1501700555	0
+	"	1	0
+
+> /cygdrive/c/Users/cibin/Downloads/raspberrypi notes.txt
+	*	1501700549	0
+	"	3	0
+
+> /cygdrive/c/Users/cibin/Downloads/interview-preps-notes.org
+	*	1501700338	0
+	"	1	0
+
+> /cygdrive/C/cygwin64/home/cibin/lib.sh
+	*	1501700307	0
+	"	45	0
+
+> "/cygdrive/c/Users/cibin/Downloads/raspberrypi
+	*	1501619052	0
+	"	1	0
+
+> ~/notes.txt"
+	*	1501619050	0
+	"	1	0
+
+> /cygdrive/c/Users/cibin/Downloads/notes.txt
+	*	1501618323	0
+	"	1	0
+
+> /cygdrive/C/cbn_gits/misc/smart_open.bat
+	*	1501617824	0
+	"	1	13
 
 > /cygdrive/C/cbn_gits/my_env_path_folder/alias.cmd
 	*	1501524853	0
 	"	1	1
-
-> /cygdrive/C/Users/cibin/Downloads/todo.org
-	*	1501443981	0
-	"	36	0
-	.	12	0
-	+	12	0
-
-> ~/ControlP
-	*	1501443283	0
-	"	1	0
-	.	1	0
-	+	1	0
-
-> /cygdrive/C/cbn_gits/misc/recent.bat
-	*	1501431118	0
-	"	2	0
-
-> [K/cygdrive/c/Users/cibin/Downloads/interview-preps-notes.org[K
-	*	1501429878	0
-	"	1	0
-
-> /cygdrive/c/Users/cibin/Downloads/interview-preps-notes.org[K
-	*	1501429856	0
-	"	1	0
-
-> /cygdrive/c/Users/cibin/Downloads/interview-preps-notes.org[
-	*	1501408546	0
-	"	1	0
-
-> /cygdrive/c/Users/cibin/Downloads/raspberrypi\
-	*	1501408091	0
-	"	1	0
-
-> ~/notes.txt
-	*	1501408088	0
-	"	1	0
-
-> /cygdrive/c/Users/cibin/Downloads/raspberrypi
-	*	1501408036	0
-	"	1	0
-
-> /cygdrive/c/cbn_gits/AHK/notes.txt
-	*	1501407959	0
-	"	1	0
-
-> /cygdrive/c/Users/cibin/Downloads/raspberrypi notes.txt
-	*	1501403974	0
-	"	32	0
-
-> /cygdrive/c/cbn_gits/AHK/echo
-	*	1501355743	0
-	"	1	0
-
-> [0m[K[1;32m/cygdrive/c/Users/cibin/Downloads/raspberrypi\
-	*	1501354353	0
-	"	1	0
-
-> ~/notes.txt[
-	*	1501354350	0
-	"	1	0
-
-> ~/notes.txt[:0
-	*	1501354348	0
-	"	1	0
-
-> [0m[K[1;32m/cygdrive/c/Users/cibin/Downloads/raspberrypi
-	*	1501354311	0
-	"	1	0
-
-> /cygdrive/C/cygwin64/home/cibin/myalias.sh
-	*	1501328724	0
-	"	1	0
-
-> /cygdrive/C/cygwin64/home/cibin/my.bashrc:64:alias
-	*	1501328133	0
-	"	1	0
-
-> ~/ex='exit'
-	*	1501328127	0
-	"	1	0

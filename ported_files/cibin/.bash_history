@@ -1,747 +1,3 @@
-fa eclipse
-locate.exe  eclipse
-locate jdk
-locate jdk | grep exe
-locate jdk | grep msi
-locate jdk | grep ms
-locate jdk-8
-locate jdk-
-fa jdk
-exit
-exit
-some-cron-jobs 
-cd ..
-exit
-f resume
-f resume doc
-fa resume doc
-locate resume
-myindex
-f resume doc
-f resume doc
-exit
-grepfilelist_common click
-exit
-grepfilelist_common a
-exit
-grepfilelist_common adf
-exit
-grepfilelist_common cli
-exit
-grepfilelist_common a
-sed -i "s/<username>/$USERNAME/g" C:/Users/"$USERNAME"/AppData/Roaming/.emacs.d/my-files/all-common-filelist.txt
-sed -i "s/<username>/$USERNAME/g" C:/Users/"$USERNAME"/AppData/Roaming/.emacs.d/my-files/all-common-filelist.txt
-exit
-lfind /cygdrive -iname "*"   -maxdepth 2 > "$Universal_home/Downloads/all_files_unfiltered.db"
-lfind /cygdrive -maxdepth 2 -iname "*" > "$Universal_home/Downloads/all_files_unfiltered.db"
-lfind /cygdrive -maxdepth 2 -iname "*" > 
-lfind /cygdrive -maxdepth 2 -iname "*" 
-lfind /cygdrive/ -maxdepth 2 -iname "*" 
-lfind /cygdrive/* -maxdepth 2 -iname "*" 
-lfind /cygdrive/ -maxdepth 2 -iname "*" 
-lfind /cygdrive/ -maxdepth 2 -iname "*" |grep -v "/cygdrive/c/\$Recycle.Bin/" | grep -v "/cygdrive/c/\$WINDOWS.~BT/" | grep -v "/cygdrive/c/Users/cibin/AppData/" | grep -v "/cygdrive/c/my_bin/" | grep -v "/cygdrive/c/Windows/"
-lfind /cygdrive/ -maxdepth 2 -iname "*" |grep -v "/cygdrive/c/\$Recycle.Bin/" | grep -v "/cygdrive/c/\$WINDOWS.~BT/" | grep -v "/cygdrive/c/Users/cibin/AppData/" | grep -v "/cygdrive/c/my_bin/" | grep -v "/cygdrive/c/Windows/"
-exit
-myindex 
-fa xyplorer exe
-fa dani mp
-fa dani mp danie
-exit
-cat build.gradle | awk '{$1=$1};1'| grep -i "compile "| sed -e "s/^compile //Ig" -e "s/^testCompile //Ig"| sed -e "s/\/\/.*//g"| sed -e "s/files(.*//g"| grep -v ^$| tr -d "'"| sed -e "s/\([-_[:alnum:]\.]*\):\([-_[:alnum:]\.]*\):\([-+_[:alnum:]\.]*\)/<dependency>\n\t<groupId>\1<\/groupId>\n\t<artifactId>\2<\/artifactId>\n\t<version>\3<\/version>\n<\/dependency>/g"
-exit
-gn begin
-gn BEGIN
-gn zodia
-fa virtu
-fa virt exe wind
-fa virt exe win
-fa virt exe win 4
-fa virt exe win 4 5
-fa virt exe win 4 1
-gn zodia
-exit
-gn begin
-exit
-gn begin
-exit
-gn begin
-gn zod
-gn ac zo
-exit
-other_indexes 
-other_indexes 
-echo "\n" >> "C:/cbn_gits/AHK/smart_search/db/start-menu.txt"
-echo "\n" >> "C:/cbn_gits/AHK/smart_search/db/start-menu.txt"
-echo "\n" >> "C:/cbn_gits/AHK/smart_search/db/start-menu.txt"
-echo "\n" >> "C:/cbn_gits/AHK/smart_search/db/start-menu.txt"
-echo "asdfasd\n" >> "C:/cbn_gits/AHK/smart_search/db/start-menu.txt"
-echo "asdfasd\n" >> "C:/cbn_gits/AHK/smart_search/db/start-menu.txt"
-printf "hello\nworld\n" >> "C:/cbn_gits/AHK/smart_search/db/start-menu.txt"
-exit
-fa vt exe
-fa vt exe$
-f vt exe$
-fa vt exe$
-fa vtv exe$
-fa vv exe$
-cd.
-exit
-exit
-advgrep rhere ahk include
-ash
-exit
-exit
-bash
-exit
-bash
-exit
-ls
-ls
-exit
-eval "$(fasd --init auto)"
-fasd
-fassd
-fassd
-fasd
-exit
-pwd
-touch test.txt
-exit
-touch test1.txt
-touch test2.txt
-exit
-touch test1.txt
-touch test2.txt
-touch test15.txt
-exit
-touch del dell dell
-exit
-exit
-exit
-exit
-mkdir delete
-cd delete/
-touch a b
-ls
-exit
-touch c d
-exit
-exit
-exit
-exit
-exit
-ex
-r
-ex
-ex
-ex
-ex
-ex
-ex
-ex
-most
-ex
-ls
-
-bind -x '"|C-q":"exit\n"'
-bind -x '"|C-l":"exit\n"'
-bind -x '"|C-q":"exit\n"'
-bind -x '"|C-q":exit"'
-ls -la | vim -
-set -o vi
-ls
-ls -l 
-set -o emacs
- 
-set -o emacs
-ex
-touch delete1.txt delete2.txt
-vi delete1.txt 
-cat delete1.txt 
-ex
-swap_filenames 
-ex
-ls
-r
-fd() {   local dir   dir=$(lfind . -name "*.$1" -exec tail -n +1 -- {} + | fzf +m) &&   echo "$dir"; }
-fd
-fd txt
-ex
-ls
-ll
-ls
-cdd
-r
-less
-r
-ex
-recent
-ex
-l sh
-ex
-l sh
-less -ism *.sh
-bash
-ex
-ls
-tmux
-ls
-cd -
-tmux source ~/.tmux.conf 
-send-prefix
-send-prefix
-tmux source ~/.tmux.conf 
-
-zsh
-ex
-pwd
-ex
-~/my-scripts/open_explorer.sh "/cygdrive/C/cygwin64/home/cibin/my-scripts/fzy"
-ex
-#1500733734
-pwd
-#1500733743
-cd ~
-#1500733747
-searchall
-#1500733773
-searchall func
-#1500733856
-fzs
-#1500733894
-sa
-#1500733902
-sa function
-#1500733909
-sa func
-#1500733926
-sa .
-#1500733964
-cho "\$cmd searchTerm"
-#1500733977
-CHOICE=$(ag -i  --color ${@:1} |fzy)
-#1500733996
-ag -i  --color . |fzy
-#1500749267
-function smart_recent(){ grep "~?/.*" -E -o ~/.viminfo |sed 's/"//g'>~/cbn_history.txt; grep "~?/.*\"" -E -o "$sublime_file" |sed 's/"//g'>>~/cbn_history.txt; grep "\\w:\\\[^\"]*\" " -E -o /cygdrive/c/Users/"$USERNAME"/AppData/Roaming/Notepad++/session.xml>>~/cbn_history.txt echo  "$(cat ~/cbn_history.txt|convert_to_cygdrive|sed 's/"//g'|sed 's/ *$//'|sort|uniq)";  file="$(recent_files|fzf|sed 's/ /\\ /g')";      read -n 1-p "Do you want to update the tv feed? [y/n/q] " ynq;     case $ynq in     [Yy]* ) rm ~/cron/beeb.txt; /usr/bin/get-iplayer --type tv>>~/cron/beeb.txt;;      [Ss]* ) echo;;     [Nn]* ) echo;;     [Qq]* ) exit;;     * ) echo "Please answer yes or no. ";;     esac;      echo "file:$file not found";  }
-#1500749397
-function smart_recent(){ grep "~?/.*" -E -o ~/.viminfo |sed 's/"//g'>~/cbn_history.txt; grep "~?/.*\"" -E -o "$sublime_file" |sed 's/"//g'>>~/cbn_history.txt; grep "\\w:\\\[^\"]*\" " -E -o /cygdrive/c/Users/"$USERNAME"/AppData/Roaming/Notepad++/session.xml>>~/cbn_history.txt echo  "$(cat ~/cbn_history.txt|convert_to_cygdrive|sed 's/"//g'|sed 's/ *$//'|sort|uniq)";  file="$(recent_files|fzf|sed 's/ /\\ /g')";      read -n 1-p "Do you want to update the tv feed? [y/n/q] " ynq;     case $ynq in     [Yy]* ) rm ~/cron/beeb.txt; /usr/bin/get-iplayer --type tv>>~/cron/beeb.txt;;      [Ss]* ) echo;;     [Nn]* ) echo;;     [Qq]* ) exit;;     * ) echo "Please answer yes or no. ";;     esac;      echo "file:$file not found";  }
-#1500749418
-function smart_recent(){ grep "~?/.*" -E -o ~/.viminfo |sed 's/"//g'>~/cbn_history.txt; grep "~?/.*\"" -E -o "$sublime_file" |sed 's/"//g'>>~/cbn_history.txt; grep "\\w:\\\[^\"]*\" " -E -o /cygdrive/c/Users/"$USERNAME"/AppData/Roaming/Notepad++/session.xml>>~/cbn_history.txt echo  "$(cat ~/cbn_history.txt|convert_to_cygdrive|sed 's/"//g'|sed 's/ *$//'|sort|uniq)";  file="$(recent_files|fzf|sed 's/ /\\ /g')";      read -n 1-p "Do you want to update the tv feed? [y/n/q] " ynq;     case $ynq in     [Yy]* ) rm ~/cron/beeb.txt; /usr/bin/get-iplayer --type tv>>~/cron/beeb.txt;;      [Ss]* ) echo;;     [Nn]* ) echo;;     [Qq]* ) exit;;     * ) echo "Please answer yes or no. ";;     esac;      echo "file:$file not found";  }
-#1500749422
-smart_recent
-#1500749473
-function smart_recent(){ grep "~?/.*" -E -o ~/.viminfo |sed 's/"//g'>~/cbn_history.txt; grep "~?/.*\"" -E -o "$sublime_file" |sed 's/"//g'>>~/cbn_history.txt; grep "\\w:\\\[^\"]*\" " -E -o /cygdrive/c/Users/"$USERNAME"/AppData/Roaming/Notepad++/session.xml>>~/cbn_history.txt echo  "$(cat ~/cbn_history.txt|convert_to_cygdrive|sed 's/"//g'|sed 's/ *$//'|sort|uniq)";  file="$(recent_files|fzf|sed 's/ /\\ /g')";      read -n 1 -p "Do you want to update the tv feed? [y/n/q] " ynq;     case $ynq in     [Yy]* ) rm ~/cron/beeb.txt; /usr/bin/get-iplayer --type tv>>~/cron/beeb.txt;;      [Ss]* ) echo;;     [Nn]* ) echo;;     [Qq]* ) exit;;     * ) echo "Please answer yes or no. ";;     esac;      echo "file:$file not found";  }
-#1500749476
-smart_recent
-#1500808647
-recent_files 
-#1500808862
-recent_files |sed 's%/[A-z]*$%/.%g'
-#1500809016
-recent_files |sed 's|[^/]*||'
-#1500809052
-recent_files |sed 's|^/[.]*[^/]*||'
-#1500809222
-recent_files |sed 's|^/[.]*?[^/]*||'
-#1500809242
-recent_files |sed 's|^/[.]*?[^/]+||'
-#1500809246
-recent_files |sed 's|^/[.]*?[^/]+|zzzzzzzzzz|'
-#1500809313
-recent_files |sed 's|^/\(.*\)[^/]+|zzzzzzzzzz|'
-#1500809369
-recent_files |sed 's|^/\(.*\)/[^/]+|zzzzzzzzzz|'
-#1500809386
-recent_files |sed 's|^/\(.*\)/[^/]+$|zzzzzzzzzz|'
-#1500809403
-recent_files |sed 's|/[^/]+$|zzzzzzzzzz|'
-#1500809416
-recent_files |sed 's|/.*[^/]+$|zzzzzzzzzz|'
-#1500809485
-recent_files |sed 's=.*/=='
-#1500809506
-recent_files |sed 's=.*/[^/]*=='
-#1500809510
-recent_files |sed 's=/[^/]*=='
-#1500809515
-recent_files |sed 's=/[^\/]*=='
-#1500809520
-recent_files |sed 's=/[^\\/]*=='
-#1500809533
-recent_files |sed 's=/[^\\/]*$=='
-#1500809584
-recent_files |sed 's=/[^\\/]*$=='|sort|uniq|fzf
-#1500809706
-recent_files |sed 's=/[^\\/]*$=='|sed 's/"//g'|sed 's/ *$//'|sort|uniq|fzf
-#1500809730
-recent_files |sed 's=/[^\\/]*$=='|sed 's/"//g'|sed 's/ *$//'|sort
-#1500809770
-recent_files |sed 's=/[^\\/]*$=='|sed 's/"//g'|sed 's/ *$//'|sort --ignore-case
-#1500809778
-recent_files |sed 's=/[^\\/]*$=='|sed 's/"//g'|sed 's/ *$//'|lsort --ignore-case
-#1500809839
-recent_files |sed 's=/[^\\/]*$=='|sed 's/"//g'|sed 's/ *$//'|lsort --ignore-case|uniq
-#1500809844
-recent_files |sed 's=/[^\\/]*$=='|sed 's/"//g'|sed 's/ *$//'|lsort --ignore-case|uniq -i
-#1500809879
-recent_files |sed 's=/[^\\/]*$=='|sed 's/"//g'|sed 's/ *$//'|sort|uniq -i|fzf
-#1500810020
-function clean_filepaths(){ sed 's/"//g'|sed 's/ *$//';  }
-#1500810035
-recent_files |sed 's=/[^\\/]*$=='
-#1500810041
-recent_files |sed 's=/[^\\/]*$=='|clean_filepaths
-#1500810091
-recent_files |sed 's=/[^\\/]*$=='|clean_filepaths|fzf
-#1500810325
-cat ~/.z|cut -d'|' -f1|convert_to_cygdrive
-#1500810420
-cd_history=$(cat ~/.z|cut -d'|' -f1|convert_to_cygdrive)
-#1500810430
-echo $cd_history 
-#1500810447
-echo $(recent_files)
-#1500810468
-cd_history=$(cat ~/.z|cut -d'|' -f1|convert_to_cygdrive)
-#1500810471
-recent_files=$(recent_files)
-#1500810472
-all_dirs=$recent_files$cd_history
-#1500810491
-recent_files 
-#1500810501
-a=$(recent_files)
-#1500810515
-a=$(echo recent_files)
-#1500810518
-$a
-#1500810527
-cd_history=$(cat ~/.z|cut -d'|' -f1|convert_to_cygdrive)
-#1500810528
-recent_files=$(echo recent_files)
-#1500810529
-all_dirs=$recent_files$cd_history
-#1500810532
-$all_dirs 
-#1500810536
-echo $all_dirs 
-#1500810544
-echo :$all_dirs"
-
-#1500810550
-echo "$all_dirs"
-#1500810558
-all_dirs |sed 's=/[^\\/]*$=='|clean_filepaths| lsort|uniq -i|fzf
-#1500810564
-all_dirs |sed 's=/[^\\/]*$=='|clean_filepaths| lsort|uniq -i
-#1500810572
-echo $all_dirs |sed 's=/[^\\/]*$=='|clean_filepaths| lsort|uniq -i
-#1500810600
-cd_history=$(cat ~/.z|cut -d'|' -f1|convert_to_cygdrive)
-#1500810600
-recent_files=$(echo recent_files)
-#1500810600
-all_dirs=$recent_files$cd_history
-#1500810600
-echo "$all_dirs" |sed 's=/[^\\/]*$=='|clean_filepaths| lsort|uniq -i|fzf
-#1500810620
-recent_files
-#1500810631
-echo $recent_files
-#1500810638
-recent_files=$(echo recent_files)
-#1500810654
-function recent_files(){ grep "~?/.*" -E -o ~/.viminfo |sed 's/"//g'>~/cbn_history.txt; grep "~?/.*\"" -E -o "$sublime_file" |sed 's/"//g'>>~/cbn_history.txt; grep "\\w:\\\[^\"]*\" " -E -o /cygdrive/c/Users/"$USERNAME"/AppData/Roaming/Notepad++/session.xml>>~/cbn_history.txt echo  "$(cat ~/cbn_history.txt|convert_to_cygdrive|clean_filepaths|lsort|uniq -i)" }
-#1500810663
-arecent_files=$(echo recent_files)
-#1500810665
-arepack 
-#1500810680
-$arecent_files 
-#1500810751
-all_recent_files=$(echo recent_files)
-#1500810754
-$all_recent_files 
-#1500810826
-recent_files|sed 's|/[^/]*$||'
-#1500810855
-a=a
-#1500810856
-b=b
-#1500810863
-c=$a$b
-#1500810866
-$c
-#1500810871
-echo $c
-#1500810875
-c=$a\r$b
-#1500810876
-echo $c
-#1500810958
-p="${a}\n${b}"
-#1500810963
-echo $p
-#1500810969
-echo -e $p
-#1500810980
-c=$a\r$b
-#1500810987
-echo -e $c
-#1500811015
-echo  "$(cat ~/cbn_history.txt|convert_to_cygdrive|clean_filepaths|lsort|uniq -i)"
-#1500811017
-cd_history=$(cat ~/.z|cut -d'|' -f1|convert_to_cygdrive)
-#1500811017
-all_recent_files=$(echo recent_files|sed 's|/[^/]*$||')
-#1500811017
-# all_dirs=$all_recent_files$cd_history
-#1500811018
-all_dirs="${all_recent_files}\n${cd_history}"
-#1500811018
-echo "$all_dirs" |sed 's=/[^\\/]*$=='|clean_filepaths| lsort|uniq -i|fzf
-#1500811034
-$all_dirs 
-#1500811059
-echo recent_files|sed 's|/[^/]*$||'
-#1500811068
-cd_history=$(cat ~/.z|cut -d'|' -f1|convert_to_cygdrive)
-#1500811069
-all_recent_files=$(recent_files|sed 's|/[^/]*$||')
-#1500811088
-recent_files|sed 's|/[^/]*$||'
-#1500811092
-all_recent_files=$(recent_files|sed 's|/[^/]*$||')
-#1500921278
-recent_files|sed 's|/[^/]*$||'
-#1500921307
-a=$(ls)
-#1500921311
-echo $a
-#1500921325
-a=$(recent_files|sed 's|/[^/]*$||')
-#1500921336
-a=$(recent_files)
-#1500921595
-recent_files |wc
-#1500921671
-recent_files 
-#1500921686
-grep "~?/.*" -E -o ~/.viminfo |sed 's/"//g'>~/cbn_history.txt
-#1500921693
-grep "~?/.*\"" -E -o "$sublime_file" |sed 's/"//g'>>~/cbn_history.txt
-#1500921709
-echo "$sublime_file"
-#1500921734
-recent_files 
-#1500921789
-all_recent_files=$(recent_files|sed 's|/[^/]*$||')
-#1500921801
-$all_recent_files 
-#1500921815
-recent_files|sed 's|/[^/]*$||'
-#1500921819
-all_recent_files=$(recent_files|sed 's|/[^/]*$||')
-#1500921822
-$all_recent_files 
-#1500921827
-echo $all_recent_files 
-#1500921834
-echo $all_recent_files"
-#1500921841
-echo "$all_recent_files"
-#1500921855
-all_dirs="${all_recent_files}\n${cd_history}"
-#1500921877
-cd_history=$(cat ~/.z|cut -d'|' -f1|convert_to_cygdrive)
-#1500921885
-echo $cd_history 
-#1500921889
-echo $cd_history |wc
-#1500921899
-echo $all_recent_files |wc
-#1500921913
-echo $all_dirs |wc
-#1500921927
-all_dirs="${all_recent_files}\n${cd_history}"
-#1500921931
-echo $all_dirs |wc
-#1500921949
-red
-#1500922588
-recent_dirs 
-#1500922632
-cat ~/.z|cut -d'|' -f1|convert_to_cygdrive
-#1500922648
-all_dirs="${alld_recent_files}\nzzzzzzzzzzzzzzzzz${cd_history}"
-#1500922658
-{alld_recent_files}\nzzzzzzzzzzzzzzzzz${cd_history}
-#1500922665
-echo "{alld_recent_files}\nzzzzzzzzzzzzzzzzz${cd_history}"
-#1500922688
-echo -e "{alld_recent_files}\nzzzzzzzzzzzzzzzzz${cd_history}"
-#1500922707
-{alld_recent_files}\nzzzzzzzzzzzzzzzzz${cd_history}
-#1500922714
-all_dirs="${alld_recent_files}\nzzzzzzzzzzzzzzzzz${cd_history}"
-#1500922718
-$all_dirs 
-#1500922722
-echo $all_dirs 
-#1500922730
-echo "$all_dirs"
-#1500922775
-cat ~/.z|cut -d'|' -f1|convert_to_cygdrive
-#1500922802
-red
-#1500923459
-cat C:/Users/$USERNAME/AppData/Roaming/Sublime\ Text\ 3/Local/Session.sublime_session|python -c "import sys, json; print(json.load(sys.stdin)['name'])"
-#1500923483
-cat C:/Users/$USERNAME/AppData/Roaming/Sublime\ Text\ 3/Local/Session.sublime_session|python -c "import sys, json; print(json.load(sys.stdin)['settings'])"
-#1500923564
-cat C:/Users/$USERNAME/AppData/Roaming/Sublime\ Text\ 3/Local/Session.sublime_session|python -c "import sys, json; print(json.load(sys.stdin)['file_history'])"
-#1500923653
-cat C:/Users/$USERNAME/AppData/Roaming/Sublime\ Text\ 3/Local/Session.sublime_session|python -c "import sys, json; print(json.load(sys.stdin)['windows']['file_history'])"
-#1500923666
-cat C:/Users/$USERNAME/AppData/Roaming/Sublime\ Text\ 3/Local/Session.sublime_session|python -c "import sys, json; print(json.load(sys.stdin)['windows'])"
-#1500923771
-cat C:/Users/$USERNAME/AppData/Roaming/Sublime\ Text\ 3/Local/Session.sublime_session|python -c "import sys, json; print(json.load(sys.stdin)['windows'][0])"
-#1500923785
-cat C:/Users/$USERNAME/AppData/Roaming/Sublime\ Text\ 3/Local/Session.sublime_session|python -c "import sys, json; print(json.load(sys.stdin)['windows'][0]['file_history'])"
-#1500923808
-cat C:/Users/$USERNAME/AppData/Roaming/Sublime\ Text\ 3/Local/Session.sublime_session|python -c "import sys, json; print(json.load(sys.stdin)['windows'][0]['file_history']).join("     ")"
-#1500923827
-cat C:/Users/$USERNAME/AppData/Roaming/Sublime\ Text\ 3/Local/Session.sublime_session|python -c "import sys, json; print(json.load(sys.stdin)['windows'][0]['file_history']).join('     ')"
-#1500923845
-cat C:/Users/$USERNAME/AppData/Roaming/Sublime\ Text\ 3/Local/Session.sublime_session|python -c "import sys, json; print(json.load(sys.stdin)['windows'][0]['file_history'].join('     '))"
-#1500923893
-cat C:/Users/$USERNAME/AppData/Roaming/Sublime\ Text\ 3/Local/Session.sublime_session|python -c "import sys, json; print(json.load(sys.stdin)['windows'][0]['file_history'])"
-#1500923924
-cat C:/Users/$USERNAME/AppData/Roaming/Sublime\ Text\ 3/Local/Session.sublime_session|python -c "import sys, json; print(' '.join(json.load(sys.stdin)['windows'][0]['file_history']))"
-#1500923930
-cat C:/Users/$USERNAME/AppData/Roaming/Sublime\ Text\ 3/Local/Session.sublime_session|python -c "import sys, json; print('\n'.join(json.load(sys.stdin)['windows'][0]['file_history']))"
-#1500924011
-red
-#1500924140
-cat "$sublime_file"|python -c "import sys, json; print('\n'.join(json.load(sys.stdin)['windows'][0]['file_history']))"
-#1500924180
-sublime_file=C:/Users/$USERNAME/AppData/Roaming/Sublime\ Text\ 3/Local/Session.sublime_session
-#1500924184
-cat "$sublime_file"|python -c "import sys, json; print('\n'.join(json.load(sys.stdin)['windows'][0]['file_history']))"
-#1500924190
-red
-#1500924195
-ed
-#1500924217
-red
-#1500924671
-snf
-#1500924710
-ls
-#1500924712
-lls
-#1500924713
-ll
-#1500924715
-clear
-#1500924718
-iiii
-#1500924725
-iiiiiii
-#1500924726
-ls
-#1500924728
-clear
-#1500924741
-lll
-#1500924743
-ls
-#1500924756
-sf
-#1500924924
-searchfiles
-#1500924943
-sf
-#1500924998
-cat "$Universal_home/Downloads/all_files.db"|fzy
-#1500925004
-cat "$Universal_home/Downloads/all_files.db"|fzy -l 22
-#1500925116
-searchall .|fzs
-#1500925188
-searchall .
-#1500925350
-saf
-#1500925355
-searchall .
-#1500925867
-cbn
-#1500926165
-saf
-#1500926187
-snf
-#1500926281
-ls
-#1501002155
-z
-#1501002158
-z d
-#1501004408
-r
-#1501089205
-zsh
-#1501089933
-ls
-#1501089947
-cd ranger_devicons-master
-#1501089950
-cd ranger_devicons-master/
-#1501089955
-make install
-#1501089963
-r
-#1501090801
-ranger
-#1501091025
-r
-#1501093707
-cbn
-#1501093730
-sf
-#1501093803
-sf aval|fzs
-#1501093834
-ls
-#1501093837
-iii
-#1501093840
-ls
-#1501093841
-clear
-#1501093849
-llci
-#1501093892
-### FASD
-#1501093892
-git clone https://github.com/clvv/fasd.git ~/my-scripts/fasd
-#1501093905
-snf
-#1501093929
-:q
-#1501094092
-saf
-#1501094118
-searchall .|fzy
-#1501094391
-re
-#1501094419
-ll
-#1501094426
-ls
-#1501094429
-lf
-#1501094431
-lll
-#1501094448
-recent_files 
-#1501094585
-function searchInRecentfiles(){ recent_files>/tmp/filelist.txt; while read F  ; do         echo $F; done </tmp/filelist.txt; }
-#1501094617
-searchInRecentfiles 
-#1501094637
-recent_files>/tmp/filelist.txt
-#1501094637
-while read F  ; do         echo ls -l "$F"; done </tmp/filelist.txt
-#1501094648
-recent_files>/tmp/filelist.txt
-#1501094649
-while read F  ; do         ls -l "$F"; done </tmp/filelist.txt
-#1501094710
-function searchInRecentfiles(){ recent_files>/tmp/filelist.txt; while read F  ; do         grep -i "$1" "$F"; done </tmp/filelist.txt; }
-#1501094723
-searchInRecentfiles import
-#1501094782
-recent_files>/tmp/filelist.txt
-#1501094782
-while read F  ; do         grep -Ein "$1" "$F" --color=auto;  done </tmp/filelist.txt
-#1501094786
-}
-#1501094791
-function searchInRecentfiles(){ recent_files>/tmp/filelist.txt; while read F  ; do         grep -Ein "$1" "$F" --color=auto;  done </tmp/filelist.txt; }
-#1501094803
-searchInRecentfiles import
-#1501094829
-function searchInRecentfiles(){ recent_files>/tmp/filelist.txt; while read F  ; do         grep -Ein "$1" "$F" --color=auto  /dev/null; done </tmp/filelist.txt; }
-#1501094832
-searchInRecentfiles import
-#1501094838
-searchInRecentfiles import|fzy
-#1501094890
-searchInRecentfiles . |fzf
-#1501094934
-recent_files 
-#1501094954
-cat /cygdrive/c/Users/cibin/Downloads/emacs-plugins.el
-#1501094959
-searchInRecentfiles . |fzf
-#1501094973
-recent_files 
-#1501095003
-grep "~?/.*" -E -o ~/.viminfo |sed 's/"//g'
-#1501095022
-cat "$sublime_file"|python -c "import sys, json; print('\n'.join(json.load(sys.stdin)['windows'][0]['file_history']))"
-#1501095042
-cat "$sublime_file"|python -c "import sys, json; print('\n'.join(json.load(sys.stdin)['windows'][0]['file_history']))"|convert_to_cygdrive 
-#1501095068
-cat "$sublime_file"|python -c "import sys, json; print('\n'.join(json.load(sys.stdin)['windows'][0]['file_history']))"
-#1501095287
-cat "$sublime_file"|python -c "import sys, json; print('\n'.join(json.load(sys.stdin)['windows'][0]['file_history']))"|sed -e "s/\\(.\\):?/\\/cygdrive\\\1/"  -- "$@"|sed 's/\\/\//g'
-#1501095309
-echo "/c/users/cbn.ahk" |sed -e "s/\\(.\\):?/\\/cygdrive\\\1/"  -- "$@"|sed 's/\\/\//g'
-#1501095323
-echo "/c/users/cbn.ahk" |sed -e "s/\\/\\(.\\):?/\\/cygdrive\\\1/"  -- "$@"|sed 's/\\/\//g'
-#1501095386
-echo "/c/users/cbn.ahk" |sed -e "s/\\/\\(.\\):?/cygdrive/"  -- "$@"|sed 's/\\/\//g'
-#1501095401
-echo "/c/users/cbn.ahk" |sed -e "s/\\/\\(.\\):?/cygdrive//"  -- "$@"|sed 's/\\/\//g'
-#1501095405
-echo "/c/users/cbn.ahk" |sed -e "s/\\/\\(.\\):?/cygdrive/"  -- "$@"|sed 's/\\/\//g'
-#1501095438
-echo "/c/users/cbn.ahk" |sed -e "s/\\/\\(.\\):?/cygdrive/"  -- "$@"
-#1501095453
-echo "/c/users/cbn.ahk" |sed -e "s/\\/c/cygdrive/"  -- "$@"
-#1501095460
-echo "/c/users/cbn.ahk" |sed -e "s/\\/c/\\/cygdrive/"  -- "$@"
-#1501095480
-echo "/c/users/cbn.ahk" |sed -e "s/\\/\\(.\\)/\\/cygdrive/"  -- "$@"
-#1501095488
-echo "/c/users/cbn.ahk" |sed -e "s/\\/\\(.\\)/\\/cygdrive \\1/"  -- "$@"
-#1501095494
-echo "/c/users/cbn.ahk" |sed -e "s/\\/\\(.\\)/\\/cygdrive\\/\\1/"  -- "$@"
-#1501095511
-echo "/c:/users/cbn.ahk" |sed -e "s/\\/\\(.\\)/\\/cygdrive\\/\\1/"  -- "$@"
-#1501095520
-echo "/c:/users/cbn.ahk" |sed -e "s/\\/\\(.\\):?/\\/cygdrive\\/\\1/"  -- "$@"
-#1501095540
-echo "/c:/users/cbn.ahk" |sed -e "s/\\/\\(.\\):/\\/cygdrive\\/\\1/"  -- "$@"
-#1501095553
-echo "/c:/users/cbn.ahk" |sed -e "s/\\/\\(.\\):??/\\/cygdrive\\/\\1/"  -- "$@"
-#1501095558
-echo "/c:/users/cbn.ahk" |sed -e "s/\\/\\(.\\):\?/\\/cygdrive\\/\\1/"  -- "$@"
-#1501095618
-recent_files 
-#1501095629
-srf
-#1501095646
-re
-#1501095667
-sr include
-#1501095677
-srf include
-#1501095680
-sr include
-#1501095688
 recent_files 
 #1501095755
 cat /tmp/filelist.txt 
@@ -1704,4 +960,231 @@ cat "$sublime_file"|python -c "import sys, json; print('\n'.join(json.load(sys.s
 #1501617829
 ls
 #1501617947
+sf
+#1501618319
+echo /cygdrive/c/Users/cibin/Downloads/raspberrypi\ notes.txt|open_in_vim
+#1501618376
+echo "/cygdrive/c/Users/cibin/Downloads/raspberrypi notes.txt"|open_in_vim
+#1501618617
+echo /cygdrive/c/Users/cibin/Downloads/raspberrypi notes.txt|open_in_vim
+#1501618631
+l
+#1501618685
+echo "/cygdrive/c/Users/cibin/Downloads/raspberrypi notes.txt"|open_in_vim
+#1501618898
+a="/cygdrive/c/Users/cibin/Downloads/raspberrypi notes.txt"
+#1501618904
+vim -- "$a"
+#1501618964
+echo "/cygdrive/c/Users/cibin/Downloads/raspberrypi notes.txt"|open_in_vim
+#1501619037
+echo "/cygdrive/c/Users/cibin/Downloads/raspberrypi notes.txt:3"|open_in_vim
+#1501619049
+echo "/cygdrive/c/Users/cibin/Downloads/raspberrypi notes.txt"|open_in_vim
+#1501619193
+echo "/cygdrive/c/Users/cibin/Downloads/raspberrypi notes.txt:3"|open_in_vim
+#1501619276
+open_in_vim "/cygdrive/c/Users/cibin/Downloads/raspberrypi notes.txt:3"
+#1501619728
+ranger
+#1501696108
+cron_jobs_cibiN
+#1501696112
+cron_jobs_cibin
+#1501699159
+echo \"C:\cygwin64\home\cibin\"|convert_to_cygdrive
+#1501699297
+echo \"C:\\cygwin64\\home\\cibin\"|convert_to_cygdrive
+#1501699560
+cd /cygdrive/D/Local\ Disk\ D_732016210
+#1501699567
+cd /cygdrive/D/Local\ Disk\ D_732016210/
+#1501699586
+cd "/cygdrive/D/Local\ Disk\ D_732016210/"
+#1501699595
+cd "/cygdrive/D/Local Disk D_732016210/"
+#1501699604
+cd "/cygdrive/d
+"
+#1501699610
+cd ~
+#1501699620
+cd /cygdrive/d/Local\ Disk\ D_732016210/
+#1501700087
+snf
+#1501700091
+sn
+#1501700535
+echo "/cygdrive/c/Users/cibin/Downloads/raspberrypi notes.txt:3"|open_in_vim
+#1501700553
+echo "/cygdrive/c/Users/cibin/Downloads/raspberrypi\ notes.txt:3"|open_in_vim
+#1501700576
+echo "/cygdrive/c/Users/cibin/Downloads/raspberrypi notes.txt:3"|open_in_vim
+#1501700730
+st
+#1501700749
+stf
+#1501700760
+s
+#1501700760
+s
+#1501700829
+st;extract_filepath_linenum|open_in_app
+#1501700884
+st|extract_filepath_linenum|open_in_app
+#1501700923
+echo "$(st)";extract_filepath_linenum|open_in_app
+#1501700985
+echo "$(st|fzy)";extract_filepath_linenum|open_in_app
+#1501700985
+echo "$(st|fzy)";extract_filepath_linenum|open_in_app
+#1501701029
+echo "$(st|fzy)"|extract_filepath_linenum|open_in_app
+#1501701531
+wget https://raw.githubusercontent.com/eddyerburgh/git-init-plus/master/install.sh && chmod +x install.sh && sudo ./install.sh
+#1501701545
+wget https://raw.githubusercontent.com/eddyerburgh/git-init-plus/master/install.sh && chmod +x install.sh && ./install.sh
+#1501701697
+cd ~/my-scripts/
+#1501701704
+git-init-plus -l ISC -n Edd -p project-name
+#1501701710
+./git-init-plus -l ISC -n Edd -p project-name
+#1501701715
+./git-init-plus.sh -l ISC -n Edd -p project-name
+#1501701722
+./git-init-plus.sh -n Edd -p project-name
+#1501701774
+~/my-scripts/git-init-plus.sh -n Edd -p project-name
+#1501701810
+cd del
+#1501701812
+~/my-scripts/git-init-plus.sh -n Edd -p project-name
+#1501701897
+git
+#1501701899
+git status
+#1501702302
+gitinit 
+#1501702407
+git status
+#1501702421
+git log
+#1501702459
+gitinit 
+#1501702467
+git log
+#1501702475
+git ls-files
+#1501702596
+gitinit 
+#1501702720
+git status
+#1501702725
+git log
+#1501702941
+s
+#1501702941
+s
+#1501964173
+ex
+#1501964281
+less -N myalias.sh 
+#1501964334
+l sh
+#1501964347
+less -isNm *.sh
+#1502010403
+ex
+#1502042425
+searchhere
+#1502042500
+s
+#1502042559
+ex
+#1502042774
+s
+#1502042774
+s
+#1502124520
+ex
+#1502129111
+a=/c/sf/a.txt
+#1502129127
+echo "${$a%%.*}"
+#1502129133
+echo "${a%%.*}"
+#1502129154
+echo "${$#*.}"
+#1502129177
+echo "${$a#*.}"
+#1502129184
+echo "${a#*.}"
+#1502132466
+cd Get-It-Done/
+#1502132480
+cd PageFactory\ -\ gradle
+#1502132561
+cd "PageFactory - gradle"
+#1502132574
+cd "PageFactory\ -\ gradle"
+#1502132706
+cd -- "PageFactory - gradle"
+#1502133118
+sf
+#1502133118
+sf
+#1502133219
+s
+#1502133227
+sf
+#1502133227
+sf
+#1502133733
+export ~=/home/cibin
+#1502133742
+export \~=/home/cibin
+#1502133746
+export ~=/home/cibin
+#1502133750
+export ~ =/home/cibin
+#1502133755
+export ~ = /home/cibin
+#1502134223
+du  /cygdrive/C/cbn_gits/misc/smart_open2.bat
+#1502134245
+ls -lh
+#1502134258
+ls -lH
+#1502134281
+s
+#1502134335
+q
+#1502134337
+ex
+#1502134666
+sf
+#1502134769
+s
+#1502134781
+sf
+#1502134781
+sf
+#1502134786
+\sf
+#1502134791
+command sf
+#1502134796
+alias sf
+#1502134799
+sf
+#1502134866
+v
+#1502134885
+fasd
+#1502134942
+e
+#1502134943
+ex
+#1502134993
 sf

@@ -543,7 +543,6 @@ searchall() {
 	if [ -z "$1" ]; then
 		read -p "enter search_term: " searchtext < /dev/tty 
 	else
-		
 		searchtext=${@:1}
 	fi
 	ag -i  --color "$searchtext"

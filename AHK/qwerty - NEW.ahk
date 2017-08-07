@@ -42,7 +42,7 @@ emacs_single_keys=s,h,u
 
 return
 
-space & 0::
+;;space & 0::
 space & 1::
 space & 2::
 ; space & 3::
@@ -827,6 +827,13 @@ Space & 7::	; na
 	;run, C:\cygwin64\bin\mintty.exe /bin/tmux,%sourcepath%,max
 return
 
+Space & 0::	; na
+	filepath:=get_current_filepath_else_sourcepath_from_active_window()
+	filepath:=convert_to_cygwin_path(filepath)
+	sourcepath:=get_current_sourcepath_from_active_window()
+	run,C:\cbn_gits\misc\smart_open2.bat %filepath%,%sourcepath%,max
+
+return
 Space & 6::	; na
 	filepath:=get_current_filepath_from_active_window()
 	filepath:=convert_to_cygwin_path(filepath)

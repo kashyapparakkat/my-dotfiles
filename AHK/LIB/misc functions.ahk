@@ -441,6 +441,24 @@ get_current_sourcepath_from_active_window()
 return sourcepath
 }
 
+get_current_filepath_else_sourcepath_from_active_window()
+{
+
+	sourcepath :=get_current_filepath_from_active_window()
+	if sourcepath =
+		sourcepath :=get_parent_filepath()
+	;msgbox,%sourcepath%
+	stringreplace,sourcepath,sourcepath,/,\,All
+	;If( InStr( FileExist(sourcepath), "D") )
+	;	return sourcepath
+	;else
+	;	{
+	;		splitpath,sourcepath,,sourcepath
+	;	}
+		
+return sourcepath
+}
+
 
 get_current_filepath_from_active_window()
 {

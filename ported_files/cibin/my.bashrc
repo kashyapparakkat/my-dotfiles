@@ -90,8 +90,8 @@ export PATH=$PATH:/mnt/c/Windows/System32
   }
 
 
-source ~/essential_functions.sh
-source ~/search_functions.sh
+source $HOME/essential_functions.sh
+source $HOME/search_functions.sh
 
 #www.cibinmathew.com
 #github.com/cibinmathew
@@ -366,11 +366,12 @@ function cd_to_directory() {
 	arg=$*
 	if [[ -d $arg ]]; then
 		echo "$arg is a directory"
-		cd "$arg"
+		command cd -- $arg
 	elif [[ -f $arg ]]; then
 		parentdir="$(dirname "$arg")"
-		cd "${parentdir}"
-		# pwd
+		command cd -- "${parentdir}"
+		echo "cd ing..."
+		pwd
 
 	else
 	echo "$arg is not valid"

@@ -1,1 +1,1 @@
-source ~/my.bashrc
+source $HOME/my.bashrc
