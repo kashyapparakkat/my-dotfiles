@@ -1,9 +1,34 @@
 [
-  { "keys": ["g", "t"], "command": "next_view", "context": [{"key": "setting.command_mode"}] }	,
 
-	{ "keys": ["ctrl+shift+f"], "command": "show_panel", "args": {"panel": "find_in_files"} },
-	{ "keys": ["g","l"], "command": "move_to", "args": {"to": "eof", "extend": false} },
-	{"keys": ["o","d"], "command": "open_file_folder"},
-{"keys": ["ctrl+alt+e"], "command": "open_project_folder"}
+{ "keys": ["ctrl+shift+f"], "command": "show_panel", "args": {"panel": "find_in_files"} },
+{ "keys": ["ctrl+alt+e"], "command": "open_project_folder"},
 
-] 
+{ "keys": ["o","d"], "command": "open_file_folder", "context": [{"key": "setting.command_mode"}]},
+{ "keys": ["g","l"], "command": "move_to", "args": {"to": "eof", "extend": false}, "context": [{"key": "setting.command_mode"}] },
+{ "keys": ["g","g"], "command": "move_to", "args": {"to": "bof", "extend": false}, "context": [{"key": "setting.command_mode"}] },
+{ "keys": ["g", "t"], "command": "next_view", "context": [{"key": "setting.command_mode"}] }	,
+{ "keys": ["ctrl+l"], "command": "next_view" }	,
+{ "keys": ["y","y"], "command": "copy_path", "context": [{"key": "setting.command_mode"}] },
+{
+		"keys": ["|"],
+		"command": "set_layout",
+		"args":
+		{
+			"cols": [0.0, 0.5, 1.0],
+			"rows": [0.0, 1.0],
+			"cells": [[0, 0, 1, 1], [1, 0, 2, 1]]
+		}
+	}
+
+,
+	{
+		"keys": ["\\"],
+		"command": "set_layout",
+		"args":
+		{
+			"cols": [0.0, 1.0],
+			"rows": [0.0, 0.5, 1.0],
+			"cells": [[0, 0, 1, 1], [0, 1, 1, 2]]
+		}
+	}
+]

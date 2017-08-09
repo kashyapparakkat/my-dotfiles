@@ -1188,3 +1188,79 @@ e
 ex
 #1502134993
 sf
+#1502304594
+gitcbn 
+#1502304680
+gitcbn
+#1502304748
+git diff --name-only # list only changed files
+#1502304973
+gitcbn 
+#1502305075
+git status --porcelain | grep "^A" | cut -c 4-
+#1502305083
+git status
+#1502305100
+git status|less
+#1502305140
+gitcbn 
+#1502305190
+git diff --name-only --diff-filter=A --cached # All new files in the index  
+#1502305194
+git diff
+#1502305204
+git add delete.txt 
+#1502305206
+git diff
+#1502305218
+git diff --name-only --diff-filter=A --cached # All new files in the index  
+#1502305281
+gitcbn
+#1502305318
+git status --short
+#1502305337
+git status --short|less
+#1502305347
+git status --short|less -iN
+#1502305373
+git status --short|less -iNR
+#1502305378
+git status --short|less -R
+#1502305389
+git status --short|less -r
+#1502305454
+gitcbn
+#1502306615
+recent_files 
+#1502306646
+recent_files |wc
+#1502306652
+recent_files|head
+#1502306656
+recent_files|head|less
+#1502306690
+less $(recent_files|head)
+#1502306740
+less $(recent_files|head|tail -n 9)
+#1502306794
+less $(recent_files|head -n 20|tail -n 9)
+#1502306813
+less $(recent_files|head -n 30|tail -n 15)
+#1502306939
+echo 'a.txt
+does/not.exist
+b.txt' | xargs -d '\n' find 2>/dev/null
+#1502306964
+echo 'a.txt does/not.exist b.txt' | xargs -d '\n' find 2>/dev/null
+#1502306977
+echo 'delete.txt' | xargs -d '\n' find 2>/dev/null
+#1502306986
+echo 'delete.txt' | xargs -d '\n' find 
+#1502306991
+echo 'delete.txt' | xargs -d '\n' lfind 
+#1502306995
+echo 'delete.txt' | xargs -d '\n' lfind 2>/dev/null
+#1502307001
+echo 'a.txt does/not.exist b.txt' | xargs -d '\n' lfind 2>/dev/null
+#1502307017
+recent_files| xargs -d '\n' lfind 2>/dev/null

@@ -55,10 +55,10 @@ hotkey,^q,off	;	start disabled
 ; =================================
 tmp_fav_collector:=3
 tot_clip_containers:=tmp_fav_collector+3
-MCF_MAX_Clips:=100 ;total clips allowd
+MCF_MAX_Clips:=200 ;total clips allowd
 MCF_clips_present:=0 ;	total clips present now
 Clips_shown=15	;	shown in menu
-MC_MAX_Clips:=100 
+MC_MAX_Clips:=200 
 MC_Clips_present :=0
 
 change:=1

@@ -410,7 +410,27 @@ alias l='ls $LS1 $LS2 -AB'
 
 
 
+function gitcbn()
+{
+	git status --short|less
+echo "List deleted files"
+git ls-files --deleted
+read -n 1 -p "newly added files" pressedkey 
+git diff --name-only --diff-filter=A --cached # All new files in the index  
+echo "List modified files"
+read -n 1 -p "enter to continue" pressedkey
+git ls-files --modified
+git ls-files --modified|wc -l
+echo "List untracked files"
+read -n 1 -p "enter to continue" pressedkey
+git ls-files --others
+git ls-files --others|wc -l
+echo "List files with their statuses"
+read -n 1 -p "enter to continue" pressedkey
+git status --porcelain
 
+
+}
 # TODO
 function gitinit(){
 
