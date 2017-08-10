@@ -408,11 +408,39 @@ fi
 export LS2='-hF --time-style=long-iso'
 alias l='ls $LS1 $LS2 -AB'
 
+function gitp(){
+gits
+	
+	read -n 1 -p "commit?? " 
+	read -p "commit message: " message
+	git commit -a -m "$message"
+	read -n 1 -p "push?? "
+	git push
+}
 
-
-function gitcbn()
+function gits()
 {
-	git status --short|less
+
+
+# todo grep only modified or added
+git remote show origin|grep Fetch|grep -P \\w+\.git$
+# OR basename $(git remote show origin|grep Fetch|cut -d: -f2-)
+
+# git status --short
+git status --short| grep -E "^( M|A)"
+# | less
+
+# time consuming
+echo "todays new files ..."
+lfind . -mtime -1 -type f -print| grep -v -E "^\./\.git"
+}
+
+
+function gitd() {
+# gits advanced diff
+
+	
+
 echo "List deleted files"
 git ls-files --deleted
 read -n 1 -p "newly added files" pressedkey 
@@ -487,7 +515,8 @@ git add README.md
 # git add .
 git commit -m "Initial commit: Project created"
 
-
+# git remote set-url origin git@github.com:${USER:-${GITHUBUSER}}/${REPONAME:-${CURRENTDIR}}.git
+# git push --set-upstream origin master
 
 }
 

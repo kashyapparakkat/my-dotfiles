@@ -1,8 +1,30 @@
 {
+	// Avoids sending anonymised data to Sublime HQ
+    "enable_telemetry": false,
+	"auto_complete": true,
 	"auto_complete_selector": "source, comment, text.plain, meta.tag, punctuation.definition.tag.begin, css",
+	"auto_complete_with_fields": true,
+	"auto_find_in_selection": true,
+	"bold_folder_labels": false,
+	"caret_style": "wide",
 	"color_scheme": "Packages/Color Scheme - Default/IDLE.tmTheme",
+	"copy_with_empty_selection": false,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
 	],
-	"vintage_start_in_command_mode": true
+	"indent_guide_options":
+	[
+		"draw_normal",
+		"draw_active"
+	],
+	"match_brackets_angle": true,
+	"shift_tab_unindent": true,
+	"translate_tabs_to_spaces": true,
+	"vintage_start_in_command_mode": true,
+	"vintage_use_clipboard": true,
+	"word_wrap": true,
+	 //Makes tabs with modified files more visible
+    "highlight_modified_tabs": true,
 }

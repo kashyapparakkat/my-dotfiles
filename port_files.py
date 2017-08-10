@@ -5,8 +5,10 @@
 from distutils.dir_util import copy_tree
 import getopt
 import sys
+
 import errno
  
+
 def copy_files_and_directories(src, dest):
     try:
         shutil.copytree(src, dest)

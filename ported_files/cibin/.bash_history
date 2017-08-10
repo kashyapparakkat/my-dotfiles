@@ -1264,3 +1264,61 @@ echo 'delete.txt' | xargs -d '\n' lfind 2>/dev/null
 echo 'a.txt does/not.exist b.txt' | xargs -d '\n' lfind 2>/dev/null
 #1502307017
 recent_files| xargs -d '\n' lfind 2>/dev/null
+#1502389657
+git diff
+#1502389675
+gitp
+#1502389729
+git commit
+#1502389739
+git commit -a -m "new"
+#1502389742
+git log
+#1502389870
+git remote show origin
+#1502389904
+basename $(git remote show origin|grep Fetch)
+#1502389942
+git remote show origin|grep Fetch
+#1502390000
+git remote show origin|grep Fetch|grep -P .git
+#1502390028
+git remote show origin|grep Fetch|grep -P \\w+\.git$
+#1502390169
+basename $(git remote show origin|grep Fetch|cut -d: -f2-)
+#1502390236
+gitp
+#1502390403
+git status --short| grep -E "^A"
+#1502390408
+git status --short
+#1502390445
+git status --short| grep -E "^M"
+#1502390449
+git status --short| grep -E "^ M"
+#1502390457
+git status --short| grep -E "^ M|A"
+#1502390467
+git status --short| grep -E "^( M|A)"
+#1502390520
+gitp
+#1502390838
+lfind . -mtime -1 -type -f -print| grep -v -E "^\.git"
+#1502390875
+lfind . -mtime -1 -type -f -print
+#1502390881
+lfind . -mtime -1 -type f -print
+#1502390890
+lfind . -mtime -1 -type f -print| grep -v -E "^\.git"
+#1502390961
+lfind . -mtime -1 -type f -print| grep -v -E "^\./\.git"
+#1502391034
+gitp
+#1502392990
+git add Python.sublime-settings 
+#1502395264
+s
+#1502395298
+recent_files iles|fzy
+#1502395359
+gitp

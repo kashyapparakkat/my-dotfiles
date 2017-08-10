@@ -5,6 +5,7 @@
 	],
 	"installed_packages":
 	[
+		"Anaconda",
 		"JSONLint",
 		"OpenPath",
 		"Package Control",

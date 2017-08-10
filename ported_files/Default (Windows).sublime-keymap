@@ -12,6 +12,7 @@
 {
 		"keys": ["|"],
 		"command": "set_layout",
+		"context": [{"key": "setting.command_mode"}] ,
 		"args":
 		{
 			"cols": [0.0, 0.5, 1.0],
@@ -24,11 +25,18 @@
 	{
 		"keys": ["\\"],
 		"command": "set_layout",
+		"context": [{"key": "setting.command_mode"}] ,
 		"args":
 		{
 			"cols": [0.0, 1.0],
 			"rows": [0.0, 0.5, 1.0],
 			"cells": [[0, 0, 1, 1], [0, 1, 1, 2]]
 		}
-	}
+	},
+	 // Close all other tabs
+  {
+    "keys": ["cmd+alt+w"],
+    "command": "close_tabs"
+  }
 ]
+
