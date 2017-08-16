@@ -432,7 +432,7 @@ git status --short| grep -E "^( M|A)"
 
 # time consuming
 echo "todays new files ..."
-lfind . -mtime -1 -type f -print| grep -v -E "^\./\.git"
+# lfind . -mtime -1 -type f -print| grep -v -E "^\./\.git"
 }
 
 

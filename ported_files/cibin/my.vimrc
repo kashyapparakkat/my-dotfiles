@@ -10,7 +10,8 @@
 " open in less"
 nnoremap c :exe ':silent !less %'<CR>
 
-set number
+" line numbers; lags
+" set number
 set cursorline
 
 noremap q :q<cr>

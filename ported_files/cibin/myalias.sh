@@ -40,6 +40,7 @@ alias st='searchtext'
 alias stf='searchtext|fzy -l 25'
 # search is recursive by default
 alias sth='searchhere'
+alias searchhere='searchtext -n'
 # alias stf='searchtext .'
 
 

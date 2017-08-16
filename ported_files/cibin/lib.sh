@@ -523,17 +523,37 @@ lfind "/cygdrive/c/Users/$USERNAME/Downloads/" -maxdepth 2 -iname "*notes*.txt" 
 
 
 # extra option available https://jamesoff.net/2016/05/31/fzf-brew-upgrade.html
-searchtext () {
-	echo "\$cmd extension searchTerm"
-	if [ -z "$1" ]; then
-		read -p "enter extension: " arg < /dev/tty 
-		read -p "enter search_term: " searchtext < /dev/tty 
-	else
-		arg=$1
-		searchtext=${@:2}
-	fi
 
-	ag -i -G $arg$ --color "$searchtext"
+ask_searchterm () {
+    if [ "$1" == "-r" ]; then
+    recurse="-r"   
+     else
+         recurse="-n"   
+         echo "no -n "
+    fi 
+
+     #   echo "\$cmd extension searchTerm"
+    if [ -z "$2" ]; then
+		read -p "enter extension: " arg < /dev/tty 
+    else
+        arg=$2
+	fi
+    if [ -z "$3" ]; then
+        read -p "enter search_term: " searchtext < /dev/tty 
+	else
+        searchtext=${@:3}
+	fi
+    
+echo  search "$recurse" "$arg" "$searchtext"
+search "$recurse" "$arg" "$searchtext"
+}
+
+searchtext() {
+    ask_searchterm
+
+}
+search(){ 
+	ag -i "$1" -G "$2$" --color "${@:3}"
 	# CHOICE=$(ag -i -G $arg$ --color "$searchtext"| fzf -0 -1 --ansi)
 	# echo "$CHOICE"|extract_filepath_linenum|open_in_app
 }

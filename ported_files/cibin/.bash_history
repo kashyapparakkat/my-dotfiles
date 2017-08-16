@@ -1322,3 +1322,63 @@ s
 recent_files iles|fzy
 #1502395359
 gitp
+#1502848244
+searchhere
+#1502848368
+seachhere -n
+#1502848373
+searchhere -n
+#1502848397
+searchhere -
+#1502848415
+searchhere -n
+#1502848418
+searchhere -
+#1502848407
+bash
+#1502848889
+searchtext
+#1502849198
+searchtext -n ahk include
+#1502849670
+searchtext -n
+#1502849676
+searchtext -n ahk include
+#1502849696
+searchtext ahk include
+#1502849744
+searchtext -n ahk include
+#1502849772
+searchtext ahk include
+#1502851827
+ask_searchterm
+#1502855013
+ask_searchterm 
+#1502855079
+ask_searchterm  -n
+#1502855118
+ask_searchterm 
+#1502855126
+ask_searchterm -n
+#1502855168
+ask_searchterm 
+#1502905367
+fa rc.conf
+#1502905374
+sf
+#1502906499
+ask_searchterm 
+#1502906688
+cdahk 
+#1502906691
+ask_searchterm 
+#1502906807
+cdahk
+#1502906810
+ask_searchterm 
+#1502906983
+cdahk
+#1502907430
+ask_searchterm -r ahk .|fzy
+#1502907725
+ask_searchterm -r bat .|fzy
