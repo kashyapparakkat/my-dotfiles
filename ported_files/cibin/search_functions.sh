@@ -78,7 +78,7 @@ pwd
 	textreset=$(tput sgr0) # reset the foreground colour
 	yellow=$(tput setaf 2) 
 	echo "${yellow}$(pwd) ${textreset}"
-	read -n 1 -p "s/o/[z] auto search$cr" pressedkey </dev/tty
+	read -n 1 -p " [s] search $cr [o] open $cr [z] auto search$cr" pressedkey </dev/tty
 	case $pressedkey in
 
 	    s ) echo; prompt_for_s "$@";;
@@ -98,11 +98,11 @@ function prompt_for_s(){
 echo "aaarg=$1"
 # echo "${$1%%.*}"
 while true; do
-	read -n 1 -p "a/f/n/r/t " pressedkey < /dev/tty;
+	read -n 1 -p " [a] all text $cr [f] files $cr [n] notes $cr [r] recent $cr [t] ext text " pressedkey < /dev/tty;
 	case $pressedkey in
 		 n ) echo " searching...";snf|extract_filepath_linenum|open_in_app;break;;
 		 t ) echo;
-				read -n 1 -p "[a] auto/[h] here/fuzzy/ advanced " pressedkey2 < /dev/tty;
+				read -n 1 -p " [a] auto $cr [h] here $cr fuzzy $cr advanced " pressedkey2 < /dev/tty;
 				case $pressedkey2 in
 					h ) echo;echo "$(sth)"|extract_filepath_linenum|open_in_app;break;;
 					a ) echo;ext="${1#*.}"; echo "ext=$ext";echo "$(ask_searchterm -r "$ext" .|fzy)"|extract_filepath_linenum|open_in_app;break;;
@@ -167,7 +167,7 @@ while true; do
 	    b ) cd_to_directory "$(echo "$filepath")"; break;;
 
 	    c ) echo "$filepath"|clip; 
-				read -n 1 -s -p "1/2" pressedkey < /dev/tty;
+				read -n 1 -s -p "c/d " pressedkey < /dev/tty;
 				case $pressedkey in
 					 c ) echo "$filepath"|clip; break;;
 					 d ) echo "cd to directory $filepath"|clip; break;;
