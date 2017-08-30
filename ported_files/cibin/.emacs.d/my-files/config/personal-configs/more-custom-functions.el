@@ -108,7 +108,7 @@
 )
 
 ; http://stackoverflow.com/questions/17164767/emacs-lisp-directory-files  
-(defun cibin-find-related-files ()
+(defun cibin-find-related-files (&optional arg)
 	"Find a recent file using ido."
 	(interactive)
 	
@@ -118,7 +118,9 @@
 	(let ((file (ido-completing-read prompt 
                                (mapcar #'abbreviate-file-name all-files)
                                ; all-files
-                               nil t)))
+                               nil t arg)))
+
+
     (when file
       (find-file-noselect file))))
 
@@ -446,7 +448,7 @@ lines. And then it will clear all preceding whitespace."
   (let ((b (if mark-active (min (point) (mark)) (point-min)))
         (e (if mark-active (max (point) (mark)) (point-max))))
     (shell-command-on-region b e
-                             "python -mjson.tool" (current-buffer) t)))
+                             "python -mjson.tool" (current-buffer) t "*Error buffer" t)))
 
 							 
 ; Recompile startup elisp files

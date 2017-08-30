@@ -298,14 +298,14 @@
  "C-x t"
 (defhydra hydra-toggle (:color amaranth)
    "
-_c_ column-number : %(toggle-setting-string column-number-mode)  _b_ orgtbl-mode    : %(toggle-setting-string orgtbl-mode)
-_e_ debug-on-error: %(toggle-setting-string debug-on-error)  _s_ orgstruct-mode : %(toggle-setting-string orgstruct-mode)  _m_   hide mode-line : %(toggle-setting-string bnb/hide-mode-line-mode)
-_u_ debug-on-quit : %(toggle-setting-string debug-on-quit)  _d_ diff-hl-mode   : %(toggle-setting-string diff-hl-mode)
-_f_ auto-fill     : %(toggle-setting-string auto-fill-function)  _B_ battery-mode   : %(toggle-setting-string display-battery-mode)
+_c_ column-number                 : %(toggle-setting-string column-number-mode)  _b_ orgtbl-mode    : %(toggle-setting-string orgtbl-mode)
+_e_ debug-on-error                : %(toggle-setting-string debug-on-error)   _s_ orgstruct-mode : %(toggle-setting-string orgstruct-mode)  _m_   hide mode-line : %(toggle-setting-string bnb/hide-mode-line-mode)
+_u_ debug-on-quit                 : %(toggle-setting-string debug-on-quit)    _d_ diff-hl-mode   : %(toggle-setting-string diff-hl-mode)
+_f_ auto-fill                     : %(toggle-setting-string auto-fill-function)   _B_ battery-mode   : %(toggle-setting-string display-battery-mode)
 _t_ truncate-lines(long line wrap): %(toggle-setting-string truncate-lines)  _l_ highlight-line : %(toggle-setting-string hl-line-mode)
-_r_ read-only     : %(toggle-setting-string buffer-read-only)  _n_ line-numbers   : %(toggle-setting-string linum-mode)
-_w_ whitespace    : %(toggle-setting-string whitespace-mode)  _N_ relative lines : %(if (eq linum-format 'linum-relative) '[x] '[_])
-_j_ next-line      _k_ previous-line        _a_ : cibin/faster-mode    _g_:  cibin/normal-mode  _o_ : cibin/essential-mode
+_r_ read-only                     : %(toggle-setting-string buffer-read-only)   _n_ line-numbers   : %(toggle-setting-string linum-mode)
+_w_ whitespace                    : %(toggle-setting-string whitespace-mode)   _N_ relative lines : %(if (eq linum-format 'linum-relative) '[x] '[_])
+_j_ next-line      _k_ previous-line        _a_ : cibin/faster-mode      _g_:  cibin/normal-mode  _o_ : cibin/essential-mode
 _G_: golden ratio
 "
    
@@ -459,10 +459,11 @@ _r_eset        _j_ clock goto
                               :color pink
                               :hint nil)
   "
- _p_: paste   _r_: replace  _I_: insert
- _y_: copy    _o_: open     _V_: reset
- _d_: kill    _n_: number   _q_: quit
-"
+  [TODO]paste         delete             string
+ _p_: paste           _r_: replace       _I_: insert
+ _y_: copy            _o_: open          _V_: reset
+ _d_: kill            _n_: number        _q_: quit
+"     
   ("h" backward-char nil)
   ("l" forward-char nil)
   ("k" previous-line nil)
@@ -626,42 +627,54 @@ _r_eset        _j_ clock goto
             (delete-whitespace-rectangle (point) end nil)))
 
 
-(defhydra cibin/hydra-for-format2 (:color red
+(defhydra cibin/hydra-for-formatt (:color red
                                :hint nil)
 
+ 
+"
 
- ;; ^Beautify^
-  "
-_f_: json         _b_: cibin/hydra-for-format/body
-_w_: validate
-_t_: tree          _q_: quit
+_w_: format             _f_: cibin/hydra-for-format/body
+_v_: validate
+_O_: ordered
+
+_t_: tree TODO          _q_: quit
+_p_: get Path TODO
+_o_: object viewer TODO
+_r_: Remove whitespace TODO
 -----------
 "
-  ("f" cibin/hydra-for-format2/body :color blue)
-  ("w" cibin/hydra-for-format2/body :color blue)
-  ("t" cibin/hydra-for-format2/body :color blue)
+  ("O" json-pretty-print-buffer-ordered)
   ("b" cibin/hydra-for-format/body :color blue)
-  ("q" nil)
+  ("f" cibin/hydra-for-format/body :color blue)
+  ("q" nil :color blue)
+  ("w" beautify-json)
+  ("v" beautify-json)
+  ("b" nil)
+  ("r" nil)
+  ("o" nil)
+  ("p" nil)
+  ("t" nil)
   )
 
 
 (defhydra cibin/hydra-for-format (:color red
                                :hint nil)
 
-
- ;; ^Beautify^
+ 
   "
+convert/toggle file
  ^^^-blanks ---------------  ------whitespace----------------- ------dupes----------------------------   ---actions
  _r_: collapse-blank-lines   _t_: delete-trailing-whitespace    _d_: delete-duplicate-lines(incl blank   _a_: select All 
  _F_: flush-blank-lines      _l_: my-delete-leading-whitespace  _h_: hlt-highlight-line-dups-region      _wa_: toggle whitespace indicators   _e_: other window
  _b_: delete-blank-lines     _k_: keep-lines     _k_: leading, blanks,                                   _t_: truncate toggle                 _v_: diff
                            _xx_: flush-lines                                                         _t_: stats                          _xa_: diff-files-lines
- _i_: indent                _ww_: collapse multiple spaces                                             _n_: json or quikrun hydra to & back  _q_: quit
+ _i_: indent                _ww_: collapse multiple spaces                                             _n_: quikrun hydra to & back  _q_: quit
  _f_: json format
+_z_: eol unix/win
 -----------
 "
 
-("f" cibin/hydra-for-format2/body :color blue)
+("f" cibin/hydra-for-formatt/body :color blue)
   ("r" collapse-blank-lines)
   ("c" nil)
   ("i" nil)
@@ -670,6 +683,7 @@ _t_: tree          _q_: quit
   ("e" other-window)
   ("j" nil)
   ("n" nil)
+  ("z" nil)
   ("k" keep-lines)
   ("b" delete-blank-lines)
   ("a" mark-whole-buffer)
@@ -683,7 +697,7 @@ _t_: tree          _q_: quit
   ;; ("xb" diff-files-lines)
   ("ww" nil )
   ("q" nil :color blue)
-  )
+ )
 (bind-keys*
   ("C-x f" . cibin/hydra-for-format/body))
 
@@ -738,12 +752,12 @@ _t_: tree          _q_: quit
 (defhydra cibin/search (:color blue 
                                :hint nil)
   "
- ^All buffers  ^                     ^All^              ^here^                             ^bash^
-^^^^^^^^^^--------------------+-----------------------------------------------------------------------------------------------------------------
+ project|| directory |    ^All buffers  ^                     ^All^                                             ^bash^
+^^^^^^^^^^--------                -----------------------------------------------------------------------------------------------------------
  _sa_: swiper-all                 _r_: cibin/helm-do-ag-Extension-recurse-cwd     _u_: cibin-search-in-files-advgrep-here        _q_: quit
  _d_: helm-do-ag-this-file        _h_: cibin/helm-do-ag-Extension-here-cwd	      _c_: cibin-search-in-common-files-bash
  _/_: my-multi-occur-in-matc..    _b_: cibin/helm-do-ag-cwd(all ext)              _l_: cibin-search-in-text-files-related-bash
- _o_: occur                       _y_: cibin/ag-files-cwd (ext?? dir??)
+ _o_: occur                       _y_: cibin/ag-files-cwd (ext\? dir\\?)
  _j_: helm-ag                     _w_: ag-files                                   _p_: ag-project-at-point
  _ss_: swiper
 --------------------
@@ -798,7 +812,6 @@ _t_: tree          _q_: quit
   ("d" replace-regexp)
 ("d" helm-do-ag-this-file)
 
-("s" swiper-all)
 ("a" helm-do-ag-buffers)
 ("/" my-multi-occur-in-matching-buffers)
 
@@ -826,13 +839,15 @@ _t_: tree          _q_: quit
                            ;; :idle 0.5
                              )
  "
-  _sr_ : pen-similar-files-in-folder-recursively        _d_  : xah-open-in-desktop             _tt_  : dir-structure -Tree       _r_  : ranger-mode
+
+  _sr_ : open-similar-files-in-folder-recursively       _d_  : xah-open-in-desktop             _tt_  : dir-structure -Tree       _r_  : ranger-mode
   _n_  : find-next-file-in-current-directory            _o_  : cibin/xah-open-file-at-cursor   _ta_  : dir-structure all -Tree
   _b_  : buffer/switch-in-directory                     _e_  : in-external-app
   _g_  : bjm/ivy-dired-recent-dirs                        
   _j_  : dired-jump                                     _f_  : ffap
                                                       _F_  : File-cache-ido-find-file
   _m_  : buffer/switch-in-directory                     _p_  : cibin-find-related-files	
+---
  "
            ;; ( "n" buffer/switch-in-directory)
           ( "sr"  open-similar-files-in-folder-recursively :color blue)
@@ -918,9 +933,41 @@ _v_ : vdiff _b_: vdiff buffers L&R _q_: quit
   ("r" diff-files-lines)
  ("q" nil)
            )
+
+(defhydra nsh/hydra-large-files-vlf (:color pink :hint nil)
+  "
+  C-c C-v
+
+   _s_: search forward
+   _r_: search backward
+   _o_: occur
+   _g_: goto line"
+
+  ("s" vlf-re-search-forward)
+  ("r" vlf-re-search-backward)
+  ("o" vlf-occur)
+  ("g" vlf-goto-line)
+  ("." nil "toggle hydra" :color blue)
+  )
+;; activation key used in use-package definition
+
+; (eval-after-load "vlf-setup"
+  ; (define-key vlf-mode-map "." 'nsh/hydra-large-files-vlf/body)
+  ; )
+
+
 (defhydra cibin/hydra-tips (:color blue )
                                ;; :hint nil)
-  "cbn"
+  "
+_a_: quickrun(C-c q)
+_b_: cibin-misc(C-x l)
+_c_: search (C-c s)
+_d_: replace C-c r
+_e_: zoom
+_f_: format (C-x f)
+_g_: search (M-s)
+
+"
   
 ("a" hydra-quickrun/body "C-c q : hydra-quickrun/body   ")
 ("b" hydra-cibin-misc/body "C-x l : hydra-cibin-misc/body ")
@@ -933,7 +980,187 @@ _v_ : vdiff _b_: vdiff buffers L&R _q_: quit
 )
 
   (global-set-key (kbd "C-x y") 'cibin/hydra-tips/body)
-  
+
+
+
+
+;; TODO link this hydra 
+
+
+;;; Mark Text and Regions
+
+(use-package expand-region
+  :config
+  (use-package change-inner)
+  (defun ejmr-mark-line ()
+    "Mark the current line."
+    (interactive)
+    (end-of-line)
+    (set-mark (point))
+    (beginning-of-line))
+  (defhydra hydra-mark (:color blue :idle 1.5 :columns 4)
+    "Mark"
+    ("d" er/mark-defun "Defun / Function")
+    ("f" er/mark-defun "Defun / Function")
+    ("w" er/mark-word "Word")
+    ("u" er/mark-url "Url")
+    ("e" mark-sexp "S-Expression")
+    ("E" er/mark-email "Email")
+    ("b" mark-whole-buffer "Buffer")
+    ("l" ejmr-mark-line "Line")
+    ("s" er/mark-sentence "Sentence")
+    ("p" er/mark-text-paragraph "Paragraph")
+    ("g" mark-page "Page")
+    ("S" er/mark-symbol "Symbol")
+    ("P" er/mark-symbol-with-prefix "Prefixed symbol")
+    ("q" er/mark-inside-quotes "Inside Quotes")
+    ("Q" er/mark-outside-quotes "Outside Quotes")
+    ("(" er/mark-inside-pairs "Inside Pairs")
+    ("[" er/mark-inside-pairs "Inside Pairs")
+    ("{" er/mark-inside-pairs "Inside Pairs")
+    (")" er/mark-outside-pairs "Outside Pairs")
+    ("]" er/mark-outside-pairs "Outside Pairs")
+    ("}" er/mark-outside-pairs "Outside Pairs")
+    ("t" er/mark-inner-tag "Inner Tag")
+    ("T" er/mark-outer-tag "Outer Tag")
+    ("c" er/mark-comment "Comment")
+    ("a" er/mark-html-attribute "HTML Attribute")
+    ("i" change-inner "Inner")
+    ("o" change-outer "Outer")
+    ("." er/expand-region "Expand Region" :exit nil)
+    ("," er/contract-region "Contract Region" :exit nil))
+  ; (bind-key "SPC" #'hydra-mark/body ejmr-custom-bindings-map)
+  )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ ;; https://github.com/bling/dotemacs/blob/72e932093a274510bcd4da9063e861d85c89fc74/config/init-hydras.el 
+ ;;awesome hydras
+
+  ;;; TODO add this to C-x C-b and another hydra
+
+(defhydra my-buffer-hydra (:hint nil :exit t)
+  "
+   buffers:   _b_ → buffers          _k_ → kill buffer             _f_ → reveal in finder
+              _m_ → goto messages    _e_ → erase buffer            ^ ^
+              _s_ → goto scratch     _E_ → erase buffer (force)    ^ ^
+"
+  ("s" my-goto-scratch-buffer)
+  ("k" kill-this-buffer)
+  ("f" reveal-in-osx-finder)
+  ("m" (switch-to-buffer "*Messages*"))
+  ("b" (my-switch-action #'switch-to-buffer :ivy #'my-ivy-mini :helm #'helm-mini))
+  ("e" erase-buffer)
+  ("E" (let ((inhibit-read-only t)) (erase-buffer))))
+
+(defhydra my-git-hydra (:hint nil :exit t)
+  "
+   magit:  _s_ → status  _l_ → log    _f_ → file      staging:  _a_ → +hunk  _A_ → +buffer
+           _c_ → commit  _d_ → diff   _z_ → stash               _r_ → -hunk  _R_ → -buffer
+           _p_ → push    _b_ → blame  _m_ → merge
+"
+  ("s" magit-status)
+  ("b" magit-blame-popup)
+  ("f" magit-file-popup)
+  ("z" magit-status-popup)
+  ("l" magit-log-popup)
+  ("d" magit-diff-popup)
+  ("c" magit-commit-popup)
+  ("m" magit-merge-popup)
+  ("p" magit-push-popup)
+  ("a" git-gutter+-stage-hunks)
+  ("r" git-gutter+-revert-hunk)
+  ("A" git-gutter+-stage-whole-buffer)
+  ("R" git-gutter+-unstage-whole-buffer))
+
+
+
+(setq my-errors-hydra/flycheck nil)
+(defun my-errors-hydra/target-list ()
+  "https://github.com/bling/dotemacs/blob/72e932093a274510bcd4da9063e861d85c89fc74/config/init-hydras.el"
+  (if my-errors-hydra/flycheck
+      'flycheck
+    'emacs))
+(defhydra my-errors-hydra (:hint nil)
+  "
+   errors:  navigation                 flycheck
+            -----------------------    ---------------
+            _j_ → next error             _l_ → list errors
+            _k_ → previous error         _?_ → describe checker
+            _t_ → toggle list (%(my-errors-hydra/target-list))
+"
+  ("j" (if my-errors-hydra/flycheck
+           (call-interactively #'flycheck-next-error)
+         (call-interactively #'next-error)))
+  ("k" (if my-errors-hydra/flycheck
+           (call-interactively #'flycheck-previous-error)
+         (call-interactively #'previous-error)))
+  ("t" (setq my-errors-hydra/flycheck (not my-errors-hydra/flycheck)))
+  ("?" flycheck-describe-checker)
+  ("l" flycheck-list-errors :exit t))
+
+;; TODO link this (also clean)
+(defhydra hydra-text (:color amaranth)
+  "
+^Major Modes^    ^Minor Modes^    ^Actions^
+^───────────^────^───────────^────^───────^──────────
+[_T_] Text       [_D_] Darkroom   [_s_] Sort Lines
+[_A_] AsciiDoc   [_$_] Flyspell   [_a_] Align Regexp
+[_M_] Markdown   [_u_] Auto Fill  [_p_] Delete Duplicates^^
+[_G_] GFM                       [_r_] Rectangle Commands^^
+[_F_] Fountain                  [_n_] Underline With Character
+[_I_] Indirect Edit
+^^
+"
+  ("T" text-mode)
+  ("n" underline-with-char :color blue)
+  ("I" edit-indirect-region :color blue)
+  ("A" adoc-mode)
+  ("a" align-regexp)
+  ("M" markdown-mode)
+  ("F" fountain-mode)
+  ("G" gfm-mode)
+  ("D" darkroom-mode)
+  ("$" flyspell-mode)
+  ("s" sort-lines)
+  ("u" auto-fill-mode)
+  ("p" delete-duplicate-lines)
+  ("r" hydra-rectangle/body)
+  ("q" nil :color blue))
+
+
+
+;;; hydra for file/buffer, jump/goto, error/compile, toggle, format, 
+
+
+; (-define-keys evil-normal-state-map
+;     ("SPC SPC" #'execute-extended-command "M-x")
+;     ("SPC t" #'my-toggle-hydra/body "toggle...")
+;     ("SPC q" #'my-quit-hydra/body "quit...")
+;     ("SPC e" #'my-errors-hydra/body "errors...")
+;     ("SPC b" #'my-buffer-hydra/body "buffers...")
+;     ("SPC j" #'my-jump-hydra/body "jump...")
+;     ("SPC f" #'my-file-hydra/body "files...")
+;     ("SPC s" #'my-search-hydra/body "search...")
+;     ("SPC l" #'my-jump-hydra/lambda-l-and-exit "lines(current)")
+;     ("SPC L" #'my-jump-hydra/lambda-L-and-exit "lines(all)")
+;     ("SPC o" #'my-jump-hydra/lambda-i-and-exit "outline")
+;     ("SPC '" #'my-new-eshell-split "shell")
+;)
+
+
 
 (provide 'cbn-hydra)
 

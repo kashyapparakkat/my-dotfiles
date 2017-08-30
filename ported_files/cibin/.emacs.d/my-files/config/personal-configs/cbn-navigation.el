@@ -267,7 +267,8 @@ https://gist.github.com/X4lldux/5649195
   (unless window-system
     (setq nlinum-format "%d "))
   ;; :idle
-  (global-nlinum-mode))
+  (global-nlinum-mode -1))
+
 (use-package cycle-quotes
   :ensure t
   :bind* (("M-m s q" . cycle-quotes)))

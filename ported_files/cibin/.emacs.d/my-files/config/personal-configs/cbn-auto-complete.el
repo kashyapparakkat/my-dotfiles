@@ -1,7 +1,8 @@
-(message "loading cbn-auto-complete")
 
+(message "loading cbn-auto-complete")
 ; enable it globally you should use
-(global-auto-complete-mode t)
+(global-auto-complete-mode -1)
+
 (ac-config-default)
 ; But it uses auto-complete-mode-maybe, which turn AC on only those listed in ac-modes. You can add them manually just like this
 (add-to-list 'ac-modes 'text-mode)
@@ -31,6 +32,34 @@
 (define-key ac-menu-map "\C-p" 'ac-previous)
 (define-key ac-menu-map  (kbd "<S-tab>") 'ac-previous)
 
+(defun cibin-apply-Company-auto-complete-minor-mode()
+(interactive)
+(with-eval-after-load 'company
+
+ (company-flx-mode +1)
+ (setq company-idle-delay 0.1)
+ (setq company-minimum-prefix-length 1)
+
+ ;; company grouped backends
+(setq company-backends nil)
+ ;; (add-to-list 'company-backends '( company-dabbrev company-capf company-dabbrev-code) company-capf)
+ (add-to-list 'company-backends ' company-dabbrev )
+(global-company-mode t)
+)
+)
+
+(defun cibin-apply-AC-auto-complete-minor-mode()
+(interactive)
+(require 'flx-ido)
+(ido-mode 1)[flx-ido]
+(ido-everywhere 1)
+(flx-ido-mode 1)
+(ido-vertical-mode 1)
+;; disable ido faces to see flx highlights.
+(setq ido-enable-flex-matching t)
+(setq ido-use-faces nil)
+
+)
 ; http://ergoemacs.org/misc/emacs_abbrev_shell_elisp.html
 
 (defcustom xah-shell-abbrev-alist nil "alist of xah's shell abbrevs")

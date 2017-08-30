@@ -76,7 +76,7 @@
           (comint-send-input))
       (call-interactively 'completion-at-point))))
 
-(define-key shell-mode-map (kbd "<tab>") 'my-prompt-for-dir-or-fallback)
+;; TODO re enable (define-key shell-mode-map (kbd "<tab>") 'my-prompt-for-dir-or-fallback)
 
 (add-hook 'ido-setup-hook 'ido-my-keys)
 

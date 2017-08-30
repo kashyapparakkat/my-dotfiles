@@ -364,7 +364,18 @@ If the new path's directories does not exist, create them."
 
 ; vlf (view large files)
 ; VLF lets me handle things like 2gb files gracefully.
-(use-package vlf-setup)
+;; (require 'vlf-setup)
+;; (setq vlf-application 'dont-ask)
+(use-package vlf-setup
+ :defer t
+  :config
+   (progn
+     (setq vlf-application 'dont-ask)
+
+  ;(define-key vlf-mode-map "." 'nsh/hydra-large-files-vlf/body)
+
+     )
+   )
 
 (defun my-find-file-check-make-large-file-read-only-hook ()
   "If a file is over a given size, make the buffer read only."

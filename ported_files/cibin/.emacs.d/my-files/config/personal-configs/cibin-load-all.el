@@ -75,6 +75,7 @@
 (require 'added-april)
 ; (load-file "~/.emacs.d/my-files/config/personal-configs/cbn-xah-fly-keys.el")
 (require 'cbn-hydra)
+(require 'cbn-helm-config)
 (cibin-load-essential-custom-bindings)
 (message "loaded all")
   )

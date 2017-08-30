@@ -40,6 +40,8 @@
 ; https://www.emacswiki.org/emacs/SearchAtPoint
 
 ; If swiper is used, the following key bindings can be defined to simulate “*” in Vim with a better interface:
+  (define-key evil-normal-state-map (kbd "8") 'evil-search-word-forward)
+  (define-key evil-normal-state-map (kbd "9") 'evil-search-word-backward)
   (define-key evil-normal-state-map (kbd "*")
     (lambda () (interactive) (swiper (format "\\<%s\\>" (thing-at-point 'symbol)))))
   (define-key evil-normal-state-map (kbd "#")

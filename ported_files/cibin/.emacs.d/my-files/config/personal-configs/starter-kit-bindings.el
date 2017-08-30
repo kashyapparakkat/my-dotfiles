@@ -172,14 +172,14 @@
 						
 						
 (global-set-key (kbd "C-l") 'switch-to-prev-buffer) 
-(global-set-key (kbd "C-v") 'switch-to-next-buffer)
+(global-set-key (kbd "C-o") 'switch-to-next-buffer)
 (define-key dired-mode-map (kbd "O") 'switch-to-next-buffer) 
 ;;todo ;; (define-key dired-mode-map (kbd "o") 'switch-to-prev-buffer)
  
 (define-key evil-normal-state-map (kbd "O") 'switch-to-next-buffer) 
 ;;todo ;;(define-key evil-normal-state-map (kbd "o") 'switch-to-prev-buffer)
 
-(define-key evil-normal-state-map (kbd "C-v") 'switch-to-next-buffer) 
+(define-key evil-normal-state-map (kbd "C-o") 'switch-to-next-buffer) 
 (define-key evil-normal-state-map (kbd "C-l") 'switch-to-prev-buffer)
 
 
@@ -234,7 +234,7 @@
 ;; Jump to a definition in the current file. (This is awesome.)
 (global-set-key (kbd "C-x C-i") 'ido-imenu)
 
-
+(spacemacs/set-leader-keys "<SPC>" 'helm-M-x)
 (global-set-key (kbd "M-a") 'helm-M-x)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-m") 'helm-M-x)
@@ -653,3 +653,4 @@ buffer preview will still display."
 ;(add-hook 'org-mode-hook (lambda ()(define-key org-mode-map (car binding) (cdr binding))))  )
 )
 (provide 'starter-kit-bindings)
+
