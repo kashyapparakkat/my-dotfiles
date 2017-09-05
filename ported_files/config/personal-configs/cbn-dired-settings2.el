@@ -1,3 +1,4 @@
+(message "loading cbn-dired-settings2")
 ;  https://www.reddit.com/r/emacs/comments/4agkye/how_do_you_customize_dired/
 
 ;; work like two-panelled file manager if two dired buffers opened. Very cool!
@@ -33,7 +34,10 @@
 
 ;;----------------------------------------
 ;;Sort settings
-(require 'dired-sort-menu+)
+;(require 'dired-sort-menu+)
+
+    (use-package dired-sort-menu+
+  :defer t)
 (add-hook 'dired-load-hook
           (lambda () (require 'dired-sort-menu)))
 
@@ -63,7 +67,10 @@
 ;; http://www.emacswiki.org/emacs/DiredOmitMode
 ;;(setq dired-omit-files "^\\.?#\\|^\\.$\\|^\\.\\.$") ;;default
 
-(require 'dired-x)
+;(require 'dired-x)
+
+    (use-package dired-x
+  :defer t)
 (setq-default dired-omit-files-p t) ; Buffer-local variable
 (setq dired-omit-files "^\\.?#\\|^\\.$\\|^\\.[^.].+$")
 (add-hook 'dired-mode-hook (lambda () (dired-omit-mode)))

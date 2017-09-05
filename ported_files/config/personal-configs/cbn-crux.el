@@ -1,3 +1,4 @@
+(message "loading cbn-crux")
 ;;; crux.el --- A Collection of Ridiculously Useful eXtensions -*- lexical-binding: t -*-
 ;;
 ;; Copyright © 2015-2016 Bozhidar Batsov
@@ -34,10 +35,16 @@
 
 ;;; Code:
 
-(require 'thingatpt)
-(require 'seq)
-(require 'tramp)
+;(require 'thingatpt)
+;(require 'seq)
+;(require 'tramp)
 
+    (use-package thingatpt
+  :defer t)
+    (use-package seq
+  :defer t)
+    (use-package tramp
+  :defer t)
 (declare-function dired-get-file-for-visit "dired")
 
 (defgroup crux nil

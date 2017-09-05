@@ -1,3 +1,4 @@
+(message "loading cbn-dired-show")
 ;; introducing dired-show, a mini ranger-like preview browsing style.
 ;; https://gitlab.com/emacs-stuff/my-elisp/commit/ab54aa4f38f2e23a906a7576908e28de6d68e16e
 

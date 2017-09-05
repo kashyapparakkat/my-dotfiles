@@ -1,3 +1,4 @@
+(message "loading cbn-mode-line2 ")
  
 (diminish 'Auto-complete-mode "AC")
 (diminish 'drag-stuff-mode "◆")

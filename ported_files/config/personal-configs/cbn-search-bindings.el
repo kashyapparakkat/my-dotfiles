@@ -1,13 +1,18 @@
+(message "loading cbn-search-bindings")
 ; http://www.cibinmathew.com
 ; github.com/cibinmathew
 
 
 
-
+(use-package flx-ido
+  :ensure t
+  :defer t)
 
 
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
+
+(setq ivy-count-format "%d/%d ") 
 (setq ivy-display-style 'fancy)
 ;;advise swiper to recenter on exit . The other tweak I have made is to get swiper to recenter the display when it exits – I found it a little unpredictable where the point was going to be after I finished swiper. This is done with a little bit of advice
 (defun bjm-swiper-recenter (&rest args)
@@ -37,6 +42,14 @@
 ; https://www.emacswiki.org/emacs/SearchAtPoint
 
 ; If swiper is used, the following key bindings can be defined to simulate “*” in Vim with a better interface:
+  (define-key evil-normal-state-map (kbd "8") 'evil-search-word-forward)
+(define-key evil-normal-state-map (kbd "8") 'cibin/fast-search-activate)
+(defun cibin/fast-search-activate()
+(interactive)
+  (evil-search-word-forward)
+  (cibin/fast-search/body)
+  )
+  ;; (define-key evil-normal-state-map (kbd "9") 'evil-search-word-backward)
   (define-key evil-normal-state-map (kbd "*")
     (lambda () (interactive) (swiper (format "\\<%s\\>" (thing-at-point 'symbol)))))
   (define-key evil-normal-state-map (kbd "#")
@@ -44,12 +57,6 @@
 	
 
 
-; Extending swiper
-; With swiper, the following key bindings can be defined to insert the current symbol/word at point to the swiper minibuffer:
-(define-key swiper-map (kbd "C-.")
-  (lambda () (interactive) (insert (format "\\<%s\\>" (with-ivy-window (thing-at-point 'symbol))))))
-(define-key swiper-map (kbd "M-.")
-  (lambda () (interactive) (insert (format "\\<%s\\>" (with-ivy-window (thing-at-point 'word))))))	
 
                                         ; TODO
 (global-set-key "\C-s" 'ora-swiper)	
@@ -79,9 +86,12 @@
 (setq search-whitespace-regexp "[-_ \n]")
 ; put isearch-dabbrev.el somewhere in your load-path and add these lines to your .emacs:
 
+    (use-package isearch-dabbrev
+  :defer t)
 (eval-after-load "isearch"
   '(progn
-     (require 'isearch-dabbrev)
+     ;(require 'isearch-dabbrev)
+	 
      (define-key isearch-mode-map (kbd "<tab>") 'isearch-dabbrev-expand)))
 	
 	

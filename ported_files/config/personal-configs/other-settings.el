@@ -1,3 +1,4 @@
+(message "loading other-settings")
 ; http://www.cibinmathew.com
 ; github.com/cibinmathew
 
@@ -41,20 +42,56 @@
 ;; make the left fringe 4 pixels wide and the right disappear
 (fringe-mode '(20 . 8))
 
+
+;; SCROLLING
+(menu-bar-mode 1)
+(when (display-graphic-p)
+	(tool-bar-mode 1)
+	(scroll-bar-mode 1)
+(set-scroll-bar-mode 'left) 
+  )
 	
+;; Smooth scrolling
+;; Scroll one line at a time, less 'jumpy' than the default.
+;; scroll one line at a time (less "jumpy" than defaults)
+(setq mouse-wheel-scroll-amount '(3 ((shift) . 1))) ;; one line at a time
+(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+(setq scroll-step 3) ;; keyboard scroll one line at a time
+;;keep cursor at same position when scrolling
+(setq scroll-preserve-screen-position 1)
+
+
+;;TODO see if this works
+;;ensure that M-v always undoes C-v, so you can go back exactly.
+(setq scroll-preserve-screen-position 'always)
+;; we use yascroll for the scrollbar instead
+; (require 'yascroll)
+(scroll-bar-mode 1)
+; (global-yascroll-bar-mode 1)
+; (setq yascroll:delay-to-hide nil)
+
 ; Scrolling behavior
 ; Emacs’s default scrolling behavior, like a lot of the default Emacs experience, is pretty idiosyncratic. The following snippet makes for a smoother scrolling behavior when using keyboard navigation.
-(setq redisplay-dont-pause t
-      scroll-margin 4 
-      scroll-step 1
-      scroll-conservatively 10000
-      scroll-preserve-screen-position 1)
+;; TODO disabling for now
+;; (setq redisplay-dont-pause t
+      ;; scroll-margin 4 
+      ;; scroll-step 1
+      ;; scroll-conservatively 10000
+      ;; scroll-preserve-screen-position 1)
 
                                         ; Scroll smoothly rather than by paging
-
-(setq scroll-step 1)
-; When the cursor moves past the top or bottom of the window, scroll one line at a time rather than jumping. I don't like having to find my place in the file again.
-(setq scroll-conservatively 10000)
+;; (setq scroll-step 1)
+;; If you want the text to scroll one line at a time when you move the cursor past the top or bottom of the window, use the following setting:
+ (setq scroll-conservatively 10000)
+;; Unfortunately, the text still jumps sometimes, in a really irritating way. I haven’t been able to work out why or how to stop it.
+;; → here’s a fix: http://zhangda.wordpress.com/2009/05/21/customize-emacs-automatic-scrolling-and-stop-the-cursor-from-jumping-around-as-i-move-it/
+   (setq scroll-margin 1
+      scroll-conservatively 0
+      scroll-up-aggressively 0.01
+      scroll-down-aggressively 0.01)
+    (setq-default scroll-up-aggressively 0.01
+      scroll-down-aggressively 0.01)
 
 (message "checkpoint 67")	
 
@@ -233,11 +270,6 @@ If the new path's directories does not exist, create them."
         ;; more here
         ) )
 
-(menu-bar-mode -1)
-(when (display-graphic-p)
-	(tool-bar-mode -1)
-	(scroll-bar-mode 1))
-
 	(set-face-attribute 'vertical-border nil :foreground (face-attribute 'fringe :background))
 
 (setq inhibit-startup-message t)
@@ -247,11 +279,13 @@ If the new path's directories does not exist, create them."
 (setq initial-buffer-choice "~/")
 (setq x-select-enable-clipboard t)
 
-(setq scroll-step            1
-      scroll-conservatively  10000)
+(use-package dired-aux
+:defer t)
+;(require 'dired-x)
+;(require 'dired-aux)
 
-(require 'dired-x)
-(require 'dired-aux)
+(use-package dired-x
+:defer t)
 
 (setq dired-guess-shell-alist-user
       '(("\\.pdf\\'" "evince")
@@ -357,7 +391,18 @@ If the new path's directories does not exist, create them."
 
 ; vlf (view large files)
 ; VLF lets me handle things like 2gb files gracefully.
-(use-package vlf-setup)
+;; (require 'vlf-setup)
+;; (setq vlf-application 'dont-ask)
+(use-package vlf-setup
+ :defer t
+  :config
+   (progn
+     (setq vlf-application 'dont-ask)
+
+  ;(define-key vlf-mode-map "." 'nsh/hydra-large-files-vlf/body)
+
+     )
+   )
 
 (defun my-find-file-check-make-large-file-read-only-hook ()
   "If a file is over a given size, make the buffer read only."
@@ -453,15 +498,6 @@ Toggles between: “all lower”, “Init Caps”, “ALL CAPS”."
     (setq save-persistent-scratch-timer
           (run-with-idle-timer 300 t 'save-persistent-scratch)))
 
-;; Smooth scrolling
-;; Scroll one line at a time, less 'jumpy' than the default.
-;; scroll one line at a time (less "jumpy" than defaults)
-(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
-(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
-(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
-(setq scroll-step 1) ;; keyboard scroll one line at a time
-;;keep cursor at same position when scrolling
-(setq scroll-preserve-screen-position 1)
 
 ; M-x comment-box.   
 ; M-x bjm-comment-box.   
@@ -700,7 +736,9 @@ file to write to."
 )
 
 ;; automatically close buffers that haven't been displayed in more than n days
-(require 'midnight)
+;(require 'midnight)
+(use-package midnight
+:defer t)
 (custom-set-variables '(clean-buffer-list-delay-general 2))
 
 
@@ -861,7 +899,9 @@ file to write to."
     (vkill)
     (my/turn-on-hl-line-mode)
     (call-interactively #'helm-occur)))
-(require 'keyfreq)
+;(require 'keyfreq)
+(use-package keyfreq
+:defer t)
 (setq keyfreq-excluded-commands
       '(self-insert-command
         abort-recursive-edit

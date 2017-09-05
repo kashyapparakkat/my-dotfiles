@@ -1,3 +1,4 @@
+(message "loading unused")
 	
 ; remove this func
 ; duplicate current line 

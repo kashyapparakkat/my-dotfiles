@@ -1,3 +1,4 @@
+(message "more-custom-functions")
 ;;; more-custom-functions.el
 ; http://www.cibinmathew.com
 ; github.com/cibinmathew
@@ -108,21 +109,27 @@
 )
 
 ; http://stackoverflow.com/questions/17164767/emacs-lisp-directory-files  
-(defun cibin-find-related-files ()
+(defun cibin-find-related-files (&optional arg)
 	"Find a recent file using ido."
 	(interactive)
 	
 	(setq all-files (get-related-files))
   (setq prompt (format  "Related Files (%s): " (safe-length all-files)))
-	; (message "%s" all-files)
-	(let ((file (ido-completing-read prompt 
-                               (mapcar #'abbreviate-file-name all-files)
-                               ; all-files
-                               nil t)))
-    (when file
-      (find-file-noselect file))))
+                                        ; (message "%s" all-files)
+  ;; this ido-completing-read also  works
+	;; (let ((file ;; (ido-completing-read prompt ;; (mapcar #'abbreviate-file-name all-files)
+                               ; all-files ;; nil t arg) ;; (when file (find-file-noselect file))))
+(ivy-read prompt (mapcar #'abbreviate-file-name all-files)
+          :initial-input arg
+          :keymap ivy-minibuffer-map
+         :action (lambda (file)
+                    ;; (with-ivy-window
+                    (message (format "file %s " file))
+                        (when file (find-file file)))
+          ;; )
+          )
+)
 
-	  
 (defun cibin-search-in-text-files-related-bash()
 	(interactive)
 	
@@ -148,12 +155,16 @@
   (setq cmd-str "extract.sh C:/Users/cibin/Downloads/New folder/generate.zip")
 	(shell-command cmd-str "*extract*")
   )
+  (defun get-file-extension()
+  (setq file-ext "nil")
+	(when  buffer-file-name (setq file-ext (file-name-extension (buffer-file-name))))
+	)
+	
 (defun cibin-search-in-files-advgrep-here ()
 	(interactive)
 	(setq prompt (format "advgrep.sh all/common/downs/ahk/notes/-or-here/hhere   common/code/txt   searchTerm: "))
-	(setq file-ext "nil")
-	(when  buffer-file-name (setq file-ext (file-name-extension (buffer-file-name))))
-  (setq default (concat "advgrep.sh here " file-ext " " (thing-at-point 'word)))
+	
+  (setq default (concat "advgrep.sh here " (get-file-extension) " " (thing-at-point 'word)))
 	(search-handler prompt default)
 )
 (defun save-related-files-to-disk () 	
@@ -183,7 +194,10 @@
       (find-file file))))
 	  
 	  ; reformat XML code adding the following code in your .emacs:
-(require 'sgml-mode)
+;(require 'sgml-mode)
+
+    (use-package sgml-mode
+  :defer t)
 
 (defun reformat-xml ()
 "Reformat XML on Emacs "
@@ -439,7 +453,7 @@ lines. And then it will clear all preceding whitespace."
   (let ((b (if mark-active (min (point) (mark)) (point-min)))
         (e (if mark-active (max (point) (mark)) (point-max))))
     (shell-command-on-region b e
-                             "python -mjson.tool" (current-buffer) t)))
+                             "python -mjson.tool" (current-buffer) t "*Error buffer" t)))
 
 							 
 ; Recompile startup elisp files

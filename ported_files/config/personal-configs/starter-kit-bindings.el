@@ -1,3 +1,4 @@
+(message "loading starter-kit-bindings")
 ;;; starter-kit-bindings.el --- Set up some handy key bindings
 ; http://www.cibinmathew.com
 ; github.com/cibinmathew
@@ -171,14 +172,14 @@
 						
 						
 (global-set-key (kbd "C-l") 'switch-to-prev-buffer) 
-(global-set-key (kbd "C-v") 'switch-to-next-buffer)
+(global-set-key (kbd "C-o") 'switch-to-next-buffer)
 (define-key dired-mode-map (kbd "O") 'switch-to-next-buffer) 
 ;;todo ;; (define-key dired-mode-map (kbd "o") 'switch-to-prev-buffer)
  
 (define-key evil-normal-state-map (kbd "O") 'switch-to-next-buffer) 
 ;;todo ;;(define-key evil-normal-state-map (kbd "o") 'switch-to-prev-buffer)
 
-(define-key evil-normal-state-map (kbd "C-v") 'switch-to-next-buffer) 
+(define-key evil-normal-state-map (kbd "C-o") 'switch-to-next-buffer) 
 (define-key evil-normal-state-map (kbd "C-l") 'switch-to-prev-buffer)
 
 
@@ -193,7 +194,7 @@
 	)  
 
 ;  kill the same line even if at the end of line
-; (global-set-key (kbd "C-k") 'kill-whole-line)
+(global-set-key (kbd "C-S-k") 'kill-whole-line)
 
 ;; TODO create in current major mode
 (global-set-key (kbd "C-x C-n") 'xah-new-empty-buffer) 
@@ -233,7 +234,7 @@
 ;; Jump to a definition in the current file. (This is awesome.)
 (global-set-key (kbd "C-x C-i") 'ido-imenu)
 
-
+(spacemacs/set-leader-keys "<SPC>" 'helm-M-x)
 (global-set-key (kbd "M-a") 'helm-M-x)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-m") 'helm-M-x)
@@ -377,7 +378,9 @@
 ; TODO: gk was evil previous visual-line, map it to somewhere else
 
 ; key-chord
-(require 'key-chord)
+(use-package key-chord
+:defer t)
+;(require 'key-chord)
 
 ; (key-chord-define-global "jj" 'avy-goto-word-1)
 ; (key-chord-define-global "jl" 'avy-goto-line)
@@ -501,11 +504,12 @@
                                        (vc-register)
                                      (shell-command (format "git add %s" buffer-file-name))
                                      (message "Staged changes.")))))
-
+(with-eval-after-load 'org
+ 
 ;; Org
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
-
+)
 
 (global-set-key (kbd "<C-up>") 'xah-backward-block)
 (global-set-key (kbd "<C-down>") 'xah-forward-block)
@@ -642,7 +646,11 @@ buffer preview will still display."
   (define-key dired-mode-map (car binding) (cdr binding))
   (define-key evil-normal-state-map (car binding) (cdr binding))
   ;; (define-key org-mode-map (car binding) (cdr binding)
+  (with-eval-after-load 'org
+ 
   	(evil-define-key 'normal org-mode-map  (car binding) (cdr binding))
+	)
 ;(add-hook 'org-mode-hook (lambda ()(define-key org-mode-map (car binding) (cdr binding))))  )
 )
 (provide 'starter-kit-bindings)
+

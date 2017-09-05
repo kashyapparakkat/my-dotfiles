@@ -1,3 +1,4 @@
+(message "loading tabbartweaks")
   
 ; more customisations at https://www.emacswiki.org/emacs/TabBarMode
 ; Speed up by not using images
@@ -18,18 +19,25 @@
 ;; tabbar-separator not tabbar-separator-face
 ; https://gist.github.com/3demax/1264635/91ccb6c423effd811dbdb1412b70c15e95fa700d
 ;; Tabbar
-(require 'tabbar)
+;(require 'tabbar)
+(use-package tabbar
+:defer t)
 ;; Tabbar settings
 (set-face-attribute
  'tabbar-default nil
  :background "gray20"
- :foreground "red"
+ ;; :foreground "red"
  :box '(:line-width 1 :color "gray20" :style nil))
 (set-face-attribute
- 'tabbar-unselected nil
+ 'tabbar-unselected nil 
  :background "gray30"
  :foreground "white"
  :box '(:line-width 1 :color "gray30" :style nil))
+(set-face-attribute
+ 'tabbar-modified nil
+ ;; :background "green10"
+ :foreground "red"
+ :box '(:line-width 1 :color "green" :style nil))
 (set-face-attribute
  'tabbar-selected nil
  :background "green"

@@ -1,8 +1,10 @@
 ;; file cache
 ;; https://github.com/hjz/emacs/blob/master/config/filecache.el
-(require 'filecache)
-(require 'ido)
+;(require 'filecache)
+;(require 'ido)
 
+    (use-package ido
+  :defer t)
 
 
 (defun file-cache-ido-find-file (file)

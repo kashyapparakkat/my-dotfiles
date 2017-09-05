@@ -1,3 +1,4 @@
+(message "loading cbn-functions")
 ; load before its usage/function calls
                                         ;
 

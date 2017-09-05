@@ -103,9 +103,10 @@
 
 ;;; Code:
 
-(require 'dired) ; in emacs
-(require 'dired-x) ; in emacs
-(require 'ido) ; in emacs
+
+;(require 'dired) ; in emacs
+;(require 'dired-x) ; in emacs
+;(require 'ido) ; in emacs
 
 
 
@@ -979,6 +980,11 @@ Version 2015-12-08"
     (delete-region (region-beginning) (region-end)))
   (insert-register ?1 t))
 
+  
+  
+  
+    (use-package rect
+  :defer t)
 (defun xah-copy-rectangle-to-kill-ring (*begin *end)
   "Copy region as column (rectangle region) to `kill-ring'
 See also: `kill-rectangle', `copy-to-register'.
@@ -986,7 +992,8 @@ URL `http://ergoemacs.org/emacs/emacs_copy_rectangle_text_to_clipboard.html'
 version 2016-07-17"
   ;; extract-rectangle suggested by YoungFrog, 2012-07-25
   (interactive "r")
-  (require 'rect)
+  ;(require 'rect)
+  
   (kill-new (mapconcat 'identity (extract-rectangle *begin *end) "\n")))
 
 (defun xah-upcase-sentence ()

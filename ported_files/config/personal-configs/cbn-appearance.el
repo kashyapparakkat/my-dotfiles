@@ -1,3 +1,4 @@
+(message "loading cbn-appearance")
  ;; TODO debug this
  
  ; ===============================
@@ -184,4 +185,9 @@
         (buffer-face-set 'hard-to-read-font))
     (progn (font-lock-mode t) (buffer-face-mode nil))))
 ;; (add-hook 'text-mode-hook (lambda () (hard-to-read-mode t))) 
+
+;;should be loaded after loading standard library
+;;    `menu-bar.el'.  So, in your `~/.emacs' file, do this:
+ (eval-after-load "menu-bar" '(require 'menu-bar+))
+ 
 (provide 'cbn-appearance)

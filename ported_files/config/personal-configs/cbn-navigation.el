@@ -1,3 +1,4 @@
+(message "loading cbn-navigation")
 (defun my-move-end-of-line-before-whitespace ()
   "Move to the last non-whitespace character in the current line.
   http://stackoverflow.com/questions/9597391/emacs-move-point-to-last-non-whitespace-character "
@@ -65,6 +66,7 @@ If point was already at that position, move point to end of line."
 ; (global-set-key (kbd "C-a") 'smart-line-beginning)
 ; (global-set-key [home] 'smart-line-beginning)
 
+(define-key evil-normal-state-map (kbd "\\") 'toggle-window-split)
 (global-set-key (kbd "C-x 2") 'toggle-window-split)
 
 ; TODO
@@ -202,9 +204,6 @@ https://gist.github.com/X4lldux/5649195
 
 (global-set-key (kbd "M-N") 'move-line-to-bottom)
 
-;;TODO see if this works
-;;ensure that M-v always undoes C-v, so you can go back exactly.
-(setq scroll-preserve-screen-position 'always)
 
 (define-key evil-normal-state-map   (kbd "f") 'avy-goto-char-timer)
 
@@ -217,13 +216,14 @@ https://gist.github.com/X4lldux/5649195
 (setq evil-move-cursor-back t)
 
 ; Beacon is just a tiny utility that indicates the cursor position when the cursor moves suddenly. You can also manually invoke it by calling the function beacon-blink and it is bound by default.
-(use-package beacon
-  :ensure t
-  :demand t
-  :diminish beacon-mode
-  :bind* (("M-m g z" . beacon-blink))
-  :config
-  (beacon-mode 1))
+                                        ; TODO disabling for speed;
+;; (use-package beacon
+  ;; :ensure t
+  ;; :demand t
+  ;; :diminish beacon-mode
+  ;; :bind* (("M-m g z" . beacon-blink))
+  ;; :config
+  ;; (beacon-mode 1))
 
 (message "checkpoint 43")
 
@@ -252,7 +252,7 @@ https://gist.github.com/X4lldux/5649195
          ("C-M-p" . dumb-jump-back)
          ("C-M-q" . dumb-jump-quick-look)
          ))
-
+(setq dumb-jump-prefer-searcher 'ag) 
 (setq dumb-jump-selector 'ivy) ; to use ivy instead of the default popup for multiple options.
 (global-set-key (kbd "C-M-g") 'cibin/goto-func-definition)
 
@@ -264,11 +264,22 @@ https://gist.github.com/X4lldux/5649195
   (unless window-system
     (setq nlinum-format "%d "))
   ;; :idle
-  (global-nlinum-mode))
+  (global-nlinum-mode -1))
 
+(use-package cycle-quotes
+  :ensure t
+  :bind* (("M-m s q" . cycle-quotes)))
+  
 
 ; go to the last change
-(use-package goto-chg)
+; (use-package goto-chg)
+(use-package goto-chg
+  :ensure t
+  :defer t
+  :bind* (("M-m g ;" . goto-last-change)
+          ("M-m g ," . goto-last-change-reverse))
+		  :config
+  (progn
 
 (global-set-key [(control .)] 'goto-last-change)
 (global-set-key (kbd "C-.") 'goto-last-change)
@@ -278,6 +289,9 @@ https://gist.github.com/X4lldux/5649195
 ; (global-set-key [(control ,)] 'goto-last-change-reverse)
 (global-set-key (kbd "C-,") 'goto-last-change-reverse)
 
+
+)
+)
 ; (autoload 'bm-toggle   "bm" "Toggle bookmark in current buffer." t)
 ; (autoload 'bm-next     "bm" "Goto bookmark."                     t)
 ; (autoload 'bm-previous "bm" "Goto previous bookmark."            t)

@@ -3,9 +3,23 @@
 ;; move file here                                                         ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; http://pragmaticemacs.com/emacs/quickly-move-a-file-to-the-current-directory/
+(use-package dash
+:defer t)
+(use-package swiper
+:defer t
+:config
+(progn
+; Extending swiper
+; With swiper, the following key bindings can be defined to insert the current symbol/word at point to the swiper minibuffer:
+(define-key swiper-map (kbd "C-.")
+  (lambda () (interactive) (insert (format "\\<%s\\>" (with-ivy-window (thing-at-point 'symbol))))))
+(define-key swiper-map (kbd "M-.")
+  (lambda () (interactive) (insert (format "\\<%s\\>" (with-ivy-window (thing-at-point 'word))))))	
 
-(require 'dash)
-(require 'swiper)
+  ))
+  
+;(require 'dash)
+;(require 'swiper)
 
 ;; start directory
 (defvar bjm/move-file-here-start-dir (expand-file-name (format "C://Users//%s//Downloads" user-login-name)))

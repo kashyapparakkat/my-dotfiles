@@ -1,15 +1,21 @@
+(message "loading cbn-auto-spell")
 ;; https://www.emacswiki.org/emacs/FlySpell
 
 ;; TODO hk:: autocorrect previous word(if flyspell mode is not on, turn it on)
 
-(add-hook 'text-mode-hook 'flyspell-mode)
-(add-hook 'prog-mode-hook 'flyspell-prog-mode)
+;; TODO disabled for now to 
+(global-flycheck-mode -1)
+(flyspell-mode -1)
+;; (add-hook 'text-mode-hook 'flyspell-mode)
+;; (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 
 
  ;;; https://www.emacswiki.org/emacs/AspellWindows
 (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/")
 ;We need tell emacs to use aspell, and where your custom dictionary is.
-    (require 'ispell)
+    ;(require 'ispell)
+	  (use-package ispell
+  :defer t) 
 
 ; flyspell
 
@@ -30,10 +36,11 @@
 
 ;; If you’d like to use Flyspell’s menu selection in the terminal, or just prefer to use popup.el over the graphical menu, stick this somewhere in your load path:
 
-
+(use-package popup
+:defer t) 
   (defun flyspell-emacs-popup-textual (event poss word)
       "A textual flyspell popup menu."
-      (require 'popup)
+      ;(require 'popup)
       (let* ((corrects (if flyspell-sort-corrections
                            (sort (car (cdr (cdr poss))) 'string<)
                          (car (cdr (cdr poss)))))

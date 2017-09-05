@@ -1,3 +1,4 @@
+(message "loading snarfed")
 ; https://snarfed.org/dotfiles/.emacs
 
 

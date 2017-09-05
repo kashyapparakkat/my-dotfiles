@@ -1,3 +1,4 @@
+(message "loading text_formatting")
 
 (defun toggle-camel-case ()
   "Toggles the symbol at point between underscore style and camel case,

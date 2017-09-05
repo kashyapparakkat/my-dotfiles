@@ -31,7 +31,8 @@
     (remove-hook 'elpy-modules 'elpy-module-flymake)
     (remove-hook 'elpy-modules 'elpy-module-yasnippet)
     (remove-hook 'elpy-mode-hook 'elpy-module-highlight-indentation)
-    (add-hook 'elpy-mode-hook 'flycheck-mode))
+    ;; (add-hook 'elpy-mode-hook 'flycheck-mode) ;; TODO disabled for now
+    )
   ; (elpy-enable) ; TODO disabled for now
   (setq elpy-rpc-backend "jedi"))
   (provide 'my-python)

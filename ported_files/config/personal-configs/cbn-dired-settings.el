@@ -1,3 +1,4 @@
+(message "loading cbn-dired-settings")
 ; http://www.cibinmathew.com
 ; github.com/cibinmathew
 
@@ -52,10 +53,12 @@
   :config
   (add-hook 'dired-mode-hook 'tool-bar-mode))
   
-(require 'dired-aux)
+    (use-package dired-aux
+  :defer t)
+;(require 'dired-aux)
 ; https://www.emacswiki.org/emacs/NeoTree
 ; refer for more tuts
- (require 'neotree)
+ ;(require 'neotree)
  ; TODO set another key if needed
   ; (global-set-key [f6] 'neotree-toggle)
   
@@ -243,8 +246,13 @@
 ; Inside user-config in spacemacs:
 
   ;; Dired
-  (require 'dired-x) ; Enable dired-x
-  (require 'dired+)  ; Enable dired+
+  
+    (use-package dired+
+  :defer t)
+    (use-package dired-x
+  :defer t)
+  ;(require 'dired-x) ; Enable dired-x
+  ;(require 'dired+)  ; Enable dired+
   (setq-default dired-omit-files-p t)  ; Don't show hidden files by default
   (setq dired-omit-files (concat dired-omit-files "\\|^\\..+$\\|\\.pyc$"))
   (add-hook 'dired-mode-hook 'ao/dired-omit-caller)
@@ -296,7 +304,9 @@ Version 2015-07-30"
 
 ; http://stackoverflow.com/a/2860779
 ; https://www.emacswiki.org/emacs/DiredSortBySizeAndExtension
-(require 'ls-lisp)
+;(require 'ls-lisp)
+    (use-package ls-lisp
+  :defer t)
 
     ;; (defun ls-lisp-format-time (file-attr time-index now)
     ;;   "################")
@@ -493,7 +503,10 @@ Parameters:
 				; Asynchronous Dired
 ; You can make the copy and rename/move commands in dired by installing the async package. From there, all you need to do is:
 
-(require 'dired-async)
+;(require 'dired-async)
+
+    (use-package dired-async
+  :defer t)
 ; And the commands will automatically by asynchronous
 
   

@@ -1,3 +1,15 @@
+(message "loading org-settings")
+; (use-package org
+  ; :mode (("\\.org$" . org-mode))
+  ; :ensure org-plus-contrib
+  ; :ensure t
+  ; :config
+
+  (progn
+    ;; config stuff
+    
+	
+	
 ;; http://ergoemacs.org/emacs/emacs_org_babel_literate_programing.html
 
 
@@ -193,4 +205,6 @@
                           `(org-level-1 ((t (,@headline ,@variable-tuple :height 1.2))))
                           `(org-document-title ((t (,@headline ,@variable-tuple :height 1.5 :underline nil))))))
 
-(provide 'org-settings)						   
+)
+; )
+						  (provide 'org-settings)						   

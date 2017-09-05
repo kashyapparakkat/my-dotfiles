@@ -1,3 +1,4 @@
+(message "loading cbn-compile")
 
 ;; TODO check Xah-lee.... run for F8
 (global-set-key (kbd "<f8>") 'quickrun)
@@ -18,9 +19,20 @@
   (setq isend-delete-indentation t)
   (setq isend-end-with-empty-line t)
 
+  (use-package realgud
+  :ensure t
+  :defer t
+  :commands (realgud:gdb
+             realgud:ipdb
+             realgud:pdb))
+			 
+
+   		 
+			 
 (defun cbn-debug ()
 	(interactive)
-	(require 'realgud) ; lazy loading
+	;(require 'realgud) ; lazy loading
+	
 	;; (menu-bar-mode 1)
 	;; (tool-bar-mode 1)
 	(setq fname (buffer-file-name))

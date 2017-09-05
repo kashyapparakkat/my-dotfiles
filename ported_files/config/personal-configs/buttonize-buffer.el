@@ -1,3 +1,4 @@
+(message "loading buttonize-buffer")
 
 ; Clickable file,url links
 ; TODO this has one more solution
@@ -39,10 +40,12 @@
 
 ;; https://superuser.com/questions/331895/how-to-get-emacs-to-highlight-and-link-file-paths
                                         ; /cygdrive/c/cbn_gits/port_files.py
+										  (use-package ffap
+  :defer t) 
 (defun buttonize-buffer-smart-guess ()
   "Turn all file paths and URLs into buttons."
   (interactive)
-  (require 'ffap)
+
   (deactivate-mark)
   (let (token guess beg end reached bound len)
     (save-excursion

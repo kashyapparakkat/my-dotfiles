@@ -1,3 +1,4 @@
+(message "loading cbn-shell")
 ;;; Shell mode
 (setq ansi-color-names-vector ; better contrast colors
       ["black" "red4" "green4" "yellow4"
@@ -9,10 +10,15 @@
      '(lambda () (toggle-truncate-lines 1)))
 (setq comint-prompt-read-only t)
 
-
-(require 'ido)
-(require 'cl-lib)
-(require 'shell)
+(use-package ido
+:defer t)
+(use-package cl-lib
+:defer t)
+(use-package shell
+:defer t)
+;(require 'ido)
+;(require 'cl-lib)
+;(require 'shell)
 
 (defvar my-dir-selected nil "Flag to indicate that user has selected the directory")
 
@@ -70,7 +76,7 @@
           (comint-send-input))
       (call-interactively 'completion-at-point))))
 
-(define-key shell-mode-map (kbd "<tab>") 'my-prompt-for-dir-or-fallback)
+;; TODO re enable (define-key shell-mode-map (kbd "<tab>") 'my-prompt-for-dir-or-fallback)
 
 (add-hook 'ido-setup-hook 'ido-my-keys)
 

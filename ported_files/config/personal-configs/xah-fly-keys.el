@@ -1,3 +1,4 @@
+(message "loading xah fly")
 ;;; xah-fly-keys.el --- A efficient modal keybinding set minor mode based on ergonomics.
 
 ;; Copyright © 2013-2015, by Xah Lee

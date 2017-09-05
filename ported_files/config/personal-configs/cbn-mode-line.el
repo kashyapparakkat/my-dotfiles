@@ -1,3 +1,4 @@
+(message "loading cbn-mode-line")
 ; http://amitp.blogspot.in/2011/08/emacs-custom-mode-line.html#more
 
 
@@ -73,28 +74,23 @@
            ;; (propertize      (format "%s*" major-mode ) 'face 'mode-line-modified-face)
            ;; (propertize      (format "%s " major-mode ) 'face 'mode-line-stats-face)
           ;; ))
-   
- (:eval
-    (cond (buffer-read-only (propertize " RO " 'face 'mode-line-modified-face))
+ (:eval   (cond (buffer-read-only (propertize " RO " 'face 'mode-line-modified-face))
 nil
           (t "  ")))
 		mode-line-remote
     " | "
 	; show percentage
     (-4 "%p%")
-    " L%l"
-
+" "
+    ;; " L%l"
+ (:eval   (propertize " L%l " 'face 'mode-line-selection-face) )
 	 (:eval 
                          (let ((str ""))
                            (when (and (not (buffer-modified-p)) my-mode-line-buffer-line-count)
                              (setq str (concat str "/" my-mode-line-buffer-line-count)))
                            str))
-                                        ; show column number
-   ":"
-   (:eval (propertize "%3c" 'face
-                      (if (>= (current-column) 80)
-                          'mode-line-80col-face
-                        'mode-line-position-face)))   
+ ;; show column number
+   ;; ":" (:eval (propertize "%3c" 'face (if (>= (current-column) 80) 'mode-line-80col-face 'mode-line-position-face)))   
 
    " | "
 	(:propertize "All: len %i %IB" face mode-line-stats-face)
@@ -159,14 +155,16 @@ nil
    " %["
    (:propertize mode-name
                 face mode-line-filename-face)
-   "%] "
+   "%]   <<"
    (:eval (propertize (format-mode-line minor-mode-alist)
                       'face 'mode-line-minor-mode-face))
+   " >> "
    (:propertize mode-line-process
                 face mode-line-process-face)
-   (global-mode-string global-mode-string)
+   ;; (global-mode-string global-mode-string)
 
-;; TODO   (:eval (propertize    (global-mode-string global-mode-string) 'face 'mode-line-minor-mode-face))
+   ;;TODO
+   ;;(:eval (propertize   (global-mode-string global-mode-string) 'face 'mode-line-minor-mode-face))
 	(multiple-cursors-mode mc/mode-line) ; Number of cursors
    "    "
    ; nyan-mode uses nyan cat as an alternative to %p
@@ -283,7 +281,8 @@ nil
     :foreground "gray80")
 (set-face-attribute 'mode-line-minor-mode-face nil
     :inherit 'mode-line-mode-face
-    :foreground "gray40"
+    :foreground "white40"
+    ;; :foreground "gray40"
     :height 100)
 (set-face-attribute 'mode-line-process-face nil
     :inherit 'mode-line-face
