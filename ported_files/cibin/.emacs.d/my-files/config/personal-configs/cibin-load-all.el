@@ -46,7 +46,7 @@
 (defun cibin-load-all-custom-bindings ()
 (interactive)
 
-(message "loading all")
+(message "loading all...")
 (require 'cbn-functions)
 (require 'cbn-shell)
 (require 'my-python)

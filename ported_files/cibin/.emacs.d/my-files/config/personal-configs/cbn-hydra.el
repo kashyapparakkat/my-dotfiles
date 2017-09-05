@@ -733,15 +733,27 @@ _z_: eol unix/win
   "s w" "web code"
   "s f" "format code")
 
-
 (defhydra cibin/hydra-zoom ()
   ;; (:color red 
                                ;; :hint nil)
-  "zoom"
+  "
+^BUFFER^   ^FRAME^    ^ACTION^
+_f_: +     _T_: +     _0_: reset
+_d_: -     _S_: -     _q_: quit
+_
+"
+;; make the help more beautiful
+
+  ("T" zoom-frm-in)
+  ("S" zoom-frm-out)
+  ("0" zoom-frm-unzoom)
+  ("q" nil :color blue)
+  ("f" cibin/text-scale-increase "in")
   ("g" cibin/text-scale-increase "in")
   ("=" cibin/text-scale-increase "in")
   ("h" cibin/text-scale-increase "global in")
   ("l" cibin/text-scale-decrease "out")
+  ("d" cibin/text-scale-decrease "out")
   ("g" cibin/text-scale-decrease "global out")
   ("-" cibin/text-scale-decrease "out"))
 ;; TODO https://www.emacswiki.org/emacs/GlobalTextScaleMode
@@ -755,7 +767,7 @@ _z_: eol unix/win
  project|| directory |    ^All buffers  ^                     ^All^                                             ^bash^
 ^^^^^^^^^^--------                -----------------------------------------------------------------------------------------------------------
  _sa_: swiper-all                 _r_: cibin/helm-do-ag-Extension-recurse-cwd     _u_: cibin-search-in-files-advgrep-here        _q_: quit
- _d_: helm-do-ag-this-file        _h_: cibin/helm-do-ag-Extension-here-cwd	      _c_: cibin-search-in-common-files-bash
+ _d_: helm-do-ag-this-file        _h_: cibin/helm-do-ag-Extension-here-cwd-switchable	      _c_: cibin-search-in-common-files-bash
  _/_: my-multi-occur-in-matc..    _b_: cibin/helm-do-ag-cwd(all ext)              _l_: cibin-search-in-text-files-related-bash
  _o_: occur                       _y_: cibin/ag-files-cwd (ext\? dir\\?)
  _j_: helm-ag                     _w_: ag-files                                   _p_: ag-project-at-point
@@ -772,7 +784,7 @@ _z_: eol unix/win
 ("b" cibin/helm-do-ag-cwd)
 
 ("c" cibin-search-in-common-files-bash)
-("h" cibin/helm-do-ag-Extension-here-cwd)
+("h" cibin/helm-do-ag-Extension-here-cwd-switchable)
 ("j" helm-ag);; extension ; If you use helm-ag command, you can specify option like -G\.js$ search_pattern, or if you use helm-do-ag, you can use C-u prefix for specifying extension.
 ("l" cibin-search-in-text-files-related-bash)
 ("o" occur)
@@ -983,6 +995,22 @@ _g_: search (M-s)
 
 
 
+(defhydra cibin/fast-search (
+                             :timeout 2
+; :pre evil-search-word-forward
+)
+  ;; (:color red 
+                               ;; :hint nil)
+  "
+^BUFFER^   ^FRAME^    ^ACTION^
+_8_: next _9_: prev      allNext prev
+"
+; _d_: -     _S_: -     _q_: quit
+;; make the help more beautiful
+
+  ("8" evil-search-word-forward "forward")
+  ("9" evil-search-word-backward "back")
+  )
 
 ;; TODO link this hydra 
 

@@ -37,32 +37,34 @@ If called with a prefix, prompts for flags to pass to ag."
 
 (defun cibin/helm-do-ag-cwd ()
   (interactive)
-  
- (setq helm-ag-base-command "lfind  . -iname sea|grep sea ")
-  (setq helm-ag-command-option  "")
+ ;; (setq helm-ag-base-command "lfind  . -iname sea|grep sea ")
+  ;; (setq helm-ag-command-option  "")
+  (setq helm-ag-command-option (concat "-n")) 
   ;; (setq helm-ag-command-option (concat "-G" (get-file-extension)  "$"))
-(setq helm-do-ag--extensions '(".e" ".txt"))
+;; (setq helm-do-ag--extensions '(".e" ".txt"))
 ;; (setq helm-do-ag--extensions '("\\.txt\\'" "\\.mkd\\'"))
   (let ((rootdir (return-source-path)))
     (unless rootdir
       (error "Could not find the project root. Create a git, hg, or svn repository there first. "))
-    (helm-do-ag rootdir )))
+    (helm-do-ag rootdir )
+    ))
 
-
-(defun cibin/helm-do-ag-Extension-here-cwd ()
+;; TODO  query parameter added on helm-do-ag-fork-modified.el functionality
+(defun cibin/helm-do-ag-Extension-here-cwd (&optional query)
   (interactive)
   (setq helm-ag-command-option (concat "-n -G" (get-file-extension)  "$"))
   (let ((rootdir (return-source-path)))
     (unless rootdir
       (error "Could not find the project root. Create a git, hg, or svn repository there first. "))
-    (helm-do-ag rootdir )))
-(defun cibin/helm-do-ag-Extension-recurse-cwd ()
+    (helm-do-ag rootdir nil query)))
+
+(defun cibin/helm-do-ag-Extension-recurse-cwd (&optional query)
   (interactive)
   (setq helm-ag-command-option (concat "-G" (get-file-extension)  "$"))
   (let ((rootdir (return-source-path)))
     (unless rootdir
       (error "Could not find the project root. Create a git, hg, or svn repository there first. "))
-    (helm-do-ag rootdir )))
+    (helm-do-ag rootdir nil query)))
 
 ;; TODO check regex option
 (defun modi/ag-regexp-cwd (string)

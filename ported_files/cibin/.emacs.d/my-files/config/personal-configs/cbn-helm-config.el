@@ -1,10 +1,31 @@
-
 (message "loading cbn-helm-config")
+;load master first
+;; (require 'helm-ag)
+(with-eval-after-load  'helm-ag
+  (require 'helm-do-ag-fork-modified)
+  )
+;helm-mini is better than helm-buffers-list
+ ;; (define-key evil-normal-state-map (kbd "b") 'helm-buffers-list)
+(global-set-key (kbd "C-x b") 'cibin/helm-mini)
+(define-key evil-normal-state-map (kbd "b") 'cibin/helm-mini)
+(evil-define-key 'normal dired-mode-map (kbd "b") 'cibin/helm-mini)
+
+(defun cibin/helm-mini()
+(interactive)
+(setq all-func '(dummy cibin/find-related-files-helm-saved-input cibin/helm-find-files ) )
+(helm-mini))
+
+(defun cibin/helm-do-ag-Extension-here-cwd-switchable()
+  (interactive)
+  (setq all-func '(dummy cibin/helm-do-ag-Extension-recurse-cwd-with-saved-input ) )
+(cibin/helm-do-ag-Extension-recurse-cwd nil)
+)
+
 (with-eval-after-load 'helm
 (setq
         ;; move to end or beginning of source when reaching top or bottom
         ;; of source
-helm-move-to-line-cycle-in-source t
+helm-move-to-line-cycle-in-source nil
 )
 ;; (define-key helm-map (kbd "C-h") 'delete-backward-char)
 
@@ -26,6 +47,26 @@ helm-move-to-line-cycle-in-source t
 ;; (define-key helm-map (kbd "C-k") 'set-pattern)
 )
 
+(with-eval-after-load 'helm-ag
+;; TODO 
+;; (define-key helm-ag-map (kbd "C-l") 'helm-ag--up-one-level)
+    (define-key helm-ag-map (kbd "C-l") 'try-next-function)
+)
+(defun bind-ido-keys()
+
+(define-key ido-common-completion-map (kbd "C-l") 'try-next-function)
+(define-key ido-completion-map (kbd "C-l") 'try-next-function)
+(define-key ido-file-completion-map (kbd "C-l") 'try-next-function)
+(define-key ido-buffer-completion-map (kbd "C-l") 'try-next-function)
+;; (define-key ido-mode-map  "\C-l" 'try-next-function)
+(define-key minibuffer-local-completion-map  "\C-l" 'try-next-function)
+(define-key  ivy-minibuffer-map "\C-l" 'try-next-function)
+(define-key ivy-minibuffer-map (kbd "C-l") 'try-next-function)
+
+)
+(add-hook 'ido-setup-completion-map #'bind-ido-keys)
+(add-hook 'ido-setup-hook #'bind-ido-keys)
+(add-hook 'ido-define-mode-map-hook #'bind-ido-keys)
 ;; (helm-run-after-exit FUNCTION &rest ARGS)
 ;; helm-run-after-exit exits current helm session, and then runs FUNCTION, so this is what you want:
 
@@ -54,10 +95,20 @@ helm-move-to-line-cycle-in-source t
 ;; helm-pattern
 
 (defun cibin/helm-find-files()
-  ;; (set-pattern)
-  ;; (helm-find-files-1)
-  (helm-find-files-1 saved-helm-input)
+  ;; (helm-find-files-1 saved-helm-input)
+  ;; (helm-find-files-1 ido-text)
+  (helm-find-files-1 ivy--old-text)
+  )
+
+(defun cibin/helm-do-ag-Extension-here-cwd-with-saved-input()
+  (cibin/helm-do-ag-Extension-here-cwd saved-helm-input)
 )
+
+;; (defun cibin/find-related-files-helm-saved-input()
+(defun cibin/helm-do-ag-Extension-recurse-cwd-with-saved-input()
+(cibin/helm-do-ag-Extension-here-cwd saved-helm-input)
+  )
+
 (defun cibin/find-related-files-helm-saved-input()
   ;; (set-pattern)
   ;; (helm-find-files-1)
@@ -65,12 +116,11 @@ helm-move-to-line-cycle-in-source t
   (cibin-find-related-files saved-helm-input)
 )
 
-(setq all-func '(dummy cibin/find-related-files-helm-saved-input cibin/helm-find-files ) )
 (setq saved-helm-input "")
 
 (defun try-next-function()
   (interactive)
-(fset 'this-func (car all-func))
+(message "hii")
 ;; (helm-run-after-exit (this-func))
 ;; (this-func)
 ;; (helm-run-after-exit (car all-func))
@@ -95,8 +145,20 @@ helm-move-to-line-cycle-in-source t
 ;; (defvar my-function (car all-func))
 ;; (funcall my-function)
 (setq all-func (cdr all-func))
-(message (format "trying.. %s %s"  msg (car all-func)))
-(helm-run-after-exit (car all-func))
+(fset 'this-func (car all-func))
+(message (format "trying.. %s %s"  saved-helm-input (car all-func)))
+(if (helm-alive-p)
+    (helm-run-after-exit (car all-func))
+  (progn
+(message "ivy is quit")
+    ;; (ivy-immediate-done)
+;; (keyboard-escape-quit)
+;; (minibuffer-keyboard-quit)
+(message "ivy is quit2")
+; (message this-func)
+(this-func)
+;; (ivy-quit-and-run this-func)
+))
 ;; (helm-run-after-exit (helm-find-files "C:/"))
 
 ;; (helm-run-after-exit (this-func))
@@ -105,7 +167,7 @@ helm-move-to-line-cycle-in-source t
    ;; (lambda (_candidate)
      ;; (apply (car all-func) )))
  ;; (this-func)
-;; (helm-exit-minibuffer)
+(helm-exit-minibuffer)
 (message (format "all: %s" all-func))
 )
 

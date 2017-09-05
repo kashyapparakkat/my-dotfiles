@@ -11,6 +11,8 @@
 
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
+
+(setq ivy-count-format "%d/%d ") 
 (setq ivy-display-style 'fancy)
 ;;advise swiper to recenter on exit . The other tweak I have made is to get swiper to recenter the display when it exits – I found it a little unpredictable where the point was going to be after I finished swiper. This is done with a little bit of advice
 (defun bjm-swiper-recenter (&rest args)
@@ -41,7 +43,13 @@
 
 ; If swiper is used, the following key bindings can be defined to simulate “*” in Vim with a better interface:
   (define-key evil-normal-state-map (kbd "8") 'evil-search-word-forward)
-  (define-key evil-normal-state-map (kbd "9") 'evil-search-word-backward)
+(define-key evil-normal-state-map (kbd "8") 'cibin/fast-search-activate)
+(defun cibin/fast-search-activate()
+(interactive)
+  (evil-search-word-forward)
+  (cibin/fast-search/body)
+  )
+  ;; (define-key evil-normal-state-map (kbd "9") 'evil-search-word-backward)
   (define-key evil-normal-state-map (kbd "*")
     (lambda () (interactive) (swiper (format "\\<%s\\>" (thing-at-point 'symbol)))))
   (define-key evil-normal-state-map (kbd "#")

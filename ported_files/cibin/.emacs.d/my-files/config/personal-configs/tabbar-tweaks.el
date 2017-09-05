@@ -26,13 +26,18 @@
 (set-face-attribute
  'tabbar-default nil
  :background "gray20"
- :foreground "red"
+ ;; :foreground "red"
  :box '(:line-width 1 :color "gray20" :style nil))
 (set-face-attribute
- 'tabbar-unselected nil
+ 'tabbar-unselected nil 
  :background "gray30"
  :foreground "white"
  :box '(:line-width 1 :color "gray30" :style nil))
+(set-face-attribute
+ 'tabbar-modified nil
+ ;; :background "green10"
+ :foreground "red"
+ :box '(:line-width 1 :color "green" :style nil))
 (set-face-attribute
  'tabbar-selected nil
  :background "green"

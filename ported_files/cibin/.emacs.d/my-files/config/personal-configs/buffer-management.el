@@ -172,14 +172,7 @@
 
 ; or only in evil’s normal state:
 										
-;helm-mini is better than helm-buffers-list
 
-;; (define-key evil-normal-state-map (kbd "b") 'helm-buffers-list)
-(global-set-key (kbd "C-x b") 'helm-mini)
-(define-key evil-normal-state-map (kbd "b") 'helm-mini)
-(evil-define-key 'normal dired-mode-map (kbd "b") 'helm-mini)
-
- 
 
 ;; File finding
 ; https://github.com/emacs-helm/helm/blob/master/helm-files.el

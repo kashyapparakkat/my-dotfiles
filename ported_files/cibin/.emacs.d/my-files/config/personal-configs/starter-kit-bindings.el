@@ -194,7 +194,7 @@
 	)  
 
 ;  kill the same line even if at the end of line
-; (global-set-key (kbd "C-k") 'kill-whole-line)
+(global-set-key (kbd "C-S-k") 'kill-whole-line)
 
 ;; TODO create in current major mode
 (global-set-key (kbd "C-x C-n") 'xah-new-empty-buffer) 

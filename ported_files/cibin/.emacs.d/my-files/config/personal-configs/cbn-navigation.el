@@ -204,9 +204,6 @@ https://gist.github.com/X4lldux/5649195
 
 (global-set-key (kbd "M-N") 'move-line-to-bottom)
 
-;;TODO see if this works
-;;ensure that M-v always undoes C-v, so you can go back exactly.
-(setq scroll-preserve-screen-position 'always)
 
 (define-key evil-normal-state-map   (kbd "f") 'avy-goto-char-timer)
 

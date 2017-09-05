@@ -1,3 +1,4 @@
+(message "more-custom-functions")
 ;;; more-custom-functions.el
 ; http://www.cibinmathew.com
 ; github.com/cibinmathew
@@ -114,17 +115,21 @@
 	
 	(setq all-files (get-related-files))
   (setq prompt (format  "Related Files (%s): " (safe-length all-files)))
-	; (message "%s" all-files)
-	(let ((file (ido-completing-read prompt 
-                               (mapcar #'abbreviate-file-name all-files)
-                               ; all-files
-                               nil t arg)))
+                                        ; (message "%s" all-files)
+  ;; this ido-completing-read also  works
+	;; (let ((file ;; (ido-completing-read prompt ;; (mapcar #'abbreviate-file-name all-files)
+                               ; all-files ;; nil t arg) ;; (when file (find-file-noselect file))))
+(ivy-read prompt (mapcar #'abbreviate-file-name all-files)
+          :initial-input arg
+          :keymap ivy-minibuffer-map
+         :action (lambda (file)
+                    ;; (with-ivy-window
+                    (message (format "file %s " file))
+                        (when file (find-file file)))
+          ;; )
+          )
+)
 
-
-    (when file
-      (find-file-noselect file))))
-
-	  
 (defun cibin-search-in-text-files-related-bash()
 	(interactive)
 	

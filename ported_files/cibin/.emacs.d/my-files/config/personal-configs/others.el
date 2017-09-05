@@ -130,11 +130,6 @@
 (setq visible-bell 1)
 
 (add-to-list 'load-path "C:/cygwin64/bin")
-;; we use yascroll for the scrollbar instead
-; (require 'yascroll)
-(scroll-bar-mode 1)
-; (global-yascroll-bar-mode 1)
-; (setq yascroll:delay-to-hide nil)
 
 
 ; Emulate Evil's * command with Swiper.
@@ -350,7 +345,6 @@
 ; (flyspell-mode t)))
 ; (setq markdown-command "pandoc --smart -f markdown -t html")
 ; (setq markdown-css-paths `(,(expand-file-name "markdown.css" abedra/vendor-dir)))
-
 
 
 

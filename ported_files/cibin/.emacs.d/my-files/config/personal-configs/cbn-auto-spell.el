@@ -3,8 +3,11 @@
 
 ;; TODO hk:: autocorrect previous word(if flyspell mode is not on, turn it on)
 
-(add-hook 'text-mode-hook 'flyspell-mode)
-(add-hook 'prog-mode-hook 'flyspell-prog-mode)
+;; TODO disabled for now to 
+(global-flycheck-mode -1)
+(flyspell-mode -1)
+;; (add-hook 'text-mode-hook 'flyspell-mode)
+;; (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 
 
  ;;; https://www.emacswiki.org/emacs/AspellWindows
