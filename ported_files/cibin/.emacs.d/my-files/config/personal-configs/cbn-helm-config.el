@@ -1,24 +1,86 @@
+
 (message "loading cbn-helm-config")
 ;load master first
 ;; (require 'helm-ag)
+
+(setq all-func-reversed (list))
+(setq all-func (list))
+(setq this-func-string nil)
+(setq this-func nil)
+
 (with-eval-after-load  'helm-ag
   (require 'helm-do-ag-fork-modified)
-  )
+)
 ;helm-mini is better than helm-buffers-list
  ;; (define-key evil-normal-state-map (kbd "b") 'helm-buffers-list)
 (global-set-key (kbd "C-x b") 'cibin/helm-mini)
 (define-key evil-normal-state-map (kbd "b") 'cibin/helm-mini)
 (evil-define-key 'normal dired-mode-map (kbd "b") 'cibin/helm-mini)
 
+;(helm-locate "def")
+
 (defun cibin/helm-mini()
-(interactive)
-(setq all-func '(dummy cibin/find-related-files-helm-saved-input cibin/helm-find-files ) )
+  (interactive)
+ (bind-all-helm-ivy-keys)
+
+(setq all-func '(dummy cibin/find-related-files-helm-saved-input cibin/counsel-find cibin/counsel-locate cibin/helm-find-files ))
+(setq all-func-reversed '(cibin/helm-mini))
 (helm-mini))
 
 (defun cibin/helm-do-ag-Extension-here-cwd-switchable()
   (interactive)
-  (setq all-func '(dummy cibin/helm-do-ag-Extension-recurse-cwd-with-saved-input ) )
 (cibin/helm-do-ag-Extension-recurse-cwd nil)
+)
+
+(defun cibin/counsel-find()
+(interactive)
+ (counsel-find saved-helm-input)
+  )
+
+
+(defun cibin/counsel-locate()
+(interactive)
+ (counsel-locate saved-helm-input)
+  )
+
+
+(defun cibin/swiper-all()
+ (interactive)
+ (swiper-all saved-helm-input)
+)
+
+(setq all-func nil )
+
+(defun cibin/swiper()
+(interactive)
+
+(bind-all-helm-ivy-keys)
+(setq all-func '(dummy cibin/swiper-all cibin/helm-do-ag-Extension-here-cwd-with-saved-input cibin/helm-do-ag-Extension-recurse-cwd-with-saved-input cibin/swiper cibin/swiper-all cibin/helm-do-ag-Extension-here-cwd-with-saved-input cibin/helm-do-ag-Extension-recurse-cwd-with-saved-input))
+(setq all-func-reversed '(cibin/swiper))
+(swiper saved-helm-input)
+)
+(defun bind-all-helm-ivy-keys()
+(define-key swiper-map (kbd "C-l") 'try-next-function)
+(define-key swiper-all-map (kbd "C-l") 'try-next-function)
+(define-key helm-do-ag-map (kbd "C-l") 'try-next-function)
+
+(define-key swiper-map (kbd "C-o") 'try-prev-function)
+(define-key swiper-all-map (kbd "C-o") 'try-prev-function)
+(define-key helm-do-ag-map (kbd "C-o") 'try-prev-function)
+
+;; (define-key ido-common-completion-map (kbd "C-l") 'try-next-function)
+;; (define-key ido-completion-map (kbd "C-l") 'try-next-function)
+;; (define-key ido-file-completion-map (kbd "C-l") 'try-next-function)
+;; (define-key ido-buffer-completion-map (kbd "C-l") 'try-next-function)
+;; (define-key ido-mode-map  "\C-l" 'try-next-function)
+
+;; (define-key minibuffer-local-completion-map  "\C-l" 'try-next-function)
+(define-key  ivy-minibuffer-map "\C-l" 'try-next-function)
+(define-key ivy-minibuffer-map (kbd "C-l") 'try-next-function)
+
+(define-key  ivy-minibuffer-map "\C-o" 'try-prev-function)
+(define-key ivy-minibuffer-map (kbd "C-o") 'try-prev-function)
+
 )
 
 (with-eval-after-load 'helm
@@ -54,14 +116,6 @@ helm-move-to-line-cycle-in-source nil
 )
 (defun bind-ido-keys()
 
-(define-key ido-common-completion-map (kbd "C-l") 'try-next-function)
-(define-key ido-completion-map (kbd "C-l") 'try-next-function)
-(define-key ido-file-completion-map (kbd "C-l") 'try-next-function)
-(define-key ido-buffer-completion-map (kbd "C-l") 'try-next-function)
-;; (define-key ido-mode-map  "\C-l" 'try-next-function)
-(define-key minibuffer-local-completion-map  "\C-l" 'try-next-function)
-(define-key  ivy-minibuffer-map "\C-l" 'try-next-function)
-(define-key ivy-minibuffer-map (kbd "C-l") 'try-next-function)
 
 )
 (add-hook 'ido-setup-completion-map #'bind-ido-keys)
@@ -104,101 +158,75 @@ helm-move-to-line-cycle-in-source nil
   (cibin/helm-do-ag-Extension-here-cwd saved-helm-input)
 )
 
-;; (defun cibin/find-related-files-helm-saved-input()
 (defun cibin/helm-do-ag-Extension-recurse-cwd-with-saved-input()
-(cibin/helm-do-ag-Extension-here-cwd saved-helm-input)
-  )
+ (cibin/helm-do-ag-Extension-recurse-cwd saved-helm-input)
+)
 
 (defun cibin/find-related-files-helm-saved-input()
-  ;; (set-pattern)
-  ;; (helm-find-files-1)
-  ;; (helm-find-files-1 saved-helm-input)
-  (cibin-find-related-files saved-helm-input)
+ (cibin-find-related-files saved-helm-input)
 )
 
 (setq saved-helm-input "")
 
 (defun try-next-function()
-  (interactive)
-(message "hii")
-;; (helm-run-after-exit (this-func))
-;; (this-func)
-;; (helm-run-after-exit (car all-func))
-
-;; (helm-find-files)
-;; (helm-run-after-exit (car all-func))
-;; (exit-minibuffer)
-;; (funcall (intern "my-func-name"))
-;; (setq msg helm-pattern)
-;; (setq msg helm-input)
-
-;; (setq saved-helm-input helm-pattern)
-(setq saved-helm-input helm-input)
-;; (setq msg3 helm-input-local)
-;; (message "%s" helm-pattern)
-;; (message "%s" helm-input)
-;; (message "%s" helm-input)
-;; (message "%s" msg)
-;; (message "%s" msg2)
-;; (message "%s" msg3)
-;; (helm-kill-async-processes)
-;; (defvar my-function (car all-func))
-;; (funcall my-function)
+(interactive)
 (setq all-func (cdr all-func))
-(fset 'this-func (car all-func))
+(add-to-list 'all-func-reversed (car all-func))
+(message (format "%s" all-func-reversed))
 (message (format "trying.. %s %s"  saved-helm-input (car all-func)))
+(setq this-func-string (car all-func))
+(message (format "try.. %s %s"  saved-helm-input this-func-string))
+(fset 'this-func (car all-func))
+;; (run-function 'this-func 'this-func-string)
+(run-function)
+)
+
+(defun try-prev-function()
+  (interactive)
+(setq all-func-reversed (cdr all-func-reversed))
+(add-to-list 'all-func (car all-func-reversed))
+(setq this-func-string (car all-func-reversed))
+(fset 'this-func (car all-func-reversed))
+;; (run-function this-func this-func-string)
+(run-function)
+)
+
+;; (defun run-function(this-func this-func-string)
+(defun run-function()
+  ;; (setq saved-helm-input helm-input)
+  (message "inside")
+(message (format "trying inside.. %s %s"  saved-helm-input this-func-string))
 (if (helm-alive-p)
-    (helm-run-after-exit (car all-func))
-  (progn
+    (progn (setq saved-helm-input helm-input)
+(message "helm exit")
+       (helm-run-after-exit this-func-string)
+)
+
+(progn
+(setq saved-helm-input ivy--old-text)
 (message "ivy is quit")
-    ;; (ivy-immediate-done)
-;; (keyboard-escape-quit)
-;; (minibuffer-keyboard-quit)
-(message "ivy is quit2")
-; (message this-func)
-(this-func)
-;; (ivy-quit-and-run this-func)
-))
-;; (helm-run-after-exit (helm-find-files "C:/"))
-
-;; (helm-run-after-exit (this-func))
-;; (helm-run-after-exit (intern (format "%s" (car all-func))))
-;; (helm-exit-and-execute-action
-   ;; (lambda (_candidate)
-     ;; (apply (car all-func) )))
- ;; (this-func)
-(helm-exit-minibuffer)
-(message (format "all: %s" all-func))
+(ivy-quit-and-run (this-func))
+)
 )
 
-(defun set-pattern()
-  ;; (setq mssg helm-input)
-  (helm-set-pattern saved-helm-input 'update)
 )
 
 
 
+;; https://oremacs.com/2015/07/16/callback-quit/
+;; Suppose that I've called find-file when ivy-mode is active. Typically, I'd select a file and press C-m to open it. However, sometimes I just want to see the selected file in dired instead of opening it. This code is from before ivy multi-action interface, it plainly binds a command in ivy-minibuffer-map:
 
+;; Sometimes, when you are in callback-function, you might want to abandon the function that called you, useful-command in this case, and call a different function, with the current context.
+;; Here's what I've come up with to do just that:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+(defmacro ivy-quit-and-run (&rest body)
+  "Quit the minibuffer and run BODY afterwards."
+  `(progn
+     (put 'quit 'error-message "")
+     (run-at-time nil nil
+                  (lambda ()
+                    (put 'quit 'error-message "Quit")
+                    ,@body))
+     (minibuffer-keyboard-quit)))
 
 (provide 'cbn-helm-config)

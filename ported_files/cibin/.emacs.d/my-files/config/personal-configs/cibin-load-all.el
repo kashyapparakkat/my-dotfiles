@@ -68,6 +68,7 @@
 (require 'major-mode-settings)
 (require 'advanced-search)
 (require 'cbn-mode-line)
+(require 'hydra-quick-edit)
 (require 'cbn-mode-line2)
 ;; (require 'cbn-performance)
 
@@ -85,7 +86,7 @@
   (message "loading all")
 (require 'buffer-management)
 (require 'starter-kit-bindings)
-  
+(require 'overridden-functions)  
  )
 
 (cibin-load-all-custom-bindings)

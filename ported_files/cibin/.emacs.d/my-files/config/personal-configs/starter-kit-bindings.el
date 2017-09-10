@@ -345,8 +345,9 @@
 
 (define-key evil-normal-state-map (kbd "C-n") 'evil-next-visual-line)
 (define-key evil-normal-state-map (kbd "C-p") 'evil-previous-visual-line)
-(define-key evil-normal-state-map "a" 'helm-M-x)
-(define-key evil-normal-state-map "a" 'cibin-apply-default-major-mode)
+;; (define-key evil-normal-state-map "a" 'helm-M-x)
+(define-key evil-normal-state-map "a" nil)
+(define-key evil-normal-state-map (kbd "aa") 'cibin-apply-default-major-mode)
 (define-key evil-normal-state-map "gl" 'end-of-buffer) ;evil-goto-line) ; goto last line
 ; goto last line in insert mode
 (define-key evil-normal-state-map "gk" (lambda (arg)

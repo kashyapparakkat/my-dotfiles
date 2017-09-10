@@ -67,7 +67,6 @@
 (setq scroll-preserve-screen-position 'always)
 ;; we use yascroll for the scrollbar instead
 ; (require 'yascroll)
-(scroll-bar-mode 1)
 ; (global-yascroll-bar-mode 1)
 ; (setq yascroll:delay-to-hide nil)
 
@@ -86,7 +85,7 @@
  (setq scroll-conservatively 10000)
 ;; Unfortunately, the text still jumps sometimes, in a really irritating way. I haven’t been able to work out why or how to stop it.
 ;; → here’s a fix: http://zhangda.wordpress.com/2009/05/21/customize-emacs-automatic-scrolling-and-stop-the-cursor-from-jumping-around-as-i-move-it/
-   (setq scroll-margin 1
+   (setq scroll-margin 5
       scroll-conservatively 0
       scroll-up-aggressively 0.01
       scroll-down-aggressively 0.01)
@@ -202,7 +201,7 @@
 (savehist-mode 1)
 
 ; (setq backup-by-copying t) ; stop emacs's backup changing the file's creation date of the original file?
-(defvar --backup-directory (concat user-emacs-directory "emacs-backup"))
+(defvar --backup-directory (concat user-emacs-directory "my-emacs-backup"))
 
 (if (not (file-exists-p --backup-directory))
         (make-directory --backup-directory t))

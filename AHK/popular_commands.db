@@ -14,8 +14,8 @@ find . -type f -exec ls -s {} \; | sort -n -r | head -5 # Finding the Top 5 Big 
 
 
 
-xargs take line by line instead of space
-sort files on modified time
+# xargs take line by line instead of space
+# sort files on modified time
 find -type f -print0 | xargs -r0 stat -c %y\ %n | sort
 | xargs -d '\n' ls -t
 |tr '\n' '\0'|xargs -0 ls -t
@@ -64,30 +64,30 @@ git help everyday #Everyday Git in twenty commands or so
 
 git fetch --all && git reset --hard origin/master #Overwrite pull
 
-List of all files till a commit
+# List of all files till a commit
 git ls-tree --name-only -r <commit-ish>
 Git reset first commit
 
 git update-ref -d HEAD
-List all the conflicted files
+# List all the conflicted files
 
 git diff --name-only --diff-filter=U
-List of all files changed in a commit
+# List of all files changed in a commit
 
 git diff-tree --no-commit-id --name-only -r <commit-ish>
-Unstaged changes since last commit
+# Unstaged changes since last commit
 
 git diff
-Changes staged for commit
+# Changes staged for commit
 
 git diff --cached
-Alternatives:
+# Alternatives:
 
 git diff --staged
-Show both staged and unstaged changes
+# Show both staged and unstaged changes
 
 git diff HEAD
-List all branches that are already merged into master
+# List all branches that are already merged into master
 
 git branch --merged master
 Quickly switch to the previous branch

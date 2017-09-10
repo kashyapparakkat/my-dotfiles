@@ -26,7 +26,7 @@
 (set-face-attribute
  'tabbar-default nil
  :background "gray20"
- ;; :foreground "red"
+ :foreground "red"
  :box '(:line-width 1 :color "gray20" :style nil))
 (set-face-attribute
  'tabbar-unselected nil 
@@ -35,16 +35,20 @@
  :box '(:line-width 1 :color "gray30" :style nil))
 (set-face-attribute
  'tabbar-modified nil
- ;; :background "green10"
- :foreground "red"
- :box '(:line-width 1 :color "green" :style nil))
+ :foreground "#ff4444"
+ :background "gray0"
+ :box nil)
+
 (set-face-attribute
  'tabbar-selected nil
  :background "green"
  :foreground "black"
  :box '(:line-width 1 :color "green" :style nil))
+
+;; (set-face-attribute 'tabbar-highlight nil :background "white" :foreground "black" :underline nil
+ ;; :box '(:line-width 1 :color "white" :style nil))
 (set-face-attribute
- 'tabbar-highlight nil
+ 'tabbar-selected nil
  :background "white"
  :foreground "black"
  :underline nil

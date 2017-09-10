@@ -91,7 +91,12 @@
                  :foreground "gray30"
                  :background "gray15" 
                  :box '(:line-width 1 :style released-button))
-	 
+;; comment face	 
+
+
+(set-face-attribute  'font-lock-comment-face nil :foreground "gray55" :background nil )   
+
+
 ; (load-file "~/.emacs.d/my-files/config/others/theme-changer.el")
 ; (require 'theme-changer)
 ; (setq calendar-location-name "Dallas, TX") 
@@ -189,5 +194,10 @@
 ;;should be loaded after loading standard library
 ;;    `menu-bar.el'.  So, in your `~/.emacs' file, do this:
  (eval-after-load "menu-bar" '(require 'menu-bar+))
- 
+
+;; make end of buffer visible
+(setq indicate-buffer-boundaries t)
+
+;; (setq-default indicate-empty-lines t)
+
 (provide 'cbn-appearance)
