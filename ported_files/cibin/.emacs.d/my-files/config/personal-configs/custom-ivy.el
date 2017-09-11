@@ -76,3 +76,5 @@ INITIAL-INPUT can be given as the initial minibuffer input."
             :caller 'counsel-find))
 
 (counsel-set-async-exit-code 'counsel-find 1 "Nothing found")
+
+(provide 'custom-ivy)

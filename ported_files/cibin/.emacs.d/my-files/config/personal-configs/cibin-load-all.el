@@ -74,6 +74,7 @@
 
 (require 'cbn-xah-fly-keys-functions)
 (require 'added-april)
+(require 'custom-ivy)
 ; (load-file "~/.emacs.d/my-files/config/personal-configs/cbn-xah-fly-keys.el")
 (require 'cbn-hydra)
 (require 'cbn-helm-config)
