@@ -1,4 +1,0 @@
-(defun write-file-copy ()
-  (interactive)
-  (write-region (point-min) (point-max) "~/.emacs.d/my-files/emacs-temporary/a.txt"))
-

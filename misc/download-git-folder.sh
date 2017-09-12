@@ -1,0 +1,9 @@
+read -p "Are you sure to overwrite? " -n 1 -r
+echo    # (optional) move to a new line
+if [[  $REPLY =~ ^[Yy]$ ]]
+then
+	echo "yes"
+    # [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1 # handle exits from shell or function but don't exit interactive shell
+	cd ~/.emacs.d/my-files/config-backup
+	svn checkout https://github.com/cibinmathew/cbn_gits/trunk/ported_files/cibin/.emacs.d/my-files/config/personal-configs
+fi
