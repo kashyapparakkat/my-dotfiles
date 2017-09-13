@@ -21,7 +21,8 @@
 
 (defun cibin/helm-mini()
   (interactive)
- (bind-all-helm-ivy-keys)
+  ;; TODO make this onetime instead of runnig in every calls
+  (bind-all-helm-ivy-keys)
 
 (setq all-func '(dummy cibin/find-related-files-helm-saved-input cibin/counsel-find cibin/counsel-locate cibin/helm-find-files ))
 (setq all-func-reversed '(cibin/helm-mini))
@@ -60,13 +61,18 @@
 (swiper saved-helm-input)
 )
 (defun bind-all-helm-ivy-keys()
-(define-key swiper-map (kbd "C-l") 'try-next-function)
-(define-key swiper-all-map (kbd "C-l") 'try-next-function)
-(define-key helm-do-ag-map (kbd "C-l") 'try-next-function)
-
+  (with-eval-after-load 'swiper
 (define-key swiper-map (kbd "C-o") 'try-prev-function)
+  (define-key swiper-map (kbd "C-l") 'try-next-function))
+
+  (with-eval-after-load 'swiper-all
 (define-key swiper-all-map (kbd "C-o") 'try-prev-function)
+(define-key swiper-all-map (kbd "C-l") 'try-next-function))
+
+(with-eval-after-load 'helm-do-ag
 (define-key helm-do-ag-map (kbd "C-o") 'try-prev-function)
+(define-key helm-do-ag-map (kbd "C-l") 'try-next-function))
+
 
 ;; (define-key ido-common-completion-map (kbd "C-l") 'try-next-function)
 ;; (define-key ido-completion-map (kbd "C-l") 'try-next-function)
@@ -118,9 +124,9 @@ helm-move-to-line-cycle-in-source nil
 
 
 )
-(add-hook 'ido-setup-completion-map #'bind-ido-keys)
-(add-hook 'ido-setup-hook #'bind-ido-keys)
-(add-hook 'ido-define-mode-map-hook #'bind-ido-keys)
+;; (add-hook 'ido-setup-completion-map #'bind-ido-keys)
+;; (add-hook 'ido-setup-hook #'bind-ido-keys)
+;; (add-hook 'ido-define-mode-map-hook #'bind-ido-keys)
 ;; (helm-run-after-exit FUNCTION &rest ARGS)
 ;; helm-run-after-exit exits current helm session, and then runs FUNCTION, so this is what you want:
 

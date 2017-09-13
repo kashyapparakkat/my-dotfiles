@@ -319,6 +319,8 @@ If the new path's directories does not exist, create them."
 ; (global-set-key (kbd "M-<down>") 'move-region-down)
 
 
+(with-eval-after-load 'company
+  (define-key company-active-map (kbd "C-h") 'delete-backward-char ))
 (global-set-key [?\C-h] 'delete-backward-char)
 ; (global-set-key [?\C-x ?h] 'help-command)    ;; overrides mark-whole-buffer
 
