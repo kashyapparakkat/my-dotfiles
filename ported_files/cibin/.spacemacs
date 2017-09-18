@@ -69,6 +69,7 @@ emacs-lisp
 ;; packages, then consider creating a layer. You can also put the
 ;; configuration in `dotspacemacs/user-config'.
 dotspacemacs-additional-packages '(
+ob-ipython
 	anaconda-mode 
 	flymake-cursor 
 	jedi 
@@ -77,7 +78,8 @@ dotspacemacs-additional-packages '(
 	visual-regexp
 	company-flx
 	flycheck
-	peep-dired
+peep-dired
+indent-tools
 	dired-narrow
 	dired-subtree
 	git-gutter+
@@ -96,7 +98,10 @@ cycle-quotes
 	mic-paren
 	scratch
 	company-jedi
-	ag
+ag
+flex-isearch
+flx-isearch
+git-timemachine
 	yascroll
 	swiper
 	helm-flyspell
@@ -112,7 +117,7 @@ cycle-quotes
 	visible-mark 
 	corral 
 	ivy-hydra 
-
+vlf
 	restclient 
 	solarized-theme
 	counsel
@@ -452,7 +457,8 @@ dotspacemacs-whitespace-cleanup nil
  '(line-spacing 0.2)
  '(package-selected-packages
    (quote
-    (cycle-quotes scratch test-simple loc-changes load-relative mic-paren highlight-thing know-your-http-well winum vdiff helm-gtags discover ggtags keyfreq vkill company-restclient ob-http quick-preview visible-mark corral ivy-hydra ob-restclient restclient free-keys js2-mode visual-regexp-steroids visual-regexp auctex auto-dim-other-buffers selected region-bindings-mode comment-dwim-2 flyspell-popup realgud helm-flyspell isend-mode menu-bar+ color-theme-solarized web-mode ag ess-R-data-view ess jedi-core python-environment ctable concurrent deferred pythonic anaconda-mode flymake-cursor jedi epc company-flx uuidgen toc-org request org-plus-contrib org-bullets magit-popup link-hint hide-comnt eyebrowse evil-visual-mark-mode evil-ediff goto-chg undo-tree dumb-jump f dired-hacks-utils diminish column-enforce-mode seq company-jedi magit shell-pop shell-here highlight-indent-guides buffer-flip quickrun ido-sort-mtime drag-stuff eww-lnum fixmee auto-install counsel helm-google ranger multiple-cursors dionysos bookmark+ emms isearch-dabbrev sublimity google-maps rainbow-mode dired-k minimap imenu-anywhere tabbar color-identifiers-mode window-numbering dired-subtree yascroll dired-filter key-chord dired-quick-sort swiper fuzzy elpy pyvenv find-file-in-project ivy dired-narrow peep-dired goto-last-change shrink-whitespace git-gutter+ git-commit with-editor markdown-mode nlinum flycheck dired+ beacon smex menu-bar+ s powerline hydra spinner parent-mode projectile pkg-info epl flx smartparens iedit anzu highlight pos-tip company yasnippet packed dash helm avy helm-core async auto-complete popup package-build bind-key bind-map evil cygwin-mount persp-mode ws-butler which-key volatile-highlights vi-tilde-fringe use-package spacemacs-theme spaceline solarized-theme smooth-scrolling restart-emacs rainbow-delimiters quelpa popwin pcre2el paradox page-break-lines open-junk-file neotree move-text macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu elisp-slime-nav define-word company-statistics company-quickhelp clean-aindent-mode buffer-move bracketed-paste auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+    (indent-tools git-timemachine flx-isearch flex-isearch helm-dired-recent-dirs helm-github-stars helm-chrome helm-cider-history ein ob-ipython change-inner vlf cycle-quotes scratch test-simple loc-changes load-relative mic-paren highlight-thing know-your-http-well winum vdiff helm-gtags discover ggtags keyfreq vkill company-restclient ob-http quick-preview visible-mark corral ivy-hydra ob-restclient restclient free-keys js2-mode visual-regexp-steroids visual-regexp auctex auto-dim-other-buffers selected region-bindings-mode comment-dwim-2 flyspell-popup realgud helm-flyspell isend-mode menu-bar+ color-theme-solarized web-mode ag ess-R-data-view ess jedi-core python-environment ctable concurrent deferred pythonic anaconda-mode flymake-cursor jedi epc company-flx uuidgen toc-org request org-plus-contrib org-bullets magit-popup link-hint hide-comnt eyebrowse evil-visual-mark-mode evil-ediff goto-chg undo-tree dumb-jump f dired-hacks-utils diminish column-enforce-mode seq company-jedi magit shell-pop shell-here highlight-indent-guides buffer-flip quickrun ido-sort-mtime drag-stuff eww-lnum fixmee auto-install counsel helm-google ranger multiple-cursors dionysos bookmark+ emms isearch-dabbrev sublimity google-maps rainbow-mode dired-k minimap imenu-anywhere tabbar color-identifiers-mode window-numbering dired-subtree yascroll dired-filter key-chord dired-quick-sort swiper fuzzy elpy pyvenv find-file-in-project ivy dired-narrow peep-dired goto-last-change shrink-whitespace git-gutter+ git-commit with-editor markdown-mode nlinum flycheck dired+ beacon smex menu-bar+ s powerline hydra spinner parent-mode projectile pkg-info epl flx smartparens iedit anzu highlight pos-tip company yasnippet packed dash helm avy helm-core async auto-complete popup package-build bind-key bind-map evil cygwin-mount persp-mode ws-butler which-key volatile-highlights vi-tilde-fringe use-package spacemacs-theme spaceline solarized-theme smooth-scrolling restart-emacs rainbow-delimiters quelpa popwin pcre2el paradox page-break-lines open-junk-file neotree move-text macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu elisp-slime-nav define-word company-statistics company-quickhelp clean-aindent-mode buffer-move bracketed-paste auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+ '(python-shell-interpreter "C:/Users/cibin/Anaconda3/python.exe")
  '(read-file-name-completion-ignore-case t)
  '(realgud:pdb-command-name "python -m pdb")
  '(safe-local-variable-values

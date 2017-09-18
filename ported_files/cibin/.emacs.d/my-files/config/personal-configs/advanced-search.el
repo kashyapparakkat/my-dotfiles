@@ -109,4 +109,38 @@ If called with a prefix, prompts for flags to pass to ag."
 (define-key helm-map  (kbd "C-f")  'helm-next-source)
 (define-key helm-map  (kbd "C-j")  'helm-previous-source)
 )
+
+;; (flex-isearch-mode 1) vs flx-isearch-mode
+;; Flx isearch uses lewang/flx, a library that uses sophistocated heuristics to sort matches. It's awesome. Use it.
+;; This was heavily inspired by emacsmirror/flex-isearch, a cool idea that lacks the intelligent sorting flx provides. 
+ (flx-isearch-mode 1) 
+(define-key evil-normal-state-map "/" 'flx-isearch-forward)
+(define-key isearch-mode-map "\C-s" 'flex-isearch-forward)
+(define-key isearch-mode-map "\C-r" 'isearch-toggle-regexp)
+
+
+
+;; https://stackoverflow.com/questions/285660/automatically-wrapping-i-search
+(defadvice isearch-search (after isearch-no-fail activate)
+  (unless isearch-success
+(message "wrapping search .....")
+    (ad-disable-advice 'isearch-search 'after 'isearch-no-fail)
+    (ad-activate 'isearch-search)
+    (isearch-repeat (if isearch-forward 'forward))
+    (ad-enable-advice 'isearch-search 'after 'isearch-no-fail)
+    (ad-activate 'isearch-search)))
+
+
+;; https://stackoverflow.com/questions/202803/searching-for-marked-selected-text-in-emacs?rq=1
+(defun jrh-isearch-with-region ()
+  "Use region as the isearch text."
+  (when mark-active
+    (let ((region (funcall region-extract-function nil)))
+      (deactivate-mark)
+      (isearch-push-state)
+      (isearch-yank-string region))))
+
+(add-hook 'isearch-mode-hook #'jrh-isearch-with-region)
+
+
 (provide 'advanced-search)

@@ -290,8 +290,6 @@
 ;; (define-key evil-normal-state-map "v" 'er/expand-region)
 (define-key evil-normal-state-map "t" 'er/expand-region)
 
-
-
 (global-set-key (kbd "M-a") 'mark-whole-buffer)
 (global-set-key (kbd "C-\\") 'highlight-symbol-at-point)
 (global-set-key (kbd "M-R") 'toggle-window-split)
@@ -347,6 +345,8 @@
 (define-key evil-normal-state-map (kbd "C-p") 'evil-previous-visual-line)
 ;; (define-key evil-normal-state-map "a" 'helm-M-x)
 (define-key evil-normal-state-map "a" nil)
+(define-key evil-normal-state-map (kbd "aq") 'hydra-quick-edit/body)
+
 (define-key evil-normal-state-map (kbd "aa") 'cibin-apply-default-major-mode)
 (define-key evil-normal-state-map "gl" 'end-of-buffer) ;evil-goto-line) ; goto last line
 ; goto last line in insert mode
@@ -582,6 +582,8 @@ buffer preview will still display."
 (global-set-key (kbd "C-c +") 'evil-numbers/inc-at-pt)
 (global-set-key (kbd "C-c -") 'evil-numbers/dec-at-pt)
 
+(define-key evil-normal-state-map (kbd "C-f") 'evil-forward-char)
+(define-key evil-normal-state-map (kbd "C-u") 'universal-argument)
 
 
 (define-key evil-normal-state-map (kbd "C-c +") 'evil-numbers/inc-at-pt)

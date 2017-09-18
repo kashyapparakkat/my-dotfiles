@@ -4,7 +4,7 @@
 ;; more available at https://github.com/abo-abo/hydra/blob/master/hydra-examples.el
 
 (defhydra cibin/hydra-ibuffer-main (:color pink :hint nil)
-; https://github.com/abo-abo/hydra/wiki/Ibuffer
+                                        ; https://github.com/abo-abo/hydra/wiki/Ibuffer
   "
  ^Navigation^     | ^Mark^          | ^Actions^           | ^View^         | ^misc^
 -^----------^-----+-^----^----------+-^-------^-----------+-^----^---------+--^----^-------
@@ -429,15 +429,32 @@ _r_eset        _j_ clock goto
   ("1" async-shell-command "shell-command"))
 
 
-(defhydra hydra-magit (:color blue :columns 8)
-  "Magit"
-  ("c" magit-status "status")
-  ("C" magit-checkout "checkout")
-  ("v" magit-branch-manager "branch manager")
-  ("m" magit-merge "merge")
-  ("l" magit-log "log")
-  ("!" magit-git-command "command")
-  ("$" magit-process "process"))
+(defhydra my-git-hydra (:hint nil :exit t)
+  "
+git:
+MUTABLE       
+             _l_ → log              _f_ → file            staging:  _a_ → +hunk  _A_ → +buffer
+_C_ → commit   _d_ → [[diff/hydra]]   _z_ → stash                     _r_ → -hunk  _R_ → -buffer
+_P_ → push     _b_ → blame            _m_ → merge
+               _s_ : status
+_t_ : [[time]] _D_ : diff pop
+.
+"
+  ("s" magit-status)
+  ("b" magit-blame-popup)
+  ("f" magit-file-popup)
+  ("z" magit-status-popup)
+  ("l" magit-log-popup)
+  ("d" cibin/diff-hydra/body)
+  ("D" magit-diff-popup)
+  ("C" nil) ; magit-commit-popup)
+  ("m" magit-merge-popup)
+  ("P" nil) ; magit-push-popup)
+  ("a" git-gutter+-stage-hunks)
+  ("r" git-gutter+-revert-hunk)
+  ("A" git-gutter+-stage-whole-buffer)
+  ("t" hydra-git-timemachine/body) 
+  ("R" git-gutter+-unstage-whole-buffer))
 
 (use-package avy
   :config
@@ -767,7 +784,7 @@ _
  project|| directory |    ^All buffers  ^                     ^All^                                             ^bash^
 ^^^^^^^^^^--------                -----------------------------------------------------------------------------------------------------------
  _sa_: swiper-all                 _r_: cibin/helm-do-ag-Extension-recurse-cwd     _u_: cibin-search-in-files-advgrep-here        _q_: quit
- _d_: helm-do-ag-this-file        _h_: cibin/helm-do-ag-Extension-here-cwd-switchable	      _c_: cibin-search-in-common-files-bash
+ _d_: helm-do-ag-this-file        _h_: cibin/helm-do-ag-Ext'n-here-cwd    	      _c_: cibin-search-in-common-files-bash
  _/_: my-multi-occur-in-matc..    _b_: cibin/helm-do-ag-cwd(all ext)              _l_: cibin-search-in-text-files-related-bash
  _o_: occur                       _y_: cibin/ag-files-cwd (ext\? dir\\?)
  _j_: helm-ag                     _w_: ag-files                                   _p_: ag-project-at-point
@@ -931,20 +948,57 @@ a= all; e
 g hjkl
 
 "
-(defhydra cibin/diff-hydra (:color blue 
+(defhydra hydra-git-timemachine (:color red 
+                                        :idle .1
+                                        :pre (git-timemachine-mode 1)
+                                        ;; :post (git-timemachine-mode -1)
+                             )
+"
+TIME-Machine:    PROJECTILE: %(projectile-project-root)
+ 
+_d_ : [[diff]]        
+_q_: vdiff buffers L&R _q_: quit
+_g_ : [[git]]
+_n_ : next
+_p_ : prev
+_b_ : blame
+.
+ "
+ ("n" git-timemachine-show-next-revision)
+ ("p" git-timemachine-show-previous-revision)
+ ("g" my-git-hydra/body)
+ ("t" git-timemachine)
+ ("=" nil)
+ ("b" magit-blame)
+ ("d" cibin/diff-hydra/body :color blue)
+ ("q" nil )
+          )
+
+
+
+(defhydra cibin/diff-hydra (:color blue
                            ;; :idle 0.5
                              )
  "
- _r_  : A-B  _=_ : common lines
-_v_ : vdiff _b_: vdiff buffers L&R _q_: quit
-
+DIFF 
+_r_ : A-B               _=_ : common lines
+_v_ : vdiff             _b_: vdiff buffers L&R        _q_: quit
+_g_ : [[git]]
+_t_ : [[timemachine]]
+_f_ vdiff with file
+_F_ with file
+.
  "
- ("v" nil)
+ ("v" cibin/vdiff-buffers)
+ ("g" my-git-hydra/body)
+ ("t" hydra-git-timemachine/body)
  ("=" nil)
  ("b" nil)
-  ("r" diff-files-lines)
+("r" diff-files-lines)
  ("q" nil)
-           )
+("f" vdiff-current-file)
+("F" diff-buffer-with-file)
+ )
 
 (defhydra nsh/hydra-large-files-vlf (:color pink :hint nil)
   "
@@ -974,7 +1028,9 @@ _v_ : vdiff _b_: vdiff buffers L&R _q_: quit
 _a_: quickrun(C-c q)
 _b_: cibin-misc(C-x l)
 _c_: search (C-c s)
-_d_: replace C-c r
+_d_: diff
+_g_: git
+_r_: replace
 _e_: zoom
 _f_: format (C-x f)
 _g_: search (M-s)
@@ -984,10 +1040,12 @@ _g_: search (M-s)
 ("a" hydra-quickrun/body "C-c q : hydra-quickrun/body   ")
 ("b" hydra-cibin-misc/body "C-x l : hydra-cibin-misc/body ")
 ("c" hydra-search/body "C-c s : hydra-search/body     ")
-("d" hydra-replace/body "C-c r : hydra-replace/body    ") 
+("d" cibin/diff-hydra/body " : cibin/diff-hydra/body    ") 
+("r" hydra-replace/body "C-c r : hydra-replace/body    ") 
 ("e" cibin/hydra-zoom/body "C-x - : cibin/hydra-zoom/body ")
 ("f" cibin/hydra-for-format/body "C-x f : cibin/hydra-for-format/body ")
-("g" cibin/search/body "M-s   : cibin/search/body     ")
+("s" cibin/search/body "M-s   : cibin/search/body     ")
+("g" my-git-hydra/body "   : my-git-hydra/body     ")
 ("q" nil)
 )
 
@@ -1093,25 +1151,7 @@ _8_: next _9_: prev      allNext prev
   ("e" erase-buffer)
   ("E" (let ((inhibit-read-only t)) (erase-buffer))))
 
-(defhydra my-git-hydra (:hint nil :exit t)
-  "
-   magit:  _s_ → status  _l_ → log    _f_ → file      staging:  _a_ → +hunk  _A_ → +buffer
-           _c_ → commit  _d_ → diff   _z_ → stash               _r_ → -hunk  _R_ → -buffer
-           _p_ → push    _b_ → blame  _m_ → merge
-"
-  ("s" magit-status)
-  ("b" magit-blame-popup)
-  ("f" magit-file-popup)
-  ("z" magit-status-popup)
-  ("l" magit-log-popup)
-  ("d" magit-diff-popup)
-  ("c" magit-commit-popup)
-  ("m" magit-merge-popup)
-  ("p" magit-push-popup)
-  ("a" git-gutter+-stage-hunks)
-  ("r" git-gutter+-revert-hunk)
-  ("A" git-gutter+-stage-whole-buffer)
-  ("R" git-gutter+-unstage-whole-buffer))
+
 
 
 

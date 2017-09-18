@@ -17,6 +17,5 @@ QUICK EDIT:  _d_: kill        _n_: drag down     _e_: pull up
 ("q" nil)
 )
 
-(define-key evil-normal-state-map (kbd "a") nil)
-(define-key evil-normal-state-map (kbd "aq") 'hydra-quick-edit/body)
 (provide 'hydra-quick-edit)
+

@@ -1,6 +1,7 @@
 ;; http://oremacs.com/swiper/#example---counsel-locate
 ;; https://github.com/abo-abo/swiper/issues/385
 
+(require 'counsel)
 (defun counsel-locate-function (str)
   (if (< (length str) 3)
       (counsel-more-chars 3)
@@ -74,7 +75,7 @@ INITIAL-INPUT can be given as the initial minibuffer input."
                           (find-file file))))
             :unwind #'counsel-delete-process
             :caller 'counsel-find))
-
+(with-eval-after-load 'counsel
 (counsel-set-async-exit-code 'counsel-find 1 "Nothing found")
-
+)
 (provide 'custom-ivy)

@@ -46,7 +46,8 @@
 
 
 (defun cibin/swiper-all()
- (interactive)
+  (interactive)
+  (require 'swiper)
  (swiper-all saved-helm-input)
 )
 
@@ -55,6 +56,7 @@
 (defun cibin/swiper()
 (interactive)
 
+  (require 'swiper)
 (bind-all-helm-ivy-keys)
 (setq all-func '(dummy cibin/swiper-all cibin/helm-do-ag-Extension-here-cwd-with-saved-input cibin/helm-do-ag-Extension-recurse-cwd-with-saved-input cibin/swiper cibin/swiper-all cibin/helm-do-ag-Extension-here-cwd-with-saved-input cibin/helm-do-ag-Extension-recurse-cwd-with-saved-input))
 (setq all-func-reversed '(cibin/swiper))
@@ -161,11 +163,14 @@ helm-move-to-line-cycle-in-source nil
   )
 
 (defun cibin/helm-do-ag-Extension-here-cwd-with-saved-input()
+(require 'helm-do-ag)
   (cibin/helm-do-ag-Extension-here-cwd saved-helm-input)
 )
 
 (defun cibin/helm-do-ag-Extension-recurse-cwd-with-saved-input()
- (cibin/helm-do-ag-Extension-recurse-cwd saved-helm-input)
+(require 'helm-do-ag)
+
+  (cibin/helm-do-ag-Extension-recurse-cwd saved-helm-input)
 )
 
 (defun cibin/find-related-files-helm-saved-input()
