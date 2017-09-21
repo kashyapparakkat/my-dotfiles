@@ -91,10 +91,18 @@
                  :foreground "gray30"
                  :background "gray15" 
                  :box '(:line-width 1 :style released-button))
+(defun after-load-theme() 
+  "run after a color theme is loaded using `load-theme'."
 ;; comment face	 
+(set-face-attribute  'font-lock-comment-face nil :foreground "gray55" :background nil )
+(set-face-attribute  'font-lock-comment-delimiter-face nil :foreground "green4")
+(load-file "~/.emacs.d/my-files/config/personal-configs/tabbar-tweaks.el")
+)
 
-
-(set-face-attribute  'font-lock-comment-face nil :foreground "gray55" :background nil )   
+;; to override some theme settings
+(defadvice load-theme (after after-load-theme activate)
+  "Run `after-load-theme'."
+  (after-load-theme))
 
 
 ; (load-file "~/.emacs.d/my-files/config/others/theme-changer.el")

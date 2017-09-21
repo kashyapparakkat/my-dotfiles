@@ -39,24 +39,23 @@ INITIAL-INPUT can be given as the initial minibuffer input."
 
 (global-set-key (kbd "C-x R") 'counsel-locate)
 
-
-
-
 (defun counsel-find-function (str)
   (if (< (length str) 3)
       (counsel-more-chars 3)
     (let ((cmd
             (format
               ;; "lfind %s ! -readable -maxdepth 1 -prune -o -iname \"%s*\" -print"
-             ;; "c:/cygwin64/home/cibin/delete.sh %s" str
-             "cat \"c:/Users/cibin/Downloads/all_files.db\"|fzy -e%s|head -n 50|sed -e \"s/\\/cygdrive\\/\\(.\\)\\//\\1:\\//\"" str
                                         ; NOTE: some versions of `find' may require parentheses,
               ; like this: \( ! -readable -prune \)
               ;; default-directory
               ;; (counsel-unquote-regex-parens
                ;; (ivy--regex str))
+
+             ;; "c:/cygwin64/home/cibin/delete.sh %s" str
+             "bash -ic 'searchnotes . |fzy -e%s|head -n 50' 2>/dev/null" str
+             ;; "cat \"c:/Users/cibin/Downloads/all_files.db\"|fzy -e%s|head -n 50|sed -e \"s/\\/cygdrive\\/\\(.\\)\\//\\1:\\//\"" str
               )))
-      (message "%s" cmd)
+      (message "cmd: %s" cmd)
       (counsel--async-command cmd))
     '("" "working...")))
 
@@ -75,6 +74,7 @@ INITIAL-INPUT can be given as the initial minibuffer input."
                           (find-file file))))
             :unwind #'counsel-delete-process
             :caller 'counsel-find))
+
 (with-eval-after-load 'counsel
 (counsel-set-async-exit-code 'counsel-find 1 "Nothing found")
 )

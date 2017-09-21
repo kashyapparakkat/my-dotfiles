@@ -679,14 +679,14 @@ _r_: Remove whitespace TODO
 
  
   "
-convert/toggle file
+convert/format file
  ^^^-blanks ---------------  ------whitespace----------------- ------dupes----------------------------   ---actions
  _r_: collapse-blank-lines   _t_: delete-trailing-whitespace    _d_: delete-duplicate-lines(incl blank   _a_: select All 
  _F_: flush-blank-lines      _l_: my-delete-leading-whitespace  _h_: hlt-highlight-line-dups-region      _wa_: toggle whitespace indicators   _e_: other window
- _b_: delete-blank-lines     _k_: keep-lines     _k_: leading, blanks,                                   _t_: truncate toggle                 _v_: diff
+ _b_: delete-blank-lines     _k_: keep-lines     _k_: leading, blanks,                                   _t_: truncate toggle                 _v_: [[diff]]
                            _xx_: flush-lines                                                         _t_: stats                          _xa_: diff-files-lines
  _i_: indent                _ww_: collapse multiple spaces                                             _n_: quikrun hydra to & back  _q_: quit
- _f_: json format
+ _f_: [[json format]]
 _z_: eol unix/win
 -----------
 "
@@ -1084,8 +1084,11 @@ _8_: next _9_: prev      allNext prev
     (end-of-line)
     (set-mark (point))
     (beginning-of-line))
-  (defhydra hydra-mark (:color blue :idle 1.5 :columns 4)
-    "Mark"
+
+(defhydra hydra-mark (:color blue :idle 1.0 :columns 4
+:body-pre (er/expand-region 1)
+                               )
+    "Mark                       search"
     ("d" er/mark-defun "Defun / Function")
     ("f" er/mark-defun "Defun / Function")
     ("w" er/mark-word "Word")
@@ -1107,12 +1110,15 @@ _8_: next _9_: prev      allNext prev
     (")" er/mark-outside-pairs "Outside Pairs")
     ("]" er/mark-outside-pairs "Outside Pairs")
     ("}" er/mark-outside-pairs "Outside Pairs")
-    ("t" er/mark-inner-tag "Inner Tag")
+    ;; ("t" er/expand-region "expand")
+    ("t" hydra-mark/body "expand")
+    ;; ("t" er/mark-inner-tag "Inner Tag")
     ("T" er/mark-outer-tag "Outer Tag")
     ("c" er/mark-comment "Comment")
     ("a" er/mark-html-attribute "HTML Attribute")
     ("i" change-inner "Inner")
     ("o" change-outer "Outer")
+    ("m" nil "**MORE on sel TEXT**")
     ("." er/expand-region "Expand Region" :exit nil)
     ("," er/contract-region "Contract Region" :exit nil))
   ; (bind-key "SPC" #'hydra-mark/body ejmr-custom-bindings-map)
@@ -1120,6 +1126,8 @@ _8_: next _9_: prev      allNext prev
 
 
 
+(define-key evil-normal-state-map  "t" 'hydra-mark/body)
+(define-key evil-visual-state-map   (kbd "t") 'hydra-mark/body)
 
 
 
@@ -1129,9 +1137,6 @@ _8_: next _9_: prev      allNext prev
 
 
 
-
-
- 
  ;; https://github.com/bling/dotemacs/blob/72e932093a274510bcd4da9063e861d85c89fc74/config/init-hydras.el 
  ;;awesome hydras
 

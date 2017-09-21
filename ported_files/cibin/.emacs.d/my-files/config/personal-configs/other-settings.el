@@ -913,7 +913,8 @@ file to write to."
 (keyfreq-mode 1)
 (keyfreq-autosave-mode 1)
 
-
+;; auto select buffer on mouse focus
+(setq mouse-autoselect-window t)
 
 ;; TODO disabling for now 
 (global-eldoc-mode -1)

@@ -37,7 +37,7 @@
 (with-eval-after-load 'company
 
   (company-flx-mode +1)
-  (setq company-flx-limit 50)
+ (setq company-flx-limit 50)
  (setq company-idle-delay 0.1)
  (setq company-minimum-prefix-length 1)
 

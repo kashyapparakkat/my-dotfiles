@@ -583,6 +583,7 @@ buffer preview will still display."
 (global-set-key (kbd "C-c -") 'evil-numbers/dec-at-pt)
 
 (define-key evil-normal-state-map (kbd "C-f") 'evil-forward-char)
+(define-key evil-normal-state-map (kbd "C-b") 'evil-backward-char)
 (define-key evil-normal-state-map (kbd "C-u") 'universal-argument)
 
 
