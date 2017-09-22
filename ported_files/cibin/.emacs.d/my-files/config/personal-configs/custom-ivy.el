@@ -53,7 +53,7 @@ INITIAL-INPUT can be given as the initial minibuffer input."
 
              ;; "c:/cygwin64/home/cibin/delete.sh %s" str
              "bash -ic 'searchnotes . |fzy -e%s|head -n 50' 2>/dev/null" str
-             ;; "cat \"c:/Users/cibin/Downloads/all_files.db\"|fzy -e%s|head -n 50|sed -e \"s/\\/cygdrive\\/\\(.\\)\\//\\1:\\//\"" str
+             ;; "cat \"c:/Users/cibin/Downloads/all_files.db\"|/usr/local/bin/fzy -e%s|head -n 50|sed -e \"s/\\/cygdrive\\/\\(.\\)\\//\\1:\\//\"" str
               )))
       (message "cmd: %s" cmd)
       (counsel--async-command cmd))

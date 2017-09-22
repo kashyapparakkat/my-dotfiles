@@ -28,7 +28,7 @@ alias saf='searchall .|fzy -l 25'
 alias sf='searchfiles|open_in_app'
 
 
-
+alias scf='searchcommands|clip'
 alias sn='searchnotes'
 alias snf='searchnotes .|fzy -l 25' # sn fuzzy
 
@@ -43,6 +43,7 @@ alias sth='searchhere'
 alias searchhere='searchtext -n'
 # alias stf='searchtext .'
 
+alias vi='vim'
 
 alias ex='exit'
 

@@ -1,616 +1,3 @@
-recent_files 
-#1501095755
-cat /tmp/filelist.txt 
-#1501095783
-cat /cygdrive/C/cygwin64/home/cibin/my.bashrc 
-#1501095787
-cat /tmp/filelist.txt 
-#1501095789
-recent_files 
-#1501095793
-sr
-#1501095835
-sr inlcud
-#1501095859
-sr incl
-#1501095953
-sr includ
-#1501095983
-sr inc
-#1501096134
-sr incl
-#1501096162
-sr inc
-#1501096392
-sr incl
-#1501096399
-sr impo
-#1501096401
-sr
-#1501096412
-recent_files>/tmp/filelist.txt
-#1501096415
-tr -d '\r' </tmp/filelist.txt >/tmp/filelist.txt
-#1501096422
-cat /tmp/filelist.txt 
-#1501096453
-sr incl
-#1501096493
-cat /cygdrive/C/home/cibin/my.vimrc
-#1501096537
-re|grep lib
-#1501096541
-re
-#1501096557
-sr pcfind
-#1501096579
-sr pcf
-#1501096590
-srf
-#1501096605
-sr pcf
-#1501096632
-cat /cygdrive/C/cygdrive/c/cbn_gits/utils/installer.sh
-#1501096693
-sr pcf
-#1501096766
-echo "/c/cbn/a.txt"|sed -e "s/\\/\\(.\\):\?\\//cygdrive\\/\\1/"  -- "$@"|sed 's/\\/\//g'
-#1501096781
-echo "/c/cbn/a.txt"|sed -e "s/\\/\\(.\\):\?\\//\\/cygdrive\\/\\1/"  -- "$@"|sed 's/\\/\//g'
-#1501096863
-sr pcf
-#1501096897
-echo "/c/acc"|sed -e "s/\\/\\(.\\):\?\\//cygdrive\\/\\1/\\/"  -- "$@"|sed 's/\\/\//g'
-#1501096938
-echo "/c/acc"|sed -e "s/\\/\\(.\\):\?\\//\\/cygdrive\\/\\1/\\/"  -- "$@"|sed 's/\\/\//g'
-#1501096947
-echo "/c/acc"|sed -e "s/\\/\\(.\\):\?\\//\\/cygdrive\\/\\1/\\//"  -- "$@"|sed 's/\\/\//g'
-#1501096950
-echo "/c/acc"|sed -e "s/\\/\\(.\\):\?\\//\\/cygdrive\\/\\1/\\//"  -- "$@"
-#1501096960
-echo "/c/acc"|sed -e "s/\\/\\(.\\):\?\\//\\/cygdrive/"  -- "$@"
-#1501096978
-echo "/c/acc"|sed -e "s/\\/\\(.\\):\?\\//\\/cygdrive\\/\\1/"  -- "$@"
-#1501096989
-echo "/c/acc"|sed -e "s/\\/\\(.\\):\?\\//\\/cygdrive\\/\\1\\//"  -- "$@"
-#1501097020
-sr pcf
-#1501097103
-sr ilb
-#1501097124
-sr pnt
-#1501097162
-grep "\\w:\\\[^\"]*\" " -E -o /cygdrive/c/Users/"$USERNAME"/AppData/Roaming/Notepad++/session.xml
-#1501097280
-sr pnt
-#1501097316
-sr pcfing
-#1501097319
-sr pcfind
-#1501097362
-red
-#1501097397
-recent_dirs
-#1501097430
-recent_dirs 
-#1501097446
-cat ~/.z|cut -d'|' -f1|convert_to_cygdrive
-#1501097456
-recent_files|sed 's|/[^/]*$||'
-#1501097475
-red
-#1501097500
-ls
-#1501097502
-red
-#1501097529
-recent_dirs|fzf|sed 's/ /\\ /g'
-#1501097548
-cd /cygdrive/C/Users/cibin/AppData/Roaming/Sublime\ Text\ 3
-#1501097561
-cd /cygdrive/C/Users/cibin/AppData/Roaming/Sublime\ Text\ 3/
-#1501097574
-cd
-#1501097580
-cd /cygdrive/C/Users/cibin/AppData/Roaming/Sublime\ Text\ 3/
-#1501097585
-cd /cygdrive/C/Users/cibin/AppData/Roaming/
-#1501097588
-cd Sublime\ Text\ 3/
-#1501097592
-cd Sublime\ Text\ \3/
-#1501097599
-cd Sublime\ Text\ \3
-#1501097615
-cd 'Sublime\ Text\ \3'
-#1501097619
-cd 'Sublime\ Text\ 3'
-#1501097623
-cd 'Sublime Text 3'
-#1501097693
-cd "Sublime Text 3"
-#1501097746
-red
-#1501097786
-red 
-#1501097800
-ll
-#1501097805
-red
-#1501097810
-re
-#1501097838
-cd
-#1501097842
-cd lb
-#1501097845
-z down
-#1501097847
-z
-#1501097851
-z d
-#1501097873
-cd ~/documentation.txt 
-#1501097908
-re
-#1501097921
-cd ~
-#1501097922
-re
-#1501097957
-ll
-#1501097959
-red
-#1501097974
-rm
-#1501097978
-ref
-#1501097980
-r
-#1501098022
-ranger
-#1501098072
-recent_files 
-#1501098083
-red
-#1501098095
-cd EmacsEverywhere-master/
-#1501098098
-red
-#1501098107
-ll
-#1501098113
-red
-#1501098121
-cd EmacsEverywhere-master/
-#1501098127
-ls
-#1501098128
-z
-#1501098130
-zz
-#1501098134
-z ah
-#1501098154
-source ~/my-scripts/z/z.sh
-#1501098157
-z
-#1501098160
-z d
-#1501098167
-z ah
-#1501098170
-z down
-#1501098171
-z
-#1501098176
-cd ..
-#1501098182
-z ah
-#1501098189
-z ema
-#1501098192
-red
-#1501098228
-cat ~/.z|cut -d'|' -f1|convert_to_cygdrive
-#1501098231
-red
-#1501098241
-s
-#1501098246
-ls
-#1501098251
-cat ~/.z|cut -d'|' -f1|convert_to_cygdrive
-#1501098262
-cd_history=$(cat ~/.z|cut -d'|' -f1|convert_to_cygdrive)
-#1501098267
-echo "$cd_history" 
-#1501098280
-recent_dirs 
-#1501098323
-cat ~/.z|cut -d'|' -f1|convert_to_cygdrive
-#1501098328
-cat ~/.z|cut -d'|' -f1
-#1501098334
-cat ~/.z
-#1501098366
-cd_history=$(cat ~/.z|cut -d'|' -f1|convert_to_cygdrive)
-#1501098368
-all_recent_files=$(recent_files|sed 's|/[^/]*$||')
-#1501098368
-# all_dirs=$all_recent_files$cd_history
-#1501098368
-# TODO \n not working
-#1501098369
-all_dirs="${all_recent_files}${cd_history}"
-#1501098377
-echo "$all_dirs" 
-#1501098387
-echo "$all_dirs" |sort|uniq.exe  -i
-#1501098404
-echo "$all_dirs" |sed 's=/[^\\/]*$=='|clean_filepaths| lsort|uniq -i
-#1501098414
-echo "$all_dirs" |sed 's=/[^\\/]*$=='|clean_filepaths| lsort
-#1501098427
-echo "$all_dirs" |sed 's=/[^\\/]*$=='| lsort
-#1501098436
-echo "$all_dirs" |sed 's=/[^\\/]*$=='
-#1501098458
-cd_history=$(cat ~/.z|cut -d'|' -f1|convert_to_cygdrive)
-#1501098458
-all_recent_files=$(recent_files|sed 's|/[^/]*$||')
-#1501098459
-# all_dirs=$all_recent_files$cd_history
-#1501098459
-# TODO \n not working
-#1501098459
-all_dirs="${all_recent_files}zzzzzz${cd_history}"
-#1501098460
-echo "$all_dirs" 
-#1501098482
-red
-#1501098551
-ls
-#1501098555
-cd ranger/
-#1501098558
-cat rc.conf 
-#1501098564
-red
-#1501098576
-z r
-#1501098579
-z ran
-#1501098581
-z
-#1501098588
-z /cygdrive/C/cbn_gits
-#1501098592
-z /cygdrive/C/cbn_gits/AHK/EmacsEverywhere-master/
-#1501098603
-alias cd=z
-#1501098607
-alias cd='z'
-#1501098615
-cd 
-#1501100341
-network google.com
-#1501100369
-echo -e "nslookup\r\r"
-#1501100374
-echo -e "nslookup\r\rasdf"
-#1501100385
-echo -e "nslookup\n\rasdf"
-#1501100443
-function network() { ping "$1"; echo -e "\n\nnslookup\n"; nslookup "$1"; echo -e "\n\nhost -t CNAME"; host -t CNAME "$1"; }
-#1501100448
-network google.com
-#1501100461
-ping google.co
-#1501100472
-network google.com
-#1501100493
-host
-#1501100564
-network google.com
-#1501100742
-network ge.com
-#1501100770
-network www.ge.com
-#1501101565
-ns
-#1501101840
-dig www.ge.com
-#1501101905
-arp
-#1501101910
-arp -e
-#1501101944
-arp -a
-#1501102071
-whois ge.com
-#1501102077
-pwd
-#1501102081
-ll
-#1501128503
-sr fzs
-#1501128610
-sr fzs|fzs
-#1501128695
-sr fzs
-#1501128698
-sr fzs|fzs
-#1501128725
-fzs
-#1501128753
-sr fzs|fzs
-#1501128756
-fzs
-#1501128775
-sr fzs|fzs
-#1501128795
-echo "sf"|fzs
-#1501128878
-echo "asdf"|fzs
-#1501128882
-fzs
-#1501128892
-fzs as
-#1501129034
-echo "fas asd"|fzs
-#1501129069
-sr fzs|fzs
-#1501175200
-echo "/cygdrive/c/cbn_gits/files_to_port-cbnPC.txt"|open_in_vim
-#1501175306
-echo /cygdrive/c/cbn_gits/files_to_port-cbnPC.txt|open_in_vim
-#1501175378
-echo "/cygdrive/c/"|escape_spaces | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } '
-#1501175613
-echo "/c/afas/cvx.txt:22"|escape_spaces | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } '
-#1501175631
-vim +2 "/cygdrive/c/cbn_gits/files_to_port-cbnPC.txt"
-#1501175647
-echo "/c/afas/cvx.txt:22"|escape_spaces | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } '
-#1501175697
-vim $(echo "/cygdrive/c/cbn_gits/delete.py:2"|escape_spaces | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') + "LAg! '$*'" "+wincmd k"
-#1501175714
-vim $(echo "/cygdrive/c/cbn_gits/delete.py:2"|escape_spaces | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ')
-#1501175808
-vim
-#1501175834
-vim $(echo "/cygdrive/c/cbn_gits/delete.py:2"|escape_spaces | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') + "LAg! '$*'" "+wincmd k"
-#1501175976
-function agvim () { CHOICE=$(ag --color $* | fzf -0 -1 --ansi); if [ ! -z "$CHOICE" ]; then vim $( echo "$CHOICE" | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') +"LAg! '$*'" "+wincmd k"; fi; }
-#1501175980
-agvim
-#1501175987
-agvim sh
-#1501176067
-vim $(echo "/cygdrive/c/cbn_gits/delete.py:2:"|escape_spaces | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') + "LAg! '$*'" "+wincmd k"
-#1501176276
-vim $(echo "/cygdrive/c/cbn_gits/delete.py:2:"|escape_spaces | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') 
-#1501176629
-ls|fzs
-#1501176631
-ls
-#1501176634
-ls|fzs
-#1501176702
-ls
-#1501176705
-ls|fzs
-#1501176730
-arg=$(ls)
-#1501176734
-echo "$arg"|fzf -0 -1 --ansi
-#1501176762
-ls|fzs
-#1501176765
-ls
-#1501176831
-ls|fzs
-#1501176948
-fa sts
-#1501176990
-fa sts zip
-#1501177440
-echo "/cygdrive/c/cbn_gits/delete.py:2:"|escape_spaces
-#1501177451
-echo "/cygdrive/c/cbn_gits/delete.py:2:"|escape_spaces|open_in_vim
-#1501177530
-vim $(echo "/cygdrive/c/cbn_gits/delete.py:2"|escape_spaces|open_in_vim
-#1501177594
-vim $(echo "/cygdrive/c/cbn_gits/delete.py"|escape_spaces|open_in_vim
-#1501177651
-echo "/cygdrive/c/cbn_gits/delete.py:2"|escape_spaces|open_in_vim
-#1501178105
-recent_files|fzf|sed 's/ /\\ /g'
-#1501178157
-function recent_in_app(){ file="$(recent_files|fzf|sed 's/ /\\ /g')"; while true; do     read -n 1 -p "Do you want to update the tv feed? [sublime/notepad++/explorer/vim/emacs] " ynq;     case $ynq in     [Ss]* ) echo; break;;     [Nn]* ) echo; break;;     [Qq]* ) exit; break;;     * ) echo "Please answer yes or no. ";;     esac    ; echo "file:$file not found"; done;  }
-#1501178168
-recent_in_app 
-#1501178202
-function recent_in_app(){ file="$(recent_files|fzf|sed 's/ /\\ /g')"; while true; do     read -n 1 -p "Do you want to update the tv feed? [sublime/notepad++/explorer/vim/emacs] " ynq;     case $ynq in     [Ss]* ) echo; break;;     [Nn]* ) echo; break;;     [Qq]* ) exit; break;;     * ) echo "Please answer yes or no. ";;     esac    ; echo "file:$file not found"; done;  }
-#1501178207
-recent_in_app 
-#1501179371
-n
-#1501179445
-recent_in_app 
-#1501179754
-echo "/cygdrive/c/cbn_gits/delete.py"|open_in_app
-#1501179814
-open_in_app 
-#1501180198
-echo "adfs"|open_in_app 
-#1501181867
-echo "adfs"|open_in_app
-#1501182660
-open_in_app 
-#1501182671
-yyy
-#1501182692
-echo "adfs"|open_in_app
-#1501215756
-echo "hello" |sss
-#1501215785
-echo "hell"|sss
-#1501254566
-echo "/cygdrive/c/a.txt"|open_in_app
-#1501254873
-open_in_app <<< e
-#1501254980
-echo "/cygdrive/c/a.txt"|open_in_app
-#1501255086
-echo "~/cbn_history.txt"|open_in_app
-#1501255162
-echo "/cygdrive/c/cbn_gits/delete.py"|open_in_app
-#1501255319
-recent_in_app 
-#1501257015
-r
-#1501258502
-echo "/cygdrive/c/cbn_gits/delete.py"|open_in_vim
-#1501258539
-vim +5 /cygdrive/c/cbn_gits/delete.py
-#1501258650
-echo "/cygdrive/c/cbn_gits/delete.py"|open_in_vim
-#1501258675
-open_in_vim "/cygdrive/c/cbn_gits/delete.py"
-#1501259302
-type ls 
-#1501259313
-alias ls
-#1501259528
-bash_prompt_command() {     RTN=$?;     prevCmd=$(prevCmd $RTN); }
-#1501260177
-l
-#1501260184
-ls
-#1501260197
-ll
-#1501260199
-l
-#1501260234
-nmap
-#1501260319
-# for easily editting the path variable
-#1501260322
-nanopath () {     declare TFILE=/tmp/path.$LOGNAME.$$;     echo $PATH | sed 's/^:/.:/;s/:$/:./' | sed 's/::/:.:/g' | tr ':' '12' > $TFILE;     nano $TFILE;     PATH=`awk ' { if (NR>1) printf ":"
-      printf "%s",$1 }' $TFILE`;     rm -f $TFILE;     echo $PATH; }
-#1501260323
-alias nanopath='nanopath'
-#1501260325
-nanopath 
-#1501260760
-echo "ad"|aaa
-#1501260780
-aaa adfasdf
-#1501260899
-echo "ad"|aaa
-#1501260937
-aaa adfasdf
-#1501260941
-echo "ad"|aaa
-#1501260992
-open_in_vim /cygdrive/c/cbn_gits/delete.py
-#1501261453
-open_in_vim /cygdrive/C/cygwin64/home/cibin/lib.sh
-#1501266592
-a=/cygdrive/c/cbn_gits
-#1501266596
-~/my-scripts/open_explorer.sh "$(~/my-scripts/convert_path_to_windows.sh $a")
-#1501266608
-~/my-scripts/open_explorer.sh "$(~/my-scripts/convert_path_to_windows.sh $a)"
-#1501266728
-~/my-scripts/open_explorer.sh "C:/cbn_gits"
-#1501266741
-~/my-scripts/open_explorer.sh "C:\cbn_gits"
-#1501266772
-explorer
-#1501266781
-~/my-scripts/open_explorer.sh "C:\cbn_gits"
-#1501266855
-explorer.exe /Select, "C:\"
-#1501266864
-explorer.exe /Select, "C:\\"
-#1501266872
-explorer.exe /Select, "C:\\cbn_gits"
-#1501266883
-~/my-scripts/open_explorer.sh "C:\\cbn_gits"
-#1501266926
-open 
-#1501266947
-open explorer.bat "C:\\"
-#1501266996
-open explorer.bat "/cygdrive/c"
-#1501267567
-a=/cygdrive/c/cbn_gits
-#1501267571
-~/my-scripts/open_explorer.sh "$(~/my-scripts/convert_path_to_windows.sh $a")
-#1501267628
-~/my-scripts/open_explorer.sh "$(~/my-scripts/convert_path_to_windows.sh $a)"
-#1501267773
-a=/cygdrive/c/cbn_gits
-#1501267792
-~/my-scripts/open_explorer.sh "$a"
-#1501267829
-host
-#1501267959
-a=/cygdrive/c/cbn_gits
-#1501267959
-~/my-scripts/open_explorer.sh "$(~/my-scripts/convert_path_to_windows.sh $a")
-#1501267966
-~/my-scripts/open_explorer.sh "$(~/my-scripts/convert_path_to_windows.sh $a)"
-#1501269938
-open_in_vim /cygdrive/c/cbn_gits/port_files.py 
-#1501271115
-echo "afadsfasdf"|aaa
-#1501271129
-function aaa(){ c=$(return_arg_or_piped_input $*); echo "aaa=$c"; }
-#1501271131
-echo "afadsfasdf"|aaa
-#1501271182
-echo "afadsfasdf"|open_in_vim 
-#1501273105
-echo "q - new"|escape_spaces 
-#1501273414
-echo "q - new"|sed -e 's/[ -]/\\\\1/g'
-#1501273423
-echo "q - new"|sed -e 's/[ -]*/\\\\1/g'
-#1501273432
-echo "q - new"|sed -e 's/[ -]/\\/g'
-#1501273445
-echo "q - new"|sed -e 's/[ -]/\\ /g'
-#1501273452
-echo "q - new"|sed -e 's/[ -]/\\\\1/g'
-#1501273458
-echo "q - new"|sed -e 's/[ -]/\\\1/g'
-#1501273507
-echo "q - new"|sed -e 's/[ -]/\\\1/'
-#1501273520
-echo "q - new"|sed -e 's/[ -]/\\\\1/'
-#1501273539
-echo "q - new"|sed -e 's/[ -]/\\\1/'
-#1501273542
-echo "q - new"|sed -e 's/[ -]/\\\\1/'
-#1501273547
-echo "q - new"|sed -e 's/[ -]/\\\\1/g'
-#1501273553
-echo "q - new"|sed -e 's/[ -]/\\\\1/'
-#1501273703
-echo "q - new"|sed -e 's/[\s-]/\\\\1/'
-#1501273770
-echo "q - new"|sed -e 's/[\s-]/\1/'
-#1501273786
-echo "q - new"|sed -e 's/\\([\s-]\\)/\1/'
-#1501273790
-echo "q - new"|sed -e 's/\\([\s-]\\)/\\1/'
-#1501273795
-echo "q - new"|sed -e 's/\\([\s-]\\)/\\\\1/'
-#1501273799
 echo "q - new"|sed -e 's/\\([\s-]\\)/\\\\\1/'
 #1501273802
 echo "q - new"|sed -e 's/\\([\s-]\\)/\\1/'
@@ -1382,3 +769,319 @@ cdahk
 ask_searchterm -r ahk .|fzy
 #1502907725
 ask_searchterm -r bat .|fzy
+#1502910911
+gitp
+#1502997718
+s
+#1502997718
+s
+#1503001859
+du
+#1503001863
+ls -lt
+#1503001872
+ls -lh
+#1503001920
+ls -lhS
+#1503001931
+du -h | sort -rh
+#1503001933
+du
+#1503001940
+\du
+#1503001946
+\du -h | sort -rh
+#1503001953
+du
+#1503001961
+\du | sort -rh
+#1503001969
+\du
+#1503001979
+ls -S
+#1503001982
+ls -Sl
+#1503002004
+du --max-depth=1 /home/ | sort -n -r
+#1503002012
+du --max-depth=1 /home/ | lsort -n -r
+#1503002030
+du --max-depth=1 /home/ 
+#1503002033
+du --max-depth=1 
+#1503002036
+du
+#1503163416
+e
+#1503163417
+ex
+#1503220159
+ls
+#1503220172
+cd
+#1503220175
+pwd
+#1503220181
+ls
+#1503220456
+searchtext
+#1503220462
+ls
+#1503220494
+cd ~
+#1503220495
+ls
+#1503220504
+ls|fzf
+#1503220666
+fzf
+#1503220680
+ls
+#1503220681
+pwd
+#1503220690
+ls|wc
+#1503220692
+ls|fzy
+#1503220706
+ls|fzf
+#1503220722
+ccccc
+#1503220722
+ls
+#1503327028
+ls|fzf
+#1503327035
+c
+#1503327494
+ls|fzf
+#1503327537
+ls
+#1503327540
+ls|fzf
+#1503328047
+ls|fzy
+#1503328115
+ls|fzf
+#1503328127
+qr
+#1503328131
+ls
+#1503329017
+sh
+#1503685158
+s
+#1503685160
+sf
+#1504124137
+vi run-cron-jobs-cbn.sh
+#1504124168
+s
+#1504124168
+s
+#1504124230
+vi run-cron-jobs-cbn.sh
+#1504626644
+source ~/.bashrc
+#1504626645
+cron_jobs_cibin
+#1504627406
+sf
+#1504634786
+cd ~
+#1504635033
+scf
+#1504635137
+alias scf='cmd=$(searchcommands);echo "$cmd"'
+#1504635140
+scf
+#1505039380
+ls|fzy todo
+#1505039395
+ls|fzy -q todo
+#1505039409
+ls|fzy -e todo
+#1505039419
+sf
+#1505039419
+sf
+#1505039440
+ls|fzy -e od
+#1505039454
+ls|fzy -e ada
+#1505048836
+delete.sh
+#1505048877
+echo %PATH%
+#1505049167
+cat "$Universal_home/Downloads/all_files.db"|fzy -e=control
+#1505049187
+cat "$Universal_home/Downloads/all_files.db"|fzy -e=control.ahk
+#1505049196
+fzy
+#1505049220
+fzy -adf
+#1505049231
+cat "$Universal_home/Downloads/all_files.db"|fzy -e=controlahk
+#1505049239
+cat "$Universal_home/Downloads/all_files.db"|fzy -e=contr
+#1505049248
+cat "$Universal_home/Downloads/all_files.db"|fzy -e=pennin
+#1505049252
+cat "$Universal_home/Downloads/all_files.db"|fzy -e=penninu
+#1505049267
+cat "$Universal_home/Downloads/all_files.db"|fzy -e=penninu -l2
+#1505049273
+cat "$Universal_home/Downloads/all_files.db"|fzy -e=penninu -l 2
+#1505049279
+cat "$Universal_home/Downloads/all_files.db"|fzy -e=penninu -l=2
+#1505049299
+cat "$Universal_home/Downloads/all_files.db"|fzy -e=penninu -l2
+#1505049302
+cat "$Universal_home/Downloads/all_files.db"|fzy -e=penninu 
+#1505048972
+sf
+#1505049598
+cat all_files.db |grep aval
+#1505049605
+cat all_files.db |grep varuo
+#1505049612
+cat all_files.db |grep aval
+#1505049618
+cat all_files.db |grep aval|grep avo
+#1505049916
+searchfiles
+#1505049939
+cdd
+#1505049948
+cat all_files.db |fzy -e=varuvo
+#1505049955
+fzy --d
+#1505049980
+fzy -q=varuvo
+#1505050051
+cat all_files.db |fzy -q=varuvo
+#1505050072
+cat all_files.db |fzy -q=varuvo -s
+#1505050105
+cat all_files.db |fzy -qvaruvo -s
+#1505050160
+cat all_files.db |fzy -qvaruvo -l1
+#1505050166
+cat all_files.db |fzy -qvaruvo -l 1
+#1505050173
+cat all_files.db |fzy -l1 -qvaruvo 
+#1505050177
+cat all_files.db |fzy -l 1 -qvaruvo 
+#1505050186
+cat all_files.db |fzy -l=1 -qvaruvo 
+#1505052541
+source ~/.bashrc
+#1505052542
+cron_jobs_cibin
+#1505187663
+svn
+#1505187781
+svn checkout https://github.com/cibinmathew/cbn_gits/trunk/master/ported_files/cibin/.emacs.d/my-files/config/personal-configs
+#1505187812
+svn checkout https://github.com/cibinmathew/cbn_gits/tree/master/ported_files/cibin/.emacs.d/my-files/config/personal-configs
+#1505187851
+svn checkout https://github.com/cibinmathew/cbn_gits/trunk/ported_files/cibin/.emacs.d/my-files/config/personal-configs
+#1505188034
+./download-git-folder.sh 
+#1505188315
+mkdir -p .emacs.d/my-files
+#1505318444
+r
+#1505325088
+e
+#1505325089
+exit
+#1505750986
+emacs
+#1505751028
+em
+#1505751030
+e
+#1505751035
+cd ~
+#1505836406
+which fzy
+#1505843143
+g
+#1505843696
+ls
+#1505843901
+ex
+#1505843154
+r
+#1505915034
+snf
+#1505915060
+bash
+#1505919227
+which fzy
+#1505919603
+source ~/.bashrc
+#1505919604
+cron_jobs_cibin
+#1505929576
+snf -epython|head -n 3
+#1505931307
+snf
+#1505932645
+searchnotes python
+#1505932700
+searchnotes python|grep defun
+#1505932746
+searchnotes .|grep defun
+#1505932862
+searchnotes .|grep bjm
+#1505932906
+searchnotes . --no-color|grep bjm
+#1505933042
+bash -ic 'searchnotes . --no-color|fzy -ebjm|head -n 5
+#1505933058
+bash -ic 'searchnotes . --no-color
+#1505933066
+bash -ic 'searchnotes . --no-color|fzy -ebjm|head -n 5'
+#1505933559
+vi
+#1505933578
+vim
+#1505933587
+vi
+#1505933600
+alias vi='vim'
+#1505933601
+vi
+#1505933653
+snf
+#1505933671
+snf -epython
+#1505933698
+snf -epython --no-color
+#1505933838
+ag
+#1505934996
+bash -ic 'searchnotes . --nocolor|fzy -epython|head -n 50' 2>/dev/null
+#1505935019
+bash -ic 'searchnotes . --nocolor|fzy -ebjm|head -n 10' 2>/dev/null
+#1506020743
+sf
+#1506023737
+sf
+#1506023790
+wc ~/all_files.db
+#1506023805
+cat ~/all_files.db |wc
+#1506023830
+sf
+#1506023830
+sf
+#1506023835
+snf
+#1506023912
+cat "~/all_files.db"|fzy -l 20
+#1506023944
+cat ~/all_files.db|fzy -l 20

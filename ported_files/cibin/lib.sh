@@ -1,6 +1,5 @@
 #!/usr/bin/sh
 
-
 # TODO
 # functions: convert to linux path;windows path;cygwinpath;windowsubuntupath
 # good tuts on arrays http://www.thegeekstuff.com/2010/06/bash-array-tutorial
@@ -184,10 +183,10 @@ echo "$*"
 		search_term=$(make_lookaround_search_term ${@:3})
 		echo $search_term
 		case "$1" in
-			"all"			) files="$Universal_home/Downloads/all_files_unfiltered.db";;
-			"common"		) files="$Universal_home/Downloads/all_files.db";;
-			"all_fuzzy"		) files="$Universal_home/Downloads/all_files_unfiltered-fuzzy.db";;
-			"common_fuzzy"	) files="$Universal_home/Downloads/all_files-fuzzy.db";;
+			"all"			) files="~/all_files_unfiltered.db";;
+			"common"		) files="~/all_files.db";;
+			"all_fuzzy"		) files="~/all_files_unfiltered-fuzzy.db";;
+			"common_fuzzy"	) files="~/all_files-fuzzy.db";;
 			"h"|"here"		) files=("$(pwd)");maxdepth=1;;
 			"hh"			) files=("$(pwd)");maxdepth=2;;
 			"hhh"			) files=("$(pwd)");maxdepth=3;;
@@ -502,17 +501,20 @@ cdf() {
 
 function searchfiles () {
 	
-cat "$Universal_home/Downloads/all_files.db"|fzy -l 20
+cat ~/all_files.db|fzy -l 20
 
 }
-
+function searchcommands() {
+cat c:/cbn_gits/AHK/popular_commands.db|fzy -l 20
+    
+}
 function searchnotes () {
 # ag $* -G org$ /cygdrive/c/Users/cibin/Downloads/ --color
 
 lfind "/cygdrive/c/Users/$USERNAME/Downloads/" -maxdepth 2 -iname "*notes*.org" -exec  echo {} +
 lfind "/cygdrive/c/Users/$USERNAME/Downloads/" -maxdepth 2 -iname "*notes*.txt" -exec  echo {} +
-lfind "/cygdrive/c/Users/$USERNAME/Downloads/" -maxdepth 2 -iname "*notes*.org" -exec  ag -i --noheading --color $* {} +
-lfind "/cygdrive/c/Users/$USERNAME/Downloads/" -maxdepth 2 -iname "*notes*.txt" -exec  ag -i --noheading --color $* {} +
+lfind "/cygdrive/c/Users/$USERNAME/Downloads/" -maxdepth 2 -iname "*notes*.org" -exec  ag -i --noheading --numbers --filename --color --color-match "2;46" $* {} +
+lfind "/cygdrive/c/Users/$USERNAME/Downloads/" -maxdepth 2 -iname "*notes*.txt" -exec  ag -i --noheading --numbers --filename --color --color-match "2;46" $* {} +
 
 # ag $* -n -G org$ /cygdrive/c/Users/"$USERNAME"/Downloads/ --color
 # # ag $* -n -G todo-notes.org$ /cygdrive/c/Users/"$USERNAME"/Downloads/ --color

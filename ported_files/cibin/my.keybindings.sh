@@ -1,4 +1,9 @@
-
+# https://stackoverflow.com/questions/41046558/bashrc-how-to-check-in-what-terminal-the-shell-is-running
+# bind only in terminals , not in emacs
+if [[ ! -v INSIDE_EMACS ]]; then
+    
+    
+bind -x '"\C-o"':"ls -lh"
 bind "set completion-ignore-case on"
 bind "set show-all-if-ambiguous on"
 bind "TAB: menu-complete"
@@ -53,3 +58,4 @@ export IGNOREEOF=1
 
 # Set Emacs Mode in bash:
 set -o emacs 
+fi

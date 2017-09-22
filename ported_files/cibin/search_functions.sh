@@ -2,7 +2,7 @@ function recent_files(){
 	# recent
 
 	# linux ~/.config/sublime-text-2/Settings/Session.sublime_session, so look for such a file in the Settings folder in your user directory.
-	# In Mac OS X this list is stored in a file called Session.sublime_session under ~/Library/Application Support/Sublime Text 2/Settings, 
+	# In Mac OS X this list is stored in a file called Session.sublime_session under ~/Library/Application Support/Sublime Text 2/Settings,
 	sublime_file=C:/Users/"$USERNAME"/AppData/Roaming/Sublime\ Text\ 3/Local/Session.sublime_session
 	notepadpp_file=/cygdrive/c/Users/"$USERNAME"/AppData/Roaming/Notepad++/session.xml
 	notepadpp_file2=/cygdrive/c/Users/"$USERNAME"/AppData/Roaming/Notepad++/config.xml
@@ -20,7 +20,7 @@ function recent_files(){
 	[ -f "$notepadpp_file" ] && grep "\\w:\\\[^\"]*\" " -E -o "$notepadpp_file">>~/cbn_history.txt
 	[ -f "$notepadpp_file2" ] && grep "\\w:\\\[^\"]*\" " -E -o "$notepadpp_file2">>~/cbn_history.txt
 
-	# if [ -f "$notepadpp_file" ]; then  
+	# if [ -f "$notepadpp_file" ]; then
 	# 	grep "\\w:\\\[^\"]*\" " -E -o "$notepadpp_file">>~/cbn_history.txt
 	# fi
 	#remove ", trailing spaces
@@ -30,7 +30,7 @@ function recent_files(){
 
 function re() {
 	file="$(recent_files|fzf|sed 's/ /\\ /g')"
-	if [ -f "$file" ]; then		
+	if [ -f "$file" ]; then
 	    vim "$file"
 	else
 		echo "file:$file not found"
@@ -49,10 +49,10 @@ function recent_dirs(){
 	#remove ", trailing spaces
 	# TODO get dires of recent_files in vim,ranger,sublime
 
-	# echo  "$(cat ~/cbn_history.txt|convert_to_cygdrive|clean_filepaths|lsort|uniq -i)"	
+	# echo  "$(cat ~/cbn_history.txt|convert_to_cygdrive|clean_filepaths|lsort|uniq -i)"
 	cd_history=$(cat ~/.z|cut -d'|' -f1|convert_to_cygdrive)
 	all_recent_files=$(recent_files|sed 's|/[^/]*$||')
-	# all_dirs=$all_recent_files$cd_history	
+	# all_dirs=$all_recent_files$cd_history
 
 	# TODO \n not working
 	all_dirs="${all_recent_files}zzzzzz${cd_history}"
@@ -76,7 +76,7 @@ pwd
 	cr=${cr%.}
 
 	textreset=$(tput sgr0) # reset the foreground colour
-	yellow=$(tput setaf 2) 
+	yellow=$(tput setaf 2)
 	echo "${yellow}$(pwd) ${textreset}"
 	read -n 1 -p " [s] search $cr [o] open $cr [z] auto search$cr" pressedkey </dev/tty
 	case $pressedkey in
@@ -98,9 +98,10 @@ function prompt_for_s(){
 echo "aaarg=$1"
 # echo "${$1%%.*}"
 while true; do
-	read -n 1 -p " [a] all text $cr [f] files $cr [n] notes $cr [r] recent $cr [t] ext text " pressedkey < /dev/tty;
+	read -n 1 -p " [a] all text $cr [c] commands $cr [f] files $cr [n] notes $cr [r] recent $cr [t] ext text " pressedkey < /dev/tty;
 	case $pressedkey in
 		 n ) echo " searching...";snf|extract_filepath_linenum|open_in_app;break;;
+		 n ) echo " searching...";scf;break;;
 		 t ) echo;
 				read -n 1 -p " [a] auto $cr [h] here $cr fuzzy $cr advanced " pressedkey2 < /dev/tty;
 				case $pressedkey2 in
@@ -115,7 +116,7 @@ while true; do
 		 d ) echo "HHHHHHHHHHHHHHH $filepath"|clip;break;;
 	     q ) echo;break;;
 	esac
-done	
+done
 }
 
 
@@ -133,10 +134,10 @@ read filepath #</dev/tty
 
 textreset=$(tput sgr0) # reset the foreground colour
 red=$(tput setaf 1)
-yellow=$(tput setaf 2) 
+yellow=$(tput setaf 2)
 
 echo "!!${yellow} file: ${textreset} ${red} $filepath ${textreset}."
- 	
+
 
 # echo
 # filepath=$(</dev/stdin)
@@ -151,11 +152,11 @@ while true; do
     read -n 1 -s -p " s sublime                           c clipss         q quit $cr n notepad++     d desktop           cc windows $cr v vim           r ranger            cc cygdrive$cr e emacs         o open default $cr l less          b cd                p details $cr $cr f=foldersearch r=recent again d=directory search] $cr" pressedkey </dev/tty
 	# if [ "$pressedkey" = $'\e' ]; then
 	#         echo -e "\n [ESC] Pressed"
-	        
+
 	# elif [ "$pressedkey" == $'\x0a' ] ;then
 	#         echo -e "\n [Enter] Pressed"
-	        
-	# fi	
+
+	# fi
 	escaped_filepath=$(echo "$filepath"|escape_spaces)
 	# echo -e "escaped_filepath=$escaped_filepath\n"
     case $pressedkey in
@@ -163,16 +164,16 @@ while true; do
 	    l ) less -iN "$filepath"; break;;
 	    r ) echo "$filepath"|open_in_ranger ; break;;
 	    d ) open_in_explorer $(echo "$filepath"); break;;
-	   
+
 	    b ) cd_to_directory "$(echo "$filepath")"; break;;
 
-	    c ) echo "$filepath"|clip; 
+	    c ) echo "$filepath"|clip;
 				read -n 1 -s -p "c/d " pressedkey < /dev/tty;
 				case $pressedkey in
 					 c ) echo "$filepath"|clip; break;;
 					 d ) echo "cd to directory $filepath"|clip; break;;
 				esac
-			
+
 	     break;;
 	    o ) default_run $(echo "$filepath"); break;;
 	    p ) echo "extra details like size if it exists or not TODO";ls -lh "$filepath";break;;
@@ -181,7 +182,7 @@ while true; do
 	    [Qq]* ) echo; exit; break;;
 	    v ) echo "$filepath"|open_in_vim; break;;
 	    * ) echo "$filepath"|open_in_vim ; break;;
-    esac    	
+    esac
 	echo "try again" #;break;
 done
 
@@ -199,8 +200,8 @@ function open_in_vim(){
 	# should be able to open paths starting with filepath:line number or  similar format
 	read -r arg # < /dev/tty $@
 	echo "arg=$arg="
-	line=$(echo "$arg"|awk 'BEGIN { FS=":" } { printf "+%d", $2 } ') 
-	File=$(echo "$arg"|awk 'BEGIN { FS=":" } { printf "%s", $1 } ') 
+	line=$(echo "$arg"|awk 'BEGIN { FS=":" } { printf "+%d", $2 } ')
+	File=$(echo "$arg"|awk 'BEGIN { FS=":" } { printf "%s", $1 } ')
 	vim < /dev/tty $line "$File"
 	echo "$line"
 	echo "$File"
@@ -208,7 +209,7 @@ function open_in_vim(){
 	# if [ ! -z "$arg" ]
 	# 	then
 	# vim -- "$(echo $arg)" #|sed -e 's/\x1b\[[0-9;]*m//g')"
-	# vim $(echo "$arg"|awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') 
+	# vim $(echo "$arg"|awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ')
 		# 	# below works for ag.vim plugin; check what it does
 		# 	# vim $(echo "$arg"|escape_spaces | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') + "LAg! '$*'" "+wincmd k"
 	# fi
@@ -232,19 +233,19 @@ arg=$(return_arg_or_piped_input $*)
 
 
 
-function open_in_emacs(){	
+function open_in_emacs(){
 	~/my-scripts/emacs.sh "$(~/my-scripts/convert_path_to_windows.sh $*)"
 }
-function open_in_explorer(){	
+function open_in_explorer(){
 	~/my-scripts/open_explorer.sh "$(~/my-scripts/convert_path_to_windows.sh $*)"
 }
-function open_in_npp(){	
+function open_in_npp(){
 	~/my-scripts/npp.sh "$(~/my-scripts/convert_path_to_windows.sh $*)"
 }
 function open_in_sublime_text(){
 	~/my-scripts/sublime_text.sh "$(~/my-scripts/convert_path_to_windows.sh $*)"
 }
-function default_run(){	
+function default_run(){
 	~/my-scripts/default_run.sh "$(~/my-scripts/convert_path_to_windows.sh $*)"
 
 }
