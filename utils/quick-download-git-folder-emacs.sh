@@ -8,7 +8,8 @@ then
 	
 	# cd ~/.emacs.d/my-files/config
 	# uncomment to run
-	# rm -r ~/.emacs.d/my-files/config
+	# rm -rf ~/.emacs.d/my-files/config/personal-configs/*
+    # rm -rf ~/.spacemacs
 	# svn checkout https://github.com/cibinmathew/cbn_gits/trunk/ported_files/cibin/.emacs.d/my-files/config/personal-configs
 	# wget --no-check-certificate https://github.com/cibinmathew/cbn_gits/raw/master/ported_files/cibin/.spacemacs -O ~/.spacemacs
 fi

@@ -957,14 +957,16 @@ g hjkl
 TIME-Machine:    PROJECTILE: %(projectile-project-root)
  
 _d_ : [[diff]]        
-_q_: vdiff buffers L&R _q_: quit
+_a_ : all history commits
 _g_ : [[git]]
 _n_ : next
 _p_ : prev
 _b_ : blame
+                         _q_: quit
 .
  "
  ("n" git-timemachine-show-next-revision)
+ ("a" my-git-timemachine)
  ("p" git-timemachine-show-previous-revision)
  ("g" my-git-hydra/body)
  ("t" git-timemachine)
@@ -981,12 +983,12 @@ _b_ : blame
                              )
  "
 DIFF 
-_r_ : A-B               _=_ : common lines
-_v_ : vdiff             _b_: vdiff buffers L&R        _q_: quit
+_r_ : A-B (todo)              _=_ : common lines (TODO)
+_v_ : vdiff                   _b_: vdiff buffers L&R (todo)       _q_: quit
 _g_ : [[git]]
 _t_ : [[timemachine]]
 _f_ vdiff with file
-_F_ with file
+_F_ diff with file
 .
  "
  ("v" cibin/vdiff-buffers)
@@ -994,10 +996,10 @@ _F_ with file
  ("t" hydra-git-timemachine/body)
  ("=" nil)
  ("b" nil)
-("r" diff-files-lines)
+ ("r" diff-files-lines)
+ ("f" vdiff-current-file)
+ ("F" diff-buffer-with-file)
  ("q" nil)
-("f" vdiff-current-file)
-("F" diff-buffer-with-file)
  )
 
 (defhydra nsh/hydra-large-files-vlf (:color pink :hint nil)
@@ -1214,6 +1216,55 @@ _8_: next _9_: prev      allNext prev
   ("q" nil :color blue))
 
 
+(defhydra goto (:color blue :hint nil)
+  "
+Goto:
+^Char^              ^Word^                ^org^                    ^search^
+^^^^^^^^---------------------------------------------------------------------------
+_c_: 2 chars        _w_: word by char     _h_: headline in buffer  _o_: helm-occur
+_C_: char           _W_: some word        _a_: heading in agenda   _p_: helm-swiper
+_L_: char in line   _s_: subword by char  _q_: swoop org buffers   _f_: search forward
+^  ^                _S_: some subword     ^ ^                      _b_: search backward
+-----------------------------------------------------------------------------------
+_B_: helm-buffers       _l_: avy-goto-line
+_m_: helm-mini          _i_: ace-window
+_R_: helm-recentf
+
+_n_: Navigate           _._: mark position _/_: jump to mark
+"
+  ("c" avy-goto-char-2)
+  ("C" avy-goto-char)
+  ("L" avy-goto-char-in-line)
+  ("w" avy-goto-word-1)
+  ;; jump to beginning of some word
+  ("W" avy-goto-word-0)
+  ;; jump to subword starting with a char
+  ("s" avy-goto-subword-1)
+  ;; jump to some subword
+  ("S" avy-goto-subword-0)
+
+  ("l" avy-goto-line)
+  ("i" ace-window)
+
+  ("h" helm-org-headlines)
+  ("a" helm-org-agenda-files-headings)
+  ("q" helm-multi-swoop-org)
+
+  ("o" helm-occur)
+  ("p" swiper-helm)
+
+  ("f" isearch-forward)
+  ("b" isearch-backward)
+
+  ("." org-mark-ring-push :color red)
+  ("/" org-mark-ring-goto :color blue)
+  ("B" helm-buffers-list)
+  ("m" helm-mini)
+  ("R" helm-recentf)
+  ("n" hydra-navigate/body))
+
+;; M-g has someother bindings already in spacemacs 
+;; (global-set-key (kbd "M-g") 'goto/body)
 
 ;;; hydra for file/buffer, jump/goto, error/compile, toggle, format, 
 

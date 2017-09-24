@@ -37,13 +37,14 @@ INITIAL-INPUT can be given as the initial minibuffer input."
   :group 'ivy
   :type  '(repeat string))
 
-(global-set-key (kbd "C-x R") 'counsel-locate)
+
+(global-set-key (kbd "C-x R") (lambda () (interactive) (counsel-find "snf " "bash -ic 'searchnotes . |fzy -e%s|head -n 50' 2>/dev/null" )))
 
 (defun counsel-find-function (str)
   (if (< (length str) 3)
       (counsel-more-chars 3)
-    (let ((cmd
-            (format
+    (let ((cmd (format bash-cmd str)
+            ;; (format
               ;; "lfind %s ! -readable -maxdepth 1 -prune -o -iname \"%s*\" -print"
                                         ; NOTE: some versions of `find' may require parentheses,
               ; like this: \( ! -readable -prune \)
@@ -52,19 +53,24 @@ INITIAL-INPUT can be given as the initial minibuffer input."
                ;; (ivy--regex str))
 
              ;; "c:/cygwin64/home/cibin/delete.sh %s" str
-             "bash -ic 'searchnotes . |fzy -e%s|head -n 50' 2>/dev/null" str
+             ;; "bash -ic 'searchnotes . |fzy -e%s|head -n 50' 2>/dev/null" str
              ;; "cat \"c:/Users/cibin/Downloads/all_files.db\"|/usr/local/bin/fzy -e%s|head -n 50|sed -e \"s/\\/cygdrive\\/\\(.\\)\\//\\1:\\//\"" str
-              )))
+           ;; )
+          ))
       (message "cmd: %s" cmd)
       (counsel--async-command cmd))
-    '("" "working...")))
-
+    '("" "working...")
+    ))
+;; (counsel-find "ls")
 ;;;###autoload
-(defun counsel-find (&optional initial-input)
+(defun counsel-find (prompt bash-cmd &optional initial-input)
   "Use GNU find, counsel and ivy  to present all paths
    in a directory tree that match the REGEX input"
   (interactive)
-  (ivy-read "Find: " #'counsel-find-function
+(defvar bash-cmd bash-cmd)
+(ivy-read
+(format "%s : " prompt)
+ #'counsel-find-function
             :initial-input initial-input
             :dynamic-collection t
             :history 'counsel-find-history

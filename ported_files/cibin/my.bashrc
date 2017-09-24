@@ -12,7 +12,7 @@ SCRIPT_PATH=$(dirname "$SCRIPT")
 #convert_path(){
 # if windows: convert to C:\ from cygdrive&/mnt/c
 # if linux:
-#	
+#
 #}
 # C:\cygwin64\bin\mintty.exe --dir "%1" /bin/bash
 # C:\cygwin64\bin\mintty.exe --dir "%1" /bin/env CHERE_INVOKING=1 /bin/bash -l
@@ -41,7 +41,7 @@ function smart_recent(){
 	pwd
 	# call re
 	# case $1 in
-	# npp: npp choice 
+	# npp: npp choice
 }
 
 
@@ -103,7 +103,7 @@ source $HOME/search_functions.sh
 # cd -
 
 # for most of the regex lookaround searches defined here like
-# cmd abc xyz$ can be used to search for .xyz extension 
+# cmd abc xyz$ can be used to search for .xyz extension
 
 
 # credits:
@@ -113,7 +113,7 @@ source $HOME/search_functions.sh
 # to make startup faster; http://stackoverflow.com/questions/28410852/startup-is-really-slow-for-all-cygwin-applications
 
 # for case insensitive autocompletion, in  /etc/inputrc or ~/.inputrc uncomment
-# set completion-ignore-case on 
+# set completion-ignore-case on
 
 
 
@@ -159,7 +159,6 @@ ls|wc -l
 alias ls='_(){ ls --color=auto -p "$@" ; lfind . ! -name . -prune -print | grep -c /; }; _'
 
 
-bind -x '"\C-o"':"ls -lh"
 # Put this in your ~/.bashrc file and then source it with source ~/.bashrc and try it out by pressing C-o (Ctrl and o).
 
 
@@ -171,10 +170,10 @@ bind -x '"\C-o"':"ls -lh"
 	#2)  grep -PrIi "(?=.*$1[^/]*$)(?=.*$2[^/]*$)" --color=auto $Universal_home/Downloads/all_files.db |  sed -e "s/\\/cygdrive\\///";;
 	#3)  grep -PrIi "(?=.*$1[^/]*$)(?=.*$2[^/]*$)(?=.*$3[^/]*$)" --color=auto $Universal_home/Downloads/all_files.db |  sed -e "s/\\/cygdrive\\///";;
 	#4)  grep -PrIi "(?=.*$1[^/]*$)(?=.*$2[^/]*$)(?=.*$3[^/]*$)(?=.*$4[^/]*$)" --color=auto $Universal_home/Downloads/all_files.db |  sed -e "s/\\/cygdrive\\///";;
-	#*)  echo "too many arguments"  ;; 
+	#*)  echo "too many arguments"  ;;
 	#esac
 
-## RANGER	
+## RANGER
 # Preventing nested ranger instances
 # You can start a shell in the current directory with S, when you exit the shell you get back to your ranger instance.
 # When you however forget that you already are in a ranger shell and start ranger again you end up with ranger running a shell running ranger.
@@ -198,8 +197,16 @@ alias r='ranger'
 
 # https://stackoverflow.com/questions/12870928/mac-bash-git-ps1-command-not-found
 source ~/.git-prompt.sh
+if [[ "$TERM" == "emacs" ]]; then
+  # No terminal escape sequences, only prompt escapes
+  PS1='\u at \h in \w\n\$ '
+  # PS1='$ '
+else
+  # Assuming a rich terminal, using terminal escape sequences
+
 #PS1=$PS1'$(__git_ps1 "(%s) ")'
 PS1='\# \[\e[0;31m\]$(r=$?; [[ $r == "0" ]] || echo "[$r] ")\[\e[0m\]\[\e[0;36m\]\u\[\e[0m\] \w\[\e[0;33m\]$(__git_branch)\[\e[0m\]> '
+fi
 
 __git_branch() {
     git branch 2>/dev/null | grep -e '^*' | sed -E 's/^\* (.+)$/(\1)/'
@@ -223,7 +230,7 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 
 # use colordiff instead of diff if available
 command -v colordiff >/dev/null 2>&1 && alias diff="colordiff -u"
- 
+
 # use htop instead of top if installed
 command -v htop >/dev/null 2>&1 && alias top=htop
 #The command -v bit checks if the app in question is installed, and creates the alias only if it is found. I’m redirecting the output so that I don’t get error messages scrolling on the screen when I log in.
@@ -299,29 +306,29 @@ function xpl() {
 	# fi
 }
 
-function open() { 
+function open() {
 
 # http://robertmarkbramprogrammer.blogspot.in/2007/06/cygwin-bash-script-open-windows.html
-if [ $# -eq 0 -o  -n "$1" ]; then	
-        if [ -n "$1" ];  then	
+if [ $# -eq 0 -o  -n "$1" ]; then
+        if [ -n "$1" ];  then
 		# normal argument
 			filepath="$1"
-		else	
-		# capture the piped input as an argument             
-			read filepath; 		
+		else
+		# capture the piped input as an argument
+			read filepath;
 		fi
 		echo "file is $filepath"
 		filepath=$(echo "$filepath" | head -1)
 	 #if [ -z "$1" ]; then
-		   
-	   	 
+
+
 	# location=.
 	# case "$1" in
 	 # ""                 ) location=.;;
 	 # "-help"            ) usage; exit 0;;
 	 # *                  ) location="${1}";;
 	# esac
-	 
+
 	# if [ -e "$location" ]
 	# then
 	   # WIN_PATH=`cygpath -w -a "${location}"`
@@ -334,8 +341,8 @@ if [ $# -eq 0 -o  -n "$1" ]; then
 	b=$(echo $filepath | sed 's/\(.\)/\1:/' | sed -e "s/\\//\\\\/g")
 	echo opening "$b"
 	cmd /C start "" "$b"
-	 
- 
+
+
  else
  {
         echo "else $*"
@@ -344,11 +351,11 @@ if [ $# -eq 0 -o  -n "$1" ]; then
 	 echo "          [path]: folder at which to open Windows Explorer, will"
 	 echo "              default to current dir if not supplied."
 	 echo "          [-help] Display help (this message)."
-	
+
 	}
     fi
  }
- 
+
 #delete
 # grep "~?/.*" -E -o ~/.viminfo |sed 's/"//g'>~/cbn_history.txt
 # grep "~?/.*\"" -E -o "$sublime_file" |sed 's/"//g'>>~/cbn_history.txt
@@ -410,8 +417,8 @@ alias l='ls $LS1 $LS2 -AB'
 
 function gitp(){
 gits
-	
-	read -n 1 -p "commit?? " 
+
+	read -n 1 -p "commit?? "
 	read -p "commit message: " message
 	git commit -a -m "$message"
 	read -n 1 -p "push?? "
@@ -439,12 +446,12 @@ echo "todays new files ..."
 function gitd() {
 # gits advanced diff
 
-	
+
 
 echo "List deleted files"
 git ls-files --deleted
-read -n 1 -p "newly added files" pressedkey 
-git diff --name-only --diff-filter=A --cached # All new files in the index  
+read -n 1 -p "newly added files" pressedkey
+git diff --name-only --diff-filter=A --cached # All new files in the index
 echo "List modified files"
 read -n 1 -p "enter to continue" pressedkey
 git ls-files --modified
@@ -474,8 +481,8 @@ if [ -d "$WORKING_PATH/.git" ]; then
   case "$response" in
     [yY][eE][sS]|[yY])
       git init
-    
-      read -p "remote? : git@github.com:User/UserRepo.git" remote_url< /dev/tty 
+
+      read -p "remote? : git@github.com:User/UserRepo.git" remote_url< /dev/tty
 	echo "$remote_url: "
 	git remote add origin "$remote_url"
 
@@ -486,7 +493,7 @@ if [ -d "$WORKING_PATH/.git" ]; then
   esac
 else
   git init
-  read -p "remote? : " remote_url< /dev/tty 
+  read -p "remote? : " remote_url< /dev/tty
 	echo "$remote_url"
 	git remote add origin "$remote_url"
 fi

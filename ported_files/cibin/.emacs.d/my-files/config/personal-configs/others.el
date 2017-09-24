@@ -38,13 +38,13 @@
 ; Note that server-running-p does not appear in the manual, so conceivably this could break with future versions of Emacs.
 
 (setq load-prefer-newer t)
-(auto-compile-on-load-mode)		  
+(auto-compile-on-load-mode)
 (global-hl-line-mode 1) ; Disable current line highlight
 (global-linum-mode) ; Show line numbers by default
 (setq custom-enabled-themes '(whiteboard))
 (setq cursor-type '(bar . 4))
-; TODO set to t for debug trace		
-(setq debug-on-error nil)		
+; TODO set to t for debug trace
+(setq debug-on-error nil)
 (message "user-config")
 (recentf-mode 1) ; keep a list of recently opened files
 (setq initial-major-mode (quote text-mode)) ; default mode
@@ -102,7 +102,7 @@
 (setq-default evil-cross-lines t)
 
 
-	
+
 ; save the place in files
 ; Navigates back to where you were editing a file next time you open it
 
@@ -244,13 +244,13 @@
 
 
 
-(cd (format "C:/Users/%s/Downloads" user-login-name)) 
+(cd (format "C:/Users/%s/Downloads" user-login-name))
 
 
 
 
 ; whitespace mode configured to show lines longer than 120 characters.
-(setq whitespace-line-column 120) 
+(setq whitespace-line-column 120)
 
 ; https://pawelbx.github.io/emacs-theme-gallery/
 ; color themes, deftheme style (added in emacs 24).
@@ -319,7 +319,7 @@
 ; (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 (message "checkpoint 66")
-;; Highlight TODO and FIXME in comments 
+;; Highlight TODO and FIXME in comments
 ; (use-package fic-ext-mode)
 ; (require fic-ext-mode)
 ; (add-something-to-mode-hooks '(c++ tcl emacs-lisp python text markdown latex) 'fic-ext-mode)
@@ -350,7 +350,7 @@
 
 
 
-; (defvar cibin/packages '(flycheck                          
+; (defvar cibin/packages '(flycheck
 ; markdown-mode
 ; )
 ; "Default packages")
@@ -457,19 +457,22 @@
 		(when (eq pt (point))
 			(beginning-of-line))))
 
-
+;; https://stackoverflow.com/questions/24684979/how-to-add-a-tool-bar-button-in-emacs
 (defun toolbar-button ()
-	"another nonce menu function"
+	"kill-all-other-buffers-if-not-modified"
 	(interactive)
-	(message "hotel, motel, holiday inn"))
+	(message "kill-all-other-buffers-if-not-modified")
+  (kill-all-other-buffers-if-not-modified)
+  )
 
-(tool-bar-add-item "spell" 'toolbar-button               'toolbar-button
-	:help   "Run fonction toolbar-button")
+(tool-bar-add-item "cancel" 'toolbar-button 'toolbar-button
+                   :help   "kill-all-other-buffers-if-not-modified"
+)
 
 
 
 (defun minibuffer-keyboard-quit ()
-	"http://stackoverflow.com/a/10166400 
+	"http://stackoverflow.com/a/10166400
 	Abort recursive edit.
 In Delete Selection mode, if the mark is active, just deactivate it;
 then it takes a second \\[keyboard-quit] to abort the minibuffer."
@@ -553,7 +556,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (defun bury-then-switch-to-buffer (buffer)
 	"Bury buffer in all windows, then switch to it in the current window."
 	(replace-buffer-in-windows buffer)
-(switch-to-buffer buffer t))  ; t: don't add it to the recent buffer list 
+(switch-to-buffer buffer t))  ; t: don't add it to the recent buffer list
 
 
 (defun rename-this-file (new-file-name)
@@ -585,7 +588,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 ;; Behave like vi's O command
 (defun open-previous-line (arg)
-	"Open a new line before the current one. 
+	"Open a new line before the current one.
 	See also `newline-and-indent'."
 	(interactive "p")
 	(beginning-of-line)
@@ -656,7 +659,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 ) ;;pop-to-buffer does not work with save-current-buffer -- bug?
 	(process-send-string  proc command)
 	(display-buffer (process-buffer proc) t)
-	(when step 
+	(when step
 		(goto-char max)
 		(next-line))
 	))
@@ -671,7 +674,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 	(interactive)
 	(pop-to-buffer (process-buffer (get-process "shell")) t))
 
-(defun shell-run-command-line-or-region()  
+(defun shell-run-command-line-or-region()
 	(interactive)
 	(if (use-region-p)
 		(shell-command  (buffer-substring-no-properties start end))
@@ -780,7 +783,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 
 (defun reload-settings ()
-;These little helper functions let me access and reload my configuration whenever I want to make any changes. 
+;These little helper functions let me access and reload my configuration whenever I want to make any changes.
 (interactive)
 (org-babel-load-file "~/.emacs.d/settings.org"))
 
@@ -831,8 +834,8 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 				(message "Directory path copied: 「%s」" (file-name-directory -fpath))
 				(file-name-directory -fpath))))))
 
-				
-				
+
+
 
 (defun cibin/xah-open-file-at-cursor ()
 	"Open the file path under cursor.
@@ -862,14 +865,14 @@ let ((-path  (setq -path
 	(buffer-substring-no-properties
 		(line-beginning-position)
 		(line-end-position)))
-)	)	 
+)	)
 
 (message "path is")
 (message -path)
-; if text is a url		
+; if text is a url
 ; (if (string-match-p "\\`https?://" -path)
 ; (browse-url -path)
-; (pcase "yyy" 		
+; (pcase "yyy"
 ; ("nill" (message "hi" ))
 ; ("noo" (message "no" ))
 ; ("yyy" (message "hellllll" ))
@@ -1080,6 +1083,4 @@ let ((-path  (setq -path
 						(copy-file -x -backup-name t)))
 					(dired-get-marked-files))
 					(message "marked files backed up"))
-				(user-error "buffer not file nor dired")))))		  
-
-
+				(user-error "buffer not file nor dired")))))

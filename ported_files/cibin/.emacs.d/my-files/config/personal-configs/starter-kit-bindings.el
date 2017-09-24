@@ -65,7 +65,7 @@
    ;; documentation of it.
    (set-quit-char "C-g")
 
-   
+
 (defun evil-keyboard-quit ()
   "Keyboard quit and force normal state."
   (interactive)
@@ -74,11 +74,11 @@
   (keyboard-quit))
 ; Now go ahead and bind it in the relevant maps:
 
- (define-key evil-normal-state-map   (kbd "C-g" ) #'evil-keyboard-quit) 
- (define-key evil-motion-state-map   (kbd "C-g" ) #'evil-keyboard-quit) 
- (define-key evil-emacs-state-map    (kbd "C-g" ) #'evil-exit-emacs-state) 
- (define-key evil-insert-state-map   (kbd "C-g" ) #'evil-keyboard-quit) 
- (define-key evil-window-map         (kbd "C-g" ) #'evil-keyboard-quit) 
+ (define-key evil-normal-state-map   (kbd "C-g" ) #'evil-keyboard-quit)
+ (define-key evil-motion-state-map   (kbd "C-g" ) #'evil-keyboard-quit)
+ (define-key evil-emacs-state-map    (kbd "C-g" ) #'evil-exit-emacs-state)
+ (define-key evil-insert-state-map   (kbd "C-g" ) #'evil-keyboard-quit)
+ (define-key evil-window-map         (kbd "C-g" ) #'evil-keyboard-quit)
  (define-key evil-replace-state-map (kbd "C-g" ) #'evil-keyboard-quit)
  (define-key evil-operator-state-map (kbd "C-g" ) #'evil-keyboard-quit)
 
@@ -122,9 +122,9 @@
 ; (define-key evil-normal-state-map "d" 'evil-scroll-down)
 
 
-(define-key evil-visual-state-map   (kbd "f") 'mark-whole-buffer) 
+(define-key evil-visual-state-map   (kbd "f") 'mark-whole-buffer)
 (define-key evil-visual-state-map   (kbd "J") 'evil-visual-block)
-;; triple cycling 
+;; triple cycling
 ;; (define-key evil-visual-state-map (kbd "v") 'evil-visual-block)
 ;; TODO for mouse http://emacs.stackexchange.com/questions/7244/enable-emacs-column-selection-using-mouse
 
@@ -136,7 +136,7 @@
 (global-set-key (kbd "C-x C-;") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-c C-b") 'xah-make-backup-and-save)
 (with-eval-after-load 'org
-    
+
 (define-key org-mode-map (kbd "C-c C-b") 'xah-make-backup-and-save)
 )
 ;; You know, like Readline.
@@ -158,10 +158,10 @@
 ;; Turn on the menu bar for exploring new modes
 (global-set-key (kbd "C-<f10>") (lambda () (interactive) (toggle-menu-bar-mode-from-frame)(toggle-tool-bar-mode-from-frame)))
 
-; (global-set-key (kbd "<f6>") 'switch-to-prev-buffer) 
-; (global-set-key (kbd "<f7>") 'switch-to-next-buffer) 
+; (global-set-key (kbd "<f6>") 'switch-to-prev-buffer)
+; (global-set-key (kbd "<f7>") 'switch-to-next-buffer)
 
-(define-key dired-mode-map "h" (lambda ()  (interactive) (find-alternate-file "..")))	
+(define-key dired-mode-map "h" (lambda ()  (interactive) (find-alternate-file "..")))
 
 (global-set-key (kbd "C-k") (lambda () (interactive) (evil-scroll-up nil)))
 (global-set-key (kbd "C-j") (lambda () (interactive) (evil-scroll-down nil)))
@@ -169,17 +169,17 @@
 (define-key dired-mode-map (kbd "C-k") (lambda () (interactive) (evil-scroll-up nil)))
 (define-key evil-normal-state-map (kbd "C-j") (lambda () (interactive)  (evil-scroll-down nil)))
 (define-key dired-mode-map (kbd "C-j") (lambda () (interactive)  (evil-scroll-down nil)))
-						
-						
-(global-set-key (kbd "C-l") 'switch-to-prev-buffer) 
+
+
+(global-set-key (kbd "C-l") 'switch-to-prev-buffer)
 (global-set-key (kbd "C-o") 'switch-to-next-buffer)
-(define-key dired-mode-map (kbd "O") 'switch-to-next-buffer) 
+(define-key dired-mode-map (kbd "O") 'switch-to-next-buffer)
 ;;todo ;; (define-key dired-mode-map (kbd "o") 'switch-to-prev-buffer)
- 
-(define-key evil-normal-state-map (kbd "O") 'switch-to-next-buffer) 
+
+(define-key evil-normal-state-map (kbd "O") 'switch-to-next-buffer)
 ;;todo ;;(define-key evil-normal-state-map (kbd "o") 'switch-to-prev-buffer)
 
-(define-key evil-normal-state-map (kbd "C-o") 'switch-to-next-buffer) 
+(define-key evil-normal-state-map (kbd "C-o") 'switch-to-next-buffer)
 (define-key evil-normal-state-map (kbd "C-l") 'switch-to-prev-buffer)
 
 
@@ -188,16 +188,16 @@
     (define-key org-mode-map (kbd "C-l") 'switch-to-prev-buffer)
     (define-key org-mode-map (kbd "C-v") 'switch-to-next-buffer)
  ;; TODO maake below work if in orgmode with normal
-;; (define-key org-mode-map (kbd "O") 'switch-to-next-buffer) 
+;; (define-key org-mode-map (kbd "O") 'switch-to-next-buffer)
 ;; (define-key org-mode-map (kbd "o") 'switch-to-prev-buffer)
- 
-	)  
+
+	)
 
 ;  kill the same line even if at the end of line
 (global-set-key (kbd "C-S-k") 'kill-whole-line)
 
 ;; TODO create in current major mode
-(global-set-key (kbd "C-x C-n") 'xah-new-empty-buffer) 
+(global-set-key (kbd "C-x C-n") 'xah-new-empty-buffer)
 
 
 ; Mouse Wheel Scrolling
@@ -250,21 +250,20 @@
 ; Fixme: error
 ; (define-key helm-find-files-map (kbd "C-j") 'helm-find-files-up-one-level)
 ; (define-key helm-find-files-map (kbd "C-l") 'helm-execute-persistent-action)
- 
+
 (global-set-key (kbd "S-<f4>") (lambda () (interactive)(dired (format "C://Users//%s//Downloads" user-login-name))))
 
 ; file searching
 (global-set-key (kbd "C-x M-f") 'ido-find-file-other-window)
 (global-set-key (kbd "C-x C-M-f") 'find-file-in-project)
-(global-set-key (kbd "C-x p") 'cibin-find-related-files)
+;; (global-set-key (kbd "C-x p") 'cibin-find-related-files)
 (global-set-key (kbd "C-x F") 'file-cache-ido-find-file)
 
 ; text searching
-(global-set-key (kbd "C-x j") 'cibin-search-in-text-files-related-bash) 
-(global-set-key (kbd "C-x f") 'cibin-search-in-common-files-bash)
+(global-set-key (kbd "C-x j") 'cibin-search-in-text-files-related-bash)
 (global-set-key (kbd "C-x e") 'cibin-search-in-files-advgrep-here)
 
-; (global-set-key (kbd "C-x f") (lambda () (interactive) 
+; (global-set-key (kbd "C-x f") (lambda () (interactive)
 ; (file-cache-read-cache-from-file)
 ; 'file-cache-ido-find-file
 ; ))
@@ -285,10 +284,10 @@
 
 (require 'expand-region)
 ; use spc-v & then only v
-(global-set-key (kbd "C-=") 'er/expand-region)
+;; (global-set-key (kbd "C-=") 'er/expand-region)
 ; TODO "t" was something else
 ;; (define-key evil-normal-state-map "v" 'er/expand-region)
-(define-key evil-normal-state-map "t" 'er/expand-region)
+;; (define-key evil-normal-state-map "t" 'er/expand-region)
 
 (global-set-key (kbd "M-a") 'mark-whole-buffer)
 (global-set-key (kbd "C-\\") 'highlight-symbol-at-point)
@@ -326,12 +325,12 @@
 
 (global-set-key (kbd "M-e") 'other-window)
 (define-key evil-normal-state-map "e" 'other-window)
-(define-key evil-visual-state-map   (kbd "f") 'mark-whole-buffer) 
+(define-key evil-visual-state-map   (kbd "f") 'mark-whole-buffer)
 ;TODO o in visual state was exchange-point-and-mark
-(define-key evil-visual-state-map   (kbd "o") 'evil-visual-line) 
+(define-key evil-visual-state-map   (kbd "o") 'evil-visual-line)
 
 ;; enable Shift+direction for window movements
-;; (windmove-default-keybindings) 
+;; (windmove-default-keybindings)
 
 ;; Window switching. (C-x o goes to the next window)
 
@@ -351,10 +350,10 @@
 (define-key evil-normal-state-map "gl" 'end-of-buffer) ;evil-goto-line) ; goto last line
 ; goto last line in insert mode
 (define-key evil-normal-state-map "gk" (lambda (arg)
-     
-      (interactive "p")      
+
+      (interactive "p")
       (end-of-buffer)(open-line arg)(next-line 1)
-	  ; TODO 
+	  ; TODO
       ; (when newline-and-indent
         ;(indent-according-to-mode))
 	(evil-insert 1)
@@ -370,10 +369,10 @@
 	(when newline-and-indent
 		(indent-according-to-mode)))
 
-		
+
 (define-key evil-normal-state-map "ga" (lambda (arg)
-     
-      (interactive "p")      
+
+      (interactive "p")
       (beginning-of-buffer)(open-line arg)(evil-insert 1)
 ))
 ; TODO: gk was evil previous visual-line, map it to somewhere else
@@ -439,7 +438,7 @@
 ; (key-chord-define-global "vc"     'vc-next-action)
 
 
-             
+
 ; (key-chord-define-global ";x" 'execute-extended-command) ;; Meta-X
 
 ; window management:
@@ -506,7 +505,7 @@
                                      (shell-command (format "git add %s" buffer-file-name))
                                      (message "Staged changes.")))))
 (with-eval-after-load 'org
- 
+
 ;; Org
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
@@ -573,12 +572,12 @@ buffer preview will still display."
        )
    )
    (add-hook 'evil-insert-state-exit-hook 'my-save-if-bufferfilename)
-   
+
                                         ; or only in evil’s normal state:
 
 
-   ;; INCREMENT AND DECREMENT numbers in Emacs 
-   
+   ;; INCREMENT AND DECREMENT numbers in Emacs
+
 (global-set-key (kbd "C-c +") 'evil-numbers/inc-at-pt)
 (global-set-key (kbd "C-c -") 'evil-numbers/dec-at-pt)
 
@@ -651,10 +650,9 @@ buffer preview will still display."
   (define-key evil-normal-state-map (car binding) (cdr binding))
   ;; (define-key org-mode-map (car binding) (cdr binding)
   (with-eval-after-load 'org
- 
+
   	(evil-define-key 'normal org-mode-map  (car binding) (cdr binding))
 	)
 ;(add-hook 'org-mode-hook (lambda ()(define-key org-mode-map (car binding) (cdr binding))))  )
 )
 (provide 'starter-kit-bindings)
-

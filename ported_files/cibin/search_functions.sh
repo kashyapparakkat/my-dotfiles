@@ -69,15 +69,13 @@ function recent_in_app(){
 
 
 function smart_open(){
-echo "arg=$1"
+echo "current file=$1"
 cd_to_directory "$1"
-pwd
 	cr=`echo $'\n.'`
 	cr=${cr%.}
-
 	textreset=$(tput sgr0) # reset the foreground colour
 	yellow=$(tput setaf 2)
-	echo "${yellow}$(pwd) ${textreset}"
+	echo "${yellow}cwd=$(pwd) ${textreset}"
 	read -n 1 -p " [s] search $cr [o] open $cr [z] auto search$cr" pressedkey </dev/tty
 	case $pressedkey in
 

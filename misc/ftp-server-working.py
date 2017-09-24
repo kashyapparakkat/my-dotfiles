@@ -5,7 +5,7 @@ if len(sys.argv)>1:
     root_folder=sys.argv[1]
 else:
     root_folder='C:/'
-    
+
 print(root_folder)
 time.sleep(4)
 # sys.exit()
@@ -50,8 +50,8 @@ class FtpThread(threading.Thread):
 
     def stop(self):
         self.server.close_all()
-    
-    
+
+
 if __name__ == '__main__':
     try:
         ftp_server = FtpThread("")

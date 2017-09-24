@@ -10,8 +10,8 @@
 ; Add Cygwin /bin to exec-path.
       (if (file-directory-p "c:/cygwin64/bin")
       (add-to-list 'exec-path "c:/cygwin64/bin"))
-	  
-	  
+
+
 ;; open recent directory, requires ivy (part of swiper)
 ;; borrows from http://stackoverflow.com/questions/23328037/in-emacs-how-to-maintain-a-list-of-recent-directories
 (defun bjm/ivy-dired-recent-dirs ()
@@ -23,16 +23,16 @@
                     (if (file-directory-p file) file (file-name-directory file)))
                   recentf-list))))
 
-				  
-				  
+
+
 				; (ivy-read "Directory: "
                          ; recent-dirs
                          ; :re-builder #'ivy--regex
                          ; :sort nil
-                         ; :initial-input nil)  
-				  
-				  
-    (let ((dir (ido-completing-read "choose recent directory? " 
+                         ; :initial-input nil)
+
+
+    (let ((dir (ido-completing-read "choose recent directory? "
 				  recent-dirs )))
       (dired dir))
 	  ))
@@ -48,9 +48,9 @@
 (when (display-graphic-p)
 	(tool-bar-mode 1)
 	(scroll-bar-mode 1)
-(set-scroll-bar-mode 'left) 
+(set-scroll-bar-mode 'left)
   )
-	
+
 ;; Smooth scrolling
 ;; Scroll one line at a time, less 'jumpy' than the default.
 ;; scroll one line at a time (less "jumpy" than defaults)
@@ -74,7 +74,7 @@
 ; Emacs’s default scrolling behavior, like a lot of the default Emacs experience, is pretty idiosyncratic. The following snippet makes for a smoother scrolling behavior when using keyboard navigation.
 ;; TODO disabling for now
 ;; (setq redisplay-dont-pause t
-      ;; scroll-margin 4 
+      ;; scroll-margin 4
       ;; scroll-step 1
       ;; scroll-conservatively 10000
       ;; scroll-preserve-screen-position 1)
@@ -92,7 +92,7 @@
     (setq-default scroll-up-aggressively 0.01
       scroll-down-aggressively 0.01)
 
-(message "checkpoint 67")	
+(message "checkpoint 67")
 
 (electric-pair-mode 1) ; automatically insert right brackets when left one is typed?
 (show-paren-mode 1) ; turn on bracket match highlight
@@ -180,7 +180,7 @@
     ; (when elt
       ; (setcdr (assq 'subword-mode minor-mode-alist) '("")))))
 
-	  
+
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Multiple Cursors Mode
 
@@ -191,12 +191,12 @@
   ; (global-set-key (kbd "<C-mouse-1>") 'mc/add-cursor-on-click)
 ; (global-unset-key (kbd "M-<down-mouse-1>"))
 ; (global-set-key (kbd "M-<mouse-1>") 'mc/add-cursor-on-click)
-  
+
   ; )
 
 (setq shift-select-mode t)
 
-; http://ergoemacs.org/emacs/emacs_make_modern.html 
+; http://ergoemacs.org/emacs/emacs_make_modern.html
 ; save minibuffer history
 (savehist-mode 1)
 
@@ -219,7 +219,7 @@
       auto-save-timeout 20              ; number of seconds idle time before auto-save (default: 30)
       auto-save-interval 200            ; number of keystrokes between auto-saves (default: 300)
       )
-	  
+
 ;; make backup to a designated dir, mirroring the full path
 
 ;; backup in one place. flat, no tree structure
@@ -264,8 +264,8 @@ If the new path's directories does not exist, create them."
         ("git" . "~/git/" )
         ("todo" . "~/todo.org" )
         ("keys" . "~/git/my_emacs_init/my_keybinding.el" )
-        ("download" . "~/Downloads/" )
         ("pictures" . "~/Pictures/" )
+        ("download" . "~/Downloads/" )
         ;; more here
         ) )
 
@@ -295,7 +295,7 @@ If the new path's directories does not exist, create them."
         ("\\.\\(?:mp4\\|mp3\\|mkv\\|avi\\|flv\\|ogv\\)\\(?:\\.part\\)?\\'"
          "vlc")
         ("\\.html?\\'" "firefox")))
-		
+
 
 (global-set-key [(control x) (control r)] 'rename-this-file)
 
@@ -330,11 +330,11 @@ If the new path's directories does not exist, create them."
 
 
 (global-set-key [C-right] 'geosoft-forward-word)
-(global-set-key [C-left] 'geosoft-backward-word) 
-(global-set-key [f4] 'bubble-buffer) 
-		
+(global-set-key [C-left] 'geosoft-backward-word)
+(global-set-key [f4] 'bubble-buffer)
+
 ; to make sure case is preserved when expanding
-(setq dabbrev-case-replace nil)		
+(setq dabbrev-case-replace nil)
 
 (global-set-key [S-return]   'open-next-line)
 (global-set-key [C-return] 'open-previous-line-move-down)
@@ -354,12 +354,12 @@ If the new path's directories does not exist, create them."
 (define-key evil-insert-state-map "\C-r" 'search-backward)
 
 (define-key evil-visual-state-map "\C-w" 'evil-delete)
-   
 
-  
+
+
   ; golden-ratio
 
-; Give the working window more screen estate. 
+; Give the working window more screen estate.
   (use-package golden-ratio
   :diminish golden-ratio-mode
   :config (progn
@@ -373,7 +373,7 @@ If the new path's directories does not exist, create them."
     ;; Inhibit helm
     (add-to-list 'golden-ratio-inhibit-functions #'my/helm-alive-p)
             ))
-			
+
 
 ; volatile-highlights
 ; Highlights recently copied/pasted text.
@@ -383,8 +383,8 @@ If the new path's directories does not exist, create them."
   :config (volatile-highlights-mode t))
 
 
-  
-  
+
+
 ; Large file warning
 ; Whenever, a large file (by Emacs standards) is opened, it asks for confirmation whether we really want to open it but the problem is the limit for this file is set pretty low. Let’s increase it a bit so that it doesn’t prompt so often.
 
@@ -415,9 +415,9 @@ If the new path's directories does not exist, create them."
 
 ; window-numbering
 ;(setq window-numbering-assign-func (lambda () (when (equal (buffer-name) "*scratch*") 9)))
-	  
-	  
-	  
+
+
+
 ;; adjust transpose-chars to switch previous two characters
 ; As an example, with the modified behaviour, using C-t with the point at the end of the string teh changes it to the, while the original behaviour gives you te h (unless you are at the end of a line, in which case you get the). Repeated use of the modified version simply toggles back and forth
 (global-set-key (kbd "C-t")
@@ -429,11 +429,11 @@ If the new path's directories does not exist, create them."
                 (lambda () (interactive)
                   (backward-word)
                   (transpose-words 1)))
-				  
-				  
+
+
 				  (global-set-key (kbd "C-c b c") 'quick-calc)
-				  
-				  
+
+
 				  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; change case of letters                                                 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -500,8 +500,8 @@ Toggles between: “all lower”, “Init Caps”, “ALL CAPS”."
           (run-with-idle-timer 300 t 'save-persistent-scratch)))
 
 
-; M-x comment-box.   
-; M-x bjm-comment-box.   
+; M-x comment-box.
+; M-x bjm-comment-box.
 (defun bjm-comment-box (b e)
 "Draw a box comment around the region but arrange for the region to extend to at least the fill column. Place the point after the comment box."
 
@@ -535,17 +535,17 @@ Toggles between: “all lower”, “Init Caps”, “ALL CAPS”."
     (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/my-files/emacs-tmp/undo"))
           undo-tree-visualizer-timestamps t
           undo-tree-visualizer-diff t))
-		  
-    (define-key undo-tree-map (kbd "C-/") 'undo-tree-undo)		  
+
+    (define-key undo-tree-map (kbd "C-/") 'undo-tree-undo)
     (define-key undo-tree-map (kbd "C-x u") 'undo-tree-visualize)
 		  )
- 
+
 (defalias 'redo 'undo-tree-redo)
 (global-set-key (kbd "C-z") 'undo) ; 【Ctrl+z】
 (global-set-key (kbd "C-S-z") 'redo) ; 【Ctrl+Shift+z】;  Mac style
 
-  
-  
+
+
 ; fixmee is for quickly navigate to FIXME and TODO notices in Emacs.
 
 ; Binding	Call	Do
@@ -564,12 +564,12 @@ Toggles between: “all lower”, “Init Caps”, “ALL CAPS”."
   ; :init
   ; (add-hook 'prog-mode-hook 'fixmee-mode))
 
-  
-  
+
+
 ; (use-package button-lock
-  ; :diminish button-lock-mode)	  
-  
-  
+  ; :diminish button-lock-mode)
+
+
 (message "checkpoint 37")
 
  ; Highlight (too) long lines, and key-words
@@ -642,7 +642,7 @@ file to write to."
             nil)
         (error
          (warn "recentf mode: %s" (error-message-string error)))))))
-		 
+
 ; Indicate trailing empty lines in the GUI:
 (set-default 'indicate-empty-lines t)
 (setq show-trailing-whitespace t)
@@ -695,13 +695,13 @@ file to write to."
 ;; (message "%s" all-files)
 (if (y-or-n-p  (format "%s files. Proceed?" (length all-files)))
     (progn
-(dolist (file all-files) 
+(dolist (file all-files)
  (if (not (file-directory-p file))
  (find-file-noselect file)
  ))
 (message  "opened all similar files of extension"))
 
-    
+
   (progn
 (message "cancelled")
   )))
@@ -709,8 +709,8 @@ file to write to."
 ; (mapc #'find-file-noselect
    ; (directory-files "~/git/LeoUfimtsev.github.io/org/" nil "\\.org$"))
 
-   
-   
+
+
    ;; subword-mode remaps most key bindings but not these.
 (global-set-key [(control right)] 'subword-forward)
 (global-set-key [(control left)] 'subword-backward)
@@ -732,7 +732,7 @@ file to write to."
   '(undo-outer-limit 2000000)  ; 2M
 
  '(kill-read-only-ok t)  ; C-k in read-only buffer doesn't error
- 
+
 
 )
 
@@ -746,7 +746,7 @@ file to write to."
 ; From https://github.com/purcell/emacs.d/blob/master/lisp/init-auto-complete.el - Exclude very large buffers from dabbrev
 (defun sanityinc/dabbrev-friend-buffer (other-buffer)
   (< (buffer-size other-buffer) (* 1 1024 1024)))
-  
+
 (setq dabbrev-friend-buffer-function 'sanityinc/dabbrev-friend-buffer)
 (setq hippie-expand-try-functions-list
       '(yas-hippie-try-expand
@@ -760,7 +760,7 @@ file to write to."
         try-expand-line
         try-complete-lisp-symbol-partially
         try-complete-lisp-symbol))
-		
+
 (defun lorem ()
   "Insert a lorem ipsum."
   (interactive)
@@ -773,7 +773,7 @@ file to write to."
           "culpa qui officia deserunt mollit anim id est laborum."
 		  )
 		  )
-(progn 
+(progn
 ;; from xah
 ;; set arrow keys in isearch. left/right is backward/forward, up/down is history. press Return to exit
     (define-key isearch-mode-map (kbd "<up>") 'isearch-ring-retreat )
@@ -789,7 +789,7 @@ file to write to."
 ;;IBUFFER Hacks
 ; http://martinowen.net/blog/2010/02/03/tips-for-emacs-ibuffer.html
 (setq ibuffer-saved-filter-groups
-  (quote (("default"      
+  (quote (("default"
 
             ("dired" (mode . dired-mode))
  ("emacs-config" (or (filename . ".emacs.d")
@@ -801,7 +801,7 @@ file to write to."
 			(mode . css-mode)))
 	 ("Subversion" (name . "\*svn"))
 	 ("Magit" (name . "\*magit"))
-	 
+
             ("Mail"
               (or  ;; mail-related buffers
                (mode . message-mode)
@@ -916,6 +916,34 @@ file to write to."
 ;; auto select buffer on mouse focus
 (setq mouse-autoselect-window t)
 
-;; TODO disabling for now 
+;; TODO disabling for now
 (global-eldoc-mode -1)
+
+;; http://blog.binchen.org/posts/new-git-timemachine-ui-based-on-ivy-mode.html
+(defun my-git-timemachine-show-selected-revision ()
+  "Show last (current) revision of file."
+  (interactive)
+  (let* ((collection (mapcar (lambda (rev)
+                    ;; re-shape list for the ivy-read
+                    (cons (concat (substring-no-properties (nth 0 rev) 0 7) "|" (nth 5 rev) "|" (nth 6 rev)) rev))
+                  (git-timemachine--revisions))))
+    (ivy-read "commits:"
+              collection
+              :action (lambda (rev)
+                        ;; compatible with ivy 9+ and ivy 8
+                        (unless (string-match-p "^[a-z0-9]*$" (car rev))
+                          (setq rev (cdr rev)))
+                        (git-timemachine-show-revision rev)))))
+
+(defun my-git-timemachine ()
+  "Open git snapshot with the selected version.  Based on ivy-mode."
+  (interactive)
+  (unless (featurep 'git-timemachine)
+    (require 'git-timemachine))
+  (git-timemachine--start #'my-git-timemachine-show-selected-revision))
+
+
+
+;; Remove trailing whitespace
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 (provide 'other-settings)

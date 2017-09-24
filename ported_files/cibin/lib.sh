@@ -500,13 +500,13 @@ cdf() {
 # lfind /cygdrive/c/Users/cibin/Downloads/ -type f -iname *notes.org  -exec ag domain --color {} \;
 
 function searchfiles () {
-	
+
 cat ~/all_files.db|fzy -l 20
 
 }
 function searchcommands() {
 cat c:/cbn_gits/AHK/popular_commands.db|fzy -l 20
-    
+
 }
 function searchnotes () {
 # ag $* -G org$ /cygdrive/c/Users/cibin/Downloads/ --color
@@ -524,29 +524,27 @@ lfind "/cygdrive/c/Users/$USERNAME/Downloads/" -maxdepth 2 -iname "*notes*.txt" 
 # ag $* -n -G work-notes.org$ /cygdrive/c/Users/"$USERNAME"/Downloads/ --color
 }
 
-
 # extra option available https://jamesoff.net/2016/05/31/fzf-brew-upgrade.html
-
 ask_searchterm () {
     if [ "$1" == "-r" ]; then
-    recurse="-r"   
+    recurse="-r"
      else
-         recurse="-n"   
+         recurse="-n"
          echo "no -n "
-    fi 
+    fi
 
      #   echo "\$cmd extension searchTerm"
     if [ -z "$2" ]; then
-		read -p "enter extension: " arg < /dev/tty 
+		read -p "enter extension: " arg < /dev/tty
     else
         arg=$2
 	fi
     if [ -z "$3" ]; then
-        read -p "enter search_term: " searchtext < /dev/tty 
+        read -p "enter search_term: " searchtext < /dev/tty
 	else
         searchtext=${@:3}
 	fi
-    
+
 echo  search "$recurse" "$arg" "$searchtext"
 search "$recurse" "$arg" "$searchtext"
 }
@@ -555,7 +553,7 @@ searchtext() {
     ask_searchterm
 
 }
-search(){ 
+search(){
 	ag -i "$1" -G "$2$" "${@:3}"
 	# CHOICE=$(ag -i -G $arg$ --color "$searchtext"| fzf -0 -1 --ansi)
 	# echo "$CHOICE"|extract_filepath_linenum|open_in_app
@@ -564,14 +562,14 @@ search(){
 searchall() {
 	echo "\$cmd searchTerm."
 	if [ -z "$1" ]; then
-		read -p "enter search_term: " searchtext < /dev/tty 
+		read -p "enter search_term: " searchtext < /dev/tty
 	else
 		searchtext=${@:1}
 	fi
 	ag -i  --color "$searchtext"
 	# CHOICE=$(ag -i  --color "$searchtext"| fzy)
 	# CHOICE=$(ag -i  --color "$searchtext"| fzf -0 -1 --ansi)
-	
+
 }
 
 

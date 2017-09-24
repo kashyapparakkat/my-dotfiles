@@ -163,4 +163,5 @@ Given a prefix argument, search in ALL buffers."
 ; (setq highlight-symbol-on-navigation-p t)
 ; (global-set-key [f3] 'highlight-symbol-next)
 ; (global-set-key [(shift f3)] 'highlight-symbol-prev)
+
 (provide 'cbn-search-bindings)

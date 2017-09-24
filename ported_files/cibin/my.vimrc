@@ -12,6 +12,14 @@ nnoremap c :exe ':silent !less %'<CR>
 
 " line numbers; lags
 " set number
+
+"enable number and relativenumber at the same time,
+:set number relativenumber
+
+" :set nonumber  " turn line numbers off
+
+:set relativenumber
+" TIP: Typing 5j will move the cursor five lines down
 set cursorline
 
 noremap q :q<cr>
@@ -57,7 +65,7 @@ noremap or :! C:/cygwin64/bin/python3.6m.exe C:/cygwin64/bin/ranger --selectfile
 " C-w s/v split
 " C- c/o close current/all except current
 " :e filename
-" :b filen <TAB> 
+" :b filen <TAB>
 "
 
 
@@ -132,7 +140,7 @@ autocmd BufEnter __Tagbar__  noremap <buffer> <leader> <Plug>leaderguide-buffer
 " Note: in vim 7.3.74 and higher you can set clipboard=unnamedplus to alias unnamed register to the + register, which is the X Window clipboard.
 set clipboard=unnamed
 
-
+colorscheme elflord
 
 
 

@@ -35,7 +35,10 @@
 
 (defun cibin/counsel-find()
 (interactive)
- (counsel-find saved-helm-input)
+(counsel-find "sf"
+             "cat ~/all_files.db|/usr/local/bin/fzy -e%s|head -n 50|sed -e \"s/\\/cygdrive\\/\\(.\\)\\//\\1:\\//\"" saved-helm-input)
+;; (global-set-key (kbd "C-x R") (lambda () (interactive) (counsel-find "snf " "bash -ic 'searchnotes . |fzy -e%s|head -n 50' 2>/dev/null" )))
+
   )
 
 
@@ -118,7 +121,7 @@ helm-move-to-line-cycle-in-source nil
 )
 
 (with-eval-after-load 'helm-ag
-;; TODO 
+;; TODO
 ;; (define-key helm-ag-map (kbd "C-l") 'helm-ag--up-one-level)
     (define-key helm-ag-map (kbd "C-l") 'try-next-function)
 )
@@ -174,7 +177,11 @@ helm-move-to-line-cycle-in-source nil
 )
 
 (defun cibin/find-related-files-helm-saved-input()
- (cibin-find-related-files saved-helm-input)
+  (interactive)
+(setq all-func '(dummy  cibin/counsel-find cibin/counsel-locate cibin/helm-find-files ))
+(setq all-func-reversed '(cibin/helm-mini))
+
+  (cibin-find-related-files saved-helm-input)
 )
 
 (setq saved-helm-input "")
@@ -239,5 +246,13 @@ helm-move-to-line-cycle-in-source nil
                     (put 'quit 'error-message "Quit")
                     ,@body))
      (minibuffer-keyboard-quit)))
+
+
+; to prevent helm async from hanging emacs
+(setq helm-input-idle-delay .1)
+(setq helm-cycle-resume-delay 2)
+(setq helm-follow-input-idle-delay 1)
+
+(global-set-key (kbd "C-x p") 'cibin/find-related-files-helm-saved-input)
 
 (provide 'cbn-helm-config)

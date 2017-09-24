@@ -19,8 +19,8 @@
       ("p" . previous-error-no-select)
       ("q" . ag-kill-buffers))
 
-  ) 
-  ) 
+  )
+  )
 ;; TODO update definition when ag.el is updated
 (defun cibin/ag-files-cwd (string file-type directory)
   "Search using ag in a given DIRECTORY for a given search STRING,
@@ -39,7 +39,7 @@ If called with a prefix, prompts for flags to pass to ag."
   (interactive)
  ;; (setq helm-ag-base-command "lfind  . -iname sea|grep sea ")
   ;; (setq helm-ag-command-option  "")
-  (setq helm-ag-command-option (concat "-n")) 
+  (setq helm-ag-command-option (concat "-n"))
   ;; (setq helm-ag-command-option (concat "-G" (get-file-extension)  "$"))
 ;; (setq helm-do-ag--extensions '(".e" ".txt"))
 ;; (setq helm-do-ag--extensions '("\\.txt\\'" "\\.mkd\\'"))
@@ -112,9 +112,12 @@ If called with a prefix, prompts for flags to pass to ag."
 
 ;; (flex-isearch-mode 1) vs flx-isearch-mode
 ;; Flx isearch uses lewang/flx, a library that uses sophistocated heuristics to sort matches. It's awesome. Use it.
-;; This was heavily inspired by emacsmirror/flex-isearch, a cool idea that lacks the intelligent sorting flx provides. 
- (flx-isearch-mode 1) 
+;; This was heavily inspired by emacsmirror/flex-isearch, a cool idea that lacks the intelligent sorting flx provides.
+ (flx-isearch-mode 1)
 (define-key evil-normal-state-map "/" 'flx-isearch-forward)
+(define-key evil-normal-state-map "*" 'evil-search-forward)
+(with-eval-after-load 'swiper
+(define-key evil-normal-state-map "?" 'swiper-all))
 (define-key isearch-mode-map "\C-s" 'flex-isearch-forward)
 (define-key isearch-mode-map "\C-r" 'isearch-toggle-regexp)
 
@@ -142,5 +145,78 @@ If called with a prefix, prompts for flags to pass to ag."
 
 (add-hook 'isearch-mode-hook #'jrh-isearch-with-region)
 
+;; http://blog.binchen.org/posts/complete-line-with-ivy-mode.html
+(defun counsel-escape (keyword)
+  (setq keyword (replace-regexp-in-string "\\$" "\\\\\$" keyword))
+  (replace-regexp-in-string "\"" "\\\\\"" keyword))
+
+(defun counsel-replace-current-line (leading-spaces content)
+  (beginning-of-line)
+  (kill-line)
+  (insert (concat leading-spaces content))
+  (end-of-line))
+
+(defun counsel-git-grep-complete-line ()
+  (interactive)
+  (let* (cmd
+        (cur-line (buffer-substring-no-properties (line-beginning-position)
+                                                  (line-end-position)))
+        (default-directory (locate-dominating-file
+                            default-directory ".git"))
+        keyword
+        (leading-spaces "")
+        collection)
+    (setq keyword (counsel-escape (if (region-active-p)
+                                      (buffer-substring-no-properties (region-beginning)
+                                                                      (region-end))
+                                    (replace-regexp-in-string "^[ \t]*" "" cur-line))))
+    ;; grep lines without leading/trailing spaces
+    (setq cmd (format "git --no-pager grep -I -h --no-color -i -e \"^[ \\t]*%s\" | sed s\"\/^[ \\t]*\/\/\" | sed s\"\/[ \\t]*$\/\/\" | sort | uniq" keyword))
+    (when (setq collection (split-string (shell-command-to-string cmd) "\n" t))
+      (if (string-match "^\\([ \t]*\\)" cur-line)
+          (setq leading-spaces (match-string 1 cur-line)))
+      (cond
+       ((= 1 (length collection))
+        (counsel-replace-current-line leading-spaces (car collection)))
+       ((> (length collection) 1)
+        (ivy-read "lines:"
+                  collection
+                  :action (lambda (l)
+                            (counsel-replace-current-line leading-spaces l))))))
+    ))
+(global-set-key (kbd "C-x C-l") 'counsel-git-grep-complete-line)
+
+
+(defvar search-directory  nil)
+(defvar search-extension nil)
+
+(defun cibin/helm-do-ag-All-Project (&optional query)
+  (interactive)
+  (setq search-extension (read-from-minibuffer "extension: "))
+  (setq helm-ag-command-option (concat "-G" search-extension  "$"))
+  (setq search-directory (read-directory-name "Directory: " (format "c:/users/%s/Downloads/Projects" user-login-name)))
+(helm-do-ag-search-template search-directory)
+)
+
+(defun cibin/helm-do-ag-All-Project-repeat-search (&optional query)
+  (interactive)
+  ;; (setq search-extension (read-from-minibuffer "extension: "))
+  (setq helm-ag-command-option (concat "-G" search-extension  "$"))
+ ;; (setq search-directory (read-directory-name "Directory: " (format "c:/users/%s/Downloads/" user-login-name)))
+(message (format "Searching '.%s' files in '%s'" search-extension search-directory ))
+(helm-do-ag-search-template search-directory)
+)
+
+(global-set-key (kbd "C-x P") 'cibin/helm-do-ag-All-Project)
+(global-set-key (kbd "C-x M-P") 'cibin/helm-do-ag-All-Project-repeat-search)
+
+(defun helm-do-ag-search-template (search-directory)
+
+  (let ((rootdir search-directory))
+    (unless rootdir
+      (error "Could not find the project root. Create a git, hg, or svn repository there first. "))
+    (helm-do-ag rootdir nil query)))
+
+; (message search-directory)
 
 (provide 'advanced-search)

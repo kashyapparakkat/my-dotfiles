@@ -47,6 +47,11 @@ alias vi='vim'
 
 alias ex='exit'
 
+# GIT
+
+alias gdf='git diff --name-only'
+
+
 alias ff='pcfind common_fuzzy fuzzy_db'
 alias f='pcfind common db'
 alias fa='pcfind all db'
@@ -82,7 +87,7 @@ alias cd~='cd ~'
 alias cdmisc='cd /cygdrive/c/cbn_gits/misc'
 alias cdahk='cd /cygdrive/c/cbn_gits/AHK'
 alias cdd='cd /cygdrive/c/Users/$USERNAME/Downloads'
-
+alias cdh='cd ~'
 # alias cdd='cd ~/Downloads'
 
 alias cd.='cd ..' 
