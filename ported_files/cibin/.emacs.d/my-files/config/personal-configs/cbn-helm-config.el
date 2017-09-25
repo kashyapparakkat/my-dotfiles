@@ -33,14 +33,12 @@
 (cibin/helm-do-ag-Extension-recurse-cwd nil)
 )
 
-(global-set-key (kbd "C-x F") 'cibin/counsel-find)
-
 (defun cibin/counsel-find()
-  (interactive)
-(setq all-func '(dummy cibin/counsel-locate cibin/helm-find-files ))
-(setq all-func-reversed '(cibin/counsel-find))
+(interactive)
 (counsel-find "sf"
              "cat ~/all_files.db|/usr/local/bin/fzy -e%s|head -n 50|sed -e \"s/\\/cygdrive\\/\\(.\\)\\//\\1:\\//\"" saved-helm-input)
+;; (global-set-key (kbd "C-x R") (lambda () (interactive) (counsel-find "snf " "bash -ic 'searchnotes . |fzy -e%s|head -n 50' 2>/dev/null" )))
+
   )
 
 
