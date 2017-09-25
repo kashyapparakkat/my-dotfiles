@@ -53,7 +53,7 @@ end up leaving point on a space or newline character."
 
 
 
-;; For parens you can do M-(. For brackets/braces/quotes you could do: 
+;; For parens you can do M-(. For brackets/braces/quotes you could do:
 (global-set-key (kbd "M-[") 'insert-pair)
 (global-set-key (kbd "M-{") 'insert-pair)
 (global-set-key (kbd "M-\"") 'insert-pair)

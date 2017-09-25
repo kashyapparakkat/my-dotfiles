@@ -192,9 +192,9 @@ If called with a prefix, prompts for flags to pass to ag."
 
 (defun cibin/helm-do-ag-All-Project (&optional query)
   (interactive)
-  (setq search-extension (read-from-minibuffer "extension: "))
+  (setq search-extension (read-from-minibuffer "extension: " search-extension))
   (setq helm-ag-command-option (concat "-G" search-extension  "$"))
-  (setq search-directory (read-directory-name "Directory: " (format "c:/users/%s/Downloads/Projects" user-login-name)))
+  (setq search-directory (read-directory-name "Directory: " (format "c:/users/%s/Downloads/Projects/" user-login-name)))
 (helm-do-ag-search-template search-directory)
 )
 

@@ -257,7 +257,8 @@
 (global-set-key (kbd "C-x M-f") 'ido-find-file-other-window)
 (global-set-key (kbd "C-x C-M-f") 'find-file-in-project)
 ;; (global-set-key (kbd "C-x p") 'cibin-find-related-files)
-(global-set-key (kbd "C-x F") 'file-cache-ido-find-file)
+;; todo rebind this to some other key
+;; (global-set-key (kbd "C-x F") 'file-cache-ido-find-file)
 
 ; text searching
 (global-set-key (kbd "C-x j") 'cibin-search-in-text-files-related-bash)
