@@ -62,7 +62,7 @@
 (require 'cbn-dired-show)
 (require 'buttonize-buffer)
 (require 'other-settings)
-(require 'cbn-appearance) 
+(require 'cbn-appearance)
 (require 'cbn-auto-spell)
 (require 'tabbar-tweaks)
 (require 'major-mode-settings)
@@ -78,16 +78,18 @@
 ; (load-file "~/.emacs.d/my-files/config/personal-configs/cbn-xah-fly-keys.el")
 (require 'cbn-hydra)
 (require 'cbn-helm-config)
+(require 'basic-settings)
+(require 'advanced-navigation)
 (cibin-load-essential-custom-bindings)
 (message "loaded all")
   )
-  
+
  (defun cibin-load-essential-custom-bindings ()
 (interactive)
   (message "loading all")
 (require 'buffer-management)
 (require 'starter-kit-bindings)
-(require 'overridden-functions)  
+(require 'overridden-functions)
  )
 
 (cibin-load-all-custom-bindings)
@@ -95,6 +97,4 @@
 (global-set-key (kbd "M-6" ) 'cibin-load-essential-custom-bindings)
 
 
-(setq gc-cons-threshold (* 200 1000 1000))
-
-
+(setq gc-cons-threshold (* 400 1000 1000))

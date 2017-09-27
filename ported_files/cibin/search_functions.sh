@@ -96,10 +96,11 @@ function prompt_for_s(){
 echo "aaarg=$1"
 # echo "${$1%%.*}"
 while true; do
-	read -n 1 -p " [a] all text $cr [c] commands $cr [f] files $cr [n] notes $cr [r] recent $cr [t] ext text " pressedkey < /dev/tty;
+	read -n 1 -p " [a] all text $cr [c] commands $cr [f] files $cr [n] notes $cr [p] project $cr [r] recent $cr [t] ext text " pressedkey < /dev/tty;
 	case $pressedkey in
 		 n ) echo " searching...";snf|extract_filepath_linenum|open_in_app;break;;
-		 n ) echo " searching...";scf;break;;
+		 p ) echo " searching...";spf|extract_filepath_linenum|open_in_app;break;;
+		 c ) echo " searching...";scf;break;;
 		 t ) echo;
 				read -n 1 -p " [a] auto $cr [h] here $cr fuzzy $cr advanced " pressedkey2 < /dev/tty;
 				case $pressedkey2 in

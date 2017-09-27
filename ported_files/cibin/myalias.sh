@@ -18,7 +18,7 @@ function l() {
 # else if linux
 #   alias lfind='find'
 
-# s file/text-ext/all-text/common-text/notes [=recurse/here/recent/allfileslist] [fuzzy] 
+# s file/text-ext/all-text/common-text/notes [=recurse/here/recent/allfileslist] [fuzzy]
 
 alias s='prompt_for_s'
 
@@ -31,6 +31,8 @@ alias sf='searchfiles|open_in_app'
 alias scf='searchcommands|clip'
 alias sn='searchnotes'
 alias snf='searchnotes .|fzy -l 25' # sn fuzzy
+alias spf='searchproject .|fzy -l 25' # sp fuzzy
+alias sp='searchproject'
 
 
 alias srf='searchInRecentfiles .|fzf'
@@ -50,7 +52,7 @@ alias ex='exit'
 # GIT
 
 alias gdf='git diff --name-only'
-
+alias gcm='git commit -a -m'
 
 alias ff='pcfind common_fuzzy fuzzy_db'
 alias f='pcfind common db'
@@ -79,8 +81,8 @@ alias fgrep='fgrep --color=auto'
 alias cgrep='cgrep --color=auto -C 1'
 
 ## get rid of command not found ##
-alias cd..='cd ..' 
- 
+alias cd..='cd ..'
+
 ## a quick way to get out of current directory ##
 
 alias cd~='cd ~'
@@ -90,15 +92,15 @@ alias cdd='cd /cygdrive/c/Users/$USERNAME/Downloads'
 alias cdh='cd ~'
 # alias cdd='cd ~/Downloads'
 
-alias cd.='cd ..' 
-alias cd..='cd ../..' 
-alias cd...='cd ../../..' 
+alias cd.='cd ..'
+alias cd..='cd ../..'
+alias cd...='cd ../../..'
 
-alias ..='cd ..' 
-alias ...='cd ../../../' 
-alias ....='cd ../../../../' 
-alias .....='cd ../../../../' 
-alias .4='cd ../../../../' 
+alias ..='cd ..'
+alias ...='cd ../../../'
+alias ....='cd ../../../../'
+alias .....='cd ../../../../'
+alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
 
 
@@ -136,9 +138,9 @@ alias fhere="lfind . -iname "
 ## set some other defaults ##
 alias du="du -ach | sort -h"
 alias df='df -H'
- 
+
 # top is atop, just like vi is vim
-alias top='atop' 
+alias top='atop'
 #-p flag to make any necessary parent directories. We can make this the default:
 alias mkdir="mkdir -p"
 #Have you ever needed your public IP address from the command line when you're behind a router using NAT? Something like this could be useful:
@@ -165,7 +167,7 @@ fi
 
 ### Get os name via uname ###
 _myos="$(uname)"
- 
+
 ### add alias as per os using $_myos ###
 case $_myos in
    Linux) alias foo='/path/to/linux/bin/foo';;
@@ -194,12 +196,12 @@ alias fastping='ping -c 100 -s.2'
 
 # do not delete / or prompt if deleting more than 3 files at a time #
 alias rm='rm -I --preserve-root'
- 
+
 # confirmation #
-alias mv='mv -i' 
-alias cp='cp -i' 
+alias mv='mv -i'
+alias cp='cp -i'
 alias ln='ln -i'
- 
+
 # Parenting changing perms on / #
 alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
@@ -276,7 +278,3 @@ alias z='fasd_cd -d'     # cd, same functionality as j in autojump
 alias zz='fasd_cd -d -i' # cd with interactive selection
 
 alias v='f -e vim' # quick opening files with vim
-
-
-
-

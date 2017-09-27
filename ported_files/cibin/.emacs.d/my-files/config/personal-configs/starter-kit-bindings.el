@@ -161,19 +161,20 @@
 ; (global-set-key (kbd "<f6>") 'switch-to-prev-buffer)
 ; (global-set-key (kbd "<f7>") 'switch-to-next-buffer)
 
-(define-key dired-mode-map "h" (lambda ()  (interactive) (find-alternate-file "..")))
 
 (global-set-key (kbd "C-k") (lambda () (interactive) (evil-scroll-up nil)))
 (global-set-key (kbd "C-j") (lambda () (interactive) (evil-scroll-down nil)))
 (define-key evil-normal-state-map (kbd "C-k") (lambda () (interactive) (evil-scroll-up nil)))
-(define-key dired-mode-map (kbd "C-k") (lambda () (interactive) (evil-scroll-up nil)))
 (define-key evil-normal-state-map (kbd "C-j") (lambda () (interactive)  (evil-scroll-down nil)))
+(with-eval-after-load 'dired
+(define-key dired-mode-map "h" (lambda ()  (interactive) (find-alternate-file "..")))
+(define-key dired-mode-map (kbd "C-k") (lambda () (interactive) (evil-scroll-up nil)))
 (define-key dired-mode-map (kbd "C-j") (lambda () (interactive)  (evil-scroll-down nil)))
+(define-key dired-mode-map (kbd "O") 'switch-to-next-buffer)
 
-
+)
 (global-set-key (kbd "C-l") 'switch-to-prev-buffer)
 (global-set-key (kbd "C-o") 'switch-to-next-buffer)
-(define-key dired-mode-map (kbd "O") 'switch-to-next-buffer)
 ;;todo ;; (define-key dired-mode-map (kbd "o") 'switch-to-prev-buffer)
 
 (define-key evil-normal-state-map (kbd "O") 'switch-to-next-buffer)
@@ -234,7 +235,7 @@
 ;; Jump to a definition in the current file. (This is awesome.)
 (global-set-key (kbd "C-x C-i") 'ido-imenu)
 
-(spacemacs/set-leader-keys "<SPC>" 'helm-M-x)
+
 (global-set-key (kbd "M-a") 'helm-M-x)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-m") 'helm-M-x)
@@ -608,11 +609,7 @@ buffer preview will still display."
 ; ensure that even in worst case some goto-last-change is available
 ; (global-set-key [(control meta .)] 'goto-last-change)
 
-
-
-(provide 'starter-kit-bindings)
-;;; starter-kit-bindings.el ends here
-
+ 
 
 
 ;C-./> last-change
@@ -641,18 +638,67 @@ buffer preview will still display."
 (define-key evil-normal-state-map  (kbd "C-M-y") 'evil-unimpaired/paste-above)
 
 
+(global-set-key [(control x) (control r)] 'rename-this-file)
 
-(dolist (binding
-         `(
-           ("Q" . cibin/toggle-maximize-buffer)
-           ))
-  (define-key dired-mode-map (car binding) (cdr binding))
-  (define-key evil-normal-state-map (car binding) (cdr binding))
-  ;; (define-key org-mode-map (car binding) (cdr binding)
-  (with-eval-after-load 'org
+(with-eval-after-load 'drag-stuff
+; enable drag-stuff globally, use:
+(drag-stuff-global-mode 1)
+(global-set-key (kbd "M-p") 'drag-stuff-up)
+(global-set-key (kbd "M-n") 'drag-stuff-down)
+(global-set-key (kbd "M-<up>") 'drag-stuff-up)
+(global-set-key (kbd "M-<down>") 'drag-stuff-down)
+(global-set-key (kbd "M-<left>") 'drag-stuff-left)
+(global-set-key (kbd "M-<right>") 'drag-stuff-right))
 
-  	(evil-define-key 'normal org-mode-map  (car binding) (cdr binding))
+; (global-set-key (kbd "M-p") 'move-line-region-up)
+; (global-set-key (kbd "M-n") 'move-line-region-down)
+; (global-set-key (kbd "M-<up>") 'move-line-region-up)
+; (global-set-key (kbd "M-<down>") 'move-line-region-down)
+; (global-set-key (kbd "M-<up>") 'move-line-up)
+; (global-set-key (kbd "M-<down>") 'move-line-down)
+
+; (global-set-key (kbd "M-<up>") 'move-region-up)
+; (global-set-key (kbd "M-<down>") 'move-region-down)
+
+
+(with-eval-after-load 'company
+  (define-key company-active-map (kbd "C-h") 'delete-backward-char ))
+(global-set-key [?\C-h] 'delete-backward-char)
+; (global-set-key [?\C-x ?h] 'help-command)    ;; overrides mark-whole-buffer
+
+; kill the current visible buffer without confirmation unless the buffer has been modified. In this last case, you have to answer y/n.
+
+(global-set-key [(control x) (k)] 'kill-this-buffer)
+
+
+
+
+
+
+; (dolist (binding
+ ; `(
+   ; ("Q" . cibin/toggle-maximize-buffer)
+   ; ))
+   
+   ;; list of key bindings
+   (setq binding `(
+   ("Q" . cibin/toggle-maximize-buffer)
+   ))
+(dolist  (binding)
+	
+
+
+	
+	(with-eval-after-load 'dired
+	(define-key dired-mode-map (car binding) (cdr binding)))
+
+	(define-key evil-normal-state-map (car binding) (cdr binding))
+	;;;;;; (define-key org-mode-map (car binding) (cdr binding)
+	(with-eval-after-load 'org
+
+		(evil-define-key 'normal org-mode-map  (car binding) (cdr binding))
 	)
-;(add-hook 'org-mode-hook (lambda ()(define-key org-mode-map (car binding) (cdr binding))))  )
+	;;;;;;;;(add-hook 'org-mode-hook (lambda ()(define-key org-mode-map (car binding) (cdr binding))))  )
 )
+
 (provide 'starter-kit-bindings)

@@ -590,3 +590,10 @@ function fzs(){
 # echo "$CHOICE"| escape_spaces
 
 }
+function searchproject () {
+    read -p "enter extension: " arg < /dev/tty
+    dir=$(ls "/cygdrive/c/Users/$USERNAME/Downloads/Project/"|fzy)
+    dir="/cygdrive/c/Users/$USERNAME/Downloads/Project/$dir"
+lfind "$dir" -iname "*.$arg" -exec  ag -i --noheading --numbers --filename --color --color-match "2;46" $* {} +
+
+}

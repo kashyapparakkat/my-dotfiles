@@ -297,38 +297,6 @@ If the new path's directories does not exist, create them."
         ("\\.html?\\'" "firefox")))
 
 
-(global-set-key [(control x) (control r)] 'rename-this-file)
-
-; enable drag-stuff globally, use:
-(drag-stuff-global-mode 1)
-(global-set-key (kbd "M-p") 'drag-stuff-up)
-(global-set-key (kbd "M-n") 'drag-stuff-down)
-(global-set-key (kbd "M-<up>") 'drag-stuff-up)
-(global-set-key (kbd "M-<down>") 'drag-stuff-down)
-(global-set-key (kbd "M-<left>") 'drag-stuff-left)
-(global-set-key (kbd "M-<right>") 'drag-stuff-right)
-
-; (global-set-key (kbd "M-p") 'move-line-region-up)
-; (global-set-key (kbd "M-n") 'move-line-region-down)
-; (global-set-key (kbd "M-<up>") 'move-line-region-up)
-; (global-set-key (kbd "M-<down>") 'move-line-region-down)
-; (global-set-key (kbd "M-<up>") 'move-line-up)
-; (global-set-key (kbd "M-<down>") 'move-line-down)
-
-; (global-set-key (kbd "M-<up>") 'move-region-up)
-; (global-set-key (kbd "M-<down>") 'move-region-down)
-
-
-(with-eval-after-load 'company
-  (define-key company-active-map (kbd "C-h") 'delete-backward-char ))
-(global-set-key [?\C-h] 'delete-backward-char)
-; (global-set-key [?\C-x ?h] 'help-command)    ;; overrides mark-whole-buffer
-
-; kill the current visible buffer without confirmation unless the buffer has been modified. In this last case, you have to answer y/n.
-
-(global-set-key [(control x) (k)] 'kill-this-buffer)
-
-
 (global-set-key [C-right] 'geosoft-forward-word)
 (global-set-key [C-left] 'geosoft-backward-word)
 (global-set-key [f4] 'bubble-buffer)
@@ -946,4 +914,10 @@ file to write to."
 
 ;; Remove trailing whitespace
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+
+(spacemacs/set-leader-keys "<SPC>" 'helm-M-x)
+
+
+
 (provide 'other-settings)
