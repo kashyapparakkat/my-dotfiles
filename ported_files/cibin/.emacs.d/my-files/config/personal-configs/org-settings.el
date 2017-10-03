@@ -73,8 +73,19 @@
 (setq org-startup-idented t)
   (define-key org-mode-map (kbd "C-S-L") 'org-metaright)
   (define-key org-mode-map (kbd "C-S-H") 'org-metaleft)
-  (define-key org-mode-map (kbd "C-S-K") 'org-metaup)
-  (define-key org-mode-map  (kbd "C-S-J") 'org-metadown)
+  (define-key org-mode-map (kbd "C-M-p") 'org-metaup)
+  (define-key org-mode-map  (kbd "C-M-n") 'org-metadown)
+  
+  
+  ;; override dragg-stuff
+  
+  (define-key org-mode-map (kbd "M-S-<up>") 'org-metaup)
+  (define-key org-mode-map  (kbd "M-S-<down>") 'org-metadown) 
+
+  (define-key org-mode-map (kbd "M-<left>") 'cibin/org-do-promote)
+  (define-key org-mode-map  (kbd "M-<right>") 'org-do-demote) 
+
+
 	(define-key org-mode-map (kbd "M-r") 'org-toggle-heading)
   (define-key org-mode-map (kbd "M-e") 'other-window) ;; bring back this key
 	(define-key org-mode-map [S-return] 'cibin/org-new-subheading)
@@ -111,6 +122,11 @@
 
 (define-key org-mode-map (kbd "<f2>") (lambda () (interactive)  (my/org-toggle-heading-and-todo "DONE")))
 (define-key org-mode-map  (kbd "<S-f2>") (lambda () (interactive)  (my/org-toggle-heading-and-todo "TODO")))
+)
+(defun cibin/org-do-promote()
+(interactive)
+(message "promoting again will club other headings too !!!!!")
+(org-do-demote)
 )
 (defun my/org-toggle-heading-and-todo (arg)
   "Toggles the current line between a non-heading and TODO heading."
@@ -207,4 +223,7 @@
 
 )
 ; )
+
+
+
 						  (provide 'org-settings)						   

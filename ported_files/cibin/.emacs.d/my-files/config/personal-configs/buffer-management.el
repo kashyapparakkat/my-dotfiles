@@ -90,8 +90,8 @@
           (progn (previous-buffer)
                  (setq i (1+ i)))
         (progn (setq i 100))))))
-(global-set-key (kbd "<f11>") 'cibin-next-modified-buffer)
-(global-set-key (kbd "S-<f11>") 'cibin-previous-modified-buffer)
+(cibin/global-set-key '("<f11>" . cibin-next-modified-buffer))
+(cibin/global-set-key '("S-<f11>" . cibin-previous-modified-buffer))
 
 ;; in helm-mini, to enable fuzzy matching, add the following settings: 
 (setq helm-buffers-fuzzy-matching t
@@ -179,8 +179,8 @@
 
 
 ;;; helm-for-files > helm-multi-files > helm-find-files
-(global-set-key (kbd "C-x C-f") 'cibin/helm-find-files)
-(global-set-key (kbd "M-o") 'cibin/helm-find-files)
+(cibin/global-set-key '("C-x C-f" . cibin/helm-find-files))
+(cibin/global-set-key '("M-o" . cibin/helm-find-files))
 
 
 
@@ -194,6 +194,7 @@
   (other-window 1 nil)
   (switch-to-next-buffer)
   )
+  
 (defun hsplit-last-buffer ()
   (interactive)
    (split-window-horizontally)
@@ -201,8 +202,8 @@
   (switch-to-next-buffer)
   )
 
-(global-set-key (kbd "C-x 2") 'vsplit-last-buffer)
-(global-set-key (kbd "C-x 3") 'hsplit-last-buffer)
+(cibin/global-set-key '("C-x 2" . vsplit-last-buffer))
+(cibin/global-set-key '("C-x 3" . hsplit-last-buffer))
 
 
 (defun find-next-file-in-current-directory (&optional backward)

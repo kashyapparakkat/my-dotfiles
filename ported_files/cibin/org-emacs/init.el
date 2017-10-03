@@ -16,6 +16,9 @@
 							 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t) ; Org-mode's repository
 							 
 (setq user-emacs-directory "~/org-emacs/")
+
+
+
 							  ; (setq load-path '("~/org-emacs"))
 ; (let* ((user-init-dir-default
     ; (file-name-as-directory (concat "~" init-file-user "/org-emacs")))
@@ -30,17 +33,21 @@
   
   
   ;; reuse existing package-user-dir
+  ;;; uses some extra Memory
   (setq package-user-dir "~/../.emacs.d/elpa")
+  
 (package-initialize)
-(evil-mode 1)  ;; enable evil-mode
+(evil-mode 1)
 (which-key-mode 1)
 
 
 (load-file "~/../.emacs.d/my-files/config/personal-configs/basic-settings.el")
-(load-file "~/../.emacs.d/my-files/config/personal-configs/starter-kit-bindings.el")
+(load-file "~/../.emacs.d/my-files/config/personal-configs/basic-settings2.el")
+(load-file "~/../.emacs.d/my-files/config/personal-configs/cbn-navigation.el")
 (load-file "~/../.emacs.d/my-files/config/personal-configs/org-settings.el")
+(load-file "~/../.emacs.d/my-files/config/personal-configs/org-emacs-only-settings.el")
 
 ;; todo cbn-navigation contains unnecessary advanced fun; move it to diff file
-(load-file "~/../.emacs.d/my-files/config/personal-configs/cbn-navigation.el")
 
-(set gc-cons-threshold 200000000)
+(load-file "~/../.emacs.d/my-files/config/personal-configs/starter-kit-bindings.el")
+(setq gc-cons-threshold 300000000)

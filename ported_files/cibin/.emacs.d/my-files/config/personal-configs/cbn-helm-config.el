@@ -13,7 +13,7 @@
 )
 ;helm-mini is better than helm-buffers-list
  ;; (define-key evil-normal-state-map (kbd "b") 'helm-buffers-list)
-(global-set-key (kbd "C-x b") 'cibin/helm-mini)
+(cibin/global-set-key '("C-x b" . cibin/helm-mini))
 (define-key evil-normal-state-map (kbd "b") 'cibin/helm-mini)
 (evil-define-key 'normal dired-mode-map (kbd "b") 'cibin/helm-mini)
 
@@ -253,6 +253,6 @@ helm-move-to-line-cycle-in-source nil
 (setq helm-cycle-resume-delay 2)
 (setq helm-follow-input-idle-delay 1)
 
-(global-set-key (kbd "C-x p") 'cibin/find-related-files-helm-saved-input)
+(cibin/global-set-key '("C-x p" . cibin/find-related-files-helm-saved-input))
 
 (provide 'cbn-helm-config)

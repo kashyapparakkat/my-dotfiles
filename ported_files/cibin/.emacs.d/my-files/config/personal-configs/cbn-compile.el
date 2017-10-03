@@ -1,11 +1,11 @@
 (message "loading cbn-compile")
 
 ;; TODO check Xah-lee.... run for F8
-(global-set-key (kbd "<f8>") 'quickrun)
-;TODO ;; (global-set-key (kbd "<M-f8>") 'quickrun-region)
-;(global-set-key (kbd "<C-f8>") 'helm-quickrun)
-(global-set-key (kbd "<C-f8>") 'cibin/eval-this-line)
-(global-set-key (kbd "<C-f9>") 'cbn-debug)
+(cibin/global-set-key '("<f8>" . quickrun))
+;TODO ;; (cibin/global-set-key '("<M-f8>" . quickrun-region))
+;(cibin/global-set-key '("<C-f8>" . helm-quickrun))
+(cibin/global-set-key '("<C-f8>" . cibin/eval-this-line))
+(cibin/global-set-key '("<C-f9>" . cbn-debug))
 (defun cibin/eval-this-line () (interactive)
        (end-of-line)
        (call-interactively 'eval-last-sexp)

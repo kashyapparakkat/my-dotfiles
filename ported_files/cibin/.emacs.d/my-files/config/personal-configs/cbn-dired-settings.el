@@ -46,7 +46,7 @@
 
 
 
-(global-set-key (kbd "<f6>") 'dired)
+(cibin/global-set-key '("<f6>" . dired))
 
 (use-package dired
  
@@ -87,8 +87,8 @@
 
 ; (autoload 'dired-jump-other-window "dired-x"   "Like \\[dired-jump] (dired-jump) but in other window." t)
 
-; (global-set-key (kbd "C-x C-d") #'dired-jump)
-; (global-set-key (kbd "C-x 4 C-d") #'dired-jump-other-window)
+; (cibin/global-set-key '("C-x C-d" . dired-jump))
+; (cibin/global-set-key '("C-x 4 C-d" . dired-jump-other-window))
 
 ; human-readable sizes and sort by size
 ; (setq dired-listing-switches "-alh")

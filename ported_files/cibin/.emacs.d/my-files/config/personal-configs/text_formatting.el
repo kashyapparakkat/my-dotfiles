@@ -29,8 +29,8 @@
       (widen))))
 
 
-(global-set-key (kbd "M-C") 'toggle-camel-case)
-(global-set-key (kbd "C-M-c") 'xah-cycle-hyphen-underscore-space)
+(cibin/global-set-key '("M-C" . toggle-camel-case))
+(cibin/global-set-key '("C-M-c" . xah-cycle-hyphen-underscore-space))
 
 (defun align-to-colon (begin end)
   "Align region to colon (:) signs"

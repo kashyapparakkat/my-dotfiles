@@ -112,14 +112,14 @@ move point."
 ;; easy spell check
 (eval-after-load "flyspell"
 '(progn
-;; (global-set-key (kbd "S-<f12>") 'ispell-word)
-(global-set-key (kbd "C-t") 'flyspell-auto-correct-previous-word)
-(global-set-key (kbd "C-t") 'flyspell-auto-correct-word)
-;; (global-set-key (kbd "S-<f12>") 'flyspell-correct-word-before-point)
-;; (global-set-key (kbd "C-S-<f12>") 'flyspell-mode)
-;; (global-set-key (kbd "C-M-<f12>") 'flyspell-buffer)
-;; (global-set-key (kbd "C-<f12>") 'flyspell-check-previous-highlighted-word)
-;; (global-set-key (kbd "M-<f12>") 'flyspell-check-next-highlighted-word)
+;; (cibin/global-set-key '("S-<f12>" . ispell-word))
+(cibin/global-set-key '("C-t" . flyspell-auto-correct-previous-word))
+(cibin/global-set-key '("C-t" . flyspell-auto-correct-word))
+;; (cibin/global-set-key '("S-<f12>" . flyspell-correct-word-before-point))
+;; (cibin/global-set-key '("C-S-<f12>" . flyspell-mode))
+;; (cibin/global-set-key '("C-M-<f12>" . flyspell-buffer))
+;; (cibin/global-set-key '("C-<f12>" . flyspell-check-previous-highlighted-word))
+;; (cibin/global-set-key '("M-<f12>" . flyspell-check-next-highlighted-word))
 
 ;; popup menu
 (define-key flyspell-mode-map (kbd "S-<f12>") #'flyspell-popup-correct) ; popup w/o fuzzy

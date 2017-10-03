@@ -49,48 +49,50 @@ If point was already at that position, move point to end of line."
 
 
 
-; (global-set-key (kbd "C-e") 'evil-end-of-line)
+; (cibin/global-set-key '("C-e" . evil-end-of-line))
 ; (define-key evil-normal-state-map (kbd "C-e") 'evil-end-of-line)
 ; (define-key evil-normal-state-map (kbd "C-a") 'smart-line-beginning)
 
-(global-set-key (kbd "C-e") 'smart-end-of-line)
-(global-set-key (kbd "<end>") 'smart-end-of-line)
+(cibin/global-set-key '("C-e" . smart-end-of-line))
+(cibin/global-set-key '("<end>" . smart-end-of-line))
+(define-key evil-insert-state-map (kbd "C-e") 'smart-end-of-line)
 (define-key evil-normal-state-map (kbd "C-e") 'smart-end-of-line)
 (define-key evil-normal-state-map (kbd "ge") 'smart-end-of-line)
 
+(define-key evil-insert-state-map (kbd "C-a") 'x4-smarter-beginning-of-line)
 (define-key evil-normal-state-map (kbd "C-a") 'x4-smarter-beginning-of-line)
 (define-key evil-normal-state-map (kbd "gh") 'x4-smarter-beginning-of-line)
-(global-set-key (kbd "C-a") 'x4-smarter-beginning-of-line)
+(cibin/global-set-key '("C-a" . x4-smarter-beginning-of-line))
 (global-set-key [home] 'x4-smarter-beginning-of-line)
 
-; (global-set-key (kbd "C-a") 'smart-line-beginning)
+; (cibin/global-set-key '("C-a" . smart-line-beginning))
 ; (global-set-key [home] 'smart-line-beginning)
 
 (define-key evil-normal-state-map (kbd "\\") 'toggle-window-split)
-(global-set-key (kbd "C-x 2") 'toggle-window-split)
+(cibin/global-set-key '("C-x 2" . toggle-window-split))
 
 ; TODO
-; (global-set-key (kbd "C-<home>") 'x4-smarter-beginning-of-line)
-; (global-set-key (kbd "S-<home>") 'x4-smarter-beginning-of-line)
+; (cibin/global-set-key '("C-<home>" . x4-smarter-beginning-of-line))
+; (cibin/global-set-key '("S-<home>" . x4-smarter-beginning-of-line))
 
 (global-set-key [(control \8)] 'fc/kill-to-beginning-of-line)
 (global-set-key [(control x) (\8)] 'fc/kill-to-beginning-of-line)
 ;; (global-set-key [(meta \8)] 'kill-line)
 
-(global-set-key (kbd "C-9") 'kill-line)
+(cibin/global-set-key '("C-9" . kill-line))
 
-(global-set-key (kbd "M-8") 'kill-whole-line)
+(cibin/global-set-key '("M-8" . kill-whole-line))
 
-(global-set-key (kbd "M-,") 'beginning-of-buffer)
-(global-set-key (kbd "M-.") 'end-of-buffer)
+(cibin/global-set-key '("M-," . beginning-of-buffer))
+(cibin/global-set-key '("M-." . end-of-buffer))
 (define-key evil-normal-state-map (kbd "M-,") 'beginning-of-buffer)
 (define-key evil-normal-state-map (kbd "M-.") 'end-of-buffer)
 
  ; TODO explore elisp-slime-nav
-(global-set-key (kbd "M->") 'elisp-slime-nav-find-elisp-thing-at-point)
+(cibin/global-set-key '("M->" . elisp-slime-nav-find-elisp-thing-at-point))
 
 ; TODO make these into something more useful
-; (global-set-key (kbd "M-<") 'beginning-of-buffer)
+; (cibin/global-set-key '("M-<" . beginning-of-buffer))
 
 
 		 
@@ -200,9 +202,9 @@ https://gist.github.com/X4lldux/5649195
   (interactive "p")
 (move-line-to-ends (if (null n) 1 n)))
 
-(global-set-key (kbd "M-P") 'move-line-to-top)
+(cibin/global-set-key '("M-P" . move-line-to-top))
 
-(global-set-key (kbd "M-N") 'move-line-to-bottom)
+(cibin/global-set-key '("M-N" . move-line-to-bottom))
 
 
 (define-key evil-normal-state-map   (kbd "f") 'avy-goto-char-timer)
@@ -254,7 +256,7 @@ https://gist.github.com/X4lldux/5649195
          ))
 (setq dumb-jump-prefer-searcher 'ag) 
 (setq dumb-jump-selector 'ivy) ; to use ivy instead of the default popup for multiple options.
-(global-set-key (kbd "C-M-g") 'cibin/goto-func-definition)
+(cibin/global-set-key '("C-M-g" . cibin/goto-func-definition))
 
 ; disabling just for now
 ;; Fast line numbers
@@ -282,12 +284,12 @@ https://gist.github.com/X4lldux/5649195
   (progn
 
 (global-set-key [(control .)] 'goto-last-change)
-(global-set-key (kbd "C-.") 'goto-last-change)
+(cibin/global-set-key '("C-." . goto-last-change))
 
 (define-key evil-normal-state-map (kbd "C-.") 'goto-last-change)
 (define-key evil-normal-state-map (kbd "C-,") 'goto-last-change-reverse)
 ; (global-set-key [(control ,)] 'goto-last-change-reverse)
-(global-set-key (kbd "C-,") 'goto-last-change-reverse)
+(cibin/global-set-key '("C-," . goto-last-change-reverse))
 
 
 )

@@ -37,7 +37,7 @@
       (dired dir))
 	  ))
 
-(global-set-key (kbd "C-x C-d") 'bjm/ivy-dired-recent-dirs)
+(cibin/global-set-key '("C-x C-d" . bjm/ivy-dired-recent-dirs))
 
 ;; make the left fringe 4 pixels wide and the right disappear
 (fringe-mode '(20 . 8))
@@ -141,7 +141,7 @@
   ; > may show up in some prompts
   ; (setq shell-prompt-pattern "^[^#$%\n]*[#$%>] *")
 
-  ; (global-set-key (kbd "C-c s") 'fc/toggle-shell)
+  ; (cibin/global-set-key '("C-c s" . fc/toggle-shell))
   ; (defun fc/toggle-shell ()
     ; "Switch between the last active buffer and the shell."
     ; (interactive)
@@ -186,11 +186,11 @@
 
 ; (use-package "multiple-cursors"
 ; :config
-  ; (global-set-key (kbd "<C-down>") 'mc/mark-next-like-this)
-  ; (global-set-key (kbd "<C-up>") 'mc/unmark-next-like-this)
-  ; (global-set-key (kbd "<C-mouse-1>") 'mc/add-cursor-on-click)
+  ; (cibin/global-set-key '("<C-down>" . mc/mark-next-like-this))
+  ; (cibin/global-set-key '("<C-up>" . mc/unmark-next-like-this))
+  ; (cibin/global-set-key '("<C-mouse-1>" . mc/add-cursor-on-click))
 ; (global-unset-key (kbd "M-<down-mouse-1>"))
-; (global-set-key (kbd "M-<mouse-1>") 'mc/add-cursor-on-click)
+; (cibin/global-set-key '("M-<mouse-1>" . mc/add-cursor-on-click))
 
   ; )
 
@@ -308,20 +308,10 @@ If the new path's directories does not exist, create them."
 (global-set-key [C-return] 'open-previous-line-move-down)
 (global-set-key [M-return] 'open-previous-line)
 
-(global-set-key (kbd "C-o") 'open-next-line)
-(global-set-key (kbd "M-o") 'open-previous-line)
+(cibin/global-set-key '("C-o" . open-next-line))
+(cibin/global-set-key '("M-o" . open-previous-line))
 
 ; The following makes you lose vim commands, but gives you back basic emacs commands, like C-y to paste in insert mode or C-r to search backward:
-
-(define-key evil-normal-state-map "\C-y" 'yank)
-(define-key evil-insert-state-map "\C-y" 'yank)
-(define-key evil-visual-state-map "\C-y" 'yank)
-
-;; (define-key evil-normal-state-map "\C-w" 'evil-delete)
-;; (define-key evil-insert-state-map "\C-w" 'evil-delete)
-(define-key evil-insert-state-map "\C-r" 'search-backward)
-
-(define-key evil-visual-state-map "\C-w" 'evil-delete)
 
 
 
@@ -399,7 +389,7 @@ If the new path's directories does not exist, create them."
                   (transpose-words 1)))
 
 
-				  (global-set-key (kbd "C-c b c") 'quick-calc)
+				  (cibin/global-set-key '("C-c b c" . quick-calc))
 
 
 				  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -483,8 +473,8 @@ Toggles between: “all lower”, “Init Caps”, “ALL CAPS”."
   (goto-char e)
   (set-marker e nil)))
 
-(global-set-key (kbd "C-c b b") 'bjm-comment-box)
-(global-set-key (kbd "M-z") #'zzz-up-to-char)
+(cibin/global-set-key '("C-c b b" . bjm-comment-box))
+(cibin/global-set-key '("M-z" . zzz-up-to-char))
 
 
 ; undo-tree is a version of the same Vim’s feature for Emacs
@@ -509,8 +499,8 @@ Toggles between: “all lower”, “Init Caps”, “ALL CAPS”."
 		  )
 
 (defalias 'redo 'undo-tree-redo)
-(global-set-key (kbd "C-z") 'undo) ; 【Ctrl+z】
-(global-set-key (kbd "C-S-z") 'redo) ; 【Ctrl+Shift+z】;  Mac style
+(cibin/global-set-key '("C-z" . undo)) ; 【Ctrl+z】
+(cibin/global-set-key '("C-S-z" . redo)) ; 【Ctrl+Shift+z】;  Mac style
 
 
 
@@ -633,7 +623,7 @@ file to write to."
   (forward-char)
   (transpose-words 1))
 
-(global-set-key (kbd "C-x M-t") 'hop-one-transpose)
+(cibin/global-set-key '("C-x M-t" . hop-one-transpose))
 (defun my-kill-thing-at-point (thing)
   "Kill the `thing-at-point' for the specified kind of THING."
   (let ((bounds (bounds-of-thing-at-point thing)))
@@ -643,16 +633,10 @@ file to write to."
       ;; (error "No %s at point" thing)
       )))
 
-(defun my-kill-word-at-point ()
-  "Kill the word at point."
-  (interactive)
-  (my-kill-thing-at-point 'word))
 
-(global-set-key (kbd "M-D") 'my-kill-word-at-point)
-
-                                        ; open all files with same extension
-;; (global-set-key (kbd "C-x l ") 'open-similar-files-in-folder)
-;; (global-set-key (kbd "C-x l ") 'open-similar-files-in-folder-recursively)
+                              ; open all files with same extension
+;; (cibin/global-set-key '("C-x l " . open-similar-files-in-folder))
+;; (cibin/global-set-key '("C-x l " . open-similar-files-in-folder-recursively))
 
 (defun open-similar-files-in-folder() (interactive) (message  "opening all similar")(find-file (format "*.%s" (file-name-extension (buffer-file-name))) t)
                                 (message  "opened all similar files of extension"))

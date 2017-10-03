@@ -184,7 +184,7 @@ If called with a prefix, prompts for flags to pass to ag."
                   :action (lambda (l)
                             (counsel-replace-current-line leading-spaces l))))))
     ))
-(global-set-key (kbd "C-x C-l") 'counsel-git-grep-complete-line)
+(cibin/global-set-key '("C-x C-l" . counsel-git-grep-complete-line))
 
 
 (defvar search-directory  nil)
@@ -207,8 +207,8 @@ If called with a prefix, prompts for flags to pass to ag."
 (helm-do-ag-search-template search-directory)
 )
 
-(global-set-key (kbd "C-x P") 'cibin/helm-do-ag-All-Project)
-(global-set-key (kbd "C-x M-P") 'cibin/helm-do-ag-All-Project-repeat-search)
+(cibin/global-set-key '("C-x P" . cibin/helm-do-ag-All-Project))
+(cibin/global-set-key '("C-x M-P" . cibin/helm-do-ag-All-Project-repeat-search))
 
 (defun helm-do-ag-search-template (search-directory)
 

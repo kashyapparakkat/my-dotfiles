@@ -1,4 +1,5 @@
 (message "loading starter-kit-bindings")
+
 ;;; starter-kit-bindings.el --- Set up some handy key bindings
 ; http://www.cibinmathew.com
 ; github.com/cibinmathew
@@ -7,7 +8,7 @@
 
 ;; Part of the Emacs Starter Kit.
 
-; (global-set-key (kbd "M-a") 'execute-extended-command)
+; (cibin/global-set-key '("M-a" . execute-extended-command))
 
 ; TODO do it for insert mode also
 ; (define-key evil-normal-state-map (kbd "s") 'nil)
@@ -21,6 +22,7 @@
 (global-set-key [(control \0)] 'switch-to-scratch)
 (global-set-key [(control x) (\0)] 'switch-to-scratch)
 (global-set-key [(meta \0)] 'switch-to-scratch)
+
 (global-set-key (kbd "M-0") (lambda()(interactive) (switch-to-buffer (get-buffer-create "*Messages*"))))
 
 ; or use i for insert and I for trigger
@@ -89,7 +91,7 @@
 (define-key isearch-mode-map "\e" 'isearch-abort)   ;; \e seems to work better for terminals
 
 ; move to first letter of next word
-(global-set-key (kbd "M-f") 'forward-word-to-beginning)
+(cibin/global-set-key '("M-f" . forward-word-to-beginning))
 (global-set-key (kbd "<backspace>") 'delete-backward-char)
 (global-set-key (kbd "<BS>") 'delete-backward-char)
 
@@ -129,41 +131,43 @@
 ;; TODO for mouse http://emacs.stackexchange.com/questions/7244/enable-emacs-column-selection-using-mouse
 
 
-(global-set-key (kbd "C-;") 'comment-line)
+(cibin/global-set-key '("C-;" . comment-line))
 (with-eval-after-load 'flyspell
 (define-key flyspell-mode-map  (kbd "C-;") 'comment-line) ; flyspell is overriding
 )
-(global-set-key (kbd "C-x C-;") 'comment-or-uncomment-region)
-(global-set-key (kbd "C-c C-b") 'xah-make-backup-and-save)
+(cibin/global-set-key '("C-x C-;" . comment-or-uncomment-region))
+(cibin/global-set-key '("C-c C-b" . xah-make-backup-and-save))
 (with-eval-after-load 'org
 
 (define-key org-mode-map (kbd "C-c C-b") 'xah-make-backup-and-save)
 )
 ;; You know, like Readline.
-(global-set-key (kbd "C-M-h") 'backward-kill-word)
+(cibin/global-set-key '("C-M-h" . backward-kill-word))
 
  ;; Align your code in a pretty way.
-(global-set-key (kbd "C-x \\") 'align-regexp)
+(cibin/global-set-key '("C-x \\" . align-regexp))
 
 
 
 
 ;; Completion that uses many different methods to find options.
-(global-set-key (kbd "M-/") 'hippie-expand)
+(cibin/global-set-key '("M-/" . hippie-expand))
 
 
 ;; Perform general cleanup.
-(global-set-key (kbd "C-c n") 'cleanup-buffer)
+(cibin/global-set-key '("C-c n" . cleanup-buffer))
 
 ;; Turn on the menu bar for exploring new modes
 (global-set-key (kbd "C-<f10>") (lambda () (interactive) (toggle-menu-bar-mode-from-frame)(toggle-tool-bar-mode-from-frame)))
 
-; (global-set-key (kbd "<f6>") 'switch-to-prev-buffer)
-; (global-set-key (kbd "<f7>") 'switch-to-next-buffer)
+; (cibin/global-set-key '("<f6>" . switch-to-prev-buffer))
+; (cibin/global-set-key '("<f7>" . switch-to-next-buffer))
 
 
 (global-set-key (kbd "C-k") (lambda () (interactive) (evil-scroll-up nil)))
 (global-set-key (kbd "C-j") (lambda () (interactive) (evil-scroll-down nil)))
+(define-key evil-insert-state-map (kbd "C-k") (lambda () (interactive) (evil-scroll-up nil)))
+(define-key evil-insert-state-map (kbd "C-j") (lambda () (interactive)  (evil-scroll-down nil)))
 (define-key evil-normal-state-map (kbd "C-k") (lambda () (interactive) (evil-scroll-up nil)))
 (define-key evil-normal-state-map (kbd "C-j") (lambda () (interactive)  (evil-scroll-down nil)))
 (with-eval-after-load 'dired
@@ -173,21 +177,23 @@
 (define-key dired-mode-map (kbd "O") 'switch-to-next-buffer)
 
 )
-(global-set-key (kbd "C-l") 'switch-to-prev-buffer)
-(global-set-key (kbd "C-o") 'switch-to-next-buffer)
+(cibin/global-set-key '("C-l" . switch-to-prev-buffer))
+(cibin/global-set-key '("C-o" . switch-to-next-buffer))
 ;;todo ;; (define-key dired-mode-map (kbd "o") 'switch-to-prev-buffer)
 
 (define-key evil-normal-state-map (kbd "O") 'switch-to-next-buffer)
 ;;todo ;;(define-key evil-normal-state-map (kbd "o") 'switch-to-prev-buffer)
 
+(define-key evil-insert-state-map (kbd "C-o") 'switch-to-next-buffer)
 (define-key evil-normal-state-map (kbd "C-o") 'switch-to-next-buffer)
 (define-key evil-normal-state-map (kbd "C-l") 'switch-to-prev-buffer)
+(define-key evil-insert-state-map (kbd "C-l") 'switch-to-prev-buffer)
 
 
 (with-eval-after-load 'org
     ; (define-key org-mode-map (kbd "C-k") 'switch-to-next-buffer)
     (define-key org-mode-map (kbd "C-l") 'switch-to-prev-buffer)
-    (define-key org-mode-map (kbd "C-v") 'switch-to-next-buffer)
+    (define-key org-mode-map (kbd "C-o") 'switch-to-next-buffer)
  ;; TODO maake below work if in orgmode with normal
 ;; (define-key org-mode-map (kbd "O") 'switch-to-next-buffer)
 ;; (define-key org-mode-map (kbd "o") 'switch-to-prev-buffer)
@@ -195,10 +201,10 @@
 	)
 
 ;  kill the same line even if at the end of line
-(global-set-key (kbd "C-S-k") 'kill-whole-line)
+(cibin/global-set-key '("C-S-k" . kill-whole-line))
 
 ;; TODO create in current major mode
-(global-set-key (kbd "C-x C-n") 'xah-new-empty-buffer)
+(cibin/global-set-key '("C-x C-n" . xah-new-empty-buffer))
 
 
 ; Mouse Wheel Scrolling
@@ -233,20 +239,22 @@
 
 
 ;; Jump to a definition in the current file. (This is awesome.)
-(global-set-key (kbd "C-x C-i") 'ido-imenu)
+(cibin/global-set-key '("C-x C-i" . ido-imenu))
 
 
-(global-set-key (kbd "M-a") 'helm-M-x)
-(global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "C-m") 'helm-M-x)
+(cibin/global-set-key '("M-a" . helm-M-x))
+(cibin/global-set-key '("M-x" . helm-M-x))
+
+;; TODO enter key may also trigger this 
+;;(cibin/global-set-key '("C-m" . helm-M-x))
 
 ;; File finding
 ; https://github.com/emacs-helm/helm/blob/master/helm-files.el
 
 
 ;;; helm-for-files > helm-multi-files > helm-find-files
-(global-set-key (kbd "C-x C-f") 'helm-for-files)
-(global-set-key (kbd "M-o") 'helm-for-files)
+(cibin/global-set-key '("C-x C-f" . helm-for-files))
+(cibin/global-set-key '("M-o" . helm-for-files))
 
 ; Fixme: error
 ; (define-key helm-find-files-map (kbd "C-j") 'helm-find-files-up-one-level)
@@ -255,49 +263,52 @@
 (global-set-key (kbd "S-<f4>") (lambda () (interactive)(dired (format "C://Users//%s//Downloads" user-login-name))))
 
 ; file searching
-(global-set-key (kbd "C-x M-f") 'ido-find-file-other-window)
-(global-set-key (kbd "C-x C-M-f") 'find-file-in-project)
-;; (global-set-key (kbd "C-x p") 'cibin-find-related-files)
-(global-set-key (kbd "C-x F") 'file-cache-ido-find-file)
+(cibin/global-set-key '("C-x M-f" . ido-find-file-other-window))
+(cibin/global-set-key '("C-x C-M-f" . find-file-in-project))
+;; (cibin/global-set-key '("C-x p" . cibin-find-related-files))
+(cibin/global-set-key '("C-x F" . file-cache-ido-find-file))
 
 ; text searching
-(global-set-key (kbd "C-x j") 'cibin-search-in-text-files-related-bash)
-(global-set-key (kbd "C-x e") 'cibin-search-in-files-advgrep-here)
+(cibin/global-set-key '("C-x j" . cibin-search-in-text-files-related-bash))
+(cibin/global-set-key '("C-x e" . cibin-search-in-files-advgrep-here))
 
 ; (global-set-key (kbd "C-x f") (lambda () (interactive)
 ; (file-cache-read-cache-from-file)
 ; 'file-cache-ido-find-file
 ; ))
-(global-set-key (kbd "C-c f") 'cibin/launcher)
-(global-set-key (kbd "C-c m") 'cibin/music)
+(cibin/global-set-key '("C-c f" . cibin/launcher))
+
+
+
+(cibin/global-set-key '("C-c m" . cibin/music))
 
 ; use swiper instead of this
-(global-set-key (kbd "C-x M-j") 'cibin/search-all-buffers) ; multi occur modified
-; (global-set-key (kbd "C-x f") 'recentf-ido-find-file)
+(cibin/global-set-key '("C-x M-j" . cibin/search-all-buffers)) ; multi occur modified
+; (cibin/global-set-key '("C-x f" . recentf-ido-find-file))
 
-(global-set-key (kbd "C-x C") 'locate-current-file-in-explorer)
-(global-set-key (kbd "C-x c") 'cibin/xah-open-file-at-cursor)
+(cibin/global-set-key '("C-x C" . locate-current-file-in-explorer))
+(cibin/global-set-key '("C-x c" . cibin/xah-open-file-at-cursor))
 
-(global-set-key (kbd "C-c y") 'bury-buffer)
-(global-set-key (kbd "C-c r") 'revert-buffer)
-(global-set-key (kbd "M-`") 'file-cache-minibuffer-complete)
-(global-set-key (kbd "C-x C-b") 'cbn/ibuffer)
+(cibin/global-set-key '("C-c y" . bury-buffer))
+(cibin/global-set-key '("C-c r" . revert-buffer))
+(cibin/global-set-key '("M-`" . file-cache-minibuffer-complete))
+(cibin/global-set-key '("C-x C-b" . cbn/ibuffer))
 
 (require 'expand-region)
 ; use spc-v & then only v
-;; (global-set-key (kbd "C-=") 'er/expand-region)
+;; (cibin/global-set-key '("C-=" . er/expand-region))
 ; TODO "t" was something else
 ;; (define-key evil-normal-state-map "v" 'er/expand-region)
 ;; (define-key evil-normal-state-map "t" 'er/expand-region)
 
-(global-set-key (kbd "M-a") 'mark-whole-buffer)
-(global-set-key (kbd "C-\\") 'highlight-symbol-at-point)
-(global-set-key (kbd "M-R") 'toggle-window-split)
+(cibin/global-set-key '("M-a" . mark-whole-buffer))
+(cibin/global-set-key '("C-\\" . highlight-symbol-at-point))
+(cibin/global-set-key '("M-R" . toggle-window-split))
 
-; TODO ; (global-set-key (kbd "M-f") 'split-window-right-and-move-there)
-(global-set-key (kbd "M-F") 'split-window-below-and-move-there)
-;(global-set-key (kbd "M-w") 'quit-window)
-; (global-set-key (kbd "M-W") 'only-current-buffer)
+; TODO ; (cibin/global-set-key '("M-f" . split-window-right-and-move-there))
+(cibin/global-set-key '("M-F" . split-window-below-and-move-there))
+;(cibin/global-set-key '("M-w" . quit-window))
+; (cibin/global-set-key '("M-W" . only-current-buffer))
 
 ;;; normal
 (define-key evil-normal-state-map " m" 'evil-jump-item)
@@ -313,7 +324,7 @@
 ; Q/M-Q=maximize/minimize
 ; C-q
 (global-set-key (kbd "<f4>") (lambda () (interactive) (kill-this-buffer)))
-(global-set-key (kbd "M-q") 'kill-buffer-and-if-many-kill-window-too)
+(cibin/global-set-key '("M-q" . kill-buffer-and-if-many-kill-window-too))
 ;; (define-key evil-normal-state-map "q" 'xah-close-current-buffer)
 (define-key evil-normal-state-map "q" 'kill-this-buffer-if-not-modified)
 
@@ -322,9 +333,9 @@
 (define-key evil-normal-state-map "Q" 'cibin/toggle-maximize-buffer)
 
 ; is this needed?
-(global-set-key (kbd "C-q") 'kill-buffer-and-if-many-kill-window-too)
+(cibin/global-set-key '("C-q" . kill-buffer-and-if-many-kill-window-too))
 
-(global-set-key (kbd "M-e") 'other-window)
+(cibin/global-set-key '("M-e" . other-window))
 (define-key evil-normal-state-map "e" 'other-window)
 (define-key evil-visual-state-map   (kbd "f") 'mark-whole-buffer)
 ;TODO o in visual state was exchange-point-and-mark
@@ -338,10 +349,12 @@
 (global-set-key (kbd "C-x O") (lambda () (interactive) (other-window -1))) ;; back one
 (global-set-key (kbd "C-x C-o") (lambda () (interactive) (other-window 2))) ;; forward two
 
-;; (global-set-key (kbd "<f7>") 'split-window-right)
-(global-set-key (kbd "<f7>") 'hsplit-last-buffer)
+;; (cibin/global-set-key '("<f7>" . split-window-right))
+(cibin/global-set-key '("<f7>" . hsplit-last-buffer))
 
+(define-key evil-insert-state-map (kbd "C-n") 'evil-next-visual-line)
 (define-key evil-normal-state-map (kbd "C-n") 'evil-next-visual-line)
+(define-key evil-insert-state-map (kbd "C-p") 'evil-previous-visual-line)
 (define-key evil-normal-state-map (kbd "C-p") 'evil-previous-visual-line)
 ;; (define-key evil-normal-state-map "a" 'helm-M-x)
 (define-key evil-normal-state-map "a" nil)
@@ -463,40 +476,40 @@
 
 ; https://github.com/syohex/emacs-dired-k
 
-(global-set-key (kbd "RET") 'newline-and-indent)
+(cibin/global-set-key '("RET" . newline-and-indent))
 
 ;; make shell-command-on-region work on line if no region is active
-(global-set-key (kbd "M-|") 'sh-send-line-or-region)
+(cibin/global-set-key '("M-|" . sh-send-line-or-region))
 
 ;; Start eshell or switch to it if it's active.
-(global-set-key (kbd "C-x m") 'eshell)
+(cibin/global-set-key '("C-x m" . eshell))
 
 
 ;; Start a new eshell even if one is active.
 (global-set-key (kbd "C-x M") (lambda () (interactive) (eshell t)))
 
 ;; Start a regular shell if you prefer that.
-(global-set-key (kbd "C-x M-m") 'shell)
+(cibin/global-set-key '("C-x M-m" . shell))
 
 ;; If you want to be able to M-x without meta (phones, etc)
-(global-set-key (kbd "C-x C-m") 'execute-extended-command)
+(cibin/global-set-key '("C-x C-m" . execute-extended-command))
 
 ;; Fetch the contents at a URL, display it raw.
-(global-set-key (kbd "C-x C-h") 'view-url)
+;;(cibin/global-set-key '("C-x C-h" . view-url))
 
 ;; Help should search more than just commands
-; (global-set-key (kbd "C-h a") 'apropos)
+; (cibin/global-set-key '("C-h a" . apropos))
 
 ;; Should be able to eval-and-replace anywhere.
-(global-set-key (kbd "C-c e") 'eval-and-replace)
+(cibin/global-set-key '("C-c e" . eval-and-replace))
 
 ;; For debugging Emacs modes
-(global-set-key (kbd "C-c p") 'message-point)
+(cibin/global-set-key '("C-c p" . message-point))
 
 ;; So good!
-(global-set-key (kbd "C-x m") 'magit-mode)
-(global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key (kbd "C-c q") 'join-line)
+(cibin/global-set-key '("C-x m" . magit-mode))
+(cibin/global-set-key '("C-x g" . magit-status))
+(cibin/global-set-key '("C-c q" . join-line))
 
 ;; This is a little hacky since VC doesn't support git add internally
 (eval-after-load 'vc
@@ -512,8 +525,8 @@
 (define-key global-map "\C-ca" 'org-agenda)
 )
 
-(global-set-key (kbd "<C-up>") 'xah-backward-block)
-(global-set-key (kbd "<C-down>") 'xah-forward-block)
+(cibin/global-set-key '("<C-up>" . xah-backward-block))
+(cibin/global-set-key '("<C-down>" . xah-forward-block))
 
 
 
@@ -559,7 +572,7 @@ buffer preview will still display."
              (kill-buffer file-buffer-name))))
       (message "no file to preview at point!"))))
 
-(global-set-key (kbd "C-M-v") 'my/quick-view-file-at-point)
+(cibin/global-set-key '("C-M-v" . my/quick-view-file-at-point))
 
 ; There are some hooks that allow to do things when we enter or exit a mode (see the pdf manual).
 ; For example, to save the buffer when we exit the insert mode:
@@ -579,8 +592,8 @@ buffer preview will still display."
 
    ;; INCREMENT AND DECREMENT numbers in Emacs
 
-(global-set-key (kbd "C-c +") 'evil-numbers/inc-at-pt)
-(global-set-key (kbd "C-c -") 'evil-numbers/dec-at-pt)
+(cibin/global-set-key '("C-c +" . evil-numbers/inc-at-pt))
+(cibin/global-set-key '("C-c -" . evil-numbers/dec-at-pt))
 
 (define-key evil-normal-state-map (kbd "C-f") 'evil-forward-char)
 (define-key evil-normal-state-map (kbd "C-b") 'evil-backward-char)
@@ -642,34 +655,58 @@ buffer preview will still display."
 
 (with-eval-after-load 'drag-stuff
 ; enable drag-stuff globally, use:
-(drag-stuff-global-mode 1)
-(global-set-key (kbd "M-p") 'drag-stuff-up)
-(global-set-key (kbd "M-n") 'drag-stuff-down)
-(global-set-key (kbd "M-<up>") 'drag-stuff-up)
-(global-set-key (kbd "M-<down>") 'drag-stuff-down)
-(global-set-key (kbd "M-<left>") 'drag-stuff-left)
-(global-set-key (kbd "M-<right>") 'drag-stuff-right))
+(drag-stuff-global-mode 1))
+(cibin/global-set-key '("M-p" . drag-stuff-up))
+(cibin/global-set-key '("M-n" . drag-stuff-down))
+(cibin/global-set-key '("M-<up>" . drag-stuff-up))
+(cibin/global-set-key '("M-<down>" . drag-stuff-down))
 
-; (global-set-key (kbd "M-p") 'move-line-region-up)
-; (global-set-key (kbd "M-n") 'move-line-region-down)
-; (global-set-key (kbd "M-<up>") 'move-line-region-up)
-; (global-set-key (kbd "M-<down>") 'move-line-region-down)
-; (global-set-key (kbd "M-<up>") 'move-line-up)
-; (global-set-key (kbd "M-<down>") 'move-line-down)
+;; TODO  conflicting org-mode-map even after re assigning in org-mode-map
+;;(cibin/global-set-key '("M-<left>" . drag-stuff-left))
+;;(cibin/global-set-key '("M-<right>" . drag-stuff-right))
 
-; (global-set-key (kbd "M-<up>") 'move-region-up)
-; (global-set-key (kbd "M-<down>") 'move-region-down)
+ ;; override dragg-stuff
+(with-eval-after-load 'org
+(define-key org-mode-map (kbd "M-<left>") 'cibin/org-do-promote)
+(define-key org-mode-map  (kbd "M-<right>") 'org-do-demote) )
+
+
+; (cibin/global-set-key '("M-p" . move-line-region-up))
+; (cibin/global-set-key '("M-n" . move-line-region-down))
+; (cibin/global-set-key '("M-<up>" . move-line-region-up))
+; (cibin/global-set-key '("M-<down>" . move-line-region-down))
+; (cibin/global-set-key '("M-<up>" . move-line-up))
+; (cibin/global-set-key '("M-<down>" . move-line-down))
+
+; (cibin/global-set-key '("M-<up>" . move-region-up))
+; (cibin/global-set-key '("M-<down>" . move-region-down))
 
 
 (with-eval-after-load 'company
   (define-key company-active-map (kbd "C-h") 'delete-backward-char ))
+  
+(define-key evil-insert-state-map (kbd "C-h")   'delete-backward-char)
 (global-set-key [?\C-h] 'delete-backward-char)
+(cibin/global-set-key '( "\C-h" . delete-backward-char))
 ; (global-set-key [?\C-x ?h] 'help-command)    ;; overrides mark-whole-buffer
 
 ; kill the current visible buffer without confirmation unless the buffer has been modified. In this last case, you have to answer y/n.
 
 (global-set-key [(control x) (k)] 'kill-this-buffer)
 
+
+
+(cibin/global-set-key '("M-D" . my-kill-word-at-point))
+(cibin/global-set-key '("C-y" .  yank))
+(cibin/global-set-key '("C-w" .  evil-delete))
+
+(define-key evil-visual-state-map "\C-y" 'yank)
+
+;; (define-key evil-normal-state-map "\C-w" 'evil-delete)
+;; (define-key evil-insert-state-map "\C-w" 'evil-delete)
+(define-key evil-insert-state-map "\C-r" 'search-backward)
+
+(define-key evil-visual-state-map "\C-w" 'evil-delete)
 
 
 
@@ -684,10 +721,9 @@ buffer preview will still display."
    (setq binding `(
    ("Q" . cibin/toggle-maximize-buffer)
    ))
+   
+   
 (dolist  (binding)
-	
-
-
 	
 	(with-eval-after-load 'dired
 	(define-key dired-mode-map (car binding) (cdr binding)))
@@ -700,5 +736,20 @@ buffer preview will still display."
 	)
 	;;;;;;;;(add-hook 'org-mode-hook (lambda ()(define-key org-mode-map (car binding) (cdr binding))))  )
 )
+
+
+ ; delete till non whitespace cycle 
+;; (cibin/global-set-key '("C-D" . xah-shrink-whitespaces))
+(cibin/global-set-key '("C-S-d" . shrink-whitespace))
+(cibin/global-set-key '("C-d" . delete-char))
+;; (define-key evil-normal-state-map (kbd "C-D")   'xah-shrink-whitespaces)
+(define-key evil-insert-state-map (kbd "C-d")   'delete-char)
+(define-key evil-normal-state-map (kbd "C-d")   'delete-char)
+(define-key evil-insert-state-map (kbd "C-S-d")   'shrink-whitespace)
+(define-key evil-normal-state-map (kbd "C-S-d")   'shrink-whitespace)
+                                        ; (cibin/global-set-key '("M-SPC" . fc/delete-space))
+; (cibin/global-set-key '("<M-Spc>" . fixup-whitespace))
+; (cibin/global-set-key '("C-c M-d" . fc/delete-space))
+
 
 (provide 'starter-kit-bindings)

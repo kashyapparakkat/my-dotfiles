@@ -123,11 +123,11 @@
 	(command (read-shell-command "Shell command: " nil nil nil)))
 	(shell-command (replace-regexp-in-string "%" file-buffer command))))
 ; todo check if hk needs a change
-(global-set-key (kbd "M-!") 'shell-execute)
+(cibin/global-set-key '("M-!" . shell-execute))
 
 
 
-(global-set-key (kbd "<f1>") 'shell-here)
+(cibin/global-set-key '("<f1>" . shell-here))
 
 
 ;; interpret ANSI color codes in compilation buffers

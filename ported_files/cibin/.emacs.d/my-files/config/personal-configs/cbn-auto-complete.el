@@ -26,7 +26,7 @@
 	'(ac-dwim t)
 	'(ac-use-menu-map t)
 )
-(global-set-key (kbd "M-I") 'ac-fuzzy-complete)
+(cibin/global-set-key '("M-I" . ac-fuzzy-complete))
 ;; Default settings
 (define-key ac-menu-map "\C-n" 'ac-next)
 (define-key ac-menu-map "\C-p" 'ac-previous)

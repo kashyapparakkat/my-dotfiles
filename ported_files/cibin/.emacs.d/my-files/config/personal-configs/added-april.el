@@ -26,7 +26,7 @@
 )
 
 
-;; (global-set-key (kbd "C-S-n") 'select-column-till-next-blank-line)
+;; (cibin/global-set-key '("C-S-n" . select-column-till-next-blank-line))
 
 (defun next-line-non-empty-column (arg)
   "Find next line, on the same column, skipping those that would
@@ -48,28 +48,28 @@ end up leaving point on a space or newline character."
   (interactive "p")
   (next-line-non-empty-column (- arg)))
 
-;; (global-set-key (kbd "C-S-n") 'next-line-non-empty-column)
-;; (global-set-key (kbd "C-S-p") 'previous-line-non-empty-column)
+;; (cibin/global-set-key '("C-S-n" . next-line-non-empty-column))
+;; (cibin/global-set-key '("C-S-p" . previous-line-non-empty-column))
 
 
 
 ;; For parens you can do M-(. For brackets/braces/quotes you could do: 
-(global-set-key (kbd "M-[") 'insert-pair)
-(global-set-key (kbd "M-{") 'insert-pair)
-(global-set-key (kbd "M-\"") 'insert-pair)
+(cibin/global-set-key '("M-[" . insert-pair))
+(cibin/global-set-key '("M-{" . insert-pair))
+(cibin/global-set-key '("M-\"" . insert-pair))
 ;; Note that if you don't have a region highlighted, it will just insert the pair of whatevers and put the cursor in between them. Also handy for deleting matching whatevers is
 
-(global-set-key (kbd "M-)") 'delete-pair)
+(cibin/global-set-key '("M-)" . delete-pair))
 
 ;; OR
 ;; https://github.com/nivekuil/corral
-(global-set-key (kbd "M-9") 'corral-parentheses-backward)
-;; (global-set-key (kbd "M-0") 'corral-parentheses-forward)
- (global-set-key (kbd "M-[") 'corral-brackets-backward)
- (global-set-key (kbd "M-]") 'corral-brackets-forward)
-(global-set-key (kbd "M-{") 'corral-braces-backward)
-(global-set-key (kbd "M-}") 'corral-braces-forward)
-(global-set-key (kbd "M-\"") 'corral-double-quotes-backward)
+(cibin/global-set-key '("M-9" . corral-parentheses-backward))
+;; (cibin/global-set-key '("M-0" . corral-parentheses-forward))
+ (cibin/global-set-key '("M-[" . corral-brackets-backward))
+ (cibin/global-set-key '("M-]" . corral-brackets-forward))
+(cibin/global-set-key '("M-{" . corral-braces-backward))
+(cibin/global-set-key '("M-}" . corral-braces-forward))
+(cibin/global-set-key '("M-\"" . corral-double-quotes-backward))
 ;; The wrapping algorithm tries to follow these rules:
 
 ;; If the point is over a word, it will always wrap around that word.
@@ -87,7 +87,7 @@ end up leaving point on a space or newline character."
     ("}" corral-braces-forward "Forward")
     ("." hydra-repeat "Repeat"))
   )
-  (global-set-key (kbd "C-c c") #'hydra-corral/body)
+  (cibin/global-set-key '("C-c c" . hydra-corral/body))
 
 
 ;; http://irreal.org/blog/?p=330

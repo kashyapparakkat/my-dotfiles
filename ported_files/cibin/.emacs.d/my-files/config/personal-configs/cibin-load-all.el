@@ -47,6 +47,9 @@
 (interactive)
 
 (message "loading all...")
+
+(require 'basic-settings)
+(require 'basic-settings2)
 (require 'cbn-functions)
 (require 'cbn-shell)
 (require 'my-python)
@@ -78,7 +81,6 @@
 ; (load-file "~/.emacs.d/my-files/config/personal-configs/cbn-xah-fly-keys.el")
 (require 'cbn-hydra)
 (require 'cbn-helm-config)
-(require 'basic-settings)
 (require 'advanced-navigation)
 (cibin-load-essential-custom-bindings)
 (message "loaded all")
@@ -93,8 +95,8 @@
  )
 
 (cibin-load-all-custom-bindings)
-(global-set-key (kbd "M-5" ) 'cibin-load-all-custom-bindings)
-(global-set-key (kbd "M-6" ) 'cibin-load-essential-custom-bindings)
+(cibin/global-set-key '("M-5" . cibin-load-all-custom-bindings))
+(cibin/global-set-key '("M-6" . cibin-load-essential-custom-bindings))
 
 
-(setq gc-cons-threshold (* 400 1000 1000))
+(setq gc-cons-threshold (* 700 1000 1000))

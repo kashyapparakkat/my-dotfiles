@@ -172,7 +172,7 @@
     ("R" quickrun-replace-region "replace")
     ("p" sk/hydra-debug/body "sk/hydra-debug" :color blue))
 
-(global-set-key (kbd "C-c q") 'hydra-quickrun/body)
+(cibin/global-set-key '("C-c q" . hydra-quickrun/body))
 
 (defhydra sk/hydra-debug (;; :pre (load-library "realgud")
                           :color blue
@@ -263,7 +263,7 @@
         ("w" web-mode "web-mode")
         ("y" yaml-mode "yaml-mode")
         )
-     (global-set-key (kbd "C-x l") 'hydra-cibin-misc/body)
+     (cibin/global-set-key '("C-x l" . hydra-cibin-misc/body))
   (if (require 'hydra nil 'noerror)
     (progn
       (defhydra hydra-search (:color blue :columns 4)
@@ -277,7 +277,8 @@
         ("O" occur-dwim "occur")
         ("r" vr/isearch-backward "vr/isearch-backward")
         ("s" vr/isearch-forward "vr/isearch-forward"))
-      (global-set-key (kbd "C-c s") 'hydra-search/body))
+      (cibin/global-set-key '("C-c s" . hydra-search/body))
+	  )
   (message "** hydra is not installed"))
 
   (if (require 'hydra nil 'noerror)
@@ -288,7 +289,8 @@
              ("q" query-replace "query-replace")
              ("Q" vr/query-replace "vr/query-replace"))
 
-           (global-set-key (kbd "C-c r") 'hydra-replace/body))
+           (cibin/global-set-key '("C-c r" . hydra-replace/body))
+		   )
   (message "** hydra is not installed"))
 
 ;; http://bnbeckwith.com/bnb-emacs/
@@ -459,7 +461,7 @@ _t_ : [[time]] _D_ : diff pop
 (use-package avy
   :config
   (use-package link-hint)
-  (global-set-key (kbd "M-g g") #'avy-goto-line)
+  (cibin/global-set-key '("M-g g" . avy-goto-line))
   (defhydra hydra-avy (global-map "M-g" :color blue)
     "avy-goto"
     ("c" avy-goto-char "char")
@@ -774,8 +776,8 @@ _
   ("g" cibin/text-scale-decrease "global out")
   ("-" cibin/text-scale-decrease "out"))
 ;; TODO https://www.emacswiki.org/emacs/GlobalTextScaleMode
-  (global-set-key (kbd "C-x -") 'cibin/hydra-zoom/body)
-  (global-set-key (kbd "C-x =") 'cibin/hydra-zoom/body)
+  (cibin/global-set-key '("C-x -" . cibin/hydra-zoom/body))
+  (cibin/global-set-key '("C-x =" . cibin/hydra-zoom/body))
 
 
 (defhydra cibin/search (:color blue 
@@ -791,7 +793,7 @@ _
  _ss_: swiper
 --------------------
 "
-;; TODO ;; (global-set-key (kbd "M-s r") ') ; recurse
+;; TODO ;; (cibin/global-set-key '("M-s r" . )) ; recurse
 ; linked
 ("a" helm-do-ag-buffers)
 ("d" helm-do-ag-this-file)
@@ -815,7 +817,7 @@ _
 ("y" cibin/ag-files-cwd) 
 ("u" cibin-search-in-files-advgrep-here)
  ("q" nil :color blue))
-  (global-set-key (kbd "M-s") 'cibin/search/body)
+  (cibin/global-set-key '("M-s" . cibin/search/body))
 (define-key dired-mode-map  (kbd "M-s") 'cibin/search/body)
 
 
@@ -833,7 +835,7 @@ _
  _/_: my-multi-occur-in-matc..                          _w_: ag-files                      _l_: cibin-search-in-text-files-related-bash
 ------
 "
-;; TODO ;; (global-set-key (kbd "M-s r") ') ; recurse
+;; TODO ;; (cibin/global-set-key '("M-s r" . )) ; recurse
 ; linked
   ("e" query-replace)
   ("r" query-replace-regexp)
@@ -856,7 +858,7 @@ _
 ("y" cibin/ag-files-cwd) 
 ("j" helm-ag);; extension ; If you use helm-ag command, you can specify option like -G\.js$ search_pattern, or if you use helm-do-ag, you can use C-u prefix for specifying extension.
  ("q" nil :color blue))
-  (global-set-key (kbd "M-r") 'cibin/replace/body)
+  (cibin/global-set-key '("M-r" . cibin/replace/body))
 (define-key dired-mode-map  (kbd "M-r") 'cibin/replace/body)
 
 
@@ -1051,7 +1053,7 @@ _g_: search (M-s)
 ("q" nil)
 )
 
-  (global-set-key (kbd "C-x y") 'cibin/hydra-tips/body)
+  (cibin/global-set-key '("C-x y" . cibin/hydra-tips/body))
 
 
 
@@ -1264,7 +1266,7 @@ _n_: Navigate           _._: mark position _/_: jump to mark
   ("n" hydra-navigate/body))
 
 ;; M-g has someother bindings already in spacemacs 
-;; (global-set-key (kbd "M-g") 'goto/body)
+;; (cibin/global-set-key '("M-g" . goto/body))
 
 ;;; hydra for file/buffer, jump/goto, error/compile, toggle, format, 
 

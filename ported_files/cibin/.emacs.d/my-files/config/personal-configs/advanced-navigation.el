@@ -2,14 +2,14 @@
 ; (autoload 'bm-toggle   "bm" "Toggle bookmark in current buffer." t)
 ; (autoload 'bm-next     "bm" "Goto bookmark."                     t)
 ; (autoload 'bm-previous "bm" "Goto previous bookmark."            t)
-(global-set-key (kbd "<C-f2>") 'bm-toggle)
+(cibin/global-set-key '("<C-f2>" . bm-toggle))
 (global-set-key (kbd "<M-f2>") (lambda () (interactive)
 								(setq bm-cycle-all-buffers t)
 								(bm-next)
 								(setq bm-cycle-all-buffers nil)))
 
-(global-set-key (kbd "<f2>")   'bm-next)
-(global-set-key (kbd "<S-f2>") 'bm-previous)
+(cibin/global-set-key '("<f2>" .   'bm-next))
+(cibin/global-set-key '("<S-f2>" . bm-previous))
 
 ; Click on fringe to toggle bookmarks, and use mouse wheel to move between them.
 

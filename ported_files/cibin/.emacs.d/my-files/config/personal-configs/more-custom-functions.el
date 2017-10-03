@@ -12,7 +12,7 @@
        (set-default-compiler-python )
 
        )
-  (global-set-key (kbd "C-x t") 'mp-add-python-keys)
+  (cibin/global-set-key '("C-x t" . mp-add-python-keys))
 
 (defun set-default-compiler-python ()
     "Find a recent file using ido."
@@ -246,16 +246,6 @@
    ((spacemacs/system-is-linux) (let ((process-connection-type nil))
                                   (start-process "" nil "xdg-open" file-path)))))
 
- ; delete till non whitespace cycle 
-;; (global-set-key (kbd "C-D")  'xah-shrink-whitespaces)
-(global-set-key (kbd "C-S-d")  'shrink-whitespace)
-(global-set-key (kbd "C-d")  'delete-char)
-;; (define-key evil-normal-state-map (kbd "C-D")   'xah-shrink-whitespaces)
-(define-key evil-normal-state-map (kbd "C-d")   'delete-char)
-(define-key evil-normal-state-map (kbd "C-S-d")   'shrink-whitespace)
-                                        ; (global-set-key (kbd "M-SPC") 'fc/delete-space)
-; (global-set-key (kbd "<M-Spc>") 'fixup-whitespace)
-; (global-set-key (kbd "C-c M-d") 'fc/delete-space)
 
 (defun fc/delete-space ()
   "Remove all space around point.
@@ -280,7 +270,7 @@ lines. And then it will clear all preceding whitespace."
       (delete-region (point) start)))))
 
 	  
- (global-set-key (kbd "C-c C-u") 'fc/kill-to-beginning-of-line)
+ (cibin/global-set-key '("C-c C-u" . fc/kill-to-beginning-of-line))
 (defun fc/kill-to-beginning-of-line ()
   "Kill from the beginning of the line to point."
   (interactive)
@@ -381,8 +371,8 @@ lines. And then it will clear all preceding whitespace."
   (interactive)
   (other-window -1))
 ; TODO change this hk to something useful
-(global-set-key (kbd "M-'") 'other-window)
-(global-set-key (kbd "M-\"") 'my/other-window-backwards)
+(cibin/global-set-key '("M-'" . other-window))
+(cibin/global-set-key '("M-\"" . my/other-window-backwards))
 
 ;; ==== transpose buffers ====
 (defun transpose-buffers (arg)
@@ -397,7 +387,7 @@ lines. And then it will clear all preceding whitespace."
         (select-window (funcall selector)))
       (setq arg (if (plusp arg) (1- arg) (1+ arg))))))
 
-(global-set-key (kbd "C-x 4 t") 'transpose-buffers)				
+(cibin/global-set-key '("C-x 4 t" . transpose-buffers))				
 
 (defun indent-region(numSpaces)
     (progn 
@@ -436,12 +426,12 @@ lines. And then it will clear all preceding whitespace."
     )
 )
 
-(global-set-key (kbd "<backtab>") 'untab-region)
-(global-set-key (kbd "<S-tab>") 'untab-region)
-(global-set-key (kbd "<S-iso-lefttab>") 'untab-region)
+(cibin/global-set-key '("<backtab>" . untab-region))
+(cibin/global-set-key '("<S-tab>" . untab-region))
+(cibin/global-set-key '("<S-iso-lefttab>" . untab-region))
 ; https://github.com/taquangtrung/tab-indent.el/blob/master/tab-indent.el
 ; check for tab indent complete
-;  (global-set-key (kbd "<tab>") 'tab-region)
+;  (cibin/global-set-key '("<tab>" . tab-region))
 
 
 
@@ -464,90 +454,6 @@ lines. And then it will clear all preceding whitespace."
   (byte-recompile-directory "~/.emacs.d" 0))
 
 
-(defun duplicate-current-line-or-region (arg)
-  "Duplicates the current line or region ARG times.
-If there's no region, the current line will be duplicated. However, if
-there's a region, all lines that region covers will be duplicated."
-  (interactive "p")
-  (let (beg end (origin (point)))
-    (if (and mark-active (> (point) (mark)))
-        (exchange-point-and-mark))
-    (setq beg (line-beginning-position))
-    (if mark-active
-        (exchange-point-and-mark))
-    (setq end (line-end-position))
-    (let ((region (buffer-substring-no-properties beg end)))
-      (dotimes (i arg)
-        (goto-char end)
-        (newline)
-        (insert region)
-        (setq end (point)))
-      (goto-char (+ origin (* (length region) arg) arg)))))
-
-(global-set-key (kbd "C-c d") 'duplicate-current-line-or-region)
-
-
- 
-(defun my-backward-kill-word ()
-  (interactive)
-  (setq word-delimiter-regexp "[-\s\"\(\):\;'=]")
-  (setq word-delimiter-regexp-negated "[^-\s\"\(\):\;'=]+")
-
-  (if (looking-at word-delimiter-regexp)
-
-	(let ((p (point)))
-		(if (looking-at "\\(.\\)\\1+")
-			
-			; select all repeated characters
-			(progn
-				(re-search-forward "\\(.\\)\\1+" nil :no-error)
-			 ; (backward-char)
-			 
-		   )
-
-		   ; delete adjacent special chars one by one
-		   (setq p (+ (point) 1))
-
-		   )
-			(kill-region (point) p )
-		   )
-
-		; delete till next special char if at starting of an alphabet
-		(let ((p (point)))
-			;    (re-search-forward "[\w]+" nil :no-error)
-			; TODO subwords are not considered here
-			(re-search-forward word-delimiter-regexp-negated nil :no-error)
-			;(backward-char)
-			(kill-region p (point))
-     )
-
-	; delete the word
-	   ; (kill-word 1)
-	   ; (forward-word)
-	   ;(re-search-forward "\\w+")
-   )
-)
-(global-set-key (kbd "M-d") 'my-backward-kill-word) 
-; ----(global-set-key (kbd "M-d") 'my-backward-kill-word) 
-
-(defun cbn-delete-char (arg)
-  "Delete characters forward until encountering the end of a word.
-With argument, do this that many times.
-This command does not push text to `kill-ring'."
-
-
-; TODO backspace, but delete if at end of file
-  (interactive "p")
-  (delete-region
-   (point)
-   (progn
-     (forward-char arg)
-     (point))))
-
-(define-key evil-normal-state-map (kbd "x") 'cbn-delete-char)
-
-
-
 
 (defun count-buffers (&optional display-anyway)
   "Display or return the number of buffers."
@@ -562,41 +468,6 @@ This command does not push text to `kill-ring'."
 ; (setq highlight-indent-guides-method 'character)
 
  ; (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
-
-;; (global-set-key (kbd "M-K") 'join-lines)
-(global-set-key (kbd "M-K") 'pull-this-line-up)
-(global-set-key (kbd "M-J") 'pull-next-line-join-region-lines)
-
-(defun pull-this-line-up()
-"pull the next line onto the end of the current line, compressing whitespace."
-(interactive)
-(previous-logical-line 1)
-  (move-end-of-line 1) 
-  (kill-line)
-  (just-one-space)
-;; (move-end-of-line 1)
-)
-
-;; TODO remove if pull-next-line-join-lines is working fine
-(defun pull-next-line()
-"pull the next line onto the end of the current line, compressing whitespace."
-  (interactive) 
-  (move-end-of-line 1) 
-  (kill-line)
-  (just-one-space))
-
-(defun  pull-next-line-join-region-lines(n)
-;; https://medium.com/@4d47/join-lines-in-emacs-cc40a55e4539
-  "Join N lines."
-  (interactive "p")
-    (if (use-region-p)
-      (let ((fill-column (point-max)))
-        (fill-region (region-beginning) (region-end)))
-      (dotimes (_ (abs n))
-        (delete-indentation (natnump n))))
-  (move-end-of-line 1) 
-    )
-(defun cibin/toggle-maximize-buffer () (interactive) (spacemacs/toggle-maximize-buffer)(message "spacemacs/toggle-maximize-buffer"))
 
 ;; http://stackoverflow.com/questions/23078678/insert-output-from-asynchronous-process-into-buffer-without-scrolling-to-the-end
 (defun async-shell-command-to-string (command callback)

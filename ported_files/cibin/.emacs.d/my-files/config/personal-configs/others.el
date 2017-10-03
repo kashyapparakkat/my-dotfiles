@@ -91,15 +91,6 @@
 ;; Tell emacs where is your personal elisp lib dir
 
 
-; If a line is wrapped, pressing j or <down> should move to the next part of the same line.
-(define-key evil-normal-state-map (kbd "<remap> <evil-next-line>") 'evil-next-visual-line)
-(define-key evil-normal-state-map (kbd "<remap> <evil-previous-line>") 'evil-previous-visual-line)
-(define-key evil-motion-state-map (kbd "<remap> <evil-next-line>") 'evil-next-visual-line)
-(define-key evil-motion-state-map (kbd "<remap> <evil-previous-line>") 'evil-previous-visual-line)
-
-; Make horizontal movement cross lines
-; if the cursor is at the end of a line, pressing l or <right> should move to the next line.
-(setq-default evil-cross-lines t)
 
 
 
@@ -115,41 +106,17 @@
 (global-set-key [f1] 'shell-other-window) ; shell
 
 
-(global-set-key (kbd "<f8>") 'cibin/xah-run-current-file)
+(cibin/global-set-key '("<f8>" . cibin/xah-run-current-file))
 
-;; Automatically reload files was modified by external program
-(global-auto-revert-mode 1)
-;; and display "half modal" warning about it
-;(require 'w32-msgbox)
-(setq revert-buffer-function 'inform-revert-modified-file)
-
-(global-set-key (kbd "<mouse-3>") 'nil)
-(fset 'evil-visual-update-x-selection 'ignore)
-(setq mouse-drag-copy-region nil)
-(setq x-select-enable-primary nil)
-(setq visible-bell 1)
 
 (add-to-list 'load-path "C:/cygwin64/bin")
 
 
-; Emulate Evil's * command with Swiper.
-(global-set-key (kbd "C-M-s")
-	(lambda ()
-		(interactive)
-		(swiper (word-at-point))))
-
-
-; Shift click to extend marked region
-(define-key global-map (kbd "<S-down-mouse-1>") 'mouse-save-then-kill)
 
 
 ; configures Emacs so that files deleted via Emacs are moved to the Recycle.
 (setq delete-by-moving-to-trash t)
 
-;; Load up starter kit customizations
-
-; (require 'starter-kit-defuns)
-; (require 'starter-kit-bindings)
 
 (message "checkpoint 55")
 
@@ -234,13 +201,6 @@
 ; ====
 (message "checkpoint 59")
 
-;; Typing text replaces marked regions
-(delete-selection-mode 1)
-
-
-(setq enable-recursive-minibuffers t) ;; allow recursive editing in minibuffer
-
-(follow-mode t)                       ;; follow-mode allows easier editing of long files
 
 
 
@@ -275,12 +235,8 @@
 
 ; smex is an amazing program that helps order the M-x commands based on usage and recent items. Let’s install it.
 
-(use-package smex
-	:ensure t
-	:config
-	(smex-initialize))
 
-(message "checkpoint 41")
+
 (message "checkpoint 63")
 
 
@@ -465,6 +421,13 @@
   (kill-all-other-buffers-if-not-modified)
   )
 
+(tool-bar-add-item "open" 'dlgopen-open-files 'dlgopen-open-files
+                   :help   "dlgopen-open-files"
+)
+
+(tool-bar-add-item "copy" 'hsplit-last-buffer 'hsplit-last-buffer
+                   :help   "hsplit-last-buffer"
+)
 (tool-bar-add-item "cancel" 'toolbar-button 'toolbar-button
                    :help   "kill-all-other-buffers-if-not-modified"
 )
@@ -585,9 +548,6 @@
 	(when newline-and-indent
 		(indent-according-to-mode)))
 
-;; Autoindent open-*-lines
-(defvar newline-and-indent t
-	"Modify the behavior of the open-*-line functions to cause them to autoindent.")
 
 
 ; bubble-buffer
@@ -1073,3 +1033,20 @@ let ((-path  (setq -path
 					(dired-get-marked-files))
 					(message "marked files backed up"))
 				(user-error "buffer not file nor dired")))))
+
+
+				 ;; visible-mark
+(global-visible-mark-mode 1)
+ (defface visible-mark-active ;; put this before (require 'visible-mark)
+   '((((type tty) (class mono)))
+     (t (:background "magenta"))) "")
+(require 'visible-mark)
+
+
+ (setq visible-mark-max 2)
+(setq visible-mark-faces `(visible-mark-face1 visible-mark-face2))
+
+
+; https://www.emacswiki.org/emacs/MsWindowsCustomize#toc8
+(load-file "~/.emacs.d/my-files/config/others/dlgopen/dlgopen.el")
+; use (dlgopen-open-files) instead of find-file
