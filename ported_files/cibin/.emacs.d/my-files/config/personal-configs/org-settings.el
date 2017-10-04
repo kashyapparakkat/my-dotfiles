@@ -17,16 +17,38 @@
 (setf org-blank-before-new-entry '((heading . nil) (plain-list-item . nil)))
 
 
-(setq org-agenda-files (list (format "C:/Users/%s/Downloads/todo.org" user-login-name)                            
-                        (format "C:/Users/%s/Downloads/todo.txt" user-login-name)                           
+;; todo good one 
+; (setq org-agenda-files
+      ; (append
+       ; (file-expand-wildcards "~/work/org/*.org")
+       ; (file-expand-wildcards "~/personal/org/*.org")))
+	   
+	   
+(setq org-agenda-files (list (format "C:/Users/%s/Downloads/todo-notes.org" user-login-name)                            
+                        (format "C:/Users/%s/Downloads/todo-stats-notes.org" user-login-name)                           
+                        (format "C:/Users/%s/Downloads/work-notes.org" user-login-name)                           
                              "~/.emacs.d/my-files/org/work.org"))
+							 
+							 
+							 ;; todo remove non-existent files
+							; (setq org-agenda-files (mapcar (lambda (file) (if (file-exists-p file) file) 'org-agenda-files )))
+ 
+; (eval-after-load "org"
+  ; (setq org-agenda-files
+        ; (delq nil (mapcar (if (file-exists-p file)
+                              ; file)
+                          ; org-agenda-files))))
+						  
+						  
 ;; set maximum indentation for description lists
 (setq org-list-description-max-indent 5)
 (use-package org-bullets
   :init
-  (setq org-bullets-bullet-list '("●" "•" "▪" "♦" "►" "■" "○" ))
+  (setq org-bullets-bullet-list '("◉" "●" "•" "￭" "▪" "▶" "♦" "►" "■" "○" "◎" "￼" "✭" "►" "◇" "♥" "●" "◇" "✚" "✜" "☯" "◆" "♠" "♣" "♦" "☢" "❀" "◆" "◖" "▶" "▸" "●" "•" "▪" "▶" "♦" "►" "■" "○" ))
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 )
+
+
 
 (defun cibin/org-insert-heading-respect-content()
   (interactive)
@@ -59,8 +81,12 @@
 (global-set-key (kbd "C-c o") 
                 (lambda () (interactive) (find-file "~/organizer.org")))
 	   ; The pipe is optional, but if it is present, the task states following it will all be considered by Org to mean “complete
-				(setq org-todo-keywords
-      '((sequence "TODO" "INFO" "IN-PROGRESS" "WAITING" "|" "DONE" "LATER")))
+
+;; (setq org-todo-keywords  '((sequence "TODO" "INFO" "IN-PROGRESS" "WAITING" "|" "DONE" "LATER") ))
+(setq org-todo-keywords '((sequence " TODO(t)" "|" " ✔  DONE(d)" " LATER")
+(sequence " IN-PROGRESS(p)" "|")
+(sequence " WAITING(w)" "|")
+(sequence "|" " ✘ CANCELED(c)")))
 
 
 ; TODO evil-org.el
@@ -126,7 +152,7 @@
 (defun cibin/org-do-promote()
 (interactive)
 (message "promoting again will club other headings too !!!!!")
-(org-do-demote)
+(org-do-promote)
 )
 (defun my/org-toggle-heading-and-todo (arg)
   "Toggles the current line between a non-heading and TODO heading."
@@ -217,13 +243,30 @@
                           `(org-level-5 ((t (,@headline ,@variable-tuple))))
                           `(org-level-4 ((t (,@headline ,@variable-tuple :height 1.15))))
                           `(org-level-3 ((t (,@headline ,@variable-tuple :height 1.2))))
-                          `(org-level-2 ((t (,@headline ,@variable-tuple :height 1.2))))
-                          `(org-level-1 ((t (,@headline ,@variable-tuple :height 1.2))))
+                          `(org-level-2 ((t (,@headline ,@variable-tuple :height 1.2 :foreground "green"))))
+                          `(org-level-1 ((t (,@headline ,@variable-tuple :height 1.2 :foreground "yellow"))))
                           `(org-document-title ((t (,@headline ,@variable-tuple :height 1.5 :underline nil))))))
 
 )
 ; )
 
+;; todo see @headline and @ variable-tuple above
+  (custom-theme-set-faces 'user
 
+'(org-agenda-date ((t (:inherit org-agenda-structure :weight semi-bold :height 1.2))) t)
+'(org-date ((t (:foreground "dim gray" :underline t :height 0.8 :family "Helvetica Neue"))))
+'(org-done ((t (:foreground "gray57" :weight light))))
+'(org-level-1 ((t (:weight semi-bold :height 1.5 :family "Helvetica Neue"))))
+'(org-level-2 ((t (:inherit outline-2 :weight semi-bold :height 1.2))))
+'(org-level-3 ((t (:inherit outline-3 :weight bold :family "Helvetica Neue"))))
+'(org-level-4 ((t (:inherit outline-4 :height 1.15 :family "Helvetica Neue"))))
+'(org-level-5 ((t (:inherit outline-5 :height 1.0 :family "Helvetica Neue"))))
 
-						  (provide 'org-settings)						   
+'(org-link ((t (:inherit link :weight normal))))
+'(org-meta-line ((t (:inherit font-lock-comment-face :height 0.8))))
+'(org-property-value ((t (:height 0.9 :family "Helvetica Neue"))) t)
+'(org-special-keyword ((t (:inherit font-lock-keyword-face :height 0.8 :family "Helvetica Neue"))))
+'(org-table ((t (:foreground "black" :height 0.9 :family "Menlo"))))
+'(org-tag ((t (:foreground "dark gray" :weight bold :height 0.8))))
+'(org-todo ((t (:foreground "#e61e22" :weight bold))))
+)
