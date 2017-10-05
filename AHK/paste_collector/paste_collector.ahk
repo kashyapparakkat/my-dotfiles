@@ -3735,14 +3735,15 @@ $<^v::	; na
 		
 	setTimer, CLIPSTEP,100
 	
-LASTFORMAT := GetClipboardFormat(1)
-if ( LASTFORMAT <>"[Text]")
-	{	
+; LASTFORMAT := GetClipboardFormat(1)
+; if ( LASTFORMAT <>"[Text]")
+	; {	
 		; send,^v
-		
-	send_key_emacs_or_after_translatingTo_normal_ifNot_emacseditor("C-y")
-		return
-	}
+	; tooltip=Not text
+	 ; Gosub,TOOLTIP	
+	; send_key_emacs_or_after_translatingTo_normal_ifNot_emacseditor("C-y")
+		; return
+	; }
 	; msgbox,%MC_Clips_present%
 	If MC_Clips_present<1
 	{
@@ -3820,7 +3821,7 @@ SHOWCLIP:
 Return
  
 
-PASTECLIP:
+PASTECLIP:		
 	MC_OwnChange:=1
 	readclip=MC_Clip%activeclip%
 	readclip:=%readclip%
@@ -3830,11 +3831,23 @@ PASTECLIP:
 	*/
 	Clipboard:=readclip
 	; Send,^v
+	if activeclip=1
+	{
 	
+		LASTFORMAT := GetClipboardFormat(1)
+		if ( LASTFORMAT <>"[Text]")
+		{	
+			; send,^v
+			tooltip=Not text
+			Gosub,TOOLTIP
+			sleep,200
+			 
+		}
+	}	
 	send_key_emacs_or_after_translatingTo_normal_ifNot_emacseditor("C-y")
 	delete=no
 	paste=no
-			  	sleep,150	
+	sleep,150	
 	MC_OwnChange:=0
 Return
 

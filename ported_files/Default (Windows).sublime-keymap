@@ -25,6 +25,16 @@
 	}
 
 ,
+{
+    "keys": ["ctrl+x","1"],
+    "command": "set_layout",
+    "args":
+    {
+      "cols": [0.0, 1.0],
+      "rows": [0.0, 1.0],
+      "cells": [[0, 0, 1, 1]]
+    }
+  },
 	{
 		"keys": ["\\"],
 		"command": "set_layout",
@@ -80,7 +90,9 @@
   { "keys": ["b"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true, "text": ""} , "context": [{"key": "setting.command_mode"}] },
   //{ "keys": ["b"], "command": "show_overlay", "args": {"overlay": "goto", "text": "@"} , "context": [{"key": "setting.command_mode"}] },
 
-
+{ "keys": ["backspace"], "command": "left_delete" , "context": [{"key": "setting.command_mode"}] },
+{ "keys": ["v","o"],  "command": "expand_selection", "args": {"to": "line"} , "context": [{"key": "setting.command_mode"}] },
+{ "keys": ["t"],  "command": "expand_selection", "args": {"to": "word"} , "context": [{"key": "setting.command_mode"}] },
 { "keys": ["e"], "command": "focus_neighboring_group" , "context": [{"key": "setting.command_mode"}] },
 { "keys": ["q"], "command": "close_file" , "context": [{"key": "setting.command_mode"}] },
     
@@ -90,6 +102,12 @@
         { "keys": ["ctrl+o"], "command": "fuzzy_start_from_file" },
         { "keys": ["ctrl+x","ctrl+f"], "command": "fuzzy_start_from_file" },
         // Show bookmarked folders
-   
+
+
+{ "keys": ["ctrl+x","t","t"], "command": "toggle_setting", "args": {"setting": "word_wrap"}}   ,
+
+//default one have different other checks based on context
+{ "keys": ["shift+enter"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Add Line.sublime-macro"} },
+{ "keys": ["alt+enter"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Add Line Before.sublime-macro"} },
 ]
 

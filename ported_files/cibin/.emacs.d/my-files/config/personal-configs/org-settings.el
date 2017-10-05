@@ -257,7 +257,7 @@
 '(org-date ((t (:foreground "dim gray" :underline t :height 0.8 :family "Helvetica Neue"))))
 '(org-done ((t (:foreground "gray57" :weight light))))
 '(org-level-1 ((t (:weight semi-bold :height 1.5 :family "Helvetica Neue"))))
-'(org-level-2 ((t (:inherit outline-2 :weight semi-bold :height 1.2))))
+'(org-level-2 ((t (:inherit outline-2 :weight semi-bold :height 1.25))))
 '(org-level-3 ((t (:inherit outline-3 :weight bold :family "Helvetica Neue"))))
 '(org-level-4 ((t (:inherit outline-4 :height 1.15 :family "Helvetica Neue"))))
 '(org-level-5 ((t (:inherit outline-5 :height 1.0 :family "Helvetica Neue"))))

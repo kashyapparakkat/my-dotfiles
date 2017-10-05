@@ -1137,3 +1137,81 @@ vi my.vimrc
 bash
 #1506273916
 r
+#1506280159
+sf
+#1506280159
+sf
+#1506361526
+find . -ls | python -c '
+import sys
+for line in sys.stdin:
+    r = line.strip("\n").split(None, 10)
+    fn = r.pop()
+    print ",".join(r) + ",\"" + fn.replace("\"", "\"\"") + "\""
+' 
+#1506361558
+ls | python -c '
+import sys
+for line in sys.stdin:
+    r = line.strip("\n").split(None, 10)
+    fn = r.pop()
+    print ",".join(r) + ",\"" + fn.replace("\"", "\"\"") + "\""
+'    
+#1506361565
+ls
+#1506361574
+ls -l | python -c '
+import sys
+for line in sys.stdin:
+    r = line.strip("\n").split(None, 10)
+    fn = r.pop()
+    print ",".join(r) + ",\"" + fn.replace("\"", "\"\"") + "\""
+'    
+#1506361685
+ls -l
+#1506361752
+python
+#1506363086
+git add ssh-example.py 
+#1506363650
+/usr/bin/bash
+#1506367057
+gcm helm
+#1506367064
+git push
+#1506367184
+git ls-files|grep ssh
+#1506368031
+r
+#1506395138
+searchproject 
+#1506395167
+searchproject requ
+#1506395234
+ls "/cygdrive/c/Users/$USERNAME/Downloads/"|fzy
+#1506395473
+searchproject 
+#1506395509
+searchproject .
+#1506395804
+bash
+#1506395465
+bash
+#1506395823
+snf
+#1506395826
+spf
+#1506669720
+sc
+#1506669723
+scf
+#1507041982
+curl -XPUT 'http://localhost:9200/blog/post/2' -d '
+{ 
+    "user": "dilbert", 
+    "postDate": "2011-12-12", 
+    "body": "Distribution is hard. Distribution should be easy." ,
+    "title": "On distributed search"
+}'
+#1507042001
+curl -XGET 'http://localhost:9200/blog/post/2?pretty=true'

@@ -70,10 +70,10 @@ emacs-lisp
 ;; configuration in `dotspacemacs/user-config'.
 dotspacemacs-additional-packages '(
 ob-ipython
-	anaconda-mode 
-	flymake-cursor 
-	jedi 
-	epc 
+	anaconda-mode
+	flymake-cursor
+	jedi
+	epc
 	visual-regexp-steroids
 	visual-regexp
 	company-flx
@@ -84,14 +84,14 @@ indent-tools
 	dired-subtree
 	git-gutter+
 	shrink-whitespace
-	dired+ 
+	dired+
 	golden-ratio
 	elpy
 cycle-quotes
 	fuzzy
 	ranger
 	ob-http
-	company-restclient 
+	company-restclient
 	free-keys
 	magit
 	highlight-thing
@@ -111,21 +111,21 @@ git-timemachine
 	flyspell-popup
 	keyfreq
 	drag-stuff
-	ob-restclient 
+	ob-restclient
 	vdiff
-	quick-preview 
-	visible-mark 
-	corral 
-	ivy-hydra 
+	quick-preview
+	visible-mark
+	corral
+	ivy-hydra
 vlf
-	restclient 
+	restclient
 	solarized-theme
 	counsel
 	auctex
 	ido-sort-mtime
-	shell-pop 
-	shell-here 
-	buffer-flip 
+	shell-pop
+	shell-here
+	buffer-flip
 	quickrun
 	multiple-cursors
 	rainbow-mode
@@ -133,13 +133,13 @@ vlf
 	dired-k
 	dired-filter
 	eww-lnum
-	dired-quick-sort 
-	key-chord 
+	dired-quick-sort
+	key-chord
 	goto-chg
 	smex
 	color-identifiers-mode
 
-	tabbar 
+	tabbar
 	beacon
 	nlinum
 	markdown-mode
@@ -256,7 +256,7 @@ dotspacemacs-remap-Y-to-y$ t
    ;; (default nil)
    dotspacemacs-ex-substitute-global nil
    ;; Name of the default layout (default "Default")
-   
+
 ;; Name of the default layout (default "Default")
 dotspacemacs-default-layout-name "Default"
 ;; If non nil the default layout name is displayed in the mode-line.
@@ -394,8 +394,8 @@ dotspacemacs-whitespace-cleanup nil
 
 
 
-(load-file "~/.emacs.d/my-files/config/personal-configs/others.el")
 (load-file "~/.emacs.d/my-files/config/personal-configs/cibin-load-all.el")
+(load-file "~/.emacs.d/my-files/config/personal-configs/others.el")
 
 
 
@@ -403,7 +403,7 @@ dotspacemacs-whitespace-cleanup nil
 
 (message "reached end of user-config()")
 
-) ; end of user-config() 
+) ; end of user-config()
 
 
 ;; Do not write anything past this comment. This is where Emacs will
