@@ -194,7 +194,7 @@ If called with a prefix, prompts for flags to pass to ag."
   (interactive)
   (setq search-extension (read-from-minibuffer "extension: "))
   (setq helm-ag-command-option (concat "-G" search-extension  "$"))
-  (setq search-directory (read-directory-name "Directory: " (format "c:/users/%s/Downloads/Projects" user-login-name)))
+  (setq search-directory (read-directory-name "Directory: " (format "%s/Downloads/Projects/" Universal_home)))
 (helm-do-ag-search-template search-directory)
 )
 
@@ -202,7 +202,7 @@ If called with a prefix, prompts for flags to pass to ag."
   (interactive)
   ;; (setq search-extension (read-from-minibuffer "extension: "))
   (setq helm-ag-command-option (concat "-G" search-extension  "$"))
- ;; (setq search-directory (read-directory-name "Directory: " (format "c:/users/%s/Downloads/" user-login-name)))
+ ;; (setq search-directory (read-directory-name "Directory: " (format "%s/Downloads/" Universal_home)))
 (message (format "Searching '.%s' files in '%s'" search-extension search-directory ))
 (helm-do-ag-search-template search-directory)
 )

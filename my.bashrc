@@ -6,6 +6,7 @@ WORKING_PATH="$(pwd)"
 SCRIPT=$(readlink -f "$0")
 SCRIPT_PATH=$(dirname "$SCRIPT")
 
+source ~/set_defaults.sh
 
 # map C:\cbn_gits to linux also
 # sublime $(convert_path path)
@@ -187,11 +188,6 @@ alias ls='_(){ ls --color=auto -p "$@" ; lfind . ! -name . -prune -print | grep 
     # fi
 # }
 
-# alias ranger='/usr/bin/python3.6m.exe /cygdrive/c/cygwin64/bin/ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
-alias ranger='/usr/bin/python3.6m.exe /cygdrive/c/cygwin64/bin/ranger' #; LASTDIR=`cat $(cd)`; cd "$LASTDIR"'
-
-alias r='ranger'
-
 #[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 
@@ -247,6 +243,8 @@ source ~/my-scripts/z/z.sh
 
 
 source ~/my.keybindings.sh
+
+# TODO prompt is not working, somewhere it is overridden
 # Rename command prompt
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
 if [[ "$unamestr" == 'Darwin' ]]; then

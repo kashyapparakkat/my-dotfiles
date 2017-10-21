@@ -505,16 +505,16 @@ cat ~/all_files.db|fzy -l 20
 
 }
 function searchcommands() {
-cat c:/cbn_gits/AHK/popular_commands.db|fzy -l 20
+cat "$cbn_git_path/cbn_gits/AHK/popular_commands.db"|fzy -l 20
 
 }
 function searchnotes () {
 # ag $* -G org$ /cygdrive/c/Users/cibin/Downloads/ --color
 
-lfind "/cygdrive/c/Users/$USERNAME/Downloads/" -maxdepth 2 -iname "*notes*.org" -exec  echo {} +
-lfind "/cygdrive/c/Users/$USERNAME/Downloads/" -maxdepth 2 -iname "*notes*.txt" -exec  echo {} +
-lfind "/cygdrive/c/Users/$USERNAME/Downloads/" -maxdepth 2 -iname "*notes*.org" -exec  ag -i --noheading --numbers --filename --color --color-match "2;46" $* {} +
-lfind "/cygdrive/c/Users/$USERNAME/Downloads/" -maxdepth 2 -iname "*notes*.txt" -exec  ag -i --noheading --numbers --filename --color --color-match "2;46" $* {} +
+lfind "$Universal_home/Downloads/" -maxdepth 2 -iname "*notes*.org" -exec  echo {} +
+lfind "$Universal_home/Downloads/" -maxdepth 2 -iname "*notes*.txt" -exec  echo {} +
+lfind "$Universal_home/Downloads/" -maxdepth 2 -iname "*notes*.org" -exec  ag -i --noheading --numbers --filename --color --color-match "2;46" $* {} +
+lfind "$Universal_home/Downloads/" -maxdepth 2 -iname "*notes*.txt" -exec  ag -i --noheading --numbers --filename --color --color-match "2;46" $* {} +
 
 # ag $* -n -G org$ /cygdrive/c/Users/"$USERNAME"/Downloads/ --color
 # # ag $* -n -G todo-notes.org$ /cygdrive/c/Users/"$USERNAME"/Downloads/ --color
@@ -592,8 +592,8 @@ function fzs(){
 }
 function searchproject () {
     read -p "enter extension: " arg < /dev/tty
-    dir=$(ls "/cygdrive/c/Users/$USERNAME/Downloads/Project/"|fzy)
-    dir="/cygdrive/c/Users/$USERNAME/Downloads/Project/$dir"
-lfind "$dir" -iname "*.$arg" -exec  ag -i --noheading --numbers --filename --color --color-match "2;46" $* {} +
+    dir=$(ls "$Universal_home/Downloads/Projects/"|fzy)
+    dir="$Universal_home/Downloads/Projects/$dir"
+	lfind "$dir" -iname "*.$arg" -exec  ag -i --noheading --numbers --filename --color --color-match "2;46" $* {} +
 
 }

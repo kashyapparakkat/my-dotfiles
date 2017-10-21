@@ -13,12 +13,39 @@
 function l() {
   less -isNm *.$1
 }
+
+
 # if WINDOWS
+# duplicate find.exe as lfind.exe, lsort.exe, ...
+if [ "$machine" == "Windows" ]; then
   alias find='lfind'
-# else if linux
-#   alias lfind='find'
+  alias sort='lsort'
+  
+	# alias ranger='/usr/bin/python3.6m.exe /cygdrive/c/cygwin64/bin/ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
+
+	alias ranger='/usr/bin/python3.6m.exe /cygdrive/c/cygwin64/bin/ranger' #; LASTDIR=`cat $(cd)`; cd "$LASTDIR"'
+
+else  # else if linux/Mac *nix
+	alias lfind='find'
+	alias lsort='sort'
+fi
+
+if [ "$machine" == "Windows" ]; then
+alias clip='clip'
+elif [ "$machine" == "Linux" ]; then
+alias clip='xclip -selection c'
+
+elif [ "$machine" == "Mac" ]; then
+alias clip='pbcopy'
+ 
+fi
+
 
 # s file/text-ext/all-text/common-text/notes [=recurse/here/recent/allfileslist] [fuzzy]
+ 
+alias r='ranger'
+
+
 
 alias s='prompt_for_s'
 
@@ -86,9 +113,9 @@ alias cd..='cd ..'
 ## a quick way to get out of current directory ##
 
 alias cd~='cd ~'
-alias cdmisc='cd /cygdrive/c/cbn_gits/misc'
-alias cdahk='cd /cygdrive/c/cbn_gits/AHK'
-alias cdd='cd /cygdrive/c/Users/$USERNAME/Downloads'
+alias cdmisc='cd $cbn_git_path/cbn_gits/misc'
+alias cdahk='cd $cbn_git_path/cbn_gits/AHK'
+alias cdd='cd $Universal_home/Downloads'
 alias cdh='cd ~'
 # alias cdd='cd ~/Downloads'
 

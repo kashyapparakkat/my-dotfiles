@@ -1,5 +1,13 @@
 ﻿( message "loading basic-settings" )
 
+(if (eq system-type 'windows-nt)
+ (setq Universal_home  (format "c:/users/%s" user-login-name))
+ ; else *nix
+ (setq Universal_home  (format "~"))
+ )
+ 
+ 
+ 
 ;; open in full screen
 ( add-to-list 'default-frame-alist '( fullscreen . maximized ))
 

@@ -203,8 +203,8 @@
 
 
 
-
-(cd (format "C:/Users/%s/Downloads" user-login-name))
+;; TODO disabled for now 
+; (cd (format "%s/Downloads" Universal_home))
 
 
 

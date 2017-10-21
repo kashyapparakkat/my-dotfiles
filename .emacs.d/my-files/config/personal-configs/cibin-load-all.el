@@ -20,7 +20,7 @@
 (load-file "~/.emacs.d/my-files/config/others/dired-sort-menu.el")
 (load-file "~/.emacs.d/my-files/config/others/dired-sort-menu+.el")
 (load-file "~/.emacs.d/my-files/config/others/bm.el")
-; ;(cd (format "C:/Users/%s/AppData/Roaming/.emacs.d/my-files/config/others/el-qrencode-master" user-login-name))
+; ;(cd (format "%s/AppData/Roaming/.emacs.d/my-files/config/others/el-qrencode-master" Universal_home))
 
 ; (cd (format "c:/cygwin64/home/%s/.emacs.d/my-files/config/others/el-qrencode-master" user-login-name))
 ; (load-file "~/.emacs.d/my-files/config/others/el-qrencode-master/load.el")

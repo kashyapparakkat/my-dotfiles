@@ -51,3 +51,5 @@
 
 (load-file "~/../.emacs.d/my-files/config/personal-configs/starter-kit-bindings.el")
 (setq gc-cons-threshold 300000000)
+; Automatically open your agenda whenever you start Emacs
+; (org-agenda nil "a")

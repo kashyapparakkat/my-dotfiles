@@ -6,6 +6,7 @@ function recent_files(){
 	sublime_file=C:/Users/"$USERNAME"/AppData/Roaming/Sublime\ Text\ 3/Local/Session.sublime_session
 	notepadpp_file=/cygdrive/c/Users/"$USERNAME"/AppData/Roaming/Notepad++/session.xml
 	notepadpp_file2=/cygdrive/c/Users/"$USERNAME"/AppData/Roaming/Notepad++/config.xml
+	touch ~/cbn_history.txt
 	if [ -f ~/.viminfo ]; then
 	grep "~?/.*" -E -o ~/.viminfo |sed 's/"//g'>~/cbn_history.txt
 	fi
@@ -224,8 +225,8 @@ arg=$(return_arg_or_piped_input $*)
 	echo "opening file: $arg in ranger..."
 	if [ ! -z "$arg" ]
 	then
-		/usr/bin/python3.6m.exe /cygdrive/c/cygwin64/bin/ranger # --selectfile="$arg"
-		# ranger #--selectfile="$arg"
+		# /usr/bin/python3.6m.exe /cygdrive/c/cygwin64/bin/ranger # --selectfile="$arg"
+		ranger #--selectfile="$arg"
 	fi
 }
 

@@ -24,15 +24,43 @@
        ; (file-expand-wildcards "~/personal/org/*.org")))
 	   
 	   
-(setq org-agenda-files (list (format "C:/Users/%s/Downloads/todo-notes.org" user-login-name)                            
-                        (format "C:/Users/%s/Downloads/todo-stats-notes.org" user-login-name)                           
-                        (format "C:/Users/%s/Downloads/work-notes.org" user-login-name)                           
-                             "~/.emacs.d/my-files/org/work.org"))
+; (setq org-agenda-files (list (format "%s/Downloads/todo-notes.org" Universal_home)                            
+                        ; (format "%s/Downloads/todo-stats-notes.org" Universal_home)                           
+                        ; (format "%s/Downloads/work-notes.org" Universal_home)                           
+                             ; "~/.emacs.d/my-files/org/work.org"))
 							 
 							 
 							 ;; todo remove non-existent files
 							; (setq org-agenda-files (mapcar (lambda (file) (if (file-exists-p file) file) 'org-agenda-files )))
  
+ 
+ ; https://github.com/badri/dot-emacs-dot-d/blob/master/init.el
+ (setq org-agenda-files
+      (delq nil
+            (mapcar (lambda (x) (and (file-exists-p x) x))
+                    (append '(
+					"~/org/ideas.org"
+                      ; (format "%s/Downloads/todo-notes.org" Universal_home)                            
+                        ; (format "%s/Downloads/todo-stats-notes.org" Universal_home)                           
+                        ; (format "%s/Downloads/work-notes.org" Universal_home)                           
+                             "~/.emacs.d/my-files/org/work.org"
+		      ) (list (format "%s/Downloads/todo-notes.org" Universal_home)                            
+                        (format "%s/Downloads/todo-stats-notes.org" Universal_home)                           
+                        (format "%s/Downloads/work-notes.org" Universal_home)                           
+                             "~/.emacs.d/my-files/org/work.org")
+							 (file-expand-wildcards "~/org/projects/*.org")))))
+			  
+	(setq org-agenda-span 15)
+(setq org-agenda-tags-column -100) ; take advantage of the screen width
+(setq org-agenda-sticky nil)	
+(setq org-agenda-time-grid
+      '((daily today require-timed)
+       "----------------"
+       (800 1000 1200 1400 1600 1800)))
+(setq org-columns-default-format "%14SCHEDULED %Effort{:} %1PRIORITY %TODO %50ITEM %TAGS")
+
+
+	  
 ; (eval-after-load "org"
   ; (setq org-agenda-files
         ; (delq nil (mapcar (if (file-exists-p file)
@@ -270,3 +298,32 @@
 '(org-tag ((t (:foreground "dark gray" :weight bold :height 0.8))))
 '(org-todo ((t (:foreground "#e61e22" :weight bold))))
 )
+
+;;https://yoo2080.wordpress.com/2013/05/30/ms-windows-emacs-fixed-pitch-got-no-anti-aliasing/ 
+;;courier new is the only monospace font in windows by default
+(if (eq system-type 'windows-nt)
+    (set-face-attribute 'fixed-pitch nil :family
+                        "Courier New"))
+
+;;; font
+;;;https://xiangji.me/2015/07/13/a-few-of-my-org-mode-customizations/
+;;;https://yoo2080.wordpress.com/2013/05/30/monospace-font-in-tables-and-source-code-blocks-in-org-mode-proportional-font-in-other-parts/
+;;Using monospace font for tables and code blocks, while still using variable-pitch-mode in org mode buffers
+  (defun set-buffer-variable-pitch ()
+    (interactive)
+    (variable-pitch-mode t)
+    (setq line-spacing 3)
+     (set-face-attribute 'org-table nil :inherit 'fixed-pitch)
+     (set-face-attribute 'org-code nil :inherit 'fixed-pitch)
+     (set-face-attribute 'org-block nil :inherit 'fixed-pitch)
+     (set-face-attribute 'org-block-background nil :inherit 'fixed-pitch)
+    )
+
+  (add-hook 'org-mode-hook 'set-buffer-variable-pitch)
+  (add-hook 'eww-mode-hook 'set-buffer-variable-pitch)
+  (add-hook 'markdown-mode-hook 'set-buffer-variable-pitch)
+  (add-hook 'Info-mode-hook 'set-buffer-variable-pitch)
+
+
+
+(provide 'org-settings)
