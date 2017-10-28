@@ -504,17 +504,60 @@ function searchfiles () {
 cat ~/all_files.db|fzy -l 20
 
 }
+
+foo()
+{
+    foo_usage() { echo "foo: [-a <arg>]" 1>&2; exit; }
+
+    local OPTIND o a
+    while getopts ":a:" o; do
+        case "${o}" in
+            a)
+                a="${OPTARG}"
+                ;;
+            *)
+                foo_usage
+                ;;
+        esac
+    done
+    shift $((OPTIND-1))
+
+    echo "a: [${a}], non-option arguments: $*"
+}
+
 function searchcommands() {
 cat "$cbn_git_path/cbn_gits/AHK/popular_commands.db"|fzy -l 20
 
 }
-function searchnotes () {
+# https://www.ibm.com/developerworks/library/l-bash-parameters/index.html
+function searchnotes() {
 # ag $* -G org$ /cygdrive/c/Users/cibin/Downloads/ --color
+  foo_usage() { echo "foo: [-a <arg>]" 1>&2; exit; }
+  
+# https://stackoverflow.com/a/16655341
+local OPTIND o maxdepth
+maxdepth=2
+echo "$maxdepth"
+    while getopts ":m:" o; do
+        case "${o}" in
+            m)
+                maxdepth="${OPTARG}"
+                ;;
+            *)
+                foo_usage
+                ;;
+        esac
+    done
+shift $((OPTIND-1)) # shift other args
 
-lfind "$Universal_home/Downloads/" -maxdepth 2 -iname "*notes*.org" -exec  echo {} +
-lfind "$Universal_home/Downloads/" -maxdepth 2 -iname "*notes*.txt" -exec  echo {} +
-lfind "$Universal_home/Downloads/" -maxdepth 2 -iname "*notes*.org" -exec  ag -i --noheading --numbers --filename --color --color-match "2;46" $* {} +
-lfind "$Universal_home/Downloads/" -maxdepth 2 -iname "*notes*.txt" -exec  ag -i --noheading --numbers --filename --color --color-match "2;46" $* {} +
+# echo "m: [${maxdepth}], non-option arguments: $*" 
+
+# lfind "$Universal_home/Downloads/" -maxdepth "$maxdepth" -iname "*notes*.org" -exec  echo {} +
+# lfind "$Universal_home/Downloads/" -maxdepth "$maxdepth" -iname "*notes*.txt" -exec  echo {} +
+# TODO disabling color temporarily
+
+lfind "$Universal_home/Downloads/" -maxdepth "$maxdepth" -iname "*notes*.org" -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
+lfind "$Universal_home/Downloads/" -maxdepth "$maxdepth" -iname "*notes*.txt" -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
 
 # ag $* -n -G org$ /cygdrive/c/Users/"$USERNAME"/Downloads/ --color
 # # ag $* -n -G todo-notes.org$ /cygdrive/c/Users/"$USERNAME"/Downloads/ --color
@@ -530,7 +573,7 @@ ask_searchterm () {
     recurse="-r"
      else
          recurse="-n"
-         echo "no -n "
+         echo "no -n (recurse) "
     fi
 
      #   echo "\$cmd extension searchTerm"

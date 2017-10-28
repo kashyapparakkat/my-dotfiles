@@ -57,7 +57,9 @@ alias sf='searchfiles|open_in_app'
 
 alias scf='searchcommands|clip'
 alias sn='searchnotes'
+alias sNf='searchnotes -m 5 .|fzy -l 25' # sn fuzzy
 alias snf='searchnotes .|fzy -l 25' # sn fuzzy
+
 alias spf='searchproject .|fzy -l 25' # sp fuzzy
 alias sp='searchproject'
 
@@ -225,7 +227,7 @@ alias fastping='ping -c 100 -s.2'
 alias rm='rm -I --preserve-root'
 
 # confirmation #
-alias mv='mv -i'
+alias mv='mv -i -v'
 alias cp='cp -i'
 alias ln='ln -i'
 

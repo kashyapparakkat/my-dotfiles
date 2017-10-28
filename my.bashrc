@@ -46,7 +46,7 @@ function smart_recent(){
 }
 
 
-
+shopt -s expand_aliases
 
 function cbn(){
 echo "
@@ -91,8 +91,6 @@ export PATH=$PATH:/mnt/c/Windows/System32
   }
 
 
-source $HOME/essential_functions.sh
-source $HOME/search_functions.sh
 
 #www.cibinmathew.com
 #github.com/cibinmathew
@@ -128,7 +126,11 @@ shopt -s histappend
 
 source $HOME/misc_lib.sh
 source $HOME/lib.sh
+
+source $HOME/essential_functions.sh
+source $HOME/search_functions.sh
 #source $HOME/myalias.sh
+
 function op() {
 echo "$#"
 echo "$2"
