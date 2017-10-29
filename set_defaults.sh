@@ -9,13 +9,13 @@
 	if [ "$OS" == "Windows_NT" ]; then
 		Universal_home=$(cygpath -H)  # /cygdrive/c/users
 		cbn_git_path="/cygdrive/c"
+		Universal_home="$Universal_home/$USERNAME"
 	else
 		cbn_git_path="~"
 		Universal_home=$HOME
 		echo "linux machine"
 	fi
 	
-	Universal_home="$Universal_home/$USERNAME"
 	export Universal_home
 	# echo "$Universal_home"
 
