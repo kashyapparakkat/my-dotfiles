@@ -294,7 +294,7 @@
 '(org-meta-line ((t (:inherit font-lock-comment-face :height 0.8))))
 '(org-property-value ((t (:height 0.9 :family "Helvetica Neue"))) t)
 '(org-special-keyword ((t (:inherit font-lock-keyword-face :height 0.8 :family "Helvetica Neue"))))
-'(org-table ((t (:foreground "black" :height 0.9 :family "Menlo"))))
+'(org-table ((t (:foreground "black" :height 0.9 :family "Courier"))))
 '(org-tag ((t (:foreground "dark gray" :weight bold :height 0.8))))
 '(org-todo ((t (:foreground "#e61e22" :weight bold))))
 )

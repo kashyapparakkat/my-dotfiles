@@ -75,13 +75,18 @@ alias searchhere='searchtext -n'
 # alias stf='searchtext .'
 
 alias vi='vim'
-
+# vim without plugins for faster and large file navigation
+alias vimu='vim -u NONE'
+alias vimu='vim -u ~/basic-settings.vimrc'
 alias ex='exit'
 
 # GIT
 
 alias gdf='git diff --name-only'
 alias gcm='git commit -a -m'
+function gcm(){
+  git commit -am "$*" && git push
+}
 
 alias ff='pcfind common_fuzzy fuzzy_db'
 alias f='pcfind common db'
@@ -119,6 +124,7 @@ alias cdmisc='cd $cbn_git_path/cbn_gits/misc'
 alias cdahk='cd $cbn_git_path/cbn_gits/AHK'
 alias cdd='cd $Universal_home/Downloads'
 alias cdh='cd ~'
+alias cdp='cd $Universal_home/Downloads/Projects'
 # alias cdd='cd ~/Downloads'
 
 alias cd.='cd ..'

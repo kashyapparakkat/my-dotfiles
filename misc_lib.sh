@@ -29,12 +29,11 @@ function myindex() {
 
 	if [ "$machine" == "Windows" ]; then 
 
-
 		find /cygdrive -iname "*"  > ~/"all_files_unfiltered.db"
 		cat ~/"all_files_unfiltered.db" | grep -i -v "/cygdrive/c/cygwin64/usr/" |  grep -i -v "/cygdrive/c/Users/$USERNAME/Anaconda" | grep -i -v "/cygdrive/c/MinGW/" | grep -i -v "/cygdrive/./\$Recycle.Bin/" | grep -v "/cygdrive/./\$WINDOWS.~BT/" | grep -v "/cygdrive/c/Users/cibin/AppData/" | grep -v "/cygdrive/c/my_bin/" | grep -v "/cygdrive/c/Python27/" | grep -v "/cygdrive/c/Program Files (x86)/" | grep -v "/cygdrive/c/Program Files/" | grep -v "/cygdrive/c/Windows/" | grep -v "/cygdrive/c/ProgramData/"  | grep -v "/cygdrive/c/Users/$USERNAME/AppData/" > ~/"all_files.db"
 		 
 	else
-		find /home -iname "*"  > ~/"all_files_unfiltered.db"
+		find /home /media/sf_Downloads -iname "*"  > ~/"all_files_unfiltered.db"
 		cat ~/"all_files_unfiltered.db" | grep -i -v "/cygdrive/c/cygwin64/usr/" |  grep -i -v "/cygdrive/c/Users/$USERNAME/Anaconda" | grep -i -v "/cygdrive/c/MinGW/" | grep -i -v "/cygdrive/./\$Recycle.Bin/" | grep -v "/cygdrive/./\$WINDOWS.~BT/" | grep -v "/cygdrive/c/Users/cibin/AppData/" | grep -v "/cygdrive/c/my_bin/" | grep -v "/cygdrive/c/Python27/" | grep -v "/cygdrive/c/Program Files (x86)/" | grep -v "/cygdrive/c/Program Files/" | grep -v "/cygdrive/c/Windows/" | grep -v "/cygdrive/c/ProgramData/"  | grep -v "/cygdrive/c/Users/$USERNAME/AppData/" > ~/"all_files.db"
 	 
 	fi

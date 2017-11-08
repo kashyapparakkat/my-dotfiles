@@ -53,3 +53,10 @@
 (setq gc-cons-threshold 300000000)
 ; Automatically open your agenda whenever you start Emacs
 ; (org-agenda nil "a")
+(setq inhibit-startup-screen t)
+(when (file-exists-p (format "%s/Downloads/todo-stats-notes.org" Universal_home))
+	(find-file (format "%s/Downloads/todo-stats-notes.org" Universal_home)))
+(when (file-exists-p (format "%s/Downloads/todo-notes.org" Universal_home))
+	(find-file (format "%s/Downloads/todo-notes.org" Universal_home)))
+(when (file-exists-p (format "%s/Downloads/work-notes.org" Universal_home))
+	(find-file (format "%s/Downloads/work-notes.org" Universal_home)))

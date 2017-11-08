@@ -556,8 +556,11 @@ shift $((OPTIND-1)) # shift other args
 # lfind "$Universal_home/Downloads/" -maxdepth "$maxdepth" -iname "*notes*.txt" -exec  echo {} +
 # TODO disabling color temporarily
 
-lfind "$Universal_home/Downloads/" -maxdepth "$maxdepth" -iname "*notes*.org" -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
+# lfind "$Universal_home/Downloads/" -maxdepth "$maxdepth" -iname "*notes*.org" -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
 lfind "$Universal_home/Downloads/" -maxdepth "$maxdepth" -iname "*notes*.txt" -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
+lfind "/media/sf_Downloads/" -maxdepth "$maxdepth" -iname "*notes*.org" -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +  
+lfind "/media/sf_Downloads/" -maxdepth "$maxdepth" -iname "*notes*.txt" -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +  
+# 2>&1
 
 # ag $* -n -G org$ /cygdrive/c/Users/"$USERNAME"/Downloads/ --color
 # # ag $* -n -G todo-notes.org$ /cygdrive/c/Users/"$USERNAME"/Downloads/ --color
