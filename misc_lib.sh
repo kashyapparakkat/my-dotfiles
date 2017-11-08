@@ -1,4 +1,3 @@
-
 function myindexfolders() { 
 if [ -z "$1" ]; then
     #display usage if no parameters given

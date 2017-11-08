@@ -81,11 +81,18 @@ alias vimu='vim -u ~/basic-settings.vimrc'
 alias ex='exit'
 
 # GIT
+# TODO
+# best one: 
+alias glog="git log --graph --pretty='format:%C(red)%d%C(reset) %C(yellow)%h%C(reset) %ar %C(green)%aN%C(reset) %s' && git log --stat"
+# git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+# git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+# alias gl='git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative && git log --name-status'
 
-alias gdf='git diff --name-only'
-alias gcm='git commit -a -m'
+alias gdf='git diff --name-only && git diff'
+# alias gcm='git commit -a -m'
 function gcm(){
-  git commit -am "$*" && git push
+  echo "git diff --name-only && git commit   && git push"
+  git diff --name-only && git commit -am "$*" && git push && git log --name-status
 }
 
 alias ff='pcfind common_fuzzy fuzzy_db'

@@ -1,4 +1,11 @@
 " source ~/my.vimrc
+source ~/basic-settings.vimrc
+
+
+
+
+
+
 
 ":oldfiles
 
