@@ -572,11 +572,12 @@ lfind "/media/sf_Downloads/" -maxdepth "$maxdepth" -iname "*notes*.txt" -exec  a
 
 # extra option available https://jamesoff.net/2016/05/31/fzf-brew-upgrade.html
 ask_searchterm () {
+
     if [ "$1" == "-r" ]; then
     recurse="-r"
      else
          recurse="-n"
-         echo "no -n (recurse) "
+         echo "-n (no recurse) "
     fi
 
      #   echo "\$cmd extension searchTerm"
@@ -590,7 +591,7 @@ ask_searchterm () {
 	else
         searchtext=${@:3}
 	fi
-
+pwd
 echo  search "$recurse" "$arg" "$searchtext"
 search "$recurse" "$arg" "$searchtext"
 }

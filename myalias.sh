@@ -14,7 +14,7 @@ function l() {
   less -isNm *.$1
 }
 
-
+# fzf cant take input interactively, fzy can take
 # if WINDOWS
 # duplicate find.exe as lfind.exe, lsort.exe, ...
 if [ "$machine" == "Windows" ]; then
@@ -57,8 +57,8 @@ alias sf='searchfiles|open_in_app'
 
 alias scf='searchcommands|clip'
 alias sn='searchnotes'
-alias sNf='searchnotes -m 5 .|fzy -l 25' # sn fuzzy
-alias snf='searchnotes .|fzy -l 25' # sn fuzzy
+alias sNf='searchnotes -m 5 .|fzy -l 25|open_in_app' # sn fuzzy
+alias snf='searchnotes .|fzy -l 25|open_in_app' # sn fuzzy
 
 alias spf='searchproject .|fzy -l 25' # sp fuzzy
 alias sp='searchproject'
@@ -68,16 +68,16 @@ alias srf='searchInRecentfiles .|fzf'
 alias sr='searchInRecentfiles'
 
 alias st='searchtext'
-alias stf='searchtext|fzy -l 25'
+alias stf='searchtext|fzy -l 25|extract_filepath_linenum|open_in_app'
 # search is recursive by default
-alias sth='searchhere'
 alias searchhere='searchtext -n'
+alias sth='searchhere .|fzy -l 25|extract_filepath_linenum|open_in_app'
 # alias stf='searchtext .'
 
 alias vi='vim'
 # vim without plugins for faster and large file navigation
 alias vimu='vim -u NONE'
-alias vimu='vim -u ~/basic-settings.vimrc'
+alias vimu='vim -u ~/basic-settings-no-plugins.vimrc'
 alias ex='exit'
 
 # GIT

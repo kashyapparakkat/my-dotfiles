@@ -1,1 +1,2 @@
 source $HOME/my.bashrc
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

@@ -105,9 +105,9 @@ while true; do
 		 t ) echo;
 				read -n 1 -p " [a] auto $cr [h] here $cr fuzzy $cr advanced " pressedkey2 < /dev/tty;
 				case $pressedkey2 in
-					h ) echo;echo "$(sth)"|extract_filepath_linenum|open_in_app;break;;
+					h ) echo;sth;break;;
 					a ) echo;ext="${1#*.}"; echo "ext=$ext";echo "$(ask_searchterm -r "$ext" .|fzy)"|extract_filepath_linenum|open_in_app;break;;
-					f ) echo;echo "$(stf)"|extract_filepath_linenum|open_in_app;break;;
+					f ) echo;stf;break;;
 				esac
 				break;;
 		 r ) srf|extract_filepath_linenum|open_in_app;break;;

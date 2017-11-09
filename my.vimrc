@@ -1,6 +1,5 @@
 " source ~/my.vimrc
-source ~/basic-settings.vimrc
-
+source ~/basic-settings-no-plugins.vimrc
 
 
 
@@ -51,7 +50,8 @@ Plug 'hecal3/vim-leader-guide'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
 " Initialize plugin system
 call plug#end()
 " use :PlugInstall from vim to install one time"
@@ -122,5 +122,6 @@ command! FZFNeigh call s:fzf_neighbouring_files()
 " :Find term where term is the string you want to search, this will open up a window similar to :Files but will only list files that contain the term searched."
 command! -bang -nargs=* Find call fzf#vim#grep('ag --no-heading '.shellescape(<q-args>), 1, <bang>0)
 
+command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, '--color-path "1;36"', fzf#vim#with_preview(), <bang>0)
 
 source ~/my.guide.vim
