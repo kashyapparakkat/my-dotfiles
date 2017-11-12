@@ -138,7 +138,7 @@ helm-move-to-line-cycle-in-source nil
 
 (defun es/helm-mini-or-projectile-find-file ()
   (interactive)
-  (if (helm-alive-p)
+  (if helm-alive-p
       (helm-run-after-exit #'helm-for-files)
     (helm-mini)))
 ;; To call this command from a helm session, you need to bind a key to it since you can't use helm-M-x, e.g.,
@@ -180,10 +180,8 @@ helm-move-to-line-cycle-in-source nil
   (interactive)
 (setq all-func '(dummy  cibin/counsel-find cibin/counsel-locate cibin/helm-find-files ))
 (setq all-func-reversed '(cibin/helm-mini))
-
-  (cibin-find-related-files saved-helm-input)
+   (cibin-find-related-files saved-helm-input)
 )
-
 (setq saved-helm-input "")
 
 (defun try-next-function()
@@ -196,8 +194,26 @@ helm-move-to-line-cycle-in-source nil
 (message (format "try.. %s %s"  saved-helm-input this-func-string))
 (fset 'this-func (car all-func))
 ;; (run-function 'this-func 'this-func-string)
-(run-function)
+;; (run-function)
+(run-function-handle-error)
 )
+
+
+(defun run-function-handle-error()
+;; https://curiousprogrammer.wordpress.com/2009/06/08/error-handling-in-emacs-lisp/
+(unwind-protect
+    (let (retval)
+      (condition-case ex
+          (setq retval
+                                        ;; (error "Hello")
+(run-function)
+                ;; (cibin/helm-mini )
+                )
+        ('error (message (format "Caught exception: [%s]" ex))))
+        retval)
+  (message "Cleaning up..."))
+)
+
 
 (defun try-prev-function()
   (interactive)
@@ -205,8 +221,9 @@ helm-move-to-line-cycle-in-source nil
 (add-to-list 'all-func (car all-func-reversed))
 (setq this-func-string (car all-func-reversed))
 (fset 'this-func (car all-func-reversed))
+;; (run-function)
+(run-function-handle-error)
 ;; (run-function this-func this-func-string)
-(run-function)
 )
 
 ;; (defun run-function(this-func this-func-string)
@@ -214,21 +231,19 @@ helm-move-to-line-cycle-in-source nil
   ;; (setq saved-helm-input helm-input)
   (message "inside")
 (message (format "trying inside.. %s %s"  saved-helm-input this-func-string))
-(if (helm-alive-p)
-    (progn (setq saved-helm-input helm-input)
-(message "helm exit")
-       (helm-run-after-exit this-func-string)
-)
+(if helm-alive-p
+  (progn (setq saved-helm-input helm-input)
+           (message "helm exit")
+           (helm-run-after-exit this-func-string)
+           )
 
-(progn
-(setq saved-helm-input ivy--old-text)
-(message "ivy is quit")
-(ivy-quit-and-run (this-func))
+  (progn
+    (setq saved-helm-input ivy--old-text)
+    (message "(insert )vy is quit")
+    (ivy-quit-and-run (this-func))
+  )
 )
 )
-
-)
-
 
 
 ;; https://oremacs.com/2015/07/16/callback-quit/

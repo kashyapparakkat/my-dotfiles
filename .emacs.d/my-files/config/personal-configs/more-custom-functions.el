@@ -30,12 +30,12 @@
         (message "exited old minibuffer")
         ))
     (message "opening ido prompt")
-  (let ((file 
+  (let ((file
   (ido-completing-read "choose? " (list "C:/Program Files (x86)/Python35-32/python.exe"
   (format "C:/Users/%s/AppData/Local/Programs/Python/Python35-32/python.exe" user-login-name)
   (format "C:/Users/%s/AppData/Local/Continuum/Anaconda3_32/python.exe" user-login-name)
   (format "C:/Users/%s/AppData/Local/Continuum/Anaconda3_1/python.exe" user-login-name)
-  "C:/Python27/python.exe" 
+  "C:/Python27/python.exe"
   (format "C:/Users/%s/AppData/Local/Continuum/Anaconda2/python.exe" user-login-name)
   ))))
     (when file
@@ -50,7 +50,7 @@
 
 (defun get-related-files ()
 
-	"Like `directory-files' with MATCH hard-coded to exclude \".\" and \"..\"." 
+	"Like `directory-files' with MATCH hard-coded to exclude \".\" and \"..\"."
 	(setq regex-filter "^\\(\\(.*\\.txt\\)\\|\\(.*\\.py\\)\\|\\(.*\\.el\\)\\|\\(.*\\.java\\)\\|\\(.*\\.ahk\\)\\|\\(.*\\.ini\\)\\|\\(.*\\.sh\\)\\)$")
 	(setq foldercontent-of-this-file nil)
 	(setq foldercontent-of-parent-of-this-file nil)
@@ -63,56 +63,68 @@
 		(setq foldercontent-of-parent-of-this-file (directory-files  parent-of-parent-directory-this-file t regex-filter))
 	)
 	(setq recent-dirs nil)
-	(setq recent-dirs 
+	(setq recent-dirs
 	(delete-dups
-          (mapcar (lambda (file)
+   (mapcar (lambda (file)
                     (if (file-directory-p file) file (file-name-directory file)))
                   recentf-list))
 				  )
 	; FIXME
 	; index contents of first level subfolders of this file also
-	
-	; get first n items only
-	(setq recent-dirs (append foldercontent-of-this-file (last (reverse recent-dirs) 2) ))
+
+                                        ; get first n items only
+  ;; (message foldercontent-of-this-file)
+;; TODO add foldercontent of this file(only directories; nofiles)
+  ;; (setq recent-dirs (append foldercontent-of-this-file (last (reverse recent-dirs) 2) ))
+   (setq recent-dirs (append nil (last (reverse recent-dirs) 2) ))
+
+    ;; (dolist (file recent-dirs)
+;; (message "test dir: ")
+      ;; (message file)
+      ;; )
     (setq all-recent-dirs-foldercontent nil)
-	(dolist (dir recent-dirs) 
-	   ; (message "exist %s" (file-exists-p dir))
-		(when (file-exists-p dir)		
+    ;; (message recent-dirs)
+
+	(dolist (dir recent-dirs)
+	   ;; (message (format "%s exist" dir ))
+	   ;; (message (format "%s exists  %s" dir (file-exists-p dir)))
+		(when (file-exists-p dir)
 		; "^\\([^.]\\|\\.[^.]\\|\\.\\..\\)"
+;; (message "test3")
 			(setq foldercontent (directory-files dir t regex-filter))
 			(setq all-recent-dirs-foldercontent (append all-recent-dirs-foldercontent foldercontent))
 		)
 	)
 	; remove dead entries to prevent runtime error
 	(setq recentf-list-new nil)
-	(dolist (file recentf-list) 
+	(dolist (file recentf-list)
 			(when (file-exists-p file)
 			(setq recentf-list-new (append recentf-list-new (list file)))
 		)
 	)
 	(setq all-files (append foldercontent-of-this-file recentf-list-new foldercontent-of-parent-of-this-file all-recent-dirs-foldercontent ))
-  
-  (setq all-files (sort all-files  (lambda (a b) 
-        (time-less-p 
+
+  (setq all-files (sort all-files  (lambda (a b)
+        (time-less-p
                      (nth 5 (file-attributes b))
 		(nth 5 (file-attributes a))
-					 ))))	
+					 ))))
 ; (setq all-files
         ; (mapcar #'car
                 ; (sort all-files
-                      ; #'(lambda (x y) 
+                      ; #'(lambda (x y)
 					  ; (time-less-p (nth 6 (file-attributes y)) (nth 6 (file-attributes x)))))))
-					 
+
   (setq all-files (delete-dups all-files))
-  
-	
+
+
 )
 
-; http://stackoverflow.com/questions/17164767/emacs-lisp-directory-files  
+; http://stackoverflow.com/questions/17164767/emacs-lisp-directory-files
 (defun cibin-find-related-files (&optional arg)
 	"Find a recent file using ido."
 	(interactive)
-	
+
 	(setq all-files (get-related-files))
   (setq prompt (format  "Related Files (%s): " (safe-length all-files)))
                                         ; (message "%s" all-files)
@@ -132,21 +144,21 @@
 
 (defun cibin-search-in-text-files-related-bash()
 	(interactive)
-	
+
 	(setq prompt "grepfilelist_related(searches in all related files) searchTerm: ")
 	(setq default (format "grepfilelist_related.sh "))
 	(save-related-files-to-disk)
 	(search-handler prompt default)
-	
-)  
-	  
+
+)
+
 (defun cibin-search-in-common-files-bash()
 	(interactive)
-	
+
 	(setq prompt "grepfilelist_common.sh  searchTerm: ")
 	(setq default (format "grepfilelist_common.sh "))
 	(search-handler prompt default)
-	
+
   )
 (defun extract ()
 
@@ -159,40 +171,40 @@
   (setq file-ext "nil")
 	(when  buffer-file-name (setq file-ext (file-name-extension (buffer-file-name))))
 	)
-	
+
 (defun cibin-search-in-files-advgrep-here ()
 	(interactive)
 	(setq prompt (format "advgrep.sh all/common/downs/ahk/notes/-or-here/hhere   common/code/txt   searchTerm: "))
-	
+
   (setq default (concat "advgrep.sh here " (get-file-extension) " " (thing-at-point 'word)))
 	(search-handler prompt default)
 )
-(defun save-related-files-to-disk () 	
+(defun save-related-files-to-disk ()
 	(setq file "~/.emacs.d/my-files/emacs-tmp/filelist.txt")
 	(when (file-exists-p file)
 		(delete-file file))
 	(setq filelist (format "%s" (mapconcat 'identity (get-related-files) "\n")))
- 	(append-to-file filelist nil file ) 
+ 	(append-to-file filelist nil file )
 )
-(defun search-handler (prompt default) 	
+(defun search-handler (prompt default)
 	(setq cmd-str (read-from-minibuffer prompt default))
 	(async-shell-command cmd-str "*grep*")
-	 ;; (switch-to-buffer "*grep*" t)  ; t: don't add it to the recent buffer list 
+	 ;; (switch-to-buffer "*grep*" t)  ; t: don't add it to the recent buffer list
 )
-	  
-; http://stackoverflow.com/questions/17164767/emacs-lisp-directory-files  
+
+; http://stackoverflow.com/questions/17164767/emacs-lisp-directory-files
 (defun cibin-search-in-freq-small-notes ()
 	"Find a recent file using ido."
 	(interactive)
 
 	(setq all-files (get-related-files))
   (setq all-files (last (reverse all-files) 1500))
-	(let ((file (ido-completing-read "related files: " 
+	(let ((file (ido-completing-read "related files: "
                                all-files
                                nil t)))
     (when file
       (find-file file))))
-	  
+
 	  ; reformat XML code adding the following code in your .emacs:
 ;(require 'sgml-mode)
 
@@ -206,26 +218,26 @@
     (sgml-pretty-print (point-min) (point-max))
     (indent-region (point-min) (point-max))))
 
-	
+
 (defun cibin/launcher ()
     "easy launcher"
     (interactive)
 
-	  (let ((file 
+	  (let ((file
 		  (ido-completing-read "choose? " (list "C:/Users/cibin/AppData/Roaming/BitTorrent/BitTorrent.exe" "D:/music/Pathirayo Pakalai.BACHELOR PARTY.mp3")
 		)))
 		(when file
 		(cibin/spacemacs//open-in-external-app file)))
-)	
+)
 (defun cibin/music ()
     "music launcher"
     (interactive)
-	(let ((file 
+	(let ((file
 	; (ido-completing-read "choose? " (list "D:/music/Nee Manimukil.mp3" "D:/music/Party-On-My-Mind-(Race-2)-KK-n-Honey-Singh-(Pagalworld.Com).mp3" "D:/music/Pathirayo Pakalai.BACHELOR PARTY.mp3"
-	(ido-completing-read "choose? " 
+	(ido-completing-read "choose? "
 
 	(delete-dups
-	   (mapcar 'abbreviate-file-name  
+	   (mapcar 'abbreviate-file-name
 				(read-file-into-lines "~/music.db")
 				))
 	  )))
@@ -237,7 +249,7 @@
   (with-temp-buffer
     (insert-file-contents filename)
     (split-string (buffer-substring-no-properties (point-min) (point-max)) "\n" t)))
-	
+
 (defun cibin/spacemacs//open-in-external-app (file-path)
   "Open `file-path' in external application."
   (cond
@@ -269,15 +281,15 @@ lines. And then it will clear all preceding whitespace."
       (skip-chars-backward " \t\n")
       (delete-region (point) start)))))
 
-	  
+
  (cibin/global-set-key '("C-c C-u" . fc/kill-to-beginning-of-line))
 (defun fc/kill-to-beginning-of-line ()
   "Kill from the beginning of the line to point."
   (interactive)
   (kill-region (point-at-bol)
-               (point)))		
+               (point)))
 
-; Popwin is a popup window manager for Emacs which makes you free from 
+; Popwin is a popup window manager for Emacs which makes you free from
 ; the hell of annoying buffers such like Help, Completions, compilation, and etc.
 
 (use-package popwin
@@ -387,10 +399,10 @@ lines. And then it will clear all preceding whitespace."
         (select-window (funcall selector)))
       (setq arg (if (plusp arg) (1- arg) (1+ arg))))))
 
-(cibin/global-set-key '("C-x 4 t" . transpose-buffers))				
+(cibin/global-set-key '("C-x 4 t" . transpose-buffers))
 
 (defun indent-region(numSpaces)
-    (progn 
+    (progn
         ; default to start and end of current line
         (setq regionStart (line-beginning-position))
         (setq regionEnd (line-end-position))
@@ -401,7 +413,7 @@ lines. And then it will clear all preceding whitespace."
             (setq regionEnd (region-end))
         )
 
-        (save-excursion ; restore the position afterwards            
+        (save-excursion ; restore the position afterwards
             (goto-char regionStart) ; go to the start of region
             (setq start (line-beginning-position)) ; save the start of the line
             (goto-char regionEnd) ; go to the end of region
@@ -445,7 +457,7 @@ lines. And then it will clear all preceding whitespace."
     (shell-command-on-region b e
                              "python -mjson.tool" (current-buffer) t "*Error buffer" t)))
 
-							 
+
 ; Recompile startup elisp files
 ; Byte-compile startup stuff.
 (defun byte-recompile-init-files ()

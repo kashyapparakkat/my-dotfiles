@@ -61,7 +61,7 @@
 (require 'cbn-dired-settings2)
 (require 'more-custom-functions)
 (require 'cbn-auto-complete)
-(require 'org-settings)
+;(require 'org-settings)
 (require 'cbn-dired-show)
 (require 'buttonize-buffer)
 (require 'other-settings)

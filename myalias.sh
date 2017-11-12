@@ -17,6 +17,8 @@ function l() {
 # fzf cant take input interactively, fzy can take
 # if WINDOWS
 # duplicate find.exe as lfind.exe, lsort.exe, ...
+
+alias find='find' # initialisation to prevent error
 if [ "$machine" == "Windows" ]; then
   alias find='lfind'
   alias sort='lsort'
