@@ -1,15 +1,15 @@
-function myindexfolders() { 
+function myindexfolders() {
 if [ -z "$1" ]; then
     #display usage if no parameters given
     echo "Usage: cibin index all folders to ~/all_folders.db"
 	find /cygdrive -type d -iname "*" > ~/"all_folders.db"
-   cat ~/"all_folders.db" 
+   cat ~/"all_folders.db"
    cat ~/"all_folders.db" | sed -r "s/\\/cygdrive\\/(.)\\//\1:\\\\\\\/" | sed -e "s/\\//\\\\\\\/g"  > ~/"all_folders2.db"
 fi
  }
- 
 
-function myindexemacs() { 
+
+function myindexemacs() {
 file="$Universal_home/AppData/Roaming/.emacs.d/my-files/emacs-tmp/.file_cache"
 if [ -z "$1" ]; then
     # display usage if no parameters given
@@ -21,47 +21,41 @@ if [ -z "$1" ]; then
 fi
  }
 
-function myindex() { 
+function myindex() {
 	if [ -z "$1" ]; then
 		# display usage if no parameters given
 		echo "cibin/ indexing all files to ~/all_files_unfiltered.db"
-alias find
-which find
-    if [ "$machine" == "Windows" ]; then 
-echo "test"
-        lfind /cygdrive/c/Users/cibin/Downloads -iname "*"  > ~/"all_files_unfiltered.db"
-echo "test3"
-        cat ~/"all_files_unfiltered.db" | grep -i -v "/cygdrive/c/cygwin64/usr/" |  grep -i -v "/cygdrive/c/Users/$USERNAME/Anaconda" | grep -i -v "/cygdrive/c/MinGW/" | grep -i -v "/cygdrive/./\$Recycle.Bin/" | grep -v "/cygdrive/./\$WINDOWS.~BT/" | grep -v "/cygdrive/c/Users/cibin/AppData/" | grep -v "/cygdrive/c/my_bin/" | grep -v "/cygdrive/c/Python27/" | grep -v "/cygdrive/c/Program Files (x86)/" | grep -v "/cygdrive/c/Program Files/" | grep -v "/cygdrive/c/Windows/" | grep -v "/cygdrive/c/ProgramData/"  | grep -v "/cygdrive/c/Users/$USERNAME/AppData/" > ~/"all_files.db"
-         
+    if [ "$machine" == "Windows" ]; then
+        find /cygdrive/c/Users/cibin/Downloads -iname "*"  > ~/"all_files_unfiltered.db"
+
     else
-        find /home /media/sf_Downloads -iname "*"  > ~/"all_files_unfiltered.db"
-        cat ~/"all_files_unfiltered.db" | grep -i -v "/cygdrive/c/cygwin64/usr/" |  grep -i -v "/cygdrive/c/Users/$USERNAME/Anaconda" | grep -i -v "/cygdrive/c/MinGW/" | grep -i -v "/cygdrive/./\$Recycle.Bin/" | grep -v "/cygdrive/./\$WINDOWS.~BT/" | grep -v "/cygdrive/c/Users/cibin/AppData/" | grep -v "/cygdrive/c/my_bin/" | grep -v "/cygdrive/c/Python27/" | grep -v "/cygdrive/c/Program Files (x86)/" | grep -v "/cygdrive/c/Program Files/" | grep -v "/cygdrive/c/Windows/" | grep -v "/cygdrive/c/ProgramData/"  | grep -v "/cygdrive/c/Users/$USERNAME/AppData/" > ~/"all_files.db"
-     
+        find /home /media/sf_Downloads /mnt/50AE3B39AE3B1746/Users/cibin/Downloads -iname "*"  > ~/"all_files_unfiltered.db"
     fi
-    
-echo "test2"
+    cat ~/"all_files_unfiltered.db" | grep -i -v "/cygdrive/c/cygwin64/usr/" |  grep -i -v "/cygdrive/c/Users/$USERNAME/Anaconda" | grep -i -v "/cygdrive/c/MinGW/" | grep -i -v "/cygdrive/./\$Recycle.Bin/" | grep -v "/cygdrive/./\$WINDOWS.~BT/" | grep -v "/cygdrive/c/Users/cibin/AppData/" | grep -v "/cygdrive/c/my_bin/" | grep -v "/cygdrive/c/Python27/" | grep -v "/cygdrive/c/Program Files (x86)/" | grep -v "/cygdrive/c/Program Files/" | grep -v "/cygdrive/c/Windows/" | grep -v "/cygdrive/c/ProgramData/"  | grep -v "/cygdrive/c/Users/$USERNAME/AppData/" > ~/"all_files.db"
+
+
 	# cat ~/"all_files_unfiltered.db" | sed 's/ //g'| sed 's/_//g' | sed 's/-//g'  > ~/"all_files-fuzzy.db"
 	cat ~/"all_files_unfiltered.db" |  sed 's/[!@#$%^&*()_ -]//g'  > ~/"all_files_unfiltered-fuzzy.db"
 	cat ~/"all_files.db" |  sed 's/[!@#$%^&*()_ -]//g'  > ~/"all_files-fuzzy.db"
-	# "/cygdrive/c/Windows/WinSxS/" | grep -v "/cygdrive/c/Windows/Microsoft.NET/" 
- 
+	# "/cygdrive/c/Windows/WinSxS/" | grep -v "/cygdrive/c/Windows/Microsoft.NET/"
+
  fi
 
 echo "myindex is finished.."
  }
 
-function other_indexes() { 
+function other_indexes() {
 if [ -z "$1" ]; then
     echo "indexing"
 	find "$Universal_home/Box Sync/MMF/" > "C:/cbn_gits/AHK/searchInProject.db"
-	
+
 	find "C:/ProgramData/Microsoft/Windows/Start Menu/Programs" -iname "*.lnk" > "C:/cbn_gits/AHK/smart_search/db/start-menu.txt"
 	# printf "\n" >> "C:/cbn_gits/AHK/smart_search/db/start-menu.txt"
 	find "$Universal_home/AppData/Roaming/Microsoft/Windows/Start Menu/Programs" -iname "*.lnk" >> "C:/cbn_gits/AHK/smart_search/db/start-menu.txt"
 	fi
  }
 
- function swap_filenames()         
+ function swap_filenames()
 {
     local TMPFILE=tmp.$$
     mv "$1" $TMPFILE

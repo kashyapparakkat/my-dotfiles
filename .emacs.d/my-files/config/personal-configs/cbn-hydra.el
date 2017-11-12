@@ -8,10 +8,10 @@
   "
  ^Navigation^     | ^Mark^          | ^Actions^           | ^View^         | ^misc^
 -^----------^-----+-^----^----------+-^-------^-----------+-^----^---------+--^----^-------
-  _k_:    ʌ       | _m_: mark       | _D_: delete         | _g_: refresh   | _q_: 
+  _k_:    ʌ       | _m_: mark       | _D_: delete         | _g_: refresh   | _q_:
  _RET_: visit     | _u_: unmark     | _S_: save           | _s_: sort      | _W_: kill-all-other-buffers-if-not-modified
-  _j_:    v       | _*_: specific   | _a_: all actions    | _/_: filter    | _/_: 
-                | _*_: specific   | _=_: diff           | _/_: filter    | _/_: 
+  _j_:    v       | _*_: specific   | _a_: all actions    | _/_: filter    | _/_:
+                | _*_: specific   | _=_: diff           | _/_: filter    | _/_:
 "
 ;; -^----------^-+-^----^--------+-^-------^--------+-^----^-------
   ("=" ibuffer-forward-line)
@@ -310,7 +310,7 @@ _w_ whitespace                    : %(toggle-setting-string whitespace-mode)   _
 _j_ next-line      _k_ previous-line        _a_ : cibin/faster-mode      _g_:  cibin/normal-mode  _o_ : cibin/essential-mode
 _G_: golden ratio
 "
-   
+
    ("B" display-battery-mode nil)
    ("N" linum-relative-toggle nil)
    ("X" bnb/transparency-previous nil)
@@ -434,7 +434,7 @@ _r_eset        _j_ clock goto
 (defhydra my-git-hydra (:hint nil :exit t)
   "
 git:
-MUTABLE       
+MUTABLE
              _l_ → log              _f_ → file            staging:  _a_ → +hunk  _A_ → +buffer
 _C_ → commit   _d_ → [[diff/hydra]]   _z_ → stash                     _r_ → -hunk  _R_ → -buffer
 _P_ → push     _b_ → blame            _m_ → merge
@@ -455,7 +455,7 @@ _t_ : [[time]] _D_ : diff pop
   ("a" git-gutter+-stage-hunks)
   ("r" git-gutter+-revert-hunk)
   ("A" git-gutter+-stage-whole-buffer)
-  ("t" hydra-git-timemachine/body) 
+  ("t" hydra-git-timemachine/body)
   ("R" git-gutter+-unstage-whole-buffer))
 
 (use-package avy
@@ -482,7 +482,7 @@ _t_ : [[time]] _D_ : diff pop
  _p_: paste           _r_: replace       _I_: insert
  _y_: copy            _o_: open          _V_: reset
  _d_: kill            _n_: number        _q_: quit
-"     
+"
   ("h" backward-char nil)
   ("l" forward-char nil)
   ("k" previous-line nil)
@@ -649,7 +649,7 @@ _t_ : [[time]] _D_ : diff pop
 (defhydra cibin/hydra-for-formatt (:color red
                                :hint nil)
 
- 
+
 "
 
 _w_: format             _f_: cibin/hydra-for-format/body
@@ -679,11 +679,11 @@ _r_: Remove whitespace TODO
 (defhydra cibin/hydra-for-format (:color red
                                :hint nil)
 
- 
+
   "
 convert/format file
  ^^^-blanks ---------------  ------whitespace----------------- ------dupes----------------------------   ---actions
- _r_: collapse-blank-lines   _t_: delete-trailing-whitespace    _d_: delete-duplicate-lines(incl blank   _a_: select All 
+ _r_: collapse-blank-lines   _t_: delete-trailing-whitespace    _d_: delete-duplicate-lines(incl blank   _a_: select All
  _F_: flush-blank-lines      _l_: my-delete-leading-whitespace  _h_: hlt-highlight-line-dups-region      _wa_: toggle whitespace indicators   _e_: other window
  _b_: delete-blank-lines     _k_: keep-lines     _k_: leading, blanks,                                   _t_: truncate toggle                 _v_: [[diff]]
                            _xx_: flush-lines                                                         _t_: stats                          _xa_: diff-files-lines
@@ -753,7 +753,7 @@ _z_: eol unix/win
   "s f" "format code")
 
 (defhydra cibin/hydra-zoom ()
-  ;; (:color red 
+  ;; (:color red
                                ;; :hint nil)
   "
 ^BUFFER^   ^FRAME^    ^ACTION^
@@ -780,7 +780,7 @@ _
   (cibin/global-set-key '("C-x =" . cibin/hydra-zoom/body))
 
 
-(defhydra cibin/search (:color blue 
+(defhydra cibin/search (:color blue
                                :hint nil)
   "
  project|| directory |    ^All buffers  ^                     ^All^                                             ^bash^
@@ -809,12 +809,12 @@ _
 ("o" occur)
 
 ("p" ag-project-at-point)
-     
+
 ("w" ag-files) ; advanced (string file-type directory))
 ("r" cibin/helm-do-ag-Extension-recurse-cwd)
 ("sa" swiper-all)
 ("ss" cibin/swiper)
-("y" cibin/ag-files-cwd) 
+("y" cibin/ag-files-cwd)
 ("u" cibin-search-in-files-advgrep-here)
  ("q" nil :color blue))
   (cibin/global-set-key '("M-s" . cibin/search/body))
@@ -825,14 +825,14 @@ _
 
 
 
-(defhydra cibin/replace (:color blue 
+(defhydra cibin/replace (:color blue
                                :hint nil)
   "
- ^All  ^                     ^Query??^              ^here^                             ^bash^
-^^^^^^^^^^--------------------+-----------------------------------------------------------------------------------------------------------------
- _s_: replace-string     _e_: query-replace(! all, . this)          _b_: cibin/helm-do-ag-cwd(all ext) _h_: cibin-search-in-files-advgrep-here        _q_: quit
- _d_: replace-regexp     _r_: query-replace-regexp    _p_: ag-project-at-point           _c_: cibin-search-in-common-files-bash
- _/_: my-multi-occur-in-matc..                          _w_: ag-files                      _l_: cibin-search-in-text-files-related-bash
+ ^All (No interactive) ^                ^Query??^
+^^^^^^^^^^------------------------+------------------------------------
+ _s_: replace-string                _e_: query-replace(! all, . this)     _q_: quit
+ _d_: replace-regexp                _r_: query-replace-regexp
+ _/_: my-multi-occur-in-matc..
 ------
 "
 ;; TODO ;; (cibin/global-set-key '("M-s r" . )) ; recurse
@@ -848,14 +848,6 @@ _
 
 ("b" cibin/helm-do-ag-cwd)
 
-("h" cibin-search-in-files-advgrep-here)
-("c" cibin-search-in-common-files-bash)
-("l" cibin-search-in-text-files-related-bash)
-
-("p" ag-project-at-point)
-     
-("w" ag-files) ; advanced (string file-type directory))
-("y" cibin/ag-files-cwd) 
 ("j" helm-ag);; extension ; If you use helm-ag command, you can specify option like -G\.js$ search_pattern, or if you use helm-do-ag, you can use C-u prefix for specifying extension.
  ("q" nil :color blue))
   (cibin/global-set-key '("M-r" . cibin/replace/body))
@@ -866,7 +858,7 @@ _
 
 
 
-(defhydra cibin/open (:color blue 
+(defhydra cibin/open (:color blue
                            ;; :idle 0.5
                              )
  "
@@ -874,10 +866,10 @@ _
   _sr_ : open-similar-files-in-folder-recursively       _d_  : xah-open-in-desktop             _tt_  : dir-structure -Tree       _r_  : ranger-mode
   _n_  : find-next-file-in-current-directory            _o_  : cibin/xah-open-file-at-cursor   _ta_  : dir-structure all -Tree
   _b_  : buffer/switch-in-directory                     _e_  : in-external-app
-  _g_  : bjm/ivy-dired-recent-dirs                        
+  _g_  : bjm/ivy-dired-recent-dirs
   _j_  : dired-jump                                     _f_  : ffap
                                                       _F_  : File-cache-ido-find-file
-  _m_  : buffer/switch-in-directory                     _p_  : cibin-find-related-files	
+  _m_  : buffer/switch-in-directory                     _p_  : cibin-find-related-files
 ---
  "
            ;; ( "n" buffer/switch-in-directory)
@@ -886,7 +878,7 @@ _
           ( "ta"  dir-structure-all :color blue)
 
 
-           ( "n"   find-next-file-in-current-directory :color blue)	
+           ( "n"   find-next-file-in-current-directory :color blue)
            ( "b"   buffer/switch-in-directory :color blue)
 
            ;; TODO not correct
@@ -898,7 +890,7 @@ _
            ;; TODO external app or antother function
            ( "e"   spacemacs/open-file-or-directory-in-external-app :color blue)
            ( "p"   cibin-find-related-files :color blue)
-           ( "m"   buffer/switch-in-directory :color blue)	
+           ( "m"   buffer/switch-in-directory :color blue)
            ( "o"   cibin/xah-open-file-at-cursor :color blue)
            ( "f"   ffap :color blue)
            ( "r"   ranger-mode :color blue)
@@ -907,7 +899,7 @@ _
 
 (evil-define-key 'normal dired-mode-map "o" nil)
 (with-eval-after-load 'org
- 
+
 (evil-define-key 'normal org-mode-map "o" nil)
 (define-key org-mode-map  "o" nil)
 (evil-define-key 'normal org-mode-map  "o" 'cibin/open/body)
@@ -950,15 +942,15 @@ a= all; e
 g hjkl
 
 "
-(defhydra hydra-git-timemachine (:color red 
+(defhydra hydra-git-timemachine (:color red
                                         :idle .1
                                         :pre (git-timemachine-mode 1)
                                         ;; :post (git-timemachine-mode -1)
                              )
 "
 TIME-Machine:    PROJECTILE: %(projectile-project-root)
- 
-_d_ : [[diff]]        
+
+_d_ : [[diff]]
 _a_ : all history commits
 _g_ : [[git]]
 _n_ : next
@@ -984,7 +976,7 @@ _b_ : blame
                            ;; :idle 0.5
                              )
  "
-DIFF 
+DIFF
 _r_ : A-B (todo)              _=_ : common lines (TODO)
 _v_ : vdiff                   _b_: vdiff buffers L&R (todo)       _q_: quit
 _g_ : [[git]]
@@ -1040,12 +1032,12 @@ _f_: format (C-x f)
 _g_: search (M-s)
 
 "
-  
+
 ("a" hydra-quickrun/body "C-c q : hydra-quickrun/body   ")
 ("b" hydra-cibin-misc/body "C-x l : hydra-cibin-misc/body ")
 ("c" hydra-search/body "C-c s : hydra-search/body     ")
-("d" cibin/diff-hydra/body " : cibin/diff-hydra/body    ") 
-("r" hydra-replace/body "C-c r : hydra-replace/body    ") 
+("d" cibin/diff-hydra/body " : cibin/diff-hydra/body    ")
+("r" hydra-replace/body "C-c r : hydra-replace/body    ")
 ("e" cibin/hydra-zoom/body "C-x - : cibin/hydra-zoom/body ")
 ("f" cibin/hydra-for-format/body "C-x f : cibin/hydra-for-format/body ")
 ("s" cibin/search/body "M-s   : cibin/search/body     ")
@@ -1061,7 +1053,7 @@ _g_: search (M-s)
                              :timeout 2
 ; :pre evil-search-word-forward
 )
-  ;; (:color red 
+  ;; (:color red
                                ;; :hint nil)
   "
 ^BUFFER^   ^FRAME^    ^ACTION^
@@ -1074,7 +1066,7 @@ _8_: next _9_: prev      allNext prev
   ("9" evil-search-word-backward "back")
   )
 
-;; TODO link this hydra 
+;; TODO link this hydra
 
 
 ;;; Mark Text and Regions
@@ -1141,7 +1133,7 @@ _8_: next _9_: prev      allNext prev
 
 
 
- ;; https://github.com/bling/dotemacs/blob/72e932093a274510bcd4da9063e861d85c89fc74/config/init-hydras.el 
+ ;; https://github.com/bling/dotemacs/blob/72e932093a274510bcd4da9063e861d85c89fc74/config/init-hydras.el
  ;;awesome hydras
 
   ;;; TODO add this to C-x C-b and another hydra
@@ -1265,10 +1257,10 @@ _n_: Navigate           _._: mark position _/_: jump to mark
   ("R" helm-recentf)
   ("n" hydra-navigate/body))
 
-;; M-g has someother bindings already in spacemacs 
+;; M-g has someother bindings already in spacemacs
 ;; (cibin/global-set-key '("M-g" . goto/body))
 
-;;; hydra for file/buffer, jump/goto, error/compile, toggle, format, 
+;;; hydra for file/buffer, jump/goto, error/compile, toggle, format,
 
 
 ; (-define-keys evil-normal-state-map
@@ -1289,4 +1281,3 @@ _n_: Navigate           _._: mark position _/_: jump to mark
 
 
 (provide 'cbn-hydra)
-

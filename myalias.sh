@@ -19,10 +19,10 @@ function l() {
 # duplicate find.exe as lfind.exe, lsort.exe, ...
 
 alias find='find' # initialisation to prevent error
+  alias find='/usr/bin/find'
+  alias sort='/usr/bin/sort'
 if [ "$machine" == "Windows" ]; then
-  alias find='lfind'
-  alias sort='lsort'
-  
+
 	# alias ranger='/usr/bin/python3.6m.exe /cygdrive/c/cygwin64/bin/ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
 
 	alias ranger='/usr/bin/python3.6m.exe /cygdrive/c/cygwin64/bin/ranger' #; LASTDIR=`cat $(cd)`; cd "$LASTDIR"'
@@ -39,12 +39,12 @@ alias clip='xclip -selection c'
 
 elif [ "$machine" == "Mac" ]; then
 alias clip='pbcopy'
- 
+
 fi
 
 
 # s file/text-ext/all-text/common-text/notes [=recurse/here/recent/allfileslist] [fuzzy]
- 
+
 alias r='ranger'
 
 
@@ -85,7 +85,7 @@ alias ex='exit'
 
 # GIT
 # TODO
-# best one: 
+# best one:
 alias glog="git log --graph --pretty='format:%C(red)%d%C(reset) %C(yellow)%h%C(reset) %ar %C(green)%aN%C(reset) %s' && git log --stat"
 # git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 # git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
@@ -101,8 +101,8 @@ function gls()
 {
 git_del=$(git ls-files --deleted)
 git_mod=$(git ls-files --modified)
-#git diff --name-only --diff-filter=A --cached # All new files in the index  
-#git diff --name-only --diff-filter=A          # All files that are not staged  
+#git diff --name-only --diff-filter=A --cached # All new files in the index
+#git diff --name-only --diff-filter=A          # All files that are not staged
 git_added=$(git diff --name-only --diff-filter=A HEAD)     # All new files not yet committed
 
 

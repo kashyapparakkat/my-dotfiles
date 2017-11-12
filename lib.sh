@@ -533,7 +533,7 @@ cat "$cbn_git_path/cbn_gits/AHK/popular_commands.db"|fzy -l 20
 function searchnotes() {
 # ag $* -G org$ /cygdrive/c/Users/cibin/Downloads/ --color
   foo_usage() { echo "foo: [-a <arg>]" 1>&2; exit; }
-  
+
 # https://stackoverflow.com/a/16655341
 local OPTIND o maxdepth
 maxdepth=2
@@ -550,7 +550,7 @@ echo "$maxdepth"
     done
 shift $((OPTIND-1)) # shift other args
 
-# echo "m: [${maxdepth}], non-option arguments: $*" 
+# echo "m: [${maxdepth}], non-option arguments: $*"
 
 # lfind "$Universal_home/Downloads/" -maxdepth "$maxdepth" -iname "*notes*.org" -exec  echo {} +
 # lfind "$Universal_home/Downloads/" -maxdepth "$maxdepth" -iname "*notes*.txt" -exec  echo {} +
@@ -558,8 +558,8 @@ shift $((OPTIND-1)) # shift other args
 
 # lfind "$Universal_home/Downloads/" -maxdepth "$maxdepth" -iname "*notes*.org" -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
 lfind "$Universal_home/Downloads/" -maxdepth "$maxdepth" -iname "*notes*.txt" -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
-lfind "/media/sf_Downloads/" -maxdepth "$maxdepth" -iname "*notes*.org" -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +  
-lfind "/media/sf_Downloads/" -maxdepth "$maxdepth" -iname "*notes*.txt" -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +  
+lfind "/media/sf_Downloads/" -maxdepth "$maxdepth" -iname "*notes*.org" -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
+lfind "/media/sf_Downloads/" -maxdepth "$maxdepth" -iname "*notes*.txt" -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
 # 2>&1
 
 # ag $* -n -G org$ /cygdrive/c/Users/"$USERNAME"/Downloads/ --color
@@ -637,7 +637,10 @@ function fzs(){
 # echo "$CHOICE"| escape_spaces
 
 }
+
+
 function searchproject () {
+   echo "default folder: $Universal_home/Downloads/Projects/"
     read -p "enter extension: " arg < /dev/tty
     dir=$(ls "$Universal_home/Downloads/Projects/"|fzy)
     dir="$Universal_home/Downloads/Projects/$dir"
