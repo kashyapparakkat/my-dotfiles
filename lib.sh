@@ -499,9 +499,9 @@ cdf() {
 
 # lfind /cygdrive/c/Users/cibin/Downloads/ -type f -iname *notes.org  -exec ag domain --color {} \;
 
-function searchfiles () {
+function searchfilesraw () {
 
-cat ~/all_files.db|fzy -l 20
+cat ~/all_files.db
 
 }
 

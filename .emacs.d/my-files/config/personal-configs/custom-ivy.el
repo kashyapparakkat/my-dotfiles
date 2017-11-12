@@ -2,6 +2,8 @@
 ;; https://github.com/abo-abo/swiper/issues/385
 
 (require 'counsel)
+
+;
 (defun counsel-locate-function (str)
   (if (< (length str) 3)
       (counsel-more-chars 3)
@@ -39,8 +41,12 @@ INITIAL-INPUT can be given as the initial minibuffer input."
 
 
 (global-set-key (kbd "C-x R") (lambda () (interactive) (counsel-find "snf " "bash -ic 'searchnotes . |fzy -e%s|head -n 50' 2>/dev/null" )))
+(global-set-key (kbd "C-x T") (lambda () (interactive) (counsel-find "sf " "bash -ic 'searchfilesraw|convert_path_to_windows_forward|fzy -e%s|head -n 50' 2>/dev/null" )))
+
+
 
 (defun counsel-find-function (str)
+  "called by counsel-find"
   (if (< (length str) 3)
       (counsel-more-chars 3)
     (let ((cmd (format bash-cmd str)
@@ -64,7 +70,8 @@ INITIAL-INPUT can be given as the initial minibuffer input."
 ;; (counsel-find "ls")
 ;;;###autoload
 (defun counsel-find (prompt bash-cmd &optional initial-input)
-  "Use GNU find, counsel and ivy  to present all paths
+  "calls counsel-find-function;
+Use GNU find, counsel and ivy  to present all paths
    in a directory tree that match the REGEX input"
   (interactive)
 (defvar bash-cmd bash-cmd)

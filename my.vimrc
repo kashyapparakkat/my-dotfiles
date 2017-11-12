@@ -124,4 +124,19 @@ command! -bang -nargs=* Find call fzf#vim#grep('ag --no-heading '.shellescape(<q
 
 command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, '--color-path "1;36"', fzf#vim#with_preview(), <bang>0)
 
+
+
+
+
+
+
+" search
+" https://stackoverflow.com/questions/12904490/limit-a-grep-search-in-vim-to-files-with-the-same-extension-as-the-current-file
+" map st :grep -r --include='*.<C-R>=expand('%:e')<CR>' '<C-R><C-W>' ./<CR><CR>:cw<CR>
+"  expand('%:e')=extension;    <C-R><C-W>" = current word;
+noremap str :grep  '<C-R><C-W>' *.<C-R>=expand('%:e')<CR> -r --color=always
+noremap sth :grep  '<C-R><C-W>' *.<C-R>=expand('%:e')<CR> --color=always
+
+
+
 source ~/my.guide.vim

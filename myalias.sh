@@ -51,6 +51,7 @@ alias s='prompt_for_s'
 
 alias sa='searchall'
 alias saf='searchall .|fzy -l 25'
+alias searchfiles='searchfilesraw|fzy -l 20'
 
 alias sf='searchfiles|open_in_app'
 
@@ -93,6 +94,17 @@ alias gdf='git diff --name-only && git diff'
 function gcm(){
   echo "git diff --name-only && git commit   && git push"
   git diff --name-only && git commit -am "$*" && git push && git log --name-status
+}
+function gls()
+{
+git_del=$(git ls-files --deleted)
+git_mod=$(git ls-files --modified)
+#git diff --name-only --diff-filter=A --cached # All new files in the index  
+#git diff --name-only --diff-filter=A          # All files that are not staged  
+git_added=$(git diff --name-only --diff-filter=A HEAD)     # All new files not yet committed
+
+
+echo "DEL: $git_del \n $cr $cr MOD:$git_mod \n ADD: $git_added"
 }
 
 alias ff='pcfind common_fuzzy fuzzy_db'

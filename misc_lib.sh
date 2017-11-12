@@ -25,18 +25,21 @@ function myindex() {
 	if [ -z "$1" ]; then
 		# display usage if no parameters given
 		echo "cibin/ indexing all files to ~/all_files_unfiltered.db"
-
-	if [ "$machine" == "Windows" ]; then 
-
-		find /cygdrive -iname "*"  > ~/"all_files_unfiltered.db"
-		cat ~/"all_files_unfiltered.db" | grep -i -v "/cygdrive/c/cygwin64/usr/" |  grep -i -v "/cygdrive/c/Users/$USERNAME/Anaconda" | grep -i -v "/cygdrive/c/MinGW/" | grep -i -v "/cygdrive/./\$Recycle.Bin/" | grep -v "/cygdrive/./\$WINDOWS.~BT/" | grep -v "/cygdrive/c/Users/cibin/AppData/" | grep -v "/cygdrive/c/my_bin/" | grep -v "/cygdrive/c/Python27/" | grep -v "/cygdrive/c/Program Files (x86)/" | grep -v "/cygdrive/c/Program Files/" | grep -v "/cygdrive/c/Windows/" | grep -v "/cygdrive/c/ProgramData/"  | grep -v "/cygdrive/c/Users/$USERNAME/AppData/" > ~/"all_files.db"
-		 
-	else
-		find /home /media/sf_Downloads -iname "*"  > ~/"all_files_unfiltered.db"
-		cat ~/"all_files_unfiltered.db" | grep -i -v "/cygdrive/c/cygwin64/usr/" |  grep -i -v "/cygdrive/c/Users/$USERNAME/Anaconda" | grep -i -v "/cygdrive/c/MinGW/" | grep -i -v "/cygdrive/./\$Recycle.Bin/" | grep -v "/cygdrive/./\$WINDOWS.~BT/" | grep -v "/cygdrive/c/Users/cibin/AppData/" | grep -v "/cygdrive/c/my_bin/" | grep -v "/cygdrive/c/Python27/" | grep -v "/cygdrive/c/Program Files (x86)/" | grep -v "/cygdrive/c/Program Files/" | grep -v "/cygdrive/c/Windows/" | grep -v "/cygdrive/c/ProgramData/"  | grep -v "/cygdrive/c/Users/$USERNAME/AppData/" > ~/"all_files.db"
-	 
-	fi
-	
+alias find
+which find
+    if [ "$machine" == "Windows" ]; then 
+echo "test"
+        lfind /cygdrive/c/Users/cibin/Downloads -iname "*"  > ~/"all_files_unfiltered.db"
+echo "test3"
+        cat ~/"all_files_unfiltered.db" | grep -i -v "/cygdrive/c/cygwin64/usr/" |  grep -i -v "/cygdrive/c/Users/$USERNAME/Anaconda" | grep -i -v "/cygdrive/c/MinGW/" | grep -i -v "/cygdrive/./\$Recycle.Bin/" | grep -v "/cygdrive/./\$WINDOWS.~BT/" | grep -v "/cygdrive/c/Users/cibin/AppData/" | grep -v "/cygdrive/c/my_bin/" | grep -v "/cygdrive/c/Python27/" | grep -v "/cygdrive/c/Program Files (x86)/" | grep -v "/cygdrive/c/Program Files/" | grep -v "/cygdrive/c/Windows/" | grep -v "/cygdrive/c/ProgramData/"  | grep -v "/cygdrive/c/Users/$USERNAME/AppData/" > ~/"all_files.db"
+         
+    else
+        find /home /media/sf_Downloads -iname "*"  > ~/"all_files_unfiltered.db"
+        cat ~/"all_files_unfiltered.db" | grep -i -v "/cygdrive/c/cygwin64/usr/" |  grep -i -v "/cygdrive/c/Users/$USERNAME/Anaconda" | grep -i -v "/cygdrive/c/MinGW/" | grep -i -v "/cygdrive/./\$Recycle.Bin/" | grep -v "/cygdrive/./\$WINDOWS.~BT/" | grep -v "/cygdrive/c/Users/cibin/AppData/" | grep -v "/cygdrive/c/my_bin/" | grep -v "/cygdrive/c/Python27/" | grep -v "/cygdrive/c/Program Files (x86)/" | grep -v "/cygdrive/c/Program Files/" | grep -v "/cygdrive/c/Windows/" | grep -v "/cygdrive/c/ProgramData/"  | grep -v "/cygdrive/c/Users/$USERNAME/AppData/" > ~/"all_files.db"
+     
+    fi
+    
+echo "test2"
 	# cat ~/"all_files_unfiltered.db" | sed 's/ //g'| sed 's/_//g' | sed 's/-//g'  > ~/"all_files-fuzzy.db"
 	cat ~/"all_files_unfiltered.db" |  sed 's/[!@#$%^&*()_ -]//g'  > ~/"all_files_unfiltered-fuzzy.db"
 	cat ~/"all_files.db" |  sed 's/[!@#$%^&*()_ -]//g'  > ~/"all_files-fuzzy.db"

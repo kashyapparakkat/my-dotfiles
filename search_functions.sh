@@ -103,7 +103,7 @@ while true; do
 		 p ) echo " searching...";spf|extract_filepath_linenum|open_in_app;break;;
 		 c ) echo " searching...";scf;break;;
 		 t ) echo;
-				read -n 1 -p " [a] auto $cr [h] here $cr fuzzy $cr advanced " pressedkey2 < /dev/tty;
+				read -n 1 -p " [a] auto $cr [h] here $cr [r] recurse TODO $cr fuzzy $cr advanced " pressedkey2 < /dev/tty;
 				case $pressedkey2 in
 					h ) echo;sth;break;;
 					a ) echo;ext="${1#*.}"; echo "ext=$ext";echo "$(ask_searchterm -r "$ext" .|fzy)"|extract_filepath_linenum|open_in_app;break;;

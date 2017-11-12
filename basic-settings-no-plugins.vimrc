@@ -10,6 +10,7 @@ noremap <C-k> <PageUp><CR>
 noremap gl G
 noremap <leader>f :Ranger<CR>
 
+ 
 noremap b :CtrlPMixed<CR>
 noremap <C-x>b :CtrlP<CR>
 " Press <c-f> and <c-b> to cycle between modes.

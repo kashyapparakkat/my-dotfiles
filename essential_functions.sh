@@ -4,6 +4,16 @@ function convert_to_cygdrive(){
 
 }
 
+
+function convert_path_to_windows_forward()
+{
+# convert cygdrive paths
+# convert cygdrive|convert slashes|remove single and double quotes
+sed -e "s/\\/cygdrive\\/\\(.\\)\\//\\1:\\\/"|sed 's/\\/\//g'|sed "s/'//g"
+
+
+}
+
 function convert_forwardslash_windows_to_cygdrive(){
 	#with/without colon
 	#also converts slashes
