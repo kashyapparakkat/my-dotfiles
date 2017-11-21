@@ -13,9 +13,9 @@
 	else
 		cbn_git_path="~"
 		Universal_home=$HOME
-		echo "linux machine"
+		# echo "linux machine"
 	fi
-	
+
 	export Universal_home
 	# echo "$Universal_home"
 
@@ -35,5 +35,5 @@ echo ${machine}
 
 
 
-	
+
 # }

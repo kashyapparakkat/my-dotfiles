@@ -44,7 +44,7 @@ If point was already at that position, move point to end of line."
 ;; (my-move-end-of-line-before-punctuation)
     (and (= oldpos (point))
          (end-of-line)
-		 )))  
+		 )))
 
 
 
@@ -95,11 +95,11 @@ If point was already at that position, move point to end of line."
 ; (cibin/global-set-key '("M-<" . beginning-of-buffer))
 
 
-		 
+
 		 ;; Smart beginning of the line
 (defun x4-smarter-beginning-of-line ()
 """Move point to beginning-of-line or first non-whitespace character or first non-whitespace after a comment sign.
-https://gist.github.com/X4lldux/5649195 
+https://gist.github.com/X4lldux/5649195
 """
 "(interactive ""^"")"
 (interactive)
@@ -135,7 +135,9 @@ https://gist.github.com/X4lldux/5649195
 
 (defun toggle-window-split ()
 ; https://emacs.stackexchange.com/questions/318/switch-window-split-orientation-fastest-way
-(interactive)
+  (interactive)
+    (if (= (count-windows) 1)
+        (vsplit-last-buffer))
   (if (= (count-windows) 2)
       (let* ((this-win-buffer (window-buffer))
              (next-win-buffer (window-buffer (next-window)))
@@ -159,7 +161,7 @@ https://gist.github.com/X4lldux/5649195
           (select-window first-win)
           (if this-win-2nd (other-window 1))))))
 
-; TODO diff-mode-map debugger-mode-map message-buffer-mode-map fundamental-mode-map 
+; TODO diff-mode-map debugger-mode-map message-buffer-mode-map fundamental-mode-map
 
 ; (dolist (m (list  help-mode-map evil-normal-state-map spacemacs-buffer-mode-map)
   ; (bind-keys :map m
@@ -170,7 +172,7 @@ https://gist.github.com/X4lldux/5649195
              ; ("j" . next-line)
              ; ("k" . previous-line)
              ; )))
-			 
+
   (defun move-line-to-ends (n)
   "Move the current line up or down by N lines."
   ;; modified from https://www.emacswiki.org/emacs/MoveLine
@@ -254,7 +256,7 @@ https://gist.github.com/X4lldux/5649195
          ("C-M-p" . dumb-jump-back)
          ("C-M-q" . dumb-jump-quick-look)
          ))
-(setq dumb-jump-prefer-searcher 'ag) 
+(setq dumb-jump-prefer-searcher 'ag)
 (setq dumb-jump-selector 'ivy) ; to use ivy instead of the default popup for multiple options.
 (cibin/global-set-key '("C-M-g" . cibin/goto-func-definition))
 
@@ -271,7 +273,7 @@ https://gist.github.com/X4lldux/5649195
 (use-package cycle-quotes
   :ensure t
   :bind* (("M-m s q" . cycle-quotes)))
-  
+
 
 ; go to the last change
 ; (use-package goto-chg)

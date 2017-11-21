@@ -43,6 +43,8 @@ INITIAL-INPUT can be given as the initial minibuffer input."
 (global-set-key (kbd "C-x R") (lambda () (interactive) (counsel-find "snf " "bash -ic 'searchnotes . |fzy -e%s|head -n 50' 2>/dev/null" )))
 (global-set-key (kbd "C-x T") (lambda () (interactive) (counsel-find "sf " "bash -ic 'searchfilesraw|convert_path_to_windows_forward|fzy -e%s|head -n 50' 2>/dev/null" )))
 
+(global-set-key (kbd "C-x T") (lambda () (interactive) 	(save-related-files-to-disk)
+ (counsel-find "grepp " "bash -ic 'grepfilelist_related %s|convert_path_to_windows_forward|head -n 50' 2>/dev/null" )))
 
 
 (defun counsel-find-function (str)

@@ -274,12 +274,12 @@ function cron_jobs_cibin() {
 
 
 function grepfilelist_related() {
-	tr -d '\r' < C:/cygwin64/home/"$USERNAME"/.emacs.d/my-files/emacs-tmp/filelist.txt > C:/cygwin64/home/"$USERNAME"/.emacs.d/my-files/emacs-tmp/filelist2.txt
+	tr -d '\r' < "$HOME"/.emacs.d/my-files/emacs-tmp/filelist.txt > "$HOME"/.emacs.d/my-files/emacs-tmp/filelist2.txt
 	run_grepfilelist $1
 }
 function grepfilelist_common() {
-sed -i "s/<username>/$USERNAME/g" C:/cygwin64/home/"$USERNAME"/.emacs.d/my-files/settings-files/all-common-filelist.txt
-	tr -d '\r' < C:/cygwin64/home/"$USERNAME"/.emacs.d/my-files/settings-files/all-common-filelist.txt > C:/cygwin64/home/"$USERNAME"/.emacs.d/my-files/emacs-tmp/filelist2.txt
+sed -i "s/<username>/$USERNAME/g" "$HOME"/.emacs.d/my-files/settings-files/all-common-filelist.txt
+	tr -d '\r' < "$HOME"/.emacs.d/my-files/settings-files/all-common-filelist.txt > "$HOME"/.emacs.d/my-files/emacs-tmp/filelist2.txt
 	run_grepfilelist $1
 }
 
@@ -287,8 +287,10 @@ function run_grepfilelist() {
 	while read filename; do
 		  # echo "$filename"
       # TODO enable errors or will go missings unnoticed
-		grep -PnIi $1 -s --color=auto  "$filename"  /dev/null;
-	done <C:/cygwin64/home/"$USERNAME"/.emacs.d/my-files/emacs-tmp/filelist2.txt
+     # TODO enable perl regex -P
+		grep -nIi $1 -s --color=auto  "$filename"  /dev/null;
+		# grep -PnIi $1 -s --color=auto  "$filename"  /dev/null;
+	done < "$HOME"/.emacs.d/my-files/emacs-tmp/filelist2.txt
 }
 
 # TODO: ag searchterm1 searchterm2 searchTerm3; here it shouldnot take searchTerm1 as locations to search

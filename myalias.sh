@@ -47,7 +47,7 @@ fi
 
 alias r='ranger'
 
-
+alias crons='source ~/cron-job.sh'
 
 alias s='prompt_for_s'
 
