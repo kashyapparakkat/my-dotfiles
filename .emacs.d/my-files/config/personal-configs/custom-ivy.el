@@ -3,7 +3,7 @@
 
 (require 'counsel)
 
-;
+
 (defun counsel-locate-function (str)
   (if (< (length str) 3)
       (counsel-more-chars 3)
@@ -41,11 +41,14 @@ INITIAL-INPUT can be given as the initial minibuffer input."
 
 
 (global-set-key (kbd "C-x R") (lambda () (interactive) (counsel-find "snf " "bash -ic 'searchnotes . |fzy -e%s|head -n 50' 2>/dev/null" )))
+
 (global-set-key (kbd "C-x T") (lambda () (interactive) (counsel-find "sf " "bash -ic 'searchfilesraw|convert_path_to_windows_forward|fzy -e%s|head -n 50' 2>/dev/null" )))
 
 (global-set-key (kbd "C-x T") (lambda () (interactive) 	(save-related-files-to-disk)
  (counsel-find "grepp " "bash -ic 'grepfilelist_related %s|convert_path_to_windows_forward|head -n 50' 2>/dev/null" )))
 
+(global-set-key (kbd "C-x L") (lambda () (interactive) 	(save-more-related-files-to-disk)
+ (counsel-find "more grepp " "bash -ic 'grepfilelist_related %s|convert_path_to_windows_forward|head -n 50' 2>/dev/null" )))
 
 (defun counsel-find-function (str)
   "called by counsel-find"
@@ -86,7 +89,12 @@ Use GNU find, counsel and ivy  to present all paths
             :action (lambda (file)
                       (with-ivy-window
                         (when file
-                          (find-file file))))
+                         (message file)
+
+                           ;; (setq  file (replace-regexp-in-string "\\(\[^:\]*\\):\\(.*\\)" "\\1" file))
+                          ;; (find-file file)
+                          (jump-to-file-and-line file)
+                          )))
             :unwind #'counsel-delete-process
             :caller 'counsel-find))
 

@@ -830,7 +830,7 @@ _
   "
  ^All (No interactive) ^                ^Query??^
 ^^^^^^^^^^------------------------+------------------------------------
- _s_: replace-string                _e_: query-replace(! all, . this)     _q_: quit
+ _s_: replace-string                _e_: query-replace(! all, . this, y/n)     _q_: quit
  _d_: replace-regexp                _r_: query-replace-regexp
  _/_: my-multi-occur-in-matc..
 ------

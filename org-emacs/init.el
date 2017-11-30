@@ -11,10 +11,10 @@
  (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
                          ("marmalade" . "https://marmalade-repo.org/packages/")
                          ("melpa" . "https://melpa.org/packages/")))
-							 
-							 
+
+
 							 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t) ; Org-mode's repository
-							 
+
 (setq user-emacs-directory "~/org-emacs/")
 
 
@@ -30,12 +30,12 @@
   ; (setq user-emacs-directory user-init-dir)
   ; (message "user-emacs-directory" )
   ; (message user-emacs-directory )
-  
-  
+
+
   ;; reuse existing package-user-dir
   ;;; uses some extra Memory
   (setq package-user-dir "~/../.emacs.d/elpa")
-  
+
 (package-initialize)
 (evil-mode 1)
 (which-key-mode 1)
@@ -60,3 +60,5 @@
 	(find-file (format "%s/Downloads/todo-notes.org" Universal_home)))
 (when (file-exists-p (format "%s/Downloads/work-notes.org" Universal_home))
 	(find-file (format "%s/Downloads/work-notes.org" Universal_home)))
+(when (file-exists-p (format "%s/Downloads/notes.org" Universal_home))
+	(find-file (format "%s/Downloads/notes.org" Universal_home)))

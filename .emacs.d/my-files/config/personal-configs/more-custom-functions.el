@@ -49,6 +49,14 @@
 )
 
 (defun get-related-files ()
+(get-related-files-master 2)
+)
+
+(defun get-more-related-files ()
+(get-related-files-master 5)
+)
+
+(defun get-related-files-master (count)
 
 	"Like `directory-files' with MATCH hard-coded to exclude \".\" and \"..\"."
 	(setq regex-filter "^\\(\\(.*\\.txt\\)\\|\\(.*\\.py\\)\\|\\(.*\\.el\\)\\|\\(.*\\.java\\)\\|\\(.*\\.ahk\\)\\|\\(.*\\.ini\\)\\|\\(.*\\.sh\\)\\)$")
@@ -76,7 +84,7 @@
   ;; (message foldercontent-of-this-file)
 ;; TODO add foldercontent of this file(only directories; nofiles)
   ;; (setq recent-dirs (append foldercontent-of-this-file (last (reverse recent-dirs) 2) ))
-   (setq recent-dirs (append nil (last (reverse recent-dirs) 2) ))
+   (setq recent-dirs (append nil (last (reverse recent-dirs) count) ))
 
     ;; (dolist (file recent-dirs)
 ;; (message "test dir: ")
@@ -104,6 +112,7 @@
 	)
 	(setq all-files (append foldercontent-of-this-file recentf-list-new foldercontent-of-parent-of-this-file all-recent-dirs-foldercontent ))
 
+  ;; get modified time as the 5th file attribute
   (setq all-files (sort all-files  (lambda (a b)
         (time-less-p
                      (nth 5 (file-attributes b))
@@ -116,8 +125,6 @@
 					  ; (time-less-p (nth 6 (file-attributes y)) (nth 6 (file-attributes x)))))))
 
   (setq all-files (delete-dups all-files))
-
-
 )
 
 ; http://stackoverflow.com/questions/17164767/emacs-lisp-directory-files
@@ -175,17 +182,27 @@
 (defun cibin-search-in-files-advgrep-here ()
 	(interactive)
 	(setq prompt (format "advgrep.sh all/common/downs/ahk/notes/-or-here/hhere   common/code/txt   searchTerm: "))
-
   (setq default (concat "advgrep.sh here " (get-file-extension) " " (thing-at-point 'word)))
 	(search-handler prompt default)
 )
+
 (defun save-related-files-to-disk ()
-	(setq file "~/.emacs.d/my-files/emacs-tmp/filelist.txt")
-	(when (file-exists-p file)
-		(delete-file file))
+  (prepare-save-related-files)
 	(setq filelist (format "%s" (mapconcat 'identity (get-related-files) "\n")))
  	(append-to-file filelist nil file )
 )
+
+(defun save-more-related-files-to-disk()
+  (prepare-save-related-files)
+	(setq filelist (format "%s" (mapconcat 'identity (get-more-related-files) "\n")))
+ 	(append-to-file filelist nil file )
+)
+(defun prepare-save-related-files()
+	(setq file "~/.emacs.d/my-files/emacs-tmp/filelist.txt")
+	(when (file-exists-p file)
+		(delete-file file))
+)
+
 (defun search-handler (prompt default)
 	(setq cmd-str (read-from-minibuffer prompt default))
 	(async-shell-command cmd-str "*grep*")
@@ -506,6 +523,28 @@ output as a string."
              (funcall callback-fun output-string)))
          (kill-buffer output-buffer))))
     output-buffer))
+
+
+(defun jump-to-file-and-line (line)
+  ;; also good http://ergoemacs.org/emacs/emacs_open_file_path_fast.html
+  ;; https://emacs.stackexchange.com/questions/9485/how-can-i-jump-to-a-file-and-line-number-from-a-list-in-a-buffer
+;; (message (replace-regexp-in-string "\\(\[^:\]*\\):\\(.*\\)" "\\1" "/home/lib.sh:233:hello how are you"))
+  "Reads a line in the form FILEpath:LINE followed by text and, assuming a
+relative path, opens that file in another window and jumps to the
+line."
+  (interactive)
+                                        ; TODO make colon and column optional
+ (string-match "\\(\[^:\]*\\):?\\([0-9]+\\)?\\(.*\\)?" line)
+    (let ((file (match-string 1 line))
+          (lnum (match-string 2 line)))
+(message file)
+         ; TODO add cwd if relative (concat default-directory file)
+      (when (and file (file-exists-p  file))
+        ;; TODO message error when not found
+(progn(find-file file)
+      (and lnum (goto-line (string-to-number lnum)))))
+(message (format "file %s doesn't exist" file))
+))
 
 
 (provide 'more-custom-functions)

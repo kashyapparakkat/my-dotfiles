@@ -1,5 +1,5 @@
 # | variable		|linux|windows|
-# | Universal_home | ~ | /cygdrive/c/Users/username|
+# | universal_home | ~ | /cygdrive/c/Users/username|
 # | cbn_git_path| ~/cbn_gits| /cygdrive/c/cbn_gits|
 # | ~| ~|/cygdrive/c/cygwin64/home/username|
 #
@@ -10,7 +10,9 @@
 		Universal_home=$(cygpath -H)  # /cygdrive/c/users
 		cbn_git_path="/cygdrive/c"
 		Universal_home="$Universal_home/$USERNAME"
-	else
+    second_Universal_home=""
+	else # if windows + ubuntu; add ubuntu only; add VM
+    second_Universal_home="/mnt/50AE3B39AE3B1746/Users/cibin"
 		cbn_git_path="~"
 		Universal_home=$HOME
 		# echo "linux machine"

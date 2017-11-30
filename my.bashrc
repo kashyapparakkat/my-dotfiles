@@ -1,6 +1,5 @@
 # fzy is faster than fzf
 
-
 # Create path variables
 WORKING_PATH="$(pwd)"
 SCRIPT=$(readlink -f "$0")

@@ -15,8 +15,10 @@ noremap b :CtrlPMixed<CR>
 noremap <C-x>b :CtrlP<CR>
 " Press <c-f> and <c-b> to cycle between modes.
 
+ 
 
 noremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+
 
 
 noremap <C-l> <C-w>v:ConqueTerm bash<CR>
@@ -49,7 +51,7 @@ noremap or :! C:/cygwin64/bin/python3.6m.exe C:/cygwin64/bin/ranger --selectfile
 " :e filename
 " :b filen <TAB>
 "
-
+ 
 
 "accelerated motion
 :noremap <M-j> 4j
