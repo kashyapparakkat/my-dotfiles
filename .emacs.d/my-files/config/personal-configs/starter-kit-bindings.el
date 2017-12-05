@@ -245,7 +245,7 @@
 (cibin/global-set-key '("M-a" . helm-M-x))
 (cibin/global-set-key '("M-x" . helm-M-x))
 
-;; TODO enter key may also trigger this 
+;; TODO enter key may also trigger this
 ;;(cibin/global-set-key '("C-m" . helm-M-x))
 
 ;; File finding
@@ -331,6 +331,7 @@
 (global-set-key (kbd "M-Q") (lambda () (interactive) (spacemacs/toggle-maximize-buffer)))
 
 (define-key evil-normal-state-map "Q" 'cibin/toggle-maximize-buffer)
+(define-key evil-normal-state-map "aa" 'cibin/toggle-maximize-buffer)
 
 ; is this needed?
 (cibin/global-set-key '("C-q" . kill-buffer-and-if-many-kill-window-too))
@@ -360,7 +361,7 @@
 (define-key evil-normal-state-map "a" nil)
 (define-key evil-normal-state-map (kbd "aq") 'hydra-quick-edit/body)
 
-(define-key evil-normal-state-map (kbd "aa") 'cibin-apply-default-major-mode)
+(define-key evil-normal-state-map (kbd "am") 'cibin-apply-default-major-mode)
 (define-key evil-normal-state-map "gl" 'end-of-buffer) ;evil-goto-line) ; goto last line
 ; goto last line in insert mode
 (define-key evil-normal-state-map "gk" (lambda (arg)
@@ -598,6 +599,7 @@ buffer preview will still display."
 (define-key evil-normal-state-map (kbd "C-f") 'evil-forward-char)
 (define-key evil-normal-state-map (kbd "C-b") 'evil-backward-char)
 (define-key evil-normal-state-map (kbd "C-u") 'universal-argument)
+(define-key evil-visual-state-map (kbd "C-u") 'universal-argument)
 
 
 (define-key evil-normal-state-map (kbd "C-c +") 'evil-numbers/inc-at-pt)
@@ -622,7 +624,7 @@ buffer preview will still display."
 ; ensure that even in worst case some goto-last-change is available
 ; (global-set-key [(control meta .)] 'goto-last-change)
 
- 
+
 
 
 ;C-./> last-change
@@ -684,7 +686,7 @@ buffer preview will still display."
 
 (with-eval-after-load 'company
   (define-key company-active-map (kbd "C-h") 'delete-backward-char ))
-  
+
 (define-key evil-insert-state-map (kbd "C-h")   'delete-backward-char)
 (global-set-key [?\C-h] 'delete-backward-char)
 (cibin/global-set-key '( "\C-h" . delete-backward-char))
@@ -716,15 +718,15 @@ buffer preview will still display."
  ; `(
    ; ("Q" . cibin/toggle-maximize-buffer)
    ; ))
-   
+
    ;; list of key bindings
    (setq binding `(
    ("Q" . cibin/toggle-maximize-buffer)
    ))
-   
-   
+
+
 (dolist  (binding)
-	
+
 	(with-eval-after-load 'dired
 	(define-key dired-mode-map (car binding) (cdr binding)))
 
@@ -738,7 +740,7 @@ buffer preview will still display."
 )
 
 
- ; delete till non whitespace cycle 
+ ; delete till non whitespace cycle
 ;; (cibin/global-set-key '("C-D" . xah-shrink-whitespaces))
 (cibin/global-set-key '("C-S-d" . shrink-whitespace))
 (cibin/global-set-key '("C-d" . delete-char))

@@ -828,7 +828,7 @@ _
 (defhydra cibin/replace (:color blue
                                :hint nil)
   "
- ^All (No interactive) ^                ^Query??^
+ ^All forward(No interactive) ^        ^Query??^
 ^^^^^^^^^^------------------------+------------------------------------
  _s_: replace-string                _e_: query-replace(! all, . this, y/n)     _q_: quit
  _d_: replace-regexp                _r_: query-replace-regexp
@@ -1117,6 +1117,8 @@ _8_: next _9_: prev      allNext prev
     ("m" nil "**MORE on sel TEXT**")
     ("." er/expand-region "Expand Region" :exit nil)
     ("," er/contract-region "Contract Region" :exit nil))
+
+    ("Spc" er/expand-region "ter")
   ; (bind-key "SPC" #'hydra-mark/body ejmr-custom-bindings-map)
   )
 
