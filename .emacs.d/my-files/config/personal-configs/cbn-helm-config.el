@@ -24,7 +24,8 @@
   ;; TODO make this onetime instead of runnig in every calls
   (bind-all-helm-ivy-keys)
 
-(setq all-func '(dummy cibin/find-related-files-helm-saved-input cibin/counsel-find cibin/counsel-locate cibin/helm-find-files ))
+;; (setq all-func '(dummy cibin/find-related-files-helm-saved-input cibin/counsel-find cibin/counsel-locate cibin/helm-find-files ))
+(setq all-func '(cibin/find-related-files-helm-saved-input cibin/counsel-find cibin/counsel-locate cibin/helm-find-files ))
 (setq all-func-reversed '(cibin/helm-mini))
 (helm-mini))
 
@@ -39,7 +40,7 @@
              "cat ~/all_files.db|/usr/local/bin/fzy -e%s|head -n 50|sed -e \"s/\\/cygdrive\\/\\(.\\)\\//\\1:\\//\"" saved-helm-input)
 ;; (global-set-key (kbd "C-x R") (lambda () (interactive) (counsel-find "snf " "bash -ic 'searchnotes . |fzy -e%s|head -n 50' 2>/dev/null" )))
 
-  )
+)
 
 
 (defun cibin/counsel-locate()
@@ -51,10 +52,12 @@
 (defun cibin/swiper-all()
   (interactive)
   (require 'swiper)
-  (setq all-func '(dummy cibin/helm-do-ag-Extension-here-cwd-with-saved-input cibin/helm-do-ag-Extension-recurse-cwd-with-saved-input cibin/swiper cibin/swiper-all cibin/helm-do-ag-Extension-here-cwd-with-saved-input cibin/helm-do-ag-Extension-recurse-cwd-with-saved-input))
+  (setq all-func '(cibin/helm-do-ag-Extension-here-cwd-with-saved-input cibin/helm-do-ag-Extension-recurse-cwd-with-saved-input cibin/swiper cibin/swiper-all cibin/helm-do-ag-Extension-here-cwd-with-saved-input cibin/helm-do-ag-Extension-recurse-cwd-with-saved-input))
 (setq all-func-reversed '(cibin/swiper-all))
 
+;; TODO initial-input
  (swiper-all saved-helm-input)
+ ;; (swiper-all )
 )
 
 (setq all-func nil )
@@ -64,10 +67,11 @@
 
   (require 'swiper)
 (bind-all-helm-ivy-keys)
-(setq all-func '(dummy cibin/swiper-all cibin/helm-do-ag-Extension-here-cwd-with-saved-input cibin/helm-do-ag-Extension-recurse-cwd-with-saved-input cibin/swiper cibin/swiper-all cibin/helm-do-ag-Extension-here-cwd-with-saved-input cibin/helm-do-ag-Extension-recurse-cwd-with-saved-input))
+(setq all-func '(cibin/swiper-all cibin/helm-do-ag-Extension-here-cwd-with-saved-input cibin/helm-do-ag-Extension-recurse-cwd-with-saved-input cibin/swiper cibin/swiper-all cibin/helm-do-ag-Extension-here-cwd-with-saved-input cibin/helm-do-ag-Extension-recurse-cwd-with-saved-input))
 (setq all-func-reversed '(cibin/swiper))
 (swiper saved-helm-input)
 )
+
 (defun bind-all-helm-ivy-keys()
   (with-eval-after-load 'swiper
 (define-key swiper-map (kbd "C-o") 'try-prev-function)
@@ -182,25 +186,12 @@ helm-move-to-line-cycle-in-source nil
 
 (defun cibin/find-related-files-helm-saved-input()
   (interactive)
-(setq all-func '(dummy  cibin/counsel-find cibin/counsel-locate cibin/helm-find-files ))
-(setq all-func-reversed '(cibin/helm-mini))
+(setq all-func '(cibin/counsel-find cibin/counsel-locate cibin/helm-find-files ))
+(setq all-func-reversed '(cibin/find-related-files-helm-saved-input cibin/helm-mini))
    (cibin-find-related-files saved-helm-input)
 )
 (setq saved-helm-input "")
 
-(defun try-next-function()
-(interactive)
-(setq all-func (cdr all-func))
-(add-to-list 'all-func-reversed (car all-func))
-(message (format "%s" all-func-reversed))
-(message (format "trying.. %s %s"  saved-helm-input (car all-func)))
-(setq this-func-string (car all-func))
-(message (format "try.. %s %s"  saved-helm-input this-func-string))
-(fset 'this-func (car all-func))
-;; (run-function 'this-func 'this-func-string)
-;; (run-function)
-(run-function-handle-error)
-)
 
 
 (defun run-function-handle-error()
@@ -215,14 +206,35 @@ helm-move-to-line-cycle-in-source nil
                 )
         ('error (message (format "Caught exception: [%s]" ex))))
         retval)
-  (message "Cleaning up..."))
-)
 
+(message "Cleaning...")
+;; (message (format "after ADDED: to reverse: %s" all-func-reversed))
+)
+)
+ (setq all-func '(cibin/counsel-find))
+
+(defun try-next-function()
+
+(interactive)
+(add-to-list 'all-func-reversed (car all-func))
+(setq this-func-string (car all-func))
+(fset 'this-func (car all-func))
+(setq all-func (cdr all-func))
+(message (format "ADDED: to reverse: %s" all-func-reversed))
+;; (message (format "%s" all-func))
+;; (message (format "%s" (car all-func)))
+;; (message (format "trying.. %s %s"  saved-helm-input (car all-func)))
+;; (message (format "try.. %s %s"  saved-helm-input this-func-string))
+;; (run-function 'this-func 'this-func-string)
+;; (run-function)
+(run-function-handle-error)
+
+)
 
 (defun try-prev-function()
   (interactive)
-(setq all-func-reversed (cdr all-func-reversed))
 (add-to-list 'all-func (car all-func-reversed))
+(setq all-func-reversed (cdr all-func-reversed))
 (setq this-func-string (car all-func-reversed))
 (fset 'this-func (car all-func-reversed))
 ;; (run-function)
@@ -237,14 +249,21 @@ helm-move-to-line-cycle-in-source nil
 (message (format "trying inside.. %s %s"  saved-helm-input this-func-string))
 (if helm-alive-p
   (progn (setq saved-helm-input helm-input)
-           (message "helm exit")
+           (message "exiting from helm")
            (helm-run-after-exit this-func-string)
            )
 
   (progn
     (setq saved-helm-input ivy--old-text)
-    (message "(insert )vy is quit")
-    (ivy-quit-and-run (this-func))
+(message "ivy quit and run")
+;; (message (format "msg: %s" this-func-string))
+     ;; (message "body: ")
+;; (message this-func)
+;; (message this-func-string)
+;; (message default-directory)
+;; (ivy-exit-with-action (this-func))
+(ivy-quit-and-run (this-func))
+;; (message "ivy-exit with action over")
   )
 )
 )
@@ -273,5 +292,23 @@ helm-move-to-line-cycle-in-source nil
 (setq helm-follow-input-idle-delay 1)
 
 (cibin/global-set-key '("C-x p" . cibin/find-related-files-helm-saved-input))
+
+
+;; TODO make sure this doesnt break in next swiper release
+;; overriding default behaviour to take initial-input
+(defun swiper-all (&optional initial-input)
+  "Run `swiper' for all open buffers."
+  (interactive)
+  (let* ((swiper-window-width (- (frame-width) (if (display-graphic-p) 0 1)))
+         (ivy-format-function #'swiper--all-format-function))
+    (ivy-read "swiper-all: " 'swiper-all-function
+              :action 'swiper-all-action
+              :initial-input initial-input
+              :unwind #'swiper--cleanup
+              :update-fn (lambda ()
+                           (swiper-all-action (ivy-state-current ivy-last)))
+              :dynamic-collection t
+              :keymap swiper-all-map
+:caller 'swiper-multi)))
 
 (provide 'cbn-helm-config)

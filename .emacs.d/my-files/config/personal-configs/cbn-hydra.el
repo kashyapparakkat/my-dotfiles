@@ -789,8 +789,8 @@ _
  _d_: helm-do-ag-this-file        _h_: cibin/helm-do-ag-Ext'n-here-cwd    	      _c_: cibin-search-in-common-files-bash
  _/_: my-multi-occur-in-matc..    _b_: cibin/helm-do-ag-cwd(all ext)              _l_: cibin-search-in-text-files-related-bash
  _o_: occur                       _y_: cibin/ag-files-cwd (ext\? dir\\?)
- _j_: helm-ag                     _w_: ag-files                                   _p_: ag-project-at-point
- _s_: swiper
+ _j_: helm-ag                     _w_: ag-files                                   _p_: cibin/helm-do-ag-All-Project
+ _s_: swiper                                                                      _P_: ag-project-at-point
 --------------------
 "
 ;; TODO ;; (cibin/global-set-key '("M-s r" . )) ; recurse
@@ -812,7 +812,7 @@ _
 
 ("w" ag-files) ; advanced (string file-type directory))
 ("r" cibin/helm-do-ag-Extension-recurse-cwd)
-("a" swiper-all)
+("a" cibin/swiper-all)
 ("s" cibin/swiper)
 ("y" cibin/ag-files-cwd)
 ("u" cibin-search-in-files-advgrep-here)

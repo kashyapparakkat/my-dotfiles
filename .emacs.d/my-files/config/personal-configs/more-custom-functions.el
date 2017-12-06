@@ -35,6 +35,7 @@
   (format "C:/Users/%s/AppData/Local/Programs/Python/Python35-32/python.exe" user-login-name)
   (format "C:/Users/%s/AppData/Local/Continuum/Anaconda3_32/python.exe" user-login-name)
   (format "C:/Users/%s/AppData/Local/Continuum/Anaconda3_1/python.exe" user-login-name)
+  "/usr/bin/python"
   "C:/Python27/python.exe"
   (format "C:/Users/%s/AppData/Local/Continuum/Anaconda2/python.exe" user-login-name)
   ))))
@@ -539,11 +540,13 @@ line."
           (lnum (match-string 2 line)))
 (message file)
          ; TODO add cwd if relative (concat default-directory file)
-      (when (and file (file-exists-p  file))
+      (if (and file (file-exists-p  file))
         ;; TODO message error when not found
-(progn(find-file file)
-      (and lnum (goto-line (string-to-number lnum)))))
+        (progn
+          (find-file file)
+          (and lnum (goto-line (string-to-number lnum))))
 (message (format "file %s doesn't exist" file))
+        )
 ))
 
 

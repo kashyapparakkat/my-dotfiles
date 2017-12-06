@@ -331,7 +331,6 @@
 (global-set-key (kbd "M-Q") (lambda () (interactive) (spacemacs/toggle-maximize-buffer)))
 
 (define-key evil-normal-state-map "Q" 'cibin/toggle-maximize-buffer)
-(define-key evil-normal-state-map "aa" 'cibin/toggle-maximize-buffer)
 
 ; is this needed?
 (cibin/global-set-key '("C-q" . kill-buffer-and-if-many-kill-window-too))
@@ -361,6 +360,7 @@
 (define-key evil-normal-state-map "a" nil)
 (define-key evil-normal-state-map (kbd "aq") 'hydra-quick-edit/body)
 
+(define-key evil-normal-state-map (kbd "aa") 'cibin/toggle-maximize-buffer)
 (define-key evil-normal-state-map (kbd "am") 'cibin-apply-default-major-mode)
 (define-key evil-normal-state-map "gl" 'end-of-buffer) ;evil-goto-line) ; goto last line
 ; goto last line in insert mode
@@ -707,8 +707,7 @@ buffer preview will still display."
 ;; (define-key evil-normal-state-map "\C-w" 'evil-delete)
 ;; (define-key evil-insert-state-map "\C-w" 'evil-delete)
 (define-key evil-insert-state-map "\C-r" 'search-backward)
-
-(define-key evil-visual-state-map "\C-w" 'evil-delete)
+(define-key evil-visual-state-map (kbd "C-w") 'evil-delete)
 
 
 
@@ -753,5 +752,22 @@ buffer preview will still display."
 ; (cibin/global-set-key '("<M-Spc>" . fixup-whitespace))
 ; (cibin/global-set-key '("C-c M-d" . fc/delete-space))
 
+;; multiple cursors
+ (use-package multiple-cursors
+:defer t
+:config
+(progn
+
+  (define-key mc/keymap (kbd "ESC") 'mc/keyboard-quit)
+(define-key mc/keymap (kbd "C-g") 'mc/keyboard-quit)
+(define-key mc/keymap (kbd "C-a") 'move-beginning-of-line)
+
+))
+
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+;; When you want to add multiple cursors not based on continuous lines, but based on keywords in the buffer, use:
+      ;; (global-set-key (kbd "C->") 'mc/mark-next-like-this)
+; (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+  (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
 (provide 'starter-kit-bindings)

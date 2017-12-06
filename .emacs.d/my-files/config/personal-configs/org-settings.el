@@ -7,9 +7,9 @@
 
   (progn
     ;; config stuff
-    
-	
-	
+
+
+
 ;; http://ergoemacs.org/emacs/emacs_org_babel_literate_programing.html
 
 
@@ -17,42 +17,42 @@
 (setf org-blank-before-new-entry '((heading . nil) (plain-list-item . nil)))
 
 
-;; todo good one 
+;; todo good one
 ; (setq org-agenda-files
       ; (append
        ; (file-expand-wildcards "~/work/org/*.org")
        ; (file-expand-wildcards "~/personal/org/*.org")))
-	   
-	   
-; (setq org-agenda-files (list (format "%s/Downloads/todo-notes.org" Universal_home)                            
-                        ; (format "%s/Downloads/todo-stats-notes.org" Universal_home)                           
-                        ; (format "%s/Downloads/work-notes.org" Universal_home)                           
+
+
+; (setq org-agenda-files (list (format "%s/Downloads/todo-notes.org" Universal_home)
+                        ; (format "%s/Downloads/todo-stats-notes.org" Universal_home)
+                        ; (format "%s/Downloads/work-notes.org" Universal_home)
                              ; "~/.emacs.d/my-files/org/work.org"))
-							 
-							 
+
+
 							 ;; todo remove non-existent files
 							; (setq org-agenda-files (mapcar (lambda (file) (if (file-exists-p file) file) 'org-agenda-files )))
- 
- 
+
+
  ; https://github.com/badri/dot-emacs-dot-d/blob/master/init.el
  (setq org-agenda-files
       (delq nil
             (mapcar (lambda (x) (and (file-exists-p x) x))
                     (append '(
 					"~/org/ideas.org"
-                      ; (format "%s/Downloads/todo-notes.org" Universal_home)                            
-                        ; (format "%s/Downloads/todo-stats-notes.org" Universal_home)                           
-                        ; (format "%s/Downloads/work-notes.org" Universal_home)                           
+                      ; (format "%s/Downloads/todo-notes.org" Universal_home)
+                        ; (format "%s/Downloads/todo-stats-notes.org" Universal_home)
+                        ; (format "%s/Downloads/work-notes.org" Universal_home)
                              "~/.emacs.d/my-files/org/work.org"
-		      ) (list (format "%s/Downloads/todo-notes.org" Universal_home)                            
-                        (format "%s/Downloads/todo-stats-notes.org" Universal_home)                           
-                        (format "%s/Downloads/work-notes.org" Universal_home)                           
+		      ) (list (format "%s/Downloads/todo-notes.org" Universal_home)
+                        (format "%s/Downloads/todo-stats-notes.org" Universal_home)
+                        (format "%s/Downloads/work-notes.org" Universal_home)
                              "~/.emacs.d/my-files/org/work.org")
 							 (file-expand-wildcards "~/org/projects/*.org")))))
-			  
+
 	(setq org-agenda-span 15)
 (setq org-agenda-tags-column -100) ; take advantage of the screen width
-(setq org-agenda-sticky nil)	
+(setq org-agenda-sticky nil)
 (setq org-agenda-time-grid
       '((daily today require-timed)
        "----------------"
@@ -60,14 +60,14 @@
 (setq org-columns-default-format "%14SCHEDULED %Effort{:} %1PRIORITY %TODO %50ITEM %TAGS")
 
 
-	  
+
 ; (eval-after-load "org"
   ; (setq org-agenda-files
         ; (delq nil (mapcar (if (file-exists-p file)
                               ; file)
                           ; org-agenda-files))))
-						  
-						  
+
+
 ;; set maximum indentation for description lists
 (setq org-list-description-max-indent 5)
 (use-package org-bullets
@@ -106,7 +106,7 @@
 ;(org-metaright)
   )
 
-(global-set-key (kbd "C-c o") 
+(global-set-key (kbd "C-c o")
                 (lambda () (interactive) (find-file "~/organizer.org")))
 	   ; The pipe is optional, but if it is present, the task states following it will all be considered by Org to mean “complete
 
@@ -129,15 +129,15 @@
   (define-key org-mode-map (kbd "C-S-H") 'org-metaleft)
   (define-key org-mode-map (kbd "C-M-p") 'org-metaup)
   (define-key org-mode-map  (kbd "C-M-n") 'org-metadown)
-  
-  
+
+
   ;; override dragg-stuff
-  
+
   (define-key org-mode-map (kbd "M-S-<up>") 'org-metaup)
-  (define-key org-mode-map  (kbd "M-S-<down>") 'org-metadown) 
+  (define-key org-mode-map  (kbd "M-S-<down>") 'org-metadown)
 
   (define-key org-mode-map (kbd "M-<left>") 'cibin/org-do-promote)
-  (define-key org-mode-map  (kbd "M-<right>") 'org-do-demote) 
+  (define-key org-mode-map  (kbd "M-<right>") 'org-do-demote)
 
 
 	(define-key org-mode-map (kbd "M-r") 'org-toggle-heading)
@@ -189,9 +189,9 @@
 (let ((is-heading))
     (save-excursion
       (forward-line 0)
-      (when (looking-at "^\\*") 
+      (when (looking-at "^\\*")
         (setq is-heading t)))
-    (if is-heading 
+    (if is-heading
         (progn
           (org-todo 'none) ; remove TODO
           (org-toggle-heading) ; remove heading
@@ -313,7 +313,7 @@
 '(org-todo ((t (:foreground "#e61e22" :weight bold))))
 )
 
-;;https://yoo2080.wordpress.com/2013/05/30/ms-windows-emacs-fixed-pitch-got-no-anti-aliasing/ 
+;;https://yoo2080.wordpress.com/2013/05/30/ms-windows-emacs-fixed-pitch-got-no-anti-aliasing/
 ;;courier new is the only monospace font in windows by default
 (if (eq system-type 'windows-nt)
     (set-face-attribute 'fixed-pitch nil :family

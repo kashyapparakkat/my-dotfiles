@@ -25,14 +25,14 @@
   :commands (realgud:gdb
              realgud:ipdb
              realgud:pdb))
-			 
 
-   		 
-			 
+
+
+
 (defun cbn-debug ()
 	(interactive)
 	;(require 'realgud) ; lazy loading
-	
+
 	;; (menu-bar-mode 1)
 	;; (tool-bar-mode 1)
 	(setq fname (buffer-file-name))
