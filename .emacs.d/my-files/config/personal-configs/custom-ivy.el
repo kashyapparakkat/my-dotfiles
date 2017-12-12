@@ -42,7 +42,7 @@ INITIAL-INPUT can be given as the initial minibuffer input."
 
 (global-set-key (kbd "C-x R") (lambda () (interactive) (counsel-find "snf(C-x R) " "bash -ic 'searchnotes . |fzy -e%s|head -n 50' 2>/dev/null" )))
 
-(global-set-key (kbd "C-x T") (lambda () (interactive) (counsel-find "sf(C-x T) " "bash -ic 'searchfilesraw|convert_path_to_windows_forward|fzy -e%s|head -n 50' 2>/dev/null" )))
+(global-set-key (kbd "C-x R") (lambda () (interactive) (counsel-find "sf(C-x T) " "bash -ic 'searchfilesraw|convert_path_to_windows_forward|fzy -e%s|head -n 50' 2>/dev/null" )))
 
 (global-set-key (kbd "C-x T") (lambda () (interactive) 	(save-related-files-to-disk)
  (counsel-find "grepp " "bash -ic 'grepfilelist_related %s|convert_path_to_windows_forward|head -n 50' 2>/dev/null" )))
@@ -86,19 +86,31 @@ Use GNU find, counsel and ivy  to present all paths
             :initial-input initial-input
             :dynamic-collection t
             :history 'counsel-find-history
-            :action (lambda (file)
-                      (with-ivy-window
-                        (when file
-                         (message file)
+:action 'open-file-cibin
+;; (lambda (file)
+                      ;; (with-ivy-window
+                        ;; (when file
+                         ;; (message file)
 
                            ;; (setq  file (replace-regexp-in-string "\\(\[^:\]*\\):\\(.*\\)" "\\1" file))
                           ;; (find-file file)
-                          (jump-to-file-and-line file)
-                          )))
+                          ;; (jump-to-file-and-line file)
+                          ;; )))
             :unwind #'counsel-delete-process
             :caller 'counsel-find))
 
 (with-eval-after-load 'counsel
 (counsel-set-async-exit-code 'counsel-find 1 "Nothing found")
 )
+(defun open-file-cibin(file)
+(interactive)
+(with-ivy-window
+(when file
+
+   ;; (setq  file (replace-regexp-in-string "\\(\[^:\]*\\):\\(.*\\)" "\\1" file))
+  ;; (find-file file)
+  (jump-to-file-and-line file)
+ (message file)
+  )))
+
 (provide 'custom-ivy)

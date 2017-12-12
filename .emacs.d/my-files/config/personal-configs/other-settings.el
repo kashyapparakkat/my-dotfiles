@@ -662,7 +662,7 @@ file to write to."
    ; (directory-files "~/git/LeoUfimtsev.github.io/org/" nil "\\.org$"))
 
 
-
+(subword-mode 1)
    ;; subword-mode remaps most key bindings but not these.
 (global-set-key [(control right)] 'subword-forward)
 (global-set-key [(control left)] 'subword-backward)

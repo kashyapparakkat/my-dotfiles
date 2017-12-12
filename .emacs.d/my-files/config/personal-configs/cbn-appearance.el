@@ -1,13 +1,13 @@
 (message "loading cbn-appearance")
  ;; TODO debug this
- 
+
  ; ===============================
  ;;; highlight-focus.el --- highlight the active buffer
 
 ;; Author: Amit J Patel <amitp@cs.stanford.edu>
 
 ;;; Commentary:
-;; 
+;;
 ;; I find that I'm not good at tracking when focus changes across
 ;; apps, windows, and within a window. As much as possible, I try to
 ;; have all my applications somehow draw attention to what has
@@ -63,37 +63,54 @@
 
 
 
-(require 'highlight-thing)
-(global-highlight-thing-mode)
-; Alternatively you can use the buffer-local version:
+;; (require 'highlight-thing)
+;; TODO enable
+;; (global-highlight-thing-mode)
+
+                                        ; Alternatively you can use the buffer-local version:
 ; (add-hook 'prog-mode-hook 'highlight-thing-mode)
 ; The default is to highlight the symbol under point, but you can customize hightlight-thing-what-thing to highlight different components. Set the following to only highlight the word under point:
 ; (setq highlight-thing-what-thing 'word)
 (setq highlight-thing-delay-seconds 1.0)
 ; You can configure the matching of occurrences to be case-sensitive via the following setting:
 ; (setq highlight-thing-case-sensitive-p t)
-; If you want all the matches highlighted but not the one occurrence at the point itself, you can do so by:
+
+;; You can limit the highlighting of things to the current defun via the following setting:
+;; (setq highlight-thing-limit-to-defun t)
+;; (setq highlight-thing-limit-to-defun t)
+
+;; You can configure the matching of occurrences to be case-sensitive via the following setting:
+;; (setq highlight-thing-case-sensitive-p t)
+
+;; If you want all the matches highlighted but not the one occurrence at the point itself, you can do so by:
+;; Don't highlight the thing at point itself. Default is nil.
 (setq highlight-thing-exclude-thing-under-point t)
 
- (require 'mic-paren) ; loading
+;; If you want to highlight the current region when active or thing at point when inactive:
+;; (setq highlight-thing-prefer-active-region t)
+
+;; If you want to prevent highlighting certain strings:
+;; (setq highlight-thing-ignore-list '("False" "True"))
+
+(require 'mic-paren) ; loading
      (paren-activate)     ; activating
 	 ; TODO http://emacs.stackexchange.com/questions/5569/disable-mic-paren-in-the-minibuffer-or-at-least-in-ido
 
-;; active and inactive buffer mode-line	 
+;; active and inactive buffer mode-line
 (set-face-attribute  'mode-line
-                 nil 
+                 nil
                  :foreground "gray80"
-                 :background "#258b29" 
-                 ;; :background "#2e8b57" 
+                 :background "#258b29"
+                 ;; :background "#2e8b57"
                  :box '(:line-width 1 :style released-button))
 (set-face-attribute  'mode-line-inactive
-                 nil 
+                 nil
                  :foreground "gray30"
-                 :background "gray15" 
+                 :background "gray15"
                  :box '(:line-width 1 :style released-button))
-(defun after-load-theme() 
+(defun after-load-theme()
   "run after a color theme is loaded using `load-theme'."
-;; comment face	 
+;; comment face
 (set-face-attribute  'font-lock-comment-face nil :foreground "gray55" :background nil )
 (set-face-attribute  'font-lock-comment-delimiter-face nil :foreground "green4")
 (load-file "~/.emacs.d/my-files/config/personal-configs/tabbar-tweaks.el")
@@ -107,17 +124,17 @@
 
 ; (load-file "~/.emacs.d/my-files/config/others/theme-changer.el")
 ; (require 'theme-changer)
-; (setq calendar-location-name "Dallas, TX") 
+; (setq calendar-location-name "Dallas, TX")
 ; (setq calendar-latitude 32.85)
 ; (setq calendar-longitude -96.85)
 ;;; Specify the day and night themes:
-; (change-theme 'solarized-light 'solarized-dark) 
+; (change-theme 'solarized-light 'solarized-dark)
 
 
 ;; <Color theme initialization code>
 (setq current-theme '(color-theme-solarized-light))
 
-(defun cibin/synchronize-theme() 
+(defun cibin/synchronize-theme()
 	(setq now 'spacemacs-dark)
 	(setq hour (string-to-number (substring (current-time-string) 11 13)))
 	(if (member hour (number-sequence 6 12)) (setq now 'spacemacs-light) nil)
@@ -136,18 +153,18 @@
 ;; http://makble.com/how-to-highlight-text-on-selection-in-emacs
 ;; enable to do it with keyboard selection using hooks.
 
-(add-hook 'post-command-hook
-  (lambda ()    
-    (if (use-region-p)
-      (progn
-        (msearch-cleanup)
-        (msearch-set-word (buffer-substring-no-properties (region-beginning)  (region-end)))
-      )
-      (msearch-cleanup)
-    )
-  )
-)
-(msearch-mode 1) 
+;; (add-hook 'post-command-hook
+;;   (lambda ()
+;;     (if (use-region-p)
+;;       (progn
+;;         (msearch-cleanup)
+        ;; (msearch-set-word (buffer-substring-no-properties (region-beginning)  (region-end)))
+;;       )
+;;       (msearch-cleanup)
+;;     )
+;;   )
+;; )
+;; (msearch-mode 1)
 
 
 ;; create custom major modes http://ergoemacs.org/emacs/elisp_syntax_coloring.html
@@ -197,7 +214,7 @@
         (buffer-face-mode t)
         (buffer-face-set 'hard-to-read-font))
     (progn (font-lock-mode t) (buffer-face-mode nil))))
-;; (add-hook 'text-mode-hook (lambda () (hard-to-read-mode t))) 
+;; (add-hook 'text-mode-hook (lambda () (hard-to-read-mode t)))
 
 ;;should be loaded after loading standard library
 ;;    `menu-bar.el'.  So, in your `~/.emacs' file, do this:

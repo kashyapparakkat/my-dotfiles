@@ -2,8 +2,16 @@ function myindexfolders() {
 if [ -z "$1" ]; then
     #display usage if no parameters given
     echo "Usage: cibin index all folders to ~/all_folders.db"
-	find /cygdrive -type d -iname "*" > ~/"all_folders.db"
-   cat ~/"all_folders.db"
+	  # find /cygdrive -type d -iname "*" > ~/"all_folders.db"
+
+    if [ "$machine" == "Windows" ]; then
+        find /cygdrive -type d -iname "*"  > ~/"all_files_unfiltered.db"
+    else
+        # find /home /media/sf_Downloads /mnt/50AE3B39AE3B1746 -type d -iname "*" > ~/"all_folders.db"
+        find /mnt/50AE3B39AE3B1746/Users/cibin/Downloads -type d -iname "*" > ~/"all_folders.db"
+    fi
+
+   # cat ~/"all_folders.db"
    cat ~/"all_folders.db" | sed -r "s/\\/cygdrive\\/(.)\\//\1:\\\\\\\/" | sed -e "s/\\//\\\\\\\/g"  > ~/"all_folders2.db"
 fi
  }

@@ -126,6 +126,8 @@
 
 (define-key evil-visual-state-map   (kbd "f") 'mark-whole-buffer)
 (define-key evil-visual-state-map   (kbd "J") 'evil-visual-block)
+(define-key evil-visual-state-map   (kbd "J") 'rm-set-mark)
+
 ;; triple cycling
 ;; (define-key evil-visual-state-map (kbd "v") 'evil-visual-block)
 ;; TODO for mouse http://emacs.stackexchange.com/questions/7244/enable-emacs-column-selection-using-mouse
@@ -270,7 +272,7 @@
 
 ; text searching
 (cibin/global-set-key '("C-x j" . cibin-search-in-text-files-related-bash))
-(cibin/global-set-key '("C-x e" . cibin-search-in-files-advgrep-here))
+;; (cibin/global-set-key '("C-x e" . cibin-search-in-files-advgrep-here))
 
 ; (global-set-key (kbd "C-x f") (lambda () (interactive)
 ; (file-cache-read-cache-from-file)
@@ -323,7 +325,7 @@
 ; C-x 0/q/M-q=kill buffer & remove window
 ; Q/M-Q=maximize/minimize
 ; C-q
-(global-set-key (kbd "<f4>") (lambda () (interactive) (kill-this-buffer)))
+;; (global-set-key (kbd "<f4>") (lambda () (interactive) (kill-this-buffer)))
 (cibin/global-set-key '("M-q" . kill-buffer-and-if-many-kill-window-too))
 ;; (define-key evil-normal-state-map "q" 'xah-close-current-buffer)
 (define-key evil-normal-state-map "q" 'kill-this-buffer-if-not-modified)
@@ -770,4 +772,22 @@ buffer preview will still display."
 ; (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
   (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
+
+;;TODO  use use-package
+(require 'loccur)
+;; defines shortcut for loccur of the current word
+(define-key global-map (kbd "C-c O c") 'loccur-current)
+
+;; defines shortcut for the interactive loccur command
+(define-key global-map (kbd "C-c O l") 'loccur)
+;; (define-key global-map [(control meta o)] 'loccur)
+
+;; defines shortcut for the loccur of the previously found word
+(define-key global-map (kbd "C-c O p") 'loccur-previous-match)
+;; (define-key global-map [(control shift o)] 'loccur-previous-match)
+
+;; To combine Loccur and isearch functionality (narrowing-search) one can use the following hooks:
+;; (add-hook 'isearch-update-post-hook (lambda () (let ((loccur-mode nil)) (loccur (regexp-quote isearch-string)))))
+
+;; (add-hook 'isearch-mode-end-hook (lambda () (loccur nil)))
 (provide 'starter-kit-bindings)

@@ -6,9 +6,16 @@
 ;(cibin/global-set-key '("<C-f8>" . helm-quickrun))
 (cibin/global-set-key '("<C-f8>" . cibin/eval-this-line))
 (cibin/global-set-key '("<C-f9>" . cbn-debug))
+
 (defun cibin/eval-this-line () (interactive)
        (end-of-line)
-       (call-interactively 'eval-last-sexp)
+(setq c-line (thing-at-point 'line))
+;; (string-match "^\s*;" (strip-text-properties c-line)))
+(if  (string-match-p "^\s*;.*$" (thing-at-point 'line))
+                     ;; (message "if")
+                     (message "comment line")
+(call-interactively 'eval-last-sexp)
+                     )
        (next-line)
 )
 

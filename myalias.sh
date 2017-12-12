@@ -9,7 +9,7 @@
 
 # my custom functions
 # add these to initialise.sh also
-
+LESS="-eirMX"
 function l() {
   less -isNm *.$1
 }
@@ -54,6 +54,7 @@ alias s='prompt_for_s'
 alias sa='searchall'
 alias saf='searchall .|fzy -l 25'
 alias searchfiles='searchfilesraw|fzy -l 20'
+alias searchfolders='cat ~/all_folders2.db|fzy -l 20'
 
 alias sf='searchfiles|open_in_app'
 
@@ -334,3 +335,17 @@ alias z='fasd_cd -d'     # cd, same functionality as j in autojump
 alias zz='fasd_cd -d -i' # cd with interactive selection
 
 alias v='f -e vim' # quick opening files with vim
+
+function emacs(){
+# https://www.emacswiki.org/emacs/EmacsAsDaemon
+    #!/bin/bash
+USERID=`id -u`
+if [ ! -e /tmp/emacs$USERID/server ]
+then
+	echo "Starting server."
+	/etc/init.d/emacs start
+        while [ ! -e "/tmp/emacs$USERID/server" ] ; do sleep 1 ; done
+fi
+
+emacsclient -c "$@"
+}
