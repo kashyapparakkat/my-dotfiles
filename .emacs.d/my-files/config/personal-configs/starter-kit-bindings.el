@@ -788,6 +788,10 @@ buffer preview will still display."
 
 ;; To combine Loccur and isearch functionality (narrowing-search) one can use the following hooks:
 ;; (add-hook 'isearch-update-post-hook (lambda () (let ((loccur-mode nil)) (loccur (regexp-quote isearch-string)))))
-
 ;; (add-hook 'isearch-mode-end-hook (lambda () (loccur nil)))
+
+;; TODO change to C-o or something later
+(define-key ivy-minibuffer-map (kbd "C-c o") 'ivy-occur)
+
+
 (provide 'starter-kit-bindings)

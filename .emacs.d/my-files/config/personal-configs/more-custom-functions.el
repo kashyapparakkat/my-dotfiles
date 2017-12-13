@@ -529,13 +529,14 @@ output as a string."
 (defun jump-to-file-and-line (line)
   ;; also good http://ergoemacs.org/emacs/emacs_open_file_path_fast.html
   ;; https://emacs.stackexchange.com/questions/9485/how-can-i-jump-to-a-file-and-line-number-from-a-list-in-a-buffer
-;; (message (replace-regexp-in-string "\\(\[^:\]*\\):\\(.*\\)" "\\1" "/home/lib.sh:233:hello how are you"))
-  "Reads a line in the form FILEpath:LINE followed by text and, assuming a
-relative path, opens that file in another window and jumps to the
+"(windows & linux path)
+;; Reads a line in the form FILEpath:LINE followed by text and, assuming a
+;; relative path, opens that file in another window and jumps to the
+;; (message (replace-regexp-in-string "\\(\\w?:\[^:\]*\\):\\(.*\\)" "\\1" "/home/lib.sh:233:hello how are you"))
 line."
   (interactive)
                                         ; TODO make colon and column optional
- (string-match "\\(\[^:\]*\\):?\\([0-9]+\\)?\\(.*\\)?" line)
+ (string-match "\\(\\w:?\[^:\]*\\):?\\([0-9]+\\)?\\(.*\\)?" line)
     (let ((file (match-string 1 line))
           (lnum (match-string 2 line)))
 (message file)

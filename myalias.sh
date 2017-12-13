@@ -9,6 +9,8 @@
 
 # my custom functions
 # add these to initialise.sh also
+export LESS="-eirMX"
+
 LESS="-eirMX"
 function l() {
   less -isNm *.$1
