@@ -816,7 +816,8 @@ _
 ("s" cibin/swiper)
 ("y" cibin/ag-files-cwd)
 ("u" cibin-search-in-files-advgrep-here)
- ("q" nil :color blue))
+ ("q" nil :color blue)
+ ("P" nil :color blue))
   (cibin/global-set-key '("M-s" . cibin/search/body))
 (define-key dired-mode-map  (kbd "M-s") 'cibin/search/body)
 
@@ -1073,7 +1074,7 @@ _8_: next _9_: prev      allNext prev
 
 (use-package expand-region
   :config
-  (use-package change-inner)
+  ;; TODO enable when using;; (use-package change-inner)
   (defun ejmr-mark-line ()
     "Mark the current line."
     (interactive)
@@ -1112,13 +1113,15 @@ _8_: next _9_: prev      allNext prev
     ("T" er/mark-outer-tag "Outer Tag")
     ("c" er/mark-comment "Comment")
     ("a" er/mark-html-attribute "HTML Attribute")
-    ("i" change-inner "Inner")
-    ("o" change-outer "Outer")
+    ;; ("i" change-inner "Inner")
+    ("i" nil "Inner")
+    ;; ("o" change-outer "Outer")
+    ("o" nil "Inner")
     ("m" nil "**MORE on sel TEXT**")
     ("." er/expand-region "Expand Region" :exit nil)
     ("," er/contract-region "Contract Region" :exit nil))
 
-    ("Spc" er/expand-region "ter")
+    ;; ("SPC" er/expand-region "ter")
   ; (bind-key "SPC" #'hydra-mark/body ejmr-custom-bindings-map)
   )
 

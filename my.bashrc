@@ -235,9 +235,13 @@ command -v htop >/dev/null 2>&1 && alias top=htop
 # corrects typos (eg: cd /ect becomes cd /etc)
 shopt -s cdspell
 
-export PAGER="/usr/bin/less -isM"
-export LESS="/usr/bin/less -isM"
+export PAGER="/usr/bin/less -isrM"
+#export LESS="/usr/bin/less -isrM"
+export LESS="-isrM"
 
+export LESSOPEN='|pygmentize -g %s' 
+
+ 
 
 #z fuzzy cd completion
 source ~/my-scripts/z/z.sh

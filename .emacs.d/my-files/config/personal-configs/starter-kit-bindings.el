@@ -702,14 +702,14 @@ buffer preview will still display."
 
 (cibin/global-set-key '("M-D" . my-kill-word-at-point))
 (cibin/global-set-key '("C-y" .  yank))
-(cibin/global-set-key '("C-w" .  evil-delete))
+;; (cibin/global-set-key '("C-w" .  evil-delete))
 
 (define-key evil-visual-state-map "\C-y" 'yank)
 
 ;; (define-key evil-normal-state-map "\C-w" 'evil-delete)
 ;; (define-key evil-insert-state-map "\C-w" 'evil-delete)
 (define-key evil-insert-state-map "\C-r" 'search-backward)
-(define-key evil-visual-state-map (kbd "C-w") 'evil-delete)
+;; (define-key evil-visual-state-map (kbd "C-w") 'evil-delete)
 
 
 

@@ -50,11 +50,11 @@
 )
 
 (defun get-related-files ()
-(get-related-files-master 2)
+(get-related-files-master 5)
 )
 
 (defun get-more-related-files ()
-(get-related-files-master 5)
+(get-related-files-master 15)
 )
 
 (defun get-related-files-master (count)
@@ -73,19 +73,29 @@
 	)
 	(setq recent-dirs nil)
 	(setq recent-dirs
-	(delete-dups
-   (mapcar (lambda (file)
+	(delete-dups(mapcar (lambda (file)
                     (if (file-directory-p file) file (file-name-directory file)))
                   recentf-list))
-				  )
-	; FIXME
+  )
+
+                                        ; FIXME
 	; index contents of first level subfolders of this file also
 
                                         ; get first n items only
   ;; (message foldercontent-of-this-file)
 ;; TODO add foldercontent of this file(only directories; nofiles)
   ;; (setq recent-dirs (append foldercontent-of-this-file (last (reverse recent-dirs) 2) ))
-   (setq recent-dirs (append nil (last (reverse recent-dirs) count) ))
+   (setq current-and-recent-dirs (append nil (last (reverse recent-dirs) count) ))
+  ;; (message "length: ")
+(message "%s:"(length recent-dirs))
+;; (message (format "before %s:" current-and-recent-dirs))
+(message (format "before: all buffer paths %s:" (all-buffer-parent-paths)))
+  ;; (setq recent-dirs (delete-dups (append (all-buffer-parent-paths)  current-and-recent-dirs)))
+;; (setq all-buffer-parent-paths (all-buffer-parent-paths))
+(setq recent-dirs (append  (all-buffer-parent-paths)  current-and-recent-dirs))
+;; (message (format "after %s==:" recent-dirs))
+;; (message (format "after %s:" recent-dirs))
+;; (length recent-dirs)
 
     ;; (dolist (file recent-dirs)
 ;; (message "test dir: ")
@@ -99,11 +109,11 @@
 	   ;; (message (format "%s exists  %s" dir (file-exists-p dir)))
 		(when (file-exists-p dir)
 		; "^\\([^.]\\|\\.[^.]\\|\\.\\..\\)"
-;; (message "test3")
 			(setq foldercontent (directory-files dir t regex-filter))
 			(setq all-recent-dirs-foldercontent (append all-recent-dirs-foldercontent foldercontent))
 		)
 	)
+(message "test3")
 	; remove dead entries to prevent runtime error
 	(setq recentf-list-new nil)
 	(dolist (file recentf-list)
@@ -133,7 +143,8 @@
 	"Find a recent file using ido."
 	(interactive)
 
-	(setq all-files (get-related-files))
+	;; (setq all-files (get-related-files))
+	(setq all-files (get-more-related-files))
   (setq prompt (format  "Related Files (%s): " (safe-length all-files)))
                                         ; (message "%s" all-files)
   ;; this ido-completing-read also  works
@@ -161,7 +172,8 @@
 )
 
 (defun cibin-search-in-common-files-bash()
-	(interactive)
+       (interactive)
+
 
 	(setq prompt "grepfilelist_common.sh  searchTerm: ")
 	(setq default (format "grepfilelist_common.sh "))
@@ -529,14 +541,15 @@ output as a string."
 (defun jump-to-file-and-line (line)
   ;; also good http://ergoemacs.org/emacs/emacs_open_file_path_fast.html
   ;; https://emacs.stackexchange.com/questions/9485/how-can-i-jump-to-a-file-and-line-number-from-a-list-in-a-buffer
-"(windows & linux path)
+;; (windows & linux path)
 ;; Reads a line in the form FILEpath:LINE followed by text and, assuming a
 ;; relative path, opens that file in another window and jumps to the
 ;; (message (replace-regexp-in-string "\\(\\w?:\[^:\]*\\):\\(.*\\)" "\\1" "/home/lib.sh:233:hello how are you"))
-line."
+;; line."
   (interactive)
+(message "test")
                                         ; TODO make colon and column optional
- (string-match "\\(\\w:?\[^:\]*\\):?\\([0-9]+\\)?\\(.*\\)?" line)
+ (string-match "\\(\[^:\]*\\):?\\([0-9]+\\)?\\(.*\\)?" line)
     (let ((file (match-string 1 line))
           (lnum (match-string 2 line)))
 (message file)
@@ -549,6 +562,8 @@ line."
 (message (format "file %s doesn't exist" file))
         )
 ))
-
+;; (message "testing.")
+ ;; (jump-to-file-and-line "/home/cibin/.bashrc")
+;; (setq line "/home/cibin/.bashrc")
 
 (provide 'more-custom-functions)

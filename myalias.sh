@@ -7,11 +7,12 @@
 # some are from https://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html
 # explore more for better ones
 
+# add this to windows also if possible
+# emacs send signal to emacs to turn on debug on quit
+alias emacsd='pkill -SIGUSR2 emacs'
 # my custom functions
 # add these to initialise.sh also
-export LESS="-eirMX"
 
-LESS="-eirMX"
 function l() {
   less -isNm *.$1
 }
@@ -93,7 +94,7 @@ alias glog="git log --graph --pretty='format:%C(red)%d%C(reset) %C(yellow)%h%C(r
 # git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 # git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 # alias gl='git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative && git log --name-status'
-
+#alias git='tig'
 alias gdf='git diff --name-only && git diff'
 # alias gcm='git commit -a -m'
 function gcm(){
