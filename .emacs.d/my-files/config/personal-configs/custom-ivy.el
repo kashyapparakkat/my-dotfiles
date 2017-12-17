@@ -42,13 +42,13 @@ INITIAL-INPUT can be given as the initial minibuffer input."
 
 (global-set-key (kbd "C-x R") (lambda () (interactive) (counsel-find "snf(C-x R) " "bash -ic 'searchnotes . |fzy -e%s|head -n 50' 2>/dev/null" )))
 
-(global-set-key (kbd "C-x R") (lambda () (interactive) (counsel-find "sf(C-x T) " "bash -ic 'searchfilesraw|convert_path_to_windows_forward|fzy -e%s|head -n 50' 2>/dev/null" )))
+(global-set-key (kbd "C-x U") (lambda () (interactive) (counsel-find "sf(C-x U) " "bash -ic 'searchfilesraw|convert_path_to_windows_forward|fzy -e%s|head -n 50' 2>/dev/null" )))
 
 (global-set-key (kbd "C-x T") (lambda () (interactive) 	(save-related-files-to-disk)
- (counsel-find "grepp " "bash -ic 'grepfilelist_related %s|convert_path_to_windows_forward|head -n 50' 2>/dev/null" )))
+ (counsel-find "grep relatedfiles(C-x T) " "bash -ic 'grepfilelist_related %s|convert_path_to_windows_forward|head -n 50' 2>/dev/null" )))
 
 (global-set-key (kbd "C-x L") (lambda () (interactive) 	(save-more-related-files-to-disk)
- (counsel-find "more grepp " "bash -ic 'grepfilelist_related %s|convert_path_to_windows_forward|head -n 50' 2>/dev/null" )))
+ (counsel-find "more grep relatedfiles (C-x L)" "bash -ic 'grepfilelist_related %s|convert_path_to_windows_forward|head -n 50' 2>/dev/null" )))
 
 (defun counsel-find-function (str)
   "called by counsel-find"

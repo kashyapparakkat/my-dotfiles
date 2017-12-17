@@ -288,7 +288,12 @@ function run_grepfilelist() {
 		  # echo "$filename"
       # TODO enable errors or will go missings unnoticed
      # TODO enable perl regex -P
-		grep -nIi $1 -s --color=auto  "$filename"  /dev/null;
+      if [[ $(find "$filename" -type f -size -512k 2>/dev/null) ]]; then
+		      grep -nIi $1 -s --color=auto  "$filename"  /dev/null;
+      else
+          echo "$filename !!!! is LARGE to search for $1"
+fi
+		# grep -nIi $1 -s --color=auto  "$filename"  /dev/null;
 		# grep -PnIi $1 -s --color=auto  "$filename"  /dev/null;
 	done < "$HOME"/.emacs.d/my-files/emacs-tmp/filelist2.txt
 }

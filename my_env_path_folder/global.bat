@@ -1,0 +1,1 @@
+C:\cbn_gits\my_env_path_folder\glo656wb\bin\global.exe %1

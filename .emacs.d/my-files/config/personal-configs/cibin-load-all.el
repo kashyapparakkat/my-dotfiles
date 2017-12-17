@@ -1,5 +1,9 @@
 (message "loading cbn-load-all")
-
+;;
+;; create essential initial configs
+	(if (file-exists-p "~/.emacs.d/my-files/emacs-tmp")
+nil
+(make-directory "~/.emacs.d/my-files/emacs-tmp"))
 ;;; TODO use-package for quickrun
 ; (load-file "~/.emacs.d/my-files/config/others/emacs-quickrun-master/quickrun.el")
 ; (use-package quickrun

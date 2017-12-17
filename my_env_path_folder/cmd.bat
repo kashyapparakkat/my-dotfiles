@@ -1,0 +1,1 @@
+C:\Windows\System32\cmd.exe /k C:\cbn_gits\my_env_path_folder\alias.cmd

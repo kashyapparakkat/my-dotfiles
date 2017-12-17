@@ -31,14 +31,19 @@
         ))
     (message "opening ido prompt")
   (let ((file
-  (ido-completing-read "choose? " (list "C:/Program Files (x86)/Python35-32/python.exe"
+  (ido-completing-read "choose? " (delq nil (remove-non-existent-paths (list "C:/Program Files (x86)/Python35-32/python.exe"
   (format "C:/Users/%s/AppData/Local/Programs/Python/Python35-32/python.exe" user-login-name)
   (format "C:/Users/%s/AppData/Local/Continuum/Anaconda3_32/python.exe" user-login-name)
   (format "C:/Users/%s/AppData/Local/Continuum/Anaconda3_1/python.exe" user-login-name)
   "/usr/bin/python"
+  "/home/cibin/anaconda2/bin/python"
+  "/home/212576716/anaconda2/bin/python"
+  "/home/cibin/anaconda3/bin/python"
+  "/home/212576716/anaconda3/bin/python"
   "C:/Python27/python.exe"
   (format "C:/Users/%s/AppData/Local/Continuum/Anaconda2/python.exe" user-login-name)
-  ))))
+  )
+                                                             ) ))))
     (when file
 (setq python-shell-interpreter  file)
 (message "%s" python-shell-interpreter)))
@@ -165,6 +170,7 @@
 	(interactive)
 
 	(setq prompt "grepfilelist_related(searches in all related files) searchTerm: ")
+	(setq default (format "~/my_env_path_auto_generated_folder/grepfilelist_related.sh "))
 	(setq default (format "grepfilelist_related.sh "))
 	(save-related-files-to-disk)
 	(search-handler prompt default)
@@ -214,7 +220,9 @@
 	(setq file "~/.emacs.d/my-files/emacs-tmp/filelist.txt")
 	(when (file-exists-p file)
 		(delete-file file))
-)
+  ; create dummy file
+  ;; (write-region "" nil file)
+  )
 
 (defun search-handler (prompt default)
 	(setq cmd-str (read-from-minibuffer prompt default))
@@ -565,5 +573,73 @@ output as a string."
 ;; (message "testing.")
  ;; (jump-to-file-and-line "/home/cibin/.bashrc")
 ;; (setq line "/home/cibin/.bashrc")
+
+
+
+
+;; all filepaths
+;; remove duplicates
+;; get parent paths if filename of list
+
+;; (message (mapconcat (function buffer-file-name) (buffer-list) " "))
+(defun all-buffer-paths()
+  (interactive)
+(setq all-filepaths (mapcar
+                 (lambda(file)
+                   (if
+                       (buffer-file-name file)
+                       ;; (file-directory-p (buffer-file-name file))
+                       ;; file
+                       ;; (file-name-directory
+                       (buffer-file-name file)
+                     ;; )
+                     nil ;;
+                     )
+                 )
+                   (buffer-list)
+           )
+      )
+)
+(defun all-buffer-parent-paths()
+  (interactive)
+ ; remove nils & remove duplicates
+(setq all-filepaths (delete-dups (delq nil (all-buffer-paths))))
+
+
+(setq all-valid-filepaths (mapcar
+                             (lambda(file)
+   (if (file-directory-p file)
+       file
+     (file-name-directory file)
+     )
+   ) all-filepaths )
+      )
+;; (message "%s" all-valid-filepaths)
+)
+
+;; (message "%s" (remove-non-existent-paths all-filepaths))
+
+(defun return-first-existing-path(list)
+
+  (car (remove-non-existent-paths list))
+  )
+
+(defun remove-non-existent-paths(list)
+  (interactive)
+;; (message "%s" list)
+  (setq all-valid-filepaths (mapcar
+                             (lambda(file)
+                               (message "%s " file)
+                   (if
+                       (file-exists-p file)
+                       ;; (file-directory-p (buffer-file-name file))
+                       file
+                     ;; (file-name-directory (buffer-file-name file))
+                     nil ;;
+                     )
+                 ) (delq nil list) )
+      )
+)
+
 
 (provide 'more-custom-functions)
