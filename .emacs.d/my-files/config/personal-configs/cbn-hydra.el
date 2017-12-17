@@ -790,7 +790,7 @@ _
  _/_: my-multi-occur-in-matc..    _b_: cibin/helm-do-ag-cwd(all ext)              _l_: cibin-search-in-text-files-related-bash
  _o_: occur                       _y_: cibin/ag-files-cwd (ext\? dir\\?)
  _j_: helm-ag                     _w_: ag-files                                   _p_: cibin/helm-do-ag-All-Project
- _s_: swiper                      _k_: cibin/helm-do-ag-search-in-similar-here                                                _P_: ag-project-at-point
+ _s_: swiper                      _k_: helm-do-ag-search in similar here                                                _P_: ag-project-at-point
 --------------------
 "
 ;; TODO ;; (cibin/global-set-key '("M-s r" . )) ; recurse

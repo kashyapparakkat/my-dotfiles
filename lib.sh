@@ -291,7 +291,7 @@ function run_grepfilelist() {
       if [[ $(find "$filename" -type f -size -512k 2>/dev/null) ]]; then
 		      grep -nIi $1 -s --color=auto  "$filename"  /dev/null;
       else
-          echo "$filename !!!! is LARGE to search for $1"
+          echo "$filename                                                   !!!! is LARGE to search for $1"
 fi
 		# grep -nIi $1 -s --color=auto  "$filename"  /dev/null;
 		# grep -PnIi $1 -s --color=auto  "$filename"  /dev/null;
@@ -654,3 +654,5 @@ function searchproject () {
 	lfind "$dir" -iname "*.$arg" -exec  ag -i --noheading --numbers --filename --color --color-match "2;46" $* {} +
 
 }
+
+# file ends here
