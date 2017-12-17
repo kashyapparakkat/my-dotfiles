@@ -624,11 +624,14 @@ buffer preview will still display."
 ; by flyspell-auto-correct-word. And goto-last-change needs a really
 ; fast key.
 ; ensure that even in worst case some goto-last-change is available
-; (global-set-key [(control meta .)] 'goto-last-change)
+(global-set-key [(control meta .)] 'goto-last-change)
+(global-set-key (kbd "C-.") 'goto-last-change)
+(global-set-key (kbd "C->") 'goto-last-change-reverse)
+(global-set-key [(control meta shift .)] 'goto-last-change-reverse)
 
 
 
-
+; TODO
 ;C-./> last-change
 ;C-, = zap
 ; C-< = zap upto

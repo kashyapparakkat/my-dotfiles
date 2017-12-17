@@ -783,14 +783,14 @@ _
 (defhydra cibin/search (:color blue
                                :hint nil)
   "
- project|| directory |    ^All buffers  ^                     ^All^                                             ^bash^
-^^^^^^^^^^--------                -----------------------------------------------------------------------------------------------------------
+  buffer/file                    directory                                ^All buffers  ^                     ^All^                                             ^bash^
+^^^^^^^^^^-------------------------------------------------------------------------------------------------------------------------------------------
  _a_: swiper-all                  _r_: cibin/helm-do-ag-Extension-recurse-cwd     _u_: cibin-search-in-files-advgrep-here        _q_: quit
  _d_: helm-do-ag-this-file        _h_: cibin/helm-do-ag-Ext'n-here-cwd    	      _c_: cibin-search-in-common-files-bash
  _/_: my-multi-occur-in-matc..    _b_: cibin/helm-do-ag-cwd(all ext)              _l_: cibin-search-in-text-files-related-bash
  _o_: occur                       _y_: cibin/ag-files-cwd (ext\? dir\\?)
  _j_: helm-ag                     _w_: ag-files                                   _p_: cibin/helm-do-ag-All-Project
- _s_: swiper                                                                      _P_: ag-project-at-point
+ _s_: swiper                      _k_: cibin/helm-do-ag-search-in-similar-here                                                _P_: ag-project-at-point
 --------------------
 "
 ;; TODO ;; (cibin/global-set-key '("M-s r" . )) ; recurse
@@ -808,6 +808,8 @@ _
 ("l" cibin-search-in-text-files-related-bash)
 ("o" occur)
 
+("k" cibin/helm-do-ag-search-in-similar-here)
+
 ("p" ag-project-at-point)
 
 ("w" ag-files) ; advanced (string file-type directory))
@@ -816,8 +818,9 @@ _
 ("s" cibin/swiper)
 ("y" cibin/ag-files-cwd)
 ("u" cibin-search-in-files-advgrep-here)
- ("q" nil :color blue)
- ("P" nil :color blue))
+("q" nil :color blue)
+("P" nil :color blue)
+)
   (cibin/global-set-key '("M-s" . cibin/search/body))
 (define-key dired-mode-map  (kbd "M-s") 'cibin/search/body)
 

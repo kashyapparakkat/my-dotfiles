@@ -48,12 +48,21 @@ If called with a prefix, prompts for flags to pass to ag."
       (error "Could not find the project root. Create a git, hg, or svn repository there first. "))
     (helm-do-ag rootdir )
     ))
+(defun cibin/helm-do-ag-search-in-similar-here()
+  (interactive)
+                                        ; TODO search similar
+  ; TODO support regex also without regex
+  (cibin/helm-do-ag-Extension-here-cwd nil "\.(txt|org)$")
+)
 
 ;; TODO  query parameter added on helm-do-ag-fork-modified.el functionality
-(defun cibin/helm-do-ag-Extension-here-cwd (&optional query)
+(defun cibin/helm-do-ag-Extension-here-cwd (&optional query extension-regex recurse)
   (interactive)
-  (setq helm-ag-command-option (concat "-n -G" (get-file-extension)  "$"))
-  (let ((rootdir (return-source-path)))
+  ;; (message extension-regex)
+  (setq ext (if (eq extension-regex nil) (format "\\.%s$" (get-file-extension)) extension-regex))
+  (setq params (if (eq recurse nil) "-n" ""))
+  (setq helm-ag-command-option (concat params " -G" ext))
+  (let ((rootdir (return-source-path)))()
     (unless rootdir
       (error "Could not find the project root. Create a git, hg, or svn repository there first. "))
     (helm-do-ag rootdir nil query)))

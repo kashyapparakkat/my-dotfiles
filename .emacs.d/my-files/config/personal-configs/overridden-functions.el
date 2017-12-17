@@ -16,7 +16,7 @@
                            (swiper-all-action (ivy-state-current ivy-last)))
               :dynamic-collection t
               :keymap swiper-all-map
-             
+
                  :initial-input initial-input
               :caller 'swiper-multi)))
 
