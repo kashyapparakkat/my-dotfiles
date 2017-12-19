@@ -27,9 +27,9 @@
 
 
 (load "server")
-	(server-start)
+	;; (server-start)
 ; TODO
-; (unless (server-running-p) (server-start))
+(unless (server-running-p) (server-start))
 (use-package server
 :defer t)
 ;(require 'server)
@@ -203,7 +203,7 @@
 
 
 
-;; TODO disabled for now 
+;; TODO disabled for now
 ; (cd (format "%s/Downloads" Universal_home))
 
 

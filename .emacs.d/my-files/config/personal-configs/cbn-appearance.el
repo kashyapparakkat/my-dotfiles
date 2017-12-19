@@ -63,9 +63,9 @@
 
 
 
-;; (require 'highlight-thing)
+(require 'highlight-thing)
 ;; TODO enable
-;; (global-highlight-thing-mode)
+(global-highlight-thing-mode)
 
                                         ; Alternatively you can use the buffer-local version:
 ; (add-hook 'prog-mode-hook 'highlight-thing-mode)
@@ -138,8 +138,9 @@
 	(setq now 'spacemacs-dark)
 	(setq hour (string-to-number (substring (current-time-string) 11 13)))
 	(if (member hour (number-sequence 6 12)) (setq now 'spacemacs-light) nil)
-	(if (member hour (number-sequence 12 17)) (setq now 'solarized-light) nil)
-	(if (member hour (number-sequence 18 19)) (setq now 'solarized-dark) nil)
+	(if (member hour (number-sequence 12 15)) (setq now 'whiteboard) nil)
+	(if (member hour (number-sequence 16 18)) (setq now 'solarized-light) nil)
+	(if (member hour (number-sequence 19 23)) (setq now 'solarized-dark) nil)
 
 	(message (format "new theme is %s" now))
 	(if (eq now current-theme)
@@ -153,18 +154,20 @@
 ;; http://makble.com/how-to-highlight-text-on-selection-in-emacs
 ;; enable to do it with keyboard selection using hooks.
 
-;; (add-hook 'post-command-hook
-;;   (lambda ()
-;;     (if (use-region-p)
-;;       (progn
-;;         (msearch-cleanup)
-        ;; (msearch-set-word (buffer-substring-no-properties (region-beginning)  (region-end)))
-;;       )
-;;       (msearch-cleanup)
-;;     )
-;;   )
-;; )
-;; (msearch-mode 1)
+(add-hook 'post-command-hook 'highlight-selection)
+
+(defun highlight-selection ()
+    (if (and (use-region-p) (< 1 (how-many "[^\s]" (region-beginning) (region-end))))
+    ;; (if (use-region-p)
+      (progn
+        (msearch-cleanup)
+        (msearch-set-word (buffer-substring-no-properties (region-beginning)  (region-end)))
+      )
+      (msearch-cleanup)
+    )
+  )
+
+(msearch-mode 1)
 
 
 ;; create custom major modes http://ergoemacs.org/emacs/elisp_syntax_coloring.html
@@ -224,5 +227,19 @@
 (setq indicate-buffer-boundaries t)
 
 ;; (setq-default indicate-empty-lines t)
+
+;; https://www.emacswiki.org/emacs/GlobalTextScaleMode
+(define-globalized-minor-mode
+    global-text-scale-mode
+    text-scale-mode
+    (lambda () (text-scale-mode 1)))
+
+  (defun global-text-scale-adjust (inc) (interactive)
+    (text-scale-set 1)
+    (kill-local-variable 'text-scale-mode-amount)
+    (setq-default text-scale-mode-amount (+ text-scale-mode-amount inc))
+    (global-text-scale-mode 1)
+  )
+
 
 (provide 'cbn-appearance)

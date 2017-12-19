@@ -236,6 +236,9 @@
 (define-key global-map [C-mouse-wheel-down-event] 'cibin/text-scale-decrease)
 (define-key global-map (kbd "C-+") 'cibin/text-scale-increase)
 (define-key global-map (kbd "C--") 'cibin/text-scale-decrease)
+(defun cibin/global-text-scale-reset () (interactive) (global-text-scale-adjust (- text-scale-mode-amount)) (global-text-scale-mode 1))
+(defun cibin/global-text-scale-decrease () (interactive) (global-text-scale-adjust -.2))
+(defun cibin/global-text-scale-increase () (interactive) (global-text-scale-adjust .2))
 (defun cibin/text-scale-increase () (interactive) (text-scale-increase .4))
 (defun cibin/text-scale-decrease () (interactive) (text-scale-decrease .4))
 

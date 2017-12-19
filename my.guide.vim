@@ -18,7 +18,7 @@ let g:lmap.f = { 'name' : 'File Menu' }
   let g:lmap.f.t = ['Vexplore', 'Open File Tree View']
 
 
-call leaderGuide#register_prefix_descriptions("<Space>", "g:lmap") 
+" call leaderGuide#register_prefix_descriptions("<Space>", "g:lmap")
 nnoremap <silent> <leader> :<c-u>LeaderGuide '<Space>'<CR>
 vnoremap <silent> <leader> :<c-u>LeaderGuideVisual '<Space>'<CR>
 
@@ -34,7 +34,7 @@ vnoremap <localleader> :<c-u>LeaderGuideVisual  ','<CR>
 " Group names can be defined by filetype. Add the following lines:
 let g:llmap = {}
 autocmd FileType tex let g:llmap.l = { 'name' : 'vimtex' }
-call leaderGuide#register_prefix_descriptions(",", "g:llmap")
+" call leaderGuide#register_prefix_descriptions(",", "g:llmap")
 " to name the <localleader>-n group vimtex in tex files.
 
 
@@ -43,11 +43,11 @@ let g:olmap = {}
 
 let g:olmap.a=['Ag', 'ag search']
 
-call leaderGuide#register_prefix_descriptions("o", "g:olmap") 
+" call leaderGuide#register_prefix_descriptions("o", "g:olmap")
 nnoremap <silent> o :<c-u>LeaderGuide 'o'<CR>
 
 let g:glmap = {}
-call leaderGuide#register_prefix_descriptions("g", "g:glmap") 
+" call leaderGuide#register_prefix_descriptions("g", "g:glmap")
 nnoremap <silent> g :<c-u>LeaderGuide 'g'<CR>
 
 
@@ -126,6 +126,6 @@ if has('mac')
     let g:lmap.d=['Dash', 'Dash search']
 endif
 
-call leaderGuide#register_prefix_descriptions("\\", "g:lmap")
+" call leaderGuide#register_prefix_descriptions("\\", "g:lmap")
 nnoremap <silent> <leader> :<c-u>LeaderGuide '<leader>'<CR>
 vnoremap <silent> <leader> :<c-u>LeaderGuideVisual '<leader>'<CR>

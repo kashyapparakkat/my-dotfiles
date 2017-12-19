@@ -756,9 +756,9 @@ _z_: eol unix/win
   ;; (:color red
                                ;; :hint nil)
   "
-^BUFFER^   ^FRAME^    ^ACTION^
-_f_: +     _T_: +     _0_: reset
-_d_: -     _S_: -     _q_: quit
+^BUFFER^   ^FRAME^    ^ACTION^      ALL
+_f_: +     _T_: +     _0_: reset    _h_: +
+_d_: -     _S_: -     _q_: quit     _g_: -
 _
 "
 ;; make the help more beautiful
@@ -770,10 +770,10 @@ _
   ("f" cibin/text-scale-increase "in")
   ("g" cibin/text-scale-increase "in")
   ("=" cibin/text-scale-increase "in")
-  ("h" cibin/text-scale-increase "global in")
+  ("h" cibin/global-text-scale-increase "global in")
   ("l" cibin/text-scale-decrease "out")
   ("d" cibin/text-scale-decrease "out")
-  ("g" cibin/text-scale-decrease "global out")
+  ("g" cibin/global-text-scale-decrease "global out")
   ("-" cibin/text-scale-decrease "out"))
 ;; TODO https://www.emacswiki.org/emacs/GlobalTextScaleMode
   (cibin/global-set-key '("C-x -" . cibin/hydra-zoom/body))

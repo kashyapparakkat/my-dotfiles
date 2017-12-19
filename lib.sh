@@ -533,7 +533,8 @@ foo()
 }
 
 function searchcommands() {
-cat "$cbn_git_path/cbn_gits/AHK/popular_commands.db"|fzy -l 20
+# cat "$cbn_git_path/cbn_gits/AHK/popular_commands.db"|fzy -l 20
+cat "$Universal_home/popular_commands.db"|fzy -l 20
 
 }
 # https://www.ibm.com/developerworks/library/l-bash-parameters/index.html

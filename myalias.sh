@@ -97,7 +97,13 @@ alias glog="git log --graph --pretty='format:%C(red)%d%C(reset) %C(yellow)%h%C(r
 #alias git='tig'
 alias gdf='git diff --name-only && git diff'
 # alias gcm='git commit -a -m'
+#git commit message
 function gcm(){
+  echo "git diff --name-only && git commit   && git push"
+  git diff --name-only && git commit -am "$*" && git log --name-status
+}
+         # git commit push
+function gcp(){
   echo "git diff --name-only && git commit   && git push"
   git diff --name-only && git commit -am "$*" && git push && git log --name-status
 }
