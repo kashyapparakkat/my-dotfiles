@@ -115,7 +115,8 @@ git-timemachine
 	keyfreq
 	drag-stuff
 	ob-restclient
-	vdiff
+vdiff
+mc-extras
 	quick-preview
 	visible-mark
 	corral

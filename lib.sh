@@ -1,6 +1,6 @@
 #!/usr/bin/sh
 
-# TODO
+# ToDO
 # functions: convert to linux path;windows path;cygwinpath;windowsubuntupath
 # good tuts on arrays http://www.thegeekstuff.com/2010/06/bash-array-tutorial
 # array:
@@ -32,7 +32,7 @@ DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
 source ~/myalias.sh
 source ~/set_defaults.sh
-
+source ~/platform-independent-package-installer.sh
 # script_name=$0
 # echo $script_name
 # script_full_path=$(dirname "$0")
@@ -655,5 +655,16 @@ function searchproject () {
 	lfind "$dir" -iname "*.$arg" -exec  ag -i --noheading --numbers --filename --color --color-match "2;46" $* {} +
 
 }
-
+function save()
+{
+arg=$(return_arg_or_piped_input $*)
+    # read -r  #</dev/tty
+    echo -e "\n">>~/persist_commands.sh
+    echo "$arg">>~/persist_commands.sh
+}
+persist_file=~/persist_commands.sh
+if [ ! -e "$persist_file" ] ; then
+    touch "$persist_file"
+fi
+source ~/persist_commands.sh
 # file ends here

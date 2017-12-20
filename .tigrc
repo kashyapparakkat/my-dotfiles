@@ -97,8 +97,9 @@ set ignore-space		= no		# Enum: no, all, some, at-eol (diff)
 set show-notes			= yes		# When non-bool passed as `--show-notes=...` (diff)
 #set diff-context		= 3		# Number of lines to show around diff changes (diff)
 #set diff-options		= -C		# User-defined options for `tig show` (git-diff)
-#set diff-highlight		= true		# String (or bool): Path to diff-highlight script,
-						#                   defaults to `diff-highlight`.
+set diff-highlight		= true		# String (or bool): Path to diff-highlight script,
+						                  # defaults to `diff-highlight`.
+# set diff-highlight		= diff-highlight
 #set blame-options		= -C -C -C	# User-defined options for `tig blame` (git-blame)
 #set log-options		= --pretty=raw	# User-defined options for `tig log` (git-log)
 #set main-options		= -n 1000	# User-defined options for `tig` (git-log)
@@ -459,4 +460,5 @@ set git-colors = \
 bind generic E !git difftool --tool=vimdiff --no-prompt --trust-exit-code %(commit)^!
 # r was binded to reference ; use a diff config for this session
 # also use a similar one in tigrc when called from ranger
-bind generic r <ranger --selectfile="%(file)"
+# bind generic r <ranger --selectfile="%(file)"
+bind generic r <sh -c ". ~/.bashrc;fcoc_preview"

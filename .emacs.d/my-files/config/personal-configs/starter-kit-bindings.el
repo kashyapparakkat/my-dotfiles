@@ -707,6 +707,7 @@ buffer preview will still display."
 
 
 (cibin/global-set-key '("M-D" . my-kill-word-at-point))
+(cibin/global-set-key '("C-x M-n" . set-goal-column))
 (cibin/global-set-key '("C-y" .  yank))
 ;; (cibin/global-set-key '("C-w" .  evil-delete))
 
@@ -761,28 +762,44 @@ buffer preview will still display."
 ; (cibin/global-set-key '("C-c M-d" . fc/delete-space))
 
 ;; multiple cursors
+  (global-set-key (kbd "C-M-S-n") nil)
  (use-package multiple-cursors
 :defer t
 :config
 (progn
 
-  (define-key mc/keymap (kbd "ESC") 'mc/keyboard-quit)
+(define-key mc/keymap (kbd "ESC") 'mc/keyboard-quit)
 (define-key mc/keymap (kbd "C-g") 'mc/keyboard-quit)
 (define-key mc/keymap (kbd "C-a") 'move-beginning-of-line)
+;; (define-key mc/keymap (kbd "C-M-S-n") nil)
+(define-key mc/keymap (kbd "C-M-S-n") 'mc/mark-next-lines)
+(define-key mc/keymap (kbd "C-S-n") 'mc/mark-next-like-this)
+))
 
+(use-package mc-extras
+:defer t
+:config
+(progn
+
+(define-key mc/keymap (kbd "C-. <") 'mc/mark-all-above)
+(define-key mc/keymap (kbd "C-. >") 'mc/mark-all-below)
 ))
 
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 ;; When you want to add multiple cursors not based on continuous lines, but based on keywords in the buffer, use:
-      ;; (global-set-key (kbd "C->") 'mc/mark-next-like-this)
+  (global-set-key (kbd "C-M-S-n") 'mc/mark-next-lines)
+  (global-set-key (kbd "C-S-n") 'mc/mark-next-like-this)
 ; (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
   (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+  (global-set-key (kbd "C-S-a") 'mc/mark-all-like-this)
 
 
 ;;TODO  use use-package
 (require 'loccur)
 ;; defines shortcut for loccur of the current word
 (define-key global-map (kbd "C-c O c") 'loccur-current)
+(define-key global-map (kbd "C-c O h") 'hide-lines)
+(define-key global-map (kbd "C-c O a") 'hide-lines-show-all)
 
 ;; defines shortcut for the interactive loccur command
 (define-key global-map (kbd "C-c O l") 'loccur)

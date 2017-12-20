@@ -1132,6 +1132,7 @@ _8_: next _9_: prev      allNext prev
 
 (define-key evil-normal-state-map  "t" 'hydra-mark/body)
 (define-key evil-visual-state-map   (kbd "t") 'hydra-mark/body)
+(global-set-key (kbd "C-=") 'hydra-mark/body)
 
 
 

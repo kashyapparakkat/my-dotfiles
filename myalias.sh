@@ -60,12 +60,13 @@ alias searchfiles='searchfilesraw|fzy -l 20'
 alias searchfolders='cat ~/all_folders2.db|fzy -l 20'
 
 alias sf='searchfiles|open_in_app'
-
+alias sf='searchfilesraw|fzf --preview "head -100 {}"'
 
 alias scf='searchcommands|clip'
 alias sn='searchnotes'
 alias sNf='searchnotes -m 5 .|fzy -l 25|open_in_app' # sn fuzzy
 alias snf='searchnotes .|fzy -l 25|open_in_app' # sn fuzzy
+alias snf='searchnotes .|fzf --preview "head -100 {}"'
 
 alias spf='searchproject .|fzy -l 25' # sp fuzzy
 alias sp='searchproject'
@@ -358,3 +359,39 @@ fi
 
 emacsclient -c "$@"
 }
+
+
+# https://github.com/junegunn/fzf/wiki/Examples#git
+PATH=$PATH:~/diff-so-fancy-master
+alias glNoGraph='git log --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr% C(auto)%an" "$@"'
+hhh="echo {} | grep -o '[a-f0-9]\{7\}' | head -1| xargs -I % sh -c 'git show --color=always % | diff-so-fancy'"
+
+
+# fcoc_preview - checkout git commit with previews
+fcoc_preview() {
+  local commit
+  commit=$( glNoGraph |
+    fzf --no-sort --reverse --tiebreak=index --no-multi \
+            --ansi --preview 'echo {} | grep -o "[a-f0-9]\{7\}" | head -1| xargs -I % sh -c "git show --color=always % |diff-so-fancy"')      &&
+  git checkout $(echo "$commit" | sed "s/ .*//")
+}
+
+
+# fshow_preview - git commit browser with previews
+fshow_preview() {
+    glNoGraph |
+        fzf --no-sort --reverse --tiebreak=index --no-multi \
+            --ansi --preview 'echo {} | grep -o "[a-f0-9]\{7\}" | head -1| xargs -I % sh -c "git show --color=always % |diff-so-fancy"'
+                --header "enter to view, alt-y to copy hash" \
+                --bind "enter:execute:$_viewGitLogLine   | less -R" \
+                --bind "alt-y:execute:$_gitLogLineToHash | xclip"
+}
+
+#### diff highlight
+# TODO sometimes it is needed per repo
+git config pager.log 'diff-highlight | less -r'
+git config pager.show 'diff-highlight | less -r'
+git config pager.diff 'diff-highlight | less -r'
+# That covers almost everything, but there's one spot missing: diffs shown by the interactive patch-staging tool (you are using interactive
+# staging, right?). In Git 2.9, you can now ask it to filter the diffs it shows through any script you like:
+git config interactive.diffFilter diff-highlight

@@ -12,7 +12,7 @@
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
 
-(setq ivy-count-format "%d/%d ") 
+(setq ivy-count-format "%d/%d ")
 (setq ivy-display-style 'fancy)
 ;;advise swiper to recenter on exit . The other tweak I have made is to get swiper to recenter the display when it exits – I found it a little unpredictable where the point was going to be after I finished swiper. This is done with a little bit of advice
 (defun bjm-swiper-recenter (&rest args)
@@ -52,15 +52,22 @@
   ;; (define-key evil-normal-state-map (kbd "9") 'evil-search-word-backward)
   (define-key evil-normal-state-map (kbd "*")
     (lambda () (interactive) (swiper (format "\\<%s\\>" (thing-at-point 'symbol)))))
-  (define-key evil-normal-state-map (kbd "#")
-    (lambda () (interactive) (swiper (format "\\<%s\\>" (thing-at-point 'word)))))
-	
+  (define-key evil-normal-state-map (kbd "#") 'cibin/xref-find)
+(cibin/global-set-key '("C-M-?" . cibin/xref-find)	)
 
+(defun cibin/xref-find (&optional arg)
+;; http://ergoemacs.org/emacs/elisp_universal_argument.html
+  (interactive "P")
+(setq search-term (thing-at-point 'word))
+(if (equal current-prefix-arg nil) ; no C-u
+    nil)
+(if (equal current-prefix-arg '(4)) ; C-u
+  (setq  search-term (read-from-minibuffer "arg1: " search-term) ))
+ (swiper (format "[^[:alpha:]_]\\.?%s\\.?[^[:alpha:]_]" search-term)))
 
-
-                                        ; TODO
+; TODO
 (cibin/global-set-key '("C-s" . ora-swiper)	)
-(cibin/global-set-key '("\C-s" . avy-goto-char-timer))	
+(cibin/global-set-key '("\C-s" . avy-goto-char-timer))
 ; ora-swiper is better than my-search-method-according-to-numlines
 ; (global-set-key "\C-s" 'my-search-method-according-to-numlines)
 
@@ -81,7 +88,7 @@
     (let ((case-fold-search isearch-case-fold-search))
       (occur (if isearch-regexp isearch-string (regexp-quote isearch-string))))))
 
-	  
+
 ;; make isearch treat space dash underscore newline as same
 (setq search-whitespace-regexp "[-_ \n]")
 ; put isearch-dabbrev.el somewhere in your load-path and add these lines to your .emacs:
@@ -91,10 +98,10 @@
 (eval-after-load "isearch"
   '(progn
      ;(require 'isearch-dabbrev)
-	 
+
      (define-key isearch-mode-map (kbd "<tab>") 'isearch-dabbrev-expand)))
-	
-	
+
+
 ; http://karl-voit.at/2016/04/09/chosing-emacs-search-method/
  (defun my-search-method-according-to-numlines ()
     "Determines the number of lines of current buffer and chooses a search method accordingly"
@@ -123,7 +130,7 @@
     ;; (swiper (format "%s" (thing-at-point 'word)))
 	))
 
-	
+
 ;; TODO
 ; (defun joe-duckduckgo-search (browser)
 (defun joe-duckduckgo-search ()
@@ -133,11 +140,11 @@
 	(if (region-active-p)
 	(buffer-substring-no-properties (region-beginning) (region-end))
 	(thing-at-point 'symbol)))
-	
 
 
-  
-	
+
+
+
   (let ((search
         (concat "https://google.com/?q="
                 (read-from-minibuffer "sDuckDuckGo: " myWord))))
@@ -147,8 +154,8 @@
       (browse-web search)
 	  ;)
 	  ))
-	  
-	  
+
+
 
 ;; http://stackoverflow.com/questions/2641211/emacs-interactively-search-open-buffers
 (defun my-multi-occur-in-matching-buffers (regexp &optional allbufs)
@@ -170,6 +177,6 @@ Given a prefix argument, search in ALL buffers."
 ; Emulate Evil's * command with Swiper.
 (global-set-key (kbd "C-M-s") 	(lambda () 		(interactive)
 		(swiper (word-at-point))))
-		
-		
+
+
 (provide 'cbn-search-bindings)

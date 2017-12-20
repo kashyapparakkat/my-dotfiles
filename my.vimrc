@@ -137,5 +137,19 @@ noremap str :grep  '<C-R><C-W>' *.<C-R>=expand('%:e')<CR> -r --color=always
 noremap sth :grep  '<C-R><C-W>' *.<C-R>=expand('%:e')<CR> --color=always
 
 
+if &diff
 
+    " Your setting you want to set when using diff mode.
+    "
+
+noremap s :grep  '<C-R><C-W>' *.<C-R>=expand('%:e')<CR> -r --color=always
+endif
+color desert
+:hi CursorLine   cterm=NONE ctermbg=white ctermfg=black guibg=gray guifg=white
+:hi CursorColumn cterm=NONE ctermbg=white ctermfg=black guibg=gray guifg=white
+" Set line numbering on marging to red background:
+:highlight CursorLineNR ctermbg=red
+"" highlight CursorLineNR ctermbg=235 ctermfg=white
+
+:nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 source ~/my.guide.vim
