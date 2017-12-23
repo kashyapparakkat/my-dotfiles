@@ -6,13 +6,14 @@ if [ -z "$1" ]; then
 
     if [ "$machine" == "Windows" ]; then
         find /cygdrive -type d -iname "*"  > ~/"all_files_unfiltered.db"
+        # convert to backward slash
+        cat ~/"all_folders.db" | sed -r "s/\\/cygdrive\\/(.)\\//\1:\\\\\\\/" | sed -e "s/\\//\\\\\\\/g"  > ~/"all_folders2.db"
     else
-        # find /home /media/sf_Downloads /mnt/50AE3B39AE3B1746 -type d -iname "*" > ~/"all_folders.db"
-        find /mnt/50AE3B39AE3B1746/Users/cibin/Downloads -type d -iname "*" > ~/"all_folders.db"
+        find /home /media/sf_Downloads /mnt/50AE3B39AE3B1746 -type d -iname "*" > ~/"all_folders2.db"
+        # find /mnt/50AE3B39AE3B1746/Users/cibin/Downloads -type d -iname "*" > ~/"all_folders2.db"
     fi
 
    # cat ~/"all_folders.db"
-   cat ~/"all_folders.db" | sed -r "s/\\/cygdrive\\/(.)\\//\1:\\\\\\\/" | sed -e "s/\\//\\\\\\\/g"  > ~/"all_folders2.db"
 fi
  }
 
@@ -37,9 +38,12 @@ function myindex() {
         find /cygdrive/c/Users/cibin/Downloads -iname "*"  > ~/"all_files_unfiltered.db"
 
     else
-        find /home /media/sf_Downloads /mnt/50AE3B39AE3B1746 -iname "*"  > ~/"all_files_unfiltered.db"
+        find /home -iname "*"  > ~/"all_files_unfiltered.db"
+        # find /home /media/sf_Downloads /mnt/50AE3B39AE3B1746 -iname "*"  > ~/"all_files_unfiltered.db"
     fi
-    cat ~/"all_files_unfiltered.db" | grep -i -v "/cygdrive/c/cygwin64/usr/" |  grep -i -v "/cygdrive/c/Users/$USERNAME/Anaconda" | grep -i -v "/cygdrive/c/MinGW/" | grep -i -v "/cygdrive/./\$Recycle.Bin/" | grep -v "/cygdrive/./\$WINDOWS.~BT/" | grep -v "/cygdrive/c/Users/cibin/AppData/" | grep -v "/cygdrive/c/my_bin/" | grep -v "/cygdrive/c/Python27/" | grep -v "/cygdrive/c/Program Files (x86)/" | grep -v "/cygdrive/c/Program Files/" | grep -v "/cygdrive/c/Windows/" | grep -v "/cygdrive/c/ProgramData/"  | grep -v "/cygdrive/c/Users/$USERNAME/AppData/" > ~/"all_files.db"
+# TODO create this as a function for myindex , myindexfolders
+    cat ~/"all_files_unfiltered.db" | grep -i -v "/cygdrive/c/cygwin64/usr/" |  grep -i -v "/cygdrive/c/Users/$USERNAME/Anaconda" | grep -i -v "/cygdrive/c/MinGW/" | grep -i -v "/cygdrive/./\$Recycle.Bin/" | grep -v "/cygdrive/./\$WINDOWS.~BT/" | grep -v "/cygdrive/c/Users/cibin/AppData/" | grep -v "/cygdrive/c/my_bin/" | grep -v "/cygdrive/c/Python27/" | grep -v "/cygdrive/c/Program Files (x86)/" | grep -v "/cygdrive/c/Program Files/" | grep -v "/cygdrive/c/Windows/" | grep -v "/cygdrive/c/ProgramData/"  | grep -v "/cygdrive/c/Users/$USERNAME/AppData/" | grep -v "/\.git/" |grep -v "\\Windows\\WinSxS\\"> ~/"all_files.db"
+
 
 
 	# cat ~/"all_files_unfiltered.db" | sed 's/ //g'| sed 's/_//g' | sed 's/-//g'  > ~/"all_files-fuzzy.db"

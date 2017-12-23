@@ -659,6 +659,8 @@ buffer preview will still display."
 
 (define-key evil-normal-state-map  (kbd "C-S-y") 'evil-unimpaired/paste-below)
 (define-key evil-normal-state-map  (kbd "C-M-y") 'evil-unimpaired/paste-above)
+(define-key evil-insert-state-map  (kbd "C-S-y") 'evil-unimpaired/paste-below)
+(define-key evil-insert-state-map  (kbd "C-M-y") 'evil-unimpaired/paste-above)
 
 
 (global-set-key [(control x) (control r)] 'rename-this-file)
@@ -771,6 +773,7 @@ buffer preview will still display."
 (define-key mc/keymap (kbd "ESC") 'mc/keyboard-quit)
 (define-key mc/keymap (kbd "C-g") 'mc/keyboard-quit)
 (define-key mc/keymap (kbd "C-a") 'move-beginning-of-line)
+(define-key mc/keymap (kbd "C-e") 'move-end-of-line)
 ;; (define-key mc/keymap (kbd "C-M-S-n") nil)
 (define-key mc/keymap (kbd "C-M-S-n") 'mc/mark-next-lines)
 (define-key mc/keymap (kbd "C-S-n") 'mc/mark-next-like-this)
@@ -793,10 +796,16 @@ buffer preview will still display."
   (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
   (global-set-key (kbd "C-S-a") 'mc/mark-all-like-this)
 
+; for quict exit after Ctrl X
+(global-unset-key (kbd "C-x <ESC>"))
+(global-unset-key (kbd "C-x <Escape>"))
 
-;;TODO  use use-package
-(require 'loccur)
-;; defines shortcut for loccur of the current word
+(use-package loccur
+
+:defer t
+:config
+(progn
+  ;; defines shortcut for loccur of the current word
 (define-key global-map (kbd "C-c O c") 'loccur-current)
 (define-key global-map (kbd "C-c O h") 'hide-lines)
 (define-key global-map (kbd "C-c O a") 'hide-lines-show-all)
@@ -815,6 +824,6 @@ buffer preview will still display."
 
 ;; TODO change to C-o or something later
 (define-key ivy-minibuffer-map (kbd "C-c o") 'ivy-occur)
-
+))
 
 (provide 'starter-kit-bindings)

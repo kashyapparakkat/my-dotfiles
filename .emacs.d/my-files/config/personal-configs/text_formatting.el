@@ -63,7 +63,16 @@
   (interactive "r")
   (align-regexp begin end
                 (rx (group (zero-or-more (syntax whitespace))) ",") 1 1 ))
-(defun bjm/align-whitespace (start end)
+
+(defun cibin/align-repeat-prompt (start end)
+;; http://pragmaticemacs.com/emacs/aligning-text/
+  ;; https://stackoverflow.com/questions/20119064/align-to-columns-in-emacs
+  (interactive "r")
+  (setq string (read-string "enter regexp : " ))
+  (align-regexp start end
+                (format "\\(\\s-*\\)%s" string) 1 0 t))
+
+(defun bjm/align-repeat-whitespace (start end)
   "Align columns by whitespace"
   (interactive "r")
   (align-regexp start end
@@ -72,5 +81,8 @@
 (defun bjm/align-& (start end)
   "Align columns by ampersand"
   (interactive "r")
-  (align-regexp start end
+  (align-regexp ;; "\\(\\s-*\\):" 1 1 t))
                 "\\(\\s-*\\)&" 1 1 t))
+
+(spacemacs/set-leader-keys "x a s" 'bjm/align-repeat-whitespace)
+(spacemacs/set-leader-keys "x a p" 'cibin/align-repeat-prompt)

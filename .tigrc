@@ -55,7 +55,7 @@
 
 set blame-view	= date:default author:full file-name:auto id:yes,color line-number:no,interval=5 text
 set grep-view	= file-name:no line-number:yes,interval=1 text
-set main-view	= line-number:no,interval=5 id:no date:default author:full commit-title:yes,graph,refs,overflow=no
+set main-view	= line-number:no,interval=5 id:no date:relative author:full commit-title:yes,graph,refs,overflow=no
 set refs-view	= line-number:no id:no date:default author:full ref commit-title
 set stash-view	= line-number:no,interval=5 id:no date:default author:full commit-title
 set status-view	= line-number:no,interval=5 status:short file-name
@@ -99,7 +99,7 @@ set show-notes			= yes		# When non-bool passed as `--show-notes=...` (diff)
 #set diff-options		= -C		# User-defined options for `tig show` (git-diff)
 set diff-highlight		= true		# String (or bool): Path to diff-highlight script,
 						                  # defaults to `diff-highlight`.
-# set diff-highlight		= diff-highlight
+set diff-highlight		= /usr/local/bin/diff-highlight
 #set blame-options		= -C -C -C	# User-defined options for `tig blame` (git-blame)
 #set log-options		= --pretty=raw	# User-defined options for `tig log` (git-log)
 #set main-options		= -n 1000	# User-defined options for `tig` (git-log)
@@ -460,5 +460,36 @@ set git-colors = \
 bind generic E !git difftool --tool=vimdiff --no-prompt --trust-exit-code %(commit)^!
 # r was binded to reference ; use a diff config for this session
 # also use a similar one in tigrc when called from ranger
-# bind generic r <ranger --selectfile="%(file)"
-bind generic r <sh -c ". ~/.bashrc;fcoc_preview"
+
+
+# TODO rebind c's functionality to something else
+# checkout bind generic c <bash -c ". ~/.bashrc && fcoc_preview"
+# redirect the hash to tig again
+bind generic c <bash -c ". ~/.bashrc && fshow_preview"
+# bind tree r <ranger --selectfile="%(directory)"
+bind generic r <ranger --selectfile="%(file)"
+bind generic y None
+
+bind generic yc !@sh -c "echo -n %(commit) | xclip -selection c"
+bind generic yf !@sh -c "echo -n %(file) | xclip -selection c"
+
+# User-defined internal command that reloads ~/.tigrc
+# Enable both ID and line numbers in the blame view
+
+# User-defined external command to amend the last commit
+bind status + !git commit --amend
+# bind it to keysequence
+# Show commit statistics for the author under the cursor
+bind main U +sh -c 'git --no-pager shortlog -s --author="$(git show -s --format=%aE %(commit))" </dev/tty'
+
+
+
+# If i open up tig with another branch:
+# tig otherBranch
+# Is it possible to navigate to the tree view find a file that I want and check it out to my current branch?
+# Yes, you have to add a user-defined command in ~/.tigrc, for example:
+# bind generic ^F !?git checkout %(commit) %(file)
+# Then open tig otherBranch, press t to go to the tree view, navigate to the file and press Ctrl-F.
+
+
+bind tree l enter

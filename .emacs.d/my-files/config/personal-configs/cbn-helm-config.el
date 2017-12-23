@@ -26,6 +26,7 @@
 
 ;; (setq all-func '(dummy cibin/find-related-files-helm-saved-input cibin/counsel-find cibin/counsel-locate cibin/helm-find-files ))
 (setq all-func '(cibin/find-related-files-helm-saved-input cibin/counsel-find cibin/counsel-locate cibin/helm-find-files ))
+
 (setq all-func-reversed '(cibin/helm-mini))
 (helm-mini))
 
@@ -33,15 +34,36 @@
   (interactive)
 (cibin/helm-do-ag-Extension-recurse-cwd nil)
 )
+(defun cibin-test()
+  (interactive)
+(bind-all-helm-ivy-keys)
+(helm-find-files nil)
 
+  )
+(defun cibin-triggerer()
+  (interactive)
+  (helm-run-after-exit 'cibin/helm-find-files-fzy)
+
+  )
+
+(defun cibin/helm-find-files-fzy(&optional initial-input)
+  (interactive)
+  (setq initial-input saved-helm-input)
+  ;; (setq initial-input "/hom/projects")
+  ;; (helm-find-files-1 "/home/cibin")
+  ;; (message asdf)
+(setq asdf (shell-command-to-string (format
+                                "cat ~/all_folders2.db|/usr/local/bin/fzy -e\"%s\"|head -n 1|sed -e \"s/\\/cygdrive\\/\\(.\\)\\//\\1:\\//\"|head -n 1" initial-input))
+      )
+(helm-find-files-1 (format "%s" asdf))
+                   )
+
+;; (shell-command "ls-l")
 (defun cibin/counsel-find()
 (interactive)
-(counsel-find "sf"
-             "cat ~/all_files.db|/usr/local/bin/fzy -e%s|head -n 50|sed -e \"s/\\/cygdrive\\/\\(.\\)\\//\\1:\\//\"" saved-helm-input)
+(jump-to-file-and-line (counsel-find "sf"
+             "cat ~/all_files.db|/usr/local/bin/fzy -e\"%s\"|head -n 50|sed -e \"s/\\/cygdrive\\/\\(.\\)\\//\\1:\\//\"" saved-helm-input)) )
 ;; (global-set-key (kbd "C-x R") (lambda () (interactive) (counsel-find "snf " "bash -ic 'searchnotes . |fzy -e%s|head -n 50' 2>/dev/null" )))
-
-)
-
 
 (defun cibin/counsel-locate()
 (interactive)
@@ -99,6 +121,8 @@
 (define-key  ivy-minibuffer-map "\C-o" 'try-prev-function)
 (define-key ivy-minibuffer-map (kbd "C-o") 'try-prev-function)
 
+
+(define-key helm-find-files-map (kbd "C-n") 'cibin-triggerer)
 )
 
 (with-eval-after-load 'helm

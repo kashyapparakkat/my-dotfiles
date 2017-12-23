@@ -52,6 +52,7 @@ INITIAL-INPUT can be given as the initial minibuffer input."
 
 (defun counsel-find-function (str)
   "called by counsel-find"
+  (setq progress-msg (format "\"searching %s...\"" str))
   (if (< (length str) 3)
       (counsel-more-chars 3)
     (let ((cmd (format bash-cmd str)
@@ -70,25 +71,38 @@ INITIAL-INPUT can be given as the initial minibuffer input."
           ))
       (message "cmd: %s" cmd)
       (counsel--async-command cmd))
-    '("" "working...")
+    '(""  "working...")
     ))
+
 ;; (counsel-find "ls")
 ;;;###autoload
+(setq this-func-string nil)
+(setq this-func nil)
+
+
 (defun counsel-find (prompt bash-cmd &optional initial-input)
   "calls counsel-find-function;
 Use GNU find, counsel and ivy  to present all paths
    in a directory tree that match the REGEX input"
   (interactive)
 (defvar bash-cmd bash-cmd)
-(ivy-read
+(setq output (ivy-read
 (format "%s : " prompt)
  #'counsel-find-function
             :initial-input initial-input
             :dynamic-collection t
             :history 'counsel-find-history
-:action 'open-file-cibin
-;; (lambda (file)
-                      ;; (with-ivy-window
+;; :action 'open-file-cibin
+;; :action 'open-file-cibin
+;; :action (lambda (file)
+
+          ;; (setq this-func-string call-back-function)
+;; (fset 'this-func call-back-function)
+;; (fset 'this-func ( file))
+;; (run-function-handle-error)
+;; (ivy-quit-and-run call-back-function)
+          ;; )
+;; (with-ivy-window
                         ;; (when file
                          ;; (message file)
 
@@ -98,17 +112,18 @@ Use GNU find, counsel and ivy  to present all paths
                           ;; )))
             :unwind #'counsel-delete-process
             :caller 'counsel-find))
+)
 
 (with-eval-after-load 'counsel
 (counsel-set-async-exit-code 'counsel-find 1 "Nothing found")
 )
-(defun open-file-cibin(file)
-(interactive)
+(defun open-file-cibin (&optional file)
+  (interactive)
+  ;;to use as action if needed inside ivy-read
+
+;; TODO check if it works only in ivy window
 (with-ivy-window
 (when file
-
-   ;; (setq  file (replace-regexp-in-string "\\(\[^:\]*\\):\\(.*\\)" "\\1" file))
-  ;; (find-file file)
   (jump-to-file-and-line file)
  (message file)
   )))

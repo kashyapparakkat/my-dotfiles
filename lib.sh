@@ -245,8 +245,10 @@ function cron_jobs_cibin() {
 	echo "updatedb"
 	# TODO: separate the jobs or add interval info to it
 
-	# locatedb update
-	updatedb
+  # https://superuser.com/questions/467181/how-to-use-updatedb-command-as-an-ordinary-user
+# updatedb -o ~/.locate.db
+	# to  update locatedb
+	# updatedb
 
 	# Change mlocate Database Location
 # The default database that locate utility reads is /var/lib/mlocate/mlocate.db, but if you wish to link the locate command with some other database kept at some other location, use the -d option.
@@ -534,7 +536,7 @@ foo()
 
 function searchcommands() {
 # cat "$cbn_git_path/cbn_gits/AHK/popular_commands.db"|fzy -l 20
-cat "$Universal_home/popular_commands.db"|fzy -l 20
+cat "$Universal_home/popular_commands.db"|fzy -l 20|head -n 1
 
 }
 # https://www.ibm.com/developerworks/library/l-bash-parameters/index.html

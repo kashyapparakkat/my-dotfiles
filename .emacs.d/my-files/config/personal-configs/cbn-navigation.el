@@ -297,4 +297,16 @@ https://gist.github.com/X4lldux/5649195
 )
 )
 
+;; https://www.emacswiki.org/emacs/hide-region%2b
+(use-package hide-region
+  :defer t
+  :config
+
+  (progn
+
+(define-key global-map (kbd "C-c O r") 'hide-region-hide)
+(define-key global-map (kbd "C-c O R") 'hide-region-unhide-all)
+
+    ))
+
 (provide 'cbn-navigation)
