@@ -506,29 +506,45 @@ _t_ : [[time]] _D_ : diff pop
 
 ;; Multiple cursors hydra
 
-(defhydra sk/hydra-multiple-cursors (:color red
-                                     :hint nil)
+(defhydra hydra-mc (:hint nil)
   "
-  _k_: prev         _j_: next         _a_: all     _b_: beg of lines   _q_: quit
-  _K_: skip prev    _J_: skip next    _d_: defun   _e_: end of lines
-  _p_: unmark prev  _n_: unmark next  _r_: regexp  _l_: lines
+      ^Up^            ^Down^                        ^All^                ^Lines^               ^Edit^                 ^Other^
+----------------------------------------------------------------------------------------------------------------------------------
+[_p_]   Next    [_n_]   Next       [_b_] beg line   [_a_] All like this  [_l_] Edit lines      [_i_] Insert numbers   [_t_] Tag pair
+[_P_]   Skip    [_N_]   Skip       [_e_] end line   [_r_] All by regexp  [_L_] Edit line beg.  [_s_] Sort regions      ^ ^
+[_M-p_] Unmark  [_M-n_] Unmark                  [_d_] All DWIM        ^ ^                  [_R_] Reverse regions  [_q_] Quit
 "
-  ("j" mc/mark-next-like-this)
-  ("J" mc/skip-to-next-like-this)
-  ("n" mc/unmark-next-like-this)
-  ("k" mc/mark-previous-like-this)
-  ("K" mc/skip-to-previous-like-this)
-  ("p" mc/unmark-previous-like-this)
-  ("a" mc/mark-all-like-this :color blue)
-  ("d" mc/mark-all-like-this-in-defun :color blue)
-  ("r" mc/mark-all-in-region-regexp :color blue)
+  ("p" mc/mark-previous-like-this)
+  ("P" mc/skip-to-previous-like-this)
+  ("M-p" mc/unmark-previous-like-this)
+
   ("b" mc/edit-beginnings-of-lines)
   ("e" mc/edit-ends-of-lines)
-  ("l" mc/edit-lines :color blue)
-  ("q" nil :color blue))
-;; Key binding
-;; (bind-keys*
-  ;; ("C-t" . sk/hydra-multiple-cursors/body))
+
+  ("n" mc/mark-next-like-this)
+  ("N" mc/skip-to-next-like-this)
+  ("M-n" mc/unmark-next-like-this)
+
+  ("a" mc/mark-all-like-this :exit t)
+  ("r" mc/mark-all-in-region-regexp :exit t)
+  ("d" mc/mark-all-dwim :exit t)
+
+  ("l" mc/edit-lines :exit t)
+  ("L" mc/edit-beginnings-of-lines :exit t)
+
+  ("i" mc/insert-numbers)
+  ("s" mc/sort-regions)
+  ("R" mc/reverse-regions)
+
+  ("t" mc/mark-sgml-tag-pair)
+  ("q" nil)
+
+  ("<mouse-1>" mc/add-cursor-on-click)
+  ("<down-mouse-1>" ignore)
+; force <down-mouse-1> to not exit the hydra. Y
+  ("<drag-mouse-1>" ignore))
+
+(bind-key "C-*" 'hydra-mc/body)
 
 
 ;; TODO make it work for all languages
@@ -1093,12 +1109,14 @@ _8_: next _9_: prev      allNext prev
     ("f" er/mark-defun "Defun / Function")
     ("w" er/mark-word "Word")
     ("u" er/mark-url "Url")
-    ("e" mark-sexp "S-Expression")
+    ("er" eval-region)
+    ("eb" eval-buffer)
+    ;; ("e" mark-sexp "S-Expression")
     ("E" er/mark-email "Email")
     ("b" mark-whole-buffer "Buffer")
-    ("l" ejmr-mark-line "Line")
-    ("s" er/mark-sentence "Sentence")
-    ("p" er/mark-text-paragraph "Paragraph")
+    ;; ("l" ejmr-mark-line "Line")
+    ;; ("s" er/mark-sentence "Sentence")
+    ;; ("p" er/mark-text-paragraph "Paragraph")
     ("g" mark-page "Page")
     ("S" er/mark-symbol "Symbol")
     ("P" er/mark-symbol-with-prefix "Prefixed symbol")

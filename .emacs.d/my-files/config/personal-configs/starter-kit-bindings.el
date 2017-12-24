@@ -345,6 +345,7 @@
 (define-key evil-visual-state-map   (kbd "f") 'mark-whole-buffer)
 ;TODO o in visual state was exchange-point-and-mark
 (define-key evil-visual-state-map   (kbd "o") 'evil-visual-line)
+(define-key evil-visual-state-map   (kbd "ii") 'restore-selection)
 
 ;; enable Shift+direction for window movements
 ;; (windmove-default-keybindings)
@@ -777,6 +778,7 @@ buffer preview will still display."
 ;; (define-key mc/keymap (kbd "C-M-S-n") nil)
 (define-key mc/keymap (kbd "C-M-S-n") 'mc/mark-next-lines)
 (define-key mc/keymap (kbd "C-S-n") 'mc/mark-next-like-this)
+(define-key mc/keymap (kbd "C-S-p") 'mc/mark-previous-like-this)
 ))
 
 (use-package mc-extras
@@ -793,7 +795,7 @@ buffer preview will still display."
   (global-set-key (kbd "C-M-S-n") 'mc/mark-next-lines)
   (global-set-key (kbd "C-S-n") 'mc/mark-next-like-this)
 ; (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-  (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
   (global-set-key (kbd "C-S-a") 'mc/mark-all-like-this)
 
 ; for quict exit after Ctrl X
@@ -826,4 +828,23 @@ buffer preview will still display."
 (define-key ivy-minibuffer-map (kbd "C-c o") 'ivy-occur)
 ))
 
+
+;https://spwhitton.name/blog/entry/eviltricks/
+; (defadvice evil-execute-in-god-state
+    ; (before evil-execute-in-god-state-from-visual-state activate)
+  ;; "When in visual state, get out of visual state
+;; and restore the selection before firing up god-mode.  This avoids
+;; visual state bindings conflicting with god-mode"
+;; TODO viceversa
+
+(defun restore-selection()
+(interactive)
+(when (evil-visual-state-p)
+    (if (< (point) (mark))
+        (exchange-point-and-mark))
+    (forward-char 1)
+    ; (evil-exit-visual-state)
+    (evil-insert-state)
+    (let ((activate-mark-hook nil)) ; stop visual mode from firing
+      (activate-mark))))
 (provide 'starter-kit-bindings)

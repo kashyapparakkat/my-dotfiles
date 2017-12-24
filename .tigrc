@@ -186,10 +186,6 @@ bind generic	S	view-status		# Compat binding to avoid going crazy!
 bind generic	c	view-stage
 bind generic	y	view-stash
 bind generic	g	view-grep
-bind status <F4> !git difftool -y %(commit) %(file)
-bind generic <F5> !git difftool -d --no-symlinks %(commit)
-bind generic D !git difftool --tool=vimdiff --no-prompt --trust-exit-code %(commit)^!
-bind diff D !git difftool --tool=vimdiff --no-prompt --trust-exit-code %(commit)^!
 
 # The --trust-exit-code option is useful when you are viewing a diff with lots of files and you want to quit part of the way through: just exit vim with :cq (instead of the normal :qa), and it will return an error code, triggering git difftool to exit without showing any more files.
 
@@ -467,7 +463,10 @@ bind generic E !git difftool --tool=vimdiff --no-prompt --trust-exit-code %(comm
 # redirect the hash to tig again
 bind generic c <bash -c ". ~/.bashrc && fshow_preview"
 # bind tree r <ranger --selectfile="%(directory)"
+bind generic o None
 bind generic r <ranger --selectfile="%(file)"
+bind generic oec <bash -c "ec \"%(file)\""
+bind generic oet <bash -c "exec emacsclient -a \"\" -t \"%(file)\""
 bind generic y None
 
 bind generic yc !@sh -c "echo -n %(commit) | xclip -selection c"
@@ -493,3 +492,9 @@ bind main U +sh -c 'git --no-pager shortlog -s --author="$(git show -s --format=
 
 
 bind tree l enter
+bind tree h back
+
+bind status <F4> !git difftool -y %(commit) %(file)
+bind generic <F5> !git difftool -d --no-symlinks %(commit)
+bind generic D !git difftool --tool=vimdiff --no-prompt --trust-exit-code %(commit)^!
+bind diff D !git difftool --tool=vimdiff --no-prompt --trust-exit-code %(commit)^!
