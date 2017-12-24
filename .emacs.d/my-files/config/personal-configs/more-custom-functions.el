@@ -480,7 +480,9 @@ lines. And then it will clear all preceding whitespace."
 (cibin/global-set-key '("<S-tab>" . untab-region))
 (cibin/global-set-key '("<S-iso-lefttab>" . untab-region))
 (with-eval-after-load 'org
-(define-key org-mode-map (kbd "<S-iso-lefttab>") 'org-shifttab))
+
+(define-key org-mode-map (kbd "<S-iso-lefttab>") 'org-shifttab)
+(evil-define-key 'normal org-mode-map (kbd "<S-iso-lefttab>") 'org-shifttab))
 ; https://github.com/taquangtrung/tab-indent.el/blob/master/tab-indent.el
 ; check for tab indent complete
 ;  (cibin/global-set-key '("<tab>" . tab-region))
