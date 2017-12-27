@@ -153,3 +153,13 @@ color desert
 
 :nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 source ~/my.guide.vim
+
+
+" RENAME Tmux title
+" https://stackoverflow.com/questions/15123477/tmux-tabs-with-name-of-file-open-in-vim
+if exists('$TMUX')
+" rename on entering
+autocmd BufEnter * call system("tmux rename-window '" . expand("%:t") . "'")
+" rename on leaving
+autocmd VimLeave * call system("tmux setw automatic-rename")
+endif

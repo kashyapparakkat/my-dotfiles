@@ -107,7 +107,8 @@ flx-isearch
 git-timemachine
 	yascroll
 	swiper
-	helm-flyspell
+region-bindings-mode
+helm-flyspell
 	isend-mode
 	menu-bar+
 	realgud

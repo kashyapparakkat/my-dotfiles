@@ -8,3 +8,5 @@ export PATH="/home/cibin/anaconda3/bin:$PATH"
 export PATH="~/my-scripts:$PATH"
 export PATH="~/my_env_path_folder:$PATH"
 export PATH="~/my_env_path_auto_generated_folder:$PATH"
+source /home/cibin/.oh-my-git/prompt.sh
+source /home/cibin/.oh-my-git/prompt.sh

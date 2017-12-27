@@ -339,6 +339,10 @@
 
 ; is this needed?
 (cibin/global-set-key '("C-q" . kill-buffer-and-if-many-kill-window-too))
+(with-eval-after-load 'debug
+(define-key debugger-mode-map (kbd "e") 'other-window))
+(define-key help-mode-map (kbd "e") 'other-window)
+;; (define-key debugger-mode-map (kbd "q") ')
 
 (cibin/global-set-key '("M-e" . other-window))
 (define-key evil-normal-state-map "e" 'other-window)
@@ -654,6 +658,7 @@ buffer preview will still display."
     (backward-kill-word arg)))
 (global-set-key (kbd "C-w" ) 'sk/kill-region-or-backward-word)
 (define-key evil-normal-state-map (kbd "C-w" ) 'sk/kill-region-or-backward-word)
+(define-key evil-visual-state-map (kbd "C-w" ) 'sk/kill-region-or-backward-word)
 
 (define-key evil-normal-state-map (kbd "f") 'avy-goto-char-timer)
 
@@ -807,6 +812,7 @@ buffer preview will still display."
 :defer t
 :config
 (progn
+))
   ;; defines shortcut for loccur of the current word
 (define-key global-map (kbd "C-c O c") 'loccur-current)
 (define-key global-map (kbd "C-c O h") 'hide-lines)
@@ -826,7 +832,6 @@ buffer preview will still display."
 
 ;; TODO change to C-o or something later
 (define-key ivy-minibuffer-map (kbd "C-c o") 'ivy-occur)
-))
 
 
 ;https://spwhitton.name/blog/entry/eviltricks/

@@ -298,15 +298,51 @@ https://gist.github.com/X4lldux/5649195
 )
 
 ;; https://www.emacswiki.org/emacs/hide-region%2b
+(load-file "~/.emacs.d/my-files/config/others/hide-region+.el")
 (use-package hide-region
   :defer t
   :config
 
   (progn
-
+    ))
 (define-key global-map (kbd "C-c O r") 'hide-region-hide)
 (define-key global-map (kbd "C-c O R") 'hide-region-unhide-all)
 
-    ))
+
+
+(defun cibin/go-till-next (&optional arg)
+  (interactive)
+  (message arg)
+  (setq word-delimiter-regexp
+        (cond
+      ((equal arg "same") (format "[%s]" (string (char-after (point)))))
+      ((equal arg "aplhanumeric") "\\w")
+      ((equal arg "white") "[^\w \t\r\n\v\f]")
+      ((equal arg "non-white") "[^ \t\r\n\v\f]")
+(t "default"))
+)
+(message "cond finished")
+(message word-delimiter-regexp)
+(while (looking-at word-delimiter-regexp)
+
+  (next-line)
+
+
+)
+(previous-line)
+)
+(require 'region-bindings-mode)
+(region-bindings-mode-enable)
+
+;; (global-set-key (kbd "C-x i") (lambda() (interactive) (cibin-go-till-next "same")))
+(define-key region-bindings-mode-map "J" (lambda() (interactive) (cibin/go-till-next "same")))
+(define-key region-bindings-mode-map "m" (lambda() (interactive) (cibin/go-till-next "white")))
+(define-key region-bindings-mode-map "L" (lambda() (interactive) (cibin/go-till-next "non-white")))
+(define-key region-bindings-mode-map ";" (lambda() (interactive) (cibin/go-till-next "alphanumeric")))
+
+(define-key region-bindings-mode-map "j" (lambda() (interactive) (evil-next-visual-line)))
+
+(global-set-key (kbd "C-S-o") 'evil-copy-from-above)
+(global-set-key (kbd "C-S-l") 'evil-copy-from-below)
 
 (provide 'cbn-navigation)

@@ -63,7 +63,8 @@
     nil)
 (if (equal current-prefix-arg '(4)) ; C-u
   (setq  search-term (read-from-minibuffer "arg1: " search-term) ))
- (swiper (format "[^[:alpha:]_]\\.?%s\\.?[^[:alpha:]_]" search-term)))
+                                        ; TODO get word boudary from syntax table
+(swiper (format "[^[:alpha:]_]\\.?%s\\.?[^[:alpha:]_]" search-term)))
 
 ; TODO
 (cibin/global-set-key '("C-s" . ora-swiper)	)

@@ -1105,7 +1105,7 @@ _8_: next _9_: prev      allNext prev
 :body-pre (er/expand-region 1)
                                )
     "Mark                       search"
-    ("d" er/mark-defun "Defun / Function")
+    ;; ("d" er/mark-defun "Defun / Function")
     ("f" er/mark-defun "Defun / Function")
     ("w" er/mark-word "Word")
     ("u" er/mark-url "Url")
