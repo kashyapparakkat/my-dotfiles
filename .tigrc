@@ -465,8 +465,9 @@ bind generic c <bash -c ". ~/.bashrc && fshow_preview"
 # bind tree r <ranger --selectfile="%(directory)"
 bind generic o None
 bind generic r <ranger --selectfile="%(file)"
-bind generic oec <bash -c "ec \"%(file)\""
-bind generic oet <bash -c "exec emacsclient -a \"\" -t \"%(file)\""
+bind generic or <ranger --selectfile="%(file)"
+bind generic oe <bash -c "activate_emacs \"%(file)\""
+# bind generic oet <bash -c "exec emacsclient -a \"\" -t \"%(file)\""
 bind generic y None
 
 bind generic yc !@sh -c "echo -n %(commit) | xclip -selection c"

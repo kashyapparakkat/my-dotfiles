@@ -8,7 +8,6 @@
 # ${!arr[*]} # All of the indexes in the array
 # ${#arr[*]} # Number of items in the array
 # ${#arr[0]} # Length of item zero
-
 # path ${0}
 # parent path ${0%/*}
 # filename ${0##*/}
@@ -657,9 +656,10 @@ function searchproject () {
 	lfind "$dir" -iname "*.$arg" -exec  ag -i --noheading --numbers --filename --color --color-match "2;46" $* {} +
 
 }
+
 function save()
 {
-arg=$(return_arg_or_piped_input $*)
+    arg=$(return_arg_or_piped_input $*)
     # read -r  #</dev/tty
     echo -e "\n">>~/persist_commands.sh
     echo "$arg">>~/persist_commands.sh
@@ -669,4 +669,6 @@ if [ ! -e "$persist_file" ] ; then
     touch "$persist_file"
 fi
 source ~/persist_commands.sh
+
+
 # file ends here

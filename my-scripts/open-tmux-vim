@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# tmux attach -t default
+
+# if [[ $(tmux ls|cut -f1 -d:|grep "^default$"|wc -l) -gt 0 ]]; then
+  # echo "already running"
+# else
+  # tmux new-session -s default
+  # tmux attach -t default
+  # sleep 1
+# fi
+tmux new-window -t default -n Vim: vim $1
+sleep .2
+wmctrl -a Vim:

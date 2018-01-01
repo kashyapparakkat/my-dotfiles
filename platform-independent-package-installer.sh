@@ -16,7 +16,7 @@
 # pacfiles        - list all files installed by a given package
 # pacwhoownsit - show what package owns a given file
 # paclcf       - list config files installed by a given package
-# pacexpl      - mark one or more packages as explicitly installed 
+# pacexpl      - mark one or more packages as explicitly installed
 # pacimpl      - mark one or more packages as non explicitly installed
 
 if [ -e "/usr/bin/apt-get" ] ; then # Apt-based distros (Debian, Ubuntu, etc.)

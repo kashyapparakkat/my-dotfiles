@@ -339,6 +339,10 @@
 
 ; is this needed?
 (cibin/global-set-key '("C-q" . kill-buffer-and-if-many-kill-window-too))
+
+(with-eval-after-load 'debug
+(define-key diff-mode-map (kbd "j") 'next-line))
+
 (with-eval-after-load 'debug
 (define-key debugger-mode-map (kbd "e") 'other-window))
 (define-key help-mode-map (kbd "e") 'other-window)
@@ -852,4 +856,7 @@ buffer preview will still display."
     (evil-insert-state)
     (let ((activate-mark-hook nil)) ; stop visual mode from firing
       (activate-mark))))
+
+(define-key emacs-lisp-mode-map (kbd "C-c C-c") #'eval-defun)
+(define-key emacs-lisp-mode-map (kbd "C-c C-b") #'eval-buffer)
 (provide 'starter-kit-bindings)

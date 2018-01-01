@@ -4,6 +4,7 @@
 ;; more available at https://github.com/abo-abo/hydra/blob/master/hydra-examples.el
 
 (defhydra cibin/hydra-ibuffer-main (:color pink :hint nil)
+
                                         ; https://github.com/abo-abo/hydra/wiki/Ibuffer
   "
  ^Navigation^     | ^Mark^          | ^Actions^           | ^View^         | ^misc^
@@ -804,7 +805,7 @@ _
  _a_: swiper-all                  _r_: cibin/helm-do-ag-Extension-recurse-cwd     _u_: cibin-search-in-files-advgrep-here        _q_: quit
  _d_: helm-do-ag-this-file        _h_: cibin/helm-do-ag-Ext'n-here-cwd    	      _c_: cibin-search-in-common-files-bash
  _/_: my-multi-occur-in-matc..    _b_: cibin/helm-do-ag-cwd(all ext)              _l_: cibin-search-in-text-files-related-bash
- _o_: occur                       _y_: cibin/ag-files-cwd (ext\? dir\\?)
+ _o_: occur                       _y_: cibin/ag-files-cwd (ext & dir\?)
  _j_: helm-ag                     _w_: ag-files                                   _p_: cibin/helm-do-ag-All-Project
  _s_: swiper                      _k_: helm-do-ag-search in similar here                                                _P_: ag-project-at-point
 --------------------
@@ -884,7 +885,8 @@ _
  "
 
   _sr_ : open-similar-files-in-folder-recursively       _d_  : xah-open-in-desktop             _tt_  : dir-structure -Tree       _r_  : ranger-mode
-  _n_  : find-next-file-in-current-directory            _o_  : cibin/xah-open-file-at-cursor   _ta_  : dir-structure all -Tree
+  _n_  : find-next-file-in-current-directory            _o_  : cibin/xah-open-file-at-cursor   _ta_  : dir-structure all -Tree   _v_  : vim
+                                                                                                                   _tg_ : tig
   _b_  : buffer/switch-in-directory                     _e_  : in-external-app
   _g_  : bjm/ivy-dired-recent-dirs
   _j_  : dired-jump                                     _f_  : ffap
@@ -896,7 +898,6 @@ _
           ( "sr"  open-similar-files-in-folder-recursively :color blue)
           ( "tt"  dir-structure :color blue)
           ( "ta"  dir-structure-all :color blue)
-
 
            ( "n"   find-next-file-in-current-directory :color blue)
            ( "b"   buffer/switch-in-directory :color blue)
@@ -913,7 +914,10 @@ _
            ( "m"   buffer/switch-in-directory :color blue)
            ( "o"   cibin/xah-open-file-at-cursor :color blue)
            ( "f"   ffap :color blue)
-           ( "r"   ranger-mode :color blue)
+           ;; ( "r"   ranger-mode :color blue)
+           ( "r"  open-ranger  :color blue)
+           ("v" open-in-vim :color blue)
+           ("tg" open-in-tig :color blue)
            ( "sh"  open-similar-files-in-folder :color blue)
            )
 
@@ -991,25 +995,27 @@ _b_ : blame
           )
 
 
-
 (defhydra cibin/diff-hydra (:color blue
                            ;; :idle 0.5
                              )
  "
 DIFF
-_r_ : A-B (todo)              _=_ : common lines (TODO)
+_r_ : A-B (todo)              _+_ : common lines (TODO)
 _v_ : vdiff                   _b_: vdiff buffers L&R (todo)       _q_: quit
-_g_ : [[git]]
+_g_ : [[git]]                 _m_: open in meld (TODO)
 _t_ : [[timemachine]]
 _f_ vdiff with file
 _F_ diff with file
+_=_ : with repo (Cx v =)
 .
  "
  ("v" cibin/vdiff-buffers)
  ("g" my-git-hydra/body)
  ("t" hydra-git-timemachine/body)
- ("=" nil)
+ ("=" vc-diff)
  ("b" nil)
+ ("m" nil)
+ ("+" nil)
  ("r" diff-files-lines)
  ("f" vdiff-current-file)
  ("F" diff-buffer-with-file)
@@ -1050,7 +1056,7 @@ _r_: replace
 _e_: zoom
 _f_: format (C-x f)
 _g_: search (M-s)
-
+_t_: toggle
 "
 
 ("a" hydra-quickrun/body "C-c q : hydra-quickrun/body   ")
@@ -1062,6 +1068,7 @@ _g_: search (M-s)
 ("f" cibin/hydra-for-format/body "C-x f : cibin/hydra-for-format/body ")
 ("s" cibin/search/body "M-s   : cibin/search/body     ")
 ("g" my-git-hydra/body "   : my-git-hydra/body     ")
+("t" hydra-toggle/body "   : hydra-toggle/body    ")
 ("q" nil)
 )
 
@@ -1304,7 +1311,6 @@ _n_: Navigate           _._: mark position _/_: jump to mark
 ;     ("SPC o" #'my-jump-hydra/lambda-i-and-exit "outline")
 ;     ("SPC '" #'my-new-eshell-split "shell")
 ;)
-
 
 
 (provide 'cbn-hydra)

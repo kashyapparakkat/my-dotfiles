@@ -1,0 +1,8 @@
+#!/bin/bash
+echo "cd $1"
+tmux new-window -t default -n bash bash -c 'echo "$1";cd $1;bash'
+# OR gnome-terminal --working-directory=/home/cibin/my-scripts
+sleep .8
+wmctrl -a bash
+
+#

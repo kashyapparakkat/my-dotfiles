@@ -5,7 +5,7 @@ file=$(~/my-scripts/convert_path_to_windows.sh "$*")
 echo "$file" 
 
 # cygwin works for below
-explorer.exe  "$file"
+#explorer.exe  "$file"
 
 
 

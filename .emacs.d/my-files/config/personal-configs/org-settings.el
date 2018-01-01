@@ -60,7 +60,6 @@
 (setq org-columns-default-format "%14SCHEDULED %Effort{:} %1PRIORITY %TODO %50ITEM %TAGS")
 
 
-
 ; (eval-after-load "org"
   ; (setq org-agenda-files
         ; (delq nil (mapcar (if (file-exists-p file)
@@ -220,13 +219,13 @@
 ;; make org mode allow eval of some langs
 (org-babel-do-load-languages
  'org-babel-load-languages
- '((emacs-lisp . t)
+ '(
+   (emacs-lisp . t)
    (clojure . t)
- (C . t)
+ ;; (C . t)
  (css . t)
  (sh . t)
  (awk . t)
- (R . t)
  (shell . t)
  (http . t)
    (python . t)
@@ -236,6 +235,7 @@
 ;; stop emacs asking for confirmation
 (setq org-confirm-babel-evaluate nil)
 (setq org-src-fontify-natively t)
+(message "tesl")
 
 
 ;; org-babel result to a separate buffer
@@ -272,7 +272,7 @@
                           `(org-level-4 ((t (,@headline ,@variable-tuple :height 1.15))))
                           `(org-level-3 ((t (,@headline ,@variable-tuple :height 1.2))))
                           `(org-level-2 ((t (,@headline ,@variable-tuple :height 1.2 :foreground "green"))))
-                          `(org-level-1 ((t (,@headline ,@variable-tuple :height 1.2 :foreground "yellow"))))
+                          `(org-level-1 ((t (,@headline ,@variable-tuple :height 1.2 :foreground "red"))))
                           `(org-document-title ((t (,@headline ,@variable-tuple :height 1.5 :underline nil)))))
 )
 

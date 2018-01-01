@@ -99,7 +99,9 @@ echo "aaarg=$1"
 while true; do
 	read -n 1 -p " [a] all text $cr [c] commands $cr [f] files $cr [n] notes $cr [p] project $cr [r] recent $cr [t] ext text " pressedkey < /dev/tty;
 	case $pressedkey in
-		 n ) echo " searching...";snf|extract_filepath_linenum|open_in_app;break;;
+		 # n ) ranger;break;;
+		 n ) open_in_app $(snf|extract_filepath_linenum);break;;
+		 # n ) echo " searching...";snf|extract_filepath_linenum|open_in_app;break;;
 		 p ) echo " searching...";spf|extract_filepath_linenum|open_in_app;break;;
 		 c ) echo " searching...";scf;break;;
 		 t ) echo;
@@ -112,7 +114,7 @@ while true; do
 				break;;
 		 r ) srf|extract_filepath_linenum|open_in_app;break;;
 		 a ) saf|extract_filepath_linenum|open_in_app;break;;
-		 f ) echo;sf;break;;
+		 f ) echo;open_in_app $(sf);break;;
 		 d ) echo "HHHHHHHHHHHHHHH $filepath"|clip;break;;
 	     q ) echo;break;;
 	esac
@@ -122,7 +124,8 @@ done
 
 # echo "/cygdrive/c/cbn_gits/delete.py"|open_in_app
 function open_in_app(){
-
+    which ranger
+    echo "$1"
 	 # if (( $# == 0 )) ; then
   #       echo < /dev/stdin
   #       echo
@@ -130,8 +133,13 @@ function open_in_app(){
   #       echo  <<< "$1"
   #       echo
   #   fi
-read filepath #</dev/tty
-
+if (( $# == 0 )) ; then
+    read filepath # </dev/tty
+    echo "piped"
+else
+    filepath=$1
+    echo "passed as arg: $filepath"
+fi
 textreset=$(tput sgr0) # reset the foreground colour
 red=$(tput setaf 1)
 yellow=$(tput setaf 2)
@@ -147,9 +155,8 @@ echo "!!${yellow} file: ${textreset} ${red} $filepath ${textreset}."
 cr=`echo $'\n.'`
 cr=${cr%.}
 
-
 while true; do
-    read -n 1 -s -p " s sublime                           c clipss         q quit $cr n notepad++     d desktop           cc windows $cr v vim           r ranger            cc cygdrive$cr e emacs         o open default $cr l less          b cd                p details $cr $cr f=foldersearch r=recent again d=directory search] $cr" pressedkey </dev/tty
+    read -n 1 -s -p " s sublime                           c clipss         q quit $cr n notepad++     d desktop           cc windows(TODO) $cr v vim           r ranger            cc cygdrive(TODO)$cr e emacs         o open default $cr l less          b cd                p details $cr $cr f=foldersearch r=recent again d=directory search] $cr" pressedkey </dev/tty
 	# if [ "$pressedkey" = $'\e' ]; then
 	#         echo -e "\n [ESC] Pressed"
 
@@ -162,13 +169,13 @@ while true; do
     case $pressedkey in
 	    # [Yy]* ) rm ~/cron/beeb.txt; /usr/bin/get-iplayer --type tv>>~/cron/beeb.txt; break;;
 	    l ) less -iN "$filepath"; break;;
-	    r ) echo "$filepath"|open_in_ranger ; break;;
+	    r ) open_in_ranger "$filepath" ; break;;
 	    d ) open_in_explorer $(echo "$filepath"); break;;
 
 	    b ) cd_to_directory "$(echo "$filepath")"; break;;
 
 	    c ) echo "$filepath"|clip;
-				read -n 1 -s -p "c/d " pressedkey < /dev/tty;
+				echo "copied to clipboard: $filepath";read -n 1 -s -p "c/d " pressedkey < /dev/tty;
 				case $pressedkey in
 					 c ) echo "$filepath"|clip; break;;
 					 d ) echo "cd to directory $filepath"|clip; break;;
@@ -181,6 +188,7 @@ while true; do
 	    [Ss]* ) open_in_sublime_text $(echo "$filepath"); exit;break;;
 	    [Qq]* ) echo; exit; break;;
 	    v ) echo "$filepath"|open_in_vim; break;;
+	    e ) activate_emacs"$filepath"; break;;
 	    * ) echo "$filepath"|open_in_vim ; break;;
     esac
 	echo "try again" #;break;
@@ -219,33 +227,45 @@ function open_in_vim(){
 
 function open_in_ranger(){
 # should be able to open paths starting with filepath:line number or  similar format
-arg=$(return_arg_or_piped_input $*)
+# arg=$(return_arg_or_piped_input $*)
+	# line=$(echo "$arg"|awk 'BEGIN { FS=":" } { printf "+%d", $2 } ')
+	# File=$(echo "$arg"|awk 'BEGIN { FS=":" } { printf "%s", $1 } ')
 
+if (( $# == 0 )) ; then
+    read filepath # </dev/tty
+    echo "piped"
+else
+    filepath=$1
+    echo "passed as arg: $filepath"
+fi
 	# read -r arg
-	echo "opening file: $arg in ranger..."
-	if [ ! -z "$arg" ]
-	then
-		# /usr/bin/python3.6m.exe /cygdrive/c/cygwin64/bin/ranger # --selectfile="$arg"
-		ranger #--selectfile="$arg"
-	fi
+	echo "opening file: $filepath in ranger..."
+	# if [ ! -z "$arg" ]
+	# then
+	# /usr/bin/python3.6m.exe /cygdrive/c/cygwin64/bin/ranger # --selectfile="$arg"
+  # extract_filepath_only
+filepath=$(echo "$filepath"|extract_filepath_only)
+ranger --selectfile="$filepath"
+  # ranger --selectfile="echo $(
+	# fi
 }
 
 
 
 
 function open_in_emacs(){
-	~/my-scripts/emacs.sh "$(~/my-scripts/convert_path_to_windows.sh $*)"
+	~/my-scripts/emacs.sh "$(~/my-scripts/convert_path_to_OS_format.sh $*)"
 }
 function open_in_explorer(){
-	~/my-scripts/open_explorer.sh "$(~/my-scripts/convert_path_to_windows.sh $*)"
+	~/my-scripts/open_explorer.sh "$(~/my-scripts/convert_path_to_OS_format.sh $*)"
 }
 function open_in_npp(){
-	~/my-scripts/npp.sh "$(~/my-scripts/convert_path_to_windows.sh $*)"
+	~/my-scripts/npp.sh "$(~/my-scripts/convert_path_to_OS_format.sh $*)"
 }
 function open_in_sublime_text(){
-	~/my-scripts/sublime_text.sh "$(~/my-scripts/convert_path_to_windows.sh $*)"
+	~/my-scripts/sublime_text.sh "$(~/my-scripts/convert_path_to_OS_format.sh $*)"
 }
 function default_run(){
-	~/my-scripts/default_run.sh "$(~/my-scripts/convert_path_to_windows.sh $*)"
+	~/my-scripts/default_run.sh "$(~/my-scripts/convert_path_to_OS_format.sh $*)"
 
 }

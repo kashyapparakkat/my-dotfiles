@@ -12,7 +12,7 @@
        (set-default-compiler-python )
 
        )
-  (cibin/global-set-key '("C-x t" . mp-add-python-keys))
+  ;; (cibin/global-set-key '("C-x t" . mp-add-python-keys))
 
 (defun set-default-compiler-python ()
     "Find a recent file using ido."
@@ -646,4 +646,16 @@ output as a string."
 )
 
 
+(defun cibin-insert-test-message()
+"inserts a test debug message based on the file extension"
+  (interactive)
+(setq extension (file-name-extension (buffer-file-name)))
+(setq text
+(cond
+	((string-equal extension "el") "(message \"test\")")
+	((string-equal extension "py") "print(\"test\")")
+	((string-equal extension "sh") "echo \"test\"")
+))
+(save-excursion (insert text))
+)
 (provide 'more-custom-functions)

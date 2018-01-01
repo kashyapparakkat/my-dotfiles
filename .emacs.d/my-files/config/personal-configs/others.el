@@ -975,7 +975,6 @@ let ((-path  (setq -path
 
 
 
-
 	(when (null (buffer-file-name)) (save-buffer))
 	(when (buffer-modified-p) (save-buffer))
 

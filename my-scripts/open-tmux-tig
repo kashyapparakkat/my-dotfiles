@@ -1,0 +1,5 @@
+#!/bin/bash
+
+tmux new-window -t default -n tig tig
+sleep .2
+wmctrl -a tig

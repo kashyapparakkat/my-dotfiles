@@ -1,5 +1,4 @@
 # fzy is faster than fzf
-
 # Create path variables
 WORKING_PATH="$(pwd)"
 SCRIPT=$(readlink -f "$0")
@@ -239,9 +238,9 @@ export PAGER="/usr/bin/less -isrM"
 #export LESS="/usr/bin/less -isrM"
 export LESS="-isrM"
 
-export LESSOPEN='|pygmentize -g %s' 
+export LESSOPEN='|pygmentize -g %s'
 
- 
+
 
 #z fuzzy cd completion
 source ~/my-scripts/z/z.sh

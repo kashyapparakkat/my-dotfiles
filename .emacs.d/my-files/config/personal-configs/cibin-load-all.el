@@ -86,6 +86,7 @@ nil
 (require 'cbn-hydra)
 (require 'cbn-helm-config)
 (require 'advanced-navigation)
+(require 'seamless-integration)
 (require 'rotate-text)
 (cibin-load-essential-custom-bindings)
 (message "loaded all")

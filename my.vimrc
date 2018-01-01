@@ -51,6 +51,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
+Plug 'airblade/vim-gitgutter'
 " Initialize plugin system
 call plug#end()
 " use :PlugInstall from vim to install one time"
@@ -159,7 +160,7 @@ source ~/my.guide.vim
 " https://stackoverflow.com/questions/15123477/tmux-tabs-with-name-of-file-open-in-vim
 if exists('$TMUX')
 " rename on entering
-autocmd BufEnter * call system("tmux rename-window '" . expand("%:t") . "'")
+autocmd BufEnter * call system("tmux rename-window 'Vim: " . expand("%:t") . "'")
 " rename on leaving
 autocmd VimLeave * call system("tmux setw automatic-rename")
 endif

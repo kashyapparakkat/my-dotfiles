@@ -10,12 +10,12 @@ noremap <C-k> <PageUp><CR>
 noremap gl G
 noremap <leader>f :Ranger<CR>
 
- 
+
 noremap b :CtrlPMixed<CR>
 noremap <C-x>b :CtrlP<CR>
 " Press <c-f> and <c-b> to cycle between modes.
 
- 
+
 
 noremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
@@ -37,12 +37,19 @@ noremap <F7> <C-w>v<C-w>l<CR>
 "  :t: Split on / and return the right half (i.e. if I'm editing a file in a path of /tmp/test.txt and run %:p:t will return text.txt
 
 
-noremap od :silent !~/my-scripts/open_explorer.sh "$(~/my-scripts/convert_path_to_windows.sh %:p)"<CR>
-noremap oe :silent !~/my-scripts/emacs.sh "$(~/my-scripts/convert_path_to_windows.sh %:p)"<CR>
-noremap os :silent !~/my-scripts/sublime_text.sh "$(~/my-scripts/convert_path_to_windows.sh %:p)"<CR>
-noremap on :silent !~/my-scripts/npp.sh "$(~/my-scripts/convert_path_to_windows.sh %:p)"<CR>
-noremap ol :silent !less "$(~/my-scripts/convert_path_to_windows.sh %:p)"<CR>
-noremap or :! C:/cygwin64/bin/python3.6m.exe C:/cygwin64/bin/ranger --selectfile=%:p<CR>
+noremap od :silent !~/my-scripts/open_explorer.sh "$(~/my-scripts/convert_path_to_OS_format.sh \"%:p\")"<CR>
+
+noremap oe :silent !~/my-scripts/emacs.sh "$(~/my-scripts/convert_path_to_OS_format.sh %:p)"<CR>
+noremap oe :silent !activate_emacs %:p<CR>
+
+noremap os :silent !~/my-scripts/sublime_text.sh "$(~/my-scripts/convert_path_to_OS_format.sh %:p)"<CR>
+noremap os :silent !~/my-scripts/sublime_text.sh "%:p"<CR>
+
+noremap on :silent !~/my-scripts/npp.sh "$(~/my-scripts/convert_path_to_OS_format.sh \"%:p\")"<CR>
+noremap ol :silent !less "$(~/my-scripts/convert_path_to_OS_format.sh %:p)"<CR>
+
+" noremap or :! C:/cygwin64/bin/python3.6m.exe C:/cygwin64/bin/ranger --selectfile=%:p<CR>
+noremap or :! ranger --selectfile=%:p<CR>
 " --choosedir=%:p:h"
 
 
@@ -51,7 +58,6 @@ noremap or :! C:/cygwin64/bin/python3.6m.exe C:/cygwin64/bin/ranger --selectfile
 " :e filename
 " :b filen <TAB>
 "
- 
 
 "accelerated motion
 :noremap <M-j> 4j
