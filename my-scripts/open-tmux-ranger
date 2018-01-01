@@ -1,6 +1,6 @@
 #!/bin/bash
 
 # TODO selectfile if file else open the directory
-tmux new-window -t default -n Ranger ranger --selectfile=$1
-sleep .2
-wmctrl -a Ranger
+tmux new-window -t default -n Ranger: ranger --selectfile=$1
+sleep .3
+wmctrl -a Ranger:

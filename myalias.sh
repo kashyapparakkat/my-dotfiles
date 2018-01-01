@@ -395,3 +395,7 @@ git config pager.diff 'diff-highlight | less -r'
 # That covers almost everything, but there's one spot missing: diffs shown by the interactive patch-staging tool (you are using interactive
 # staging, right?). In Git 2.9, you can now ask it to filter the diffs it shows through any script you like:
 git config interactive.diffFilter diff-highlight
+
+
+# tmux
+alias tmuxd='tmux new-session -s default'

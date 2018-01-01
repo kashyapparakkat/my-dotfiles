@@ -1,4 +1,3 @@
-
 # https://superuser.com/questions/1048647/how-to-define-new-commands-in-the-ranger-file-manager/1048648
 
 
@@ -129,6 +128,9 @@ class fzf_ag_here(Command):
             else:
                 self.fm.select_file(fzf_file)
 
+    def cibin(self):
+        self.fm.notify('df')
+
 ## fzf integration
 class fzf_select(Command):
     """
@@ -161,7 +163,9 @@ class fzf_select(Command):
                 self.fm.select_file(fzf_file)
 
 #  https://github.com/ranger/ranger/issues/255
+
 from subprocess import PIPE
+
 class fzfcd(Command):
     def execute(self):
         command="find -L \( -path '*.wine-pipelight' -o -path '*.ivy2*' -o -path '*.texlive*' -o -path '*.git' -o -path '*.metadata' -o -path '*_notes' \) -prune -o -type d -print 2>/dev/null | fzf"

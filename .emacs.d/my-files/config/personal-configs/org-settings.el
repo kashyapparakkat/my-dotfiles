@@ -273,31 +273,29 @@
                           `(org-level-3 ((t (,@headline ,@variable-tuple :height 1.2))))
                           `(org-level-2 ((t (,@headline ,@variable-tuple :height 1.2 :foreground "green"))))
                           `(org-level-1 ((t (,@headline ,@variable-tuple :height 1.2 :foreground "red"))))
-                          `(org-document-title ((t (,@headline ,@variable-tuple :height 1.5 :underline nil)))))
-)
-
-)
+                          `(org-document-title ((t (,@headline ,@variable-tuple :height 1.5 :underline nil))))
 ; )
 
 ;; todo see @headline and @ variable-tuple above
-(custom-theme-set-faces 'user
+;; (custom-theme-set-faces 'user
 
-'(org-document-title ((t (:inherit default :weight bold :foreground "#b2b2b2" :font "Arial" :height 1.5 :underline nil))))
 
-'(org-level-1 ((t (:weight semi-bold :height 1.5 :family "Helvetica Neue"))))
-'(org-level-2 ((t (:inherit outline-2 :weight semi-bold :height 1.25))))
-'(org-level-3 ((t (:inherit outline-3 :weight bold :family "Helvetica Neue"))))
-'(org-level-4 ((t (:inherit outline-4 :height 1.15 :family "Helvetica Neue"))))
-'(org-level-5 ((t (:inherit outline-5 :height 1.0 :family "Helvetica Neue"))))
 
-'(org-level-1 ((t (:inherit default :weight bold :foreground "#b2b2b2" :font "Arial" :height 1.2))))
-'(org-level-2 ((t (:inherit default :weight bold :foreground "#b2b2b2" :font "Arial" :height 1.2))))
-'(org-level-3 ((t (:inherit default :weight bold :foreground "#b2b2b2" :font "Arial" :height 1.2))))
-'(org-level-4 ((t (:inherit default :weight bold :foreground "#b2b2b2" :font "Arial" :height 1.15))))
-'(org-level-5 ((t (:inherit default :weight bold :foreground "#b2b2b2" :font "Arial"))))
-'(org-level-6 ((t (:inherit default :weight bold :foreground "#b2b2b2" :font "Arial"))))
-'(org-level-7 ((t (:inherit default :weight bold :foreground "#b2b2b2" :font "Arial"))))
-'(org-level-8 ((t (:inherit default :weight bold :foreground "#b2b2b2" :font "Arial"))))
+;; TODO see if below is needed
+;; '(org-level-1 ((t (:weight semi-bold :height 1.7 :family "Helvetica Neue"))))
+;; '(org-level-2 ((t (:inherit outline-2 :weight semi-bold :height 1.25))))
+;; '(org-level-3 ((t (:inherit outline-3 :weight bold :height 1.2 :family "Helvetica Neue"))))
+;; '(org-level-4 ((t (:inherit outline-4 :height 1.15 :family "Helvetica Neue"))))
+;; '(org-level-5 ((t (:inherit outline-5 :height 1.0 :family "Helvetica Neue"))))
+;; '(org-document-title ((t (:inherit default :weight bold :foreground "#b2b2b2" :font "Arial" :height 1.5 :underline nil))))
+;; '(org-level-1 ((t (:inherit default :weight bold :foreground "#b2b2b2" :font "Arial" :height 1.2))))
+;; '(org-level-2 ((t (:inherit default :weight bold :foreground "#b2b2b2" :font "Arial" :height 1.2))))
+;; '(org-level-3 ((t (:inherit default :weight bold :foreground "#b2b2b2" :font "Arial" :height 1.2))))
+;; '(org-level-4 ((t (:inherit default :weight bold :foreground "#b2b2b2" :font "Arial" :height 1.15))))
+;; '(org-level-5 ((t (:inherit default :weight bold :foreground "#b2b2b2" :font "Arial"))))
+;; '(org-level-6 ((t (:inherit default :weight bold :foreground "#b2b2b2" :font "Arial"))))
+;; '(org-level-7 ((t (:inherit default :weight bold :foreground "#b2b2b2" :font "Arial"))))
+;; '(org-level-8 ((t (:inherit default :weight bold :foreground "#b2b2b2" :font "Arial"))))
 
 
 '(org-agenda-date ((t (:inherit org-agenda-structure :weight semi-bold :height 1.2))) t)
@@ -311,7 +309,11 @@
 '(org-date ((t (:foreground "dim gray" :underline t :height 0.8 :family "Helvetica Neue"))))
 '(org-done ((t (:foreground "gray57" :weight light))))
 '(org-todo ((t (:foreground "#e61e22" :weight bold))))
+                          )
 )
+
+)
+
 
 ;;https://yoo2080.wordpress.com/2013/05/30/ms-windows-emacs-fixed-pitch-got-no-anti-aliasing/
 ;;courier new is the only monospace font in windows by default

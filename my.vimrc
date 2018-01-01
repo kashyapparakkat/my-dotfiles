@@ -153,8 +153,9 @@ color desert
 "" highlight CursorLineNR ctermbg=235 ctermfg=white
 
 :nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
-source ~/my.guide.vim
 
+"TODO
+source ~/my.guide.vim
 
 " RENAME Tmux title
 " https://stackoverflow.com/questions/15123477/tmux-tabs-with-name-of-file-open-in-vim
