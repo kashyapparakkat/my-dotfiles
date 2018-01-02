@@ -1,0 +1,3 @@
+#!/bin/bash
+source ~/lib.sh
+searchnotes .|fzf --preview "head -100 {}"

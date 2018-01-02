@@ -33,6 +33,13 @@ doskey cd = cd /d $* ^&^& "C:\cbn_gits\my_env_path_folder\cmd-set-title.bat"
 doskey cd=@echo off$Tcd /d $*$T@title ^%cd^%$Techo on
 doskey cd=cd $* $T dir
 
+
+if exist %USERPROFILE%\AppData\Local\Continuum\anaconda3 doskey python3=%USERPROFILE%\AppData\Local\Continuum\anaconda3
+if exist %USERPROFILE%\AppData\Local\Continuum\anaconda3 doskey python=%USERPROFILE%\AppData\Local\Continuum\anaconda3
+
+if exist %USERPROFILE%\AppData\Local\Continuum\anaconda2 doskey python2=%USERPROFILE%\AppData\Local\Continuum\anaconda2
+
+
 doskey vi=vim
 
 rem todo  add ~/basic-settings-no-plugins.vimrc

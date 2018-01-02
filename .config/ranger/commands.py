@@ -97,6 +97,8 @@ class fasd(Command):
             self.fm.cd(directory)
 
 ## my fzf integration for ag
+
+# cmd recurse/not folderonly/both ext
 class fzf_ag_here(Command):
     """
     :fzf_select
@@ -110,19 +112,39 @@ class fzf_ag_here(Command):
     def execute(self):
         import subprocess
         import os.path
-        if self.quantifier:
-            # match only directories
-            command="find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
-            -o -type d -print 2> /dev/null | sed 1d | cut -b3- | fzf +m"
+        self.fm.notify(self.arg(1))
+        if self.arg(2)=='0': # all extensions
+            ext=""
+        elif self.arg(2)=='1': # current extension only
+            ext='-G' + os.path.splitext(self.fm.thisfile.relative_path)[1][1:] + '$'
         else:
+            ext='-G' + self.arg(2) + '$'
+
+        if self.arg(1)=="1": # recurse
+            command='ag ' + ext + ' .|fzf'
+            self.fm.notify(command)
+        else:
+            command='ag -n ' + ext + ' .|fzf'
+            self.fm.notify(command)
+        # return
+        # if self.quantifier:
+            # match only directories
+            # command="find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
+            # -o -type d -print 2> /dev/null | sed 1d | cut -b3- | fzf +m"
+        # else:
             # match files and directories
             # command="find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
             # -o -print 2> /dev/null | sed 1d | cut -b3- | fzf +m"
-            command="ag -n .|fzy"
+            # command="ag -n .|fzy"
         fzf = self.fm.execute_command(command, stdout=subprocess.PIPE)
         stdout, stderr = fzf.communicate()
         if fzf.returncode == 0:
             fzf_file = os.path.abspath(my_functions.parse_grep_file_path(stdout.decode('utf-8').rstrip('\n')))
+
+            # added by cbn;
+            # extract only the filename from the filename+line+match
+            import re
+            fzf_file= re.sub(r'([^:]*):.*', r'\1',fzf_file)
             if os.path.isdir(fzf_file):
                 self.fm.cd(fzf_file)
             else:
@@ -132,6 +154,35 @@ class fzf_ag_here(Command):
         self.fm.notify('df')
 
 ## fzf integration
+class bash_select(Command):
+    """
+    :fzf_select
+
+    Find a file using fzf.
+
+    With a prefix argument select only directories.
+
+    See: https://github.com/junegunn/fzf
+    """
+    def execute(self):
+        import subprocess
+        import os.path
+        command = self.arg(1)
+        fzf = self.fm.execute_command(command, stdout=subprocess.PIPE)
+        stdout, stderr = fzf.communicate()
+        if fzf.returncode == 0:
+            # fzf_file = os.path.abspath(stdout.decode('utf-8').rstrip('\n'))
+            fzf_file = os.path.abspath(stdout.decode('utf-8').strip())
+            # added by cbn;
+            # extract only the filename from the filename+line+match
+            import re
+            fzf_file = re.sub(r'([^:]+):.+$', r'\1',fzf_file)
+            self.fm.notify(fzf_file)
+            if os.path.isdir(fzf_file):
+                self.fm.cd(fzf_file)
+            else:
+                self.fm.select_file(fzf_file)
+
 class fzf_select(Command):
     """
     :fzf_select

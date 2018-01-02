@@ -808,6 +808,7 @@ _
  _o_: occur                       _y_: cibin/ag-files-cwd (ADV: ext & dir\?)
  _j_: helm-ag                     _w_: ag-files                                   _p_: cibin/helm-do-ag-All-Project
  _s_: swiper                      _k_: helm-do-ag-search in similar here                                                _P_: ag-project-at-point
+                                  _B_: (TODO all ext recurse)
 --------------------
 "
 ;; TODO ;; (cibin/global-set-key '("M-s r" . )) ; recurse

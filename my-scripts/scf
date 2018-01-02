@@ -1,0 +1,4 @@
+#!/bin/bash
+echo "sourcing lib"
+source ~/lib.sh
+scf

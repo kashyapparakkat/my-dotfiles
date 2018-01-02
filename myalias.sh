@@ -62,7 +62,7 @@ alias searchfolders='cat ~/all_folders2.db|fzy -l 20'
 alias sf='searchfiles|open_in_app'
 alias sf='searchfilesraw|fzf --preview "head -100 {}"'
 
-alias scf='searchcommands|clip'
+alias scf='a=$(searchcommands);echo "$a";echo "$a"|clip'
 alias sn='searchnotes'
 alias sNf='searchnotes -m 5 .|fzy -l 25|open_in_app' # sn fuzzy
 alias snf='searchnotes .|fzy -l 25|open_in_app' # sn fuzzy

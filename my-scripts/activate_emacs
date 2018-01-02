@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# http://mjwall.com/blog/2013/10/04/how-i-use-emacs/
+
+# add below lines to the launcher script
+# bash -c 'activate_emacs'
+
+function activate_emacs()
+{
+    wmctrl -a "Emacs: ("
+}
+
+if [ ! -z "$1" ]; then # if an argument is passed
+   if [ -f "$1" ]; then # if file exists
+      emacsclient -n "$@"
+   else
+      echo "$1 doesnot exist!!"
+      emacsclient -e "(message \"File: $1 doesnot exist\")"
+  fi
+fi
+activate_emacs

@@ -33,7 +33,13 @@ case "${unameOut}" in
     *)          machine="UNKNOWN:${unameOut}"
 esac
 export machine
+
+# https://stackoverflow.com/questions/911168/how-to-detect-if-my-shell-script-is-running-through-a-pipe
+if [ -t 1 ] ; then
 echo ${machine}
+# else
+    # echo "not a terminal";
+fi
 
 
 
