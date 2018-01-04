@@ -40,6 +40,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'hecal3/vim-leader-guide'
 Plug 'junegunn/vim-easy-align'
 Plug 'roman/golden-ratio'
+" Plug 'junegunn/vader.vim'
 Plug 'vim-scripts/ag.vim'
 " shell inside vi
 Plug 'wkentaro/conque.vim'
@@ -153,6 +154,21 @@ color desert
 "" highlight CursorLineNR ctermbg=235 ctermfg=white
 
 :nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
+
+" https://stackoverflow.com/questions/6778961/alt-key-shortcuts-not-working-on-gnome-terminal-with-vim
+let c='a'
+while c <= 'z'
+  exec "set <A-".c.">=\e".c
+  exec "imap \e".c." <A-".c.">"
+  let c = nr2char(1+char2nr(c))
+endw
+
+set timeout ttimeoutlen=50
+
+map <M-j> gg
+
+noremap <M-j> gg
+nnoremap <M-j> gg
 
 "TODO
 source ~/my.guide.vim

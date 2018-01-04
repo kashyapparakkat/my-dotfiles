@@ -13,6 +13,7 @@ noremap <leader>f :Ranger<CR>
 
 noremap b :CtrlPMixed<CR>
 noremap <C-x>b :CtrlP<CR>
+noremap <M-s>b :CtrlP<CR>
 " Press <c-f> and <c-b> to cycle between modes.
 
 
