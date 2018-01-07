@@ -567,6 +567,10 @@ shift $((OPTIND-1)) # shift other args
 
 find "$Universal_home/Downloads/" -maxdepth "$maxdepth" -iname "*notes*.org" -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
 find "$Universal_home/Downloads/" -maxdepth "$maxdepth" -iname "*notes*.txt" -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
+
+find "/media/sf_Downloads/" -maxdepth "$maxdepth" -iname "*notes*.org" -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
+find "/media/sf_Downloads/" -maxdepth "$maxdepth" -iname "*notes*.txt" -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
+
 find "$second_Universal_home/Downloads/" -maxdepth "$maxdepth" -iname "*notes*.org" -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
 find "$second_Universal_home/Downloads/" -maxdepth "$maxdepth" -iname "*notes*.txt" -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
 # 2>&1

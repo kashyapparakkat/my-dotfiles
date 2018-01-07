@@ -271,8 +271,8 @@
                           `(org-level-5 ((t (,@headline ,@variable-tuple))))
                           `(org-level-4 ((t (,@headline ,@variable-tuple :height 1.15))))
                           `(org-level-3 ((t (,@headline ,@variable-tuple :height 1.2))))
-                          `(org-level-2 ((t (,@headline ,@variable-tuple :height 1.2 :foreground "green"))))
-                          `(org-level-1 ((t (,@headline ,@variable-tuple :height 1.2 :foreground "red"))))
+                          `(org-level-2 ((t (,@headline ,@variable-tuple :height 1.2 :foreground "#556b2f"))))
+                          `(org-level-1 ((t (,@headline ,@variable-tuple :height 1.2 :foreground "#dd0000"))))
                           `(org-document-title ((t (,@headline ,@variable-tuple :height 1.5 :underline nil))))
 ; )
 

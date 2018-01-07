@@ -268,7 +268,8 @@
 (global-set-key (kbd "S-<f4>") (lambda () (interactive)(dired (format "C://Users//%s//Downloads" user-login-name))))
 
 ; file searching
-(cibin/global-set-key '("C-x M-f" . ido-find-file-other-window))
+(cibin/global-set-key '("C-x M-f" . helm-find-files))
+;; (cibin/global-set-key '("C-x M-f" . ido-find-file-other-window))
 (cibin/global-set-key '("C-x C-M-f" . find-file-in-project))
 ;; (cibin/global-set-key '("C-x p" . cibin-find-related-files))
 (cibin/global-set-key '("C-x F" . file-cache-ido-find-file))

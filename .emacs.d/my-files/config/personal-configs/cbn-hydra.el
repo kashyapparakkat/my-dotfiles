@@ -331,7 +331,7 @@ _G_: golden ratio
    ("o" cibin/essential-mode nil)
    ("r" dired-toggle-read-only nil)
    ("s" orgstruct-mode nil)
-   ("t" toggle-truncate-lines nil)
+   ("t" toggle-truncate-lines nil :color blue)
    ("u" toggle-debug-on-quit nil)
    ("w" whitespace-mode nil)
    ("x" bnb/transparency-next nil)
