@@ -32,8 +32,20 @@
 
 (defun cibin/helm-do-ag-Extension-here-cwd-switchable()
   (interactive)
-(cibin/helm-do-ag-Extension-recurse-cwd nil)
+(cibin/helm-do-ag-Extension-here-cwd (thing-at-point 'symbol))
 )
+;; TODO make this switchable
+(defun cibin/helm-do-ag-Extension-recurse-cwd-switchable()
+  (interactive)
+(cibin/helm-do-ag-Extension-recurse-cwd (thing-at-point 'symbol) (return-source-path))
+)
+
+
+  (defun cibin/helm-do-ag-Extension-Project-cwd-switchable()
+  (interactive)
+(cibin/helm-do-ag-Extension-recurse-cwd (thing-at-point 'symbol) (cibin/get-project-root))
+)
+
 (defun cibin-test()
   (interactive)
 (bind-all-helm-ivy-keys)

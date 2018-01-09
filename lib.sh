@@ -245,23 +245,20 @@ function cron_jobs_cibin() {
 	# TODO: separate the jobs or add interval info to it
 
   # https://superuser.com/questions/467181/how-to-use-updatedb-command-as-an-ordinary-user
-# updatedb -o ~/.locate.db
+  # updatedb -o ~/.locate.db
 	# to  update locatedb
 	# updatedb
 
 	# Change mlocate Database Location
-# The default database that locate utility reads is /var/lib/mlocate/mlocate.db, but if you wish to link the locate command with some other database kept at some other location, use the -d option.
-# For example :
-# $ locate -d <new db path> <filename>
-
-
+  # The default database that locate utility reads is /var/lib/mlocate/mlocate.db, but if you wish to link the locate command with some other database kept at some other location, use the -d option.
+  # For example :
+  # $ locate -d <new db path> <filename>
+  # all_files.db indexing
+  myindex
+  myindexfolders
+  # emacs indexing
 	other_indexes
-    # emacs indexing
 	myindexemacs
-    # all_files.db indexing
-    myindex
-
-	echo "TODO"
 
 }
 
@@ -565,14 +562,14 @@ shift $((OPTIND-1)) # shift other args
 # lfind "$Universal_home/Downloads/" -maxdepth "$maxdepth" -iname "*notes*.txt" -exec  echo {} +
 # TODO disabling color temporarily
 
-find "$Universal_home/Downloads/" -maxdepth "$maxdepth" -iname "*notes*.org" -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
-find "$Universal_home/Downloads/" -maxdepth "$maxdepth" -iname "*notes*.txt" -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
+find "$Universal_home/Downloads/" -maxdepth "$maxdepth" -iname "*notes*.org" 2>&1 -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
+find "$Universal_home/Downloads/" -maxdepth "$maxdepth" -iname "*notes*.txt" 2>&1 -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
 
-find "/media/sf_Downloads/" -maxdepth "$maxdepth" -iname "*notes*.org" -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
-find "/media/sf_Downloads/" -maxdepth "$maxdepth" -iname "*notes*.txt" -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
+find "/media/sf_Downloads/" -maxdepth "$maxdepth" -iname "*notes*.org" 2>&1 -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
+find "/media/sf_Downloads/" -maxdepth "$maxdepth" -iname "*notes*.txt" 2>&1 -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
 
-find "$second_Universal_home/Downloads/" -maxdepth "$maxdepth" -iname "*notes*.org" -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
-find "$second_Universal_home/Downloads/" -maxdepth "$maxdepth" -iname "*notes*.txt" -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
+find "$second_Universal_home/Downloads/" -maxdepth "$maxdepth" -iname "*notes*.org" 2>&1 -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
+find "$second_Universal_home/Downloads/" -maxdepth "$maxdepth" -iname "*notes*.txt" 2>&1 -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
 # 2>&1
 
 # ag $* -n -G org$ /cygdrive/c/Users/"$USERNAME"/Downloads/ --color

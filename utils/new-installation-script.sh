@@ -95,7 +95,7 @@ paci emacs25
 # mac oS available in spacemacs page
 
 # spacemacs
-git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+git clone --depth=1 https://github.com/syl20bnr/spacemacs ~/.emacs.d && rm -rf ~/.emacs.d/.git
 
 
 # VLC
@@ -115,7 +115,7 @@ cd ~/tmp-installers
 
 # paci ranger
 # or
-git clone https://github.com/hut/ranger.git
+git clone https://github.com/hut/ranger.git && rm -rf ranger/.git
 cd ranger
 sudo make install
 # We will also install some other applications that allow ranger to preview various file formats effectively.

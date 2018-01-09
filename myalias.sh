@@ -399,3 +399,10 @@ git config interactive.diffFilter diff-highlight
 
 # tmux
 alias tmuxd='tmux new-session -s default'
+
+if [ -d "~/anaconda2/bin/python" ]; then alias python2='~/anaconda2/bin/python'; fi
+if [ -d "~/anaconda3/bin/python" ]; then alias python3='~/anaconda3/bin/python'; fi
+
+# prefer python 3 over 2
+if [ -d "~/anaconda2/bin/python" ]; then alias python='~/anaconda2/bin/python'; fi
+if [ -d "~/anaconda3/bin/python" ]; then alias python='~/anaconda3/bin/python'; fi

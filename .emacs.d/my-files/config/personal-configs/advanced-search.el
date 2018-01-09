@@ -60,20 +60,26 @@ If called with a prefix, prompts for flags to pass to ag."
   (interactive)
   ;; (message extension-regex)
   (setq ext (if (eq extension-regex nil) (format "\\.%s$" (get-file-extension)) extension-regex))
-  (setq params (if (eq recurse nil) "-n" ""))
+  (setq params (if (eq recurse nil) " -n" " "))
   (setq helm-ag-command-option (concat params " -G" ext))
-  (let ((rootdir (return-source-path)))()
-    (unless rootdir
-      (error "Could not find the project root. Create a git, hg, or svn repository there first. "))
-    (helm-do-ag rootdir nil query)))
-
-(defun cibin/helm-do-ag-Extension-recurse-cwd (&optional query)
-  (interactive)
-  (setq helm-ag-command-option (concat "-G" (get-file-extension)  "$"))
   (let ((rootdir (return-source-path)))
     (unless rootdir
       (error "Could not find the project root. Create a git, hg, or svn repository there first. "))
     (helm-do-ag rootdir nil query)))
+
+(defun cibin/get-project-root()
+  ;;TODO add  (projectile-project-root)
+(require 'vc)
+(vc-call-backend (vc-responsible-backend (return-source-path)) 'root (return-source-path)))
+(cibin/get-project-root)
+
+(defun cibin/helm-do-ag-Extension-recurse-cwd (&optional query rootdir)
+  (interactive)
+  (setq helm-ag-command-option (concat "-G" (get-file-extension)  "$"))
+  (if (eq rootdir nil) (setq rootdir (return-source-path) ))
+    (unless rootdir
+      (error "Could not find the project root. Create a git, hg, or svn repository there first. "))
+    (helm-do-ag rootdir nil query))
 
 ;; TODO check regex option
 (defun modi/ag-regexp-cwd (string)

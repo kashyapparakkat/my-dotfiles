@@ -139,6 +139,10 @@
 )
 (cibin/global-set-key '("C-x C-;" . comment-or-uncomment-region))
 (cibin/global-set-key '("C-c C-b" . xah-make-backup-and-save))
+;; duplicate a line and comment the first
+
+(global-set-key (kbd "C-:") (lambda()(interactive)(djcb-duplicate-line t)))
+
 (with-eval-after-load 'org
 
 (define-key org-mode-map (kbd "C-c C-b") 'xah-make-backup-and-save)

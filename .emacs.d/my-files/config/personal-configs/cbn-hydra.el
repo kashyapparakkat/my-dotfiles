@@ -816,7 +816,6 @@ _
 ("a" helm-do-ag-buffers)
 ("d" helm-do-ag-this-file)
 ("B" nil)
-("g" nil)
 ("/" my-multi-occur-in-matching-buffers)
 
 ("b" cibin/helm-do-ag-cwd)
@@ -832,7 +831,8 @@ _
 ("p" ag-project-at-point)
 
 ("w" ag-files) ; advanced (string file-type directory))
-("r" cibin/helm-do-ag-Extension-recurse-cwd)
+("g" cibin/helm-do-ag-Extension-Project-cwd-switchable)
+("r" cibin/helm-do-ag-Extension-recurse-cwd-switchable)
 ("a" cibin/swiper-all)
 ("s" cibin/swiper)
 ("y" cibin/ag-files-cwd)

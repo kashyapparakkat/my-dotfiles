@@ -34,12 +34,12 @@ doskey cd=@echo off$Tcd /d $*$T@title ^%cd^%$Techo on
 doskey cd=cd $* $T dir
 
 
-if exist %USERPROFILE%\AppData\Local\Continuum\anaconda2 doskey python2=%USERPROFILE%\AppData\Local\Continuum\anaconda2
-if exist %USERPROFILE%\AppData\Local\Continuum\anaconda3 doskey python3=%USERPROFILE%\AppData\Local\Continuum\anaconda3
+if exist %USERPROFILE%\AppData\Local\Continuum\anaconda2 doskey python2=%USERPROFILE%\AppData\Local\Continuum\anaconda2\python
+if exist %USERPROFILE%\AppData\Local\Continuum\anaconda3 doskey python3=%USERPROFILE%\AppData\Local\Continuum\anaconda3\python
 
 REM prefer python3 over 2
-if exist %USERPROFILE%\AppData\Local\Continuum\anaconda2 doskey python=%USERPROFILE%\AppData\Local\Continuum\anaconda2
-if exist %USERPROFILE%\AppData\Local\Continuum\anaconda3 doskey python=%USERPROFILE%\AppData\Local\Continuum\anaconda3
+if exist %USERPROFILE%\AppData\Local\Continuum\anaconda2 doskey python=%USERPROFILE%\AppData\Local\Continuum\anaconda2\python
+if exist %USERPROFILE%\AppData\Local\Continuum\anaconda3 doskey python=%USERPROFILE%\AppData\Local\Continuum\anaconda3\python
 
 
 

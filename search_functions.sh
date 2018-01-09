@@ -188,7 +188,7 @@ while true; do
 	    [Ss]* ) open_in_sublime_text $(echo "$filepath"); exit;break;;
 	    [Qq]* ) echo; exit; break;;
 	    v ) echo "$filepath"|open_in_vim; break;;
-	    e ) activate_emacs"$filepath"; break;;
+	    e ) activate_emacs "$filepath"; break;;
 	    * ) echo "$filepath"|open_in_vim ; break;;
     esac
 	echo "try again" #;break;
