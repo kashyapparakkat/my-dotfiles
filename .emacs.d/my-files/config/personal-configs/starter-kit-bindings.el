@@ -328,6 +328,7 @@
 (define-key evil-normal-state-map "B" 'ibuffer)
 (define-key evil-normal-state-map "Y" 'copy-to-end-of-line)
 
+(message "test f")
 ; C-x k
 ; f4/C-x 0=kill buffer
 ; C-x 0/q/M-q=kill buffer & remove window
@@ -352,6 +353,7 @@
 (define-key debugger-mode-map (kbd "e") 'other-window))
 (define-key help-mode-map (kbd "e") 'other-window)
 ;; (define-key debugger-mode-map (kbd "q") ')
+(message "test i")
 
 (cibin/global-set-key '("M-e" . other-window))
 (define-key evil-normal-state-map "e" 'other-window)
@@ -530,14 +532,18 @@
 (cibin/global-set-key '("C-x m" . magit-mode))
 (cibin/global-set-key '("C-x g" . magit-status))
 (cibin/global-set-key '("C-c q" . join-line))
+(message "test t")
 
 ;; This is a little hacky since VC doesn't support git add internally
-(eval-after-load 'vc
-  (define-key vc-prefix-map "i" '(lambda () (interactive)
-                                   (if (not (eq 'Git (vc-backend buffer-file-name)))
-                                       (vc-register)
-                                     (shell-command (format "git add %s" buffer-file-name))
-                                     (message "Staged changes.")))))
+;; TODO throwing error during startup
+;; (eval-after-load 'vc
+  ;; (define-key vc-prefix-map "i" '(lambda () (interactive)
+                                   ;; (if (not (eq 'Git (vc-backend buffer-file-name)))
+                                       ;; (vc-register)
+                                     ;; (shell-command (format "git add %s" buffer-file-name))
+                                     ;; (message "Staged changes.")))))
+(message "test k")
+
 (with-eval-after-load 'org
 
 ;; Org
@@ -550,6 +556,7 @@
 
 
 
+(message "test a")
 
 
 (defun my/quick-view-file-at-point ()
@@ -597,6 +604,7 @@ buffer preview will still display."
 ; There are some hooks that allow to do things when we enter or exit a mode (see the pdf manual).
 ; For example, to save the buffer when we exit the insert mode:
 
+(message "test 2")
    (defun my-save-if-bufferfilename ()
      (if (buffer-file-name)
          (progn
@@ -609,6 +617,7 @@ buffer preview will still display."
 
                                         ; or only in evil’s normal state:
 
+(message "test r")
 
    ;; INCREMENT AND DECREMENT numbers in Emacs
 
@@ -709,6 +718,7 @@ buffer preview will still display."
 ; (cibin/global-set-key '("M-<down>" . move-region-down))
 
 
+(message "test 2")
 (with-eval-after-load 'company
   (define-key company-active-map (kbd "C-h") 'delete-backward-char ))
 
@@ -763,7 +773,6 @@ buffer preview will still display."
 	)
 	;;;;;;;;(add-hook 'org-mode-hook (lambda ()(define-key org-mode-map (car binding) (cdr binding))))  )
 )
-
 
  ; delete till non whitespace cycle
 ;; (cibin/global-set-key '("C-D" . xah-shrink-whitespaces))
@@ -864,4 +873,5 @@ buffer preview will still display."
 
 (define-key emacs-lisp-mode-map (kbd "C-c C-c") #'eval-defun)
 (define-key emacs-lisp-mode-map (kbd "C-c C-b") #'eval-buffer)
+(message "loaded starter-kit-bindings")
 (provide 'starter-kit-bindings)

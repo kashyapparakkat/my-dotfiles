@@ -53,7 +53,7 @@ end up leaving point on a space or newline character."
 
 
 
-;; For parens you can do M-(. For brackets/braces/quotes you could do: 
+;; For parens you can do M-(. For brackets/braces/quotes you could do:
 (cibin/global-set-key '("M-[" . insert-pair))
 (cibin/global-set-key '("M-{" . insert-pair))
 (cibin/global-set-key '("M-\"" . insert-pair))
@@ -130,8 +130,11 @@ end up leaving point on a space or newline character."
 
 (defun write-file-to-temp-file ()
   (interactive)
-  (setq filepath  "~/.emacs.d/my-files/emacs-temporary/scratch-buffer.txt")
+(message "test")
+  (setq filepath  "~/.emacs.d/my-files/emacs-tmp/scratch-buffer.txt")
+
   (write-region (point-min) (point-max) filepath)
+(message "test")
   )
 
 (defun return-filepath()

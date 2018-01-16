@@ -24,7 +24,7 @@ nil
 (load-file "~/.emacs.d/my-files/config/others/dired-sort-menu.el")
 (load-file "~/.emacs.d/my-files/config/others/dired-sort-menu+.el")
 (load-file "~/.emacs.d/my-files/config/others/bm.el")
-; ;(cd (format "%s/AppData/Roaming/.emacs.d/my-files/config/others/el-qrencode-master" Universal_home))
+;(cd (format "%s/AppData/Roaming/.emacs.d/my-files/config/others/el-qrencode-master" Universal_home))
 
 ; (cd (format "c:/cygwin64/home/%s/.emacs.d/my-files/config/others/el-qrencode-master" user-login-name))
 ; (load-file "~/.emacs.d/my-files/config/others/el-qrencode-master/load.el")
@@ -73,6 +73,7 @@ nil
 (require 'cbn-auto-spell)
 (require 'tabbar-tweaks)
 (require 'major-mode-settings)
+(require 'added-april)
 (require 'advanced-search)
 (require 'cbn-mode-line)
 (require 'hydra-quick-edit)
@@ -80,7 +81,6 @@ nil
 ;; (require 'cbn-performance)
 
 (require 'cbn-xah-fly-keys-functions)
-(require 'added-april)
 (require 'custom-ivy)
 ; (load-file "~/.emacs.d/my-files/config/personal-configs/cbn-xah-fly-keys.el")
 (require 'cbn-hydra)
