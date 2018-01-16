@@ -1,3 +1,18 @@
+// https://www.davrous.com/2016/12/07/creating-an-extension-for-all-browsers-edge-chrome-firefox-opera-brave/
+
+browser = (function ()  {   
+     return window.msBrowser || chrome ||   
+ browser; 
+     // TODO msBrowser
+ })(); 
+ 
+ 
+window.browser = (function () {
+  return window.msBrowser ||
+    window.browser ||
+    window.chrome;
+})();
+
 
 //  in google.com; s open first google result, sj next
 // todo; b=search buffer as you type
@@ -415,3 +430,4 @@ function vimEditURL() {
 function editSettings() {
     tabOpenLink("/pages/options.html");
 }
+
