@@ -674,5 +674,11 @@ output as a string."
       (concat (if (= 0 (forward-line 1)) "" "\n") str "\n"))
     (forward-line -1)))
 
-
+(defun clean-emacs()
+  (interactive)
+(message "garbage collecting..")
+(garbage-collect)
+(message "garbage collected")
+  )
+(global-set-key (kbd "C-M-e") 'clean-emacs)
 (provide 'more-custom-functions)

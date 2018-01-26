@@ -52,6 +52,13 @@ alias r='ranger'
 
 alias crons='source ~/cron-job.sh'
 
+
+
+
+alias fzft='fzf --preview "'"echo {} | cut -f1 -d":" | xargs cat {};"'"'
+# fzf --preview "head -100 {}"'
+
+
 alias s='prompt_for_s'
 
 alias sa='searchall'
@@ -60,26 +67,30 @@ alias searchfiles='searchfilesraw|fzy -l 20'
 alias searchfolders='cat ~/all_folders2.db|fzy -l 20'
 
 alias sf='searchfiles|open_in_app'
-alias sf='searchfilesraw|fzf --preview "head -100 {}"'
+alias sf='searchfilesraw|fzft'
 
 alias scf='a=$(searchcommands);echo "$a";echo "$a"|clip'
 alias sn='searchnotes'
 alias sNf='searchnotes -m 5 .|fzy -l 25|open_in_app' # sn fuzzy
 alias snf='searchnotes .|fzy -l 25|open_in_app' # sn fuzzy
-alias snf='searchnotes .|fzf --preview "head -100 {}"'
+
+alias snf='searchnotes .|fzft'
+
+
+
 
 alias spf='searchproject .|fzy -l 25' # sp fuzzy
 alias sp='searchproject'
 
 
-alias srf='searchInRecentfiles .|fzf'
+alias srf='searchInRecentfiles .|fzft'
 alias sr='searchInRecentfiles'
 
 alias st='searchtext'
 alias stf='searchtext|fzy -l 25|extract_filepath_linenum|open_in_app'
 # search is recursive by default
 alias searchhere='searchtext -n'
-alias sth='searchhere .|fzy -l 25|extract_filepath_linenum|open_in_app'
+alias sth='searchhere .|fzft|extract_filepath_linenum|open_in_app'
 # alias stf='searchtext .'
 
 alias vi='vim'

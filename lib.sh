@@ -561,17 +561,25 @@ shift $((OPTIND-1)) # shift other args
 # lfind "$Universal_home/Downloads/" -maxdepth "$maxdepth" -iname "*notes*.org" -exec  echo {} +
 # lfind "$Universal_home/Downloads/" -maxdepth "$maxdepth" -iname "*notes*.txt" -exec  echo {} +
 # TODO disabling color temporarily
+ 
+ 
+if [ -d "$second_Universal_home/Downloads/" ]; then
+	find "$Universal_home/Downloads/" -maxdepth "$maxdepth" -iname "*notes*.org" 2>&1 -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
+	find "$Universal_home/Downloads/" -maxdepth "$maxdepth" -iname "*notes*.txt" 2>&1 -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
 
-find "$Universal_home/Downloads/" -maxdepth "$maxdepth" -iname "*notes*.org" 2>&1 -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
-find "$Universal_home/Downloads/" -maxdepth "$maxdepth" -iname "*notes*.txt" 2>&1 -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
 
-find "/media/sf_Downloads/" -maxdepth "$maxdepth" -iname "*notes*.org" 2>&1 -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
-find "/media/sf_Downloads/" -maxdepth "$maxdepth" -iname "*notes*.txt" 2>&1 -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
+	find "$second_Universal_home/Downloads/" -maxdepth "$maxdepth" -iname "*notes*.org" 2>&1 -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
+	find "$second_Universal_home/Downloads/" -maxdepth "$maxdepth" -iname "*notes*.txt" 2>&1 -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
+fi
 
-find "$second_Universal_home/Downloads/" -maxdepth "$maxdepth" -iname "*notes*.org" 2>&1 -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
-find "$second_Universal_home/Downloads/" -maxdepth "$maxdepth" -iname "*notes*.txt" 2>&1 -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
+
+if [ -d "/media/sf_Downloads/" ]; then
+
+	find "/media/sf_Downloads/" -maxdepth "$maxdepth" -iname "*notes*.org" 2>&1 -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
+	find "/media/sf_Downloads/" -maxdepth "$maxdepth" -iname "*notes*.txt" 2>&1 -exec  ag -i --noheading --numbers --filename --no-color --color-match "2;46" $* {} +
 # 2>&1
 
+fi
 # ag $* -n -G org$ /cygdrive/c/Users/"$USERNAME"/Downloads/ --color
 # # ag $* -n -G todo-notes.org$ /cygdrive/c/Users/"$USERNAME"/Downloads/ --color
 # ag $* -n -G ^notes.txt$ /cygdrive/c/Users/"$USERNAME"/Downloads/ --color
