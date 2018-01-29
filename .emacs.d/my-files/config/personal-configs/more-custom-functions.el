@@ -674,11 +674,23 @@ output as a string."
       (concat (if (= 0 (forward-line 1)) "" "\n") str "\n"))
     (forward-line -1)))
 
-(defun clean-emacs()
+(defun cbn/clean-emacs()
   (interactive)
 (message "garbage collecting..")
 (garbage-collect)
-(message "garbage collected")
+   (message "gc-cons-threshold restored to %S" gc-cons-threshold)
   )
-(global-set-key (kbd "C-M-e") 'clean-emacs)
+(global-set-key (kbd "C-M-e") 'cbn/clean-emacs)
+
+; whenever idle for sometime after every 5 min, runs a garbage collection
+;; (run-with-timer 300 300 (lambda()
+
+
+
+;; (run-with-idle-timer 5 nil 'cbn/clean-emacs)
+                        ;; ))
+(run-with-idle-timer 15 30 'cbn/clean-emacs)
+
+;; (run-with-idle-timer 5 nil 'cbn/clean-emacs)
+
 (provide 'more-custom-functions)

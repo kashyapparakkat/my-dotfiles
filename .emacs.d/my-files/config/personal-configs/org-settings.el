@@ -4,6 +4,7 @@
   ; :ensure org-plus-contrib
   ; :ensure t
   ; :config
+(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
 
   (progn
     ;; config stuff
@@ -154,7 +155,8 @@
 	   'org-backward-same-level 'org-backward-heading-same-level)
 
   "go" 'outline-previous-heading
-  "gl" 'outline-next-visible-heading
+;; disabling as it is goto last
+  ;; "gl" 'outline-next-visible-heading
   "T" '(lambda () (interactive) (evil-org-eol-call (lambda() (org-insert-todo-heading nil))))
   "H" 'org-shiftleft
   ; "J" 'org-shiftdown

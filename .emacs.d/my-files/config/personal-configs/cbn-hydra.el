@@ -831,7 +831,8 @@ _
 ("p" ag-project-at-point)
 
 ("w" ag-files) ; advanced (string file-type directory))
-("g" cibin/helm-do-ag-Extension-Project-cwd-switchable)
+;; ("g" cibin/helm-do-ag-Extension-Project-cwd-switchable)
+("g" counsel-git-grep)
 ("r" cibin/helm-do-ag-Extension-recurse-cwd-switchable)
 ("a" cibin/swiper-all)
 ("s" cibin/swiper)
@@ -886,7 +887,7 @@ _
                              )
  "
 
-  _sr_ : open-similar-files-in-folder-recursively       _d_  : xah-open-in-desktop             _tt_  : dir-structure -Tree       _r_  : ranger-mode
+  _sr_ : open-similar-files-in-folder-recursively       _d_  : xah-open-in-desktop             _tt_  : dir-structure -Tree       _r_  : open in ranger
   _n_  : find-next-file-in-current-directory            _o_  : cibin/xah-open-file-at-cursor   _ta_  : dir-structure all -Tree   _v_  : vim
                                                                                                                    _tg_ : tig
   _b_  : buffer/switch-in-directory                     _e_  : in-external-app

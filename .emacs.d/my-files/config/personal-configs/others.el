@@ -413,14 +413,16 @@
 		(when (eq pt (point))
 			(beginning-of-line))))
 
-;; https://stackoverflow.com/questions/24684979/how-to-add-a-tool-bar-button-in-emacs
-(defun toolbar-button ()
-	"kill-all-other-buffers-if-not-modified"
-	(interactive)
-	(message "kill-all-other-buffers-if-not-modified")
-  (kill-all-other-buffers-if-not-modified)
-  )
 
+;; (defun kill-all-other-buffers-if-not-modified-button ()
+	;; "kill-all-other-buffers-if-not-modified"
+	;; (interactive)
+	;; (message "kill-all-other-buffers-if-not-modified")
+  ;; (kill-all-other-buffers-if-not-modified)
+  ;; )
+
+
+;; https://stackoverflow.com/questions/24684979/how-to-add-a-tool-bar-button-in-emacs
 (tool-bar-add-item "open" 'dlgopen-open-files 'dlgopen-open-files
                    :help   "dlgopen-open-files"
 )
@@ -428,7 +430,7 @@
 (tool-bar-add-item "copy" 'hsplit-last-buffer 'hsplit-last-buffer
                    :help   "hsplit-last-buffer"
 )
-(tool-bar-add-item "cancel" 'toolbar-button 'toolbar-button
+(tool-bar-add-item "cancel" 'kill-all-other-buffers-if-not-modified 'kill-all-other-buffers-if-not-modified
                    :help   "kill-all-other-buffers-if-not-modified"
 )
 

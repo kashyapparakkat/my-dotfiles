@@ -172,10 +172,21 @@
 
 (global-set-key (kbd "C-k") (lambda () (interactive) (evil-scroll-up nil)))
 (global-set-key (kbd "C-j") (lambda () (interactive) (evil-scroll-down nil)))
+
+(global-set-key (kbd "C-S-j") (lambda () (interactive) (scroll-other-window)))
+(global-set-key (kbd "C-S-k") (lambda () (interactive) (scroll-other-window-down)))
+
 (define-key evil-insert-state-map (kbd "C-k") (lambda () (interactive) (evil-scroll-up nil)))
 (define-key evil-insert-state-map (kbd "C-j") (lambda () (interactive)  (evil-scroll-down nil)))
 (define-key evil-normal-state-map (kbd "C-k") (lambda () (interactive) (evil-scroll-up nil)))
 (define-key evil-normal-state-map (kbd "C-j") (lambda () (interactive)  (evil-scroll-down nil)))
+
+(define-key evil-insert-state-map (kbd "C-S-j") (lambda () (interactive) (scroll-other-window)))
+(define-key evil-insert-state-map (kbd "C-S-k") (lambda () (interactive)  (scroll-other-window-down)))
+(define-key evil-normal-state-map (kbd "C-S-j") (lambda () (interactive)  (scroll-other-window)))
+(define-key evil-normal-state-map (kbd "C-S-k") (lambda () (interactive) (scroll-other-window-down)))
+
+; TODO add C_J &C-K to dired also
 (with-eval-after-load 'dired
 (define-key dired-mode-map "h" (lambda ()  (interactive) (find-alternate-file "..")))
 (define-key dired-mode-map (kbd "C-k") (lambda () (interactive) (evil-scroll-up nil)))
@@ -205,9 +216,9 @@
 ;; (define-key org-mode-map (kbd "o") 'switch-to-prev-buffer)
 
 	)
-
 ;  kill the same line even if at the end of line
-(cibin/global-set-key '("C-S-k" . kill-whole-line))
+;; TODO disabling for now
+;; (cibin/global-set-key '("C-S-k" . kill-whole-line))
 
 ;; TODO create in current major mode
 (cibin/global-set-key '("C-x C-n" . xah-new-empty-buffer))
@@ -703,6 +714,8 @@ buffer preview will still display."
 
  ;; override dragg-stuff
 (with-eval-after-load 'org
+(define-key org-mode-map  (kbd "C-S-y") 'evil-unimpaired/paste-below)
+(define-key org-mode-map  (kbd "C-M-y") 'evil-unimpaired/paste-above)
 (define-key org-mode-map (kbd "M-<left>") 'cibin/org-do-promote)
 (define-key org-mode-map  (kbd "M-<right>") 'org-do-demote) )
 
