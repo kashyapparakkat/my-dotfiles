@@ -83,6 +83,11 @@ paci git
 
 # vim
 paci vim
+
+# TODO this only for ubuntu, make this portable
+# system clipboard compiled vim version
+paci vim-gtk
+
 #vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 

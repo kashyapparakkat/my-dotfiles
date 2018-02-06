@@ -693,4 +693,26 @@ output as a string."
 
 ;; (run-with-idle-timer 5 nil 'cbn/clean-emacs)
 
+
+; https://emacs.stackexchange.com/questions/20481/incrementing-characters-in-emacs-next-to-numbers
+(defun increment-char-at-point ()
+  "Increment number or character at point."
+  (interactive)
+  (condition-case nil
+      (save-excursion
+        (let ((chr  (1+ (char-after))))
+          (unless (characterp chr) (error "Cannot increment char by one"))
+          (delete-char 1)
+          (insert chr)))
+    (error (error "No character at point"))))
+
+(spacemacs/set-leader-keys "n n" 'increment-char-at-point)
+
+;; TODO
+(spacemacs/set-leader-keys "o o" (lambda () (interactive)
+                                (find-file "~/todo-notes.org") (message "Opened:  %s" (buffer-name))))
+
+(spacemacs/set-leader-keys "o t" (lambda () (interactive) (if (get-buffer "todo-notes.org") (switch-to-buffer "todo-notes.org" t)(message "buffer not exists!!"))))
+(spacemacs/set-leader-keys "o w" (lambda () (interactive) (if (get-buffer "work-notes.org") (switch-to-buffer "work-notes.org")(message "buffer not exists!!"))))
+(spacemacs/set-leader-keys "o o" (lambda () (interactive) (if (get-buffer "onewind.org") (switch-to-buffer "onewind.org")(message "buffer not exists!!"))))
 (provide 'more-custom-functions)

@@ -94,6 +94,9 @@ alias sth='searchhere .|fzft|extract_filepath_linenum|open_in_app'
 # alias stf='searchtext .'
 
 alias vi='vim'
+if [ -e /usr/bin/vimx ]; then alias vim='/usr/bin/vimx'; fi
+if [ -e /usr/bin/vim.gtk ]; then alias vim='/usr/bin/vim.gtk'; fi
+
 # vim without plugins for faster and large file navigation
 alias vimu='vim -u NONE'
 alias vimu='vim -u ~/basic-settings-no-plugins.vimrc'
@@ -107,17 +110,17 @@ alias glog="git log --graph --pretty='format:%C(red)%d%C(reset) %C(yellow)%h%C(r
 # git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 # alias gl='git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative && git log --name-status'
 #alias git='tig'
-alias gdf='git diff --name-only && git diff'
+alias gdf='git diff --stat && git log --stat && git diff'
 # alias gcm='git commit -a -m'
 #git commit message
 function gcm(){
-  echo "git diff --name-only && git commit   && git push"
-  git diff --name-only && git commit -am "$*" && git log --name-status
+  echo "git diff --stat && git commit   && git push"
+  git diff --stat && git commit -am "$*" && git log --stat
 }
          # git commit push
 function gcp(){
-  echo "git diff --name-only && git commit   && git push"
-  git diff --name-only && git commit -am "$*" && git push && git log --name-status
+  echo "git diff --stat && git commit   && git push"
+  git diff --stat && git commit -am "$*" && git push && git log --stat
 }
 function gls()
 {

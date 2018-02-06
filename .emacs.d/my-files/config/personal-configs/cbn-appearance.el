@@ -138,8 +138,8 @@
 	(setq now 'spacemacs-dark)
 	(setq hour (string-to-number (substring (current-time-string) 11 13)))
 	(if (member hour (number-sequence 6 12)) (setq now 'spacemacs-light) nil)
-	(if (member hour (number-sequence 12 15)) (setq now 'whiteboard) nil)
-	(if (member hour (number-sequence 16 18)) (setq now 'solarized-light) nil)
+	;; (if (member hour (number-sequence 12 15)) (setq now ') nil)
+	(if (member hour (number-sequence 12 18)) (setq now 'solarized-light) nil)
 	(if (member hour (number-sequence 19 23)) (setq now 'solarized-dark) nil)
 
 	(message (format "new theme is %s" now))

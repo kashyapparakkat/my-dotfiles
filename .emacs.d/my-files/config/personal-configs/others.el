@@ -41,7 +41,7 @@
 (auto-compile-on-load-mode)
 (global-hl-line-mode 1) ; Disable current line highlight
 (global-linum-mode) ; Show line numbers by default
-(setq custom-enabled-themes '(whiteboard))
+;; (setq custom-enabled-themes '(whiteboard))
 (setq cursor-type '(bar . 4))
 ; TODO set to t for debug trace
 (setq debug-on-error nil)

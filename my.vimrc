@@ -2,10 +2,6 @@
 source ~/basic-settings-no-plugins.vimrc
 
 
-
-
-
-
 ":oldfiles
 
 " TODO"
@@ -44,7 +40,10 @@ Plug 'roman/golden-ratio'
 Plug 'vim-scripts/ag.vim'
 " shell inside vi
 Plug 'wkentaro/conque.vim'
-Plug 'https://github.com/kien/ctrlp.vim.git'
+
+" latest fork
+Plug 'ctrlpvim/ctrlp.vim'
+
 Plug 'junegunn/fzf.vim'
 Plug 'hecal3/vim-leader-guide'
 Plug 'francoiscabrol/ranger.vim'
@@ -83,11 +82,21 @@ autocmd BufEnter __Tagbar__  noremap <buffer> <leader> <Plug>leaderguide-buffer
 
 " http://vim.wikia.com/wiki/Accessing_the_system_clipboard
 " Note: in vim 7.3.74 and higher you can set clipboard=unnamedplus to alias unnamed register to the + register, which is the X Window clipboard.
-set clipboard=unnamed
+
+" Most Linux distributions ship with a "minimal" Vim build by default, which doesn't have +clipboard, but you can usually install it:
+    " Debian & Ubuntu: Install vim-gtk or vim-gnome.
+    " Fedora: install vim-X11, and run vimx instead of vim (more info).
+    " Arch Linux: install gvim (this will enable +clipboard for normal vim as well).
+
+"" set clipboard=unnamed
+"" if (has 'unnamedplus')
+"" set clipboard=unnamedplus
+"" endif
+
+" Make vim use the system clipboard:
+set clipboard^=unnamed,unnamedplus
 
 colorscheme elflord
-
-
 
 
 
@@ -155,6 +164,8 @@ color desert
 
 :nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 
+
+""""" ALT Bindings""""""""
 " https://stackoverflow.com/questions/6778961/alt-key-shortcuts-not-working-on-gnome-terminal-with-vim
 let c='a'
 while c <= 'z'
@@ -165,10 +176,13 @@ endw
 
 set timeout ttimeoutlen=50
 
-map <M-j> gg
+map <M-k> gg
+noremap <M-k> gg
+nnoremap <M-k> gg
 
-noremap <M-j> gg
-nnoremap <M-j> gg
+map <M-j> G
+noremap <M-j> G
+nnoremap <M-j> G
 
 "TODO
 source ~/my.guide.vim
@@ -181,3 +195,23 @@ autocmd BufEnter * call system("tmux rename-window 'Vim: " . expand("%:t") . "'"
 " rename on leaving
 autocmd VimLeave * call system("tmux setw automatic-rename")
 endif
+
+
+" http://snow-dev.com/the-power-of-vim-plugins-ctrlp/
+let g:ctrlp_use_caching = 0
+if executable('ag')
+set grepprg=ag\ --nogroup\ --nocolor
+
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+else
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+let g:ctrlp_prompt_mappings = {
+\ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
+\ }
+endif
+
+"""""" VISUAL SELECTION KEY BINDINGS  """"""""""""""""
+" vf selects all
+vnoremap f gg G
+" vo selects current line
+vnoremap o ^ $

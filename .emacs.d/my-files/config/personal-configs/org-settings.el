@@ -267,14 +267,15 @@
        (headline           `(:inherit default :weight bold :foreground ,base-font-color)))
 
   (custom-theme-set-faces 'user
-                          `(org-level-8 ((t (,@headline ,@variable-tuple))))
-                          `(org-level-7 ((t (,@headline ,@variable-tuple))))
-                          `(org-level-6 ((t (,@headline ,@variable-tuple))))
-                          `(org-level-5 ((t (,@headline ,@variable-tuple))))
-                          `(org-level-4 ((t (,@headline ,@variable-tuple :height 1.15))))
-                          `(org-level-3 ((t (,@headline ,@variable-tuple :height 1.2))))
+                          `(org-level-8 ((t (,@headline ,@variable-tuple :height 1.1 :foreground "#056b8f"))))
+                          `(org-level-8 ((t (,@headline ,@variable-tuple :height 1.1 :foreground "#053b8f"))))
+                          `(org-level-7 ((t (,@headline ,@variable-tuple :height 1.1 :foreground "#957b8f"))))
+                          `(org-level-6 ((t (,@headline ,@variable-tuple :height 1.1 :foreground "#452b8f"))))
+                          `(org-level-5 ((t (,@headline ,@variable-tuple :height 1.1 :foreground "#254b6f"))))
+                          `(org-level-4 ((t (,@headline ,@variable-tuple :height 1.1 :foreground "#251b2f"))))
+                          `(org-level-3 ((t (,@headline ,@variable-tuple :height 1.2 :foreground "#b8860b"))))
                           `(org-level-2 ((t (,@headline ,@variable-tuple :height 1.2 :foreground "#556b2f"))))
-                          `(org-level-1 ((t (,@headline ,@variable-tuple :height 1.2 :foreground "#dd0000"))))
+                          `(org-level-1 ((t (,@headline ,@variable-tuple :height 1.2 :foreground "#008b8b"))))
                           `(org-document-title ((t (,@headline ,@variable-tuple :height 1.5 :underline nil))))
 ; )
 
@@ -306,11 +307,12 @@
 '(org-meta-line ((t (:inherit font-lock-comment-face :height 0.8))))
 '(org-property-value ((t (:height 0.9 :family "Helvetica Neue"))) t)
 '(org-special-keyword ((t (:inherit font-lock-keyword-face :height 0.8 :family "Helvetica Neue"))))
-'(org-table ((t (:foreground "black" :height 0.9 :family "Courier"))))
-'(org-tag ((t (:foreground "dark gray" :weight bold :height 0.8))))
+'(org-table ((t (:foreground "red" :family "Courier" :weight normal)))) ; monospace
+;; '(org-tag ((t (:foreground "dark gray" :weight bold :height 0.8))))
 '(org-date ((t (:foreground "dim gray" :underline t :height 0.8 :family "Helvetica Neue"))))
 '(org-done ((t (:foreground "gray57" :weight light))))
-'(org-todo ((t (:foreground "#e61e22" :weight bold))))
+;; '(org-todo ((t (:foreground "#e61e22" :weight bold))))
+'(org-todo ((t (:foreground "#ff4359"  :weight normal))))
                           )
 )
 
@@ -341,7 +343,5 @@
   (add-hook 'eww-mode-hook 'set-buffer-variable-pitch)
   (add-hook 'markdown-mode-hook 'set-buffer-variable-pitch)
   (add-hook 'Info-mode-hook 'set-buffer-variable-pitch)
-
-
 
 (provide 'org-settings)

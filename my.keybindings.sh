@@ -1,8 +1,13 @@
 # https://stackoverflow.com/questions/41046558/bashrc-how-to-check-in-what-terminal-the-shell-is-running
 # bind only in terminals , not in emacs
 if [[ ! -v INSIDE_EMACS ]]; then
-    
-    
+
+# Set Vi Mode in bash:
+# set -o vi
+
+# Set Emacs Mode in bash:
+set -o emacs
+
 bind -x '"\C-o"':"ls -lh"
 bind "set completion-ignore-case on"
 bind "set show-all-if-ambiguous on"
@@ -52,10 +57,5 @@ export IGNOREEOF=1
 # emacs bindings
 # reverse-search-history (C-r)
 # Search backward starting at the current line and moving `up' through the history as necessary.  This is an incremental search.
-# man bash | grep -A294 'Commands for' 
-# Set Vi Mode in bash:
-# set -o vi 
-
-# Set Emacs Mode in bash:
-set -o emacs 
+# man bash | grep -A294 'Commands for'
 fi

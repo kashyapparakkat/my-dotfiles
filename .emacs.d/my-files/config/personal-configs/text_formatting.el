@@ -85,4 +85,5 @@
                 "\\(\\s-*\\)&" 1 1 t))
 
 (spacemacs/set-leader-keys "x a s" 'bjm/align-repeat-whitespace)
+(spacemacs/set-leader-keys "M-m" 'helm-M-x)
 (spacemacs/set-leader-keys "x a p" 'cibin/align-repeat-prompt)

@@ -797,6 +797,52 @@ _
   (cibin/global-set-key '("C-x =" . cibin/hydra-zoom/body))
 
 
+(defhydra cibin/search-for-file (:color blue
+                               :hint nil)
+  "
+  buffer/file                    directory                                         project/repo              ^All^                                             ^bash^
+^^^^^^^^^^-------------------------------------------------------------------------------------------------------------------------------------------
+ _a_: swiper-all                  _r_: cibin/helm-do-ag-Extension-recurse-cwd      _g_: repo(TODO)     _u_: cibin-search-in-files-advgrep-here        _q_: quit
+ _d_: helm-do-ag-this-file        _h_: cibin/helm-do-ag-Ext'n-here-cwd    	                     _c_: cibin-search-in-common-files-bash
+ _/_: my-multi-occur-in-matc..    _b_: cibin/helm-do-ag-cwd(all ext)                             _l_: cibin-search-in-text-files-related-bash
+ _o_: occur                       _y_: cibin/ag-files-cwd (ADV: ext & dir\?)
+ _j_: helm-ag                     _w_: ag-files                                    _p_: cibin/helm-do-ag-All-Project
+ _s_: swiper                      _k_: helm-do-ag-search in similar here                                                _P_: ag-project-at-point
+                                  _B_: (TODO all ext recurse)
+--------------------
+"
+; linked
+("a" helm-do-ag-buffers)
+("d" helm-do-ag-this-file)
+("B" nil)
+("/" my-multi-occur-in-matching-buffers)
+
+("b" cibin/helm-do-ag-cwd)
+
+("c" cibin-search-in-common-files-bash)
+("h" cibin/helm-do-ag-Extension-here-cwd-switchable)
+("j" helm-ag);; extension ; If you use helm-ag command, you can specify option like -G\.js$ search_pattern, or if you use helm-do-ag, you can use C-u prefix for specifying extension.
+("l" cibin-search-in-text-files-related-bash)
+("o" occur)
+
+("k" cibin/helm-do-ag-search-in-similar-here)
+
+("p" ag-project-at-point)
+
+("w" ag-files) ; advanced (string file-type directory))
+;; ("g" cibin/helm-do-ag-Extension-Project-cwd-switchable)
+("g" counsel-git-grep)
+("r" cibin/helm-do-ag-Extension-recurse-cwd-switchable)
+("a" cibin/swiper-all)
+("s" cibin/swiper)
+("y" cibin/ag-files-cwd)
+("u" cibin-search-in-files-advgrep-here)
+("q" nil :color blue)
+("P" nil :color blue)
+)
+  (cibin/global-set-key '("M-l" . cibin/search-for-file/body))
+(define-key dired-mode-map  (kbd "M-l") 'cibin/search-for-file/body)
+
 (defhydra cibin/search (:color blue
                                :hint nil)
   "
